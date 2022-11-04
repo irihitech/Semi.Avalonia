@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace Semi.Demo
+namespace Semi.Avalonia.Demo
 {
     class Program
     {

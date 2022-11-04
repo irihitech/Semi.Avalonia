@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace Semi.Demo
+namespace Semi.Avalonia.Demo
 {
     public partial class MainWindow : Window
     {
