@@ -1,13 +1,13 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource WindowDefaultBackground}"/>
-        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource WindowDefaultBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource WindowDefaultForeground}"/>
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>
-        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <Setter Property="Background" Value="{DynamicResource BrushWindowDefaultBackground}"/>
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource BrushWindowDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource BrushWindowDefaultForeground}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontDefaultFontSize}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource FontDefaultFontFamily}" />
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="Window">
                 <Panel>
                     <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
                     <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
