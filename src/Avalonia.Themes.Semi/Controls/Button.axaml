@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+    <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+        <Setter Property="Button.Background" Value="{DynamicResource ColorButtonOutlineBackground}"/>
+        <Setter Property="Button.Foreground" Value="{DynamicResource ColorButtonOutlinePrimaryForeground}"/>
+        <Setter Property="Button.BorderBrush" Value="{DynamicResource ColorButtonOutlinePrimaryBorderBrush}"/>
+        <Setter Property="Button.CornerRadius" Value="{DynamicResource SizeButtonCornerRadius}"/>
+        <Setter Property="Button.BorderThickness" Value="1"/>
+        <Setter Property="Button.Padding" Value="{DynamicResource ThicknessButtonContentDefault}"/>
+        <Setter Property="Button.RenderTransform" Value="none"/>
+        <Setter Property="Button.FontSize" Value="{DynamicResource FontRegularSize}"></Setter>
+        <Setter Property="Button.FontWeight" Value="{DynamicResource FontButtonFontWeight}"></Setter>
+        <Setter Property="Button.Template">
+            <ControlTemplate TargetType="Button">
+                <ContentPresenter
+                    x:Name="PART_ContentPresenter"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    Padding="{TemplateBinding Padding}"
+                    RecognizesAccessKey="True"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    TextElement.FontWeight="{TemplateBinding FontWeight}"
+                    TextElement.FontSize="{TemplateBinding FontSize}"
+                    UseLayoutRounding="False"
+                    >
+
+                </ContentPresenter>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Button.BorderBrush" Value="{DynamicResource ColorButtonOutlinePrimaryPointeroverForeground}" />
+            <Setter Property="Button.Foreground" Value="{DynamicResource ColorButtonOutlinePrimaryPointeroverBorderBrush}" />
+        </Style>
+        
+        <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Button.BorderBrush" Value="{DynamicResource ColorButtonOutlinePrimaryPressedForeground}" />
+            <Setter Property="Button.Foreground" Value="{DynamicResource ColorButtonOutlinePrimaryPressedBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Button.BorderBrush" Value="{DynamicResource ColorButtonOutlineDisabledBorderBrush}" />
+            <Setter Property="Button.Foreground" Value="{DynamicResource ColorButtonOutlineDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
