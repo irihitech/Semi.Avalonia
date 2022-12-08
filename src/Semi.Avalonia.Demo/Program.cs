@@ -16,6 +16,7 @@ namespace Semi.Avalonia.Demo
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
+                .With(new Win32PlatformOptions(){ UseCompositor = false})
                 .LogToTrace();
     }
 }

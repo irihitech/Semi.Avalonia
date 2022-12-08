@@ -1,14 +1,32 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800"
-             d:DesignHeight="450"
-             x:Class="Semi.Avalonia.Demo.Pages.ButtonDemo">
-    <StackPanel Spacing="20" Margin="20" HorizontalAlignment="Left">
-        <Button>Primary</Button>
-        <Button Classes="Large">Primary</Button>
-        <Button Classes="Small">Primary</Button>
-        <Button Classes="Primary">Secondary</Button>
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.ButtonDemo" xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450" d:DesignWidth="800" mc:Ignorable="d">
+    <StackPanel Margin="20" HorizontalAlignment="Left" Spacing="20">
+        <TextBlock>Light (Default)</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Button Classes="Primary">Primary</Button>
+            <Button Classes="Secondary">Secondary</Button>
+            <Button Classes="Tertiary">Tertiary</Button>
+            <Button Classes="Warning">Warning</Button>
+            <Button Classes="Danger">Danger</Button>
+            <Button Classes="Primary" IsEnabled="False">Danger</Button>
+        </StackPanel>
+        <TextBlock>Solid</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
+            <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
+            <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
+            <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
+            <Button Classes="Danger" Theme="{DynamicResource SolidButton}">Danger</Button>
+            <Button Classes="Primary" IsEnabled="False" Theme="{DynamicResource SolidButton}">Danger</Button>
+        </StackPanel>
+        <TextBlock>Borderless</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Button Classes="Primary" Theme="{DynamicResource BorderlessButton}">Primary</Button>
+            <Button Classes="Secondary" Theme="{DynamicResource BorderlessButton}">Secondary</Button>
+            <Button Classes="Tertiary" Theme="{DynamicResource BorderlessButton}">Tertiary</Button>
+            <Button Classes="Warning" Theme="{DynamicResource BorderlessButton}">Warning</Button>
+            <Button Classes="Danger" Theme="{DynamicResource BorderlessButton}">Danger</Button>
+            <Button Classes="Primary" IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Danger</Button>
+        </StackPanel>
     </StackPanel>
 </UserControl>

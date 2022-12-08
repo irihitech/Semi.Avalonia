@@ -1,10 +1,20 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:pages="using:Semi.Avalonia.Demo.Pages"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Semi.Avalonia.Demo.MainWindow"
-        Title="Semi.Demo">
-        <pages:ButtonDemo></pages:ButtonDemo>
+<Window
+    Title="Semi.Demo"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Semi.Avalonia.Demo.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="using:Semi.Avalonia.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <TabControl TabStripPlacement="Left">
+        <TabItem Header="Button">
+            <pages:ButtonDemo />
+        </TabItem>
+        <TabItem Header="CheckBox">
+            <pages:CheckBoxDemo />
+        </TabItem>
+    </TabControl>
 </Window>

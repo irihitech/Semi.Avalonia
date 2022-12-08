@@ -1,0 +1,24 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.CheckBoxDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel Margin="48" HorizontalAlignment="Left">
+        <CheckBox>Unchecked</CheckBox>
+        <CheckBox IsEnabled="False">Unchecked</CheckBox>
+        <CheckBox IsChecked="True">Checked</CheckBox>
+        <CheckBox IsChecked="True" IsEnabled="False">Checked</CheckBox>
+        <CheckBox IsChecked="{x:Null}" IsThreeState="True">Indeterminate</CheckBox>
+        <CheckBox
+            IsChecked="{x:Null}"
+            IsEnabled="False"
+            IsThreeState="True">
+            Indeterminate
+        </CheckBox>
+        <CheckBox Width="120">Checkbox should wrap its text</CheckBox>
+    </StackPanel>
+</UserControl>
