@@ -1,0 +1,62 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
+        <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
+        <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockFontSize}" />
+        <Setter Property="SelectableTextBlock.Cursor" Value="Ibeam" />
+        <Setter Property="SelectableTextBlock.SelectionBrush" Value="{DynamicResource TextBlockSelectionBackground}" />
+        <Style Selector="^:disabled">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockTertiaryForeground}" />
+        </Style>
+        <Style Selector="^.Quaternary">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockQuaternaryForeground}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockWarningForeground}" />
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDangerForeground}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockSuccessForeground}" />
+        </Style>
+        <Style Selector="^.Mark">
+            <Setter Property="SelectableTextBlock.Background" Value="{DynamicResource TextBlockMarkBackground}" />
+        </Style>
+        <Style Selector="^.Underline">
+            <Setter Property="SelectableTextBlock.TextDecorations" Value="Underline" />
+        </Style>
+        <Style Selector="^.Delete">
+            <Setter Property="SelectableTextBlock.TextDecorations" Value="StrikeThrough" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme
+        x:Key="TitleSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type SelectableTextBlock}}"
+        TargetType="SelectableTextBlock">
+        <Setter Property="SelectableTextBlock.FontWeight" Value="{DynamicResource TextBlockTitleFontWeight}" />
+        <Style Selector="^.H1">
+            <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH1FontSize}" />
+        </Style>
+        <Style Selector="^.H2">
+            <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH2FontSize}" />
+        </Style>
+        <Style Selector="^.H3">
+            <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH3FontSize}" />
+        </Style>
+        <Style Selector="^.H4">
+            <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH4FontSize}" />
+        </Style>
+        <Style Selector="^.H5">
+            <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH5FontSize}" />
+        </Style>
+        <Style Selector="^.H6">
+            <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH6FontSize}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
