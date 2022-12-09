@@ -1,4 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
 
     <sys:Double x:Key="ButtonDefaultFontSize">14</sys:Double>
     <FontWeight x:Key="ButtonDefaultFontWeight">600</FontWeight>
@@ -24,10 +26,10 @@
     <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Opacity="0.13" Color="#2E3238" />
     <SolidColorBrush x:Key="ButtonDefaultDisabledBackground" Opacity="0.05" Color="#2E3238" />
 
-    <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Opacity="0.13" Color="#2E3238" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Opacity="0.05" Color="#2E3238" />
+    <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Color="Transparent" />
 
     <!--  end Light  -->
 
@@ -80,30 +82,4 @@
     <SolidColorBrush x:Key="ButtonSolidDisabledBorderBrush" Color="Gray" />
     <!--  end Solid  -->
 
-    <!--
-    <SolidColorBrush x:Key="ButtonDefaultForeground" Color="White" />
-    <SolidColorBrush x:Key="ButtonDefaultBackground" Color="#0077FA" />
-    <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="ButtonDefaultPointerOverForeground" Color="White" />
-    <SolidColorBrush x:Key="ButtonDefaultPointerOverBackground" Color="#0062D6" />
-    <SolidColorBrush x:Key="ButtonDefaultPointerOverBorderBrush" Color="#0062D6" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedForeground" Color="White" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Color="#004FB3" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="#004FB3" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Color="#E6E8EA" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBackground" Color="White" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Color="#E6E8EA" />
-
-    <SolidColorBrush x:Key="ButtonSolidForeground" Color="White" />
-    <SolidColorBrush x:Key="ButtonSolidBackground" Color="#0077FA" />
-    <SolidColorBrush x:Key="ButtonSolidBorderBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="ButtonSolidPointerOverForeground" Color="White" />
-    <SolidColorBrush x:Key="ButtonSolidPointerOverBackground" Color="#0062D6" />
-    <SolidColorBrush x:Key="ButtonSolidPointerOverBorderBrush" Color="#0062D6" />
-    <SolidColorBrush x:Key="ButtonSolidPressedForeground" Color="White" />
-    <SolidColorBrush x:Key="ButtonSolidPressedBackground" Color="#004FB3" />
-    <SolidColorBrush x:Key="ButtonSolidPressedBorderBrush" Color="#004FB3" />
-    <SolidColorBrush x:Key="ButtonSolidDisabledForeground" Color="#E6E8EA" />
-    <SolidColorBrush x:Key="ButtonSolidDisabledBackground" Color="White" />
-    <SolidColorBrush x:Key="ButtonSolidDisabledBorderBrush" Color="#E6E8EA" />-->
 </ResourceDictionary>
