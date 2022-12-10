@@ -1,0 +1,78 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.LabelDemo" xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
+    d:DesignWidth="800" mc:Ignorable="d">
+    <StackPanel
+        Width="500" Margin="20"
+        HorizontalAlignment="Left" Spacing="20">
+        <StackPanel.Styles>
+            <Style Selector="Label">
+                <Setter Property="Margin" Value="4" />
+            </Style>
+        </StackPanel.Styles>
+        <WrapPanel>
+            <Label Theme="{StaticResource TagLabel}">Label</Label>
+            <Label Classes="Large" Theme="{StaticResource TagLabel}">Large Label</Label>
+            <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle Label</Label>
+            <Label Classes="Large Circle" Theme="{StaticResource TagLabel}">Large Circle Label</Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label Classes="Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+            <Label Classes="Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+            <Label Classes="Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+            <Label Classes="Green" Theme="{StaticResource TagLabel}">Green</Label>
+            <Label Classes="Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+            <Label Classes="Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+            <Label Classes="LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+            <Label Classes="LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+            <Label Classes="Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+            <Label Classes="Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+            <Label Classes="Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+            <Label Classes="Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+            <Label Classes="Red" Theme="{StaticResource TagLabel}">Red</Label>
+            <Label Classes="Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+            <Label Classes="Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+            <Label Classes="Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+            <Label Classes="White" Theme="{StaticResource TagLabel}">White</Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label Classes="Ghost Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+            <Label Classes="Ghost Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+            <Label Classes="Ghost Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+            <Label Classes="Ghost Green" Theme="{StaticResource TagLabel}">Green</Label>
+            <Label Classes="Ghost Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+            <Label Classes="Ghost Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+            <Label Classes="Ghost LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+            <Label Classes="Ghost LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+            <Label Classes="Ghost Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+            <Label Classes="Ghost Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+            <Label Classes="Ghost Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+            <Label Classes="Ghost Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+            <Label Classes="Ghost Red" Theme="{StaticResource TagLabel}">Red</Label>
+            <Label Classes="Ghost Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+            <Label Classes="Ghost Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+            <Label Classes="Ghost Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+            <Label Classes="Ghost White" Theme="{StaticResource TagLabel}">White</Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label Classes="Solid Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+            <Label Classes="Solid Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+            <Label Classes="Solid Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+            <Label Classes="Solid Green" Theme="{StaticResource TagLabel}">Green</Label>
+            <Label Classes="Solid Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+            <Label Classes="Solid Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+            <Label Classes="Solid LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+            <Label Classes="Solid LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+            <Label Classes="Solid Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+            <Label Classes="Solid Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+            <Label Classes="Solid Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+            <Label Classes="Solid Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+            <Label Classes="Solid Red" Theme="{StaticResource TagLabel}">Red</Label>
+            <Label Classes="Solid Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+            <Label Classes="Solid Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+            <Label Classes="Solid Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+            <Label Classes="Solid White" Theme="{StaticResource TagLabel}">White</Label>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>
