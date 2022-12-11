@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Spacing="20">
+            <Border Theme="{StaticResource CardBorder}">
+                <TextBlock>Hello</TextBlock>
+            </Border>
+            <Border Classes="Shadow" Theme="{StaticResource CardBorder}">
+                <TextBlock>Hello</TextBlock>
+            </Border>
+            <Border Classes="Hover" Theme="{StaticResource CardBorder}">
+                <TextBlock>Hello</TextBlock>
+            </Border>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="RadioButtonGroupBorder" TargetType="Border">
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource RadioButtonGroupCornerRadius}" />
+        <Setter Property="Border.Background" Value="{DynamicResource RadioButtonGroupBackground}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="CardBorder" TargetType="Border">
+        <Setter Property="Border.Padding" Value="{DynamicResource ThicknessCardPadding}" />
+        <Setter Property="Border.BorderBrush" Value="{DynamicResource BorderCardBorderBrush}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource RadiusCardCornerRadius}" />
+        <Setter Property="Border.Background" Value="{DynamicResource BorderCardBackground}" />
+        <Setter Property="Border.BorderThickness" Value="{DynamicResource ThicknessCardBorderThickness}" />
+        <Setter Property="Border.Margin" Value="{DynamicResource ThicknessCardMargin}" />
+        <Style Selector="^.Shadow">
+            <Setter Property="Border.BoxShadow" Value="0 0 14 #1A000000" />
+        </Style>
+        <Style Selector="^.Hover:pointerover">
+            <Setter Property="Border.BoxShadow" Value="0 0 14 #1A000000" />
+        </Style>
+
+    </ControlTheme>
+</ResourceDictionary>
