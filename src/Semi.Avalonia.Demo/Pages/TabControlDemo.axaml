@@ -4,25 +4,33 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
     d:DesignWidth="800" mc:Ignorable="d">
     <StackPanel>
-        <TabControl TabStripPlacement="Top">
-            <TabItem Content="Hello 1" Header="Tab 1" />
-            <TabItem Content="Hello 2" Header="Tab 2" />
-            <TabItem Content="Hello 3" Header="Tab 3" />
-        </TabControl>
-        <TabControl TabStripPlacement="Left">
-            <TabItem Content="Hello 1" Header="Tab 1" />
-            <TabItem Content="Hello 2" Header="Tab 2" />
-            <TabItem Content="Hello 3" Header="Tab 3" />
-        </TabControl>
-        <TabControl TabStripPlacement="Right">
-            <TabItem Content="Hello 1" Header="Tab 1" />
-            <TabItem Content="Hello 2" Header="Tab 2" />
-            <TabItem Content="Hello 3" Header="Tab 3" />
-        </TabControl>
-        <TabControl TabStripPlacement="Bottom">
-            <TabItem Content="Hello 1" Header="Tab 1" />
-            <TabItem Content="Hello 2" Header="Tab 2" />
-            <TabItem Content="Hello 3" Header="Tab 3" />
-        </TabControl>
+        <Border Theme="{StaticResource CardBorder}">
+            <TabControl TabStripPlacement="Top">
+                <TabItem Content="Hello 1" Header="Tab 1" />
+                <TabItem Content="Hello 2" Header="Tab 2" />
+                <TabItem Content="Hello 3" Header="Tab 3" />
+            </TabControl>
+        </Border>
+        <Border Theme="{StaticResource CardBorder}">
+            <TabControl TabStripPlacement="Left">
+                <TabItem Content="Hello 1" Header="Tab 1" />
+                <TabItem Content="Hello 2" Header="Tab 2" />
+                <TabItem Content="Hello 3" Header="Tab 3" />
+            </TabControl>
+        </Border>
+        <Border Theme="{StaticResource CardBorder}">
+            <TabControl TabStripPlacement="Right">
+                <TabItem Content="Hello 1" Header="Tab 1" />
+                <TabItem Content="Hello 2" Header="Tab 2" />
+                <TabItem Content="Hello 3" Header="Tab 3" />
+            </TabControl>
+        </Border>
+        <Border Theme="{StaticResource CardBorder}">
+            <TabControl TabStripPlacement="Bottom">
+                <TabItem Content="Hello 1" Header="Tab 1" />
+                <TabItem Content="Hello 2" Header="Tab 2" />
+                <TabItem Content="Hello 3" Header="Tab 3" />
+            </TabControl>
+        </Border>
     </StackPanel>
 </UserControl>

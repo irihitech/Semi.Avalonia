@@ -16,17 +16,17 @@
         <Setter Property="TabItem.MinHeight" Value="5" />
         <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
         <Setter Property="TabItem.Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="TabItem">
                 <Border
                     Name="PART_LayoutRoot"
-                    Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid>
+                    <Panel>
                         <ContentPresenter
                             Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Header}"
@@ -39,7 +39,7 @@
                             Background="{DynamicResource TabItemLinePipeSelectedBackground}"
                             CornerRadius="{DynamicResource ControlCornerRadius}"
                             IsVisible="False" />
-                    </Grid>
+                    </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -50,13 +50,16 @@
             <Setter Property="Foreground" Value="Blue" />
         </Style>
 
+        <Style Selector="^:not(:selected)">
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
         <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
             <Setter Property="IsVisible" Value="True" />
         </Style>
 
         <!--  PointerOver state  -->
         <Style Selector="^:pointerover /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="{DynamicResource TabItemHeaderBackgroundUnselectedPointerOver}" />
             <Setter Property="TextElement.Foreground" Value="{DynamicResource TabItemHeaderForegroundUnselectedPointerOver}" />
         </Style>
 
@@ -87,7 +90,7 @@
         <!--  TabStripPlacement States Group  -->
         <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_SelectedPipe">
             <Setter Property="Border.Width" Value="2" />
-            <Setter Property="Border.Margin" Value="0,0,2,0" />
+            <Setter Property="Border.Margin" Value="0,0,8,0" />
             <Setter Property="Border.HorizontalAlignment" Value="Left" />
             <Setter Property="Border.VerticalAlignment" Value="Stretch" />
         </Style>
@@ -97,9 +100,22 @@
 
         <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_SelectedPipe, ^[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
             <Setter Property="Height" Value="2" />
-            <Setter Property="Margin" Value="0,0,0,2" />
+            <Setter Property="Margin" Value="0,0,0,0" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_SelectedPipe">
             <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top] /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="0,0,0,8" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="0,0,0,8" />
         </Style>
 
         <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_SelectedPipe">
