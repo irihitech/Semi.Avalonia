@@ -11,8 +11,8 @@
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
         <Setter Property="TabItem.Background" Value="{DynamicResource TabItemLinePipeBackground}" />
         <Setter Property="TabItem.Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
-        <Setter Property="TabItem.Padding" Value="8" />
         <Setter Property="TabItem.Margin" Value="0" />
+        <Setter Property="TabItem.Padding" Value="8 4" />
         <Setter Property="TabItem.MinHeight" Value="5" />
         <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
         <Setter Property="TabItem.Template">
@@ -88,6 +88,29 @@
         </Style>
 
         <!--  TabStripPlacement States Group  -->
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Style Selector="^ /template/Border#PART_SelectedPipe">
+                <Setter Property="Height" Value="2" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Margin" Value="0,0,0,4" />
+            </Style>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Style Selector="^ /template/Border#PART_SelectedPipe">
+                <Setter Property="Height" Value="2" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Margin" Value="0,4,0,0" />
+            </Style>
+        </Style>
+
         <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_SelectedPipe">
             <Setter Property="Border.Width" Value="2" />
             <Setter Property="Border.Margin" Value="0,0,8,0" />
@@ -98,23 +121,7 @@
             <Setter Property="Margin" Value="8,0,0,0" />
         </Style>
 
-        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_SelectedPipe, ^[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
-            <Setter Property="Height" Value="2" />
-            <Setter Property="Margin" Value="0,0,0,0" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_SelectedPipe">
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_SelectedPipe">
-            <Setter Property="VerticalAlignment" Value="Bottom" />
-        </Style>
-
         <Style Selector="^[TabStripPlacement=Top] /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Margin" Value="0,0,0,8" />
-        </Style>
-
-        <Style Selector="^[TabStripPlacement=Bottom] /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Margin" Value="0,0,0,8" />
         </Style>
 
