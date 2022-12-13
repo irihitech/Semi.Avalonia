@@ -1,4 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
     <!--  Add Resources Here  -->
     <!--  Line  -->
     <SolidColorBrush x:Key="TabItemLinePipeBackground" Color="Transparent" />
@@ -7,11 +9,11 @@
     <SolidColorBrush x:Key="TabItemLinePipePressedBorderBrush" Opacity="0.13" Color="#2E3238" />
 
     <SolidColorBrush x:Key="TabItemLineHeaderForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TabItemLineHeaderPointeroverForeground" Color="#1C1F23" />
+    <SolidColorBrush x:Key="TabItemLineHeaderPointeroverForeground" Opacity="0.8" Color="#1C1F23" />
+    <SolidColorBrush x:Key="TabItemLineHeaderSelectedForeground" Color="#1C1F23" />
 
     <SolidColorBrush x:Key="TabItemLineHeaderBackground" Color="Transparent" />
     <SolidColorBrush x:Key="TabItemLineHeaderPointeroverBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="TabItemLineHeaderSelectedForeground" Color="Transparent" />
-
+    <FontWeight x:Key="TabItemSelectedFontWeight">600</FontWeight>
 
 </ResourceDictionary>
