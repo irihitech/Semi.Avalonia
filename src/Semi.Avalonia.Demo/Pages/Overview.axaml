@@ -1,0 +1,42 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.Overview" xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
+    d:DesignWidth="800" mc:Ignorable="d">
+    <StackPanel Margin="10" Spacing="5">
+        <TextBlock
+            Classes="H6" Text="Welcome to Semi Avalonia"
+            Theme="{StaticResource TitleTextBlock}" />
+        <Border Theme="{StaticResource CardBorder}">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <RadioButton>Option 1</RadioButton>
+                    <RadioButton>Option 2</RadioButton>
+                </StackPanel>
+                <Border VerticalAlignment="Center" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 1</RadioButton>
+                        <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 2</RadioButton>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </Border>
+        <Border Theme="{StaticResource CardBorder}">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox>Avalonia</CheckBox>
+                <CheckBox>WPF</CheckBox>
+            </StackPanel>
+        </Border>
+        <Border Theme="{StaticResource CardBorder}">
+            <StackPanel Orientation="Horizontal">
+                <Button Classes="Primary">Primary</Button>
+                <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
+                <Button Classes="Primary" Theme="{DynamicResource BorderlessButton}">Primary</Button>
+                <Button Classes="Warning">Warning</Button>
+                <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
+                <Button Classes="Warning" Theme="{DynamicResource BorderlessButton}">Warning</Button>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>
