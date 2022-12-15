@@ -1,0 +1,162 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Spacing="20">
+            <TextBox Classes="clearButton" Text="Hello" />
+        </StackPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
+        <ControlTheme.Resources>
+            <ControlTheme x:Key="InputClearButton" TargetType="Button">
+                <Setter Property="Button.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
+                <Setter Property="Button.Cursor" Value="Hand" />
+                <Setter Property="Button.Template">
+                    <ControlTemplate TargetType="Button">
+                        <!--  Background must be transparent or hit test will fail  -->
+                        <Label Background="Transparent">
+                            <Label.Content>
+                                <PathIcon
+                                    Width="16" Height="16"
+                                    Data="{DynamicResource TextBoxClearButtonData}"
+                                    Foreground="{TemplateBinding Foreground}" />
+                            </Label.Content>
+                        </Label>
+                    </ControlTemplate>
+                </Setter>
+                <Style Selector="^:pointerover">
+                    <Setter Property="Button.Foreground" Value="{DynamicResource TextBoxButtonPointerOverForeground}" />
+                </Style>
+            </ControlTheme>
+            <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
+                <Setter Property="ToggleButton.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
+                <Setter Property="ToggleButton.Cursor" Value="Hand" />
+                <Setter Property="ToggleButton.Template">
+                    <ControlTemplate TargetType="ToggleButton">
+                        <!--  Background must be transparent or hit test will fail  -->
+                        <Panel Background="Transparent">
+                            <PathIcon
+                                Width="16" Height="16"
+                                Data="{DynamicResource PasswordBoxRevealButtonData}"
+                                IsVisible="{Binding $parent[ToggleButton].IsChecked, Converter={x:Static BoolConverters.Not}}" />
+                            <PathIcon
+                                Width="16" Height="16"
+                                Data="{DynamicResource PasswordBoxHideButtonData}"
+                                IsVisible="{Binding $parent[ToggleButton].IsChecked}" />
+                        </Panel>
+                    </ControlTemplate>
+                </Setter>
+            </ControlTheme>
+        </ControlTheme.Resources>
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDefaultBackground}" />
+        <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
+        <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
+        <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
+        <Setter Property="TextBox.BorderThickness" Value="1" />
+        <Setter Property="TextBox.CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
+        <Setter Property="TextBox.FontSize" Value="14" />
+        <Setter Property="TextBox.Cursor" Value="IBeam" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="TextBox.Template">
+            <ControlTemplate TargetType="TextBox">
+                <Border
+                    Name="PART_ContentPresenterBorder"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{DynamicResource TextBoxDefaultCornerRadius}">
+                    <Grid ColumnDefinitions="Auto,*,Auto, Auto, Auto">
+                        <ContentPresenter
+                            Grid.Column="0"
+                            Padding="{DynamicResource TextBoxInnerContentPadding}"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding InnerLeftContent}"
+                            Foreground="{DynamicResource TextBoxInnerForeground}" />
+                        <ScrollViewer
+                            Grid.Column="1"
+                            AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                            HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                            IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                            VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                            <Panel>
+                                <TextBlock
+                                    Name="PART_Watermark"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    IsVisible="{TemplateBinding Text,
+                                                                Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                    Opacity="0.5"
+                                    Text="{TemplateBinding Watermark}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}" />
+                                <TextPresenter
+                                    Name="PART_TextPresenter"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    CaretBrush="{TemplateBinding CaretBrush}"
+                                    CaretIndex="{TemplateBinding CaretIndex}"
+                                    LineHeight="{TemplateBinding LineHeight}"
+                                    PasswordChar="{TemplateBinding PasswordChar}"
+                                    RevealPassword="{TemplateBinding RevealPassword}"
+                                    SelectionBrush="{TemplateBinding SelectionBrush}"
+                                    SelectionEnd="{TemplateBinding SelectionEnd}"
+                                    SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                    SelectionStart="{TemplateBinding SelectionStart}"
+                                    Text="{TemplateBinding Text,
+                                                           Mode=TwoWay}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}" />
+                            </Panel>
+                        </ScrollViewer>
+                        <Button
+                            Name="PART_ClearButton" Grid.Column="2"
+                            Command="{Binding $parent[TextBox].Clear}"
+                            IsVisible="False"
+                            Theme="{StaticResource InputClearButton}" />
+                        <ToggleButton
+                            Name="PART_RevealButton" Grid.Column="3"
+                            Margin="4,0,0,0"
+                            IsChecked="{TemplateBinding RevealPassword,
+                                                        Mode=TwoWay}"
+                            IsVisible="False"
+                            Theme="{StaticResource InputToggleButton}" />
+                        <ContentPresenter
+                            Grid.Column="4"
+                            Padding="{DynamicResource TextBoxInnerContentPadding}"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding InnerRightContent}"
+                            Foreground="{DynamicResource TextBoxInnerForeground}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:disabled">
+            <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
+            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+            <Style Selector="^/template/ Border#PART_ContentPresenterBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxPointerOverBorderBrush}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
+        </Style>
+        <Style Selector="^.clearButton">
+            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
+                <Setter Property="Button.IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
+                <Setter Property="Button.IsVisible" Value="True" />
+            </Style>
+        </Style>
+        <Style Selector="^.revealPasswordButton">
+            <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
+                <Setter Property="ToggleButton.IsVisible" Value="True" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
