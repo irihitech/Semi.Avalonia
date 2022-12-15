@@ -3,86 +3,105 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
     d:DesignWidth="800" mc:Ignorable="d">
-    <StackPanel Margin="10" Spacing="5">
-        <TextBlock
-            Classes="H4" Text="Welcome to Semi Avalonia" HorizontalAlignment="Center"
-            Theme="{StaticResource TitleTextBlock}" />
-        
-        <StackPanel Orientation="Horizontal" Spacing="20">
-            <Button Classes="Primary">主要按钮</Button>
-            <Button Classes="Secondary">次要按钮</Button>
-            <Button Classes="Tertiary">第三按钮</Button>
-            <Button Classes="Warning">警告按钮</Button>
-            <Button Classes="Danger">危险按钮</Button>
-            <Button Classes="Primary" IsEnabled="False">禁用按钮</Button>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Spacing="20">
-            <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
-            <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
-            <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
-            <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
-            <Button Classes="Danger" Theme="{DynamicResource SolidButton}">Danger</Button>
-            <Button Classes="Primary" IsEnabled="False" Theme="{DynamicResource SolidButton}">Danger</Button>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Spacing="20">
-            <Label Theme="{StaticResource TagLabel}">Label</Label>
-            <Label Classes="Large" Theme="{StaticResource TagLabel}">Large Label</Label>
-            <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle Label</Label>
-            <Label Classes="Large Circle" Theme="{StaticResource TagLabel}">Large Circle Label</Label>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Spacing="20">
-            <Label Classes="Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
-            <Label Classes="Ghost Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
-            <Label Classes="Solid Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0 0 16 0">
-                <RadioButton Margin="0 0 8 0">Option 1</RadioButton>
-                <RadioButton>Option 2</RadioButton>
+    <ScrollViewer>
+        <StackPanel Margin="10" Spacing="5">
+            <TextBlock
+                HorizontalAlignment="Center" Classes="H4"
+                Text="Welcome to Semi Avalonia"
+                Theme="{StaticResource TitleTextBlock}" />
+
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Classes="Primary">主要按钮</Button>
+                <Button Classes="Secondary">次要按钮</Button>
+                <Button Classes="Tertiary">第三按钮</Button>
+                <Button Classes="Warning">警告按钮</Button>
+                <Button Classes="Danger">危险按钮</Button>
+                <Button Classes="Primary" IsEnabled="False">禁用按钮</Button>
             </StackPanel>
-            <Border VerticalAlignment="Center" Theme="{StaticResource RadioButtonGroupBorder}">
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton Theme="{StaticResource ButtonRadioButton}" IsChecked="True">选项 1</RadioButton>
-                    <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 2</RadioButton>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
+                <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
+                <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
+                <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
+                <Button Classes="Danger" Theme="{DynamicResource SolidButton}">Danger</Button>
+                <Button
+                    Classes="Primary" IsEnabled="False"
+                    Theme="{DynamicResource SolidButton}">
+                    Danger
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Label Theme="{StaticResource TagLabel}">Label</Label>
+                <Label Classes="Large" Theme="{StaticResource TagLabel}">Large Label</Label>
+                <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle Label</Label>
+                <Label Classes="Large Circle" Theme="{StaticResource TagLabel}">Large Circle Label</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Label Classes="Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
+                <Label Classes="Ghost Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
+                <Label Classes="Solid Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel
+                    Margin="0,0,16,0" VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <RadioButton Margin="0,0,8,0">Option 1</RadioButton>
+                    <RadioButton>Option 2</RadioButton>
                 </StackPanel>
-            </Border>
+                <Border VerticalAlignment="Center" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton IsChecked="True" Theme="{StaticResource ButtonRadioButton}">选项 1</RadioButton>
+                        <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 2</RadioButton>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Option 1</TextBlock>
+                        <TextBlock Classes="Tertiary">Description 1</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    Margin="4" IsChecked="True"
+                    Theme="{StaticResource CardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Option 2</TextBlock>
+                        <TextBlock Classes="Tertiary">Description 2</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Margin="0,0,8,0">Avalonia</CheckBox>
+                <CheckBox Margin="0,0,8,0" IsChecked="True">WPF</CheckBox>
+                <CheckBox IsChecked="{x:Null}" IsThreeState="True">UWP</CheckBox>
+            </StackPanel>
+            <TabControl>
+                <TabItem Header="Tab 1">
+                    <TextBlock Margin="8">Tab Content 1</TextBlock>
+                </TabItem>
+                <TabItem Header="Tab 2">
+                    <TextBlock Margin="8">Tab Content 2</TextBlock>
+                </TabItem>
+                <TabItem Header="Tab 3">
+                    <TextBlock Margin="8">Tab Content 3</TextBlock>
+                </TabItem>
+            </TabControl>
+            <Grid ColumnDefinitions="* * *">
+                <Border Theme="{StaticResource CardBorder}">
+                    <TextBlock>Card</TextBlock>
+                </Border>
+                <Border
+                    Grid.Column="1" Classes="Hover"
+                    Theme="{StaticResource CardBorder}">
+                    <TextBlock>Shadow on hover</TextBlock>
+                </Border>
+                <Border
+                    Grid.Column="2" Classes="Shadow"
+                    Theme="{StaticResource CardBorder}">
+                    <TextBlock>Shadow</TextBlock>
+                </Border>
+            </Grid>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                    <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                </StackPanel>
-            </RadioButton>
-            <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}" IsChecked="True">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                    <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                </StackPanel>
-            </RadioButton>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <CheckBox Margin="0 0 8 0 ">Avalonia</CheckBox>
-            <CheckBox Margin="0 0 8 0 " IsChecked="True">WPF</CheckBox>
-            <CheckBox IsThreeState="True" IsChecked="{x:Null}">UWP</CheckBox>
-        </StackPanel>
-        <TabControl>
-            <TabItem Header="Tab 1" >
-                <TextBlock Margin="8">Tab Content 1</TextBlock>
-            </TabItem>
-            <TabItem Header="Tab 2" ><TextBlock Margin="8">Tab Content 2</TextBlock></TabItem>
-            <TabItem Header="Tab 3" ><TextBlock Margin="8">Tab Content 3</TextBlock></TabItem>
-        </TabControl>
-        <Grid ColumnDefinitions="* * *">
-            <Border Theme="{StaticResource CardBorder}">
-                <TextBlock>Card</TextBlock>
-            </Border>
-            <Border Grid.Column="1" Classes="Hover" Theme="{StaticResource CardBorder}">
-                <TextBlock>Shadow on hover</TextBlock>
-            </Border>
-            <Border Grid.Column="2" Classes="Shadow" Theme="{StaticResource CardBorder}">
-                <TextBlock>Shadow</TextBlock>
-            </Border>
-        </Grid>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>
