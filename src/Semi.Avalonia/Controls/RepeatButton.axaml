@@ -1,0 +1,164 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type RepeatButton}" TargetType="RepeatButton">
+        <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="RepeatButton.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="RepeatButton.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="RepeatButton.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RepeatButton.RenderTransform" Value="none" />
+        <Setter Property="RepeatButton.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="RepeatButton.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="RepeatButton.HorizontalContentAlignment" Value="Center" />
+        <Setter Property="RepeatButton.VerticalContentAlignment" Value="Center" />
+        <Setter Property="RepeatButton.MinHeight" Value="12" />
+        <Setter Property="RepeatButton.Template">
+            <ControlTemplate TargetType="RepeatButton">
+                <ContentPresenter
+                    x:Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    RecognizesAccessKey="True"
+                    TextElement.FontSize="{TemplateBinding FontSize}"
+                    TextElement.FontWeight="{TemplateBinding FontWeight}"
+                    UseLayoutRounding="False" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Primary">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultSecondaryForeground}" />
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultWarningForeground}" />
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultDangerForeground}" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonDefaultPointeroverBorderBrush}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonDefaultPressedBorderBrush}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="RepeatButton.Padding" Value="{DynamicResource ButtonLargePadding}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="RepeatButton.Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SolidRepeatButton" BasedOn="{StaticResource {x:Type RepeatButton}}" TargetType="RepeatButton">
+        <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+        <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+        <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
+
+        <Style Selector="^.Primary">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidSecondaryBackground}" />
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidSecondaryBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidSecondaryPointeroverBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidSecondaryPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidSecondaryPressedBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidSecondaryPressedBorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidTertiaryBackground}" />
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidTertiaryBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidTertiaryPointeroverBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidTertiaryPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidTertiaryPressedBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidTertiaryPressedBorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidWarningBackground}" />
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidWarningBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidWarningPointeroverBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidWarningPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidWarningPressedBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidWarningPressedBorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidDangerBackground}" />
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidDangerBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidDangerPointeroverBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidDangerPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidDangerPressedBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidDangerPressedBorderBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderlessRepeatButton" BasedOn="{StaticResource {x:Type RepeatButton}}" TargetType="RepeatButton">
+        <Setter Property="RepeatButton.Background" Value="Transparent" />
+        <Setter Property="RepeatButton.BorderBrush" Value="Transparent" />
+        <Style Selector="^:disabled">
+            <Setter Property="RepeatButton.BorderBrush" Value="Transparent" />
+            <Setter Property="RepeatButton.Background" Value="Transparent" />
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+
+    </ControlTheme>
+</ResourceDictionary>

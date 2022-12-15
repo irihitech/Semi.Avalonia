@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.RepeatButtonDemo">
+    <StackPanel Margin="20" HorizontalAlignment="Left" Spacing="20">
+        <TextBlock>Light (Default)</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <RepeatButton Classes="Primary">Primary</RepeatButton>
+            <RepeatButton Classes="Secondary">Secondary</RepeatButton>
+            <RepeatButton Classes="Tertiary">Tertiary</RepeatButton>
+            <RepeatButton Classes="Warning">Warning</RepeatButton>
+            <RepeatButton Classes="Danger">Danger</RepeatButton>
+            <RepeatButton Classes="Primary" IsEnabled="False">Danger</RepeatButton>
+        </StackPanel>
+        <TextBlock>Solid</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <RepeatButton Classes="Primary" Theme="{DynamicResource SolidRepeatButton}">Primary</RepeatButton>
+            <RepeatButton Classes="Secondary" Theme="{DynamicResource SolidRepeatButton}">Secondary</RepeatButton>
+            <RepeatButton Classes="Tertiary" Theme="{DynamicResource SolidRepeatButton}">Tertiary</RepeatButton>
+            <RepeatButton Classes="Warning" Theme="{DynamicResource SolidRepeatButton}">Warning</RepeatButton>
+            <RepeatButton Classes="Danger" Theme="{DynamicResource SolidRepeatButton}">Danger</RepeatButton>
+            <RepeatButton Classes="Primary" IsEnabled="False" Theme="{DynamicResource SolidRepeatButton}">Danger</RepeatButton>
+        </StackPanel>
+        <TextBlock>Borderless</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <RepeatButton Classes="Primary" Theme="{DynamicResource BorderlessRepeatButton}">Primary</RepeatButton>
+            <RepeatButton Classes="Secondary" Theme="{DynamicResource BorderlessRepeatButton}">Secondary</RepeatButton>
+            <RepeatButton Classes="Tertiary" Theme="{DynamicResource BorderlessRepeatButton}">Tertiary</RepeatButton>
+            <RepeatButton Classes="Warning" Theme="{DynamicResource BorderlessRepeatButton}">Warning</RepeatButton>
+            <RepeatButton Classes="Danger" Theme="{DynamicResource BorderlessRepeatButton}">Danger</RepeatButton>
+            <RepeatButton Classes="Primary" IsEnabled="False" Theme="{DynamicResource BorderlessRepeatButton}">Danger</RepeatButton>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
