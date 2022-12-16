@@ -1,0 +1,88 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <ListBox Margin="30">
+            <ListBoxItem>Item 1</ListBoxItem>
+            <ListBoxItem>Item 2</ListBoxItem>
+            <ListBoxItem>Item 3</ListBoxItem>
+            <ListBoxItem IsEnabled="False" IsSelected="True">Item 3</ListBoxItem>
+            <ListBoxItem>Item 4</ListBoxItem>
+        </ListBox>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type ListBox}" TargetType="ListBox">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ListBox.Template">
+            <ControlTemplate TargetType="ListBox">
+                <Border
+                    Name="border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    ClipToBounds="{TemplateBinding ClipToBounds}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <ScrollViewer
+                        Name="PART_ScrollViewer"
+                        AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                        IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                        <ItemsPresenter
+                            Name="PART_ItemsPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                            Items="{TemplateBinding Items}"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemDefaultBackground}" />
+        <Setter Property="ListBoxItem.Padding" Value="{DynamicResource ListBoxItemDefaultPadding}" />
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemCornerRadius}" />
+        <Setter Property="ListBoxItem.Template">
+            <ControlTemplate TargetType="ListBoxItem">
+                <ContentPresenter
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    FontWeight="Normal"
+                    Foreground="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="ListBoxItem.Foreground" Value="{DynamicResource ListBoxItemDisabledForeground}" />
+            <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemDisabledBackground}" />
+            <Style Selector="^:selected">
+                <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemSelectedDisabledBackground}" />
+            </Style>
+        </Style>
+
+        <!--  PointerOver State  -->
+        <Style Selector="^:pointerover">
+            <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemPointerOverBackground}" />
+        </Style>
+
+        <!--  Pressed State  -->
+        <Style Selector="^:pressed">
+            <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemPressedBackground}" />
+        </Style>
+
+        <!--  Selected State  -->
+        <Style Selector="^:selected">
+            <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
