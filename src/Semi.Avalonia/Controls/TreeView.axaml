@@ -52,7 +52,7 @@
 
     <converters:MarginMultiplierConverter
         x:Key="TreeViewItemLeftMarginConverter"
-        Indent="{StaticResource SizeTreeViewItemIndent}"
+        Indent="{StaticResource TreeViewItemIndent}"
         Left="True" />
     <ControlTheme x:Key="ToggleButtonTreeViewItemIconButton" TargetType="ToggleButton">
         <Setter Property="Margin" Value="0" />
@@ -66,10 +66,10 @@
                     Background="Transparent">
                     <PathIcon
                         Name="PART_ExpandIconPath"
-                        Width="{DynamicResource SizeTreeViewItemIconSize}"
-                        Height="{DynamicResource SizeTreeViewItemIconSize}"
+                        Width="{DynamicResource TreeViewItemIconSize}"
+                        Height="{DynamicResource TreeViewItemIconSize}"
                         Data="{DynamicResource ExpanderIconData}"
-                        Foreground="{DynamicResource ColorTreeViewItemIconDefaultForeground}">
+                        Foreground="{DynamicResource TreeViewItemIconDefaultForeground}">
                         <PathIcon.Transitions>
                             <Transitions>
                                 <TransformOperationsTransition Property="RenderTransform" Duration="0.1" />
@@ -84,14 +84,14 @@
             <Setter Property="PathIcon.RenderTransform" Value="rotate(90deg)" />
         </Style>
         <Style Selector="^:pointerover /template/ PathIcon#PART_ExpandIconPath">
-            <Setter Property="PathIcon.Foreground" Value="{DynamicResource ColorTreeViewItemIconHoverForeground}" />
+            <Setter Property="PathIcon.Foreground" Value="{DynamicResource TreeViewItemIconHoverForeground}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
         <Setter Property="TreeViewItem.Padding" Value="0" />
-        <Setter Property="TreeViewItem.Background" Value="{DynamicResource ColorTreeViewItemDefaultBackground}" />
-        <Setter Property="TreeViewItem.Foreground" Value="{DynamicResource ColorTreeViewItemDefaultForeground}" />
+        <Setter Property="TreeViewItem.Background" Value="{DynamicResource TreeViewItemDefaultBackground}" />
+        <Setter Property="TreeViewItem.Foreground" Value="{DynamicResource TreeViewItemDefaultForeground}" />
         <Setter Property="TreeViewItem.CornerRadius" Value="3" />
         <Setter Property="TreeViewItem.VerticalAlignment" Value="Center" />
         <Setter Property="TreeViewItem.Template">
@@ -100,7 +100,7 @@
                     <Border
                         Name="PART_LayoutRoot"
                         MinHeight="{TemplateBinding MinHeight}"
-                        Padding="{DynamicResource ThicknessTreeViewItemPadding}"
+                        Padding="{DynamicResource TreeViewItemPadding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -114,7 +114,7 @@
                             ColumnDefinitions="Auto, *">
                             <Panel
                                 Name="PART_ExpandCollapseChevronContainer" Grid.Column="0"
-                                Margin="{StaticResource ThicknessTreeViewItemIconMargin}">
+                                Margin="{StaticResource TreeViewItemIconMargin}">
                                 <ToggleButton
                                     Name="PART_ExpandCollapseChevron" Focusable="False"
                                     IsChecked="{TemplateBinding IsExpanded,
@@ -142,30 +142,30 @@
 
         <!--  PointerOver state  -->
         <Style Selector="^ /template/ Border#PART_LayoutRoot:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ColorTreeViewItemPointerOverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TreeViewItemPointerOverBackground}" />
         </Style>
 
         <!--  Pressed state  -->
         <Style Selector="^:pressed /template/ Border#PART_LayoutRoot:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ColorTreeViewItemPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TreeViewItemPressedBackground}" />
         </Style>
 
         <!--  Disabled state  -->
         <Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="{DynamicResource ColorTreeViewItemDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TreeViewItemDisabledBackground}" />
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ColorTreeViewItemDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TreeViewItemDisabledForeground}" />
         </Style>
 
         <!--  Selected state  -->
         <Style Selector="^:selected /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="{DynamicResource ColorTreeViewItemSelectedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TreeViewItemSelectedBackground}" />
         </Style>
 
         <!--  Disabled Selected state  -->
         <Style Selector="^:disabled:selected /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="{DynamicResource ColorTreeViewItemSelectedDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TreeViewItemSelectedDisabledBackground}" />
         </Style>
 
         <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">
