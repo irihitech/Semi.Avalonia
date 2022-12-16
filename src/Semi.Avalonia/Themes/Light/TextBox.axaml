@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
     <SolidColorBrush x:Key="TextBoxDefaultBorderBrush" Color="#C6CACD" />
-    <SolidColorBrush x:Key="TextBoxDefaultBackground" Color="#E6E8EA" />
+    <SolidColorBrush x:Key="TextBoxDefaultBackground" Color="Transparent" />
     <SolidColorBrush x:Key="TextBoxFocusBackground" Opacity="0.05" Color="#E6E8EA" />
     <SolidColorBrush x:Key="TextBoxPointerOverBorderBrush" Color="#0062D6" />
     <SolidColorBrush x:Key="TextBoxFocusBorderBrush" Color="#004FB3" />
@@ -16,6 +16,10 @@
     <SolidColorBrush x:Key="TextBoxDisabledBackground" Opacity="0.04" Color="#403238" />
     <SolidColorBrush x:Key="TextBoxDisabledForeground" Opacity="0.35" Color="#1C1F23" />
     <SolidColorBrush x:Key="TextBoxDisabledBorderBrush" Color="#E6E8EA" />
+
+    <SolidColorBrush x:Key="TextBoxBorderlessDefaultBackground" Opacity="0.05" Color="#2E3238" />
+    <SolidColorBrush x:Key="TextBoxBorderlessDefaultBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="TextBoxBorderlessPointeroverBackground" Opacity="0.09" Color="#2E3238" />
 
     <sys:Double x:Key="TextBoxDefaultHeight">30</sys:Double>
     <sys:Double x:Key="TextBoxSmallHeight">22</sys:Double>
@@ -34,6 +38,7 @@
 
     <Thickness x:Key="TextBoxInnerContentPadding">8 0</Thickness>
     <Thickness x:Key="TextBoxContentPadding">8 0</Thickness>
+    <Thickness x:Key="TextBoxBorderThickness">1</Thickness>
 
     <SolidColorBrush x:Key="TextBoxSelectionBackground" Color="#0059D6" />
     <SolidColorBrush x:Key="TextBoxSelectionForeground" Color="White" />
