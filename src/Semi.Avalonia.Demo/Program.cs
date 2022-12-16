@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using System;
+using Avalonia.Media;
 
 namespace Semi.Avalonia.Demo
 {
@@ -10,6 +11,16 @@ namespace Semi.Avalonia.Demo
         // yet and stuff might break.
         [STAThread]
         public static void Main(string[] args) => BuildAvaloniaApp()
+            .With(new FontManagerOptions
+            {
+                FontFallbacks = new[]
+                {
+                    new FontFallback
+                    {
+                        FontFamily = new FontFamily("Microsoft YaHei")
+                    }
+                }
+            })
             .StartWithClassicDesktopLifetime(args);
 
         // Avalonia configuration, don't remove; also used by visual designer.
