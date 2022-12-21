@@ -1,0 +1,44 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type FlyoutPresenter}" TargetType="FlyoutPresenter">
+        <Setter Property="FlyoutPresenter.HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="FlyoutPresenter.VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="FlyoutPresenter.UseLayoutRounding" Value="False" />
+        <Setter Property="FlyoutPresenter.Background" Value="White" />
+        <Setter Property="FlyoutPresenter.BorderBrush" Value="#1A000000" />
+        <Setter Property="FlyoutPresenter.BorderThickness" Value="0.5" />
+        <Setter Property="FlyoutPresenter.Padding" Value="8" />
+        <Setter Property="FlyoutPresenter.MinWidth" Value="100" />
+        <Setter Property="FlyoutPresenter.MaxWidth" Value="600" />
+        <Setter Property="FlyoutPresenter.MinHeight" Value="100" />
+        <Setter Property="FlyoutPresenter.MaxHeight" Value="600" />
+        <Setter Property="FlyoutPresenter.ClipToBounds" Value="False" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="FlyoutPresenter.CornerRadius" Value="4" />
+        <Setter Property="FlyoutPresenter.Margin" Value="4" />
+        <Setter Property="FlyoutPresenter.Template">
+            <ControlTemplate TargetType="FlyoutPresenter">
+                <Border
+                    Name="LayoutRoot"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    BoxShadow="0 0 8 0 #1A000000"
+                    ClipToBounds="False"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    UseLayoutRounding="False">
+                    <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
