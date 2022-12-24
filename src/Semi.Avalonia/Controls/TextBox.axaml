@@ -1,16 +1,20 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <StackPanel
-            Width="200" Margin="20"
+            Width="200"
+            Margin="20"
             Spacing="20">
             <TextBox
-                Classes="clearButton" Text="Hello"
+                Classes="clearButton"
+                Text="Hello"
                 Theme="{StaticResource BorderlessTextBox}" />
             <TextBox
-                Classes="Large" Text="Hello"
+                Classes="Large"
+                Text="Hello"
                 Theme="{StaticResource BorderlessTextBox}" />
             <TextBox
-                Classes="Small" Text="Hello"
+                Classes="Small"
+                Text="Hello"
                 Theme="{StaticResource BorderlessTextBox}" />
         </StackPanel>
     </Design.PreviewWith>
@@ -25,7 +29,8 @@
                         <Label Background="Transparent">
                             <Label.Content>
                                 <PathIcon
-                                    Width="16" Height="16"
+                                    Width="16"
+                                    Height="16"
                                     Data="{DynamicResource TextBoxClearButtonData}"
                                     Foreground="{TemplateBinding Foreground}" />
                             </Label.Content>
@@ -44,11 +49,13 @@
                         <!--  Background must be transparent or hit test will fail  -->
                         <Panel Background="Transparent">
                             <PathIcon
-                                Width="16" Height="16"
+                                Width="16"
+                                Height="16"
                                 Data="{DynamicResource PasswordBoxRevealButtonData}"
                                 IsVisible="{Binding $parent[ToggleButton].IsChecked, Converter={x:Static BoolConverters.Not}}" />
                             <PathIcon
-                                Width="16" Height="16"
+                                Width="16"
+                                Height="16"
                                 Data="{DynamicResource PasswordBoxHideButtonData}"
                                 IsVisible="{Binding $parent[ToggleButton].IsChecked}" />
                         </Panel>
@@ -122,12 +129,14 @@
                             </Panel>
                         </ScrollViewer>
                         <Button
-                            Name="PART_ClearButton" Grid.Column="2"
+                            Name="PART_ClearButton"
+                            Grid.Column="2"
                             Command="{Binding $parent[TextBox].Clear}"
                             IsVisible="False"
                             Theme="{StaticResource InputClearButton}" />
                         <ToggleButton
-                            Name="PART_RevealButton" Grid.Column="3"
+                            Name="PART_RevealButton"
+                            Grid.Column="3"
                             Margin="4,0,0,0"
                             IsChecked="{TemplateBinding RevealPassword,
                                                         Mode=TwoWay}"
@@ -183,6 +192,7 @@
         <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderlessDefaultBorderBrush}" />
         <Style Selector="^:pointerover">
             <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderlessPointeroverBackground}" />
+            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderlessPointeroverBorderBrush}" />
         </Style>
         <Style Selector="^:focus">
             <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderlessPointeroverBackground}" />
