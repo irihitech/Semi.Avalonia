@@ -7,17 +7,107 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
-        <StackPanel>
-            <Button Content="Hello">
-                <Button.Flyout>
-                    <Flyout Placement="Top" ShowMode="Standard">
-                        <StackPanel>
-                            <TextBlock>Hello World</TextBlock>
-                        </StackPanel>
-                    </Flyout>
-                </Button.Flyout>
-            </Button>
-        </StackPanel>
-    </StackPanel>
+    <Grid
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        ColumnDefinitions="* * * * *"
+        RowDefinitions="* * * * *">
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Content="Top Left">
+            <Button.Flyout>
+                <Flyout Content="TopEdgeAlignedLeft" Placement="TopEdgeAlignedLeft" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Content="Top">
+            <Button.Flyout>
+                <Flyout Content="Top" Placement="Top" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="0"
+            Grid.Column="3"
+            Content="Top Right">
+            <Button.Flyout>
+                <Flyout Content="TopEdgeAlignedRight" Placement="TopEdgeAlignedRight" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="Left Top">
+            <Button.Flyout>
+                <Flyout Content="LeftEdgeAlignedTop" Placement="LeftEdgeAlignedTop" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="1"
+            Grid.Column="4"
+            Content="Right Top">
+            <Button.Flyout>
+                <Flyout Content="RightEdgeAlignedTop" Placement="RightEdgeAlignedTop" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Content="Left">
+            <Button.Flyout>
+                <Flyout Content="Left" Placement="Left" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="2"
+            Grid.Column="4"
+            Content="Right">
+            <Button.Flyout>
+                <Flyout Content="Right" Placement="Right" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="Left Bottom">
+            <Button.Flyout>
+                <Flyout Content="LeftEdgeAlignedBottom" Placement="LeftEdgeAlignedBottom" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="3"
+            Grid.Column="4"
+            Content="Right Bottom">
+            <Button.Flyout>
+                <Flyout Content="RightEdgeAlignedBottom" Placement="RightEdgeAlignedBottom" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="Bottom Left">
+            <Button.Flyout>
+                <Flyout Content="BottomEdgeAlignedLeft" Placement="BottomEdgeAlignedLeft" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            Content="Bottom">
+            <Button.Flyout>
+                <Flyout Content="Bottom" Placement="Bottom" />
+            </Button.Flyout>
+        </Button>
+        <Button
+            Grid.Row="4"
+            Grid.Column="3"
+            Content="Bottom Right">
+            <Button.Flyout>
+                <Flyout Content="BottomEdgeAlignedRight" Placement="BottomEdgeAlignedRight" />
+            </Button.Flyout>
+        </Button>
+    </Grid>
+
 </UserControl>

@@ -3,6 +3,7 @@
         <Setter Property="FlyoutPresenter.HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="FlyoutPresenter.VerticalContentAlignment" Value="Stretch" />
         <Setter Property="FlyoutPresenter.UseLayoutRounding" Value="False" />
+        <Setter Property="FlyoutPresenter.FontWeight" Value="{DynamicResource FlyoutFontWeight}" />
         <Setter Property="FlyoutPresenter.Background" Value="{DynamicResource FlyoutBackground}" />
         <Setter Property="FlyoutPresenter.BorderBrush" Value="{DynamicResource FlyoutBorderBrush}" />
         <Setter Property="FlyoutPresenter.BorderThickness" Value="{DynamicResource FlyoutBorderThickness}" />
@@ -35,7 +36,8 @@
                             HorizontalContentAlignment="Stretch"
                             VerticalContentAlignment="Stretch"
                             Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontWeight="{TemplateBinding FontWeight}" />
                     </ScrollViewer>
                 </Border>
             </ControlTemplate>
