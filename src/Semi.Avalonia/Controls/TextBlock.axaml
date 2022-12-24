@@ -5,10 +5,10 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
+        <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />-->
         <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockFontSize}" />
         <Style Selector="^:disabled">
-            <Setter Property="Label.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
         </Style>
         <Style Selector="^.Secondary">
             <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
