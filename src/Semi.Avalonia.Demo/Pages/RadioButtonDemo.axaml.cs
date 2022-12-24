@@ -10,9 +10,4 @@ public partial class RadioButtonDemo : UserControl
     {
         InitializeComponent();
     }
-
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
 }
