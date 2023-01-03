@@ -1,0 +1,161 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <ToggleSwitch
+                Content="Content"
+                OffContent="OffContent"
+                OnContent="OnContent" />
+        </StackPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
+        <Setter Property="Foreground" Value="{DynamicResource ToggleSwitchContentForeground}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Grid
+                    Background="{TemplateBinding Background}"
+                    Cursor="Hand"
+                    RowDefinitions="Auto,*">
+                    <ContentPresenter
+                        x:Name="PART_ContentPresenter"
+                        Grid.Row="0"
+                        Margin="{DynamicResource ToggleSwitchHeaderMargin}"
+                        VerticalAlignment="Top"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        RecognizesAccessKey="True" />
+                    <Grid
+                        Grid.Row="1"
+                        Background="Transparent"
+                        ColumnDefinitions="Auto, *">
+                        <Grid
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            TemplatedControl.IsTemplateFocusTarget="True" />
+                        <Border
+                            Name="SwitchBackgroundBorder"
+                            Grid.Column="0"
+                            Width="40"
+                            Height="20"
+                            CornerRadius="100">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0:0:0.2" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <Canvas
+                            x:Name="PART_SwitchKnob"
+                            Grid.Column="0"
+                            Width="20"
+                            Height="20"
+                            HorizontalAlignment="Left">
+                            <Grid
+                                x:Name="PART_MovingKnobs"
+                                Width="20"
+                                Height="20">
+                                <Border
+                                    x:Name="SwitchKnobIndicator"
+                                    Width="14"
+                                    Height="14"
+                                    Background="White"
+                                    BorderBrush="{DynamicResource ToggleSwitchIndicatorBorderBrush}"
+                                    BorderThickness="0.5"
+                                    BoxShadow="0 0 1 1 #222E3238"
+                                    CornerRadius="100" />
+                            </Grid>
+                        </Canvas>
+
+                        <ContentPresenter
+                            x:Name="PART_OnContentPresenter"
+                            Grid.Column="1"
+                            Margin="{DynamicResource ToggleSwitchOnContentMargin}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="{TemplateBinding OnContent}"
+                            ContentTemplate="{TemplateBinding OnContentTemplate}"
+                            IsVisible="True" />
+                        <ContentPresenter
+                            x:Name="PART_OffContentPresenter"
+                            Grid.Column="1"
+                            Margin="{DynamicResource ToggleSwitchOnContentMargin}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="{TemplateBinding OffContent}"
+                            ContentTemplate="{TemplateBinding OffContentTemplate}"
+                            IsVisible="False" />
+
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter:empty">
+            <Setter Property="Margin" Value="0" />
+        </Style>
+
+        <!--  NormalState  -->
+        <Style Selector="^:not(:dragging) /template/ Grid#PART_MovingKnobs">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Easing="CubicEaseOut"
+                        Property="Canvas.Left"
+                        Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
+                <Setter Property="ContentPresenter.IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
+                <Setter Property="ContentPresenter.IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDefaultBackground}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPointerOverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPressedBackground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBackground}" />
+                <Setter Property="Border.BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
+                <Setter Property="Border.BorderThickness" Value="1" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
+                <Setter Property="ContentPresenter.IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
+                <Setter Property="ContentPresenter.IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedDefaultBackground}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedPointerOverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedPressedBackground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedDisabledBackground}" />
+            </Style>
+        </Style>
+
+
+    </ControlTheme>
+</ResourceDictionary>
