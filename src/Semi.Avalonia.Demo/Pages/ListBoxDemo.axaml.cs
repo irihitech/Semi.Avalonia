@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ListBoxItem : UserControl
+public partial class ListBoxDemo : UserControl
 {
-    public ListBoxItem()
+    public ListBoxDemo()
     {
         InitializeComponent();
     }
