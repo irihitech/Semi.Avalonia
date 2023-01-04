@@ -1,12 +1,17 @@
 <UserControl
-    x:Class="Semi.Avalonia.Demo.Pages.Overview" xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
-    d:DesignWidth="800" mc:Ignorable="d">
+    x:Class="Semi.Avalonia.Demo.Pages.Overview"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1000"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel Margin="10" Spacing="5">
             <TextBlock
-                HorizontalAlignment="Center" Classes="H4"
+                HorizontalAlignment="Center"
+                Classes="H4"
                 Text="Welcome to Semi Avalonia"
                 Theme="{StaticResource TitleTextBlock}" />
 
@@ -25,7 +30,8 @@
                 <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
                 <Button Classes="Danger" Theme="{DynamicResource SolidButton}">Danger</Button>
                 <Button
-                    Classes="Primary" IsEnabled="False"
+                    Classes="Primary"
+                    IsEnabled="False"
                     Theme="{DynamicResource SolidButton}">
                     Danger
                 </Button>
@@ -43,7 +49,8 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel
-                    Margin="0,0,16,0" VerticalAlignment="Center"
+                    Margin="0,0,16,0"
+                    VerticalAlignment="Center"
                     Orientation="Horizontal">
                     <RadioButton Margin="0,0,8,0">Option 1</RadioButton>
                     <RadioButton>Option 2</RadioButton>
@@ -63,7 +70,8 @@
                     </StackPanel>
                 </RadioButton>
                 <RadioButton
-                    Margin="4" IsChecked="True"
+                    Margin="4"
+                    IsChecked="True"
                     Theme="{StaticResource CardRadioButton}">
                     <StackPanel>
                         <TextBlock FontWeight="Bold">Option 2</TextBlock>
@@ -76,6 +84,12 @@
                 <CheckBox Margin="0,0,8,0" IsChecked="True">WPF</CheckBox>
                 <CheckBox IsChecked="{x:Null}" IsThreeState="True">UWP</CheckBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ToggleSwitch
+                    Content="Content"
+                    OffContent="No"
+                    OnContent="Yes" />
+            </StackPanel>
             <TabControl>
                 <TabItem Header="Tab 1">
                     <TextBlock Margin="8">Tab Content 1</TextBlock>
@@ -87,26 +101,57 @@
                     <TextBlock Margin="8">Tab Content 3</TextBlock>
                 </TabItem>
             </TabControl>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <ComboBox Width="200" PlaceholderText="Please Select" />
+
+            </StackPanel>
             <Grid ColumnDefinitions="* * *">
                 <Border Theme="{StaticResource CardBorder}">
                     <TextBlock>Card</TextBlock>
                 </Border>
                 <Border
-                    Grid.Column="1" Classes="Hover"
+                    Grid.Column="1"
+                    Classes="Hover"
                     Theme="{StaticResource CardBorder}">
                     <TextBlock>Shadow on hover</TextBlock>
                 </Border>
                 <Border
-                    Grid.Column="2" Classes="Shadow"
+                    Grid.Column="2"
+                    Classes="Shadow"
                     Theme="{StaticResource CardBorder}">
                     <TextBlock>Shadow</TextBlock>
                 </Border>
             </Grid>
-            <StackPanel Spacing="20">
-                <TextBox InnerLeftContent="http://" InnerRightContent=".com" />
+            <StackPanel Orientation="Horizontal" Spacing="20">
                 <TextBox
-                    Classes="revealPasswordButton" PasswordChar="*"
+                    Width="200"
+                    InnerLeftContent="http://"
+                    InnerRightContent=".com" />
+                <TextBox
+                    Width="200"
+                    Classes="revealPasswordButton"
+                    PasswordChar="*"
                     Text="Avalonia" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TreeView>
+                    <TreeViewItem Header="Level 1" IsExpanded="True">
+                        <TreeViewItem Header="Level 2" />
+                        <TreeViewItem Header="Level 2" />
+                        <TreeViewItem Header="Level 2" IsExpanded="True">
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+                <ListBox SelectedIndex="3">
+                    <TextBlock>List Item 1</TextBlock>
+                    <TextBlock>List Item 2</TextBlock>
+                    <TextBlock>List Item 3</TextBlock>
+                    <TextBlock>List Item 4</TextBlock>
+                    <TextBlock>List Item 5</TextBlock>
+                </ListBox>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
