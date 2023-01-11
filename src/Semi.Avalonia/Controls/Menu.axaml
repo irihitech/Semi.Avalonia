@@ -7,20 +7,27 @@
             Width="150"
             Margin="20"
             Spacing="20">
-            <MenuItem Header="Hello" />
+            <MenuItem Header="Hello" InputGesture="Ctrl+B">
+                <MenuItem.Icon>
+                    <TextBlock Text="A" />
+                </MenuItem.Icon>
+            </MenuItem>
             <MenuItem Header="Hello2">
+                <MenuItem.Icon>
+                    <TextBlock Text="B" />
+                </MenuItem.Icon>
                 <MenuItem Header="Header1" />
             </MenuItem>
             <Separator />
         </StackPanel>
     </Design.PreviewWith>
+
     <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
-        <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForeground}" />
-        <Setter Property="Padding" Value="{DynamicResource MenuFlyoutItemThemePaddingNarrow}" />
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Background" Value="{DynamicResource MenuItemDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource MenuItemDefaultForeground}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuItemDefaultPadding}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="MenuItem">
                 <Panel>
