@@ -9,7 +9,10 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <TabControl Margin="8" TabStripPlacement="Left">
+    <TabControl
+        Margin="8"
+        HorizontalAlignment="Stretch"
+        TabStripPlacement="Left">
         <TabItem Header="Overview">
             <pages:Overview />
         </TabItem>
@@ -37,6 +40,9 @@
         </TabItem>
         <TabItem Header="ListBox">
             <pages:ListBoxDemo />
+        </TabItem>
+        <TabItem Header="Notification">
+            <pages:NotificationDemo />
         </TabItem>
         <TabItem Header="RadioButton">
             <pages:RadioButtonDemo />

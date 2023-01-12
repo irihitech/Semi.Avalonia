@@ -1,0 +1,19 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.NotificationDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel
+        Margin="300,20,20,20"
+        HorizontalAlignment="Left"
+        Spacing="20">
+        <Button Click="InfoButton_OnClick" Content="Information" />
+        <Button Click="InfoButton_OnClick" Content="Success" />
+        <Button Click="InfoButton_OnClick" Content="Warning" />
+        <Button Click="InfoButton_OnClick" Content="Error" />
+    </StackPanel>
+</UserControl>
