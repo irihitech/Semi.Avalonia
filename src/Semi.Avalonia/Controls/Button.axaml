@@ -37,6 +37,10 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^:pressed">
+            <Setter Property="RenderTransform" Value="scale(0.98)" />
+        </Style>
+
         <Style Selector="^.Primary">
             <Setter Property="Button.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
         </Style>
@@ -77,7 +81,10 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SolidButton" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+    <ControlTheme
+        x:Key="SolidButton"
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="Button">
         <Setter Property="Button.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
         <Setter Property="Button.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
         <Setter Property="Button.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
@@ -155,7 +162,10 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="BorderlessButton" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+    <ControlTheme
+        x:Key="BorderlessButton"
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="Button">
         <Setter Property="Button.Background" Value="Transparent" />
         <Setter Property="Button.BorderBrush" Value="Transparent" />
         <Style Selector="^:disabled">
