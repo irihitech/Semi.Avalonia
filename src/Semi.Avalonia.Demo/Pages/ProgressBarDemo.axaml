@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="800"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel
@@ -92,5 +92,32 @@
                 ShowProgressText="False"
                 Value="20" />
         </StackPanel>
+        <ProgressBar
+            Width="200"
+            Classes="Success"
+            Maximum="100"
+            Minimum="0"
+            ShowProgressText="True"
+            Value="60" />
+        <ProgressBar
+            Width="200"
+            Classes="Warning"
+            Maximum="100"
+            Minimum="0"
+            ShowProgressText="True"
+            Value="60" />
+        <ProgressBar
+            Width="200"
+            Classes="Error"
+            Maximum="100"
+            Minimum="0"
+            ShowProgressText="True"
+            Value="60" />
+        <ProgressBar
+            Width="200"
+            Maximum="100"
+            Minimum="0"
+            ShowProgressText="True"
+            Value="60" />
     </StackPanel>
 </UserControl>

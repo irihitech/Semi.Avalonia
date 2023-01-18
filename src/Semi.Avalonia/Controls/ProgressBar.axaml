@@ -150,7 +150,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         IsVisible="{TemplateBinding ShowProgressText}">
-                        <TextBlock Foreground="{DynamicResource ProgressBarTextForeground}">
+                        <TextBlock FontWeight="{DynamicResource ProgressBarTextFontWeight}" Foreground="{DynamicResource ProgressBarTextForeground}">
                             <TextBlock.Text>
                                 <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                     <TemplateBinding Property="ProgressTextFormat" />
@@ -165,13 +165,22 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^.Warning">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
+        </Style>
+        <Style Selector="^.Error">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
+        </Style>
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
         </Style>
         <Style Selector="^:vertical /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
         <Style Selector="^:horizontal">
             <Setter Property="MinWidth" Value="200" />
