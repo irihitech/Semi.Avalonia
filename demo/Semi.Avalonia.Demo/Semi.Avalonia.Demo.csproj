@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+        <TrimmerRootDescriptor Include="Roots.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+        <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Pages\AutoCompleteBoxDemo.axaml" />
+      <AdditionalFiles Include="Pages\BorderDemo.axaml" />
+      <AdditionalFiles Include="Pages\ButtonDemo.axaml" />
+      <AdditionalFiles Include="Pages\CheckBoxDemo.axaml" />
+      <AdditionalFiles Include="Pages\ComboBoxDemo.axaml" />
+      <AdditionalFiles Include="Pages\ExpanderDemo.axaml" />
+      <AdditionalFiles Include="Pages\FlyoutDemo.axaml" />
+      <AdditionalFiles Include="Pages\LabelDemo.axaml" />
+      <AdditionalFiles Include="Pages\ListBoxDemo.axaml" />
+      <AdditionalFiles Include="Pages\NotificationDemo.axaml" />
+      <AdditionalFiles Include="Pages\Overview.axaml" />
+      <AdditionalFiles Include="Pages\ProgressBarDemo.axaml" />
+      <AdditionalFiles Include="Pages\RadioButtonDemo.axaml" />
+      <AdditionalFiles Include="Pages\RepeatButtonDemo.axaml" />
+      <AdditionalFiles Include="Pages\TabControlDemo.axaml" />
+      <AdditionalFiles Include="Pages\TextBlockDemo.axaml" />
+      <AdditionalFiles Include="Pages\TextBoxDemo.axaml" />
+      <AdditionalFiles Include="Pages\ToggleButtonDemo.axaml" />
+      <AdditionalFiles Include="Pages\ToggleSwitchDemo.axaml" />
+      <AdditionalFiles Include="Pages\TreeViewDemo.axaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ViewModels" />
+    </ItemGroup>
+</Project>

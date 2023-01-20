@@ -1,0 +1,32 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.ExpanderDemo" xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
+    d:DesignWidth="800" mc:Ignorable="d">
+    <StackPanel Margin="20" Spacing="20">
+        <StackPanel>
+            <Expander Header="Expander 1">
+                <TextBlock Text="Hello Avalonia!" />
+            </Expander>
+            <Expander Header="Expander 2">
+                <TextBox Text="Hello Avalonia!" />
+            </Expander>
+            <Expander Header="Expander 3">
+                <Button Content="Hello Avalonia World!" />
+            </Expander>
+        </StackPanel>
+        <Grid ColumnDefinitions="* *">
+            <Expander
+                Height="200" ExpandDirection="Right"
+                Header="Right">
+                <TextBlock>Right Content</TextBlock>
+            </Expander>
+            <Expander
+                Grid.Column="1" Height="200"
+                HorizontalAlignment="Right" ExpandDirection="Left"
+                Header="Left">
+                <TextBlock>Left Content</TextBlock>
+            </Expander>
+        </Grid>
+    </StackPanel>
+</UserControl>
