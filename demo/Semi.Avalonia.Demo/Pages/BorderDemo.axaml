@@ -1,0 +1,17 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.BorderDemo" xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="450"
+    d:DesignWidth="800" mc:Ignorable="d">
+    <StackPanel Margin="20" Spacing="20">
+        <Border Theme="{StaticResource CardBorder}">
+            <TextBlock>Card</TextBlock>
+        </Border>
+        <Border Classes="Shadow" Theme="{StaticResource CardBorder}">
+            <TextBlock>Shadow Always Applied</TextBlock>
+        </Border>
+        <Border Classes="Hover" Theme="{StaticResource CardBorder}">
+            <TextBlock>Shadow on Pointerover</TextBlock>
+        </Border>
+    </StackPanel>
+</UserControl>
