@@ -9,12 +9,34 @@
     mc:Ignorable="d">
     <StackPanel Margin="20" Spacing="20">
         <Menu>
-            <MenuItem Header="File">
-                <MenuItem Header="Create" />
-                <MenuItem Header="Delete" />
+            <MenuItem Header="_First">
+                <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
+                <MenuItem
+                    Header="_Disabled Menu Item"
+                    InputGesture="Ctrl+D"
+                    IsEnabled="False" />
+                <Separator />
+                <MenuItem Header="Menu with _Submenu">
+                    <MenuItem Header="Submenu _1" />
+                    <MenuItem Header="Submenu _2 with Submenu">
+                        <MenuItem Header="Submenu Level 2" />
+                    </MenuItem>
+                    <MenuItem Header="Submenu _3 with Submenu Disabled" IsEnabled="False">
+                        <MenuItem Header="Submenu Level 2" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Menu Item with _Checkbox">
+                    <MenuItem.Icon>
+                        <CheckBox
+                            BorderThickness="0"
+                            IsChecked="True"
+                            IsHitTestVisible="False" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
-            <MenuItem Header="View" />
-            <MenuItem Header="Tools" />
+            <MenuItem Header="_Second">
+                <MenuItem Header="Second _Menu Item" />
+            </MenuItem>
         </Menu>
     </StackPanel>
 </UserControl>
