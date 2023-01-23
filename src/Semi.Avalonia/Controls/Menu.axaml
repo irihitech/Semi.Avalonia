@@ -8,14 +8,20 @@
     <ControlTheme x:Key="MenuScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="ScrollViewer">
                 <DockPanel>
+                    <DockPanel.Styles>
+                        <Style Selector="RepeatButton:pressed">
+                            <Setter Property="RenderTransform" Value="{x:Null}" />
+                        </Style>
+                    </DockPanel.Styles>
                     <RepeatButton
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         Background="Transparent"
                         BorderThickness="0"
                         Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
+                        CornerRadius="0"
                         DockPanel.Dock="Top"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
@@ -26,15 +32,11 @@
                                 <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
-                        <Viewbox Width="{DynamicResource ScrollBarButtonArrowIconFontSize}" Height="{DynamicResource ScrollBarButtonArrowIconFontSize}">
-                            <Path
-                                Width="20"
-                                Height="20"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Data="M 19.091797 14.970703 L 10 5.888672 L 0.908203 14.970703 L 0.029297 14.091797 L 10 4.111328 L 19.970703 14.091797 Z"
-                                Fill="{DynamicResource ScrollBarButtonArrowForeground}" />
-                        </Viewbox>
+                        <PathIcon
+                            Width="8"
+                            Height="8"
+                            Data="{DynamicResource MenuScrollViewerUpButtonGlyph}"
+                            Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
                     </RepeatButton>
                     <RepeatButton
                         HorizontalAlignment="Stretch"
@@ -42,6 +44,7 @@
                         Background="Transparent"
                         BorderThickness="0"
                         Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
+                        CornerRadius="0"
                         DockPanel.Dock="Bottom"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
@@ -52,15 +55,11 @@
                                 <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
-                        <Viewbox Width="{DynamicResource ScrollBarButtonArrowIconFontSize}" Height="{DynamicResource ScrollBarButtonArrowIconFontSize}">
-                            <Path
-                                Width="20"
-                                Height="20"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Data="M 18.935547 4.560547 L 19.814453 5.439453 L 10 15.253906 L 0.185547 5.439453 L 1.064453 4.560547 L 10 13.496094 Z"
-                                Fill="{DynamicResource ScrollBarButtonArrowForeground}" />
-                        </Viewbox>
+                        <PathIcon
+                            Width="8"
+                            Height="8"
+                            Data="{DynamicResource MenuScrollViewerDownButtonGlyph}"
+                            Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
                     </RepeatButton>
                     <ScrollContentPresenter
                         Name="PART_ContentPresenter"
@@ -81,9 +80,30 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ RepeatButton:pointerover &gt; Viewbox &gt; Path">
-            <Setter Property="Fill" Value="{DynamicResource ScrollBarButtonArrowForegroundPointerOver}" />
+        <Style Selector="^ /template/ RepeatButton:pointerover &gt; PathIcon">
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonArrowForegroundPointerOver}" />
         </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
+        <Setter Property="Separator.Background" Value="{DynamicResource MenuItemSeparatorBackground}" />
+        <Setter Property="Separator.Focusable" Value="False" />
+        <Setter Property="Separator.Height" Value="{DynamicResource MenuItemSeparatorHeight}" />
+        <Setter Property="Separator.HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Separator.Margin" Value="{DynamicResource MenuItemSeparatorMargin}" />
+        <Setter Property="Separator.Template">
+            <ControlTemplate TargetType="Separator">
+                <Border
+                    Height="{TemplateBinding Height}"
+                    Padding="{TemplateBinding Margin}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
@@ -160,14 +180,18 @@
                         PlacementMode="Right"
                         WindowManagerAddShadowHint="False">
                         <Border
-                            MinHeight="{DynamicResource MenuFlyoutThemeMinHeight}"
-                            MaxWidth="{DynamicResource FlyoutThemeMaxWidth}"
-                            Padding="{DynamicResource MenuFlyoutPresenterThemePadding}"
+                            MinWidth="{DynamicResource MenuFlyoutMinWidth}"
+                            MinHeight="{DynamicResource MenuFlyoutMinHeight}"
+                            MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
+                            MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
+                            Margin="0,4"
+                            Padding="{DynamicResource MenuFlyoutPadding}"
                             HorizontalAlignment="Stretch"
-                            Background="{DynamicResource MenuFlyoutPresenterBackground}"
-                            BorderBrush="{DynamicResource MenuFlyoutPresenterBorderBrush}"
-                            BorderThickness="{DynamicResource MenuFlyoutPresenterBorderThemeThickness}"
-                            CornerRadius="{DynamicResource OverlayCornerRadius}">
+                            Background="{DynamicResource MenuFlyoutBackground}"
+                            BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
+                            BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
+                            BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
+                            CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
                             <ScrollViewer Theme="{StaticResource MenuScrollViewer}">
                                 <ItemsPresenter
                                     Name="PART_ItemsPresenter"
@@ -249,11 +273,10 @@
     </ControlTheme>
 
     <ControlTheme x:Key="TopLevelMenuItem" TargetType="MenuItem">
-        <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
-        <Setter Property="Padding" Value="{DynamicResource MenuBarItemPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuItemTopLevelPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -279,15 +302,18 @@
                             OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                             WindowManagerAddShadowHint="False">
                             <Border
-                                MinHeight="{DynamicResource MenuFlyoutThemeMinHeight}"
-                                MaxWidth="{DynamicResource FlyoutThemeMaxWidth}"
-                                Padding="{DynamicResource MenuFlyoutPresenterThemePadding}"
+                                MinWidth="{DynamicResource MenuFlyoutMinWidth}"
+                                MinHeight="{DynamicResource MenuFlyoutMinHeight}"
+                                MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
+                                MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
+                                Margin="0,4"
                                 HorizontalAlignment="Stretch"
-                                Background="{DynamicResource MenuFlyoutPresenterBackground}"
-                                BorderBrush="{DynamicResource MenuFlyoutPresenterBorderBrush}"
-                                BorderThickness="{DynamicResource MenuFlyoutPresenterBorderThemeThickness}"
-                                CornerRadius="{DynamicResource OverlayCornerRadius}">
-                                <ScrollViewer Theme="{StaticResource MenuScrollViewer}">
+                                Background="{DynamicResource MenuFlyoutBackground}"
+                                BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
+                                BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
+                                BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
+                                CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
+                                <ScrollViewer Padding="{DynamicResource MenuFlyoutPadding}" Theme="{StaticResource MenuScrollViewer}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Margin="{DynamicResource MenuFlyoutScrollerMargin}"
@@ -305,19 +331,13 @@
 
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackgroundPointerOver}" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForegroundPointerOver}" />
+                <Setter Property="Background" Value="{DynamicResource MenuItemPointeroverBackground}" />
             </Style>
         </Style>
 
         <!--  Listen for PART_LayoutRoot:pointerover, so it will not be triggered when subitem is pressed  -->
         <Style Selector="^:pressed /template/ Border#PART_LayoutRoot:pointerover">
-            <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackgroundPressed}" />
-            <Style Selector="^ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForegroundPressed}" />
-            </Style>
+            <Setter Property="Background" Value="{DynamicResource MenuItemPressedBackground}" />
         </Style>
 
         <Style Selector="^:disabled">
@@ -332,7 +352,6 @@
 
     <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Height" Value="60" />
         <Setter Property="Menu.ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Menu">

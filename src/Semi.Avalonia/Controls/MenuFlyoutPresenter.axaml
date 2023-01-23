@@ -1,16 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
-        <Setter Property="Background" Value="{DynamicResource MenuFlyoutPresenterBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MenuFlyoutPresenterBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource MenuFlyoutPresenterBorderThemeThickness}" />
-        <Setter Property="Padding" Value="{DynamicResource MenuFlyoutPresenterThemePadding}" />
-        <Setter Property="MaxWidth" Value="{DynamicResource FlyoutThemeMaxWidth}" />
-        <Setter Property="MinHeight" Value="{DynamicResource MenuFlyoutThemeMinHeight}" />
+        <Setter Property="MenuFlyoutPresenter.Background" Value="{DynamicResource MenuFlyoutBackground}" />
+        <Setter Property="MenuFlyoutPresenter.BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
+        <Setter Property="MenuFlyoutPresenter.BorderThickness" Value="{DynamicResource MenuFlyoutBorderThickness}" />
+        <Setter Property="MenuFlyoutPresenter.Padding" Value="{DynamicResource MenuFlyoutPadding}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
-        <Setter Property="Template">
+        <Setter Property="MenuFlyoutPresenter.Margin" Value="4" />
+        <Setter Property="MenuFlyoutPresenter.CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
+        <Setter Property="MenuFlyoutPresenter.Template">
             <ControlTemplate TargetType="MenuFlyoutPresenter">
                 <Border
                     Name="LayoutRoot"
@@ -18,6 +17,7 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
+                    BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer
                         HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
