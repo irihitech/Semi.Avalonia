@@ -1,0 +1,128 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.MenuDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel Margin="20" Spacing="20">
+        <Menu>
+            <MenuItem Header="_First">
+                <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
+                <MenuItem
+                    Header="_Disabled Menu Item"
+                    InputGesture="Ctrl+D"
+                    IsEnabled="False" />
+                <Separator />
+                <MenuItem Header="Menu with _Submenu">
+                    <MenuItem Header="Submenu _1" />
+                    <MenuItem Header="Submenu _2 with Submenu">
+                        <MenuItem Header="Submenu Level 2" />
+                    </MenuItem>
+                    <MenuItem Header="Submenu _3 with Submenu Disabled" IsEnabled="False">
+                        <MenuItem Header="Submenu Level 2" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Menu Item with _Checkbox">
+                    <MenuItem.Icon>
+                        <TextBlock>😊</TextBlock>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Second">
+                <MenuItem Header="Second _Menu Item" />
+            </MenuItem>
+            <MenuItem Header="Parent">
+                <MenuItem Header="Child 1" />
+                <MenuItem Header="Child 2" />
+                <MenuItem Header="Child 3" />
+                <Separator />
+                <MenuItem Header="Child 4" />
+                <MenuItem Header="Child 5" />
+                <MenuItem Header="Child 6" />
+                <MenuItem Header="Child 7" />
+                <MenuItem Header="Child 8" />
+                <MenuItem Header="Child 9" />
+                <MenuItem Header="Child 10" />
+                <MenuItem Header="Child 11" />
+                <MenuItem Header="Child 12" />
+                <MenuItem Header="Child 13" />
+                <MenuItem Header="Child 14" />
+                <MenuItem Header="Child 15" />
+                <MenuItem Header="Child 16" />
+                <MenuItem Header="Child 17" />
+                <MenuItem Header="Child 18" />
+                <MenuItem Header="Child 19" />
+                <MenuItem Header="Child 4" />
+                <MenuItem Header="Child 5" />
+                <MenuItem Header="Child 6" />
+                <MenuItem Header="Child 7" />
+                <MenuItem Header="Child 8" />
+                <MenuItem Header="Child 9" />
+                <MenuItem Header="Child 10" />
+                <MenuItem Header="Child 11" />
+                <MenuItem Header="Child 12" />
+                <MenuItem Header="Child 13" />
+                <MenuItem Header="Child 14" />
+                <MenuItem Header="Child 15" />
+                <MenuItem Header="Child 16" />
+                <MenuItem Header="Child 17" />
+                <MenuItem Header="Child 18" />
+                <MenuItem Header="Child 19" />
+            </MenuItem>
+        </Menu>
+        <Border>
+            <Border.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
+                    <MenuItem
+                        Header="_Disabled Menu Item"
+                        InputGesture="Ctrl+D"
+                        IsEnabled="False" />
+                    <Separator />
+                    <MenuItem Header="Menu with _Submenu">
+                        <MenuItem Header="Submenu _1" />
+                        <MenuItem Header="Submenu _2" />
+                    </MenuItem>
+                    <MenuItem Header="Menu Item with _Checkbox">
+                        <MenuItem.Icon>
+                            <CheckBox
+                                BorderThickness="0"
+                                IsChecked="True"
+                                IsHitTestVisible="False" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Menu Item that won't close on click" StaysOpenOnClick="True" />
+                </ContextMenu>
+            </Border.ContextMenu>
+            <TextBlock Text="Context Menu" />
+        </Border>
+        <Border>
+            <Border.ContextFlyout>
+                <MenuFlyout>
+                    <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
+                    <MenuItem
+                        Header="_Disabled Menu Item"
+                        InputGesture="Ctrl+D"
+                        IsEnabled="False" />
+                    <Separator />
+                    <MenuItem Header="Menu with _Submenu">
+                        <MenuItem Header="Submenu _1" />
+                        <MenuItem Header="Submenu _2" />
+                    </MenuItem>
+                    <MenuItem Header="Menu Item with _Checkbox">
+                        <MenuItem.Icon>
+                            <CheckBox
+                                BorderThickness="0"
+                                IsChecked="True"
+                                IsHitTestVisible="False" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuFlyout>
+            </Border.ContextFlyout>
+            <TextBlock Text="Context Flyout" />
+        </Border>
+    </StackPanel>
+</UserControl>
