@@ -1,10 +1,12 @@
 <ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls">
 
     <Design.PreviewWith>
         <StackPanel
-            Height="200" Margin="20"
+            Height="200"
+            Margin="20"
             Spacing="20">
             <TreeView>
                 <TreeViewItem Header="Level 1">
@@ -62,7 +64,9 @@
                 <Border
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Padding="{TemplateBinding Padding}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     Background="Transparent">
                     <PathIcon
                         Name="PART_ExpandIconPath"
@@ -100,30 +104,31 @@
                     <Border
                         Name="PART_LayoutRoot"
                         MinHeight="{TemplateBinding MinHeight}"
-                        Padding="{DynamicResource TreeViewItemPadding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Focusable="True" TemplatedControl.IsTemplateFocusTarget="True">
+                        Focusable="True"
+                        TemplatedControl.IsTemplateFocusTarget="True">
                         <Grid
                             Name="PART_Header"
                             Margin="{TemplateBinding Level,
                                                      Mode=OneWay,
                                                      Converter={StaticResource TreeViewItemLeftMarginConverter}}"
                             ColumnDefinitions="Auto, *">
-                            <Panel
-                                Name="PART_ExpandCollapseChevronContainer" Grid.Column="0"
-                                Margin="{StaticResource TreeViewItemIconMargin}">
-                                <ToggleButton
-                                    Name="PART_ExpandCollapseChevron" Focusable="False"
-                                    IsChecked="{TemplateBinding IsExpanded,
-                                                                Mode=TwoWay}"
-                                    Theme="{StaticResource ToggleButtonTreeViewItemIconButton}" />
-                            </Panel>
+                            <ToggleButton
+                                Name="PART_ExpandCollapseChevron"
+                                Grid.Column="0"
+                                Padding="{DynamicResource TreeViewItemIconMargin}"
+                                Focusable="False"
+                                IsChecked="{TemplateBinding IsExpanded,
+                                                            Mode=TwoWay}"
+                                Theme="{StaticResource ToggleButtonTreeViewItemIconButton}" />
                             <ContentPresenter
-                                Name="PART_HeaderPresenter" Grid.Column="1"
+                                Name="PART_HeaderPresenter"
+                                Grid.Column="1"
                                 Margin="{TemplateBinding Padding}"
+                                Padding="{DynamicResource TreeViewItemPadding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Content="{TemplateBinding Header}"

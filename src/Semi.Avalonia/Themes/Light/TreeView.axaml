@@ -1,5 +1,6 @@
 <ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
     <sys:Double x:Key="TreeViewItemIndent">20</sys:Double>
     <sys:Double x:Key="TreeViewItemIconSize">8</sys:Double>
@@ -19,6 +20,6 @@
     <SolidColorBrush x:Key="TreeViewItemDisabledBackground" Color="Transparent" />
     <SolidColorBrush x:Key="TreeViewItemSelectedDisabledBackground" Opacity="0.04" Color="#2E3238" />
 
-    <Thickness x:Key="TreeViewItemIconMargin">0 0 8 0</Thickness>
-    <Thickness x:Key="TreeViewItemPadding">8 4 0 4</Thickness>
+    <Thickness x:Key="TreeViewItemIconMargin">8 0</Thickness>
+    <Thickness x:Key="TreeViewItemPadding">0 4 0 4</Thickness>
 </ResourceDictionary>
