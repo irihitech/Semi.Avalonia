@@ -88,12 +88,14 @@
                     <Grid ColumnDefinitions="Auto,*,Auto, Auto, Auto">
                         <ContentPresenter
                             Grid.Column="0"
-                            Padding="{DynamicResource TextBoxInnerContentPadding}"
+                            Padding="{DynamicResource TextBoxInnerLeftContentPadding}"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding InnerLeftContent}"
-                            Foreground="{DynamicResource TextBoxInnerForeground}" />
+                            Foreground="{DynamicResource TextBoxInnerForeground}"
+                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                         <ScrollViewer
                             Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
                             AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                             HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                             IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
@@ -144,10 +146,11 @@
                             Theme="{StaticResource InputToggleButton}" />
                         <ContentPresenter
                             Grid.Column="4"
-                            Padding="{DynamicResource TextBoxInnerContentPadding}"
+                            Padding="{DynamicResource TextBoxInnerRightContentPadding}"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding InnerRightContent}"
-                            Foreground="{DynamicResource TextBoxInnerForeground}" />
+                            Foreground="{DynamicResource TextBoxInnerForeground}"
+                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                     </Grid>
                 </Border>
             </ControlTemplate>
