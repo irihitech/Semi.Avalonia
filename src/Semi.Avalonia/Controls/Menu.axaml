@@ -107,11 +107,11 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
-        <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
+        <Setter Property="MenuItem.Cursor" Value="Hand" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
-        <Setter Property="Padding" Value="{DynamicResource MenuFlyoutItemThemePaddingNarrow}" />
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -132,12 +132,13 @@
 
                             <Viewbox
                                 Name="PART_IconPresenter"
-                                Width="16"
-                                Height="16"
-                                Margin="{DynamicResource MenuIconPresenterMargin}"
+                                Width="12"
+                                Height="12"
+                                Margin="{DynamicResource MenuItemIconMargin}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 IsVisible="False"
+                                Stretch="UniformToFill"
                                 StretchDirection="DownOnly">
                                 <ContentPresenter Content="{TemplateBinding Icon}" />
                             </Viewbox>
@@ -152,23 +153,21 @@
                             <TextBlock
                                 x:Name="PART_InputGestureText"
                                 Grid.Column="2"
-                                Margin="{DynamicResource MenuInputGestureTextMargin}"
+                                Margin="{DynamicResource MenuItemInputGestureTextMargin}"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
-                                Classes="CaptionTextBlockStyle"
-                                Foreground="{DynamicResource MenuFlyoutItemKeyboardAcceleratorTextForeground}"
+                                Foreground="{DynamicResource MenuItemInputGestureTextForeground}"
                                 Text="{TemplateBinding InputGesture,
                                                        Converter={StaticResource KeyGestureConverter}}" />
-                            <Path
-                                Name="PART_ChevronPath"
+                            <PathIcon
+                                Name="PART_ExpandIcon"
                                 Grid.Column="3"
                                 Width="8"
-                                Height="16"
-                                Margin="{DynamicResource MenuFlyoutItemChevronMargin}"
+                                Height="8"
+                                Margin="{DynamicResource MenuItemExpandIconMargin}"
                                 VerticalAlignment="Center"
-                                Data="{DynamicResource MenuItemChevronPathData}"
-                                Fill="{DynamicResource MenuFlyoutSubItemChevron}"
-                                Stretch="Uniform" />
+                                Data="{DynamicResource MenuItemExpandIconGlyph}"
+                                Foreground="{DynamicResource MenuItemExpandIconForeground}" />
                         </Grid>
                     </Border>
                     <Popup
@@ -213,53 +212,32 @@
 
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackgroundPointerOver}" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForegroundPointerOver}" />
-            </Style>
-            <Style Selector="^ /template/ TextBlock#PART_InputGestureText">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemKeyboardAcceleratorTextForegroundPointerOver}" />
-            </Style>
-            <Style Selector="^ /template/ Path#PART_ChevronPath">
-                <Setter Property="Fill" Value="{DynamicResource MenuFlyoutSubItemChevronPointerOver}" />
+                <Setter Property="Background" Value="{DynamicResource MenuItemPointeroverBackground}" />
             </Style>
         </Style>
 
         <!--  Listen for PART_LayoutRoot:pointerover, so it will not be triggered when subitem is pressed  -->
         <Style Selector="^:pressed /template/ Border#PART_LayoutRoot:pointerover">
-            <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackgroundPressed}" />
-            <Style Selector="^ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForegroundPressed}" />
-            </Style>
-            <Style Selector="^ TextBlock#PART_InputGestureText">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemKeyboardAcceleratorTextForegroundPressed}" />
-            </Style>
-            <Style Selector="^ Path#PART_ChevronPath">
-                <Setter Property="Fill" Value="{DynamicResource MenuFlyoutSubItemChevronPressed}" />
-            </Style>
+            <Setter Property="Background" Value="{DynamicResource MenuItemPressedBackground}" />
         </Style>
 
         <Style Selector="^:disabled">
-            <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackgroundDisabled}" />
-            </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForegroundDisabled}" />
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ TextBlock#PART_InputGestureText">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemKeyboardAcceleratorTextForegroundDisabled}" />
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemDisabledInputGestureTextForeground}" />
             </Style>
-            <Style Selector="^ /template/ Path#PART_ChevronPath">
-                <Setter Property="Fill" Value="{DynamicResource MenuFlyoutSubItemChevronDisabled}" />
+            <Style Selector="^ /template/ PathIcon#PART_ExpandIcon">
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemDisabledExpandIconForeground}" />
             </Style>
         </Style>
 
-        <Style Selector="^:open /template/ Path#PART_ChevronPath">
-            <Setter Property="Fill" Value="{DynamicResource MenuFlyoutSubItemChevronSubMenuOpened}" />
+        <Style Selector="^:open /template/ PathIcon#PART_ExpandIcon">
+            <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutSubItemChevronSubMenuOpened}" />
         </Style>
 
-        <Style Selector="^:empty /template/ Path#PART_ChevronPath">
+        <Style Selector="^:empty /template/ PathIcon#PART_ExpandIcon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
@@ -275,8 +253,9 @@
     <ControlTheme x:Key="TopLevelMenuItem" TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
+        <Setter Property="MenuItem.Cursor" Value="Hand" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
-        <Setter Property="Padding" Value="{DynamicResource MenuItemTopLevelPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -341,11 +320,8 @@
         </Style>
 
         <Style Selector="^:disabled">
-            <Style Selector="^ /template/ Border#PART_LayoutRoot">
-                <Setter Property="Background" Value="{DynamicResource MenuFlyoutItemBackgroundDisabled}" />
-            </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuFlyoutItemForegroundDisabled}" />
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemDisabledForeground}" />
             </Style>
         </Style>
     </ControlTheme>
