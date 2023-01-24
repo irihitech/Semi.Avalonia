@@ -73,5 +73,56 @@
                 <MenuItem Header="Child 19" />
             </MenuItem>
         </Menu>
+        <Border>
+            <Border.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
+                    <MenuItem
+                        Header="_Disabled Menu Item"
+                        InputGesture="Ctrl+D"
+                        IsEnabled="False" />
+                    <Separator />
+                    <MenuItem Header="Menu with _Submenu">
+                        <MenuItem Header="Submenu _1" />
+                        <MenuItem Header="Submenu _2" />
+                    </MenuItem>
+                    <MenuItem Header="Menu Item with _Checkbox">
+                        <MenuItem.Icon>
+                            <CheckBox
+                                BorderThickness="0"
+                                IsChecked="True"
+                                IsHitTestVisible="False" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Menu Item that won't close on click" StaysOpenOnClick="True" />
+                </ContextMenu>
+            </Border.ContextMenu>
+            <TextBlock Text="Context Menu" />
+        </Border>
+        <Border>
+            <Border.ContextFlyout>
+                <MenuFlyout>
+                    <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
+                    <MenuItem
+                        Header="_Disabled Menu Item"
+                        InputGesture="Ctrl+D"
+                        IsEnabled="False" />
+                    <Separator />
+                    <MenuItem Header="Menu with _Submenu">
+                        <MenuItem Header="Submenu _1" />
+                        <MenuItem Header="Submenu _2" />
+                    </MenuItem>
+                    <MenuItem Header="Menu Item with _Checkbox">
+                        <MenuItem.Icon>
+                            <CheckBox
+                                BorderThickness="0"
+                                IsChecked="True"
+                                IsHitTestVisible="False" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuFlyout>
+            </Border.ContextFlyout>
+            <TextBlock Text="Context Flyout" />
+        </Border>
     </StackPanel>
 </UserControl>

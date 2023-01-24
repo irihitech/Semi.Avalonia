@@ -13,12 +13,18 @@
             <ControlTemplate TargetType="MenuFlyoutPresenter">
                 <Border
                     Name="LayoutRoot"
-                    Padding="{DynamicResource FlyoutBorderThemePadding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
+                    MinWidth="{DynamicResource MenuFlyoutMinWidth}"
+                    MinHeight="{DynamicResource MenuFlyoutMinHeight}"
+                    MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
+                    MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
+                    Margin="0,4"
+                    Padding="{DynamicResource MenuFlyoutPadding}"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource MenuFlyoutBackground}"
+                    BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
+                    BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
                     BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
+                    CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
                     <ScrollViewer
                         HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         Theme="{StaticResource MenuScrollViewer}"
