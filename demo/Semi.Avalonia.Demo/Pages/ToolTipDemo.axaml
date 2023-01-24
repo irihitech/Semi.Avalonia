@@ -1,0 +1,93 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.ToolTipDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel HorizontalAlignment="Left">
+        <Border
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Tip="This is a ToolTip">
+            <TextBlock>Hover Here</TextBlock>
+        </Border>
+        <ToggleSwitch
+            Margin="5"
+            Content="ToolTip Open"
+            IsChecked="{Binding ElementName=Border, Path=(ToolTip.IsOpen)}" />
+        <Border
+            Name="Border"
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Placement="Bottom">
+            <ToolTip.Tip>
+                <StackPanel>
+                    <TextBlock Classes="h1">ToolTip</TextBlock>
+                    <TextBlock Classes="h2">A control which pops up a hint when a control is hovered</TextBlock>
+                </StackPanel>
+            </ToolTip.Tip>
+            <TextBlock>ToolTip bottom placement</TextBlock>
+        </Border>
+        <Border
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Placement="Top"
+            ToolTip.Tip="Hello">
+            <Border.Styles>
+                <Style Selector="Border">
+                    <Style.Animations>
+                        <Animation IterationCount="Infinite" Duration="0:0:2">
+                            <KeyFrame KeyTime="0:0:0">
+                                <Setter Property="ToolTip.HorizontalOffset" Value="0" />
+                                <Setter Property="ToolTip.VerticalOffset" Value="-50" />
+                            </KeyFrame>
+                            <KeyFrame KeyTime="0:0:2">
+                                <Setter Property="ToolTip.HorizontalOffset" Value="100" />
+                                <Setter Property="ToolTip.VerticalOffset" Value="50" />
+                            </KeyFrame>
+                        </Animation>
+                    </Style.Animations>
+                </Style>
+            </Border.Styles>
+            <TextBlock>Moving offset</TextBlock>
+        </Border>
+        <Border
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Placement="Top"
+            ToolTip.Tip="Hello">
+            <TextBlock>Top</TextBlock>
+        </Border>
+        <Border
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Placement="Left"
+            ToolTip.Tip="Hello">
+            <TextBlock>Left</TextBlock>
+        </Border>
+        <Border
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Placement="Right"
+            ToolTip.Tip="Hello">
+            <TextBlock>Right</TextBlock>
+        </Border>
+        <Border
+            Margin="5"
+            Padding="50,10"
+            Background="Yellow"
+            ToolTip.Placement="Bottom"
+            ToolTip.Tip="Hello">
+            <TextBlock>Bottom</TextBlock>
+        </Border>
+    </StackPanel>
+</UserControl>
