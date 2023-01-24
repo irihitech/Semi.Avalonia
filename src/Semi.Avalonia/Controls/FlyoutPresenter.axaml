@@ -12,6 +12,7 @@
         <Setter Property="FlyoutPresenter.MaxWidth" Value="{DynamicResource FlyoutMaxWidth}" />
         <Setter Property="FlyoutPresenter.MinHeight" Value="{DynamicResource FlyoutMinHeight}" />
         <Setter Property="FlyoutPresenter.MaxHeight" Value="{DynamicResource FlyoutMaxHeight}" />
+        <Setter Property="FlyoutPresenter.Foreground" Value="{DynamicResource FlyoutForeground}" />
         <Setter Property="FlyoutPresenter.ClipToBounds" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -37,7 +38,8 @@
                             VerticalContentAlignment="Stretch"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            FontWeight="{TemplateBinding FontWeight}" />
+                            FontWeight="{TemplateBinding FontWeight}"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
                     </ScrollViewer>
                 </Border>
             </ControlTemplate>
