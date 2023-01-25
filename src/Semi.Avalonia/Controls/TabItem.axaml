@@ -24,7 +24,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
-                        <Label
+                        <ContentPresenter
                             Name="PART_ContentPresenter"
                             Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -37,24 +37,23 @@
                         <Border
                             Name="PART_SelectedPipe"
                             Background="{DynamicResource TabItemLinePipeBackground}"
-                            CornerRadius="{DynamicResource ControlCornerRadius}"
-                            IsVisible="True" UseLayoutRounding="False" />
+                            IsVisible="True"
+                            UseLayoutRounding="False" />
                     </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
 
         <!--  Selected state  -->
-        <!--  We don't use selector to PART_LayoutRoot, so developer can override selected item background with TabStripItem.Background  -->
-        <Style Selector="^:selected /template/ Label#PART_ContentPresenter">
+        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
-            <Setter Property="Label.FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
+            <Setter Property="ContentPresenter.FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
             <Setter Property="Cursor" Value="Hand" />
-            <Style Selector="^:pointerover /template/ Label#PART_ContentPresenter">
-                <Setter Property="Label.Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="ContentPresenter.Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
                 <Setter Property="Border.Background" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
@@ -88,7 +87,7 @@
                 <Setter Property="Border.HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Border.VerticalAlignment" Value="Bottom" />
             </Style>
-            <Style Selector="^ /template/ Label#PART_ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Margin" Value="0,0,0,4" />
             </Style>
         </Style>
@@ -99,7 +98,7 @@
                 <Setter Property="Border.HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Border.VerticalAlignment" Value="Top" />
             </Style>
-            <Style Selector="^ /template/ Label#PART_ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Margin" Value="0,4,0,0" />
             </Style>
         </Style>
@@ -122,7 +121,7 @@
                 <Setter Property="Border.HorizontalAlignment" Value="Right" />
                 <Setter Property="Border.VerticalAlignment" Value="Stretch" />
             </Style>
-            <Style Selector="^ /template/ Label#PART_ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Margin" Value="0,0,8,0" />
             </Style>
         </Style>

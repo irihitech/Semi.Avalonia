@@ -1,0 +1,37 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.CarouselDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel Spacing="20">
+        <TextBlock Classes="Strong" Text="This is still WIP" />
+        <Grid
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            ColumnDefinitions="Auto, *, Auto">
+            <RepeatButton
+                Name="Previous"
+                Grid.Column="0"
+                Content="Previous" />
+            <Carousel Name="carousel" Grid.Column="1">
+                <Carousel.PageTransition>
+                    <PageSlide Orientation="Horizontal" Duration="0.25" />
+                </Carousel.PageTransition>
+                <TextBlock Text="Text 1" />
+                <TextBlock Text="Text 2" />
+                <TextBlock Text="Text 3" />
+                <TextBlock Text="Text 4" />
+            </Carousel>
+            <RepeatButton
+                Name="Next"
+                Grid.Column="2"
+                Content="Next" />
+        </Grid>
+
+        <TextBlock Text="{Binding #carousel.SelectedIndex}" />
+    </StackPanel>
+</UserControl>
