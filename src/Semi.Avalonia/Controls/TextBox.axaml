@@ -85,7 +85,7 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{DynamicResource TextBoxDefaultCornerRadius}">
-                    <Grid ColumnDefinitions="Auto,*,Auto, Auto, Auto">
+                    <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto,*,Auto, Auto, Auto">
                         <ContentPresenter
                             Grid.Column="0"
                             Padding="{DynamicResource TextBoxInnerLeftContentPadding}"
@@ -95,7 +95,6 @@
                             IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                         <ScrollViewer
                             Grid.Column="1"
-                            Margin="{TemplateBinding Padding}"
                             AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                             HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                             IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
