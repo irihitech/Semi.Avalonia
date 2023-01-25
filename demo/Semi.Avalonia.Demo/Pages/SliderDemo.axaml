@@ -1,0 +1,79 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.SliderDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel
+        Margin="20"
+        HorizontalAlignment="Left"
+        Spacing="20">
+        <Slider
+            Width="300"
+            Maximum="100"
+            Minimum="0"
+            TickFrequency="10"
+            Value="0" />
+        <Slider
+            Width="300"
+            IsSnapToTickEnabled="True"
+            Maximum="100"
+            Minimum="0"
+            TickFrequency="10"
+            TickPlacement="Outside"
+            Value="0" />
+        <Slider
+            Width="300"
+            Classes="ToolTip"
+            IsSnapToTickEnabled="True"
+            Maximum="100"
+            Minimum="0"
+            TickFrequency="10"
+            TickPlacement="Outside"
+            Value="0" />
+        <Slider
+            Width="300"
+            IsDirectionReversed="True"
+            Maximum="100"
+            Minimum="0"
+            TickFrequency="10"
+            Value="0" />
+        <Slider
+            Width="300"
+            IsEnabled="False"
+            Maximum="100"
+            Minimum="0"
+            TickFrequency="10"
+            Value="30" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Slider
+                Height="300"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Vertical"
+                TickFrequency="10"
+                Value="0" />
+            <Slider
+                Height="300"
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Vertical"
+                TickFrequency="10"
+                TickPlacement="TopLeft"
+                Value="0" />
+            <Slider
+                Height="300"
+                Classes="ToolTip"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Vertical"
+                TickFrequency="10"
+                TickPlacement="TopLeft"
+                Value="0" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>
