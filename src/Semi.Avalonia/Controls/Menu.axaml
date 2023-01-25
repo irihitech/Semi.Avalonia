@@ -183,7 +183,7 @@
                             MinHeight="{DynamicResource MenuFlyoutMinHeight}"
                             MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
                             MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
-                            Margin="0,4"
+                            Margin="4"
                             Padding="{DynamicResource MenuFlyoutPadding}"
                             HorizontalAlignment="Stretch"
                             Background="{DynamicResource MenuFlyoutBackground}"
@@ -284,14 +284,15 @@
                                 MinHeight="{DynamicResource MenuFlyoutMinHeight}"
                                 MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
                                 MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
-                                Margin="0,4"
+                                Margin="4"
+                                Padding="{DynamicResource MenuFlyoutPadding}"
                                 HorizontalAlignment="Stretch"
                                 Background="{DynamicResource MenuFlyoutBackground}"
                                 BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
                                 BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
                                 BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                                 CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
-                                <ScrollViewer Padding="{DynamicResource MenuFlyoutPadding}" Theme="{StaticResource MenuScrollViewer}">
+                                <ScrollViewer Theme="{StaticResource MenuScrollViewer}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Grid.IsSharedSizeScope="True"
