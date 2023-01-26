@@ -1,0 +1,274 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="FluentTimePickerFlyoutButton" TargetType="Button">
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Name="PART_ContentPresenter"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Foreground="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource TimePickerButtonBackgroundPressed}" />
+            <Setter Property="Foreground" Value="{DynamicResource TimePickerButtonForegroundPressed}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource TimePickerButtonBorderBrushDisabled}" />
+            <Setter Property="Background" Value="{DynamicResource TimePickerButtonBackgroundDisabled}" />
+            <Setter Property="Foreground" Value="{DynamicResource TimePickerButtonForegroundDisabled}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TimePickerPresenter}" TargetType="TimePickerPresenter">
+        <Setter Property="Width" Value="242" />
+        <Setter Property="MinWidth" Value="242" />
+        <Setter Property="MaxHeight" Value="398" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Background" Value="{DynamicResource TimePickerFlyoutPresenterBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TimePickerFlyoutPresenterBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource DateTimeFlyoutBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Name="Background"
+                    MaxHeight="398"
+                    Padding="{DynamicResource DateTimeFlyoutBorderPadding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid Name="ContentPanel" RowDefinitions="*,Auto">
+                        <Grid Name="PART_PickerContainer">
+                            <!--  Ignore col defs here, set in code  -->
+                            <Panel Name="PART_HourHost" Grid.Column="0">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <DateTimePickerPanel
+                                        Name="PART_HourSelector"
+                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        PanelType="Hour"
+                                        ShouldLoop="True" />
+                                </ScrollViewer>
+                                <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                            </Panel>
+
+                            <Panel Name="PART_MinuteHost" Grid.Column="2">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <DateTimePickerPanel
+                                        Name="PART_MinuteSelector"
+                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        PanelType="Minute"
+                                        ShouldLoop="True" />
+                                </ScrollViewer>
+                                <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                            </Panel>
+
+                            <Panel Name="PART_PeriodHost" Grid.Column="4">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <DateTimePickerPanel
+                                        Name="PART_PeriodSelector"
+                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        PanelType="TimePeriod"
+                                        ShouldLoop="False" />
+                                </ScrollViewer>
+                                <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                            </Panel>
+
+                            <Rectangle
+                                x:Name="HighlightRect"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="5"
+                                Height="{DynamicResource TimePickerFlyoutPresenterHighlightHeight}"
+                                VerticalAlignment="Center"
+                                Fill="{DynamicResource TimePickerFlyoutPresenterHighlightFill}"
+                                ZIndex="-1" />
+                            <Rectangle
+                                Name="PART_FirstSpacer"
+                                Grid.Column="1"
+                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                HorizontalAlignment="Center"
+                                Fill="{DynamicResource TimePickerFlyoutPresenterSpacerFill}" />
+                            <Rectangle
+                                Name="PART_SecondSpacer"
+                                Grid.Column="3"
+                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                HorizontalAlignment="Center"
+                                Fill="{DynamicResource TimePickerFlyoutPresenterSpacerFill}" />
+                        </Grid>
+
+                        <Grid
+                            Name="AcceptDismissGrid"
+                            Grid.Row="1"
+                            ColumnDefinitions="*,*">
+                            <Rectangle
+                                Grid.ColumnSpan="2"
+                                Height="{DynamicResource TimePickerSpacerThemeWidth}"
+                                VerticalAlignment="Top"
+                                Fill="{DynamicResource TimePickerFlyoutPresenterSpacerFill}" />
+                            <Button
+                                Name="PART_AcceptButton"
+                                Grid.Column="0"
+                                Height="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Theme="{StaticResource FluentDateTimePickerButton}">
+                                <Path
+                                    Data="M0.5,8.5 5,13.5 15.5,3"
+                                    Stroke="{Binding $parent[Button].Foreground}"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="0.75" />
+                            </Button>
+                            <Button
+                                Name="PART_DismissButton"
+                                Grid.Column="1"
+                                Height="{DynamicResource TimePickerFlyoutPresenterAcceptDismissHostGridHeight}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                FontSize="16"
+                                Theme="{StaticResource FluentDateTimePickerButton}">
+                                <Path
+                                    Data="M2,2 14,14 M2,14 14 2"
+                                    Stroke="{Binding $parent[Button].Foreground}"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="0.75" />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Panel">
+            <Style Selector="^:pointerover RepeatButton">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource TimePickerButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TimePickerButtonBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TimePickerButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TimePickerBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DataValidationErrors>
+                    <Grid Name="LayoutRoot" Margin="{TemplateBinding Padding}">
+                        <Button
+                            x:Name="PART_FlyoutButton"
+                            MinWidth="{DynamicResource TimePickerThemeMinWidth}"
+                            MaxWidth="{DynamicResource TimePickerThemeMaxWidth}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsEnabled="{TemplateBinding IsEnabled}"
+                            Theme="{StaticResource FluentTimePickerFlyoutButton}">
+
+                            <Grid Name="PART_FlyoutButtonContentGrid">
+                                <!--  Ignore col defs here, set in code  -->
+                                <Border
+                                    x:Name="PART_FirstPickerHost"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                    <TextBlock
+                                        x:Name="PART_HourTextBlock"
+                                        Padding="{DynamicResource TimePickerHostPadding}"
+                                        HorizontalAlignment="Center"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}" />
+                                </Border>
+
+                                <Rectangle
+                                    Name="PART_FirstColumnDivider"
+                                    Grid.Column="1"
+                                    Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                    HorizontalAlignment="Center"
+                                    Fill="{DynamicResource TimePickerSpacerFill}" />
+
+                                <Border
+                                    x:Name="PART_SecondPickerHost"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                    <TextBlock
+                                        x:Name="PART_MinuteTextBlock"
+                                        Padding="{DynamicResource TimePickerHostPadding}"
+                                        HorizontalAlignment="Center"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}" />
+                                </Border>
+
+                                <Rectangle
+                                    Name="PART_SecondColumnDivider"
+                                    Grid.Column="3"
+                                    Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                    HorizontalAlignment="Center"
+                                    Fill="{DynamicResource TimePickerSpacerFill}" />
+
+                                <Border
+                                    x:Name="PART_ThirdPickerHost"
+                                    Grid.Column="4"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                    <TextBlock
+                                        x:Name="PART_PeriodTextBlock"
+                                        Padding="{DynamicResource TimePickerHostPadding}"
+                                        HorizontalAlignment="Center"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}" />
+                                </Border>
+                            </Grid>
+                        </Button>
+
+                        <Popup
+                            Name="PART_Popup"
+                            IsLightDismissEnabled="True"
+                            PlacementMode="Bottom"
+                            PlacementTarget="{TemplateBinding}"
+                            WindowManagerAddShadowHint="False">
+                            <TimePickerPresenter Name="PART_PickerPresenter" />
+                        </Popup>
+
+                    </Grid>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled /template/ Rectangle">
+            <Setter Property="Fill" Value="{DynamicResource TimePickerSpacerFillDisabled}" />
+        </Style>
+
+        <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource TextControlPlaceholderForeground}" />
+        </Style>
+
+        <Style Selector="^:error /template/ Button#PART_FlyoutButton">
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemControlErrorTextForegroundBrush}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
