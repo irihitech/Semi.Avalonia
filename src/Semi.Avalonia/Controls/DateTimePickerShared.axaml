@@ -1,0 +1,129 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Add Resources Here  -->
+
+    <ControlTheme x:Key="DateTimePickerFlyoutButton" TargetType="Button">
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Name="PART_ContentPresenter"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Foreground="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonDisabledBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonDisabledBackground}" />
+        </Style>
+    </ControlTheme>
+
+    <!--  Theme for the items displayed in the selectors  -->
+    <ControlTheme
+        x:Key="DateTimePickerItem"
+        BasedOn="{StaticResource {x:Type ListBoxItem}}"
+        TargetType="ListBoxItem">
+        <Setter Property="ListBoxItem.CornerRadius" Value="0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerListItemBackground}" />
+
+        <Style Selector="^:selected">
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+        <Style Selector="^.MonthItem">
+            <Setter Property="Padding" Value="{DynamicResource DatePickerFlyoutPresenterMonthPadding}" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+    </ControlTheme>
+
+    <!--  This is used for both the accept/dismiss & buttons in the presenter  -->
+    <ControlTheme x:Key="DateTimePickerButton" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonBackground}" />
+        <Setter Property="Padding" Value="0 8" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        x:Name="ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Background="{TemplateBinding Background}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Foreground="{TemplateBinding Foreground}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPressedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPressedBackground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="DateTimePickerUpButton"
+        BasedOn="{StaticResource DateTimePickerButton}"
+        TargetType="RepeatButton">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsVisible" Value="False" />
+        <Setter Property="Padding" Value="0 4" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon
+                    Width="8"
+                    Height="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="{DynamicResource DateTimePickerButtonUpGlyph}"
+                    Foreground="{Binding $parent[ContentPresenter].Foreground}" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="DateTimePickerDownButton"
+        BasedOn="{StaticResource DateTimePickerButton}"
+        TargetType="RepeatButton">
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsVisible" Value="False" />
+        <Setter Property="Padding" Value="0 4" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon
+                    Width="8"
+                    Height="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="{DynamicResource DateTimePickerButtonDownGlyph}"
+                    Foreground="{Binding $parent[ContentPresenter].Foreground}" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
