@@ -1,14 +1,17 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
     <!--  Add Resources Here  -->
     <SolidColorBrush x:Key="DateTimePickerListItemBackground" Color="White" />
     <Thickness x:Key="DateTimePickerListItemPadding">0 3 0 6</Thickness>
-    <SolidColorBrush x:Key="DateTimePickerButtonForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DateTimePickerButtonPressedForeground" Color="#1C1F23" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonForeground" Opacity="0.62" Color="#1C1F23" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverForeground" Color="#1C1F23" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedForeground" Color="#1C1F23" />
 
-    <SolidColorBrush x:Key="DateTimePickerButtonBackground" Color="White" />
-    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="DateTimePickerButtonPressedBackground" Opacity="0.13" Color="#2E3238" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonBackground" Color="White" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverBackground" Opacity="0.09" Color="#2E3238" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedBackground" Opacity="0.13" Color="#2E3238" />
 
     <PathGeometry x:Key="DateTimePickerButtonUpGlyph">M6.45096 8.34102L11.247 2.86102C11.3408 2.75361 11.4566 2.66753 11.5865 2.60854C11.7163 2.54956 11.8573 2.51904 12 2.51904C12.1426 2.51904 12.2836 2.54956 12.4135 2.60854C12.5433 2.66753 12.6591 2.75361 12.753 2.86102L17.549 8.34102C18.115 8.98802 17.655 10 16.796 10H7.20396C6.34396 10 5.88496 8.98802 6.45096 8.34102Z</PathGeometry>
     <PathGeometry x:Key="DateTimePickerButtonDownGlyph">M17.549 15.659L12.753 21.139C12.6591 21.2464 12.5434 21.3325 12.4135 21.3915C12.2836 21.4505 12.1427 21.481 12 21.481C11.8574 21.481 11.7164 21.4505 11.5865 21.3915C11.4566 21.3325 11.3409 21.2464 11.247 21.139L6.45101 15.659C5.88501 15.011 6.34501 14 7.20401 14H16.796C17.656 14 18.115 15.012 17.549 15.659Z</PathGeometry>
@@ -17,4 +20,23 @@
 
 
     <SolidColorBrush x:Key="DateTimePickerSeparatorBackground" Opacity="0.08" Color="#1C1F23" />
+    <sys:Double x:Key="DateTimePickerListBoxItem">28</sys:Double>
+
+
+    <SolidColorBrush x:Key="DateTimePickerButtonBorderBrush" Color="#C6CACD" />
+    <SolidColorBrush x:Key="DateTimePickerButtonBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="DateTimePickerButtonForeground" Color="#1C1F23" />
+
+    <SolidColorBrush x:Key="DateTimePickerIconForeground" Opacity="0.62" Color="#1C1F23" />
+    <SolidColorBrush x:Key="DateTimePickerEmptyForeground" Opacity="0.5" Color="#1C1F23" />
+
+    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBorderBrush" Color="#0062D6" />
+    <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="DateTimePickerButtonDisabledBackground" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="DateTimePickerButtonDisabledIconForeground" Opacity="0.4" Color="#2E3238" />
+
+    <BoxShadows x:Key="DateTimePickerFlyoutBoxShadow">0 0 8 0 #1A000000</BoxShadows>
+    <Thickness x:Key="DateTimePickerFlyoutPadding">16 0</Thickness>
+    <Thickness x:Key="DateTimePickerFlyoutBorderMargin">8</Thickness>
+
 </ResourceDictionary>

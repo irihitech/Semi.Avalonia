@@ -9,6 +9,8 @@
     mc:Ignorable="d">
     <StackPanel Margin="20" Spacing="20">
         <TimePicker />
-        <Button Content="Hello" Theme="{DynamicResource FluentTimePickerFlyoutButton}" />
+        <TimePicker MinuteIncrement="15" />
+        <TimePicker ClockIdentifier="24HourClock" />
+        <TimePicker ClockIdentifier="12HourClock" IsEnabled="False" />
     </StackPanel>
 </UserControl>

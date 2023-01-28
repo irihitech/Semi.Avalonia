@@ -3,7 +3,7 @@
 
     <!--  Theme for the items displayed in the selectors  -->
     <ControlTheme
-        x:Key="FluentDateTimePickerItem"
+        x:Key="DateTimePickerItem"
         BasedOn="{StaticResource {x:Type ListBoxItem}}"
         TargetType="ListBoxItem">
         <Setter Property="ListBoxItem.CornerRadius" Value="0" />
@@ -21,9 +21,9 @@
     </ControlTheme>
 
     <!--  This is used for both the accept/dismiss & buttons in the presenter  -->
-    <ControlTheme x:Key="FluentDateTimePickerButton" TargetType="Button">
-        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
-        <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
+    <ControlTheme x:Key="DateTimePickerButton" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonBackground}" />
         <Setter Property="Padding" Value="0 8" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -46,19 +46,19 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonPointeroverForeground}" />
-            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:pressed /template/ ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonPressedForeground}" />
-            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPressedBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPressedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPressedBackground}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme
-        x:Key="FluentDateTimePickerUpButton"
-        BasedOn="{StaticResource FluentDateTimePickerButton}"
+        x:Key="DateTimePickerUpButton"
+        BasedOn="{StaticResource DateTimePickerButton}"
         TargetType="RepeatButton">
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -79,8 +79,8 @@
     </ControlTheme>
 
     <ControlTheme
-        x:Key="FluentDateTimePickerDownButton"
-        BasedOn="{StaticResource FluentDateTimePickerButton}"
+        x:Key="DateTimePickerDownButton"
+        BasedOn="{StaticResource DateTimePickerButton}"
         TargetType="RepeatButton">
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />

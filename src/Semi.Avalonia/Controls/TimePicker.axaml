@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Add Resources Here  -->
-    <ControlTheme x:Key="FluentTimePickerFlyoutButton" TargetType="Button">
+    <ControlTheme x:Key="TimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -17,44 +17,39 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TimePickerButtonBackgroundPressed}" />
-            <Setter Property="Foreground" Value="{DynamicResource TimePickerButtonForegroundPressed}" />
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="BorderBrush" Value="{DynamicResource TimePickerButtonBorderBrushDisabled}" />
-            <Setter Property="Background" Value="{DynamicResource TimePickerButtonBackgroundDisabled}" />
-            <Setter Property="Foreground" Value="{DynamicResource TimePickerButtonForegroundDisabled}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonDisabledBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonDisabledBackground}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TimePickerPresenter}" TargetType="TimePickerPresenter">
         <Setter Property="MinWidth" Value="242" />
-        <Setter Property="Width" Value="242" />
         <Setter Property="MaxHeight" Value="300" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Background" Value="White" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TimePickerFlyoutPresenterBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource DateTimeFlyoutBorderThickness}" />
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TimePickerPresenter">
                 <Border
                     Name="Background"
-                    Margin="8"
-                    Padding="16,0"
+                    Margin="{DynamicResource DateTimePickerFlyoutBorderMargin}"
+                    Padding="{DynamicResource DateTimePickerFlyoutPadding}"
                     HorizontalAlignment="Stretch"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    BoxShadow="0 0 8 0 #1A000000"
+                    BoxShadow="{DynamicResource DateTimePickerFlyoutBoxShadow}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid Name="ContentPanel" RowDefinitions="*,Auto">
                         <Grid Name="PART_PickerContainer">
                             <Grid.Styles>
                                 <Style Selector="DateTimePickerPanel &gt; ListBoxItem">
-                                    <Setter Property="Theme" Value="{StaticResource FluentDateTimePickerItem}" />
+                                    <Setter Property="Theme" Value="{StaticResource DateTimePickerItem}" />
                                 </Style>
                             </Grid.Styles>
                             <!--  Ignore col defs here, set in code  -->
@@ -62,48 +57,50 @@
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_HourSelector"
-                                        ItemHeight="28"
+                                        ItemHeight="{DynamicResource DateTimePickerListBoxItem}"
                                         PanelType="Hour"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
-                                <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                                <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                             </Panel>
 
                             <Panel Name="PART_MinuteHost" Grid.Column="2">
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_MinuteSelector"
-                                        ItemHeight="28"
+                                        ItemHeight="{DynamicResource DateTimePickerListBoxItem}"
                                         PanelType="Minute"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
-                                <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                                <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                             </Panel>
 
                             <Panel Name="PART_PeriodHost" Grid.Column="4">
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_PeriodSelector"
-                                        ItemHeight="28"
+                                        ItemHeight="{DynamicResource DateTimePickerListBoxItem}"
                                         PanelType="TimePeriod"
                                         ShouldLoop="False" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
-                                <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                                <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                             </Panel>
 
                             <Rectangle
                                 Name="PART_FirstSpacer"
                                 Grid.Column="1"
                                 Width="1"
+                                Margin="0,4"
                                 HorizontalAlignment="Center"
                                 Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                             <Rectangle
                                 Name="PART_SecondSpacer"
                                 Grid.Column="3"
                                 Width="1"
+                                Margin="0,4"
                                 HorizontalAlignment="Center"
                                 Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                         </Grid>
@@ -117,7 +114,7 @@
                                 Grid.Column="0"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
-                                Theme="{StaticResource FluentDateTimePickerButton}">
+                                Theme="{StaticResource DateTimePickerButton}">
                                 <PathIcon
                                     Width="12"
                                     Height="12"
@@ -130,7 +127,7 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 FontSize="16"
-                                Theme="{StaticResource FluentDateTimePickerButton}">
+                                Theme="{StaticResource DateTimePickerButton}">
                                 <PathIcon
                                     Width="12"
                                     Height="12"
@@ -158,9 +155,9 @@
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="Foreground" Value="{DynamicResource TimePickerButtonForeground}" />
-        <Setter Property="Background" Value="{DynamicResource TimePickerButtonBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TimePickerButtonBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -170,17 +167,18 @@
                 <Grid Name="LayoutRoot" Margin="{TemplateBinding Padding}">
                     <Button
                         x:Name="PART_FlyoutButton"
+                        Width="242"
                         MinWidth="242"
-                        MaxWidth="242"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
+                        Cursor="Hand"
                         Foreground="{TemplateBinding Foreground}"
                         IsEnabled="{TemplateBinding IsEnabled}"
-                        Theme="{StaticResource FluentTimePickerFlyoutButton}">
+                        Theme="{StaticResource TimePickerFlyoutButton}">
                         <Grid ColumnDefinitions="*, Auto">
                             <Grid Name="PART_FlyoutButtonContentGrid" Grid.Column="0">
                                 <!--  Ignore col defs here, set in code  -->
@@ -202,6 +200,7 @@
                                     Name="PART_FirstColumnDivider"
                                     Grid.Column="1"
                                     Width="1"
+                                    Margin="0,4"
                                     HorizontalAlignment="Center"
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
@@ -223,6 +222,7 @@
                                     Name="PART_SecondColumnDivider"
                                     Grid.Column="3"
                                     Width="1"
+                                    Margin="0,4"
                                     HorizontalAlignment="Center"
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
@@ -241,12 +241,13 @@
                                 </Border>
                             </Grid>
                             <PathIcon
+                                Name="PART_Icon"
                                 Grid.Column="1"
                                 Width="12"
                                 Height="12"
                                 Margin="0,0,8,0"
                                 Data="{DynamicResource TimePickerIconGlyph}"
-                                Foreground="{DynamicResource TimePickerIconForeground}" />
+                                Foreground="{DynamicResource DateTimePickerIconForeground}" />
                         </Grid>
 
                     </Button>
@@ -257,23 +258,18 @@
                         PlacementMode="Bottom"
                         PlacementTarget="{TemplateBinding}"
                         WindowManagerAddShadowHint="False">
-                        <TimePickerPresenter Name="PART_PickerPresenter" />
+                        <TimePickerPresenter Name="PART_PickerPresenter" Width="{Binding $parent[TimePicker].Bounds.Width}" />
                     </Popup>
-
                 </Grid>
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:disabled /template/ Rectangle">
-            <Setter Property="Fill" Value="{DynamicResource TimePickerSpacerFillDisabled}" />
+        <Style Selector="^:disabled /template/ PathIcon#PART_Icon">
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonDisabledIconForeground}" />
         </Style>
 
         <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton TextBlock">
-            <Setter Property="Foreground" Value="{DynamicResource TextControlPlaceholderForeground}" />
-        </Style>
-
-        <Style Selector="^:error /template/ Button#PART_FlyoutButton">
-            <Setter Property="BorderBrush" Value="{DynamicResource SystemControlErrorTextForegroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
