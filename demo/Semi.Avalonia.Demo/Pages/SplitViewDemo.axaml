@@ -1,0 +1,152 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.SplitViewDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Border>
+        <Grid ColumnDefinitions="*,400">
+            <StackPanel
+                Grid.Column="1"
+                Margin="5"
+                Orientation="Vertical"
+                Spacing="4">
+                <ToggleButton
+                    Name="PaneOpenButton"
+                    Content="IsPaneOpen"
+                    IsChecked="{Binding IsPaneOpen, ElementName=SplitView}" />
+
+                <ToggleButton
+                    Name="UseLightDismissOverlayModeButton"
+                    Content="UseLightDismissOverlayMode"
+                    IsChecked="{Binding UseLightDismissOverlayMode, ElementName=SplitView}" />
+
+                <ToggleSwitch
+                    Content="Placement"
+                    IsChecked="{Binding !IsLeft}"
+                    OffContent="Left"
+                    OnContent="Right" />
+
+                <TextBlock Text="DisplayMode" />
+                <ComboBox
+                    Name="DisplayModeSelector"
+                    Width="170"
+                    Margin="10"
+                    SelectedIndex="{Binding DisplayMode}">
+                    <ComboBoxItem>Inline</ComboBoxItem>
+                    <ComboBoxItem>CompactInline</ComboBoxItem>
+                    <ComboBoxItem>Overlay</ComboBoxItem>
+                    <ComboBoxItem>CompactOverlay</ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Text="PaneBackground" />
+                <ComboBox
+                    Name="PaneBackgroundSelector"
+                    Width="170"
+                    Margin="10"
+                    SelectedIndex="0">
+                    <ComboBoxItem Tag="White">White</ComboBoxItem>
+                    <ComboBoxItem Tag="Red">Red</ComboBoxItem>
+                    <ComboBoxItem Tag="Blue">Blue</ComboBoxItem>
+                    <ComboBoxItem Tag="Green">Green</ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Text="{Binding Value, ElementName=OpenPaneLengthSlider, StringFormat='{}OpenPaneLength: {0}'}" />
+                <Slider
+                    Name="OpenPaneLengthSlider"
+                    Width="150"
+                    Maximum="500"
+                    Minimum="128"
+                    Value="256" />
+
+                <TextBlock Text="{Binding Value, ElementName=CompactPaneLengthSlider, StringFormat='{}CompactPaneLength: {0}'}" />
+                <Slider
+                    Name="CompactPaneLengthSlider"
+                    Width="150"
+                    Maximum="128"
+                    Minimum="24"
+                    Value="48" />
+            </StackPanel>
+            <Border BorderBrush="{DynamicResource SystemControlHighlightBaseLowBrush}" BorderThickness="1">
+                <!--  {Binding SelectedItem.Tag, ElementName=PaneBackgroundSelector}  -->
+                <SplitView
+                    Name="SplitView"
+                    CompactPaneLength="{Binding Value, ElementName=CompactPaneLengthSlider}"
+                    DisplayMode="CompactOverlay"
+                    OpenPaneLength="{Binding Value, ElementName=OpenPaneLengthSlider}"
+                    PaneBackground="{Binding SelectedItem.Tag, ElementName=PaneBackgroundSelector}"
+                    PanePlacement="{Binding PanePlacement}">
+                    <SplitView.Pane>
+                        <Grid RowDefinitions="Auto,Auto,*,Auto">
+                            <TextBlock
+                                Name="PaneHeader"
+                                Margin="5,12,0,0"
+                                FontWeight="Bold"
+                                Text="PANE CONTENT" />
+                            <ComboBox Grid.Row="1" Width="150">
+                                <ComboBoxItem Content="Item1" />
+                                <ComboBoxItem Content="Item2" />
+                                <ComboBoxItem Content="Item3" />
+                            </ComboBox>
+                            <ListBoxItem
+                                Grid.Row="2"
+                                Margin="0,10"
+                                VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal">
+                                    <!--  Path glyph from materialdesignicons.com  -->
+                                    <Border Width="48">
+                                        <Viewbox
+                                            Width="24"
+                                            Height="24"
+                                            HorizontalAlignment="Left">
+                                            <Canvas Width="24" Height="24">
+                                                <Path Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" Fill="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+                                            </Canvas>
+                                        </Viewbox>
+                                    </Border>
+                                    <TextBlock VerticalAlignment="Center" Text="People" />
+                                </StackPanel>
+                            </ListBoxItem>
+                            <TextBlock
+                                Grid.Row="3"
+                                Margin="60,12"
+                                Text="Item at bottom" />
+                        </Grid>
+                    </SplitView.Pane>
+
+                    <Grid>
+                        <Grid.Styles>
+                            <Style Selector="TextBlock">
+                                <Setter Property="FontSize" Value="14" />
+                                <Setter Property="FontWeight" Value="700" />
+                            </Style>
+                        </Grid.Styles>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="SplitViewContent" />
+                        <TextBlock Text="SplitViewContent" TextAlignment="Left" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            Text="SplitViewContent"
+                            TextAlignment="Left" />
+                        <TextBlock
+                            VerticalAlignment="Bottom"
+                            Text="SplitViewContent"
+                            TextAlignment="Left" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Text="SplitViewContent"
+                            TextAlignment="Left" />
+                    </Grid>
+
+                </SplitView>
+            </Border>
+
+        </Grid>
+    </Border>
+</UserControl>
