@@ -1,0 +1,84 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Avalonia.Controls.Converters">
+
+    <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
+        <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="SplitButton.BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="SplitButton.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="SplitButton.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="SplitButton.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="SplitButton.RenderTransform" Value="none" />
+        <Setter Property="SplitButton.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="SplitButton.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="SplitButton.HorizontalContentAlignment" Value="Center" />
+        <Setter Property="SplitButton.VerticalContentAlignment" Value="Center" />
+        <Setter Property="SplitButton.MinHeight" Value="12" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="SplitButton">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    ClipToBounds="True"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid ColumnDefinitions="*,Auto,Auto">
+                        <Button
+                            x:Name="PART_PrimaryButton"
+                            Grid.Column="0"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Command="{TemplateBinding Command}"
+                            CommandParameter="{TemplateBinding CommandParameter}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            CornerRadius="3 0 0 3"
+                            Focusable="False"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding Foreground}"
+                            KeyboardNavigation.IsTabStop="False" />
+
+                        <Border
+                            x:Name="SeparatorBorder"
+                            Grid.Column="1"
+                            Width="{DynamicResource SplitButtonSeparatorWidth}"
+                            Background="White"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="0.5" />
+
+                        <Button
+                            x:Name="PART_SecondaryButton"
+                            Grid.Column="2"
+                            Padding="4,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0 3 3 0"
+                            Focusable="False"
+                            KeyboardNavigation.IsTabStop="False">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{DynamicResource SplitButtonIconGlyph}"
+                                Foreground="{TemplateBinding Foreground}" />
+                        </Button>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
