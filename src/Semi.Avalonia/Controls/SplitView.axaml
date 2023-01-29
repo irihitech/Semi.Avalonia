@@ -7,7 +7,7 @@
     <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
         <Setter Property="OpenPaneLength" Value="{DynamicResource SplitViewOpenPaneThemeLength}" />
         <Setter Property="CompactPaneLength" Value="{DynamicResource SplitViewCompactPaneThemeLength}" />
-        <Setter Property="PaneBackground" Value="White" />
+        <Setter Property="PaneBackground" Value="{DynamicResource SplitViewPaneBackground}" />
 
         <Style Selector="^:left">
             <Setter Property="Template">
