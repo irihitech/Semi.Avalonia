@@ -84,6 +84,32 @@
                     </MenuFlyout>
                 </SplitButton.Flyout>
             </SplitButton>
+            <SplitButton Classes="Secondary" Content="Submit" />
+            <SplitButton Classes="Tertiary" Content="Submit" />
+            <SplitButton Classes="Warning" Content="Submit" />
+            <SplitButton Classes="Danger" Content="Submit" />
+            <SplitButton
+                Classes="Danger"
+                Content="Submit"
+                IsEnabled="False" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSplitButton Content="Submit">
+                <ToggleSplitButton.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MenuItem Header="Submit All" />
+                        <MenuItem Header="Submit Updated" />
+                    </MenuFlyout>
+                </ToggleSplitButton.Flyout>
+            </ToggleSplitButton>
+            <ToggleSplitButton Classes="Secondary" Content="Submit" />
+            <ToggleSplitButton Classes="Tertiary" Content="Submit" />
+            <ToggleSplitButton Classes="Warning" Content="Submit" />
+            <ToggleSplitButton Classes="Danger" Content="Submit" />
+            <ToggleSplitButton
+                Classes="Danger"
+                Content="Submit"
+                IsEnabled="False" />
         </StackPanel>
     </StackPanel>
 </UserControl>

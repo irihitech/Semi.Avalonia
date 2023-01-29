@@ -16,14 +16,6 @@
                 Theme="{StaticResource TitleTextBlock}" />
 
             <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary">主要按钮</Button>
-                <Button Classes="Secondary">次要按钮</Button>
-                <Button Classes="Tertiary">第三按钮</Button>
-                <Button Classes="Warning">警告按钮</Button>
-                <Button Classes="Danger">危险按钮</Button>
-                <Button Classes="Primary" IsEnabled="False">禁用按钮</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
                 <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
                 <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
@@ -61,8 +53,6 @@
                         <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 2</RadioButton>
                     </StackPanel>
                 </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
                 <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}">
                     <StackPanel>
                         <TextBlock FontWeight="Bold">Option 1</TextBlock>
@@ -79,6 +69,7 @@
                     </StackPanel>
                 </RadioButton>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" />
             <StackPanel Orientation="Horizontal">
                 <CheckBox Margin="0,0,8,0">Avalonia</CheckBox>
                 <CheckBox Margin="0,0,8,0" IsChecked="True">WPF</CheckBox>
@@ -89,6 +80,15 @@
                     Content="Content"
                     OffContent="No"
                     OnContent="Yes" />
+                <ProgressBar
+                    Classes="Right"
+                    ShowProgressText="True"
+                    Value="20" />
+                <Slider
+                    Width="200"
+                    Margin="30,0"
+                    Orientation="Horizontal"
+                    Value="30" />
             </StackPanel>
             <TabControl>
                 <TabItem Header="Tab 1">
@@ -103,7 +103,9 @@
             </TabControl>
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <ComboBox Width="200" PlaceholderText="Please Select" />
-
+                <DatePicker />
+                <TimePicker />
+                <CalendarDatePicker />
             </StackPanel>
             <Grid ColumnDefinitions="* * *">
                 <Border Theme="{StaticResource CardBorder}">
@@ -132,6 +134,7 @@
                     Classes="revealPasswordButton"
                     PasswordChar="*"
                     Text="Avalonia" />
+
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Spacing="20">
@@ -152,6 +155,7 @@
                     <TextBlock>List Item 4</TextBlock>
                     <TextBlock>List Item 5</TextBlock>
                 </ListBox>
+                <Calendar />
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
