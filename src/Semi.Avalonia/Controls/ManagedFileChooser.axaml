@@ -37,8 +37,8 @@
                                             Width="16"
                                             Height="16"
                                             Data="{Binding IconKey, Converter={StaticResource Icons}}"
-                                            Foreground="{DynamicResource ManagedFileChooserQuickLinkIconForeground}" />
-                                        <TextBlock Foreground="{DynamicResource ManagedFileChooserQuickLinkTextForeground}" Text="{Binding DisplayName}" />
+                                            Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
+                                        <TextBlock Foreground="{DynamicResource ManagedFileChooserTextForeground}" Text="{Binding DisplayName}" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -57,7 +57,7 @@
                                 Width="16"
                                 Height="16"
                                 Data="{DynamicResource ManagedFileChooserUpButtonGlyph}"
-                                Foreground="Black" />
+                                Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
                         </Button>
                         <TextBox
                             x:Name="Location"
@@ -150,11 +150,20 @@
                                                 Width="16"
                                                 Height="16"
                                                 Data="{Binding IconKey, Converter={StaticResource Icons}}"
-                                                Foreground="{DynamicResource ManagedFileChooserQuickLinkIconForeground}" />
-                                            <TextBlock Grid.Column="2" Text="{Binding DisplayName}" />
-                                            <TextBlock Grid.Column="4" Text="{Binding Modified}" />
-                                            <TextBlock Grid.Column="6" Text="{Binding Type}" />
-                                            <TextBlock Grid.Column="8">
+                                                Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
+                                            <TextBlock
+                                                Grid.Column="2"
+                                                Foreground="{DynamicResource ManagedFileChooserTextForeground}"
+                                                Text="{Binding DisplayName}" />
+                                            <TextBlock
+                                                Grid.Column="4"
+                                                Foreground="{DynamicResource ManagedFileChooserTextForeground}"
+                                                Text="{Binding Modified}" />
+                                            <TextBlock
+                                                Grid.Column="6"
+                                                Foreground="{DynamicResource ManagedFileChooserTextForeground}"
+                                                Text="{Binding Type}" />
+                                            <TextBlock Grid.Column="8" Foreground="{DynamicResource ManagedFileChooserTextForeground}">
                                                 <TextBlock.Text>
                                                     <Binding Path="Size">
                                                         <Binding.Converter>
