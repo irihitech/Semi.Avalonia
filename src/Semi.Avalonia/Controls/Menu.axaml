@@ -172,18 +172,19 @@
                     </Border>
                     <Popup
                         Name="PART_Popup"
-                        HorizontalOffset="{DynamicResource MenuFlyoutSubItemPopupHorizontalOffset}"
+                        HorizontalOffset="-8"
                         IsLightDismissEnabled="False"
                         IsOpen="{TemplateBinding IsSubMenuOpen,
                                                  Mode=TwoWay}"
                         PlacementMode="Right"
+                        VerticalOffset="-4"
                         WindowManagerAddShadowHint="False">
                         <Border
                             MinWidth="{DynamicResource MenuFlyoutMinWidth}"
                             MinHeight="{DynamicResource MenuFlyoutMinHeight}"
                             MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
                             MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
-                            Margin="4"
+                            Margin="8"
                             Padding="{DynamicResource MenuFlyoutPadding}"
                             HorizontalAlignment="Stretch"
                             Background="{DynamicResource MenuFlyoutBackground}"
@@ -274,17 +275,19 @@
                         <Popup
                             Name="PART_Popup"
                             MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            HorizontalOffset="-8"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsSubMenuOpen,
                                                      Mode=TwoWay}"
                             OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                            VerticalOffset="-4"
                             WindowManagerAddShadowHint="False">
                             <Border
                                 MinWidth="{DynamicResource MenuFlyoutMinWidth}"
                                 MinHeight="{DynamicResource MenuFlyoutMinHeight}"
                                 MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
                                 MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
-                                Margin="4"
+                                Margin="8"
                                 Padding="{DynamicResource MenuFlyoutPadding}"
                                 HorizontalAlignment="Stretch"
                                 Background="{DynamicResource MenuFlyoutBackground}"
