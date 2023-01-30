@@ -18,6 +18,28 @@
                 Theme="{StaticResource BorderlessTextBox}" />
         </StackPanel>
     </Design.PreviewWith>
+
+    <MenuFlyout x:Key="DefaultTextBoxContextFlyout" Placement="Bottom">
+        <MenuItem
+            x:Name="TextBoxContextFlyoutCutItem"
+            Command="{Binding $parent[TextBox].Cut}"
+            Header="Cut"
+            InputGesture="{x:Static TextBox.CutGesture}"
+            IsEnabled="{Binding $parent[TextBox].CanCut}" />
+        <MenuItem
+            x:Name="TextBoxContextFlyoutCopyItem"
+            Command="{Binding $parent[TextBox].Copy}"
+            Header="Copy"
+            InputGesture="{x:Static TextBox.CopyGesture}"
+            IsEnabled="{Binding $parent[TextBox].CanCopy}" />
+        <MenuItem
+            x:Name="TextBoxContextFlyoutPasteItem"
+            Command="{Binding $parent[TextBox].Paste}"
+            Header="Paste"
+            InputGesture="{x:Static TextBox.PasteGesture}"
+            IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+    </MenuFlyout>
+
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <ControlTheme.Resources>
             <ControlTheme x:Key="InputClearButton" TargetType="Button">
@@ -77,6 +99,7 @@
         <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="TextBox.ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
         <Setter Property="TextBox.Template">
             <ControlTemplate TargetType="TextBox">
                 <Border
