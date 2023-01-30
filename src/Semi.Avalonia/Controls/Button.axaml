@@ -89,6 +89,15 @@
         <Setter Property="Button.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
         <Setter Property="Button.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
 
+        <Style Selector="^:pointerover">
+            <Setter Property="Button.Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
+            <Setter Property="Button.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Button.Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
+            <Setter Property="Button.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
+        </Style>
+
         <Style Selector="^.Primary">
             <Setter Property="Button.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             <Setter Property="Button.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
