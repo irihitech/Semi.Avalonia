@@ -59,10 +59,7 @@
                                 Data="{DynamicResource ManagedFileChooserUpButtonGlyph}"
                                 Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
                         </Button>
-                        <TextBox
-                            x:Name="Location"
-                            Text="{Binding Location}"
-                            Theme="{DynamicResource BorderlessTextBox}">
+                        <TextBox x:Name="Location" Text="{Binding Location}">
                             <TextBox.KeyBindings>
                                 <KeyBinding Command="{Binding EnterPressed}" Gesture="Enter" />
                             </TextBox.KeyBindings>
@@ -79,7 +76,6 @@
                                 Margin="0,0,8,0"
                                 IsVisible="{Binding !SelectingFolder}"
                                 Text="{Binding FileName}"
-                                Theme="{DynamicResource BorderlessTextBox}"
                                 Watermark="File name" />
                         </DockPanel>
                         <CheckBox
@@ -108,9 +104,15 @@
                     <Border Padding="8" Theme="{DynamicResource CardBorder}">
                         <DockPanel Grid.IsSharedSizeScope="True">
                             <Grid
+                                Margin="0,0,0,8"
                                 HorizontalAlignment="Stretch"
                                 ClipToBounds="True"
                                 DockPanel.Dock="Top">
+                                <Grid.Styles>
+                                    <Style Selector="TextBlock">
+                                        <Setter Property="Margin" Value="8 0 0 0 " />
+                                    </Style>
+                                </Grid.Styles>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="20" SharedSizeGroup="Icon" />
                                     <ColumnDefinition Width="16" SharedSizeGroup="Splitter" />
