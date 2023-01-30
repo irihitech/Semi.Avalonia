@@ -54,7 +54,7 @@
                         Viewport height is set from # of rows displayed (2-8) in Month mode, = ~290 for 6 weeks (+ day names)
                     -->
                     <Grid
-                        MinWidth="200"
+                        MinWidth="{DynamicResource CalendarMinWidth}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         RowDefinitions="Auto,*">

@@ -1,4 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="using:System">
     <!--  Add Resources Here  -->
     <SolidColorBrush x:Key="CalendarBackground" Color="White" />
     <SolidColorBrush x:Key="CalendarForeground" Color="#1C1F23" />
@@ -43,4 +46,5 @@
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBlackoutForeground" Opacity="0.35" Color="#1C1F23" />
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonInactiveForeground" Opacity="0.62" Color="#1C1F23" />
 
+    <sys:Double x:Key="CalendarMinWidth">240</sys:Double>
 </ResourceDictionary>
