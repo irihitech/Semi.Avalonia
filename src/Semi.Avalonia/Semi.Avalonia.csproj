@@ -3,25 +3,36 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
     <LangVersion>10</LangVersion>
-    <Version>0.1.0-preview2</Version>
+    <Version>0.1.0-preview3</Version>
     <Title>Semi.Avalonia</Title>
     <Authors>IRIHI Technology</Authors>
     <Description>Avalonia Theme inspired by Semi Design. </Description>
     <PackageProjectUrl>https://github.com/irihitech/Semi.Avalonia</PackageProjectUrl>
-    <PackageReleaseNotes>Add new control themes:
-➕ ItemsControl
-➕ AutoComplete
-➕ Notification
-➕ ProgressBar
-➕ ButtonSpinner
-➕ NumericUpDown
-➕ Menu, ContextMenu, FlyoutMenu
-➕ ToolTip
+    <PackageReleaseNotes>Add new controls:
+* Slider
+* GridSplitter
+* Carousel
+* Popup
+* Tabstrip
+* Timepicker
+* DatePicker
+* Canlendar
+* CalendarDatePicker
+* CaptionButtons
+* TitleBar
+* SplitView
+* ManagedFileChooser
+* DropdownButton
+* SplitButton
 
 Fixes:
-🔧 Fix TextBox padding when inner content is empty.
-🔧 Fix TreeViewItem ToggleButton size too small.
-🔧 Fix Flyout default foreground.</PackageReleaseNotes>
+* Fix TextBox and AutoComplete Padding
+* Fix Button default color
+* Fix Menu spacing
+* Fix various Flyout/Popup CornerRadius
+
+Msic:
+* Add default ContextFlyout for TextBox</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
