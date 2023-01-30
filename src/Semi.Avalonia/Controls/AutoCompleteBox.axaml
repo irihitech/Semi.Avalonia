@@ -10,13 +10,11 @@
         <Setter Property="BorderBrush" Value="{DynamicResource AutoCompleteBoxDefaultBorderBrush}" />
         <Setter Property="AutoCompleteBox.MaxDropDownHeight" Value="600" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="4" />
         <Setter Property="Template">
             <ControlTemplate TargetType="AutoCompleteBox">
                 <Panel>
                     <TextBox
                         Name="PART_TextBox"
-                        Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
