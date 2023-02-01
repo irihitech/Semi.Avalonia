@@ -52,16 +52,10 @@ public partial class ManagedFileChooserDemo : UserControl
     
     private IStorageProvider? GetStorageProvider()
     {
-        if (this.VisualRoot is Window w)
-        {
-            return w.StorageProvider;
-        }
-        return null;
+        var topLevel = TopLevel.GetTopLevel(this);
+        return topLevel?.StorageProvider;
     }
 
-    Window GetWindow() => this.VisualRoot as Window ?? throw new NullReferenceException("Invalid Owner");
-    TopLevel GetTopLevel() => this.VisualRoot as TopLevel ?? throw new NullReferenceException("Invalid Owner");
-    
     List<FilePickerFileType>? GetFileTypes()
     {
         return new List<FilePickerFileType>
