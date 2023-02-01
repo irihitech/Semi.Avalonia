@@ -21,7 +21,8 @@ public partial class ManagedFileChooserDemo : UserControl
 
     private async void OpenFileDialog(object sender, RoutedEventArgs args)
     {
-        IStorageProvider sp = GetStorageProvider();
+        IStorageProvider? sp = GetStorageProvider();
+        if (sp is null) return;
         var result = await sp.OpenFilePickerAsync(new FilePickerOpenOptions()
         {
             Title = "Open File",
@@ -31,7 +32,8 @@ public partial class ManagedFileChooserDemo : UserControl
     }
     private async void SelectFolderDialog(object sender, RoutedEventArgs args)
     {
-        IStorageProvider sp = GetStorageProvider();
+        IStorageProvider? sp = GetStorageProvider();
+        if (sp is null) return;
         var result = await sp.OpenFolderPickerAsync(new FolderPickerOpenOptions()
         {
             Title = "Select Folder",
@@ -40,22 +42,21 @@ public partial class ManagedFileChooserDemo : UserControl
     }
     private async void SaveFileDialog(object sender, RoutedEventArgs args)
     {
-        IStorageProvider sp = GetStorageProvider();
+        IStorageProvider? sp = GetStorageProvider();
+        if (sp is null) return;
         var result = await sp.SaveFilePickerAsync(new FilePickerSaveOptions()
         {
             Title = "Open File",
         });
     }
     
-    private IStorageProvider GetStorageProvider()
+    private IStorageProvider? GetStorageProvider()
     {
-        return new ManagedStorageProvider<Window>(GetWindow(), null);
-    }
-
-    private static string FullPathOrName(IStorageItem? item)
-    {
-        if (item is null) return "(null)";
-        return item.TryGetUri(out var uri) ? uri.ToString() : item.Name;
+        if (this.VisualRoot is Window w)
+        {
+            return w.StorageProvider;
+        }
+        return null;
     }
 
     Window GetWindow() => this.VisualRoot as Window ?? throw new NullReferenceException("Invalid Owner");
