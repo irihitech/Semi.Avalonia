@@ -90,9 +90,11 @@
                                 Theme="{DynamicResource CalendarDatePickerButton}" />
                             <Popup
                                 Name="PART_Popup"
+                                HorizontalOffset="-8"
                                 IsLightDismissEnabled="True"
-                                PlacementTarget="{TemplateBinding}">
-                                <Border Margin="8" BoxShadow="0 0 8 0 #1A000000">
+                                PlacementTarget="{TemplateBinding}"
+                                VerticalOffset="-4">
+                                <Border Margin="8" BoxShadow="{DynamicResource CalendarDatePickerPopupBoxShadows}">
                                     <Calendar
                                         Name="PART_Calendar"
                                         DisplayDate="{TemplateBinding DisplayDate}"

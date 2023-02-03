@@ -150,7 +150,10 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         IsVisible="{TemplateBinding ShowProgressText}">
-                        <TextBlock FontWeight="{DynamicResource ProgressBarTextFontWeight}" Foreground="{DynamicResource ProgressBarTextForeground}">
+                        <TextBlock
+                            Name="PART_ProgressText"
+                            FontWeight="{DynamicResource ProgressBarTextFontWeight}"
+                            Foreground="{DynamicResource ProgressBarTextForeground}">
                             <TextBlock.Text>
                                 <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                     <TemplateBinding Property="ProgressTextFormat" />
@@ -294,6 +297,9 @@
                 <Setter Property="Border.MinWidth" Value="4" />
                 <Setter Property="Border.HorizontalAlignment" Value="Center" />
             </Style>
+            <Style Selector="^ /template/ TextBlock#PART_ProgressText">
+                <Setter Property="TextBlock.Foreground" Value="{DynamicResource ProgressBarOuterTextForeground}" />
+            </Style>
         </Style>
         <Style Selector="^.Right">
             <Style Selector="^:horizontal /template/ LayoutTransformControl#PART_LayoutTransformControl">
@@ -313,6 +319,9 @@
             <Style Selector="^:vertical /template/ Border#ProgressBarRoot">
                 <Setter Property="Border.MinWidth" Value="4" />
                 <Setter Property="Border.HorizontalAlignment" Value="Center" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_ProgressText">
+                <Setter Property="TextBlock.Foreground" Value="{DynamicResource ProgressBarOuterTextForeground}" />
             </Style>
         </Style>
     </ControlTheme>

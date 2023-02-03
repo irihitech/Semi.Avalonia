@@ -1,38 +1,38 @@
 <ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <SolidColorBrush x:Key="CheckboxForeground" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="CheckboxDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
 
-    <SolidColorBrush x:Key="CheckboxForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="CheckboxDisabledForeground" Opacity="0.35" Color="#1C1F23" />
-
-    <SolidColorBrush x:Key="CheckboxGlyphFill" Color="White" />
-    <SolidColorBrush x:Key="CheckboxGlyphDisabledFill" Color="White" />
+    <SolidColorBrush x:Key="CheckboxGlyphFill" Color="#16161A" />
+    <SolidColorBrush x:Key="CheckboxGlyphDisabledFill" Color="#16161A" />
 
     <SolidColorBrush x:Key="CheckboxDefaultBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="CheckboxDefaultBorderBrush" Opacity="0.35" Color="#1C1F23" />
-    <SolidColorBrush x:Key="CheckboxPointOverBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="CheckboxPointOverBorderBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="CheckboxPressedBackground" Color="#004FB3" />
-    <SolidColorBrush x:Key="CheckboxPressedBorderBrush" Color="#004FB3" />
+    <SolidColorBrush x:Key="CheckboxDefaultBorderBrush" Opacity="0.35" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="CheckboxPointOverBackground" Opacity="0.12" Color="White" />
+    <SolidColorBrush x:Key="CheckboxPointOverBorderBrush" Color="#54A9FF" />
+    <SolidColorBrush x:Key="CheckboxPressedBackground" Color="#A9D7FF" />
+    <SolidColorBrush x:Key="CheckboxPressedBorderBrush" Color="#A9D7FF" />
 
-    <SolidColorBrush x:Key="CheckboxCheckedDefaultBackground" Color="#0077FA" />
-    <SolidColorBrush x:Key="CheckboxCheckedDefaultBorderBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="CheckboxCheckedPointOverBackground" Color="#0062D6" />
-    <SolidColorBrush x:Key="CheckboxCheckedPointOverBorderBrush" Color="#0062D6" />
-    <SolidColorBrush x:Key="CheckboxCheckedPressedBackground" Color="#004FB3" />
-    <SolidColorBrush x:Key="CheckboxCheckedPressedBorderBrush" Color="#004FB3" />
+    <SolidColorBrush x:Key="CheckboxCheckedDefaultBackground" Color="#54A9FF" />
+    <SolidColorBrush x:Key="CheckboxCheckedDefaultBorderBrush" Color="#54A9FF" />
+    <SolidColorBrush x:Key="CheckboxCheckedPointOverBackground" Color="#7FC1FF" />
+    <SolidColorBrush x:Key="CheckboxCheckedPointOverBorderBrush" Color="#7FC1FF" />
+    <SolidColorBrush x:Key="CheckboxCheckedPressedBackground" Color="#A9D7FF" />
+    <SolidColorBrush x:Key="CheckboxCheckedPressedBorderBrush" Color="#A9D7FF" />
 
-    <SolidColorBrush x:Key="CheckboxDefaultDisabledBackground" Opacity="0.04" Color="#2E3238" />
-    <SolidColorBrush x:Key="CheckboxDefaultDisabledBorderBrush" Opacity="0.08" Color="#1C1F23" />
-    <SolidColorBrush x:Key="CheckboxCheckedDisabledBackground" Color="#98CDFD" />
-    <SolidColorBrush x:Key="CheckboxCheckedDisabledBorderBrush" Color="#98CDFD" />
+    <SolidColorBrush x:Key="CheckboxDefaultDisabledBackground" Opacity="0.04" Color="#E6E8EA" />
+    <SolidColorBrush x:Key="CheckboxDefaultDisabledBorderBrush" Opacity="0.08" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="CheckboxCheckedDisabledBackground" Color="#135cb8" />
+    <SolidColorBrush x:Key="CheckboxCheckedDisabledBorderBrush" Color="#135cb8" />
 
     <sys:Double x:Key="CheckboxFontSize">14</sys:Double>
     <sys:Double x:Key="CheckboxBoxWidth">16</sys:Double>
     <sys:Double x:Key="CheckboxBoxHeight">16</sys:Double>
     <FontWeight x:Key="CheckboxFontWeight">400</FontWeight>
 
-    <CornerRadius x:Key="CornerRadius">3</CornerRadius>
+    <CornerRadius x:Key="CheckboxBoxCornerRadius">3</CornerRadius>
     <Thickness x:Key="CheckboxContentMargin">8 0 0 0</Thickness>
     <Thickness x:Key="CheckboxBoxBorderThickness">1</Thickness>
 </ResourceDictionary>
