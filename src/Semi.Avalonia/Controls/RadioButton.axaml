@@ -39,7 +39,8 @@
                                 Height="{DynamicResource RadioButtonIconRadius}"
                                 Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
                                 Stroke="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}"
-                                StrokeThickness="1" UseLayoutRounding="False" />
+                                StrokeThickness="1"
+                                UseLayoutRounding="False" />
 
                             <Ellipse
                                 Name="CheckGlyph"
@@ -48,11 +49,13 @@
                                 Fill="{DynamicResource RadioButtonCheckGlyphFill}"
                                 Opacity="0"
                                 Stroke="{DynamicResource RadioButtonCheckGlyphFill}"
-                                StrokeThickness="0" UseLayoutRounding="False" />
+                                StrokeThickness="0"
+                                UseLayoutRounding="False" />
                         </Grid>
 
                         <ContentPresenter
-                            Name="PART_ContentPresenter" Grid.Column="1"
+                            Name="PART_ContentPresenter"
+                            Grid.Column="1"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
@@ -158,7 +161,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked">
-            <Setter Property="RadioButton.Background" Value="White" />
+            <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonButtonCheckedBackground}" />
             <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonCheckedForeground}" />
         </Style>
         <Style Selector="^:unchecked">
@@ -206,7 +209,8 @@
                                 Height="{DynamicResource RadioButtonIconRadius}"
                                 Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
                                 Stroke="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}"
-                                StrokeThickness="1" UseLayoutRounding="False" />
+                                StrokeThickness="1"
+                                UseLayoutRounding="False" />
 
                             <Ellipse
                                 Name="CheckGlyph"
@@ -215,11 +219,13 @@
                                 Fill="{DynamicResource RadioButtonCheckGlyphFill}"
                                 Opacity="0"
                                 Stroke="{DynamicResource RadioButtonCheckGlyphFill}"
-                                StrokeThickness="0" UseLayoutRounding="False" />
+                                StrokeThickness="0"
+                                UseLayoutRounding="False" />
                         </Grid>
 
                         <ContentPresenter
-                            Name="PART_ContentPresenter" Grid.Column="1"
+                            Name="PART_ContentPresenter"
+                            Grid.Column="1"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
