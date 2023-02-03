@@ -12,7 +12,7 @@ namespace Semi.Avalonia.Demo.Pages;
 
 public partial class NotificationDemo : UserControl
 {
-    private WindowNotificationManager _manager;
+    private WindowNotificationManager? _manager;
     public NotificationDemo()
     {
         InitializeComponent();
@@ -29,7 +29,7 @@ public partial class NotificationDemo : UserControl
     {
         if (sender is Button b && b.Content is string s && Enum.TryParse<NotificationType>(s, out NotificationType t))
         {
-            _manager.Show(new Notification(t.ToString(), "This is message", t));
+            _manager?.Show(new Notification(t.ToString(), "This is message", t));
         }
     }
 }
