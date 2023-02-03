@@ -21,7 +21,8 @@ public partial class ManagedFileChooserDemo : UserControl
 
     private async void OpenFileDialog(object sender, RoutedEventArgs args)
     {
-        IStorageProvider sp = GetStorageProvider();
+        IStorageProvider? sp = GetStorageProvider();
+        if (sp is null) return;
         var result = await sp.OpenFilePickerAsync(new FilePickerOpenOptions()
         {
             Title = "Open File",
@@ -31,7 +32,8 @@ public partial class ManagedFileChooserDemo : UserControl
     }
     private async void SelectFolderDialog(object sender, RoutedEventArgs args)
     {
-        IStorageProvider sp = GetStorageProvider();
+        IStorageProvider? sp = GetStorageProvider();
+        if (sp is null) return;
         var result = await sp.OpenFolderPickerAsync(new FolderPickerOpenOptions()
         {
             Title = "Select Folder",
@@ -40,27 +42,20 @@ public partial class ManagedFileChooserDemo : UserControl
     }
     private async void SaveFileDialog(object sender, RoutedEventArgs args)
     {
-        IStorageProvider sp = GetStorageProvider();
+        IStorageProvider? sp = GetStorageProvider();
+        if (sp is null) return;
         var result = await sp.SaveFilePickerAsync(new FilePickerSaveOptions()
         {
             Title = "Open File",
         });
     }
     
-    private IStorageProvider GetStorageProvider()
+    private IStorageProvider? GetStorageProvider()
     {
-        return new ManagedStorageProvider<Window>(GetWindow(), null);
+        var topLevel = TopLevel.GetTopLevel(this);
+        return topLevel?.StorageProvider;
     }
 
-    private static string FullPathOrName(IStorageItem? item)
-    {
-        if (item is null) return "(null)";
-        return item.TryGetUri(out var uri) ? uri.ToString() : item.Name;
-    }
-
-    Window GetWindow() => this.VisualRoot as Window ?? throw new NullReferenceException("Invalid Owner");
-    TopLevel GetTopLevel() => this.VisualRoot as TopLevel ?? throw new NullReferenceException("Invalid Owner");
-    
     List<FilePickerFileType>? GetFileTypes()
     {
         return new List<FilePickerFileType>

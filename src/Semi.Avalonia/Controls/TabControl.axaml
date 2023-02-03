@@ -15,11 +15,7 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-                            <ItemsPresenter
-                                Name="PART_ItemsPresenter"
-                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                Items="{TemplateBinding Items}"
-                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                             <Border Name="PART_BorderSeparator" Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
                         </Panel>
                         <ContentPresenter
