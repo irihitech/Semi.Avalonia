@@ -3,19 +3,18 @@
     <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
+                <ScrollViewer
+                    Name="PART_ScrollViewer"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <CarouselPresenter
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Hidden">
+                    <ItemsPresenter
+                        Name="PART_ItemsPresenter"
                         Margin="{TemplateBinding Padding}"
-                        IsVirtualized="{TemplateBinding IsVirtualized}"
-                        Items="{TemplateBinding Items}"
-                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                        PageTransition="{TemplateBinding PageTransition}"
-                        SelectedIndex="{TemplateBinding SelectedIndex}" />
-                </Border>
+                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </ScrollViewer>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

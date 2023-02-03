@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Dialogs;
 using Avalonia.Media;
 
 namespace Semi.Avalonia.Demo.Desktop;
@@ -26,7 +27,8 @@ class Program
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
+            .UseManagedSystemDialogs()
             .UsePlatformDetect()
-            .With(new Win32PlatformOptions(){ UseCompositor = false})
+            .With(new Win32PlatformOptions())
             .LogToTrace();
 }

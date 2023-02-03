@@ -196,8 +196,6 @@
                                 <ItemsPresenter
                                     Name="PART_ItemsPresenter"
                                     Grid.IsSharedSizeScope="True"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    Items="{TemplateBinding Items}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                             </ScrollViewer>
                         </Border>
@@ -299,8 +297,6 @@
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Grid.IsSharedSizeScope="True"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                        Items="{TemplateBinding Items}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
                             </Border>
@@ -343,8 +339,6 @@
                     <ItemsPresenter
                         Name="PART_ItemsPresenter"
                         VerticalAlignment="Stretch"
-                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                        Items="{TemplateBinding Items}"
                         ItemsPanel="{TemplateBinding ItemsPanel}"
                         KeyboardNavigation.TabNavigation="Continue" />
                 </Border>

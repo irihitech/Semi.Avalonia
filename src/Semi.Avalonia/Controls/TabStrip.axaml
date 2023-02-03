@@ -10,11 +10,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
-                        <ItemsPresenter
-                            Name="PART_ItemsPresenter"
-                            ItemTemplate="{TemplateBinding ItemTemplate}"
-                            Items="{TemplateBinding Items}"
-                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         <Border
                             Name="PART_BorderSeparator"
                             Height="1"

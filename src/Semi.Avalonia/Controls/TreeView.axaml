@@ -44,7 +44,6 @@
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
                             Margin="{TemplateBinding Padding}"
-                            Items="{TemplateBinding Items}"
                             ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </ScrollViewer>
                 </Border>
@@ -139,7 +138,6 @@
                     <ItemsPresenter
                         Name="PART_ItemsPresenter"
                         IsVisible="{TemplateBinding IsExpanded}"
-                        Items="{TemplateBinding Items}"
                         ItemsPanel="{TemplateBinding ItemsPanel}" />
                 </StackPanel>
             </ControlTemplate>
