@@ -1,15 +1,18 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--  Add Resources Here  -->
     <Styles.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceInclude x:Key="Default" Source="avares://Semi.Avalonia/Themes/Light/Light.axaml" />
+                <ResourceInclude x:Key="Dark" Source="avares://Semi.Avalonia/Themes/Dark/Dark.axaml" />
+            </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Semi.Avalonia/Themes/Dark/Dark.axaml" />
-                <ResourceInclude Source="avares://Semi.Avalonia/Themes/Base.axaml" />
                 <ResourceInclude Source="avares://Semi.Avalonia/Controls/Controls.axaml" />
+                <ResourceInclude Source="avares://Semi.Avalonia/Themes/Base.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
     <Style Selector=":is(UserControl)">
         <Setter Property="Theme" Value="{DynamicResource {x:Type UserControl}}" />
     </Style>
+    <!--  Add Styles Here  -->
 </Styles>

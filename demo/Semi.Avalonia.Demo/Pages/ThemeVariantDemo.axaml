@@ -7,7 +7,15 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ThemeVariantScope>
-        <TextBox Width="100" />
-    </ThemeVariantScope>
+    <Grid>
+        <ThemeVariantScope Name="scope">
+            <Border Theme="{StaticResource CardBorder}">
+                <StackPanel>
+                    <DatePicker />
+                    <CalendarDatePicker />
+                    <ToggleSwitch Content="Switch Theme" IsCheckedChanged="Switch_OnIsCheckedChanged" />
+                </StackPanel>
+            </Border>
+        </ThemeVariantScope>
+    </Grid>
 </UserControl>
