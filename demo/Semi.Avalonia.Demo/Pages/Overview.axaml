@@ -15,6 +15,12 @@
                 Text="Welcome to Semi Avalonia"
                 Theme="{StaticResource TitleTextBlock}" />
 
+            <ToggleSwitch
+                Content="Switch Theme"
+                IsCheckedChanged="ToggleButton_OnIsCheckedChanged"
+                OffContent="Dark"
+                OnContent="Default" />
+
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
                 <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
