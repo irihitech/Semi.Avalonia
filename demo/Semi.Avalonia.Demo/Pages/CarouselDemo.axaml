@@ -7,31 +7,49 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Styles>
+        <Style Selector="Border">
+            <Setter Property="Height" Value="200" />
+        </Style>
+        <Style Selector="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
     <StackPanel Spacing="20">
-        <TextBlock Classes="Strong" Text="This is still WIP" />
-        <Grid
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top"
-            ColumnDefinitions="Auto, *, Auto">
-            <RepeatButton
-                Name="Previous"
-                Grid.Column="0"
-                Content="Previous" />
-            <Carousel Name="carousel" Grid.Column="1">
-                <Carousel.PageTransition>
-                    <PageSlide Orientation="Horizontal" Duration="0.25" />
-                </Carousel.PageTransition>
+        <Carousel Theme="{DynamicResource FullCarousel}">
+            <Carousel.PageTransition>
+                <PageSlide Orientation="Horizontal" Duration="0.25" />
+            </Carousel.PageTransition>
+            <Border Background="#EAF5FF">
                 <TextBlock Text="Text 1" />
+            </Border>
+            <Border Background="#F9F9F9">
                 <TextBlock Text="Text 2" />
+            </Border>
+            <Border Background="#FFF8EA">
                 <TextBlock Text="Text 3" />
+            </Border>
+            <Border Background="#FEF2ED">
                 <TextBlock Text="Text 4" />
-            </Carousel>
-            <RepeatButton
-                Name="Next"
-                Grid.Column="2"
-                Content="Next" />
-        </Grid>
-
-        <TextBlock Text="{Binding #carousel.SelectedIndex}" />
+            </Border>
+        </Carousel>
+        <Carousel Classes="Line" Theme="{DynamicResource FullCarousel}">
+            <Carousel.PageTransition>
+                <PageSlide Orientation="Horizontal" Duration="0.25" />
+            </Carousel.PageTransition>
+            <Border Background="#EAF5FF">
+                <TextBlock Text="Text 1" />
+            </Border>
+            <Border Background="#F9F9F9">
+                <TextBlock Text="Text 2" />
+            </Border>
+            <Border Background="#FFF8EA">
+                <TextBlock Text="Text 3" />
+            </Border>
+            <Border Background="#FEF2ED">
+                <TextBlock Text="Text 4" />
+            </Border>
+        </Carousel>
     </StackPanel>
 </UserControl>
