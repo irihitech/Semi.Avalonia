@@ -1,3 +1,43 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Add Resources Here  -->
+    <SolidColorBrush x:Key="DataGridLineBrush" Opacity="0.08" Color="White" />
+
+    <Thickness x:Key="DataGridCellTextBlockDefaultMargin">12 0</Thickness>
+    <SolidColorBrush x:Key="DataGridCellBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="DataGridCellFocusBorderBrush" Color="#41464C" />
+    <SolidColorBrush x:Key="DataGridCellCurrentBorderBrush" Opacity="0.08" Color="White" />
+    <SolidColorBrush x:Key="DataGridCellErrorBrush" Color="#6C090B" />
+    <x:Double x:Key="DataGridCellMinHeight">32</x:Double>
+    <Thickness x:Key="DataGridCellVisualBorderThickness">1</Thickness>
+    <x:Double x:Key="DataGridCellVisualStrokeThickness">1</x:Double>
+
+
+    <SolidColorBrush x:Key="DataGridColumnHeaderForeground" Opacity="0.62" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="DataGridColumnHeaderBackground" Color="Transparent" />
+    <Thickness x:Key="DataGridColumnHeaderPadding">12 0 0 0</Thickness>
+    <x:Double x:Key="DataGridColumnHeaderMinHeight">32</x:Double>
+    <SolidColorBrush x:Key="DataGridColumnHeaderPointeroverBackground" Opacity="0.16" Color="White" />
+    <SolidColorBrush x:Key="DataGridColumnHeaderPressedBackground" Opacity="0.20" Color="White" />
+
+    <PathGeometry x:Key="DataGridColumnHeaderAscendingGlyph">M6.45096 8.34102L11.247 2.86102C11.3408 2.75361 11.4566 2.66753 11.5865 2.60854C11.7163 2.54956 11.8573 2.51904 12 2.51904C12.1426 2.51904 12.2836 2.54956 12.4135 2.60854C12.5433 2.66753 12.6591 2.75361 12.753 2.86102L17.549 8.34102C18.115 8.98802 17.655 10 16.796 10H7.20396C6.34396 10 5.88496 8.98802 6.45096 8.34102Z</PathGeometry>
+    <PathGeometry x:Key="DataGridColumnHeaderDescendingGlyph">M17.549 15.659L12.753 21.139C12.6591 21.2464 12.5434 21.3325 12.4135 21.3915C12.2836 21.4505 12.1427 21.481 12 21.481C11.8574 21.481 11.7164 21.4505 11.5865 21.3915C11.4566 21.3325 11.3409 21.2464 11.247 21.139L6.45101 15.659C5.88501 15.011 6.34501 14 7.20401 14H16.796C17.656 14 18.115 15.012 17.549 15.659Z</PathGeometry>
+
+    <SolidColorBrush x:Key="DataGridRowBackground" Color="Transparent" />
+    <Thickness x:Key="DataGridRowHeaderMargin">8 0</Thickness>
+
+    <SolidColorBrush x:Key="DataGridRowErrorBackground" Color="#6C090B" />
+    <SolidColorBrush x:Key="DataGridDetailsPresenterBackground" Color="Transparent" />
+
+    <SolidColorBrush x:Key="DataGridRowPointeroverBackground" Opacity="0.16" Color="White" />
+    <SolidColorBrush x:Key="DataGridRowSelectedBackground" Color="#053170" />
+    <SolidColorBrush x:Key="DataGridRowSelectedPointeroverBackground" Color="#0A4694" />
+
+    <PathGeometry x:Key="DataGridRowGroupHeaderExpandIconGlyph">M7.43934 19.7957C6.85355 19.2099 6.85355 18.2601 7.43934 17.6744L13.0962 12.0175L7.43934 6.36065C6.85355 5.77486 6.85355 4.82511 7.43934 4.23933C8.02513 3.65354 8.97487 3.65354 9.56066 4.23933L16.2782 10.9568C16.864 11.5426 16.864 12.4924 16.2782 13.0782L9.56066 19.7957C8.97487 20.3815 8.02513 20.3815 7.43934 19.7957Z</PathGeometry>
+    <SolidColorBrush x:Key="DataGridRowGroupHeaderExpandIconForeground" Opacity="0.62" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="DataGridRowGroupHeaderBackground" Opacity="0.12" Color="White" />
+
+    <SolidColorBrush x:Key="DataGridRowGroupHeaderCurrentBorderBrush" Opacity="0.08" Color="White" />
+    <x:Double x:Key="DataGridRowGroupHeaderVisualStrokeThickness">1</x:Double>
+
+    <SolidColorBrush x:Key="DataGridDisabledBackground" Color="#F9F9F9" />
 </ResourceDictionary>

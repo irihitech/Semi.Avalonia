@@ -9,6 +9,8 @@ using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
+using Avalonia.Input;
+using Avalonia.Input.Raw;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 
@@ -19,7 +21,6 @@ public partial class DataGridDemo : UserControl
     public DataGridDemo()
     {
         InitializeComponent();
-        
         var dataGridSortDescription = DataGridSortDescription.FromPath(nameof(Country.Region), ListSortDirection.Ascending, new ReversedStringComparer());
         var collectionView1 = new DataGridCollectionView(Countries.All);
         collectionView1.SortDescriptions.Add(dataGridSortDescription);
