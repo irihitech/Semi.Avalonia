@@ -1,0 +1,195 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.DataGridDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Semi.Avalonia.Demo.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <TabControl Grid.Row="2">
+        <TabItem Header="DataGrid">
+            <DockPanel>
+                <CheckBox
+                    x:Name="ShowGDP"
+                    Content="Toggle GDP Column Visibility"
+                    DockPanel.Dock="Top"
+                    IsChecked="True" />
+                <DataGrid
+                    Name="dataGrid1"
+                    Margin="12"
+                    CanUserReorderColumns="True"
+                    CanUserResizeColumns="True"
+                    CanUserSortColumns="True"
+                    HeadersVisibility="All">
+                    <DataGrid.Columns>
+                        <!--  Using HeaderTemplate  -->
+                        <DataGridTextColumn
+                            Width="6*"
+                            x:DataType="local:Country"
+                            Binding="{Binding Name}"
+                            Header="Country or Region" />
+                        <DataGridTextColumn
+                            Width="4*"
+                            x:DataType="local:Country"
+                            Binding="{Binding Region}"
+                            Header="Region" />
+                        <DataGridTextColumn
+                            Width="3*"
+                            x:DataType="local:Country"
+                            Binding="{Binding Population}"
+                            Header="Population" />
+                        <DataGridTextColumn
+                            Width="3*"
+                            x:DataType="local:Country"
+                            Binding="{Binding Area}"
+                            Header="Area" />
+                        <DataGridTextColumn
+                            Width="3*"
+                            MinWidth="200"
+                            x:DataType="local:Country"
+                            Binding="{Binding GDP}"
+                            Header="GDP"
+                            IsVisible="{Binding #ShowGDP.IsChecked}" />
+                    </DataGrid.Columns>
+                    <DataGrid.CellTheme>
+                        <ControlTheme BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="DataGridCell">
+                            <ControlTheme.Children>
+                                <Style Selector="^:nth-child(1)">
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </ControlTheme.Children>
+                        </ControlTheme>
+                    </DataGrid.CellTheme>
+                    <DataGrid.ColumnHeaderTheme>
+                        <ControlTheme BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="DataGridColumnHeader">
+                            <ControlTheme.Children>
+                                <Style Selector="^:nth-child(1)">
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </ControlTheme.Children>
+                        </ControlTheme>
+                    </DataGrid.ColumnHeaderTheme>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Grouping">
+            <DataGrid Name="dataGridGrouping" Margin="12">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="6*"
+                        x:DataType="local:Country"
+                        Binding="{Binding Name}"
+                        Header="Country or Region" />
+                    <DataGridTextColumn
+                        Width="4*"
+                        x:DataType="local:Country"
+                        Binding="{Binding Region}"
+                        Header="Region" />
+                    <DataGridTextColumn
+                        Width="3*"
+                        x:DataType="local:Country"
+                        Binding="{Binding Population}"
+                        DisplayIndex="3"
+                        Header="Population" />
+                    <DataGridTextColumn
+                        Width="3*"
+                        x:DataType="local:Country"
+                        Binding="{Binding Area}"
+                        DisplayIndex="2"
+                        Header="Area" />
+                    <DataGridTextColumn
+                        Width="3*"
+                        x:DataType="local:Country"
+                        Binding="{Binding GDP}"
+                        Header="GDP" />
+                </DataGrid.Columns>
+                <DataGrid.RowTheme>
+                    <ControlTheme BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="DataGridRow">
+                        <ControlTheme.Children>
+                            <Style Selector="^:nth-child(5n+3)">
+                                <Setter Property="Foreground" Value="Red" />
+                            </Style>
+                            <Style Selector="^:nth-last-child(5n+1)">
+                                <Setter Property="Foreground" Value="Blue" />
+                            </Style>
+                        </ControlTheme.Children>
+                    </ControlTheme>
+                </DataGrid.RowTheme>
+            </DataGrid>
+        </TabItem>
+        <TabItem x:Name="EditableTab" Header="Editable">
+            <Grid RowDefinitions="Auto,*,Auto">
+                <StackPanel
+                    Grid.Row="0"
+                    Orientation="Horizontal"
+                    Spacing="4">
+                    <TextBlock VerticalAlignment="Center" Text="FontSize:" />
+                    <Slider
+                        x:Name="FontSizeSlider"
+                        Width="100"
+                        VerticalAlignment="Center"
+                        Maximum="30"
+                        Minimum="5"
+                        Value="14" />
+                    <CheckBox
+                        x:Name="IsThreeStateCheckBox"
+                        Content="IsThreeState"
+                        IsChecked="False" />
+                </StackPanel>
+                <!--  Example of columns inheriting the data type from the Items source  -->
+                <DataGrid
+                    Name="dataGridEdit"
+                    Grid.Row="1"
+                    Margin="12"
+                    Items="{Binding DataGrid3Source}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="2*"
+                            Binding="{Binding FirstName}"
+                            FontSize="{Binding #FontSizeSlider.Value, Mode=OneWay}"
+                            Header="First Name" />
+                        <DataGridTextColumn
+                            Width="2*"
+                            Binding="{Binding LastName}"
+                            FontSize="{Binding #FontSizeSlider.Value, Mode=OneWay}"
+                            Header="Last" />
+                        <DataGridCheckBoxColumn
+                            Width="*"
+                            Binding="{Binding IsBanned}"
+                            Header="Is Banned"
+                            IsThreeState="{Binding #IsThreeStateCheckBox.IsChecked, Mode=OneWay}" />
+                        <DataGridTemplateColumn Header="Age">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Age, StringFormat='{}{0} years'}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <NumericUpDown
+                                        HorizontalAlignment="Stretch"
+                                        FormatString="N0"
+                                        Maximum="120"
+                                        Minimum="0"
+                                        TemplateApplied="NumericUpDown_OnTemplateApplied"
+                                        Value="{Binding Age}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button
+                    Name="btnAdd"
+                    Grid.Row="2"
+                    Margin="12,0,12,12"
+                    HorizontalAlignment="Right"
+                    Content="Add" />
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>

@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.0.0-preview5" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0-preview5" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-preview5" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
@@ -42,6 +43,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\Semi.Avalonia.DataGrid\Semi.Avalonia.DataGrid.csproj" />
       <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj" />
     </ItemGroup>
 
