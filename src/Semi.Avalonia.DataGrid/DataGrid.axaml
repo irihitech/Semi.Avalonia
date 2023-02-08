@@ -13,7 +13,6 @@
         BasedOn="{StaticResource {x:Type TextBox}}"
         TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Background" Value="Transparent" />
         <Style Selector="^ /template/ DataValidationErrors">
             <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
         </Style>
@@ -116,13 +115,18 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid Name="PART_ColumnHeaderRoot" ColumnDefinitions="*,Auto">
+                        <Border
+                            Name="HeaderBackground"
+                            Grid.ColumnSpan="2"
+                            Margin="4"
+                            CornerRadius="3" />
                         <Grid
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" MinWidth="32" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <PathIcon
@@ -130,6 +134,7 @@
                                 Grid.Column="1"
                                 Width="8"
                                 Height="8"
+                                Margin="0,0,8,0"
                                 Foreground="{TemplateBinding Foreground}" />
                         </Grid>
                         <Rectangle
@@ -162,11 +167,11 @@
             <Setter Property="IsVisible" Value="True" />
         </Style>
 
-        <Style Selector="^:pointerover /template/ Grid#PART_ColumnHeaderRoot">
+        <Style Selector="^:pointerover /template/ Border#HeaderBackground">
             <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderPointeroverBackground}" />
         </Style>
 
-        <Style Selector="^:pressed /template/ Grid#PART_ColumnHeaderRoot">
+        <Style Selector="^:pressed /template/ Border#HeaderBackground">
             <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderPressedBackground}" />
         </Style>
 
@@ -275,11 +280,13 @@
                         ColumnDefinitions="Auto,*"
                         RowDefinitions="*,Auto,Auto">
 
-                        <Rectangle
-                            Name="BackgroundRectangle"
+                        <Border
+                            Name="BackgroundBorder"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2"
-                            Fill="{DynamicResource DataGridRowBackground}" />
+                            Margin="2"
+                            Background="{DynamicResource DataGridRowBackground}"
+                            CornerRadius="3" />
                         <Rectangle
                             x:Name="InvalidVisualElement"
                             Grid.ColumnSpan="2"
@@ -314,27 +321,27 @@
             <Style Selector="^ /template/ Rectangle#InvalidVisualElement">
                 <Setter Property="Opacity" Value="0.4" />
             </Style>
-            <Style Selector="^ /template/ Rectangle#BackgroundRectangle">
+            <Style Selector="^ /template/ Border#BackgroundBorder">
                 <Setter Property="Opacity" Value="0" />
             </Style>
         </Style>
 
-        <Style Selector="^:pointerover /template/ Rectangle#BackgroundRectangle">
-            <Setter Property="Fill" Value="{DynamicResource DataGridRowPointeroverBackground}" />
+        <Style Selector="^:pointerover /template/ Border#BackgroundBorder">
+            <Setter Property="Background" Value="{DynamicResource DataGridRowPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:selected">
-            <Style Selector="^ /template/ Rectangle#BackgroundRectangle">
-                <Setter Property="Fill" Value="{DynamicResource DataGridRowSelectedBackground}" />
+            <Style Selector="^ /template/ Border#BackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource DataGridRowSelectedBackground}" />
             </Style>
-            <Style Selector="^:pointerover /template/ Rectangle#BackgroundRectangle">
-                <Setter Property="Fill" Value="{DynamicResource DataGridRowSelectedPointeroverBackground}" />
+            <Style Selector="^:pointerover /template/ Border#BackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource DataGridRowSelectedPointeroverBackground}" />
             </Style>
-            <Style Selector="^:focus /template/ Rectangle#BackgroundRectangle">
-                <Setter Property="Fill" Value="{DynamicResource DataGridRowSelectedBackground}" />
+            <Style Selector="^:focus /template/ Border#BackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource DataGridRowSelectedBackground}" />
             </Style>
-            <Style Selector="^:pointerover:focus /template/ Rectangle#BackgroundRectangle">
-                <Setter Property="Fill" Value="{DynamicResource DataGridRowSelectedPointeroverBackground}" />
+            <Style Selector="^:pointerover:focus /template/ Border#BackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource DataGridRowSelectedPointeroverBackground}" />
             </Style>
         </Style>
     </ControlTheme>
