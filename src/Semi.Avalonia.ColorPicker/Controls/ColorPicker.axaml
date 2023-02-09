@@ -68,9 +68,41 @@
                                 Note the only changes are resources specific to the ColorPicker.
                             -->
                             <Grid
+                                Name="RootGrid"
                                 Width="300"
                                 Height="300"
-                                RowDefinitions="*,Auto">
+                                RowDefinitions="*,Auto"
+                                Tag="{TemplateBinding ColorModel}">
+                                <Grid.Styles>
+                                    <Style Selector="Grid[Tag=Rgba]">
+                                        <Style Selector="^ NumericUpDown#Component1NumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="R" />
+                                        </Style>
+                                        <Style Selector="^ NumericUpDown#Component2NumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="G" />
+                                        </Style>
+                                        <Style Selector="^ NumericUpDown#Component3NumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="B" />
+                                        </Style>
+                                        <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="A" />
+                                        </Style>
+                                    </Style>
+                                    <Style Selector="Grid[Tag=Hsva]">
+                                        <Style Selector="^ NumericUpDown#Component1NumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="H" />
+                                        </Style>
+                                        <Style Selector="^ NumericUpDown#Component2NumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="S" />
+                                        </Style>
+                                        <Style Selector="^ NumericUpDown#Component3NumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="V" />
+                                        </Style>
+                                        <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
+                                            <Setter Property="NumericUpDown.Tag" Value="A" />
+                                        </Style>
+                                    </Style>
+                                </Grid.Styles>
                                 <!--  Backgrounds  -->
                                 <!--  TODO: Background="{DynamicResource ColorViewTabBackgroundBrush}"  -->
                                 <Border
@@ -292,13 +324,7 @@
                                                 Minimum="{Binding Minimum, ElementName=Component1Slider}"
                                                 NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                                                 ShowButtonSpinner="False"
-                                                Value="{Binding Value, ElementName=Component1Slider}">
-                                                <NumericUpDown.Styles>
-                                                    <Style Selector="NumericUpDown /template/ TextBox">
-                                                        <Setter Property="InnerLeftContent" Value="{TemplateBinding Tag}" />
-                                                    </Style>
-                                                </NumericUpDown.Styles>
-                                            </NumericUpDown>
+                                                Value="{Binding Value, ElementName=Component1Slider}" />
                                             <primitives:ColorSlider
                                                 x:Name="Component1Slider"
                                                 Grid.Row="2"
