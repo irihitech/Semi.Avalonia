@@ -70,12 +70,12 @@
                     <DockPanel Margin="8,0,8,8" DockPanel.Dock="Bottom">
                         <DockPanel Margin="0,0,0,8" DockPanel.Dock="Top">
                             <ComboBox
+                                Margin="8,0,0,0"
                                 DockPanel.Dock="Right"
                                 IsVisible="{Binding ShowFilters}"
                                 Items="{Binding Filters}"
                                 SelectedItem="{Binding SelectedFilter}" />
                             <TextBox
-                                Margin="0,0,8,0"
                                 IsVisible="{Binding !SelectingFolder}"
                                 Text="{Binding FileName}"
                                 Watermark="File name" />
