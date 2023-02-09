@@ -71,38 +71,8 @@
                                 Name="RootGrid"
                                 Width="300"
                                 Height="300"
-                                RowDefinitions="*,Auto"
-                                Tag="{TemplateBinding ColorModel}">
-                                <Grid.Styles>
-                                    <Style Selector="Grid[Tag=Rgba]">
-                                        <Style Selector="^ NumericUpDown#Component1NumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="R" />
-                                        </Style>
-                                        <Style Selector="^ NumericUpDown#Component2NumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="G" />
-                                        </Style>
-                                        <Style Selector="^ NumericUpDown#Component3NumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="B" />
-                                        </Style>
-                                        <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="A" />
-                                        </Style>
-                                    </Style>
-                                    <Style Selector="Grid[Tag=Hsva]">
-                                        <Style Selector="^ NumericUpDown#Component1NumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="H" />
-                                        </Style>
-                                        <Style Selector="^ NumericUpDown#Component2NumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="S" />
-                                        </Style>
-                                        <Style Selector="^ NumericUpDown#Component3NumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="V" />
-                                        </Style>
-                                        <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
-                                            <Setter Property="NumericUpDown.Tag" Value="A" />
-                                        </Style>
-                                    </Style>
-                                </Grid.Styles>
+                                RowDefinitions="*,Auto">
+                                <Grid.Styles />
                                 <!--  Backgrounds  -->
                                 <!--  TODO: Background="{DynamicResource ColorViewTabBackgroundBrush}"  -->
                                 <Border
@@ -255,10 +225,39 @@
                                         <Grid
                                             Margin="12"
                                             ColumnDefinitions="Auto,*"
-                                            RowDefinitions="Auto,24,1*,1*,1*,1*,12">
+                                            RowDefinitions="Auto,24,1*,1*,1*,1*,12"
+                                            Tag="{TemplateBinding ColorModel}">
                                             <Grid.Styles>
                                                 <Style Selector="NumericUpDown /template/ TextBox">
                                                     <Setter Property="InnerLeftContent" Value="{TemplateBinding Tag}" />
+                                                </Style>
+                                                <Style Selector="Grid[Tag=Rgba]">
+                                                    <Style Selector="^ NumericUpDown#Component1NumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="R" />
+                                                    </Style>
+                                                    <Style Selector="^ NumericUpDown#Component2NumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="G" />
+                                                    </Style>
+                                                    <Style Selector="^ NumericUpDown#Component3NumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="B" />
+                                                    </Style>
+                                                    <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="A" />
+                                                    </Style>
+                                                </Style>
+                                                <Style Selector="Grid[Tag=Hsva]">
+                                                    <Style Selector="^ NumericUpDown#Component1NumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="H" />
+                                                    </Style>
+                                                    <Style Selector="^ NumericUpDown#Component2NumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="S" />
+                                                    </Style>
+                                                    <Style Selector="^ NumericUpDown#Component3NumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="V" />
+                                                    </Style>
+                                                    <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
+                                                        <Setter Property="NumericUpDown.Tag" Value="A" />
+                                                    </Style>
                                                 </Style>
                                             </Grid.Styles>
                                             <!--  Top color model & Hex input  -->
