@@ -2,8 +2,9 @@
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
         <Setter Property="NumericUpDown.VerticalContentAlignment" Value="Center" />
+        <Setter Property="NumericUpDown.CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
         <Setter Property="NumericUpDown.Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="NumericUpDown">
                 <ButtonSpinner
                     Name="PART_Spinner"
                     MinWidth="0"
@@ -14,13 +15,13 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
                     ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
                     <TextBox
                         Name="PART_TextBox"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                         AcceptsReturn="False"
+                        CornerRadius="{TemplateBinding CornerRadius}"
                         FontSize="{TemplateBinding FontSize}"
                         Foreground="{TemplateBinding Foreground}"
                         IsReadOnly="{TemplateBinding IsReadOnly}"

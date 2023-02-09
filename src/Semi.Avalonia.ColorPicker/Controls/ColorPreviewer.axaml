@@ -1,0 +1,119 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Avalonia.Controls.Converters"
+    xmlns:pc="using:Avalonia.Controls.Primitives.Converters">
+    <!--  Add Resources Here  -->
+    <pc:AccentColorConverter x:Key="AccentColorConverter" />
+    <converters:CornerRadiusFilterConverter x:Key="LeftCornerRadiusFilterConverter" Filter="TopLeft, BottomLeft" />
+    <converters:CornerRadiusFilterConverter x:Key="RightCornerRadiusFilterConverter" Filter="TopRight, BottomRight" />
+
+    <ControlTheme x:Key="{x:Type ColorPreviewer}" TargetType="ColorPreviewer">
+        <Setter Property="Height" Value="{DynamicResource ColorPreviewerHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ColorPreviewerCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="{x:Type ColorPreviewer}">
+                <Panel>
+                    <!--  Preview color with accents to the left and right  -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" IsVisible="{TemplateBinding IsAccentColorsVisible}">
+                        <!--  Left accent colors  -->
+                        <Grid
+                            Grid.Column="0"
+                            Width="{DynamicResource ColorPreviewerAccentSectionWidth}"
+                            Height="{DynamicResource ColorPreviewerAccentSectionHeight}"
+                            VerticalAlignment="Center"
+                            ColumnDefinitions="*,*">
+                            <Border
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" />
+                            <Border
+                                x:Name="PART_AccentDecrement2Border"
+                                Grid.Column="0"
+                                Background="{TemplateBinding HsvColor,
+                                                             Converter={StaticResource AccentColorConverter},
+                                                             ConverterParameter='-2'}"
+                                CornerRadius="{TemplateBinding CornerRadius,
+                                                               Converter={StaticResource LeftCornerRadiusFilterConverter}}"
+                                Tag="-2" />
+                            <Border
+                                x:Name="PART_AccentDecrement1Border"
+                                Grid.Column="1"
+                                Background="{TemplateBinding HsvColor,
+                                                             Converter={StaticResource AccentColorConverter},
+                                                             ConverterParameter='-1'}"
+                                Tag="-1" />
+                        </Grid>
+                        <!--  Right accent colors  -->
+                        <Grid
+                            Grid.Column="2"
+                            Width="{DynamicResource ColorPreviewerAccentSectionWidth}"
+                            Height="{DynamicResource ColorPreviewerAccentSectionHeight}"
+                            VerticalAlignment="Center"
+                            ColumnDefinitions="*,*">
+                            <Border
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" />
+                            <Border
+                                x:Name="PART_AccentIncrement1Border"
+                                Grid.Column="0"
+                                Background="{TemplateBinding HsvColor,
+                                                             Converter={StaticResource AccentColorConverter},
+                                                             ConverterParameter='1'}"
+                                Tag="1" />
+                            <Border
+                                x:Name="PART_AccentIncrement2Border"
+                                Grid.Column="1"
+                                Background="{TemplateBinding HsvColor,
+                                                             Converter={StaticResource AccentColorConverter},
+                                                             ConverterParameter='2'}"
+                                CornerRadius="{TemplateBinding CornerRadius,
+                                                               Converter={StaticResource RightCornerRadiusFilterConverter}}"
+                                Tag="2" />
+                        </Grid>
+                        <!--  Preview color: Must be last for drop shadow Z-index  -->
+                        <Border
+                            Grid.Column="1"
+                            Margin="0,8"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            BoxShadow="{DynamicResource ColorPreviewerMainBoxShadow}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Panel>
+                                <Border Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" CornerRadius="{TemplateBinding CornerRadius}" />
+                                <Border
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Background="{TemplateBinding HsvColor,
+                                                                 Converter={StaticResource ToBrushConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius}" />
+                            </Panel>
+                        </Border>
+                    </Grid>
+                    <!--  Only preview color  -->
+                    <Border
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        IsVisible="{TemplateBinding IsAccentColorsVisible,
+                                                    Converter={x:Static BoolConverters.Not}}">
+                        <Panel>
+                            <Border Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" CornerRadius="{TemplateBinding CornerRadius}" />
+                            <Border
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding HsvColor,
+                                                             Converter={StaticResource ToBrushConverter}}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        </Panel>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
