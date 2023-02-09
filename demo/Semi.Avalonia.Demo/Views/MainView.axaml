@@ -8,10 +8,19 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="TabMenu.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <TabControl
-        Margin="8"
+        Margin="8,20,0,20"
+        Padding="20,0,0,0"
         HorizontalAlignment="Stretch"
-        TabStripPlacement="Left">
+        TabStripPlacement="Left"
+        Theme="{DynamicResource NavigationTab}">
         <TabItem Header="Overview">
             <pages:Overview />
         </TabItem>

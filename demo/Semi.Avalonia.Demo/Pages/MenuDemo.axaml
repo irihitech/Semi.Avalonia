@@ -7,7 +7,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Margin="20" Spacing="20">
+    <StackPanel Spacing="20">
         <Menu>
             <MenuItem Header="_First">
                 <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
@@ -97,7 +97,7 @@
                     <MenuItem Header="Menu Item that won't close on click" StaysOpenOnClick="True" />
                 </ContextMenu>
             </Border.ContextMenu>
-            <TextBlock Text="Context Menu" />
+            <TextBlock Text="Right Click to show Context Menu" />
         </Border>
         <Border>
             <Border.ContextFlyout>
@@ -122,7 +122,7 @@
                     </MenuItem>
                 </MenuFlyout>
             </Border.ContextFlyout>
-            <TextBlock Text="Context Flyout" />
+            <TextBlock Text="Right Click to show Context Flyout" />
         </Border>
     </StackPanel>
 </UserControl>
