@@ -1,3 +1,43 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Add Resources Here  -->
+    <SolidColorBrush x:Key="ColorViewRadioButtonForeground" Color="#54A9FF" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonBackground" Color="#1C1F23" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonPointeroverBackground" Opacity="0.16" Color="White" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonPressedBackground" Opacity="0.20" Color="White" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedForeground" Color="White" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedBackground" Color="#54A9FF" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedPointeroverBackground" Color="#7FC1FF" />
+    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedPressedBackground" Color="#A9D7FF" />
+    <FontWeight x:Key="ColorViewRadioButtonFontWeight">600</FontWeight>
+    <Thickness x:Key="ColorViewRadioButtonPadding">16 4</Thickness>
+    <x:Double x:Key="ColorViewNumericUpDownWidth">70</x:Double>
+
+    <SolidColorBrush x:Key="ColorViewTabItemSelectedForeground" Color="#54A9FF" />
+
+    <PathGeometry x:Key="ColorViewSpectrumIconGlyph">
+        M6.92,19L5,17.08L13.06,9L15,10.94M20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L13.84,6.41L11.91,4.5L10.5,5.91L11.92,7.33L3,16.25V21H7.75L16.67,12.08L18.09,13.5L19.5,12.09L17.58,10.17L20.7,7.05C21.1,6.65 21.1,6 20.71,5.63Z
+    </PathGeometry>
+    <PathGeometry x:Key="ColorViewPaletteIconGlyph">
+        M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z
+    </PathGeometry>
+    <PathGeometry x:Key="ColorViewComponentsIconGlyph">
+        M4 6.5C5.10457 6.5 6 5.60457 6 4.5C6 3.39543 5.10457 2.5 4 2.5C2.89543 2.5 2 3.39543 2 4.5C2 5.60457 2.89543 6.5 4 6.5ZM9.5 3C8.67157 3 8 3.67157 8 4.5C8 5.32843 8.67157 6 9.5 6H20.5C21.3284 6 22 5.32843 22 4.5C22 3.67157 21.3284 3 20.5 3H9.5ZM8 11.5C8 10.6716 8.67157 10 9.5 10H20.5C21.3284 10 22 10.6716 22 11.5C22 12.3284 21.3284 13 20.5 13H9.5C8.67157 13 8 12.3284 8 11.5ZM8 18.5C8 17.6716 8.67157 17 9.5 17H20.5C21.3284 17 22 17.6716 22 18.5C22 19.3284 21.3284 20 20.5 20H9.5C8.67157 20 8 19.3284 8 18.5ZM6 11.5C6 12.6046 5.10457 13.5 4 13.5C2.89543 13.5 2 12.6046 2 11.5C2 10.3954 2.89543 9.5 4 9.5C5.10457 9.5 6 10.3954 6 11.5ZM4 20.5C5.10457 20.5 6 19.6046 6 18.5C6 17.3954 5.10457 16.5 4 16.5C2.89543 16.5 2 17.3954 2 18.5C2 19.6046 2.89543 20.5 4 20.5Z
+    </PathGeometry>
+
+    <SolidColorBrush x:Key="ColorSliderDefaultBorderBrush" Color="Black" />
+    <SolidColorBrush x:Key="ColorSliderLightBorderBrush" Color="White" />
+    <SolidColorBrush x:Key="ColorSliderDarkBorderBrush" Color="#E4000000" />
+
+    <x:Double x:Key="ColorSliderWidth">16</x:Double>
+    <CornerRadius x:Key="ColorSliderCornerRadius">8</CornerRadius>
+    <Thickness x:Key="ColorSliderThumbBorderBrush">2</Thickness>
+
+    <SolidColorBrush x:Key="ColorSpectrumBorderBrush" Opacity="0.08" Color="#1C1F23" />
+
+    <x:Double x:Key="ColorPreviewerAccentSectionWidth">80</x:Double>
+    <x:Double x:Key="ColorPreviewerAccentSectionHeight">20</x:Double>
+    <x:Double x:Key="ColorPreviewerHeight">48</x:Double>
+    <CornerRadius x:Key="ColorPreviewerCornerRadius">3</CornerRadius>
+
+    <BoxShadows x:Key="ColorPreviewerMainBoxShadow">0 0 14 0 #1AFFFFFF</BoxShadows>
 </ResourceDictionary>

@@ -9,8 +9,8 @@
     <converters:CornerRadiusFilterConverter x:Key="RightCornerRadiusFilterConverter" Filter="TopRight, BottomRight" />
 
     <ControlTheme x:Key="{x:Type ColorPreviewer}" TargetType="ColorPreviewer">
-        <Setter Property="Height" Value="40" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Height" Value="{DynamicResource ColorPreviewerHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ColorPreviewerCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="{x:Type ColorPreviewer}">
                 <Panel>
@@ -79,6 +79,7 @@
                         <!--  Preview color: Must be last for drop shadow Z-index  -->
                         <Border
                             Grid.Column="1"
+                            Margin="0,8"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             BoxShadow="{DynamicResource ColorPreviewerMainBoxShadow}"
