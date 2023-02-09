@@ -12,27 +12,18 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
-                        <Grid DockPanel.Dock="Left" RowDefinitions="Auto, *">
-                            <TextBlock
-                                Grid.Row="0"
-                                Margin="8,0,8,8"
-                                HorizontalAlignment="Center"
-                                Classes="H5"
-                                Text="Semi Avalonia Demo"
-                                Theme="{DynamicResource TitleTextBlock}" />
-                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                                <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-                                    <ItemsPresenter Name="PART_ItemsPresenter">
-                                        <ItemsPresenter.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel />
-                                            </ItemsPanelTemplate>
-                                        </ItemsPresenter.ItemsPanel>
-                                    </ItemsPresenter>
-                                    <Border Name="PART_BorderSeparator" Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
-                                </Panel>
-                            </ScrollViewer>
-                        </Grid>
+                        <ScrollViewer DockPanel.Dock="Left" VerticalScrollBarVisibility="Auto">
+                            <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                                <ItemsPresenter Name="PART_ItemsPresenter">
+                                    <ItemsPresenter.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ItemsPresenter.ItemsPanel>
+                                </ItemsPresenter>
+                                <Border Name="PART_BorderSeparator" Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+                            </Panel>
+                        </ScrollViewer>
                         <ContentPresenter
                             Name="PART_SelectedContentHost"
                             Margin="{TemplateBinding Padding}"
