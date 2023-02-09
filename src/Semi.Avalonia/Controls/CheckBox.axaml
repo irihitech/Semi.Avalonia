@@ -15,15 +15,18 @@
             <ControlTemplate TargetType="CheckBox">
                 <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
                     <Border
-                        x:Name="PART_Border" Grid.ColumnSpan="2"
+                        x:Name="PART_Border"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}" />
 
                     <Grid
-                        Grid.Column="0" Margin="0,2,0,0"
-                        VerticalAlignment="Top">
+                        Grid.Column="0"
+                        Margin="0,2,0,0"
+                        VerticalAlignment="Center">
                         <Border
                             x:Name="NormalRectangle"
                             Width="{DynamicResource CheckboxBoxWidth}"
@@ -38,20 +41,24 @@
                             <Panel>
                                 <Panel Width="{DynamicResource CheckboxBoxWidth}" Height="{DynamicResource CheckboxBoxWidth}" />
                                 <Path
-                                    x:Name="CheckGlyph" VerticalAlignment="Center"
+                                    x:Name="CheckGlyph"
+                                    VerticalAlignment="Center"
                                     Fill="{DynamicResource CheckboxGlyphFill}"
-                                    Opacity="0" Stretch="Uniform" />
+                                    Opacity="0"
+                                    Stretch="Uniform" />
                             </Panel>
                         </Viewbox>
                     </Grid>
                     <ContentPresenter
-                        x:Name="ContentPresenter" Grid.Column="1"
+                        x:Name="ContentPresenter"
+                        Grid.Column="1"
                         Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Center"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                        RecognizesAccessKey="True" TextWrapping="Wrap" />
+                        RecognizesAccessKey="True"
+                        TextWrapping="Wrap" />
                 </Grid>
             </ControlTemplate>
         </Setter>
