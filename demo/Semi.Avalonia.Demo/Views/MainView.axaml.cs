@@ -18,7 +18,7 @@ public partial class MainView : UserControl
         if (app is not null)
         {
             var theme = app.ActualThemeVariant;
-            app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Default : ThemeVariant.Dark;
+            app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
         }
     }
 }
