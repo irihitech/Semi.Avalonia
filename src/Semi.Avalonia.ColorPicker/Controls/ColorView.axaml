@@ -317,7 +317,8 @@
                             <Grid
                                 Margin="12"
                                 ColumnDefinitions="Auto,*"
-                                RowDefinitions="Auto,24,1*,1*,1*,1*,12">
+                                RowDefinitions="Auto,24,1*,1*,1*,1*,12"
+                                UseLayoutRounding="False">
                                 <Grid.Styles>
                                     <Style Selector="NumericUpDown /template/ TextBox">
                                         <Setter Property="InnerLeftContent" Value="{TemplateBinding Tag}" />

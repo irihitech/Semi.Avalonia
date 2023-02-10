@@ -357,13 +357,7 @@
                     VerticalAlignment="Center"
                     Background="Transparent"
                     Data="{DynamicResource DataGridRowGroupHeaderExpandIconGlyph}"
-                    Foreground="{DynamicResource DataGridRowGroupHeaderExpandIconForeground}">
-                    <PathIcon.Transitions>
-                        <Transitions>
-                            <TransformOperationsTransition Property="RenderTransform" Duration="0.1" />
-                        </Transitions>
-                    </PathIcon.Transitions>
-                </PathIcon>
+                    Foreground="{DynamicResource DataGridRowGroupHeaderExpandIconForeground}" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked /template/ PathIcon">
