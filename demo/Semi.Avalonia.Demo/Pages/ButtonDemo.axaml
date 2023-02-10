@@ -7,10 +7,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel
-        Margin="20"
-        HorizontalAlignment="Left"
-        Spacing="20">
+    <StackPanel HorizontalAlignment="Left" Spacing="20">
         <TextBlock>Light (Default)</TextBlock>
         <StackPanel Orientation="Horizontal" Spacing="20">
             <Button Classes="Primary">Primary</Button>
@@ -49,7 +46,7 @@
             </Button>
         </StackPanel>
         <TextBlock>DropdownButton</TextBlock>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Spacing="8">
             <DropDownButton Content="Submit">
                 <DropDownButton.Flyout>
                     <MenuFlyout Placement="BottomEdgeAlignedRight">
@@ -75,7 +72,7 @@
                 </DropDownButton.Flyout>
             </DropDownButton>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Spacing="8">
             <SplitButton Content="Submit">
                 <SplitButton.Flyout>
                     <MenuFlyout Placement="BottomEdgeAlignedRight">
@@ -93,7 +90,7 @@
                 Content="Submit"
                 IsEnabled="False" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Spacing="8">
             <ToggleSplitButton Content="Submit">
                 <ToggleSplitButton.Flyout>
                     <MenuFlyout Placement="BottomEdgeAlignedRight">

@@ -10,9 +10,4 @@ public partial class CalendarDatePickerDemo : UserControl
     {
         InitializeComponent();
     }
-
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
 }

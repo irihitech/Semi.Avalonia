@@ -132,15 +132,17 @@
 
                             <Viewbox
                                 Name="PART_IconPresenter"
-                                Width="12"
-                                Height="12"
+                                Width="16"
+                                Height="16"
                                 Margin="{DynamicResource MenuItemIconMargin}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 IsVisible="False"
-                                Stretch="UniformToFill"
-                                StretchDirection="DownOnly">
-                                <ContentPresenter Content="{TemplateBinding Icon}" />
+                                Stretch="Uniform">
+                                <ContentPresenter
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding Icon}" />
                             </Viewbox>
 
                             <ContentPresenter

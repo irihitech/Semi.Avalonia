@@ -48,15 +48,13 @@
                 <Setter Property="Button.Template">
                     <ControlTemplate TargetType="Button">
                         <!--  Background must be transparent or hit test will fail  -->
-                        <Label Background="Transparent">
-                            <Label.Content>
-                                <PathIcon
-                                    Width="16"
-                                    Height="16"
-                                    Data="{DynamicResource TextBoxClearButtonData}"
-                                    Foreground="{TemplateBinding Foreground}" />
-                            </Label.Content>
-                        </Label>
+                        <ContentControl Background="Transparent">
+                            <PathIcon
+                                Width="16"
+                                Height="16"
+                                Data="{DynamicResource TextBoxClearButtonData}"
+                                Foreground="{TemplateBinding Foreground}" />
+                        </ContentControl>
                     </ControlTemplate>
                 </Setter>
                 <Style Selector="^:pointerover">

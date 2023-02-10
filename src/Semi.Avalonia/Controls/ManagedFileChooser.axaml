@@ -23,6 +23,7 @@
             <ControlTemplate TargetType="dialogs:ManagedFileChooser">
                 <DockPanel>
                     <Border
+                        Margin="8"
                         Padding="4"
                         DockPanel.Dock="Left"
                         Theme="{DynamicResource CardBorder}">
@@ -47,7 +48,7 @@
                     </Border>
                     <DockPanel
                         x:Name="NavBar"
-                        Margin="8,5,8,0"
+                        Margin="8,8,8,0"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Top">
                         <Button
@@ -69,12 +70,12 @@
                     <DockPanel Margin="8,0,8,8" DockPanel.Dock="Bottom">
                         <DockPanel Margin="0,0,0,8" DockPanel.Dock="Top">
                             <ComboBox
+                                Margin="8,0,0,0"
                                 DockPanel.Dock="Right"
                                 IsVisible="{Binding ShowFilters}"
                                 Items="{Binding Filters}"
                                 SelectedItem="{Binding SelectedFilter}" />
                             <TextBox
-                                Margin="0,0,8,0"
                                 IsVisible="{Binding !SelectingFolder}"
                                 Text="{Binding FileName}"
                                 Watermark="File name" />
@@ -89,28 +90,32 @@
                             HorizontalAlignment="Right"
                             Rows="1">
                             <Button
-                                Margin="8,0"
+                                Margin="8,0,0,0"
                                 Classes="Primary"
                                 Command="{Binding Ok}">
                                 OK
                             </Button>
                             <Button
-                                Margin="8,0"
+                                Margin="8,0,0,0"
                                 Classes="Danger"
                                 Command="{Binding Cancel}">
                                 Cancel
                             </Button>
                         </UniformGrid>
                     </DockPanel>
-                    <Border Padding="8" Theme="{DynamicResource CardBorder}">
+                    <Border
+                        Margin="8"
+                        Padding="8"
+                        Theme="{DynamicResource CardBorder}">
                         <DockPanel Grid.IsSharedSizeScope="True">
                             <Grid
-                                Margin="0,0,0,8"
                                 HorizontalAlignment="Stretch"
                                 ClipToBounds="True"
                                 DockPanel.Dock="Top">
                                 <Grid.Styles>
                                     <Style Selector="TextBlock">
+                                        <Setter Property="Height" Value="24" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
                                         <Setter Property="Margin" Value="8 0 0 0 " />
                                     </Style>
                                 </Grid.Styles>
@@ -134,7 +139,11 @@
                                 <GridSplitter Grid.Column="7" Width="1" />
                                 <TextBlock Grid.Column="8" Text="Size" />
                             </Grid>
-                            <ListBox Name="PART_Files" Items="{Binding Items}">
+                            <ListBox
+                                Name="PART_Files"
+                                Items="{Binding Items}"
+                                SelectedItems="{Binding SelectedItems}"
+                                SelectionMode="{Binding SelectionMode}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Background="Transparent">

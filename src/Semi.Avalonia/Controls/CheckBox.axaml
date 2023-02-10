@@ -15,15 +15,18 @@
             <ControlTemplate TargetType="CheckBox">
                 <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
                     <Border
-                        x:Name="PART_Border" Grid.ColumnSpan="2"
+                        x:Name="PART_Border"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}" />
 
                     <Grid
-                        Grid.Column="0" Margin="0,2,0,0"
-                        VerticalAlignment="Top">
+                        Grid.Column="0"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center">
                         <Border
                             x:Name="NormalRectangle"
                             Width="{DynamicResource CheckboxBoxWidth}"
@@ -33,25 +36,25 @@
                             BorderThickness="{DynamicResource CheckboxBoxBorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             UseLayoutRounding="False" />
+                        <PathIcon
+                            Name="CheckGlyph"
+                            Width="{DynamicResource CheckboxBoxGlyphWidth}"
+                            Height="{DynamicResource CheckboxBoxGlyphHeight}"
+                            Foreground="{DynamicResource CheckboxGlyphFill}" />
 
-                        <Viewbox Height="{DynamicResource CheckboxBoxWidth}" UseLayoutRounding="False">
-                            <Panel>
-                                <Panel Width="{DynamicResource CheckboxBoxWidth}" Height="{DynamicResource CheckboxBoxWidth}" />
-                                <Path
-                                    x:Name="CheckGlyph" VerticalAlignment="Center"
-                                    Fill="{DynamicResource CheckboxGlyphFill}"
-                                    Opacity="0" Stretch="Uniform" />
-                            </Panel>
-                        </Viewbox>
                     </Grid>
                     <ContentPresenter
-                        x:Name="ContentPresenter" Grid.Column="1"
+                        x:Name="ContentPresenter"
+                        Grid.Column="1"
                         Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Center"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                        RecognizesAccessKey="True" TextWrapping="Wrap" />
+                        IsVisible="{TemplateBinding Content,
+                                                    Converter={x:Static ObjectConverters.IsNotNull}}"
+                        RecognizesAccessKey="True"
+                        TextWrapping="Wrap" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -89,9 +92,8 @@
                 <Setter Property="Background" Value="{DynamicResource CheckboxCheckedDefaultBackground}" />
             </Style>
 
-            <Style Selector="^ /template/ Path#CheckGlyph">
-                <Setter Property="Data" Value="M17.4111 7.30848C18.0692 7.81171 18.1947 8.75312 17.6915 9.41119L11.1915 17.9112C10.909 18.2806 10.4711 18.4981 10.0061 18.5C9.54105 18.5019 9.10143 18.288 8.81592 17.9209L5.31592 13.4209C4.80731 12.767 4.92512 11.8246 5.57904 11.316C6.23296 10.8074 7.17537 10.9252 7.68398 11.5791L9.98988 14.5438L15.3084 7.58884C15.8116 6.93077 16.7531 6.80525 17.4111 7.30848Z" />
-                <Setter Property="Width" Value="9" />
+            <Style Selector="^ /template/ PathIcon#CheckGlyph">
+                <Setter Property="Data" Value="{DynamicResource CheckBoxCheckGlyph}" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
 
@@ -133,9 +135,8 @@
                 <Setter Property="Background" Value="{DynamicResource CheckboxCheckedDefaultBackground}" />
             </Style>
 
-            <Style Selector="^ /template/ Path#CheckGlyph">
-                <Setter Property="Data" Value="M5 12.5C5 11.6716 5.67157 11 6.5 11H17.5C18.3284 11 19 11.6716 19 12.5C19 13.3284 18.3284 14 17.5 14H6.5C5.67157 14 5 13.3284 5 12.5Z" />
-                <Setter Property="Width" Value="9" />
+            <Style Selector="^ /template/ PathIcon#CheckGlyph">
+                <Setter Property="Data" Value="{DynamicResource CheckBoxIndeterminateGlyph}" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
 

@@ -8,19 +8,7 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <StackPanel Margin="10" Spacing="5">
-            <TextBlock
-                HorizontalAlignment="Center"
-                Classes="H4"
-                Text="Welcome to Semi Avalonia"
-                Theme="{StaticResource TitleTextBlock}" />
-
-            <ToggleSwitch
-                Content="Switch Theme"
-                IsCheckedChanged="ToggleButton_OnIsCheckedChanged"
-                OffContent="Dark"
-                OnContent="Default" />
-
+        <StackPanel Spacing="5">
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
                 <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>

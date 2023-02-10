@@ -2,5 +2,8 @@
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type ThemeVariantScope}" TargetType="ThemeVariantScope">
         <!--  Add Resources Here  -->
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DefaultForeground}" />
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource DefaultFontSize}" />
+        <Setter Property="TextElement.FontFamily" Value="{DynamicResource DefaultFontFamily}" />
     </ControlTheme>
 </ResourceDictionary>

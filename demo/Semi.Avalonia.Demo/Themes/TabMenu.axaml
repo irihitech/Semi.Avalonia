@@ -1,0 +1,44 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="NavigationTab" TargetType="TabControl">
+        <Setter Property="TabControl.Template">
+            <!--    -->
+            <ControlTemplate TargetType="TabControl">
+                <Border
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <ScrollViewer DockPanel.Dock="Left" VerticalScrollBarVisibility="Auto">
+                            <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                                <ItemsPresenter Name="PART_ItemsPresenter">
+                                    <ItemsPresenter.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ItemsPresenter.ItemsPanel>
+                                </ItemsPresenter>
+                                <Border Name="PART_BorderSeparator" Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+                            </Panel>
+                        </ScrollViewer>
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectedContent}"
+                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Border.Width" Value="1" />
+            <Setter Property="Border.VerticalAlignment" Value="Stretch" />
+            <Setter Property="Border.HorizontalAlignment" Value="Left" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

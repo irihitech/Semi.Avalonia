@@ -317,10 +317,15 @@
                             <Grid
                                 Margin="12"
                                 ColumnDefinitions="Auto,*"
-                                RowDefinitions="Auto,24,1*,1*,1*,1*,12">
+                                RowDefinitions="Auto,24,1*,1*,1*,1*,12"
+                                UseLayoutRounding="False">
                                 <Grid.Styles>
                                     <Style Selector="NumericUpDown /template/ TextBox">
-                                        <Setter Property="InnerLeftContent" Value="{TemplateBinding Tag}" />
+                                        <Setter Property="InnerLeftContent">
+                                            <Template>
+                                                <TextBlock Width="12" Text="{Binding $parent[NumericUpDown].Tag}" />
+                                            </Template>
+                                        </Setter>
                                     </Style>
                                 </Grid.Styles>
                                 <!--  Top color model & Hex input  -->
@@ -386,13 +391,7 @@
                                     Minimum="{Binding Minimum, ElementName=Component1Slider}"
                                     NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                                     ShowButtonSpinner="False"
-                                    Value="{Binding Value, ElementName=Component1Slider}">
-                                    <NumericUpDown.Styles>
-                                        <Style Selector="NumericUpDown /template/ TextBox">
-                                            <Setter Property="InnerLeftContent" Value="{TemplateBinding Tag}" />
-                                        </Style>
-                                    </NumericUpDown.Styles>
-                                </NumericUpDown>
+                                    Value="{Binding Value, ElementName=Component1Slider}" />
                                 <primitives:ColorSlider
                                     x:Name="Component1Slider"
                                     Grid.Row="2"
