@@ -229,7 +229,11 @@
                                             Tag="{TemplateBinding ColorModel}">
                                             <Grid.Styles>
                                                 <Style Selector="NumericUpDown /template/ TextBox">
-                                                    <Setter Property="InnerLeftContent" Value="{TemplateBinding Tag}" />
+                                                    <Setter Property="InnerLeftContent">
+                                                        <Template>
+                                                            <TextBlock Width="12" Text="{Binding $parent[NumericUpDown].Tag}" />
+                                                        </Template>
+                                                    </Setter>
                                                 </Style>
                                                 <Style Selector="Grid[Tag=Rgba]">
                                                     <Style Selector="^ NumericUpDown#Component1NumericUpDown">
