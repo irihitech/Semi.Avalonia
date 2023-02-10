@@ -25,7 +25,7 @@
 
                     <Grid
                         Grid.Column="0"
-                        Margin="0,2,0,0"
+                        Margin="0,0,0,0"
                         VerticalAlignment="Center">
                         <Border
                             x:Name="NormalRectangle"
@@ -51,6 +51,8 @@
                         VerticalAlignment="Center"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
+                        IsVisible="{TemplateBinding Content,
+                                                    Converter={x:Static ObjectConverters.IsNotNull}}"
                         RecognizesAccessKey="True"
                         TextWrapping="Wrap" />
                 </Grid>
