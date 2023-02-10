@@ -139,7 +139,11 @@
                                 <GridSplitter Grid.Column="7" Width="1" />
                                 <TextBlock Grid.Column="8" Text="Size" />
                             </Grid>
-                            <ListBox Name="PART_Files" Items="{Binding Items}">
+                            <ListBox
+                                Name="PART_Files"
+                                Items="{Binding Items}"
+                                SelectedItems="{Binding SelectedItems}"
+                                SelectionMode="{Binding SelectionMode}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Background="Transparent">
