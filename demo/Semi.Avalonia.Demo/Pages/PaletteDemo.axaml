@@ -4,31 +4,68 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <Design.DataContext>
+        <viewModels:PaletteDemoViewModel />
+    </Design.DataContext>
     <SplitView
-        CompactPaneLength="100"
+        Name="splitView"
+        CompactPaneLength="50"
         DisplayMode="CompactInline"
         IsPaneOpen="{Binding #toggle.IsChecked, Mode=TwoWay}"
         OpenPaneLength="300"
         PanePlacement="Right">
         <SplitView.Pane>
-            <Border Theme="{DynamicResource CardBorder}">
-                <StackPanel>
-                    <ToggleButton
-                        Name="toggle"
-                        HorizontalAlignment="Right"
-                        Content="Detail" />
-                    <TextBlock Text="Hello" />
-                </StackPanel>
-            </Border>
+            <StackPanel>
+                <ToggleButton
+                    Name="toggle"
+                    HorizontalAlignment="Right"
+                    Theme="{DynamicResource BorderlessToggleButton}">
+                    <PathIcon
+                        Width="16"
+                        Height="16"
+                        Data="M5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2ZM6 4C5.44772 4 5 4.44772 5 5V19C5 19.5523 5.44772 20 6 20H9C9.55229 20 10 19.5523 10 19V5C10 4.44772 9.55229 4 9 4H6Z" />
+                </ToggleButton>
+                <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
+                    <StackPanel>
+
+                        <TextBlock Text="Hello" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
 
         </SplitView.Pane>
         <SplitView.Content>
-            <StackPanel>
-                <TextBlock Text="Content" />
-            </StackPanel>
+            <ScrollViewer>
+                <StackPanel>
+                    <ItemsControl Items="{Binding Series}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="viewModels:ColorSeries">
+                                <DockPanel>
+                                    <TextBlock DockPanel.Dock="Top" Text=" " />
+                                    <ItemsControl Items="{Binding Color}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <UniformGrid Columns="10" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="viewModels:ColorItemViewModel">
+                                                <Border Height="60" Background="{Binding Color}">
+                                                    <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
         </SplitView.Content>
     </SplitView>
 </UserControl>
