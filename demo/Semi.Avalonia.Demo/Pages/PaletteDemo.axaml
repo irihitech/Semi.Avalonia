@@ -2,6 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Pages.PaletteDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
@@ -11,6 +12,13 @@
     <Design.DataContext>
         <viewModels:PaletteDemoViewModel />
     </Design.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="../Controls/ColorItemControl.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <SplitView
         Name="splitView"
         CompactPaneLength="50"
@@ -30,9 +38,14 @@
                         Data="M5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2ZM6 4C5.44772 4 5 4.44772 5 5V19C5 19.5523 5.44772 20 6 20H9C9.55229 20 10 19.5523 10 19V5C10 4.44772 9.55229 4 9 4H6Z" />
                 </ToggleButton>
                 <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
-                    <StackPanel>
-
-                        <TextBlock Text="Hello" />
+                    <StackPanel DataContext="{Binding SelectedColor}" Spacing="8">
+                        <Border
+                            Height="30"
+                            HorizontalAlignment="Stretch"
+                            Background="{Binding Color}"
+                            CornerRadius="3" />
+                        <Label Classes="Code" Content="{Binding ResourceKey}" />
+                        <TextBlock Text="{Binding Color}" />
                     </StackPanel>
                 </Border>
             </StackPanel>
@@ -41,29 +54,56 @@
         <SplitView.Content>
             <ScrollViewer>
                 <StackPanel>
-                    <ItemsControl Items="{Binding Series}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate x:DataType="viewModels:ColorSeries">
-                                <DockPanel>
-                                    <TextBlock DockPanel.Dock="Top" Text=" " />
-                                    <ItemsControl Items="{Binding Color}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <UniformGrid Columns="10" />
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate x:DataType="viewModels:ColorItemViewModel">
-                                                <Border Height="60" Background="{Binding Color}">
-                                                    <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
-                                                </Border>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </DockPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <TabControl>
+                        <TabItem Header="Light">
+                            <ItemsControl Margin="16" Items="{Binding LightSeries}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="viewModels:ColorSeries">
+                                        <ItemsControl Margin="4,0" Items="{Binding Color}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="viewModels:ColorItemViewModel">
+                                                    <controls:ColorItemControl
+                                                        Background="{Binding Color}"
+                                                        ColorName="{Binding Name}"
+                                                        Foreground="{Binding TextColor}"
+                                                        Hex="{Binding Hex}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </TabItem>
+                        <TabItem Header="Dark">
+                            <ItemsControl Margin="16" Items="{Binding DarkSeries}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="viewModels:ColorSeries">
+                                        <ItemsControl Margin="4,0" Items="{Binding Color}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="viewModels:ColorItemViewModel">
+                                                    <controls:ColorItemControl
+                                                        Background="{Binding Color}"
+                                                        ColorName="{Binding Name}"
+                                                        Foreground="{Binding TextColor}"
+                                                        Hex="{Binding Hex}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </TabItem>
+                    </TabControl>
                 </StackPanel>
             </ScrollViewer>
         </SplitView.Content>
