@@ -19,7 +19,7 @@
                         <TabItem Header="Light">
                             <DataGrid IsReadOnly="True" Items="{TemplateBinding LightColors}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Header="Color">
+                                    <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <controls:ColorItemControl
@@ -30,7 +30,7 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="ResourceKey">
+                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock VerticalAlignment="Center" Text="{Binding ResourceKey}" />
@@ -38,10 +38,11 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                     <DataGridTextColumn
+                                        Width="*"
                                         Binding="{Binding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
-                                    <DataGridTemplateColumn Header="Hex">
+                                    <DataGridTemplateColumn Width="100" Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
@@ -51,7 +52,7 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="Opacity">
+                                    <DataGridTemplateColumn Width="80" Header="Opacity">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
@@ -68,7 +69,7 @@
                         <TabItem Header="Dark">
                             <DataGrid IsReadOnly="True" Items="{TemplateBinding DarkColors}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Header="Color">
+                                    <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <controls:ColorItemControl
@@ -79,7 +80,7 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="ResourceKey">
+                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock VerticalAlignment="Center" Text="{Binding ResourceKey}" />
@@ -87,10 +88,11 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                     <DataGridTextColumn
+                                        Width="*"
                                         Binding="{Binding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
-                                    <DataGridTemplateColumn Header="Hex">
+                                    <DataGridTemplateColumn Width="100" Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
@@ -100,7 +102,7 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Header="Opacity">
+                                    <DataGridTemplateColumn Width="80" Header="Opacity">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
