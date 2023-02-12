@@ -43,9 +43,13 @@ public class PaletteDemoViewModel: ObservableObject
     {
         _lightResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml"));
         _darkResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml"));
+        WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
+    }
+
+    public void InitializeResources()
+    {
         InitializePalette();
         InitializeFunctionalColors();
-        WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
     }
 
     private void InitializePalette()
@@ -69,6 +73,18 @@ public class PaletteDemoViewModel: ObservableObject
     private void InitializeFunctionalColors()
     {
         FunctionalColors.Add(new FunctionalColorGroupViewModel("Primary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.PrimaryTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Secondary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.SecondaryTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Tertiary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TertiaryTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Information", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.InformationTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Success", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.SuccessTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Warning", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.WarningTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Danger", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DangerTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Text", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TextTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Link", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.LinkTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BackgroundTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Fill", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.FillTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Border", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BorderTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
     }
     private void OnClickColorItem(PaletteDemoViewModel vm, ColorItemViewModel item)
     {
@@ -221,4 +237,113 @@ public static class ColorTokens
         new ("SemiColorPrimaryLightPointerover", "Primary Light Pointerover"),
         new ("SemiColorPrimaryLightActive", "Primary Light Active"),
     };
+
+    public static IReadOnlyList<Tuple<string, string>> SecondaryTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorSecondary", "Secondary"),
+        new ("SemiColorSecondaryPointerover", "Secondary Pointerover"),
+        new ("SemiColorSecondaryPressed", "Secondary Pressed"),
+        new ("SemiColorSecondaryDisabled", "Secondary Disabled"),
+        new ("SemiColorSecondaryLight", "Secondary Light"),
+        new ("SemiColorSecondaryLightPointerover", "Secondary Light Pointerover"),
+        new ("SemiColorSecondaryLightActive", "Secondary Light Active"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> TertiaryTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorTertiary", "Tertiary"),
+        new ("SemiColorTertiaryPointerover", "Tertiary Pointerover"),
+        new ("SemiColorTertiaryPressed", "Tertiary Pressed"),
+        new ("SemiColorTertiaryLight", "Tertiary Light"),
+        new ("SemiColorTertiaryLightPointerover", "Tertiary Light Pointerover"),
+        new ("SemiColorTertiaryLightActive", "Tertiary Light Active"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> InformationTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorInformation", "Information"),
+        new ("SemiColorInformationPointerover", "Information Pointerover"),
+        new ("SemiColorInformationPressed", "Information Pressed"),
+        new ("SemiColorInformationDisabled", "Information Disabled"),
+        new ("SemiColorInformationLight", "Information Light"),
+        new ("SemiColorInformationLightPointerover", "Information Light Pointerover"),
+        new ("SemiColorInformationLightActive", "Information Light Active"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> SuccessTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorSuccess", "Success"),
+        new ("SemiColorSuccessPointerover", "Success Pointerover"),
+        new ("SemiColorSuccessPressed", "Success Pressed"),
+        new ("SemiColorSuccessDisabled", "Success Disabled"),
+        new ("SemiColorSuccessLight", "Success Light"),
+        new ("SemiColorSuccessLightPointerover", "Success Light Pointerover"),
+        new ("SemiColorSuccessLightActive", "Success Light Active"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> WarningTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorWarning", "Warning"),
+        new ("SemiColorWarningPointerover", "Warning Pointerover"),
+        new ("SemiColorWarningPressed", "Warning Pressed"),
+        new ("SemiColorWarningLight", "Warning Light"),
+        new ("SemiColorWarningLightPointerover", "Warning Light Pointerover"),
+        new ("SemiColorWarningLightActive", "Warning Light Active"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> DangerTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorDanger", "Danger"),
+        new ("SemiColorDangerPointerover", "Danger Pointerover"),
+        new ("SemiColorDangerPressed", "Danger Pressed"),
+        new ("SemiColorDangerLight", "Danger Light"),
+        new ("SemiColorDangerLightPointerover", "Danger Light Pointerover"),
+        new ("SemiColorDangerLightActive", "Danger Light Active"),
+    };
+
+    public static IReadOnlyList<Tuple<string, string>> TextTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorText0", "Text 0"),
+        new ("SemiColorText1", "Text 1"),
+        new ("SemiColorText2", "Text 2"),
+        new ("SemiColorText3", "Text 3"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> LinkTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorLink", "Link"),
+        new ("SemiColorLinkPointerover", "Link Pointerover"),
+        new ("SemiColorLinkActive", "Link Active"),
+        new ("SemiColorLinkVisited", "Link Visited"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> BackgroundTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorBackground0", "Background 0"),
+        new ("SemiColorBackground1", "Background 1"),
+        new ("SemiColorBackground2", "Background 2"),
+        new ("SemiColorBackground3", "Background 3"),
+        new ("SemiColorBackground4", "Background 4"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> FillTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorFill0", "Fill 0"),
+        new ("SemiColorFill1", "Fill 1"),
+        new ("SemiColorFill2", "Fill 2"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> BorderTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorBorder", "Border"),
+    };
+    
+    public static IReadOnlyList<Tuple<string, string>> DisabledTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorDisabledText", "Disabled Text"),
+        new ("SemiColorDisabledBorder", "Disabled Border"),
+        new ("SemiColorDisabledBackground", "Disabled Background"),
+        new ("SemiColorDisabledFill", "Disabled Fill"),
+    };
+    
 }

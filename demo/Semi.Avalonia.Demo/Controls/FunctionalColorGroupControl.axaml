@@ -19,6 +19,17 @@
                         <TabItem Header="Light">
                             <DataGrid IsReadOnly="True" Items="{TemplateBinding LightColors}">
                                 <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="Color">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <controls:ColorItemControl
+                                                    Width="40"
+                                                    Height="20"
+                                                    Background="{Binding Brush}"
+                                                    CornerRadius="3" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -30,20 +41,24 @@
                                         Binding="{Binding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
-                                    <DataGridTemplateColumn Header="Color">
+                                    <DataGridTemplateColumn Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <controls:ColorItemControl
-                                                        Width="40"
-                                                        Height="20"
-                                                        Background="{Binding Brush}"
-                                                        CornerRadius="3" />
-                                                    <SelectableTextBlock
-                                                        Margin="8,0,0,0"
-                                                        VerticalAlignment="Center"
-                                                        Text="{Binding Hex}" />
-                                                </StackPanel>
+                                                <SelectableTextBlock
+                                                    Margin="8,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Hex}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Opacity">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <SelectableTextBlock
+                                                    Margin="8,0,0,0"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Brush.Opacity}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -53,6 +68,17 @@
                         <TabItem Header="Dark">
                             <DataGrid IsReadOnly="True" Items="{TemplateBinding DarkColors}">
                                 <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="Color">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <controls:ColorItemControl
+                                                    Width="40"
+                                                    Height="20"
+                                                    Background="{Binding Brush}"
+                                                    CornerRadius="3" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -60,21 +86,28 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn Binding="{Binding ColorDisplayName}" Header="Name" />
-                                    <DataGridTemplateColumn Header="Color">
+                                    <DataGridTextColumn
+                                        Binding="{Binding ColorDisplayName}"
+                                        CanUserSort="False"
+                                        Header="Name" />
+                                    <DataGridTemplateColumn Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <controls:ColorItemControl
-                                                        Width="40"
-                                                        Height="20"
-                                                        Background="{Binding Brush}"
-                                                        CornerRadius="3" />
-                                                    <SelectableTextBlock
-                                                        Margin="8,0,0,0"
-                                                        VerticalAlignment="Center"
-                                                        Text="{Binding Hex}" />
-                                                </StackPanel>
+                                                <SelectableTextBlock
+                                                    Margin="8,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Hex}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Opacity">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <SelectableTextBlock
+                                                    Margin="8,0,0,0"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Brush.Opacity}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

@@ -22,9 +22,7 @@ public class FunctionalColorGroupControl: TemplatedControl
         get => _lightColors;
         set => SetAndRaise(LightColorsProperty, ref _lightColors, value);
     }
-
     
-
     public static readonly DirectProperty<FunctionalColorGroupControl, IEnumerable> DarkColorsProperty = AvaloniaProperty.RegisterDirect<FunctionalColorGroupControl, IEnumerable>(
         nameof(DarkColors), o => o.DarkColors, (o, v) => o.DarkColors = v);
     private IEnumerable _darkColors;
