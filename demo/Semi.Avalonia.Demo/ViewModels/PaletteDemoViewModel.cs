@@ -10,9 +10,10 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public class PaletteDemoViewModel: ObservableObject
 {
-    private string[] _colors = { "Amber","Blue","Cyan","Green","Grey","Indigo","LightBlue","LightGreen","Lime","Orange","Pink","Purple","Red","Teal","Violet","Yellow" };
-    private ObservableCollection<ColorSeries> _lightSeries;
-
+    private readonly string[] _predefinedColorNames = { "Amber","Blue","Cyan","Green","Grey","Indigo","LightBlue","LightGreen","Lime","Orange","Pink","Purple","Red","Teal","Violet","Yellow" };
+    private IResourceDictionary _lightResourceDictionary;
+    private IResourceDictionary _darkResourceDictionary;
+    
     private ColorItemViewModel _selectedColor;
 
     public ColorItemViewModel SelectedColor
@@ -20,40 +21,45 @@ public class PaletteDemoViewModel: ObservableObject
         get => _selectedColor;
         set => SetProperty(ref _selectedColor, value);
     }
-
-    public ObservableCollection<ColorSeries> LightSeries
-    {
-        get => _lightSeries;
-        set => SetProperty(ref _lightSeries, value);
-    }
     
-    private ObservableCollection<ColorSeries> _darkSeries;
-
-    public ObservableCollection<ColorSeries> DarkSeries
+    
+    private ObservableCollection<ColorListViewModel> _lightLists;
+    public ObservableCollection<ColorListViewModel> LightLists
     {
-        get => _darkSeries;
-        set => SetProperty(ref _darkSeries, value);
+        get => _lightLists;
+        set => SetProperty(ref _lightLists, value);
+    }
+    private ObservableCollection<ColorListViewModel> _darkLists;
+    public ObservableCollection<ColorListViewModel> DarkLists
+    {
+        get => _darkLists;
+        set => SetProperty(ref _darkLists, value);
     }
 
     public PaletteDemoViewModel()
     {
-        LightSeries = new ObservableCollection<ColorSeries>();
-        var lightResourceDictionary = (ResourceDictionary)(AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml")));
-        foreach (var color in _colors)
-        {
-            ColorSeries s = new ColorSeries();
-            s.Initialize(lightResourceDictionary, color, true);
-            LightSeries.Add(s);
-        }
-        DarkSeries = new ObservableCollection<ColorSeries>();
-        var darkResouceDictionary = (ResourceDictionary)(AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml")));
-        foreach (var color in _colors)
-        {
-            ColorSeries s = new ColorSeries();
-            s.Initialize(darkResouceDictionary, color, false);
-            DarkSeries.Add(s);
-        }
+        _lightResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml"));
+        _darkResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml"));
+        InitializePalette();
         WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
+    }
+
+    private void InitializePalette()
+    {
+        LightLists = new ObservableCollection<ColorListViewModel>();
+        foreach (var color in _predefinedColorNames)
+        {
+            ColorListViewModel s = new ColorListViewModel();
+            s.Initialize(_lightResourceDictionary, color, true);
+            LightLists.Add(s);
+        }
+        DarkLists = new ObservableCollection<ColorListViewModel>();
+        foreach (var color in _predefinedColorNames)
+        {
+            ColorListViewModel s = new ColorListViewModel();
+            s.Initialize(_darkResourceDictionary, color, false);
+            DarkLists.Add(s);
+        }
     }
 
     private void OnClickColorItem(PaletteDemoViewModel vm, ColorItemViewModel item)
@@ -62,7 +68,7 @@ public class PaletteDemoViewModel: ObservableObject
     }
 }
 
-public class ColorSeries: ObservableObject
+public class ColorListViewModel: ObservableObject
 {
     private ObservableCollection<ColorItemViewModel>? _colors;
 
@@ -104,25 +110,25 @@ public class ColorSeries: ObservableObject
 public class ColorItemViewModel : ObservableObject
 {
 
-    private IBrush _color;
-    public IBrush Color
+    private IBrush _brush;
+    public IBrush Brush
     {
-        get => _color;
-        set => SetProperty(ref _color, value);
+        get => _brush;
+        set => SetProperty(ref _brush, value);
     }
     
-    private IBrush _textColor;
-    public IBrush TextColor
+    private IBrush _textBrush;
+    public IBrush TextBrush
     {
-        get => _textColor;
-        set => SetProperty(ref _textColor, value);
+        get => _textBrush;
+        set => SetProperty(ref _textBrush, value);
     }
 
-    private string _name;
-    public string Name
+    private string _colorDisplayName;
+    public string ColorDisplayName
     {
-        get => _name;
-        set => SetProperty(ref _name, value);
+        get => _colorDisplayName;
+        set => SetProperty(ref _colorDisplayName, value);
     }
 
     private string _resourceKey;
@@ -141,19 +147,19 @@ public class ColorItemViewModel : ObservableObject
         set => SetProperty(ref _hex, value);
     }
     
-    public ColorItemViewModel(string name, IBrush color, string resourceKey, bool light, int index)
+    public ColorItemViewModel(string colorDisplayName, IBrush brush, string resourceKey, bool light, int index)
     {
-        Name = name;
-        Color = color;
+        ColorDisplayName = colorDisplayName;
+        Brush = brush;
         ResourceKey = resourceKey;
-        Hex = color.ToString().ToUpperInvariant();
+        Hex = brush.ToString().ToUpperInvariant();
         if ((light && index < 5) || (!light && index > 5))
         {
-            TextColor = Brushes.Black;
+            TextBrush = Brushes.Black;
         }
         else
         {
-            TextColor = Brushes.White;
+            TextBrush = Brushes.White;
         }
     }
 }
