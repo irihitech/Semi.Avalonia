@@ -1,0 +1,89 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
+    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels">
+    <!--  Add Resources Here  -->
+    <ControlTheme x:Key="{x:Type controls:FunctionalColorGroupControl}" TargetType="controls:FunctionalColorGroupControl">
+        <!--  Add Resources Here  -->
+        <Setter Property="controls:FunctionalColorGroupControl.Template">
+            <ControlTemplate x:DataType="viewModels:FunctionalColorGroupViewModel" TargetType="controls:FunctionalColorGroupControl">
+                <Grid RowDefinitions="Auto, *">
+                    <TextBlock
+                        Grid.Row="0"
+                        Margin="0,16,0,0"
+                        Classes="H3"
+                        Text="{TemplateBinding Title}"
+                        Theme="{DynamicResource TitleTextBlock}" />
+                    <TabControl Grid.Row="1">
+                        <TabItem Header="Light">
+                            <DataGrid IsReadOnly="True" Items="{TemplateBinding LightColors}">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="ResourceKey">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <SelectableTextBlock VerticalAlignment="Center" Text="{Binding ResourceKey}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn
+                                        Binding="{Binding ColorDisplayName}"
+                                        CanUserSort="False"
+                                        Header="Name" />
+                                    <DataGridTemplateColumn Header="Color">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <controls:ColorItemControl
+                                                        Width="40"
+                                                        Height="20"
+                                                        Background="{Binding Brush}"
+                                                        CornerRadius="3" />
+                                                    <SelectableTextBlock
+                                                        Margin="8,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        Text="{Binding Hex}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </TabItem>
+                        <TabItem Header="Dark">
+                            <DataGrid IsReadOnly="True" Items="{TemplateBinding DarkColors}">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="ResourceKey">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <SelectableTextBlock VerticalAlignment="Center" Text="{Binding ResourceKey}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn Binding="{Binding ColorDisplayName}" Header="Name" />
+                                    <DataGridTemplateColumn Header="Color">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <controls:ColorItemControl
+                                                        Width="40"
+                                                        Height="20"
+                                                        Background="{Binding Brush}"
+                                                        CornerRadius="3" />
+                                                    <SelectableTextBlock
+                                                        Margin="8,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        Text="{Binding Hex}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

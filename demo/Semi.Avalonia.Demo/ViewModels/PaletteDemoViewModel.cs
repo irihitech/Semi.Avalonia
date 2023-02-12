@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -36,11 +37,14 @@ public class PaletteDemoViewModel: ObservableObject
         set => SetProperty(ref _darkLists, value);
     }
 
+    public ObservableCollection<FunctionalColorGroupViewModel> FunctionalColors { get; set; } = new();
+
     public PaletteDemoViewModel()
     {
         _lightResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml"));
         _darkResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml"));
         InitializePalette();
+        InitializeFunctionalColors();
         WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
     }
 
@@ -62,6 +66,10 @@ public class PaletteDemoViewModel: ObservableObject
         }
     }
 
+    private void InitializeFunctionalColors()
+    {
+        FunctionalColors.Add(new FunctionalColorGroupViewModel("Primary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.PrimaryTokens));
+    }
     private void OnClickColorItem(PaletteDemoViewModel vm, ColorItemViewModel item)
     {
         SelectedColor = item;
@@ -96,7 +104,7 @@ public class ColorListViewModel: ObservableObject
             var key = "Semi" + color + i;
             if (resourceDictionary.TryGetValue(key, out var value))
             {
-                if (value is SolidColorBrush brush)
+                if (value is ISolidColorBrush brush)
                 {
                     string name = color + " " + i;
                     var item = new ColorItemViewModel(name, brush, key, light, i);
@@ -147,7 +155,7 @@ public class ColorItemViewModel : ObservableObject
         set => SetProperty(ref _hex, value);
     }
     
-    public ColorItemViewModel(string colorDisplayName, IBrush brush, string resourceKey, bool light, int index)
+    public ColorItemViewModel(string colorDisplayName, ISolidColorBrush brush, string resourceKey, bool light, int index)
     {
         ColorDisplayName = colorDisplayName;
         Brush = brush;
@@ -162,4 +170,55 @@ public class ColorItemViewModel : ObservableObject
             TextBrush = Brushes.White;
         }
     }
+}
+
+public class FunctionalColorGroupViewModel : ObservableObject
+{
+    private string _title;
+    public string Title
+    {
+        get => _title;
+        set => SetProperty(ref _title, value);
+    }
+
+    public ObservableCollection<ColorItemViewModel> LightColors { get; set; } = new();
+    public ObservableCollection<ColorItemViewModel> DarkColors { get; set; } = new();
+
+    public FunctionalColorGroupViewModel(string title, IResourceDictionary lightDictionary, IResourceDictionary darkDictionary, IReadOnlyList<Tuple<string, string>> tokens)
+    {
+        Title = title;
+        foreach (var token in tokens)
+        {
+            string key = token.Item1;
+            string name = token.Item2;
+            if (lightDictionary.TryGetValue(key, out var lightValue))
+            {
+                if (lightValue is ISolidColorBrush lightBrush)
+                {
+                    LightColors.Add(new ColorItemViewModel(name, lightBrush, key, true, 0));
+                }
+            }
+            if (darkDictionary.TryGetValue(key, out var darkValue))
+            {
+                if (darkValue is ISolidColorBrush darkBrush)
+                {
+                    DarkColors.Add(new ColorItemViewModel(name, darkBrush, key, true, 0));
+                }
+            }
+        }
+    }
+}
+
+public static class ColorTokens
+{
+    public static IReadOnlyList<Tuple<string, string>> PrimaryTokens { get; } = new List<Tuple<string, string>>
+    {
+        new ("SemiColorPrimary", "Primary"),
+        new ("SemiColorPrimaryPointerover", "Primary Pointerover"),
+        new ("SemiColorPrimaryPressed", "Primary Pressed"),
+        new ("SemiColorPrimaryDisabled", "Primary Disabled"),
+        new ("SemiColorPrimaryLight", "Primary Light"),
+        new ("SemiColorPrimaryLightPointerover", "Primary Light Pointerover"),
+        new ("SemiColorPrimaryLightActive", "Primary Light Active"),
+    };
 }

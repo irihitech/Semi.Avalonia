@@ -17,6 +17,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="../Controls/ColorItemControl.axaml" />
                 <ResourceInclude Source="../Controls/ColorDetailControl.axaml" />
+                <ResourceInclude Source="../Controls/FunctionalColorGroupControl.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -51,6 +52,10 @@
         <SplitView.Content>
             <ScrollViewer>
                 <StackPanel>
+                    <TextBlock
+                        Classes="H3"
+                        Text="Basic Colors"
+                        Theme="{DynamicResource TitleTextBlock}" />
                     <TabControl>
                         <TabItem Header="Light">
                             <ItemsControl Margin="16" Items="{Binding LightLists}">
@@ -101,6 +106,18 @@
                             </ItemsControl>
                         </TabItem>
                     </TabControl>
+
+                    <ItemsControl Items="{Binding FunctionalColors}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <!--    -->
+                                <controls:FunctionalColorGroupControl
+                                    Title="{Binding Title}"
+                                    DarkColors="{Binding DarkColors}"
+                                    LightColors="{Binding LightColors}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </StackPanel>
             </ScrollViewer>
         </SplitView.Content>
