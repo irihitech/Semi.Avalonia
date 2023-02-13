@@ -80,6 +80,9 @@
         <!--  Selected State  -->
         <Style Selector="^:selected">
             <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemSelectedPointeroverBackground}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -1,0 +1,109 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls">
+    <PathGeometry x:Key="CopyIcon">M5 7C3.89543 7 3 7.89543 3 9V19C3 20.1046 3.89543 21 5 21H15C16.1046 21 17 20.1046 17 19V9C17 7.89543 16.1046 7 15 7H5Z,M7 4C7 2.89543 7.89543 2 9 2H20C21.1046 2 22 2.89543 22 4V15C22 16.1046 21.1046 17 20 17H19V8C19 6 18 5 16 5H7V4Z</PathGeometry>
+    <ControlTheme x:Key="{x:Type controls:ColorDetailControl}" TargetType="controls:ColorDetailControl">
+        <!--  Add Resources Here  -->
+        <Setter Property="controls:ColorDetailControl.Template">
+            <ControlTemplate TargetType="controls:ColorDetailControl">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,8"
+                        Classes="H5"
+                        Text="{TemplateBinding ResourceName}"
+                        Theme="{DynamicResource TitleTextBlock}" />
+                    <Border
+                        Height="100"
+                        HorizontalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="6" />
+                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="*, *, *, *, *, *">
+                        <!--  Row 0-1 ResourceKey  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="4,8,0,0"
+                            VerticalAlignment="Center"
+                            Classes="Tertiary"
+                            Text="ResourceKey" />
+                        <SelectableTextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="{TemplateBinding ResourceKey}" />
+                        <Button
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Classes="Tertiary"
+                            Command="{Binding $parent[controls:ColorDetailControl].Copy}"
+                            CommandParameter="{x:Static controls:ColorDetailControl.KEY_ResourceKey}"
+                            Theme="{DynamicResource BorderlessButton}">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource CopyIcon}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+
+                        <!--  Row 2-3 HEX  -->
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="4,8,0,0"
+                            VerticalAlignment="Center"
+                            Classes="Tertiary"
+                            Text="ARGB" />
+                        <SelectableTextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="{TemplateBinding Hex}" />
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Classes="Tertiary"
+                            Command="{Binding $parent[controls:ColorDetailControl].Copy}"
+                            CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex}"
+                            Theme="{DynamicResource BorderlessButton}">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource CopyIcon}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+
+                        <!--  Row 4-5 Opacity  -->
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="4,8,0,0"
+                            VerticalAlignment="Center"
+                            Classes="Tertiary"
+                            Text="Opacity" />
+                        <SelectableTextBlock
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="{TemplateBinding OpacityNumber}" />
+                        <Button
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Classes="Tertiary"
+                            Command="{Binding $parent[controls:ColorDetailControl].Copy}"
+                            CommandParameter="{x:Static controls:ColorDetailControl.KEY_Opacity}"
+                            Theme="{DynamicResource BorderlessButton}">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource CopyIcon}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

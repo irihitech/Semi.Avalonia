@@ -1,5 +1,6 @@
 <ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
 
     <sys:Double x:Key="ButtonDefaultFontSize">14</sys:Double>
@@ -19,12 +20,12 @@
     <SolidColorBrush x:Key="ButtonDefaultTertiaryForeground" Color="#6B7075" />
     <SolidColorBrush x:Key="ButtonDefaultWarningForeground" Color="#FC8800" />
     <SolidColorBrush x:Key="ButtonDefaultDangerForeground" Color="#F93920" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Color="#E6E8EA" />
+    <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Opacity="0.35" Color="#1C1F23" />
 
     <SolidColorBrush x:Key="ButtonDefaultBackground" Opacity="0.05" Color="#2E3238" />
     <SolidColorBrush x:Key="ButtonDefaultPointeroverBackground" Opacity="0.09" Color="#2E3238" />
     <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Opacity="0.13" Color="#2E3238" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBackground" Opacity="0.05" Color="#2E3238" />
+    <SolidColorBrush x:Key="ButtonDefaultDisabledBackground" Color="#E6E8EA" />
 
     <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="Transparent" />

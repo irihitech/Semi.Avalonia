@@ -1,0 +1,127 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.PaletteDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <viewModels:PaletteDemoViewModel />
+    </Design.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="../Themes/ToggleButton.axaml" />
+                <ResourceInclude Source="../Controls/ColorItemControl.axaml" />
+                <ResourceInclude Source="../Controls/ColorDetailControl.axaml" />
+                <ResourceInclude Source="../Controls/FunctionalColorGroupControl.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <SplitView
+        Name="splitView"
+        CompactPaneLength="50"
+        DisplayMode="CompactInline"
+        IsPaneOpen="{Binding #toggle.IsChecked, Mode=TwoWay}"
+        OpenPaneLength="300"
+        PanePlacement="Right">
+        <SplitView.Pane>
+            <StackPanel>
+                <ToggleButton
+                    Name="toggle"
+                    HorizontalAlignment="Right"
+                    IsChecked="True"
+                    Theme="{DynamicResource SplitViewToggleButton}" />
+                <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
+                    <Panel>
+                        <TextBlock
+                            IsVisible="{Binding SelectedColor, Converter={x:Static ObjectConverters.IsNull}}"
+                            Text="Click on Color to Check Details"
+                            TextWrapping="Wrap" />
+                        <controls:ColorDetailControl
+                            Background="{Binding SelectedColor.Brush}"
+                            IsVisible="{Binding SelectedColor, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            ResourceKey="{Binding SelectedColor.ResourceKey}"
+                            ResourceName="{Binding SelectedColor.ColorDisplayName}" />
+                    </Panel>
+                </Border>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <ScrollViewer>
+                <StackPanel Margin="8,0">
+                    <TextBlock
+                        Classes="H3"
+                        Text="Basic Colors"
+                        Theme="{DynamicResource TitleTextBlock}" />
+                    <TabControl>
+                        <TabItem Header="Light">
+                            <ItemsControl Margin="16" Items="{Binding LightLists}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="viewModels:ColorListViewModel">
+                                        <ItemsControl Margin="4,0" Items="{Binding Color}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="viewModels:ColorItemViewModel">
+                                                    <controls:ColorItemControl
+                                                        Background="{Binding Brush}"
+                                                        ColorName="{Binding ColorDisplayName}"
+                                                        Foreground="{Binding TextBrush}"
+                                                        Hex="{Binding Hex}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </TabItem>
+                        <TabItem Header="Dark">
+                            <ItemsControl Margin="16" Items="{Binding DarkLists}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="viewModels:ColorListViewModel">
+                                        <ItemsControl Margin="4,0" Items="{Binding Color}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="viewModels:ColorItemViewModel">
+                                                    <controls:ColorItemControl
+                                                        Background="{Binding Brush}"
+                                                        ColorName="{Binding ColorDisplayName}"
+                                                        Foreground="{Binding TextBrush}"
+                                                        Hex="{Binding Hex}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </TabItem>
+                    </TabControl>
+
+                    <ItemsControl Items="{Binding FunctionalColors}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <!--    -->
+                                <controls:FunctionalColorGroupControl
+                                    Title="{Binding Title}"
+                                    DarkColors="{Binding DarkColors}"
+                                    LightColors="{Binding LightColors}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </SplitView.Content>
+    </SplitView>
+</UserControl>

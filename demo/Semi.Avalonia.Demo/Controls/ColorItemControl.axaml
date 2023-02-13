@@ -1,0 +1,45 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Semi.Avalonia.Demo.Controls">
+    <Design.PreviewWith>
+        <controls:ColorItemControl />
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type controls:ColorItemControl}" TargetType="controls:ColorItemControl">
+        <Setter Property="controls:ColorItemControl.Width" Value="120" />
+        <Setter Property="controls:ColorItemControl.Height" Value="60" />
+        <Setter Property="controls:ColorItemControl.Cursor" Value="Hand" />
+        <Setter Property="controls:ColorItemControl.Template">
+            <ControlTemplate TargetType="controls:ColorItemControl">
+                <!--    -->
+                <Border
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <TextBlock
+                            Padding="8"
+                            FontSize="12"
+                            FontWeight="600"
+                            Foreground="{TemplateBinding Foreground}"
+                            Text="{TemplateBinding ColorName}" />
+                        <TextBlock
+                            Name="PART_HexTextBlock"
+                            Padding="8"
+                            VerticalAlignment="Bottom"
+                            FontSize="10"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsVisible="False"
+                            Opacity="0.8"
+                            Text="{TemplateBinding Hex}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ TextBlock#PART_HexTextBlock">
+            <Setter Property="TextBlock.IsVisible" Value="True" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
