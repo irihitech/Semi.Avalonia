@@ -147,12 +147,12 @@
             </Setter>
         </Style>
         <Style Selector="^ /template/ Thumb#thumb">
-            <Setter Property="Background" Value="{DynamicResource ScrollBarThumbForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbForeground}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Thumb">
                         <Border
-                            Background="{TemplateBinding Background}"
+                            Background="{TemplateBinding Foreground}"
                             CornerRadius="24"
                             UseLayoutRounding="False" />
                     </ControlTemplate>
@@ -178,11 +178,18 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="^ /template/ RepeatButton.repeattrack">
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="RepeatButton">
                     <Border Background="{TemplateBinding Background}" />
                 </ControlTemplate>
             </Setter>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+            </Style>
         </Style>
 
         <Style Selector="^ /template/ RepeatButton &gt; Path">
@@ -223,6 +230,7 @@
                         Focusable="False"
                         LargeChange="{Binding LargeChange.Width, RelativeSource={RelativeSource TemplatedParent}}"
                         Maximum="{TemplateBinding HorizontalScrollBarMaximum}"
+                        Opacity="0"
                         Orientation="Horizontal"
                         SmallChange="{Binding SmallChange.Width, RelativeSource={RelativeSource TemplatedParent}}"
                         ViewportSize="{TemplateBinding HorizontalScrollBarViewportSize}"
@@ -236,6 +244,7 @@
                         Focusable="False"
                         LargeChange="{Binding LargeChange.Height, RelativeSource={RelativeSource TemplatedParent}}"
                         Maximum="{TemplateBinding VerticalScrollBarMaximum}"
+                        Opacity="0"
                         Orientation="Vertical"
                         SmallChange="{Binding SmallChange.Height, RelativeSource={RelativeSource TemplatedParent}}"
                         ViewportSize="{TemplateBinding VerticalScrollBarViewportSize}"
