@@ -17,18 +17,29 @@ Include Semi Design Styles in application:
 
 ```xaml
 <Application.Styles>
-    <StyleInclude Source="avares://Semi.Avalonia/Themes/DarkTheme.axaml" />
+    <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
 </Application.Styles>
 ```
 
 That's all. 
 
+DataGrid and ColorPicker are distributed in separated packages. Please install if you need. 
+```bash
+dotnet add package Semi.Avalonia.ColorPicker --version 0.1.0-preview5.1
+dotnet add package Semi.Avalonia.DataGrid --version 0.1.0-preview5.1
+```
+```xaml
+<Application.Styles>
+    <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
+    <StyleInclude Source="avares://Semi.Avalonia.ColorPicker/Index.axaml" />
+</Application.Styles>
+```
 ## Version compatibility
 
-|Semi Design Version| Avalonia Version|
-|:---|:---|
-|0.1.0-preview3|11.0-preview4|
-|0.1.0-preview5|11.0-preview5|
+| Semi Design Version | Avalonia Version|
+|:--------------------|:---|
+| 0.1.0-preview3      |11.0-preview4|
+| 0.1.0-preview5.x    |11.0-preview5|
 
 ## TODO
 * DataValidationErrors
