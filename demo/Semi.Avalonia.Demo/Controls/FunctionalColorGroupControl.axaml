@@ -33,7 +33,10 @@
                                     <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <SelectableTextBlock VerticalAlignment="Center" Text="{Binding ResourceKey}" />
+                                                <SelectableTextBlock 
+                                                    Margin="12,0,12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -46,7 +49,7 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
-                                                    Margin="8,0,0,0"
+                                                    Margin="12,0,12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
@@ -56,7 +59,7 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
-                                                    Margin="8,0,0,0"
+                                                    Margin="12,0,12,0"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Brush.Opacity}" />
@@ -83,7 +86,10 @@
                                     <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <SelectableTextBlock VerticalAlignment="Center" Text="{Binding ResourceKey}" />
+                                                <SelectableTextBlock
+                                                    Margin="12,0,12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -96,7 +102,7 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
-                                                    Margin="8,0,0,0"
+                                                    Margin="12,0,12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
@@ -106,7 +112,7 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <SelectableTextBlock
-                                                    Margin="8,0,0,0"
+                                                    Margin="12,0,12,0"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Brush.Opacity}" />
