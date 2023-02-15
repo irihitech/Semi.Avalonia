@@ -6,7 +6,7 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
-        <Setter Property="AutoCompleteBox.MaxDropDownHeight" Value="600" />
+        <Setter Property="AutoCompleteBox.MaxDropDownHeight" Value="{DynamicResource AutoCompleteMaxDropdownHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="AutoCompleteBox">
                 <Panel>
