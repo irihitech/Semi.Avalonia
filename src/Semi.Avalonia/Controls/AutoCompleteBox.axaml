@@ -12,6 +12,7 @@
                 <Panel>
                     <TextBox
                         Name="PART_TextBox"
+                        VerticalAlignment="Center"
                         DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                         Watermark="{TemplateBinding Watermark}" />
                     <Popup
@@ -46,6 +47,7 @@
                     <Panel>
                         <TextBox
                             Name="PART_TextBox"
+                            VerticalAlignment="Center"
                             Classes="Bordered"
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             Watermark="{TemplateBinding Watermark}" />
@@ -75,7 +77,15 @@
                 </ControlTemplate>
             </Setter>
         </Style>
+        <Style Selector="^.Large /template/ TextBox">
+            <Setter Property="TextBox.MinHeight" Value="{DynamicResource AutoCompleteBoxLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small /template/ TextBox">
+            <Setter Property="TextBox.MinHeight" Value="{DynamicResource AutoCompleteBoxSmallHeight}" />
+        </Style>
     </ControlTheme>
+
+
 
 
 </ResourceDictionary>
