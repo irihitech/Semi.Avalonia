@@ -56,7 +56,7 @@
         TargetType="AutoCompleteBox">
         <ControlTheme.Children>
             <Style Selector="^ /template/ TextBox#PART_TextBox">
-                <Setter Property="Theme" Value="{StaticResource BorderlessTextBox}" />
+                <Setter Property="Theme" Value="{DynamicResource BorderlessTextBox}" />
             </Style>
         </ControlTheme.Children>
         <Setter Property="Background" Value="{DynamicResource AutoCompleteBoxBorderlessBackground}" />

@@ -176,18 +176,24 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.Background" Value="{DynamicResource TextBoxPressedBackground}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+            <Setter Property="Border.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+        </Style>
         <Style Selector="^:disabled">
             <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
-            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
-            <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
         </Style>
-        <Style Selector="^:pointerover">
-            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxPointerOverBorderBrush}" />
-        </Style>
-        <Style Selector="^:focus">
-            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
-        </Style>
-        <Style Selector="^.clearButton">
+        <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
                 <Setter Property="Button.IsVisible" Value="True" />
             </Style>
@@ -195,7 +201,7 @@
                 <Setter Property="Button.IsVisible" Value="True" />
             </Style>
         </Style>
-        <Style Selector="^.revealPasswordButton">
+        <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
                 <Setter Property="ToggleButton.IsVisible" Value="True" />
             </Style>
@@ -206,21 +212,22 @@
         <Style Selector="^.Small">
             <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxSmallHeight}" />
         </Style>
-    </ControlTheme>
 
-    <ControlTheme
-        x:Key="BorderlessTextBox"
-        BasedOn="{StaticResource {x:Type TextBox}}"
-        TargetType="TextBox">
-        <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderlessDefaultBackground}" />
-        <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderlessDefaultBorderBrush}" />
-        <Style Selector="^:pointerover">
-            <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderlessPointeroverBackground}" />
-            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderlessPointeroverBorderBrush}" />
-        </Style>
-        <Style Selector="^:focus">
-            <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderlessPointeroverBackground}" />
-            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
+        <Style Selector="^.Bordered">
+            <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderedDefaultBackground}" />
+            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderedDefaultBorderBrush}" />
+            <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
+                <Setter Property="Border.Background" Value="{DynamicResource TextBoxBorderedPointeroverBackground}" />
+                <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:focus">
+                <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderedPointeroverBackground}" />
+                <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
+                <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+                <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
