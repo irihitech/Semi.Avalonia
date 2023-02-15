@@ -159,5 +159,30 @@
         <Style Selector="^:focus-within /template/ Border#Background">
             <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
         </Style>
+
+        <Style Selector="^.Bordered">
+            <Style Selector="^ Border#Background">
+                <Setter Property="Border.Background" Value="{DynamicResource CalendarDatePickerBorderedDefaultBackground}" />
+                <Setter Property="Border.BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedDefaultBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#Background">
+                <Setter Property="Border.Background" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBackground}" />
+                <Setter Property="Border.BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:focus-within /template/ Border#Background">
+                <Setter Property="Border.Background" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBackground}" />
+                <Setter Property="Border.BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Border#Background">
+                    <Setter Property="Background" Value="{DynamicResource CalendarDatePickerDisabledBackground}" />
+                    <Setter Property="Border.BorderBrush" Value="Transparent" />
+                </Style>
+
+                <Style Selector="^ /template/ Button#PART_Button">
+                    <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerDisabledIconForeground}" />
+                </Style>
+            </Style>
+        </Style>
     </ControlTheme>
 </ResourceDictionary>
