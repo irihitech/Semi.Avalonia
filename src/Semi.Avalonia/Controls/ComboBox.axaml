@@ -35,7 +35,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ComboBoxSelectorCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="MinHeight" Value="{DynamicResource ComboBoxDefaultHeight}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -115,6 +115,7 @@
                             BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
                             BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
                             BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
+                            ClipToBounds="True"
                             CornerRadius="6">
                             <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                 <ItemsPresenter
@@ -127,6 +128,13 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Large">
+            <Setter Property="ComboBox.MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="ComboBox.MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
+        </Style>
 
         <!--  PointerOver State  -->
         <Style Selector="^:pointerover">
@@ -163,6 +171,35 @@
                 <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconDisabledForeground}" />
             </Style>
         </Style>
+        <Style Selector="^.Bordered">
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBorderedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBorderedPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPressedBorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Border#Background">
+                    <Setter Property="Border.Background" Value="{DynamicResource ComboBoxSelectorDisabledBackground}" />
+                    <Setter Property="Border.BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderBrush}" />
+                </Style>
+                <Style Selector="^ /template/ ContentControl#ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource ComboBoxDisabledForeground}" />
+                </Style>
+                <Style Selector="^ /template/ TextBlock#PlaceholderTextBlock">
+                    <Setter Property="Foreground" Value="{DynamicResource ComboBoxDisabledForeground}" />
+                </Style>
+                <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+                    <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconDisabledForeground}" />
+                </Style>
+            </Style>
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
@@ -187,24 +224,26 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointerOverBackground}" />
         </Style>
 
-        <Style Selector="^:disabled">
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemDisabledBackground}" />
         </Style>
 
-        <Style Selector="^:pressed">
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPressedBackground}" />
         </Style>
 
         <Style Selector="^:selected">
-            <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedBackground}" />
-            <Style Selector="^:disabled">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedBackground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedDisabledBackground}" />
             </Style>
-            <Style Selector="^:pointerover">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedPointerOverBackground}" />
             </Style>
         </Style>
