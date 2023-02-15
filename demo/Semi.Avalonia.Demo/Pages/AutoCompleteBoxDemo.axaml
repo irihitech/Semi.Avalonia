@@ -25,8 +25,18 @@
             </AutoCompleteBox.ItemTemplate>
         </AutoCompleteBox>
         <AutoCompleteBox
+            Classes="Bordered"
             Items="{Binding States}"
-            Theme="{StaticResource BorderlessAutoCompleteBox}"
+            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate DataType="local:StateData">
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+        <AutoCompleteBox
+            IsEnabled="False"
+            Items="{Binding States}"
             ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
