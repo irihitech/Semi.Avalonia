@@ -127,8 +127,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
@@ -247,6 +246,13 @@
 
         <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonSmallHeight}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
