@@ -128,7 +128,7 @@
 
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Height" Value="30" />
+        <Setter Property="Height" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
@@ -144,7 +144,7 @@
                         Width="242"
                         MinWidth="242"
                         HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -165,6 +165,7 @@
                                         x:Name="PART_HourTextBlock"
                                         Padding="12,4"
                                         HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}" />
@@ -187,6 +188,7 @@
                                         x:Name="PART_MinuteTextBlock"
                                         Padding="12,4"
                                         HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}" />
@@ -209,6 +211,7 @@
                                         x:Name="PART_PeriodTextBlock"
                                         Padding="12,4"
                                         HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}" />

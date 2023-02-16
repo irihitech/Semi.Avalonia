@@ -125,7 +125,7 @@
 
     <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Height" Value="30" />
+        <Setter Property="Height" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
@@ -141,7 +141,7 @@
                         Width="298"
                         MinWidth="298"
                         HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -154,6 +154,7 @@
                             <Grid
                                 Name="PART_ButtonContentGrid"
                                 Grid.Column="0"
+                                VerticalAlignment="Center"
                                 ColumnDefinitions="78*,Auto,132*,Auto,78*">
                                 <TextBlock
                                     Name="PART_DayTextBlock"

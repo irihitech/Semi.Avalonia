@@ -3,6 +3,7 @@
 
     <ControlTheme x:Key="DateTimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="Button.VerticalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter
@@ -19,7 +20,7 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
