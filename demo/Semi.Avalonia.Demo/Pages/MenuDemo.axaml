@@ -73,7 +73,7 @@
                 <MenuItem Header="Child 19" />
             </MenuItem>
         </Menu>
-        <Border>
+        <Border Theme="{DynamicResource CardBorder}">
             <Border.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />
@@ -100,7 +100,7 @@
             </Border.ContextMenu>
             <TextBlock Text="Right Click to show Context Menu" />
         </Border>
-        <Border>
+        <Border Theme="{DynamicResource CardBorder}">
             <Border.ContextFlyout>
                 <MenuFlyout>
                     <MenuItem Header="Standard _Menu Item" InputGesture="Ctrl+A" />

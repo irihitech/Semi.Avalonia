@@ -17,7 +17,10 @@
                 <Setter Property="Width" Value="300" />
             </Style>
         </StackPanel.Styles>
-        <AutoCompleteBox Items="{Binding States}" ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+        <AutoCompleteBox
+            Items="{Binding States}"
+            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}"
+            Watermark="Please select a State">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
                     <TextBlock Text="{Binding Name}" />
@@ -25,9 +28,40 @@
             </AutoCompleteBox.ItemTemplate>
         </AutoCompleteBox>
         <AutoCompleteBox
+            Classes="Large"
             Items="{Binding States}"
-            Theme="{StaticResource BorderlessAutoCompleteBox}"
             ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate DataType="local:StateData">
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+        <AutoCompleteBox
+            Classes="Small"
+            Items="{Binding States}"
+            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate DataType="local:StateData">
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+        <AutoCompleteBox
+            Classes="Bordered"
+            Items="{Binding States}"
+            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate DataType="local:StateData">
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+        <AutoCompleteBox
+            IsEnabled="False"
+            Items="{Binding States}"
+            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}"
+            Watermark="Disabled">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
                     <TextBlock Text="{Binding Name}" />

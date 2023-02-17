@@ -124,13 +124,12 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Height" Value="30" />
+        <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="BorderThickness" Value="{DynamicResource DateTimePickerButtonBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerButtonCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
@@ -141,7 +140,7 @@
                         Width="298"
                         MinWidth="298"
                         HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -154,6 +153,7 @@
                             <Grid
                                 Name="PART_ButtonContentGrid"
                                 Grid.Column="0"
+                                VerticalAlignment="Center"
                                 ColumnDefinitions="78*,Auto,132*,Auto,78*">
                                 <TextBlock
                                     Name="PART_DayTextBlock"
@@ -228,6 +228,12 @@
         <!--  Changes foreground for watermark text when SelectedDate is null  -->
         <Style Selector="^:hasnodate /template/ Button#PART_FlyoutButton TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonSmallHeight}" />
         </Style>
     </ControlTheme>
 
