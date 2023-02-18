@@ -4,11 +4,20 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <!-- Uncomment below to enable Native AOT compilation-->
+        <!--
+        <PublishAot>true</PublishAot>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        -->
     </PropertyGroup>
 
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <RdXmlFile Include="rd.xml"/>
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview5" />

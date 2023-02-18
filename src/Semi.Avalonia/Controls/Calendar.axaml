@@ -1,4 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:CompileBindings="True">
     <!--  Add Resources Here  -->
 
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
@@ -33,6 +36,7 @@
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    x:DataType="x:String"
                     FontSize="12"
                     Foreground="{DynamicResource CalendarItemWeekDayNameForeground}"
                     Text="{Binding}" />

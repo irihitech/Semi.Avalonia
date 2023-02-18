@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Avalonia.Controls.Converters">
+    xmlns:converters="using:Avalonia.Controls.Converters"
+    x:CompileBindings="True">
 
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
@@ -274,7 +275,7 @@
                             RecognizesAccessKey="True" />
                         <Popup
                             Name="PART_Popup"
-                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            MinWidth="{Binding $parent[MenuItem].Bounds.Width}"
                             HorizontalOffset="-8"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsSubMenuOpen,
