@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    x:CompileBindings="False"
+    x:DataType="local:AutoCompleteBoxDemoViewModel"
     mc:Ignorable="d">
     <Design.DataContext>
         <local:AutoCompleteBoxDemoViewModel />
@@ -19,7 +21,7 @@
         </StackPanel.Styles>
         <AutoCompleteBox
             Items="{Binding States}"
-            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}"
+            ValueMemberBinding="{Binding Name}"
             Watermark="Please select a State">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
@@ -30,7 +32,7 @@
         <AutoCompleteBox
             Classes="Large"
             Items="{Binding States}"
-            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            ValueMemberBinding="{ReflectionBinding Name}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
                     <TextBlock Text="{Binding Name}" />
@@ -40,7 +42,7 @@
         <AutoCompleteBox
             Classes="Small"
             Items="{Binding States}"
-            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            ValueMemberBinding="{ReflectionBinding Name}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
                     <TextBlock Text="{Binding Name}" />
@@ -50,7 +52,7 @@
         <AutoCompleteBox
             Classes="Bordered"
             Items="{Binding States}"
-            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}">
+            ValueMemberBinding="{ReflectionBinding Name}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
                     <TextBlock Text="{Binding Name}" />
@@ -60,7 +62,7 @@
         <AutoCompleteBox
             IsEnabled="False"
             Items="{Binding States}"
-            ValueMemberBinding="{Binding Name, x:DataType=local:StateData}"
+            ValueMemberBinding="{ReflectionBinding Name}"
             Watermark="Disabled">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">

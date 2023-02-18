@@ -1,8 +1,13 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:CompileBindings="True">
     <Design.PreviewWith>
         <StackPanel
-            Width="500" Margin="20"
-            HorizontalAlignment="Left" Spacing="20">
+            Width="500"
+            Margin="20"
+            HorizontalAlignment="Left"
+            Spacing="20">
             <StackPanel.Styles>
                 <Style Selector="Label">
                     <Setter Property="Margin" Value="4" />
@@ -183,7 +188,8 @@
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     FontSize="{TemplateBinding FontSize}"
-                    RecognizesAccessKey="True" UseLayoutRounding="True" />
+                    RecognizesAccessKey="True"
+                    UseLayoutRounding="True" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^.Large">

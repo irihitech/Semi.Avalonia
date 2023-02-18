@@ -2,7 +2,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dialogs="clr-namespace:Avalonia.Dialogs;assembly=Avalonia.Dialogs"
-    xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs">
+    xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs"
+    x:CompileBindings="True">
     <!--  Add Resources Here  -->
     <Design.PreviewWith>
         <Border
@@ -20,7 +21,7 @@
     </internal:ResourceSelectorConverter>
     <ControlTheme x:Key="{x:Type dialogs:ManagedFileChooser}" TargetType="dialogs:ManagedFileChooser">
         <Setter Property="dialogs:ManagedFileChooser.Template">
-            <ControlTemplate TargetType="dialogs:ManagedFileChooser">
+            <ControlTemplate x:DataType="internal:ManagedFileChooserViewModel" TargetType="dialogs:ManagedFileChooser">
                 <DockPanel>
                     <Border
                         Margin="8"
