@@ -1,18 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  
+  <Import Project="../Package.props"/>
+  
   <PropertyGroup>
-    <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
-    <LangVersion>10</LangVersion>
-    <Version>0.1.0-preview5.1</Version>
     <Title>Semi.Avalonia</Title>
-    <Authors>IRIHI Technology</Authors>
-    <Description>Avalonia Theme inspired by Semi Design. </Description>
-    <PackageProjectUrl>https://github.com/irihitech/Semi.Avalonia</PackageProjectUrl>
-    <PackageReleaseNotes>Add Palette, Fix varieous color issue. </PackageReleaseNotes>
+    <PackageReleaseNotes>Adapt borderless design, Add Native AOT support. bug fixes.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.0-preview5" />
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
   </ItemGroup>
 
   <ItemGroup>
