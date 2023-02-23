@@ -166,15 +166,18 @@
         x:Key="ButtonToggleSwitch"
         BasedOn="{StaticResource {x:Type ToggleSwitch}}"
         TargetType="ToggleSwitch">
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
                 <Border
                     Name="Background"
-                    Padding="8"
+                    Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
-                    CornerRadius="3"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Cursor="Hand">
-                    <Grid Background="Transparent" ColumnDefinitions="Auto">
+                    <Grid ColumnDefinitions="Auto">
                         <Grid x:Name="PART_SwitchKnob" />
                         <Grid x:Name="PART_MovingKnobs" />
                         <ContentPresenter
