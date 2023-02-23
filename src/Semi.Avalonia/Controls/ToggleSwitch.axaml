@@ -172,25 +172,37 @@
     <ControlTheme x:Key="ButtonToggleSwitch" BasedOn="{StaticResource {x:Type ToggleSwitch}}" TargetType="ToggleSwitch">
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
-                <Grid
-                    Background="Transparent"
+                <Border
+                    Name="Background"
                     Cursor="Hand"
-                    ColumnDefinitions="Auto">
-                    <Grid x:Name="PART_SwitchKnob" />
-                    <Grid x:Name="PART_MovingKnobs" />
-                    <ContentPresenter
-                        x:Name="PART_OnContentPresenter"
-                        Margin="{DynamicResource ToggleSwitchOnContentMargin}"
-                        Content="{TemplateBinding OnContent}"
-                        ContentTemplate="{TemplateBinding OnContentTemplate}" />
-                    <ContentPresenter
-                        x:Name="PART_OffContentPresenter"
-                        Margin="{DynamicResource ToggleSwitchOnContentMargin}"
-                        Content="{TemplateBinding OffContent}"
-                        ContentTemplate="{TemplateBinding OffContentTemplate}" />
-                </Grid>
+                    Padding="8"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="3">
+                    <Grid
+                        Background="Transparent"
+                        ColumnDefinitions="Auto">
+                        <Grid x:Name="PART_SwitchKnob" />
+                        <Grid x:Name="PART_MovingKnobs" />
+                        <ContentPresenter
+                            x:Name="PART_OnContentPresenter"
+                            Margin="{DynamicResource ToggleSwitchOnContentMargin}"
+                            Content="{TemplateBinding OnContent}"
+                            ContentTemplate="{TemplateBinding OnContentTemplate}" />
+                        <ContentPresenter
+                            x:Name="PART_OffContentPresenter"
+                            Margin="{DynamicResource ToggleSwitchOnContentMargin}"
+                            Content="{TemplateBinding OffContent}"
+                            ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                    </Grid>
+                </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleToggleSwitch" BasedOn="{StaticResource {x:Type ToggleSwitch}}" TargetType="ToggleSwitch">
