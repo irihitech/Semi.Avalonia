@@ -169,7 +169,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SimpleToggleSwitch" BasedOn="{StaticResource {x:Type ToggleSwitch}}" TargetType="ToggleSwitch">
+    <ControlTheme x:Key="CustomToggleSwitch" BasedOn="{StaticResource {x:Type ToggleSwitch}}" TargetType="ToggleSwitch">
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
                 <Grid
@@ -188,6 +188,60 @@
                         Margin="{DynamicResource ToggleSwitchOnContentMargin}"
                         Content="{TemplateBinding OffContent}"
                         ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SimpleToggleSwitch" BasedOn="{StaticResource {x:Type ToggleSwitch}}" TargetType="ToggleSwitch">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Grid
+                    Background="{TemplateBinding Background}"
+                    Cursor="Hand"
+                    RowDefinitions="*">
+                    <Grid
+                        Grid.Row="0"
+                        Background="Transparent"
+                        ColumnDefinitions="Auto, *">
+                        <Grid
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            TemplatedControl.IsTemplateFocusTarget="True" />
+                        <Border
+                            Name="SwitchBackgroundBorder"
+                            Grid.Column="0"
+                            Width="40"
+                            Height="20"
+                            CornerRadius="100">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0:0:0.2" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <Canvas
+                            x:Name="PART_SwitchKnob"
+                            Grid.Column="0"
+                            Width="20"
+                            Height="20"
+                            HorizontalAlignment="Left">
+                            <Grid
+                                x:Name="PART_MovingKnobs"
+                                Width="20"
+                                Height="20">
+                                <Border
+                                    x:Name="SwitchKnobIndicator"
+                                    Width="14"
+                                    Height="14"
+                                    Background="White"
+                                    BorderBrush="{DynamicResource ToggleSwitchIndicatorBorderBrush}"
+                                    BorderThickness="0.5"
+                                    BoxShadow="0 0 1 1 #222E3238"
+                                    CornerRadius="100" />
+                            </Grid>
+                        </Canvas>
+                    </Grid>
                 </Grid>
             </ControlTemplate>
         </Setter>
