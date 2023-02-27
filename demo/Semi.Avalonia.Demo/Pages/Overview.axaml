@@ -96,7 +96,11 @@
                 </TabItem>
             </TabControl>
             <StackPanel Orientation="Horizontal" Spacing="20">
-                <ComboBox Width="200" PlaceholderText="Please Select" />
+                <ComboBox Width="200" PlaceholderText="Please Select" >
+                    <ComboBoxItem>Item 1</ComboBoxItem>
+                    <ComboBoxItem>Item 2</ComboBoxItem>
+                    <ComboBoxItem>Item 3</ComboBoxItem>
+                </ComboBox>
                 <DatePicker />
                 <TimePicker />
                 <CalendarDatePicker />
