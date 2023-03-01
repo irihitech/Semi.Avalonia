@@ -88,12 +88,7 @@
                                     <Setter Property="ReservedSpace" Value="{Binding #PART_Track.Thumb.Bounds}" />
                                 </Style>
                             </Grid.Styles>
-                            <Grid x:Name="HorizontalTemplate">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                            <Grid x:Name="HorizontalTemplate" RowDefinitions="Auto,Auto,Auto">
                                 <TickBar
                                     Name="TopTickBar"
                                     Grid.Row="0"
@@ -177,12 +172,8 @@
                             <Grid
                                 x:Name="VerticalTemplate"
                                 MinWidth="{DynamicResource SliderVerticalWidth}"
+                                ColumnDefinitions="Auto,Auto,Auto"
                                 RowDefinitions="*,Auto,Auto">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
                                 <TickBar
                                     Name="LeftTickBar"
                                     Grid.RowSpan="3"
