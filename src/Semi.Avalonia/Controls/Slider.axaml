@@ -88,11 +88,11 @@
                                     <Setter Property="ReservedSpace" Value="{Binding #PART_Track.Thumb.Bounds}" />
                                 </Style>
                             </Grid.Styles>
-                            <Grid x:Name="HorizontalTemplate" MinHeight="50">
+                            <Grid x:Name="HorizontalTemplate">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="15" />
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="15" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <TickBar
                                     Name="TopTickBar"
