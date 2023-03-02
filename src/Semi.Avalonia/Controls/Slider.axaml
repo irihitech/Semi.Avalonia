@@ -88,12 +88,7 @@
                                     <Setter Property="ReservedSpace" Value="{Binding #PART_Track.Thumb.Bounds}" />
                                 </Style>
                             </Grid.Styles>
-                            <Grid x:Name="HorizontalTemplate" MinHeight="50">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="15" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="15" />
-                                </Grid.RowDefinitions>
+                            <Grid x:Name="HorizontalTemplate" RowDefinitions="Auto,Auto,Auto">
                                 <TickBar
                                     Name="TopTickBar"
                                     Grid.Row="0"
@@ -177,15 +172,10 @@
                             <Grid
                                 x:Name="VerticalTemplate"
                                 MinWidth="{DynamicResource SliderVerticalWidth}"
-                                RowDefinitions="*,Auto,Auto">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="{DynamicResource SliderPreContentMargin}" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="{DynamicResource SliderPostContentMargin}" />
-                                </Grid.ColumnDefinitions>
+                                ColumnDefinitions="Auto,Auto,Auto">
                                 <TickBar
                                     Name="LeftTickBar"
-                                    Grid.RowSpan="3"
+                                    Grid.Column="0"
                                     Width="{DynamicResource SliderTickVerticalWidth}"
                                     Margin="0,0,4,0"
                                     HorizontalAlignment="Right"
@@ -199,7 +189,6 @@
                                     Ticks="{TemplateBinding Ticks}" />
                                 <TickBar
                                     Name="RightTickBar"
-                                    Grid.RowSpan="3"
                                     Grid.Column="2"
                                     Width="{DynamicResource SliderTickVerticalWidth}"
                                     Margin="4,0,0,0"
@@ -214,9 +203,7 @@
                                     Ticks="{TemplateBinding Ticks}" />
                                 <Track
                                     Name="PART_Track"
-                                    Grid.RowSpan="3"
                                     Grid.Column="1"
-                                    Grid.ColumnSpan="1"
                                     IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                     Maximum="{TemplateBinding Maximum}"
                                     Minimum="{TemplateBinding Minimum}"
