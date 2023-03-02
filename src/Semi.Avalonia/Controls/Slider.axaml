@@ -172,11 +172,10 @@
                             <Grid
                                 x:Name="VerticalTemplate"
                                 MinWidth="{DynamicResource SliderVerticalWidth}"
-                                ColumnDefinitions="Auto,Auto,Auto"
-                                RowDefinitions="*,Auto,Auto">
+                                ColumnDefinitions="Auto,Auto,Auto">
                                 <TickBar
                                     Name="LeftTickBar"
-                                    Grid.RowSpan="3"
+                                    Grid.Column="0"
                                     Width="{DynamicResource SliderTickVerticalWidth}"
                                     Margin="0,0,4,0"
                                     HorizontalAlignment="Right"
@@ -190,7 +189,6 @@
                                     Ticks="{TemplateBinding Ticks}" />
                                 <TickBar
                                     Name="RightTickBar"
-                                    Grid.RowSpan="3"
                                     Grid.Column="2"
                                     Width="{DynamicResource SliderTickVerticalWidth}"
                                     Margin="4,0,0,0"
@@ -205,9 +203,7 @@
                                     Ticks="{TemplateBinding Ticks}" />
                                 <Track
                                     Name="PART_Track"
-                                    Grid.RowSpan="3"
                                     Grid.Column="1"
-                                    Grid.ColumnSpan="1"
                                     IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                     Maximum="{TemplateBinding Maximum}"
                                     Minimum="{TemplateBinding Minimum}"

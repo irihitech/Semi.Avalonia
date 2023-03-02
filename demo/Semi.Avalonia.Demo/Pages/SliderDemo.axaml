@@ -64,6 +64,15 @@
                 Value="0" />
             <Slider
                 Height="300"
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Vertical"
+                TickFrequency="10"
+                TickPlacement="Outside"
+                Value="0" />
+            <Slider
+                Height="300"
                 Classes="ToolTip"
                 Maximum="100"
                 Minimum="0"
@@ -71,6 +80,22 @@
                 TickFrequency="10"
                 TickPlacement="TopLeft"
                 Value="0" />
+            <Slider
+                Height="300"
+                IsDirectionReversed="True"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Vertical"
+                TickFrequency="10"
+                Value="0" />
+            <Slider
+                Height="300"
+                IsEnabled="False"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Vertical"
+                TickFrequency="10"
+                Value="30" />
         </StackPanel>
     </StackPanel>
 </UserControl>
