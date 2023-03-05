@@ -9,7 +9,7 @@ namespace Semi.Avalonia.Converters;
 
 public class ItemToObjectConverter: IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is AvaloniaList<object> list)
         {
@@ -18,7 +18,7 @@ public class ItemToObjectConverter: IValueConverter
         return new List<object>();
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         throw new NotImplementedException();
     }
