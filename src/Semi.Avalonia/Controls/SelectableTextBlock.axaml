@@ -17,9 +17,6 @@
         <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockFontSize}" />
         <Setter Property="SelectableTextBlock.Cursor" Value="Ibeam" />
         <Setter Property="SelectableTextBlock.SelectionBrush" Value="{DynamicResource TextBlockSelectionBackground}" />
-        <Style Selector="^:disabled">
-            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
-        </Style>
         <Style Selector="^.Secondary">
             <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
         </Style>
@@ -47,8 +44,18 @@
         <Style Selector="^.Delete">
             <Setter Property="SelectableTextBlock.TextDecorations" Value="StrikeThrough" />
         </Style>
+        <Style Selector="^.Underline.Delete">
+            <Setter Property="TextBlock.TextDecorations">
+                <TextDecorationCollection>
+                    <TextDecoration Location="Underline" />
+                    <TextDecoration Location="Strikethrough" />
+                </TextDecorationCollection>
+            </Setter>
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
+        </Style>
         <Style Selector="^[IsEnabled=True]">
-            <Setter Property="Cursor" Value="IBeam" />
             <Setter Property="ContextFlyout" Value="{StaticResource SelectableTextBlockContextFlyout}" />
         </Style>
     </ControlTheme>
@@ -74,6 +81,9 @@
         </Style>
         <Style Selector="^.H6">
             <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockTitleH6FontSize}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

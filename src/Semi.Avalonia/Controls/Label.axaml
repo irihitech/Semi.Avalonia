@@ -99,9 +99,6 @@
                     RecognizesAccessKey="True" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled">
-            <Setter Property="Label.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
-        </Style>
         <Style Selector="^.Secondary">
             <Setter Property="Label.Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
         </Style>
@@ -132,6 +129,9 @@
             <Setter Property="Label.CornerRadius" Value="{DynamicResource TextBlockCodeCornerRadius}" />
             <Setter Property="Label.FontFamily" Value="{DynamicResource CodeFontFamily}" />
             <Setter Property="Label.FontSize" Value="{DynamicResource TextBlockCodeFontSize}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Label.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
         </Style>
     </ControlTheme>
     <ControlTheme
