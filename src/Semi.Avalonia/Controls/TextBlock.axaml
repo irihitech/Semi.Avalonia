@@ -10,9 +10,6 @@
     <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
         <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />-->
         <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockFontSize}" />
-        <Style Selector="^:disabled">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
-        </Style>
         <Style Selector="^.Secondary">
             <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
         </Style>
@@ -40,6 +37,17 @@
         <Style Selector="^.Delete">
             <Setter Property="TextBlock.TextDecorations" Value="StrikeThrough" />
         </Style>
+        <Style Selector="^.Underline.Delete">
+            <Setter Property="TextBlock.TextDecorations">
+                <TextDecorationCollection>
+                    <TextDecoration Location="Underline" />
+                    <TextDecoration Location="Strikethrough" />
+                </TextDecorationCollection>
+            </Setter>
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
+        </Style>
     </ControlTheme>
     <ControlTheme
         x:Key="TitleTextBlock"
@@ -63,6 +71,9 @@
         </Style>
         <Style Selector="^.H6">
             <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH6FontSize}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
