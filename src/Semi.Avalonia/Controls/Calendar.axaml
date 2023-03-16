@@ -31,6 +31,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
+        <Setter Property="CalendarItem.MinHeight" Value="{DynamicResource CalendarMinHeight}" />
         <Setter Property="CalendarItem.DayTitleTemplate">
             <Template>
                 <TextBlock
@@ -51,18 +52,13 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <!--
-                        To keep calendar from resizing when switching DisplayMode
-                        In WinUI Min-Width from TemplateSettings
-                        basically...MinWidth of DayItem = 40, 40 * 7 = 280 + margins/padding = ~294
-                        Viewport height is set from # of rows displayed (2-8) in Month mode, = ~290 for 6 weeks (+ day names)
-                    -->
                     <Grid
                         MinWidth="{DynamicResource CalendarMinWidth}"
+                        MinHeight="{TemplateBinding MinHeight}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         RowDefinitions="Auto,*">
-                        <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
                             <Button
                                 Name="PART_PreviousButton"
                                 Grid.Column="0"
@@ -98,15 +94,12 @@
                                     Foreground="{DynamicResource CalendarItemIconForeground}" />
                             </Button>
                         </Grid>
-                        <!--  Border below is used only for MonthView but it can't be moved inside of Grid because CalendarItem expects it to be empty and it will cause side-effects  -->
                         <Grid
                             Name="PART_MonthView"
                             Grid.Row="1"
-                            MinHeight="200"
                             HorizontalAlignment="Stretch"
                             IsVisible="False">
                             <Grid.RowDefinitions>
-                                <!--  This should always be the week day names??  -->
                                 <RowDefinition Height="{DynamicResource CalendarItemWeekDayNameHeight}" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
@@ -128,7 +121,6 @@
                         <Grid
                             Name="PART_YearView"
                             Grid.Row="1"
-                            MinHeight="200"
                             Background="{TemplateBinding Background}"
                             IsVisible="False">
                             <Grid.RowDefinitions>
@@ -152,7 +144,6 @@
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
         <Setter Property="ClickMode" Value="Release" />
         <Setter Property="Margin" Value="2" />
-        <!--  These are actually set on the CalendarView in WinUI  -->
         <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarItemCalendarButtonBorderBrush}" />
@@ -188,7 +179,6 @@
             <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarButtonPressedBackground}" />
         </Style>
 
-        <!--  Adjusted :selected to look like :today from DayItem  -->
         <Style Selector="^:selected">
             <Style Selector="^ /template/ ContentControl">
                 <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarButtonSelectedBackground}" />
