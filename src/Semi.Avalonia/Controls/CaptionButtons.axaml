@@ -9,7 +9,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonPressedBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource CaptionButtonForeground}" />
         <Setter Property="CornerRadius" Value="6" />
-        <Setter Property="Margin" Value="4" />
+        <Setter Property="Margin" Value="0, 4" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="Height" Value="28" />
         <Setter Property="Width" Value="28" />
@@ -36,6 +36,7 @@
 
     <ControlTheme x:Key="{x:Type CaptionButtons}" TargetType="CaptionButtons">
         <Setter Property="Foreground" Value="{DynamicResource CaptionButtonForeground}" />
+        <Setter Property="Margin" Value="0 0 4 0" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CaptionButtons">
                 <StackPanel
