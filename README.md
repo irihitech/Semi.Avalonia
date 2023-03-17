@@ -51,6 +51,18 @@ https://github.com/irihitech/Semi.Avalonia/releases
 * DataValidationErrors
 * FocusAdorner
 
+## Credits
+
+[Semi Design](https://semi.design/)
+
+[Avalonia](https://github.com/AvaloniaUI/Avalonia)
+
+[FluentAvalonia](https://github.com/amwx/FluentAvalonia)
+
+[Material Design Icons](https://pictogrammers.com/library/mdi/)
+
+[CommunityToolKit](https://github.com/CommunityToolkit/dotnet)
+
 ## Screenshot
 
 Light Mode
