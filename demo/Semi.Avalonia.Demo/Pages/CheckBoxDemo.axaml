@@ -21,7 +21,8 @@
                 Indeterminate
             </CheckBox>
             <CheckBox Width="120" HorizontalAlignment="Left">Checkbox should wrap its text</CheckBox>
-            <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="0,16" Text="CardCheckBox" />
+            <StackPanel Orientation="Vertical">
                 <CheckBox Width="300" Theme="{DynamicResource CardCheckBox}">
                     <StackPanel>
                         <TextBlock FontWeight="Bold">复选框标题</TextBlock>
@@ -79,7 +80,8 @@
                     </StackPanel>
                 </CheckBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="0,16" Text="PureCardCheckBox" />
+            <StackPanel Orientation="Vertical">
                 <CheckBox Width="300" Theme="{DynamicResource PureCardCheckBox}">
                     <StackPanel>
                         <TextBlock FontWeight="Bold">复选框标题</TextBlock>
