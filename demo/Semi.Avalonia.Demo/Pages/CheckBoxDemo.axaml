@@ -7,7 +7,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ScrollViewer>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel HorizontalAlignment="Left">
             <CheckBox>Unchecked</CheckBox>
             <CheckBox IsEnabled="False">Unchecked</CheckBox>
@@ -20,63 +20,123 @@
                 IsThreeState="True">
                 Indeterminate
             </CheckBox>
-            <CheckBox Width="120">Checkbox should wrap its text</CheckBox>
-            <CheckBox Width="300" Theme="{DynamicResource CardCheckBox}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </CheckBox>
-            <CheckBox
-                Width="300"
-                IsChecked="True"
-                Theme="{DynamicResource CardCheckBox}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </CheckBox>
-            <CheckBox
-                Width="300"
-                IsEnabled="False"
-                Theme="{DynamicResource CardCheckBox}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </CheckBox>
-            <CheckBox
-                Width="300"
-                IsChecked="True"
-                IsEnabled="False"
-                Theme="{DynamicResource CardCheckBox}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </CheckBox>
-            <CheckBox
-                Width="300"
-                IsChecked="{x:Null}"
-                IsEnabled="True"
-                IsThreeState="True"
-                Theme="{DynamicResource CardCheckBox}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </CheckBox>
-            <CheckBox
-                Width="300"
-                IsChecked="{x:Null}"
-                IsEnabled="False"
-                IsThreeState="True"
-                Theme="{DynamicResource CardCheckBox}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </CheckBox>
+            <CheckBox Width="120" HorizontalAlignment="Left">Checkbox should wrap its text</CheckBox>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Width="300" Theme="{DynamicResource CardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="True"
+                    Theme="{DynamicResource CardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsEnabled="False"
+                    Theme="{DynamicResource CardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Theme="{DynamicResource CardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="{x:Null}"
+                    IsEnabled="True"
+                    IsThreeState="True"
+                    Theme="{DynamicResource CardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="{x:Null}"
+                    IsEnabled="False"
+                    IsThreeState="True"
+                    Theme="{DynamicResource CardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Width="300" Theme="{DynamicResource PureCardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="True"
+                    Theme="{DynamicResource PureCardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsEnabled="False"
+                    Theme="{DynamicResource PureCardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Theme="{DynamicResource PureCardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="{x:Null}"
+                    IsEnabled="True"
+                    IsThreeState="True"
+                    Theme="{DynamicResource PureCardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+                <CheckBox
+                    Width="300"
+                    IsChecked="{x:Null}"
+                    IsEnabled="False"
+                    IsThreeState="True"
+                    Theme="{DynamicResource PureCardCheckBox}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </CheckBox>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
