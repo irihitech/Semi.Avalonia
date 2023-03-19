@@ -11,7 +11,7 @@ Avalonia Theme inspired by Semi Design
 
 ## Installation
 ```bash
-dotnet add package Semi.Avalonia --version 0.1.0-preview5.3
+dotnet add package Semi.Avalonia --version 0.1.0-preview5.4
 ```
 Include Semi Design Styles in application:
 
