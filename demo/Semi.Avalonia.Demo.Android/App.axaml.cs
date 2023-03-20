@@ -8,7 +8,7 @@ namespace Semi.Avalonia.Demo.Android;
 
 public partial class App : Application
 {
-    public App()
+    public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
     }
