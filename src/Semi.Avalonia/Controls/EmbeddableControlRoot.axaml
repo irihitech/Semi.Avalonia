@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Add Resources Here  -->
+
+    <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
+        <Setter Property="Background" Value="{DynamicResource WindowDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource WindowDefaultForeground}" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+                    <Border Background="{TemplateBinding Background}">
+                        <VisualLayerManager>
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </VisualLayerManager>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
