@@ -176,7 +176,7 @@
                         IsLightDismissEnabled="False"
                         IsOpen="{TemplateBinding IsSubMenuOpen,
                                                  Mode=TwoWay}"
-                        PlacementMode="Right"
+                        Placement="RightEdgeAlignedTop"
                         VerticalOffset="-4"
                         WindowManagerAddShadowHint="False">
                         <Border
@@ -278,6 +278,7 @@
                             IsOpen="{TemplateBinding IsSubMenuOpen,
                                                      Mode=TwoWay}"
                             OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                            Placement="BottomEdgeAlignedLeft"
                             VerticalOffset="-4"
                             WindowManagerAddShadowHint="False">
                             <Border
