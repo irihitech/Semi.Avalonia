@@ -10,7 +10,7 @@ internal partial class Program
 {
     private static void Main(string[] args)
     {
-        BuildAvaloniaApp().SetupBrowserApp("out");
+        BuildAvaloniaApp(); //.SetupBrowserApp("out");
     }
 
     public static AppBuilder BuildAvaloniaApp()

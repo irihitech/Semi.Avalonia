@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Avalonia.Collections;
+using Avalonia.Controls;
 using Avalonia.Data.Converters;
 
 namespace Semi.Avalonia.Converters;
@@ -11,7 +12,7 @@ public class ItemToObjectConverter: IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is AvaloniaList<object> list)
+        if (value is ItemCollection list)
         {
             return list.Select(a => new object());
         }
