@@ -8,7 +8,6 @@ namespace Semi.Avalonia.Demo.Pages;
 
 public partial class ThemeVariantDemo : UserControl
 {
-    private ThemeVariant _variant = ThemeVariant.Default;
     public ThemeVariantDemo()
     {
         InitializeComponent();
@@ -16,15 +15,6 @@ public partial class ThemeVariantDemo : UserControl
 
     private void Switch_OnIsCheckedChanged(object sender, RoutedEventArgs e)
     {
-        if (_variant == ThemeVariant.Dark)
-        {
-            scope.RequestedThemeVariant = ThemeVariant.Default;
-            _variant = ThemeVariant.Default;
-        }
-        else
-        {
-            scope.RequestedThemeVariant = ThemeVariant.Dark;
-            _variant = ThemeVariant.Dark;
-        }
+        scope.RequestedThemeVariant = scope.ActualThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
     }
 }
