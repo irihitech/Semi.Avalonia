@@ -44,7 +44,7 @@
                             Margin="0,0,8,0"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Data="{DynamicResource DropdownButtonIconGlyph}"
+                            Data="{DynamicResource DropDownButtonIconGlyph}"
                             Foreground="{TemplateBinding Foreground}"
                             IsHitTestVisible="False"
                             UseLayoutRounding="False" />
@@ -97,7 +97,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="SolidDropdownButton" TargetType="DropDownButton">
+    <ControlTheme x:Key="SolidDropDownButton" TargetType="DropDownButton">
         <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
         <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
         <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
@@ -138,7 +138,7 @@
                             Margin="0,0,8,0"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Data="{DynamicResource DropdownButtonIconGlyph}"
+                            Data="{DynamicResource DropDownButtonIconGlyph}"
                             Foreground="{TemplateBinding Foreground}"
                             IsHitTestVisible="False"
                             UseLayoutRounding="False" />
@@ -225,7 +225,7 @@
     </ControlTheme>
 
     <ControlTheme
-        x:Key="BorderlessDropdownButton"
+        x:Key="BorderlessDropDownButton"
         BasedOn="{StaticResource {x:Type DropDownButton}}"
         TargetType="DropDownButton">
         <Setter Property="DropDownButton.Background" Value="Transparent" />
