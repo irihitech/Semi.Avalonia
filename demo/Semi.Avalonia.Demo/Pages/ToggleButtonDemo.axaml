@@ -8,7 +8,7 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel Spacing="20">
-        <TextBlock Text="Toggle Button" />
+        <TextBlock Text="Toggle Button (Default)" />
         <StackPanel Orientation="Horizontal" Spacing="20">
             <ToggleButton Classes="Primary">Primary</ToggleButton>
             <ToggleButton Classes="Secondary">Secondary</ToggleButton>
@@ -16,6 +16,15 @@
             <ToggleButton Classes="Warning">Warning</ToggleButton>
             <ToggleButton Classes="Danger">Danger</ToggleButton>
             <ToggleButton Classes="Danger" IsEnabled="False">Danger</ToggleButton>
+        </StackPanel>
+        <TextBlock Text="Toggle Button Checked State" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <ToggleButton Classes="Primary" IsChecked="True">Primary</ToggleButton>
+            <ToggleButton Classes="Secondary" IsChecked="True">Secondary</ToggleButton>
+            <ToggleButton Classes="Tertiary" IsChecked="True">Tertiary</ToggleButton>
+            <ToggleButton Classes="Warning" IsChecked="True">Warning</ToggleButton>
+            <ToggleButton Classes="Danger" IsChecked="True">Danger</ToggleButton>
+            <ToggleButton Classes="Danger" IsChecked="True" IsEnabled="False">Danger</ToggleButton>
         </StackPanel>
         <TextBlock Text="Toggle Button Three State" />
         <StackPanel Orientation="Horizontal" Spacing="20">

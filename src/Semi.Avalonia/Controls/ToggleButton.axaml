@@ -62,6 +62,10 @@
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultPressedBackground}" />
         </Style>
 
+        <Style Selector="^:disabled">
+            <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDefaultDisabledBorderBrush}" />
+        </Style>
+
         <Style Selector="^.Primary">
             <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultPrimaryForeground}" />
         </Style>
@@ -132,7 +136,11 @@
                     <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDangerCheckedPressedBackground}" />
                 </Style>
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDefaultDisabledBorderBrush}" />
+            </Style>
         </Style>
+
         <Style Selector="^:indeterminate">
             <Setter Property="ToggleButton.BorderThickness" Value="1" />
             <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
@@ -198,10 +206,12 @@
                     <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDangerIndeterminatePressedForeground}" />
                 </Style>
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonIndeterminateDisabledBorderBrush}" />
+            </Style>
         </Style>
 
         <Style Selector="^:disabled">
-            <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDefaultDisabledBorderBrush}" />
             <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultDisabledForeground}" />
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultDisabledBackground}" />
         </Style>
