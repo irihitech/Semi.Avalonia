@@ -15,7 +15,8 @@
     <SolidColorBrush x:Key="ToggleButtonDefaultBackground" Opacity="0.12" Color="White" />
     <SolidColorBrush x:Key="ToggleButtonDefaultPointeroverBackground" Opacity="0.16" Color="White" />
     <SolidColorBrush x:Key="ToggleButtonDefaultPressedBackground" Opacity="0.20" Color="White" />
-    <SolidColorBrush x:Key="ToggleButtonDefaultDisabledBackground" Opacity="0.12" Color="White" />
+    <SolidColorBrush x:Key="ToggleButtonDefaultDisabledBackground" Opacity="0.04" Color="#E6E8EA" />
+    <SolidColorBrush x:Key="ToggleButtonDefaultDisabledBorderBrush" Color="Transparent" />
 
     <SolidColorBrush x:Key="ToggleButtonDefaultBorderBrush" Color="Transparent" />
 
@@ -23,26 +24,26 @@
     <SolidColorBrush x:Key="ToggleButtonDefaultSecondaryForeground" Color="#40B4F3" />
     <SolidColorBrush x:Key="ToggleButtonDefaultTertiaryForeground" Color="#888D92" />
     <SolidColorBrush x:Key="ToggleButtonDefaultWarningForeground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ToggleButtonDefaultErrorForeground" Color="#FC725A" />
-    <SolidColorBrush x:Key="ToggleButtonDefaultDisabledForeground" Color="#2E3238" />
+    <SolidColorBrush x:Key="ToggleButtonDefaultDangerForeground" Color="#FC725A" />
+    <SolidColorBrush x:Key="ToggleButtonDefaultDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
 
     <SolidColorBrush x:Key="ToggleButtonPrimaryCheckedBackground" Color="#54A9FF" />
     <SolidColorBrush x:Key="ToggleButtonSecondaryCheckedBackground" Color="#40B4F3" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryCheckedBackground" Color="#888D92" />
     <SolidColorBrush x:Key="ToggleButtonWarningCheckedBackground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ToggleButtonErrorCheckedBackground" Color="#FC725A" />
+    <SolidColorBrush x:Key="ToggleButtonDangerCheckedBackground" Color="#FC725A" />
 
     <SolidColorBrush x:Key="ToggleButtonPrimaryCheckedPointeroverBackground" Color="#7FC1FF" />
     <SolidColorBrush x:Key="ToggleButtonSecondaryCheckedPointeroverBackground" Color="#6EC8F6" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryCheckedPointeroverBackground" Color="#A7ABB0" />
     <SolidColorBrush x:Key="ToggleButtonWarningCheckedPointeroverBackground" Color="#FFC772" />
-    <SolidColorBrush x:Key="ToggleButtonErrorCheckedPointeroverBackground" Color="#FD9983" />
+    <SolidColorBrush x:Key="ToggleButtonDangerCheckedPointeroverBackground" Color="#FD9983" />
 
     <SolidColorBrush x:Key="ToggleButtonPrimaryCheckedPressedBackground" Color="#A9D7FF" />
     <SolidColorBrush x:Key="ToggleButtonSecondaryCheckedPressedBackground" Color="#9DDCF9" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryCheckedPressedBackground" Color="#C6CACD" />
     <SolidColorBrush x:Key="ToggleButtonWarningCheckedPressedBackground" Color="#FFDDA1" />
-    <SolidColorBrush x:Key="ToggleButtonErrorCheckedPressedBackground" Color="#FDBEAC" />
+    <SolidColorBrush x:Key="ToggleButtonDangerCheckedPressedBackground" Color="#FDBEAC" />
 
     <SolidColorBrush x:Key="ToggleButtonCheckedForeground" Color="Black" />
 
@@ -50,23 +51,30 @@
     <SolidColorBrush x:Key="ToggleButtonSecondaryIndeterminateBackground" Color="#003761" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryIndeterminateBackground" Color="#1C1F23" />
     <SolidColorBrush x:Key="ToggleButtonWarningIndeterminateBackground" Color="#551F03" />
-    <SolidColorBrush x:Key="ToggleButtonErrorIndeterminateBackground" Color="#6C090B" />
+    <SolidColorBrush x:Key="ToggleButtonDangerIndeterminateBackground" Color="#6C090B" />
 
     <SolidColorBrush x:Key="ToggleButtonPrimaryIndeterminateBorderBrush" Color="#54A9FF" />
     <SolidColorBrush x:Key="ToggleButtonSecondaryIndeterminateBorderBrush" Color="#40B4F3" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryIndeterminateBorderBrush" Color="#888D92" />
     <SolidColorBrush x:Key="ToggleButtonWarningIndeterminateBorderBrush" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ToggleButtonErrorIndeterminateBorderBrush" Color="#FC725A" />
+    <SolidColorBrush x:Key="ToggleButtonDangerIndeterminateBorderBrush" Color="#FC725A" />
 
     <SolidColorBrush x:Key="ToggleButtonPrimaryIndeterminatePointeroverBorderBrush" Color="#7FC1FF" />
     <SolidColorBrush x:Key="ToggleButtonSecondaryIndeterminatePointeroverBorderBrush" Color="#6EC8F6" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryIndeterminatePointeroverBorderBrush" Color="#A7ABB0" />
     <SolidColorBrush x:Key="ToggleButtonWarningIndeterminatePointeroverBorderBrush" Color="#FFC772" />
-    <SolidColorBrush x:Key="ToggleButtonErrorIndeterminatePointeroverBorderBrush" Color="#FD9983" />
+    <SolidColorBrush x:Key="ToggleButtonDangerIndeterminatePointeroverBorderBrush" Color="#FD9983" />
+    <SolidColorBrush x:Key="ToggleButtonIndeterminateDisabledBorderBrush" Opacity="0.35" Color="#F9F9F9" />
 
     <SolidColorBrush x:Key="ToggleButtonPrimaryIndeterminatePressedBorderBrush" Color="#A9D7FF" />
     <SolidColorBrush x:Key="ToggleButtonSecondaryIndeterminatePressedBorderBrush" Color="#9DDCF9" />
     <SolidColorBrush x:Key="ToggleButtonTertiaryIndeterminatePressedBorderBrush" Color="#C6CACD" />
     <SolidColorBrush x:Key="ToggleButtonWarningIndeterminatePressedBorderBrush" Color="#FFDDA1" />
-    <SolidColorBrush x:Key="ToggleButtonErrorIndeterminatePressedBorderBrush" Color="#FDBEAC" />
+    <SolidColorBrush x:Key="ToggleButtonDangerIndeterminatePressedBorderBrush" Color="#FDBEAC" />
+
+    <SolidColorBrush x:Key="ToggleButtonPrimaryIndeterminatePressedForeground" Color="#A9D7FF" />
+    <SolidColorBrush x:Key="ToggleButtonSecondaryIndeterminatePressedForeground" Color="#9DDCF9" />
+    <SolidColorBrush x:Key="ToggleButtonTertiaryIndeterminatePressedForeground" Color="#C6CACD" />
+    <SolidColorBrush x:Key="ToggleButtonWarningIndeterminatePressedForeground" Color="#FFDDA1" />
+    <SolidColorBrush x:Key="ToggleButtonDangerIndeterminatePressedForeground" Color="#FDBEAC" />
 </ResourceDictionary>

@@ -7,23 +7,33 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
-        <TextBlock Text="Toggle Button" />
+    <StackPanel Spacing="20">
+        <TextBlock Text="Toggle Button (Default)" />
         <StackPanel Orientation="Horizontal" Spacing="20">
-            <ToggleButton>Primary</ToggleButton>
+            <ToggleButton Classes="Primary">Primary</ToggleButton>
             <ToggleButton Classes="Secondary">Secondary</ToggleButton>
             <ToggleButton Classes="Tertiary">Tertiary</ToggleButton>
             <ToggleButton Classes="Warning">Warning</ToggleButton>
-            <ToggleButton Classes="Error">Error</ToggleButton>
+            <ToggleButton Classes="Danger">Danger</ToggleButton>
+            <ToggleButton Classes="Danger" IsEnabled="False">Danger</ToggleButton>
         </StackPanel>
-
-        <TextBlock Margin="0,20,0,0" Text="Toggle Button Three State" />
+        <TextBlock Text="Toggle Button Checked State" />
         <StackPanel Orientation="Horizontal" Spacing="20">
-            <ToggleButton Name="button" IsThreeState="True">Primary</ToggleButton>
-            <ToggleButton Classes="Secondary" IsThreeState="True">Secondary</ToggleButton>
-            <ToggleButton Classes="Tertiary" IsThreeState="True">Tertiary</ToggleButton>
-            <ToggleButton Classes="Warning" IsThreeState="True">Warning</ToggleButton>
-            <ToggleButton Classes="Error" IsThreeState="True">Error</ToggleButton>
+            <ToggleButton Classes="Primary" IsChecked="True">Primary</ToggleButton>
+            <ToggleButton Classes="Secondary" IsChecked="True">Secondary</ToggleButton>
+            <ToggleButton Classes="Tertiary" IsChecked="True">Tertiary</ToggleButton>
+            <ToggleButton Classes="Warning" IsChecked="True">Warning</ToggleButton>
+            <ToggleButton Classes="Danger" IsChecked="True">Danger</ToggleButton>
+            <ToggleButton Classes="Danger" IsChecked="True" IsEnabled="False">Danger</ToggleButton>
+        </StackPanel>
+        <TextBlock Text="Toggle Button Three State" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <ToggleButton Classes="Primary" IsThreeState="True" IsChecked="{x:Null}">Primary</ToggleButton>
+            <ToggleButton Classes="Secondary" IsThreeState="True" IsChecked="{x:Null}">Secondary</ToggleButton>
+            <ToggleButton Classes="Tertiary" IsThreeState="True" IsChecked="{x:Null}">Tertiary</ToggleButton>
+            <ToggleButton Classes="Warning" IsThreeState="True" IsChecked="{x:Null}">Warning</ToggleButton>
+            <ToggleButton Classes="Danger" IsThreeState="True" IsChecked="{x:Null}">Danger</ToggleButton>
+            <ToggleButton Classes="Danger" IsThreeState="True" IsChecked="{x:Null}" IsEnabled="False">Danger</ToggleButton>
         </StackPanel>
     </StackPanel>
 </UserControl>
