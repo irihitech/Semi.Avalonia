@@ -54,23 +54,12 @@
             <Setter Property="RenderTransform" Value="scale(0.98)" />
         </Style>
 
-        <Style Selector="^.Large">
-            <Setter Property="ToggleButton.Padding" Value="{DynamicResource ButtonLargePadding}" />
-        </Style>
-        <Style Selector="^.Small">
-            <Setter Property="ToggleButton.Padding" Value="{DynamicResource ButtonSmallPadding}" />
-        </Style>
-
-
         <Style Selector="^:pointerover">
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultPointeroverBackground}" />
         </Style>
+
         <Style Selector="^:pressed">
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultPressedBackground}" />
-        </Style>
-        <Style Selector="^:disabled">
-            <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultDisabledForeground}" />
-            <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultDisabledBackground}" />
         </Style>
 
         <Style Selector="^.Primary">
@@ -206,5 +195,17 @@
             </Style>
         </Style>
 
+        <Style Selector="^:disabled">
+            <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDefaultDisabledBorderBrush}" />
+            <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultDisabledForeground}" />
+            <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultDisabledBackground}" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="ToggleButton.Padding" Value="{DynamicResource ButtonLargePadding}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="ToggleButton.Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>
