@@ -8,13 +8,13 @@
             <ToggleButton Classes="Secondary">Toggle</ToggleButton>
             <ToggleButton Classes="Tertiary">Toggle</ToggleButton>
             <ToggleButton Classes="Warning">Toggle</ToggleButton>
-            <ToggleButton Classes="Error">Toggle</ToggleButton>
+            <ToggleButton Classes="Danger">Toggle</ToggleButton>
 
             <ToggleButton IsThreeState="True">Toggle 3</ToggleButton>
             <ToggleButton Classes="Secondary" IsThreeState="True">Toggle 3</ToggleButton>
             <ToggleButton Classes="Tertiary" IsThreeState="True">Toggle 3</ToggleButton>
             <ToggleButton Classes="Warning" IsThreeState="True">Toggle 3</ToggleButton>
-            <ToggleButton Classes="Error" IsThreeState="True">Toggle 3</ToggleButton>
+            <ToggleButton Classes="Danger" IsThreeState="True">Toggle 3</ToggleButton>
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
@@ -82,8 +82,8 @@
         <Style Selector="^.Warning">
             <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultWarningForeground}" />
         </Style>
-        <Style Selector="^.Error">
-            <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultErrorForeground}" />
+        <Style Selector="^.Danger">
+            <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultDangerForeground}" />
         </Style>
 
         <Style Selector="^:checked">
@@ -98,8 +98,8 @@
             <Style Selector="^.Warning">
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonWarningCheckedBackground}" />
             </Style>
-            <Style Selector="^.Error">
-                <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonErrorCheckedBackground}" />
+            <Style Selector="^.Danger">
+                <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDangerCheckedBackground}" />
             </Style>
             <Style Selector="^:pointerover">
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPointeroverBackground}" />
@@ -112,8 +112,8 @@
                 <Style Selector="^.Warning">
                     <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonWarningCheckedPointeroverBackground}" />
                 </Style>
-                <Style Selector="^.Error">
-                    <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonErrorCheckedPointeroverBackground}" />
+                <Style Selector="^.Danger">
+                    <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDangerCheckedPointeroverBackground}" />
                 </Style>
             </Style>
             <Style Selector="^:pressed">
@@ -127,8 +127,8 @@
                 <Style Selector="^.Warning">
                     <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonWarningCheckedPressedBackground}" />
                 </Style>
-                <Style Selector="^.Error">
-                    <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonErrorCheckedPressedBackground}" />
+                <Style Selector="^.Danger">
+                    <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDangerCheckedPressedBackground}" />
                 </Style>
             </Style>
         </Style>
@@ -148,9 +148,9 @@
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonWarningIndeterminateBackground}" />
                 <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonWarningIndeterminateBorderBrush}" />
             </Style>
-            <Style Selector="^.Error">
-                <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonErrorIndeterminateBackground}" />
-                <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonErrorIndeterminateBorderBrush}" />
+            <Style Selector="^.Danger">
+                <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDangerIndeterminateBackground}" />
+                <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDangerIndeterminateBorderBrush}" />
             </Style>
             <Style Selector="^:pointerover">
                 <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminatePointeroverBorderBrush}" />
@@ -163,8 +163,8 @@
                 <Style Selector="^.Warning">
                     <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonWarningIndeterminatePointeroverBorderBrush}" />
                 </Style>
-                <Style Selector="^.Error">
-                    <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonErrorIndeterminatePointeroverBorderBrush}" />
+                <Style Selector="^.Danger">
+                    <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDangerIndeterminatePointeroverBorderBrush}" />
                 </Style>
             </Style>
             <Style Selector="^:pressed">
@@ -178,8 +178,8 @@
                 <Style Selector="^.Warning">
                     <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonWarningIndeterminatePressedBorderBrush}" />
                 </Style>
-                <Style Selector="^.Error">
-                    <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonErrorIndeterminatePressedBorderBrush}" />
+                <Style Selector="^.Danger">
+                    <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDangerIndeterminatePressedBorderBrush}" />
                 </Style>
             </Style>
         </Style>
