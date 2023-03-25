@@ -4,13 +4,13 @@
     x:CompileBindings="True">
     <Design.PreviewWith>
         <StackPanel Margin="20">
-            <ToggleButton>Toggle</ToggleButton>
+            <ToggleButton Classes="Primary">Toggle</ToggleButton>
             <ToggleButton Classes="Secondary">Toggle</ToggleButton>
             <ToggleButton Classes="Tertiary">Toggle</ToggleButton>
             <ToggleButton Classes="Warning">Toggle</ToggleButton>
             <ToggleButton Classes="Danger">Toggle</ToggleButton>
 
-            <ToggleButton IsThreeState="True">Toggle 3</ToggleButton>
+            <ToggleButton Classes="Primary" IsThreeState="True">Toggle 3</ToggleButton>
             <ToggleButton Classes="Secondary" IsThreeState="True">Toggle 3</ToggleButton>
             <ToggleButton Classes="Tertiary" IsThreeState="True">Toggle 3</ToggleButton>
             <ToggleButton Classes="Warning" IsThreeState="True">Toggle 3</ToggleButton>
@@ -73,6 +73,9 @@
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultDisabledBackground}" />
         </Style>
 
+        <Style Selector="^.Primary">
+            <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultPrimaryForeground}" />
+        </Style>
         <Style Selector="^.Secondary">
             <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultSecondaryForeground}" />
         </Style>
@@ -89,6 +92,9 @@
         <Style Selector="^:checked">
             <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonCheckedForeground}" />
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedBackground}" />
+            <Style Selector="^.Primary">
+                <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedBackground}" />
+            </Style>
             <Style Selector="^.Secondary">
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonSecondaryCheckedBackground}" />
             </Style>
@@ -103,6 +109,9 @@
             </Style>
             <Style Selector="^:pointerover">
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPointeroverBackground}" />
+                <Style Selector="^.Primary">
+                    <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPointeroverBackground}" />
+                </Style>
                 <Style Selector="^.Secondary">
                     <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonSecondaryCheckedPointeroverBackground}" />
                 </Style>
@@ -118,6 +127,9 @@
             </Style>
             <Style Selector="^:pressed">
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedBackground}" />
+                <Style Selector="^.Primary">
+                    <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedBackground}" />
+                </Style>
                 <Style Selector="^.Secondary">
                     <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonSecondaryCheckedPressedBackground}" />
                 </Style>
@@ -136,6 +148,10 @@
             <Setter Property="ToggleButton.BorderThickness" Value="1" />
             <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
             <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBackground}" />
+            <Style Selector="^.Primary">
+                <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBackground}" />
+                <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
+            </Style>
             <Style Selector="^.Secondary">
                 <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonSecondaryIndeterminateBackground}" />
                 <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonSecondaryIndeterminateBorderBrush}" />
@@ -154,6 +170,9 @@
             </Style>
             <Style Selector="^:pointerover">
                 <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminatePointeroverBorderBrush}" />
+                <Style Selector="^.Primary">
+                    <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminatePointeroverBorderBrush}" />
+                </Style>
                 <Style Selector="^.Secondary">
                     <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonSecondaryIndeterminatePointeroverBorderBrush}" />
                 </Style>
@@ -169,6 +188,9 @@
             </Style>
             <Style Selector="^:pressed">
                 <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminatePressedBorderBrush}" />
+                <Style Selector="^.Primary">
+                    <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminatePressedBorderBrush}" />
+                </Style>
                 <Style Selector="^.Secondary">
                     <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonSecondaryIndeterminatePressedBorderBrush}" />
                 </Style>
