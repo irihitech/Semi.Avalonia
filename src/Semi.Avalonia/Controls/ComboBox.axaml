@@ -138,13 +138,13 @@
             <Setter Property="ComboBox.MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
         </Style>
 
-        <!--  PointerOver State  -->
+        <!--  Pointerover State  -->
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorPointerOverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorPointerOverBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorPointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorPointeroverBorderBrush}" />
         </Style>
         <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-            <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconPointerOverForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconPointeroverForeground}" />
         </Style>
 
         <!--  Pressed State  -->
@@ -227,7 +227,7 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointerOverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
@@ -246,7 +246,7 @@
                 <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedDisabledBackground}" />
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedPointerOverBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedPointeroverBackground}" />
             </Style>
         </Style>
     </ControlTheme>
