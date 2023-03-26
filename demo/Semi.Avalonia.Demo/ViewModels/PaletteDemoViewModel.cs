@@ -11,7 +11,13 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public class PaletteDemoViewModel: ObservableObject
 {
-    private readonly string[] _predefinedColorNames = { "Amber","Blue","Cyan","Green","Grey","Indigo","LightBlue","LightGreen","Lime","Orange","Pink","Purple","Red","Teal","Violet","Yellow" };
+    private readonly string[] _predefinedColorNames =
+    {
+        "Red", "Pink", "Purple", "Violet", "Indigo",
+        "Blue", "LightBlue", "Cyan", "Teal", "Green",
+        "LightGreen", "Lime", "Yellow", "Amber", "Orange",
+        "Grey"
+    };
     private readonly IResourceDictionary? _lightResourceDictionary;
     private readonly IResourceDictionary? _darkResourceDictionary;
     
