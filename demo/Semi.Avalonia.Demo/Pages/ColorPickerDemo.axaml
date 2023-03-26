@@ -2,6 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Pages.ColorPickerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:colorPicker="clr-namespace:Semi.Avalonia.ColorPicker;assembly=Semi.Avalonia.ColorPicker"
     xmlns:controls="using:Avalonia.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,11 +16,7 @@
             Spacing="20">
             <ColorView ColorSpectrumShape="Ring" />
             <ColorView ColorSpectrumShape="Box" />
-            <ColorView>
-                <ColorView.Palette>
-                    <controls:MaterialColorPalette />
-                </ColorView.Palette>
-            </ColorView>
+            <ColorView Palette="{DynamicResource SemiColorPalette}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
             <ColorPicker ColorSpectrumShape="Ring">
@@ -29,7 +26,7 @@
             </ColorPicker>
             <ColorPicker ColorSpectrumShape="Box">
                 <ColorPicker.Palette>
-                    <controls:MaterialColorPalette />
+                    <colorPicker:SemiColorLightPalette />
                 </ColorPicker.Palette>
             </ColorPicker>
         </StackPanel>
