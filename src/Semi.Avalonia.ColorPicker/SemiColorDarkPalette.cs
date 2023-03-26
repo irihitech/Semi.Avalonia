@@ -9,6 +9,7 @@ public class SemiColorDarkPalette: IColorPalette
     private static readonly Color[,] Colors = new Color[,]
     {
         {
+            //Red
             Color.FromUInt32(0xFF6C090B),
             Color.FromUInt32(0xFF901110),
             Color.FromUInt32(0xFFB42019),
@@ -19,6 +20,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFDBEAC),
             Color.FromUInt32(0xFFFEE0D5),
             Color.FromUInt32(0xFFFFF3EF),
+            //Pink
             Color.FromUInt32(0xFF5C0730),
             Color.FromUInt32(0xFF800E41),
             Color.FromUInt32(0xFFA41751),
@@ -29,6 +31,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFF7A8BC),
             Color.FromUInt32(0xFFFBD3DC),
             Color.FromUInt32(0xFFFDEEF1),
+            //Purple
             Color.FromUInt32(0xFF4A1061),
             Color.FromUInt32(0xFF5E1776),
             Color.FromUInt32(0xFF731F8A),
@@ -39,6 +42,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFDDA0E1),
             Color.FromUInt32(0xFFEFCEF0),
             Color.FromUInt32(0xFFF7EBF7),
+            //Violet
             Color.FromUInt32(0xFF401B77),
             Color.FromUInt32(0xFF4C248C),
             Color.FromUInt32(0xFF582EA0),
@@ -49,6 +53,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFBEADE9),
             Color.FromUInt32(0xFFDDD4F4),
             Color.FromUInt32(0xFFF1EEFA),
+            //Indigo
             Color.FromUInt32(0xFF171E65),
             Color.FromUInt32(0xFF20297A),
             Color.FromUInt32(0xFF29368E),
@@ -59,6 +64,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFA7B4E2),
             Color.FromUInt32(0xFFD1D8F1),
             Color.FromUInt32(0xFFEDEFF8),
+            //Blue
             Color.FromUInt32(0xFF053170),
             Color.FromUInt32(0xFF0A4694),
             Color.FromUInt32(0xFF135CB8),
@@ -69,6 +75,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFA9D7FF),
             Color.FromUInt32(0xFFD4ECFF),
             Color.FromUInt32(0xFFEFF8FF),
+            //LightBlue
             Color.FromUInt32(0xFF003761),
             Color.FromUInt32(0xFF004D85),
             Color.FromUInt32(0xFF0366A9),
@@ -79,6 +86,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFF9DDCF9),
             Color.FromUInt32(0xFFCEEEFC),
             Color.FromUInt32(0xFFEBF8FE),
+            //Cyan
             Color.FromUInt32(0xFF04343D),
             Color.FromUInt32(0xFF074F5C),
             Color.FromUInt32(0xFF0A6C7B),
@@ -89,6 +97,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFF91DFE3),
             Color.FromUInt32(0xFFC6EFF1),
             Color.FromUInt32(0xFFE7F7F8),
+            //Teal
             Color.FromUInt32(0xFF023C39),
             Color.FromUInt32(0xFF045A55),
             Color.FromUInt32(0xFF07776F),
@@ -99,6 +108,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFF8EE1D3),
             Color.FromUInt32(0xFFC4F0E8),
             Color.FromUInt32(0xFFE6F7F4),
+            //Green
             Color.FromUInt32(0xFF123C19),
             Color.FromUInt32(0xFF1C5A25),
             Color.FromUInt32(0xFF277731),
@@ -109,6 +119,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFA6E1A8),
             Color.FromUInt32(0xFFD0F0D1),
             Color.FromUInt32(0xFFECF7EC),
+            //LightGreen
             Color.FromUInt32(0xFF263D13),
             Color.FromUInt32(0xFF3B5C1D),
             Color.FromUInt32(0xFF517B28),
@@ -119,6 +130,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFC9E3A7),
             Color.FromUInt32(0xFFE4F1D1),
             Color.FromUInt32(0xFFF3F8ED),
+            //Lime
             Color.FromUInt32(0xFF314603),
             Color.FromUInt32(0xFF4B6905),
             Color.FromUInt32(0xFF678D09),
@@ -129,6 +141,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFCFED96),
             Color.FromUInt32(0xFFE5F6C9),
             Color.FromUInt32(0xFFF3FBE9),
+            //Yellow
             Color.FromUInt32(0xFF544903),
             Color.FromUInt32(0xFF7E6C06),
             Color.FromUInt32(0xFFA88E0A),
@@ -139,6 +152,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFEF5A0),
             Color.FromUInt32(0xFFFEFBD0),
             Color.FromUInt32(0xFFFFFEEC),
+            //Amber
             Color.FromUInt32(0xFF512E09),
             Color.FromUInt32(0xFF794B0F),
             Color.FromUInt32(0xFFA16B16),
@@ -149,6 +163,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFAEAA6),
             Color.FromUInt32(0xFFFCF6D2),
             Color.FromUInt32(0xFFFEFBED),
+            //Orange
             Color.FromUInt32(0xFF551F03),
             Color.FromUInt32(0xFF803506),
             Color.FromUInt32(0xFFAA500A),
@@ -159,6 +174,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFFDDA1),
             Color.FromUInt32(0xFFFFEFD0),
             Color.FromUInt32(0xFFFFF9ED),
+            //Grey
             Color.FromUInt32(0xFF1C1F23),
             Color.FromUInt32(0xFF2E3238),
             Color.FromUInt32(0xFF41464C),
@@ -171,6 +187,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFF9F9F9),
         },
         {
+            //Red
             Color.FromUInt32(0xFF6C090B),
             Color.FromUInt32(0xFF901110),
             Color.FromUInt32(0xFFB42019),
@@ -181,6 +198,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFDBEAC),
             Color.FromUInt32(0xFFFEE0D5),
             Color.FromUInt32(0xFFFFF3EF),
+            //Pink
             Color.FromUInt32(0xFF5C0730),
             Color.FromUInt32(0xFF800E41),
             Color.FromUInt32(0xFFA41751),
@@ -191,6 +209,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFF7A8BC),
             Color.FromUInt32(0xFFFBD3DC),
             Color.FromUInt32(0xFFFDEEF1),
+            //Purple
             Color.FromUInt32(0xFF4A1061),
             Color.FromUInt32(0xFF5E1776),
             Color.FromUInt32(0xFF731F8A),
@@ -201,6 +220,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFDDA0E1),
             Color.FromUInt32(0xFFEFCEF0),
             Color.FromUInt32(0xFFF7EBF7),
+            //Violet
             Color.FromUInt32(0xFF401B77),
             Color.FromUInt32(0xFF4C248C),
             Color.FromUInt32(0xFF582EA0),
@@ -211,6 +231,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFBEADE9),
             Color.FromUInt32(0xFFDDD4F4),
             Color.FromUInt32(0xFFF1EEFA),
+            //Indigo
             Color.FromUInt32(0xFF171E65),
             Color.FromUInt32(0xFF20297A),
             Color.FromUInt32(0xFF29368E),
@@ -221,6 +242,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFA7B4E2),
             Color.FromUInt32(0xFFD1D8F1),
             Color.FromUInt32(0xFFEDEFF8),
+            //Blue
             Color.FromUInt32(0xFF053170),
             Color.FromUInt32(0xFF0A4694),
             Color.FromUInt32(0xFF135CB8),
@@ -231,6 +253,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFA9D7FF),
             Color.FromUInt32(0xFFD4ECFF),
             Color.FromUInt32(0xFFEFF8FF),
+            //LightBlue
             Color.FromUInt32(0xFF003761),
             Color.FromUInt32(0xFF004D85),
             Color.FromUInt32(0xFF0366A9),
@@ -241,6 +264,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFF9DDCF9),
             Color.FromUInt32(0xFFCEEEFC),
             Color.FromUInt32(0xFFEBF8FE),
+            //Cyan
             Color.FromUInt32(0xFF04343D),
             Color.FromUInt32(0xFF074F5C),
             Color.FromUInt32(0xFF0A6C7B),
@@ -251,6 +275,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFF91DFE3),
             Color.FromUInt32(0xFFC6EFF1),
             Color.FromUInt32(0xFFE7F7F8),
+            //Teal
             Color.FromUInt32(0xFF023C39),
             Color.FromUInt32(0xFF045A55),
             Color.FromUInt32(0xFF07776F),
@@ -261,6 +286,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFF8EE1D3),
             Color.FromUInt32(0xFFC4F0E8),
             Color.FromUInt32(0xFFE6F7F4),
+            //Green
             Color.FromUInt32(0xFF123C19),
             Color.FromUInt32(0xFF1C5A25),
             Color.FromUInt32(0xFF277731),
@@ -271,6 +297,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFA6E1A8),
             Color.FromUInt32(0xFFD0F0D1),
             Color.FromUInt32(0xFFECF7EC),
+            //LightGreen
             Color.FromUInt32(0xFF263D13),
             Color.FromUInt32(0xFF3B5C1D),
             Color.FromUInt32(0xFF517B28),
@@ -281,6 +308,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFC9E3A7),
             Color.FromUInt32(0xFFE4F1D1),
             Color.FromUInt32(0xFFF3F8ED),
+            //Lime
             Color.FromUInt32(0xFF314603),
             Color.FromUInt32(0xFF4B6905),
             Color.FromUInt32(0xFF678D09),
@@ -291,6 +319,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFCFED96),
             Color.FromUInt32(0xFFE5F6C9),
             Color.FromUInt32(0xFFF3FBE9),
+            //Yellow
             Color.FromUInt32(0xFF544903),
             Color.FromUInt32(0xFF7E6C06),
             Color.FromUInt32(0xFFA88E0A),
@@ -301,6 +330,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFEF5A0),
             Color.FromUInt32(0xFFFEFBD0),
             Color.FromUInt32(0xFFFFFEEC),
+            //Amber
             Color.FromUInt32(0xFF512E09),
             Color.FromUInt32(0xFF794B0F),
             Color.FromUInt32(0xFFA16B16),
@@ -311,6 +341,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFAEAA6),
             Color.FromUInt32(0xFFFCF6D2),
             Color.FromUInt32(0xFFFEFBED),
+            //Orange
             Color.FromUInt32(0xFF551F03),
             Color.FromUInt32(0xFF803506),
             Color.FromUInt32(0xFFAA500A),
@@ -321,6 +352,7 @@ public class SemiColorDarkPalette: IColorPalette
             Color.FromUInt32(0xFFFFDDA1),
             Color.FromUInt32(0xFFFFEFD0),
             Color.FromUInt32(0xFFFFF9ED),
+            //Grey
             Color.FromUInt32(0xFF1C1F23),
             Color.FromUInt32(0xFF2E3238),
             Color.FromUInt32(0xFF41464C),
