@@ -102,9 +102,15 @@
                                 IsLightDismissEnabled="True"
                                 PlacementTarget="{TemplateBinding}"
                                 VerticalOffset="-4">
-                                <Border Margin="8" BoxShadow="{DynamicResource CalendarDatePickerPopupBoxShadows}">
+                                <Border
+                                    Margin="8"
+                                    Background="Transparent"
+                                    BoxShadow="{DynamicResource CalendarDatePickerPopupBoxShadows}"
+                                    CornerRadius="{DynamicResource CalendarCornerRadius}">
                                     <Calendar
                                         Name="PART_Calendar"
+                                        BorderThickness="0"
+                                        CornerRadius="{Binding $parent[Border].CornerRadius}"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
                                         DisplayDateStart="{TemplateBinding DisplayDateStart}"
