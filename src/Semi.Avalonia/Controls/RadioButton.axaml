@@ -423,6 +423,11 @@
             <Style Selector="^:pressed">
                 <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
             </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
+            </Style>
         </Style>
         <Style Selector="^:checked">
             <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
