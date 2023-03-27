@@ -21,8 +21,8 @@
                         HorizontalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
                         CornerRadius="6" />
-                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="*, *, *, *, *, *">
-                        <!--  Row 0-1 ResourceKey  -->
+                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="*, *, *, *, *, *, *">
+                        <!--  Row 0-1-2 ResourceKey  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
@@ -48,10 +48,30 @@
                                 Data="{StaticResource CopyIcon}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
-
-                        <!--  Row 2-3 HEX  -->
-                        <TextBlock
+                        <SelectableTextBlock
                             Grid.Row="2"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Text="{TemplateBinding ColorResourceKey}" />
+                        <Button
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Classes="Tertiary"
+                            Command="{Binding $parent[controls:ColorDetailControl].Copy}"
+                            CommandParameter="{x:Static controls:ColorDetailControl.KEY_ColorResourceKey}"
+                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Theme="{DynamicResource BorderlessButton}">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{StaticResource CopyIcon}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+
+                        <!--  Row 3-4 HEX  -->
+                        <TextBlock
+                            Grid.Row="3"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Margin="4,8,0,0"
@@ -59,12 +79,12 @@
                             Classes="Tertiary"
                             Text="ARGB" />
                         <SelectableTextBlock
-                            Grid.Row="3"
+                            Grid.Row="4"
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Text="{TemplateBinding Hex}" />
                         <Button
-                            Grid.Row="3"
+                            Grid.Row="4"
                             Grid.Column="1"
                             Classes="Tertiary"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
@@ -77,9 +97,9 @@
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
 
-                        <!--  Row 4-5 Opacity  -->
+                        <!--  Row 5-6 Opacity  -->
                         <TextBlock
-                            Grid.Row="4"
+                            Grid.Row="5"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Margin="4,8,0,0"
@@ -87,12 +107,12 @@
                             Classes="Tertiary"
                             Text="Opacity" />
                         <SelectableTextBlock
-                            Grid.Row="5"
+                            Grid.Row="6"
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Text="{TemplateBinding OpacityNumber}" />
                         <Button
-                            Grid.Row="5"
+                            Grid.Row="6"
                             Grid.Column="1"
                             Classes="Tertiary"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"

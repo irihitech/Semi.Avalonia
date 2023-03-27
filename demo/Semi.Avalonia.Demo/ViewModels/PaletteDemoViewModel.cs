@@ -11,11 +11,17 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public class PaletteDemoViewModel: ObservableObject
 {
-    private readonly string[] _predefinedColorNames = { "Amber","Blue","Cyan","Green","Grey","Indigo","LightBlue","LightGreen","Lime","Orange","Pink","Purple","Red","Teal","Violet","Yellow" };
-    private IResourceDictionary _lightResourceDictionary;
-    private IResourceDictionary _darkResourceDictionary;
+    private readonly string[] _predefinedColorNames =
+    {
+        "Red", "Pink", "Purple", "Violet", "Indigo",
+        "Blue", "LightBlue", "Cyan", "Teal", "Green",
+        "LightGreen", "Lime", "Yellow", "Amber", "Orange",
+        "Grey"
+    };
+    private readonly IResourceDictionary? _lightResourceDictionary;
+    private readonly IResourceDictionary? _darkResourceDictionary;
     
-    private ColorItemViewModel _selectedColor;
+    private ColorItemViewModel _selectedColor = null!;
 
     public ColorItemViewModel SelectedColor
     {
@@ -24,14 +30,14 @@ public class PaletteDemoViewModel: ObservableObject
     }
     
     
-    private ObservableCollection<ColorListViewModel> _lightLists;
-    public ObservableCollection<ColorListViewModel> LightLists
+    private ObservableCollection<ColorListViewModel>? _lightLists;
+    public ObservableCollection<ColorListViewModel>? LightLists
     {
         get => _lightLists;
         set => SetProperty(ref _lightLists, value);
     }
-    private ObservableCollection<ColorListViewModel> _darkLists;
-    public ObservableCollection<ColorListViewModel> DarkLists
+    private ObservableCollection<ColorListViewModel>? _darkLists;
+    public ObservableCollection<ColorListViewModel>? DarkLists
     {
         get => _darkLists;
         set => SetProperty(ref _darkLists, value);
@@ -41,8 +47,8 @@ public class PaletteDemoViewModel: ObservableObject
 
     public PaletteDemoViewModel()
     {
-        _lightResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml"));
-        _darkResourceDictionary = (ResourceDictionary)AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml"));
+        _lightResourceDictionary = AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml")) as ResourceDictionary;
+        _darkResourceDictionary = AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml")) as ResourceDictionary;
         WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
     }
 
@@ -110,8 +116,12 @@ public class ColorListViewModel: ObservableObject
         set => SetProperty(ref _seriesName, value);
     }
     
-    internal void Initialize(IResourceDictionary resourceDictionary, string color, bool light)
+    internal void Initialize(IResourceDictionary? resourceDictionary, string color, bool light)
     {
+        if (resourceDictionary is null)
+        {
+            return;
+        }
         SeriesName = color;
         Color = new ObservableCollection<ColorItemViewModel>();
         
@@ -124,6 +134,7 @@ public class ColorListViewModel: ObservableObject
                 {
                     string name = color + " " + i;
                     var item = new ColorItemViewModel(name, brush, key, light, i);
+                    item.ColorResourceKey = item.ResourceKey + "Color";
                     Color.Add(item);
                 } 
             }
@@ -134,28 +145,28 @@ public class ColorListViewModel: ObservableObject
 public class ColorItemViewModel : ObservableObject
 {
 
-    private IBrush _brush;
+    private IBrush _brush = null!;
     public IBrush Brush
     {
         get => _brush;
         set => SetProperty(ref _brush, value);
     }
     
-    private IBrush _textBrush;
+    private IBrush _textBrush = null!;
     public IBrush TextBrush
     {
         get => _textBrush;
         set => SetProperty(ref _textBrush, value);
     }
 
-    private string _colorDisplayName;
+    private string _colorDisplayName = null!;
     public string ColorDisplayName
     {
         get => _colorDisplayName;
         set => SetProperty(ref _colorDisplayName, value);
     }
 
-    private string _resourceKey;
+    private string _resourceKey = null!;
 
     public string ResourceKey
     {
@@ -163,7 +174,15 @@ public class ColorItemViewModel : ObservableObject
         set => SetProperty(ref _resourceKey, value);
     }
 
-    private string _hex;
+    private string _colorResourceKey = null!;
+
+    public string ColorResourceKey
+    {
+        get => _colorResourceKey;
+        set => SetProperty(ref _colorResourceKey, value);
+    }
+
+    private string _hex = null!;
 
     public string Hex
     {
@@ -190,7 +209,7 @@ public class ColorItemViewModel : ObservableObject
 
 public class FunctionalColorGroupViewModel : ObservableObject
 {
-    private string _title;
+    private string _title = null!;
     public string Title
     {
         get => _title;
@@ -200,21 +219,22 @@ public class FunctionalColorGroupViewModel : ObservableObject
     public ObservableCollection<ColorItemViewModel> LightColors { get; set; } = new();
     public ObservableCollection<ColorItemViewModel> DarkColors { get; set; } = new();
 
-    public FunctionalColorGroupViewModel(string title, IResourceDictionary lightDictionary, IResourceDictionary darkDictionary, IReadOnlyList<Tuple<string, string>> tokens)
+    public FunctionalColorGroupViewModel(string title, IResourceDictionary? lightDictionary, IResourceDictionary? darkDictionary, IReadOnlyList<Tuple<string, string>> tokens)
     {
         Title = title;
         foreach (var token in tokens)
         {
             string key = token.Item1;
             string name = token.Item2;
-            if (lightDictionary.TryGetValue(key, out var lightValue))
+            if (lightDictionary?.TryGetValue(key, out var lightValue) ?? false)
             {
                 if (lightValue is ISolidColorBrush lightBrush)
                 {
                     LightColors.Add(new ColorItemViewModel(name, lightBrush, key, true, 0));
                 }
             }
-            if (darkDictionary.TryGetValue(key, out var darkValue))
+
+            if (darkDictionary?.TryGetValue(key, out var darkValue) ?? false)
             {
                 if (darkValue is ISolidColorBrush darkBrush)
                 {

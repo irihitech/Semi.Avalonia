@@ -1,4 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:colorPicker="clr-namespace:Semi.Avalonia.ColorPicker">
     <!--  Add Resources Here  -->
     <SolidColorBrush x:Key="ColorViewRadioButtonForeground" Color="#0077FA" />
     <SolidColorBrush x:Key="ColorViewRadioButtonBackground" Color="White" />
@@ -40,4 +43,5 @@
     <CornerRadius x:Key="ColorPreviewerCornerRadius">3</CornerRadius>
 
     <BoxShadows x:Key="ColorPreviewerMainBoxShadow">0 0 14 0 #1A000000</BoxShadows>
+    <colorPicker:SemiColorLightPalette x:Key="SemiColorPalette" />
 </ResourceDictionary>
