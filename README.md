@@ -48,6 +48,11 @@ https://github.com/irihitech/Semi.Avalonia/releases
 | 0.1.0-preview5.x    | 11.0-preview5    |
 | 0.1.0-preview6.x    | 11.0-preview6    |
 
+**NOTE**
+
+Semi Avalonia theme is moving forward together with Avalonia preview versions now. So new feature/fixes are not backported to previous preview versions. If you need a feature/fix for outdated avalonia preview version, please raise an issue so we can do that for you. 
+
+
 ## TODO
 * DataValidationErrors
 * FocusAdorner
