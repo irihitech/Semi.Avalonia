@@ -412,25 +412,29 @@
         <Style Selector="^:unchecked">
             <Setter Property="RadioButton.BorderBrush" Value="{DynamicResource RadioButtonCardDefaultBorderBrush}" />
             <Style Selector="^:pointerover">
-                <Setter Property="RadioButton.Background"
-                        Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
+                <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="RadioButton.Background"
-                        Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
+                <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
             </Style>
         </Style>
         <Style Selector="^:checked">
             <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
             <Setter Property="RadioButton.BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
             <Style Selector="^:pointerover">
-                <Setter Property="RadioButton.BorderBrush"
-                        Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
+                <Setter Property="RadioButton.BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="RadioButton.BorderBrush"
-                        Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
+                <Setter Property="RadioButton.BorderBrush" Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
             </Style>
         </Style>
+
     </ControlTheme>
 </ResourceDictionary>
