@@ -88,6 +88,9 @@
             <Style Selector="^:disabled /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="1" />
             </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+            </Style>
             <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
                 <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
@@ -117,6 +120,9 @@
             </Style>
             <Style Selector="^:disabled /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="0" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
             </Style>
             <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
