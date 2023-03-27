@@ -47,36 +47,40 @@
                         <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 2</RadioButton>
                     </StackPanel>
                 </Border>
-                <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                    </StackPanel>
-                </RadioButton>
-                <RadioButton
-                    Margin="4"
-                    IsChecked="True"
-                    Theme="{StaticResource CardRadioButton}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                    </StackPanel>
-                </RadioButton>
-                <RadioButton Margin="4" Theme="{StaticResource PureCardRadioButton}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                    </StackPanel>
-                </RadioButton>
-                <RadioButton
-                    Margin="4"
-                    IsChecked="True"
-                    Theme="{StaticResource PureCardRadioButton}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                    </StackPanel>
-                </RadioButton>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton
+                        Margin="4"
+                        IsChecked="True"
+                        Theme="{StaticResource CardRadioButton}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Margin="4" Theme="{StaticResource PureCardRadioButton}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton
+                        Margin="4"
+                        IsChecked="True"
+                        Theme="{StaticResource PureCardRadioButton}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
@@ -84,57 +88,60 @@
                     <CheckBox Margin="0,0,8,0" IsChecked="True">WPF</CheckBox>
                     <CheckBox IsChecked="{x:Null}" IsThreeState="True">UWP</CheckBox>
                 </StackPanel>
-
-                <CheckBox Margin="4" Theme="{StaticResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    IsChecked="True"
-                    Margin="4"
-                    Theme="{StaticResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    IsThreeState="True"
-                    IsChecked="{x:Null}"
-                    Margin="4"
-                    Theme="{StaticResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 3</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 3</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox Margin="4" Theme="{StaticResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    IsChecked="True"
-                    Margin="4"
-                    Theme="{StaticResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    Margin="4"
-                    IsThreeState="True"
-                    IsChecked="{x:Null}"
-                    Theme="{StaticResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">Option 3</TextBlock>
-                        <TextBlock Classes="Tertiary">Description 3</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Margin="4" Theme="{StaticResource CardCheckBox}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
+                        </StackPanel>
+                    </CheckBox>
+                    <CheckBox
+                        IsChecked="True"
+                        Margin="4"
+                        Theme="{StaticResource CardCheckBox}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
+                        </StackPanel>
+                    </CheckBox>
+                    <CheckBox
+                        IsThreeState="True"
+                        IsChecked="{x:Null}"
+                        Margin="4"
+                        Theme="{StaticResource CardCheckBox}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 3</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 3</TextBlock>
+                        </StackPanel>
+                    </CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Margin="4" Theme="{StaticResource PureCardCheckBox}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
+                        </StackPanel>
+                    </CheckBox>
+                    <CheckBox
+                        IsChecked="True"
+                        Margin="4"
+                        Theme="{StaticResource PureCardCheckBox}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
+                        </StackPanel>
+                    </CheckBox>
+                    <CheckBox
+                        Margin="4"
+                        IsThreeState="True"
+                        IsChecked="{x:Null}"
+                        Theme="{StaticResource PureCardCheckBox}">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold">Option 3</TextBlock>
+                            <TextBlock Classes="Tertiary">Description 3</TextBlock>
+                        </StackPanel>
+                    </CheckBox>
+                </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ToggleSwitch
