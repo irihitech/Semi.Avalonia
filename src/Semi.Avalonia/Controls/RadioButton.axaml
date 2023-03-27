@@ -321,6 +321,9 @@
                 <Style Selector="^ /template/ Ellipse#CheckGlyph">
                     <Setter Property="Ellipse.Opacity" Value="0" />
                 </Style>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
             </Style>
         </Style>
 
@@ -376,6 +379,9 @@
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
                     <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
                 </Style>
             </Style>
         </Style>
