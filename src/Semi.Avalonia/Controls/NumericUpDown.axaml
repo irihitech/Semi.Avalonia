@@ -5,6 +5,7 @@
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
         <Setter Property="NumericUpDown.VerticalContentAlignment" Value="Center" />
+        <Setter Property="NumericUpDown.MinHeight" Value="{DynamicResource NumericUpDownWrapperDefaultHeight}" />
         <Setter Property="NumericUpDown.CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
         <Setter Property="NumericUpDown.Template">
             <ControlTemplate TargetType="NumericUpDown">
@@ -36,6 +37,13 @@
                 </ButtonSpinner>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownWrapperLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownWrapperSmallHeight}" />
+        </Style>
     </ControlTheme>
 
 </ResourceDictionary>
