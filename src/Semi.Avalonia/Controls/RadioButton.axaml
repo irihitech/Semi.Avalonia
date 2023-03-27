@@ -195,15 +195,18 @@
                     UseLayoutRounding="False" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:checked">
-            <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonButtonCheckedBackground}" />
-            <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonCheckedForeground}" />
-        </Style>
         <Style Selector="^:unchecked">
             <Setter Property="RadioButton.Background" Value="Transparent" />
             <Style Selector="^:pointerover">
                 <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonButtonUncheckedPointeroverBackground}" />
             </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonUncheckedDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonButtonCheckedBackground}" />
+            <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonCheckedForeground}" />
         </Style>
         <Style Selector="^.Small">
             <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonButtonSmallFontSize}" />
