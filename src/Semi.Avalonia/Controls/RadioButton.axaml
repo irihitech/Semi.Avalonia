@@ -207,6 +207,9 @@
         <Style Selector="^:checked">
             <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonButtonCheckedBackground}" />
             <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonCheckedForeground}" />
+            <Style Selector="^:disabled">
+                <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonCheckedDisabledForeground}" />
+            </Style>
         </Style>
         <Style Selector="^.Small">
             <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonButtonSmallFontSize}" />
