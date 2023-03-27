@@ -266,6 +266,10 @@
             <Style Selector="^:disabled /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="1" />
             </Style>
+            <Style Selector="^:disabled /template/ Border#RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+            </Style>
             <Style Selector="^:pointerover">
                 <Setter Property="RadioButton.BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
