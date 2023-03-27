@@ -46,6 +46,7 @@
                             TextWrapping="Wrap" />
                         <controls:ColorDetailControl
                             Background="{Binding SelectedColor.Brush}"
+                            ColorResourceKey="{Binding SelectedColor.ColorResourceKey}"
                             IsVisible="{Binding SelectedColor, Converter={x:Static ObjectConverters.IsNotNull}}"
                             ResourceKey="{Binding SelectedColor.ResourceKey}"
                             ResourceName="{Binding SelectedColor.ColorDisplayName}" />

@@ -12,6 +12,7 @@ public class ColorDetailControl: TemplatedControl
     public const string KEY_ResourceKey = "ResourceKey";
     public const string KEY_Hex = "Hex";
     public const string KEY_Opacity = "Opacity";
+    public const string KEY_ColorResourceKey = "ColorResourceKey";
     
     public static readonly StyledProperty<string?> ResourceKeyProperty = AvaloniaProperty.Register<ColorDetailControl, string?>(
         nameof(ResourceKey));
@@ -28,6 +29,15 @@ public class ColorDetailControl: TemplatedControl
     {
         get => GetValue(ResourceNameProperty);
         set => SetValue(ResourceNameProperty, value);
+    }
+
+    public static readonly StyledProperty<string?> ColorResourceKeyProperty = AvaloniaProperty.Register<ColorDetailControl, string?>(
+        nameof(ColorResourceKey));
+
+    public string? ColorResourceKey
+    {
+        get => GetValue(ColorResourceKeyProperty);
+        set => SetValue(ColorResourceKeyProperty, value);
     }
 
     public static readonly DirectProperty<ColorDetailControl, string?> HexProperty = AvaloniaProperty.RegisterDirect<ColorDetailControl, string?>(
@@ -47,6 +57,8 @@ public class ColorDetailControl: TemplatedControl
         get => _opacityNumber;
         private set => SetAndRaise(OpacityNumberProperty, ref _opacityNumber, value);
     }
+    
+    
     
     
     static ColorDetailControl()
@@ -76,6 +88,8 @@ public class ColorDetailControl: TemplatedControl
                 case KEY_Hex: text = Hex;
                     break;
                 case KEY_Opacity: text = OpacityNumber;
+                    break;
+                case KEY_ColorResourceKey: text = ColorResourceKey;
                     break;
                 default: text = string.Empty; break;
             }

@@ -134,6 +134,7 @@ public class ColorListViewModel: ObservableObject
                 {
                     string name = color + " " + i;
                     var item = new ColorItemViewModel(name, brush, key, light, i);
+                    item.ColorResourceKey = item.ResourceKey + "Color";
                     Color.Add(item);
                 } 
             }
@@ -171,6 +172,14 @@ public class ColorItemViewModel : ObservableObject
     {
         get => _resourceKey;
         set => SetProperty(ref _resourceKey, value);
+    }
+
+    private string _colorResourceKey = null!;
+
+    public string ColorResourceKey
+    {
+        get => _colorResourceKey;
+        set => SetProperty(ref _colorResourceKey, value);
     }
 
     private string _hex = null!;
