@@ -5,73 +5,163 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <StackPanel HorizontalAlignment="Left" Spacing="20">
-        <TextBlock Text="Radio Buttons" />
-        <StackPanel>
-            <RadioButton>111</RadioButton>
-            <RadioButton>222</RadioButton>
-            <RadioButton>333</RadioButton>
-        </StackPanel>
-        <TextBlock Text="Radio Button as Button" />
-        <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <TextBlock Text="Radio Buttons" />
             <StackPanel Orientation="Horizontal">
-                <RadioButton Classes="Small" Theme="{DynamicResource ButtonRadioButton}">小1</RadioButton>
-                <RadioButton Classes="Small" Theme="{DynamicResource ButtonRadioButton}">小2</RadioButton>
+                <RadioButton>Unchecked</RadioButton>
+                <RadioButton IsChecked="True">Checked</RadioButton>
             </StackPanel>
-        </Border>
-        <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
             <StackPanel Orientation="Horizontal">
-                <RadioButton Theme="{DynamicResource ButtonRadioButton}">默认1</RadioButton>
-                <RadioButton Theme="{DynamicResource ButtonRadioButton}">默认2</RadioButton>
+                <RadioButton IsEnabled="False">Unchecked</RadioButton>
+                <RadioButton IsChecked="True" IsEnabled="False">Checked</RadioButton>
             </StackPanel>
-        </Border>
-        <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+            <TextBlock Text="Radio Button as Button" />
             <StackPanel Orientation="Horizontal">
-                <RadioButton Classes="Large" Theme="{DynamicResource ButtonRadioButton}">大1</RadioButton>
-                <RadioButton Classes="Large" Theme="{DynamicResource ButtonRadioButton}">大2</RadioButton>
+                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Classes="Small" Theme="{DynamicResource ButtonRadioButton}">小1</RadioButton>
+                        <RadioButton
+                            Classes="Small"
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsChecked="True">
+                            小2
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
+                <Border Margin="8 0" HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton
+                            Classes="Small"
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsEnabled="False">
+                            小1
+                        </RadioButton>
+                        <RadioButton
+                            Classes="Small"
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsChecked="True"
+                            IsEnabled="False">
+                            小2
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
             </StackPanel>
-        </Border>
-        <TextBlock Text="Radio Button as Card" />
-        <StackPanel Orientation="Horizontal">
-            <RadioButton Width="300" Theme="{DynamicResource CardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">单选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </RadioButton>
-            <RadioButton Width="300" Theme="{DynamicResource CardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">单选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </RadioButton>
-            <RadioButton Width="300" Theme="{DynamicResource CardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">单选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </RadioButton>
+            <StackPanel Orientation="Horizontal">
+                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Theme="{DynamicResource ButtonRadioButton}">默认1</RadioButton>
+                        <RadioButton Theme="{DynamicResource ButtonRadioButton}" IsChecked="True">默认2</RadioButton>
+                    </StackPanel>
+                </Border>
+                <Border Margin="8 0" HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Theme="{DynamicResource ButtonRadioButton}" IsEnabled="False">默认1</RadioButton>
+                        <RadioButton
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsEnabled="False"
+                            IsChecked="True">
+                            默认2
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Classes="Large" Theme="{DynamicResource ButtonRadioButton}">大1</RadioButton>
+                        <RadioButton
+                            Classes="Large"
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsChecked="True">
+                            大2
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
+                <Border Margin="8 0" HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton
+                            Classes="Large"
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsEnabled="False">
+                            大1
+                        </RadioButton>
+                        <RadioButton
+                            Classes="Large"
+                            Theme="{DynamicResource ButtonRadioButton}"
+                            IsChecked="True"
+                            IsEnabled="False">
+                            大2
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <TextBlock Text="Radio Button as Card" />
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Width="300" Theme="{DynamicResource CardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton IsChecked="True" Width="300" Theme="{DynamicResource CardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton IsEnabled="False" Width="300" Theme="{DynamicResource CardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton 
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Width="300"
+                    Theme="{DynamicResource CardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+            <TextBlock Text="Radio Button as Pure Card" />
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Width="300" Theme="{DynamicResource PureCardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton IsChecked="True" Width="300" Theme="{DynamicResource PureCardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton IsEnabled="False" Width="300" Theme="{DynamicResource PureCardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Width="300"
+                    Theme="{DynamicResource PureCardRadioButton}">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">单选框标题</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
         </StackPanel>
-        <TextBlock Text="Radio Button as Pure Card" />
-        <StackPanel Orientation="Horizontal">
-            <RadioButton Width="300" Theme="{DynamicResource PureCardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">单选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </RadioButton>
-            <RadioButton Width="300" Theme="{DynamicResource PureCardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">单选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </RadioButton>
-            <RadioButton Width="300" Theme="{DynamicResource PureCardRadioButton}">
-                <StackPanel>
-                    <TextBlock FontWeight="Bold">单选框标题</TextBlock>
-                    <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                </StackPanel>
-            </RadioButton>
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>

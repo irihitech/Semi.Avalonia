@@ -7,6 +7,7 @@
     <sys:Double x:Key="RadioButtonFontSize">14</sys:Double>
     <Thickness x:Key="RadioButtonIconMargin">0 2 8 0</Thickness>
 
+    <SolidColorBrush x:Key="RadioButtonDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
 
     <SolidColorBrush x:Key="RadioButtonUncheckIconDefaultBackground" Color="Transparent" />
     <SolidColorBrush x:Key="RadioButtonUncheckIconPointeroverBackground" Opacity="0.12" Color="White" />
@@ -46,16 +47,18 @@
     <sys:Double x:Key="RadioButtonButtonDefaultFontSize">12</sys:Double>
     <sys:Double x:Key="RadioButtonButtonLargeFontSize">14</sys:Double>
 
-    <SolidColorBrush x:Key="RadioButtonButtonCheckedForeground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="RadioButtonButtonUncheckedPointeroverBackground" Opacity="0.16" Color="White" />
     <SolidColorBrush x:Key="RadioButtonButtonUncheckedForeground" Opacity="0.8" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="RadioButtonButtonUncheckedPointeroverBackground" Opacity="0.16" Color="White" />
+    <SolidColorBrush x:Key="RadioButtonButtonUncheckedDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
     <SolidColorBrush x:Key="RadioButtonButtonCheckedBackground" Color="#43444A" />
+    <SolidColorBrush x:Key="RadioButtonButtonCheckedForeground" Color="#54A9FF" />
+    <SolidColorBrush x:Key="RadioButtonButtonCheckedDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
 
     <Thickness x:Key="RadioButtonCardPadding">16 12</Thickness>
 
     <SolidColorBrush x:Key="RadioButtonCardDefaultBackground" Color="Transparent" />
     <SolidColorBrush x:Key="RadioButtonCardDefaultBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="RadioButtonCardCheckedBackground" Color="#053170" />
+    <SolidColorBrush x:Key="RadioButtonCardCheckedBackground" Opacity="0.2" Color="#FF54A9FF" />
     <SolidColorBrush x:Key="RadioButtonCardCheckDefaultBorderBrush" Color="#54A9FF" />
     <SolidColorBrush x:Key="RadioButtonCardCheckPointeroverBorderBrush" Color="#7FC1FF" />
     <SolidColorBrush x:Key="RadioButtonCardCheckPressedBorderBrush" Color="#A9D7FF" />
