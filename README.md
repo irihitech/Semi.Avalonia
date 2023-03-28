@@ -11,7 +11,7 @@ Avalonia Theme inspired by Semi Design
 
 ## Installation
 ```bash
-dotnet add package Semi.Avalonia --version 0.1.0-preview6
+dotnet add package Semi.Avalonia --version 0.1.0-preview6.1
 ```
 Include Semi Design Styles in application:
 
@@ -25,8 +25,8 @@ That's all.
 
 DataGrid and ColorPicker are distributed in separated packages. Please install if you need. 
 ```bash
-dotnet add package Semi.Avalonia.ColorPicker --version 0.1.0-preview6
-dotnet add package Semi.Avalonia.DataGrid --version 0.1.0-preview6
+dotnet add package Semi.Avalonia.ColorPicker --version 0.1.0-preview6.1
+dotnet add package Semi.Avalonia.DataGrid --version 0.1.0-preview6.1
 ```
 ```xaml
 <Application.Styles>
