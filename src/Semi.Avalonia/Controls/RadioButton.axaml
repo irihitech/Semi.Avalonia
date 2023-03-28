@@ -397,7 +397,6 @@
         <Setter Property="RadioButton.BorderThickness" Value="1" />
         <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonFontSize}" />
         <Setter Property="RadioButton.Padding" Value="{DynamicResource RadioButtonCardPadding}" />
-        <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonUncheckedForeground}" />
         <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
         <Setter Property="RadioButton.Template">
             <ControlTemplate TargetType="RadioButton">
@@ -414,8 +413,6 @@
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     RecognizesAccessKey="True"
-                    TextElement.FontSize="{TemplateBinding FontSize}"
-                    TextElement.FontWeight="{TemplateBinding FontWeight}"
                     UseLayoutRounding="False" />
             </ControlTemplate>
         </Setter>
