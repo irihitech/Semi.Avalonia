@@ -180,6 +180,7 @@
 
     <ControlTheme x:Key="CardCheckBox" TargetType="CheckBox">
         <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource CheckBoxCardPadding}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CheckBoxCardBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxCardCornerRadius}" />
@@ -193,7 +194,11 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
+                    <Grid
+                        x:Name="RootGrid"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ColumnDefinitions="Auto,*">
                         <Grid Grid.Column="0" VerticalAlignment="Top">
                             <Border
                                 x:Name="NormalRectangle"
@@ -215,7 +220,6 @@
                             x:Name="ContentPresenter"
                             Grid.Column="1"
                             Margin="8,0,0,0"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="Center"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
