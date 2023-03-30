@@ -196,7 +196,7 @@ public class ColorItemViewModel : ObservableObject
         Brush = brush;
         ResourceKey = resourceKey;
         Hex = brush.ToString().ToUpperInvariant();
-        if ((light && index < 5) || (!light && index > 5))
+        if ((light && index < 5) || (!light && index >= 5))
         {
             TextBrush = Brushes.Black;
         }
