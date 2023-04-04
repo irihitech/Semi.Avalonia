@@ -110,7 +110,12 @@
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             </Style>
         </Style>
-
+        <Style Selector="^.Large /template/ Button">
+            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+        </Style>
+        <Style Selector="^.Small /template/ Button">
+            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
         <Style Selector="^:disabled /template/ Button">
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
