@@ -1,0 +1,55 @@
+name: Pack
+
+on:
+  push:
+    branches: [ "release" ]
+  pull_request:
+    branches: [ "release" ]
+
+jobs:
+  nuget_desktop:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Nuget Semi.Avalonia
+        run: dotnet pack ./src/Semi.Avalonia -o ./nugets
+
+      - name: Nuget Semi.Avalonia.DataGrid
+        run: dotnet pack ./src/Semi.Avalonia.DataGrid  -o ./nugets
+
+      - name: Nuget Semi.Avalonia.ColorPicker
+        run: dotnet pack ./src/Semi.Avalonia.ColorPicker  -o ./nugets
+
+      - name: Desktop
+        run: dotnet publish ./demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
+
+      - name: Upload
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: nuget_desktop
+          path: |
+            ./nugets
+            ./**/publish/*.exe
+
+  android:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: CD Android
+        run: cd ./demo/Semi.Avalonia.Demo.Android
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet publish ./demo/Semi.Avalonia.Demo.Android -c Release -f net7.0-android --no-restore
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: android
+          path: ./**/publish/*Signed.apk
