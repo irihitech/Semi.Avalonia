@@ -11,8 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-preview6" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0-preview6" />
+        <PackageReference Include="Avalonia" Version="11.0.999-cibuild0033637-beta" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.999-cibuild0033637-beta" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-preview6" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />

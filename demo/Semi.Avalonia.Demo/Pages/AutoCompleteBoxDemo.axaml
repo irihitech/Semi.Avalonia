@@ -20,7 +20,7 @@
             </Style>
         </StackPanel.Styles>
         <AutoCompleteBox
-            Items="{Binding States}"
+            ItemsSource="{Binding States}"
             ValueMemberBinding="{Binding Name}"
             Watermark="Please select a State">
             <AutoCompleteBox.ItemTemplate>
@@ -31,7 +31,7 @@
         </AutoCompleteBox>
         <AutoCompleteBox
             Classes="Large"
-            Items="{Binding States}"
+            ItemsSource="{Binding States}"
             ValueMemberBinding="{ReflectionBinding Name}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
@@ -41,7 +41,7 @@
         </AutoCompleteBox>
         <AutoCompleteBox
             Classes="Small"
-            Items="{Binding States}"
+            ItemsSource="{Binding States}"
             ValueMemberBinding="{ReflectionBinding Name}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
@@ -51,7 +51,7 @@
         </AutoCompleteBox>
         <AutoCompleteBox
             Classes="Bordered"
-            Items="{Binding States}"
+            ItemsSource="{Binding States}"
             ValueMemberBinding="{ReflectionBinding Name}">
             <AutoCompleteBox.ItemTemplate>
                 <DataTemplate DataType="local:StateData">
@@ -61,7 +61,7 @@
         </AutoCompleteBox>
         <AutoCompleteBox
             IsEnabled="False"
-            Items="{Binding States}"
+            ItemsSource="{Binding States}"
             ValueMemberBinding="{ReflectionBinding Name}"
             Watermark="Disabled">
             <AutoCompleteBox.ItemTemplate>

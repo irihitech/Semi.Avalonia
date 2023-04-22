@@ -38,7 +38,7 @@ public partial class DataGridDemo : UserControl
                 collectionView1.SortDescriptions.Add(dataGridSortDescription);
             }
         };
-        dg1.Items = collectionView1;
+        dg1.ItemsSource = collectionView1;
 
         var dg2 = this.Get<DataGrid>("dataGridGrouping");
         dg2.IsReadOnly = true;
@@ -46,7 +46,7 @@ public partial class DataGridDemo : UserControl
         var collectionView2 = new DataGridCollectionView(Countries.All);
         collectionView2.GroupDescriptions.Add(new DataGridPathGroupDescription("Region"));
 
-        dg2.Items = collectionView2;
+        dg2.ItemsSource = collectionView2;
 
         var dg3 = this.Get<DataGrid>("dataGridEdit");
         dg3.IsReadOnly = false;

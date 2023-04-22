@@ -63,7 +63,7 @@
                         Theme="{DynamicResource TitleTextBlock}" />
                     <TabControl>
                         <TabItem Header="Light">
-                            <ItemsControl Margin="16" Items="{Binding LightLists}">
+                            <ItemsControl Margin="16" ItemsSource="{Binding LightLists}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" />
@@ -71,7 +71,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="viewModels:ColorListViewModel">
-                                        <ItemsControl Margin="4,0" Items="{Binding Color}">
+                                        <ItemsControl Margin="4,0" ItemsSource="{Binding Color}">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate x:DataType="viewModels:ColorItemViewModel">
                                                     <controls:ColorItemControl
@@ -87,7 +87,7 @@
                             </ItemsControl>
                         </TabItem>
                         <TabItem Header="Dark">
-                            <ItemsControl Margin="16" Items="{Binding DarkLists}">
+                            <ItemsControl Margin="16" ItemsSource="{Binding DarkLists}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" />
@@ -95,7 +95,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="viewModels:ColorListViewModel">
-                                        <ItemsControl Margin="4,0" Items="{Binding Color}">
+                                        <ItemsControl Margin="4,0" ItemsSource="{Binding Color}">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate x:DataType="viewModels:ColorItemViewModel">
                                                     <controls:ColorItemControl
@@ -112,7 +112,7 @@
                         </TabItem>
                     </TabControl>
 
-                    <ItemsControl Items="{Binding FunctionalColors}">
+                    <ItemsControl ItemsSource="{Binding FunctionalColors}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <!--    -->

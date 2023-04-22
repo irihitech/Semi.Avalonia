@@ -16,11 +16,11 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <RdXmlFile Include="rd.xml"/>
+        <RdXmlFile Include="rd.xml" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.999-cibuild0033637-beta" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-preview6" />
     </ItemGroup>
