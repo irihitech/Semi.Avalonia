@@ -6,6 +6,8 @@
         <OutputType>Exe</OutputType>
     </PropertyGroup>
 
+    <Import Project="../Directory.Build.props" />
+
     <ItemGroup>
         <WasmExtraFilesToDeploy Include="AppBundle\**" />
     </ItemGroup>
@@ -19,8 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Browser" Version="11.0.999-cibuild0033637-beta" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.999-cibuild0033637-beta" />
+        <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <ItemGroup>

@@ -12,8 +12,10 @@
         <RootNamespace>Semi.Avalonia.Demo.Android</RootNamespace>
     </PropertyGroup>
 
+    <Import Project="../Directory.Build.props" />
+
     <ItemGroup>
-      <PackageReference Include="Avalonia.Android" Version="11.0.999-cibuild0033637-beta" />
+      <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <ItemGroup>

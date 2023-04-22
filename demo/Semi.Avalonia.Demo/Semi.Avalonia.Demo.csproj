@@ -5,16 +5,18 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
+    <Import Project="../Directory.Build.props" />
+    
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
         <TrimmerRootDescriptor Include="Roots.xml" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.999-cibuild0033637-beta" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.999-cibuild0033637-beta" />
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0-preview6" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     </ItemGroup>
 
