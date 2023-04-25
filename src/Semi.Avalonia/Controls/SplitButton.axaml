@@ -110,10 +110,100 @@
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             </Style>
         </Style>
-
+        <Style Selector="^.Large /template/ Button">
+            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+        </Style>
+        <Style Selector="^.Small /template/ Button">
+            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
         <Style Selector="^:disabled /template/ Button">
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="SolidSplitButton"
+        BasedOn="{StaticResource {x:Type SplitButton}}"
+        TargetType="SplitButton">
+        <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+        <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+        <Style Selector="^ /template/ Button">
+            <Style Selector="^:pointerover">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Primary /template/ Button">
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Secondary /template/ Button">
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidSecondaryBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidSecondaryPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidSecondaryPressedBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Tertiary /template/ Button">
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidTertiaryBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidTertiaryPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidTertiaryPressedBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Warning /template/ Button">
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidWarningBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidWarningPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidWarningPressedBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Danger /template/ Button">
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidDangerBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidDangerPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonSolidDangerPressedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled /template/ Button">
+            <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="BorderlessSplitButton"
+        BasedOn="{StaticResource {x:Type SplitButton}}"
+        TargetType="SplitButton">
+        <Setter Property="SplitButton.Background" Value="Transparent" />
+        <Setter Property="SplitButton.BorderBrush" Value="Transparent" />
+        <Style Selector="^:disabled /template/ Button">
+            <Setter Property="SplitButton.BorderBrush" Value="Transparent" />
+            <Setter Property="SplitButton.Background" Value="Transparent" />
+            <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

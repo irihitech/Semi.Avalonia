@@ -19,7 +19,7 @@
                         Theme="{DynamicResource TitleTextBlock}" />
                     <TabControl Grid.Row="1">
                         <TabItem Header="Light">
-                            <DataGrid IsReadOnly="True" Items="{TemplateBinding LightColors}">
+                            <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightColors}">
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
@@ -77,7 +77,7 @@
                             </DataGrid>
                         </TabItem>
                         <TabItem Header="Dark">
-                            <DataGrid IsReadOnly="True" Items="{TemplateBinding DarkColors}">
+                            <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding DarkColors}">
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>

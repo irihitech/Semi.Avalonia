@@ -10,6 +10,7 @@
 
     <ControlTheme x:Key="ColorSliderThumbTheme" TargetType="Thumb">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="BorderBrush" Value="{DynamicResource ColorSliderDefaultBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ColorSliderThumbBorderBrush}" />
         <Setter Property="CornerRadius" Value="999" />
@@ -17,9 +18,11 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Border
+                        Margin="1"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
+                        BoxShadow="{DynamicResource ColorSliderBoxShadow}"
                         CornerRadius="{TemplateBinding CornerRadius}" />
                 </ControlTemplate>
             </Setter.Value>
@@ -39,6 +42,8 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Rectangle
+                                Width="{Binding #PART_Track.Bounds.Width}"
+                                Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
@@ -47,6 +52,8 @@
                                 RadiusY="{TemplateBinding CornerRadius,
                                                           Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Rectangle
+                                Width="{Binding #PART_Track.Bounds.Width}"
+                                Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding Background}"
@@ -56,6 +63,7 @@
                                                           Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Track
                                 Name="PART_Track"
+                                Height="12"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
@@ -125,6 +133,8 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Rectangle
+                                Width="{Binding #PART_Track.Bounds.Width}"
+                                Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
@@ -133,6 +143,8 @@
                                 RadiusY="{TemplateBinding CornerRadius,
                                                           Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Rectangle
+                                Width="{Binding #PART_Track.Bounds.Width}"
+                                Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding Background}"
@@ -142,6 +154,7 @@
                                                           Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Track
                                 Name="PART_Track"
+                                Width="12"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
@@ -212,9 +225,11 @@
 
         <Style Selector="^:dark-selector /template/ Thumb#ColorSliderThumb">
             <Setter Property="BorderBrush" Value="{DynamicResource ColorSliderDarkBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ColorSliderLightBorderBrush}" />
         </Style>
         <Style Selector="^:light-selector /template/ Thumb#ColorSliderThumb">
             <Setter Property="BorderBrush" Value="{DynamicResource ColorSliderLightBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ColorSliderDarkBorderBrush}" />
         </Style>
 
     </ControlTheme>

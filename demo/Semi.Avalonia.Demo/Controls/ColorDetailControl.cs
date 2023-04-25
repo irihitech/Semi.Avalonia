@@ -1,5 +1,6 @@
 using System.Globalization;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input.Platform;
 using Avalonia.Media;
@@ -95,11 +96,12 @@ public class ColorDetailControl: TemplatedControl
             }
         }
 
-        if (Application.Current is { Clipboard: { } c })
+        var toplevel = TopLevel.GetTopLevel(this);
+        if (toplevel?.Clipboard is { } c)
         {
             await c.SetTextAsync(text??string.Empty);
         }
-        
+
     }
     
 }
