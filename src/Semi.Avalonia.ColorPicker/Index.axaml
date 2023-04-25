@@ -3,8 +3,8 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
-                <ResourceInclude x:Key="Default" Source="avares://Semi.Avalonia.ColorPicker/Light.axaml" />
-                <ResourceInclude x:Key="Dark" Source="avares://Semi.Avalonia.ColorPicker/Dark.axaml" />
+                <MergeResourceInclude x:Key="Default" Source="avares://Semi.Avalonia.ColorPicker/Light.axaml" />
+                <MergeResourceInclude x:Key="Dark" Source="avares://Semi.Avalonia.ColorPicker/Dark.axaml" />
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://Semi.Avalonia.ColorPicker/Controls/ColorPicker.axaml" />
