@@ -280,7 +280,7 @@
                                 Margin="12"
                                 VerticalAlignment="Stretch"
                                 ItemContainerTheme="{StaticResource ColorViewPaletteListBoxItemTheme}"
-                                Items="{TemplateBinding PaletteColors}"
+                                ItemsSource="{TemplateBinding PaletteColors}"
                                 SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DoNothingForNullConverter}, Mode=TwoWay}"
                                 Theme="{StaticResource ColorViewPaletteListBoxTheme}"
                                 UseLayoutRounding="False">

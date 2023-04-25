@@ -65,17 +65,15 @@
                     <ScrollContentPresenter
                         Name="PART_ContentPresenter"
                         Margin="{TemplateBinding Padding}"
-                        CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
-                        CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
-                        Content="{TemplateBinding Content}"
-                        Extent="{TemplateBinding Extent,
-                                                 Mode=TwoWay}"
-                        Viewport="{TemplateBinding Viewport,
-                                                   Mode=TwoWay}"
-                        Offset="{TemplateBinding Offset,
-                                                 Mode=TwoWay}">
+                        HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                        HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                        VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                        VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
                         <ScrollContentPresenter.GestureRecognizers>
-                            <ScrollGestureRecognizer CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}" CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}" />
+                            <ScrollGestureRecognizer
+                                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                IsScrollInertiaEnabled="{Binding IsScrollInertiaEnabled, RelativeSource={RelativeSource TemplatedParent}}" />
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
                 </DockPanel>

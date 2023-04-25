@@ -31,7 +31,7 @@
                         <ListBox
                             x:Name="PART_QuickLinks"
                             Focusable="False"
-                            Items="{Binding QuickLinks}"
+                            ItemsSource="{Binding QuickLinks}"
                             SelectedIndex="{Binding QuickLinksSelectedIndex}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
@@ -74,7 +74,7 @@
                                 Margin="8,0,0,0"
                                 DockPanel.Dock="Right"
                                 IsVisible="{Binding ShowFilters}"
-                                Items="{Binding Filters}"
+                                ItemsSource="{Binding Filters}"
                                 SelectedItem="{Binding SelectedFilter}" />
                             <TextBox
                                 IsVisible="{Binding !SelectingFolder}"
@@ -142,7 +142,7 @@
                             </Grid>
                             <ListBox
                                 Name="PART_Files"
-                                Items="{Binding Items}"
+                                ItemsSource="{Binding Items}"
                                 SelectedItems="{Binding SelectedItems}"
                                 SelectionMode="{Binding SelectionMode}">
                                 <ListBox.ItemTemplate>

@@ -210,48 +210,27 @@
                         Name="PART_ContentPresenter"
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
-                        CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
-                        CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
-                        Content="{TemplateBinding Content}"
-                        Extent="{TemplateBinding Extent,
-                                                 Mode=TwoWay}"
-                        IsScrollChainingEnabled="{TemplateBinding IsScrollChainingEnabled}"
-                        Viewport="{TemplateBinding Viewport,
-                                                   Mode=TwoWay}"
-                        Offset="{TemplateBinding Offset,
-                                                 Mode=TwoWay}">
+                        HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                        HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                        VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                        VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
                         <ScrollContentPresenter.GestureRecognizers>
-                            <ScrollGestureRecognizer CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}" CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}" />
+                            <ScrollGestureRecognizer
+                                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                IsScrollInertiaEnabled="{Binding IsScrollInertiaEnabled, RelativeSource={RelativeSource TemplatedParent}}" />
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
                     <ScrollBar
-                        Name="horizontalScrollBar"
+                        Name="PART_HorizontalScrollBar"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Focusable="False"
-                        LargeChange="{Binding LargeChange.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                        Maximum="{TemplateBinding HorizontalScrollBarMaximum}"
-                        Opacity="0"
-                        Orientation="Horizontal"
-                        SmallChange="{Binding SmallChange.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                        ViewportSize="{TemplateBinding HorizontalScrollBarViewportSize}"
-                        Visibility="{TemplateBinding HorizontalScrollBarVisibility}"
-                        Value="{TemplateBinding HorizontalScrollBarValue,
-                                                Mode=TwoWay}" />
+                        Orientation="Horizontal" />
                     <ScrollBar
-                        Name="verticalScrollBar"
+                        Name="PART_VerticalScrollBar"
                         Grid.Row="0"
                         Grid.Column="1"
-                        Focusable="False"
-                        LargeChange="{Binding LargeChange.Height, RelativeSource={RelativeSource TemplatedParent}}"
-                        Maximum="{TemplateBinding VerticalScrollBarMaximum}"
-                        Opacity="0"
-                        Orientation="Vertical"
-                        SmallChange="{Binding SmallChange.Height, RelativeSource={RelativeSource TemplatedParent}}"
-                        ViewportSize="{TemplateBinding VerticalScrollBarViewportSize}"
-                        Visibility="{TemplateBinding VerticalScrollBarVisibility}"
-                        Value="{TemplateBinding VerticalScrollBarValue,
-                                                Mode=TwoWay}" />
+                        Orientation="Vertical" />
                     <Panel
                         Grid.Row="1"
                         Grid.Column="1"
@@ -304,18 +283,7 @@
                         </RepeatButton.IsVisible>
                         <Path Data="M 0 0 L 4 4 L 8 0 Z" />
                     </RepeatButton>
-                    <ScrollContentPresenter
-                        Name="PART_ContentPresenter"
-                        Margin="{TemplateBinding Padding}"
-                        CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
-                        CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
-                        Content="{TemplateBinding Content}"
-                        Extent="{TemplateBinding Extent,
-                                                 Mode=TwoWay}"
-                        Viewport="{TemplateBinding Viewport,
-                                                   Mode=TwoWay}"
-                        Offset="{TemplateBinding Offset,
-                                                 Mode=TwoWay}" />
+                    <ScrollContentPresenter Name="PART_ContentPresenter" Margin="{TemplateBinding Padding}" />
                 </DockPanel>
             </ControlTemplate>
         </Setter>

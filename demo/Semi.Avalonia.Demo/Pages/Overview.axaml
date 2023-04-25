@@ -96,8 +96,8 @@
                         </StackPanel>
                     </CheckBox>
                     <CheckBox
-                        IsChecked="True"
                         Margin="4"
+                        IsChecked="True"
                         Theme="{StaticResource CardCheckBox}">
                         <StackPanel>
                             <TextBlock FontWeight="Bold">Option 2</TextBlock>
@@ -105,9 +105,9 @@
                         </StackPanel>
                     </CheckBox>
                     <CheckBox
-                        IsThreeState="True"
-                        IsChecked="{x:Null}"
                         Margin="4"
+                        IsChecked="{x:Null}"
+                        IsThreeState="True"
                         Theme="{StaticResource CardCheckBox}">
                         <StackPanel>
                             <TextBlock FontWeight="Bold">Option 3</TextBlock>
@@ -123,8 +123,8 @@
                         </StackPanel>
                     </CheckBox>
                     <CheckBox
-                        IsChecked="True"
                         Margin="4"
+                        IsChecked="True"
                         Theme="{StaticResource PureCardCheckBox}">
                         <StackPanel>
                             <TextBlock FontWeight="Bold">Option 2</TextBlock>
@@ -133,8 +133,8 @@
                     </CheckBox>
                     <CheckBox
                         Margin="4"
-                        IsThreeState="True"
                         IsChecked="{x:Null}"
+                        IsThreeState="True"
                         Theme="{StaticResource PureCardCheckBox}">
                         <StackPanel>
                             <TextBlock FontWeight="Bold">Option 3</TextBlock>
@@ -179,7 +179,7 @@
                 <TimePicker />
                 <CalendarDatePicker />
             </StackPanel>
-            <Grid ColumnDefinitions="* * *">
+            <Grid ColumnDefinitions="*, *, *">
                 <Border Theme="{StaticResource CardBorder}">
                     <TextBlock>Card</TextBlock>
                 </Border>
