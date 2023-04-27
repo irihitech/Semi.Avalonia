@@ -208,6 +208,57 @@
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
                     <ScrollContentPresenter
                         Name="PART_ContentPresenter"
+                        Grid.RowSpan="2"
+                        Grid.ColumnSpan="2"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                        HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                        VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                        VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
+                        <ScrollContentPresenter.GestureRecognizers>
+                            <ScrollGestureRecognizer
+                                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                IsScrollInertiaEnabled="{Binding IsScrollInertiaEnabled, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </ScrollContentPresenter.GestureRecognizers>
+                    </ScrollContentPresenter>
+                    <ScrollBar
+                        Name="PART_HorizontalScrollBar"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Opacity="0"
+                        Orientation="Horizontal" />
+                    <ScrollBar
+                        Name="PART_VerticalScrollBar"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Opacity="0"
+                        Orientation="Vertical" />
+                    <Panel
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Background="{DynamicResource ColorScrollBarBackground}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ ScrollBar#PART_HorizontalScrollBar">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ ScrollBar#PART_VerticalScrollBar">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="StaticScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ScrollViewer">
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
+                    <ScrollContentPresenter
+                        Name="PART_ContentPresenter"
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
@@ -238,14 +289,6 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
-            <Style Selector="^ /template/ ScrollBar#horizontalScrollBar">
-                <Setter Property="Opacity" Value="1" />
-            </Style>
-            <Style Selector="^ /template/ ScrollBar#verticalScrollBar">
-                <Setter Property="Opacity" Value="1" />
-            </Style>
-        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleMenuScrollViewer" TargetType="ScrollViewer">
