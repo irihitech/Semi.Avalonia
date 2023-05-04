@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -41,6 +42,23 @@
                 InnerLeftContent="http://"
                 InnerRightContent=".com"
                 IsEnabled="False" />
+            <TextBox
+                Width="500"
+                InnerLeftContent="http://"
+                InnerRightContent=".com">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </TextBox>
+            <TextBox
+                Width="500"
+                Classes="Bordered"
+                InnerLeftContent="http://"
+                InnerRightContent=".com">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </TextBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
