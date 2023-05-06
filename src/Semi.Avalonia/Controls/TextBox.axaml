@@ -274,4 +274,13 @@
             </Style>
         </Style>
     </ControlTheme>
+
+    <ControlTheme
+        x:Key="NonErrorTextBox"
+        BasedOn="{StaticResource {x:Type TextBox}}"
+        TargetType="TextBox">
+        <Style Selector="^ /template/ DataValidationErrors">
+            <Setter Property="Theme" Value="{DynamicResource SilentDataValidationErrors}" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>
