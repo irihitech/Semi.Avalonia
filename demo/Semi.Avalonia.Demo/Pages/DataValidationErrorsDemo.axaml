@@ -8,51 +8,63 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel HorizontalAlignment="Left" Spacing="20">
-        <AutoCompleteBox Width="300">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </AutoCompleteBox>
-        <CalendarDatePicker Width="300">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </CalendarDatePicker>
-        <ComboBox Width="300">
-            <ComboBoxItem>AAA</ComboBoxItem>
-            <ComboBoxItem>BBB</ComboBoxItem>
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </ComboBox>
-        <DatePicker Width="300">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </DatePicker>
-        <NumericUpDown Width="300">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </NumericUpDown>
-        <Slider Width="300">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </Slider>
-        <TimePicker Width="300">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </TimePicker>
-        <TextBox
-            Width="300"
-            InnerLeftContent="http://"
-            InnerRightContent=".com">
-            <DataValidationErrors.Error>
-                <system:Exception />
-            </DataValidationErrors.Error>
-        </TextBox>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <AutoCompleteBox Width="300">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </AutoCompleteBox>
+            <AutoCompleteBox Width="300" Classes="Large">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </AutoCompleteBox>
+            <AutoCompleteBox Width="300" Classes="Small">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </AutoCompleteBox>
+            <CalendarDatePicker Width="300">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </CalendarDatePicker>
+            <ComboBox Width="300">
+                <ComboBoxItem>AAA</ComboBoxItem>
+                <ComboBoxItem>BBB</ComboBoxItem>
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </ComboBox>
+            <DatePicker Width="300">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </DatePicker>
+            <NumericUpDown Width="300">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </NumericUpDown>
+            <Slider Width="300">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </Slider>
+            <TimePicker Width="300">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </TimePicker>
+            <TextBox
+                Width="300"
+                InnerLeftContent="http://"
+                InnerRightContent=".com">
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </TextBox>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

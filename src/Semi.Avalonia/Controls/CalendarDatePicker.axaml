@@ -65,18 +65,17 @@
                                     BorderThickness="0"
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     Foreground="{TemplateBinding Foreground}"
+                                    Theme="{DynamicResource NonErrorTextBox}"
                                     UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
                                     Watermark="{TemplateBinding Watermark}">
                                     <TextBox.Styles>
-                                        <Style
-                                            Selector="TextBox#PART_TextBox:pointerover /template/ Border#PART_ContentPresenterBorder">
+                                        <Style Selector="TextBox#PART_TextBox:pointerover /template/ Border#PART_ContentPresenterBorder">
                                             <!--  By default the TextBox has its own focused state, override this to disable it here  -->
                                             <Setter Property="Background" Value="Transparent" />
                                             <Setter Property="BorderBrush" Value="Transparent" />
                                             <Setter Property="BorderThickness" Value="0" />
                                         </Style>
-                                        <Style
-                                            Selector="TextBox#PART_TextBox:focus /template/ Border#PART_ContentPresenterBorder">
+                                        <Style Selector="TextBox#PART_TextBox:focus /template/ Border#PART_ContentPresenterBorder">
                                             <!--  By default the TextBox has its own focused state, override this to disable it here  -->
                                             <Setter Property="Background" Value="Transparent" />
                                             <Setter Property="BorderBrush" Value="Transparent" />
@@ -118,7 +117,8 @@
                                             DisplayDateStart="{TemplateBinding DisplayDateStart}"
                                             FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                             IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                            SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay}" />
+                                            SelectedDate="{TemplateBinding SelectedDate,
+                                                                           Mode=TwoWay}" />
                                     </Border>
                                 </Popup>
                             </Grid>
@@ -126,18 +126,16 @@
 
                     </Panel>
                 </DataValidationErrors>
-                
+
             </ControlTemplate>
         </Setter>
 
         <Style Selector="^.Large">
-            <Setter Property="CalendarDatePicker.MinHeight" Value="{DynamicResource CalendarDatePickerLargeHeight}" />
             <Style Selector="^ /template/ TextBox#PART_TextBox">
                 <Setter Property="TextBox.MinHeight" Value="{DynamicResource CalendarDatePickerInnerLargeHeight}" />
             </Style>
         </Style>
         <Style Selector="^.Small">
-            <Setter Property="CalendarDatePicker.MinHeight" Value="{DynamicResource CalendarDatePickerSmallHeight}" />
             <Style Selector="^ /template/ TextBox#PART_TextBox">
                 <Setter Property="TextBox.MinHeight" Value="{DynamicResource CalendarDatePickerInnerSmallHeight}" />
             </Style>
@@ -182,7 +180,7 @@
                 <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
-            <Style Selector="^:focus /template/ Border#Background">
+            <Style Selector="^:focus-within /template/ Border#Background">
                 <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
             </Style>
@@ -224,7 +222,7 @@
                     <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
                     <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsPressedBorderBrush}" />
                 </Style>
-                <Style Selector="^:focus /template/ Border#Background">
+                <Style Selector="^:focus-within /template/ Border#Background">
                     <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
                     <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
                 </Style>
