@@ -5,44 +5,66 @@
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
         <Setter Property="NumericUpDown.VerticalContentAlignment" Value="Center" />
-        <Setter Property="NumericUpDown.MinHeight" Value="{DynamicResource NumericUpDownWrapperDefaultHeight}" />
         <Setter Property="NumericUpDown.CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
         <Setter Property="NumericUpDown.Template">
             <ControlTemplate TargetType="NumericUpDown">
-                <ButtonSpinner
-                    Name="PART_Spinner"
-                    MinWidth="0"
-                    HorizontalContentAlignment="Stretch"
-                    VerticalContentAlignment="Stretch"
-                    AllowSpin="{TemplateBinding AllowSpin}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
-                    ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
-                    <TextBox
-                        Name="PART_TextBox"
-                        Height="{TemplateBinding Height}"
-                        MinHeight="{TemplateBinding MinHeight}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        AcceptsReturn="False"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        FontSize="{TemplateBinding FontSize}"
-                        Foreground="{TemplateBinding Foreground}"
-                        IsReadOnly="{TemplateBinding IsReadOnly}"
-                        Text="{TemplateBinding Text}"
-                        TextWrapping="NoWrap"
-                        Watermark="{TemplateBinding Watermark}" />
-                </ButtonSpinner>
+                <DataValidationErrors>
+                    <ButtonSpinner
+                        Name="PART_Spinner"
+                        MinWidth="0"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        AllowSpin="{TemplateBinding AllowSpin}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
+                        ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
+                        <TextBox
+                            Name="PART_TextBox"
+                            Height="{TemplateBinding Height}"
+                            MinHeight="{DynamicResource NumericUpDownWrapperDefaultHeight}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            AcceptsReturn="False"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            DataValidationErrors.Errors="{ReflectionBinding $parent[NumericUpDown].(DataValidationErrors.Errors)}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"
+                            Text="{TemplateBinding Text}"
+                            TextWrapping="NoWrap"
+                            Theme="{DynamicResource NonErrorTextBox}"
+                            Watermark="{TemplateBinding Watermark}" />
+                    </ButtonSpinner>
+                </DataValidationErrors>
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^.Large">
+        <Style Selector="^.Large /template/ TextBox#PART_TextBox">
             <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownWrapperLargeHeight}" />
         </Style>
-        <Style Selector="^.Small">
+        <Style Selector="^.Small /template/ TextBox#PART_TextBox">
             <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownWrapperSmallHeight}" />
+        </Style>
+
+        <Style Selector="^:error">
+            <Style Selector="^ /template/ TextBox#PART_TextBox">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pointerover /template/ TextBox#PART_TextBox">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pressed /template/ TextBox#PART_TextBox">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:focus /template/ TextBox#PART_TextBox">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+            </Style>
         </Style>
     </ControlTheme>
 

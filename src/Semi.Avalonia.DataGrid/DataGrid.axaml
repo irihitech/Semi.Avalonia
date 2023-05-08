@@ -14,6 +14,13 @@
         BasedOn="{StaticResource {x:Type TextBox}}"
         TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="MinHeight" Value="20" />
+        <Style Selector="^ /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="MinHeight" Value="20" />
+        </Style>
+        <Style Selector="^:error:focus /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Border.BorderBrush" Value="Transparent" />
+        </Style>
         <Style Selector="^ /template/ DataValidationErrors">
             <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
         </Style>
