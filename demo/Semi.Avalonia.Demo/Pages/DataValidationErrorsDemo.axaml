@@ -65,6 +65,19 @@
                     <system:Exception />
                 </DataValidationErrors.Error>
             </TextBox>
+            <TextBox
+                Width="300"
+                InnerLeftContent="http://"
+                InnerRightContent=".com">
+                <TextBox.Styles>
+                    <Style Selector="TextBox /template/ DataValidationErrors">
+                        <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
+                    </Style>
+                </TextBox.Styles>
+                <DataValidationErrors.Error>
+                    <system:Exception />
+                </DataValidationErrors.Error>
+            </TextBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
