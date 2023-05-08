@@ -135,90 +135,93 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate TargetType="DatePicker">
-                <Grid Name="LayoutRoot" Margin="{TemplateBinding Padding}">
-                    <Button
-                        Name="PART_FlyoutButton"
-                        Width="298"
-                        MinWidth="298"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Cursor="Hand"
-                        Foreground="{TemplateBinding Foreground}"
-                        IsEnabled="{TemplateBinding IsEnabled}"
-                        Theme="{StaticResource DateTimePickerFlyoutButton}">
-                        <Grid ColumnDefinitions="*, Auto">
-                            <Grid
-                                Name="PART_ButtonContentGrid"
-                                Grid.Column="0"
-                                VerticalAlignment="Center"
-                                ColumnDefinitions="78*,Auto,132*,Auto,78*">
-                                <TextBlock
-                                    Name="PART_DayTextBlock"
-                                    Padding="12,4"
-                                    HorizontalAlignment="Center"
+                <DataValidationErrors>
+                    <Grid Name="LayoutRoot" Margin="{TemplateBinding Padding}">
+                        <Button
+                            Name="PART_FlyoutButton"
+                            Width="298"
+                            MinWidth="298"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Cursor="Hand"
+                            DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsEnabled="{TemplateBinding IsEnabled}"
+                            Theme="{StaticResource DateTimePickerFlyoutButton}">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Grid
+                                    Name="PART_ButtonContentGrid"
+                                    Grid.Column="0"
                                     VerticalAlignment="Center"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    FontWeight="{TemplateBinding FontWeight}"
-                                    Text="day" />
-                                <TextBlock
-                                    Name="PART_MonthTextBlock"
-                                    Padding="12,4"
-                                    VerticalAlignment="Center"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    FontWeight="{TemplateBinding FontWeight}"
-                                    Text="month"
-                                    TextAlignment="Left" />
-                                <TextBlock
-                                    Name="PART_YearTextBlock"
-                                    Padding="12,4"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    FontWeight="{TemplateBinding FontWeight}"
-                                    Text="year" />
-                                <Rectangle
-                                    x:Name="PART_FirstSpacer"
+                                    ColumnDefinitions="78*,Auto,132*,Auto,78*">
+                                    <TextBlock
+                                        Name="PART_DayTextBlock"
+                                        Padding="12,4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        Text="day" />
+                                    <TextBlock
+                                        Name="PART_MonthTextBlock"
+                                        Padding="12,4"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        Text="month"
+                                        TextAlignment="Left" />
+                                    <TextBlock
+                                        Name="PART_YearTextBlock"
+                                        Padding="12,4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        Text="year" />
+                                    <Rectangle
+                                        x:Name="PART_FirstSpacer"
+                                        Grid.Column="1"
+                                        Width="1"
+                                        Margin="0,4"
+                                        HorizontalAlignment="Center"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                    <Rectangle
+                                        x:Name="PART_SecondSpacer"
+                                        Grid.Column="3"
+                                        Width="1"
+                                        Margin="0,4"
+                                        HorizontalAlignment="Center"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                </Grid>
+                                <PathIcon
+                                    Name="PART_Icon"
                                     Grid.Column="1"
-                                    Width="1"
-                                    Margin="0,4"
-                                    HorizontalAlignment="Center"
-                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
-                                <Rectangle
-                                    x:Name="PART_SecondSpacer"
-                                    Grid.Column="3"
-                                    Width="1"
-                                    Margin="0,4"
-                                    HorizontalAlignment="Center"
-                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                    Width="16"
+                                    Height="16"
+                                    Margin="0,0,8,0"
+                                    Data="{DynamicResource DatePickerIconGlyph}"
+                                    Foreground="{DynamicResource DateTimePickerIconForeground}" />
                             </Grid>
-                            <PathIcon
-                                Name="PART_Icon"
-                                Grid.Column="1"
-                                Width="16"
-                                Height="16"
-                                Margin="0,0,8,0"
-                                Data="{DynamicResource DatePickerIconGlyph}"
-                                Foreground="{DynamicResource DateTimePickerIconForeground}" />
-                        </Grid>
-                    </Button>
+                        </Button>
 
-                    <Popup
-                        Name="PART_Popup"
-                        IsLightDismissEnabled="True"
-                        Placement="Bottom"
-                        PlacementTarget="{TemplateBinding}"
-                        WindowManagerAddShadowHint="False">
-                        <DatePickerPresenter Name="PART_PickerPresenter" />
-                    </Popup>
+                        <Popup
+                            Name="PART_Popup"
+                            IsLightDismissEnabled="True"
+                            Placement="Bottom"
+                            PlacementTarget="{TemplateBinding}"
+                            WindowManagerAddShadowHint="False">
+                            <DatePickerPresenter Name="PART_PickerPresenter" />
+                        </Popup>
 
-                </Grid>
+                    </Grid>
+                </DataValidationErrors>
             </ControlTemplate>
         </Setter>
 
