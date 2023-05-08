@@ -129,7 +129,6 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
-        <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
@@ -155,6 +154,7 @@
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             Foreground="{TemplateBinding Foreground}"
                             IsEnabled="{TemplateBinding IsEnabled}"
+                            MinHeight="{DynamicResource DateTimePickerButtonDefaultHeight}"
                             Theme="{StaticResource DateTimePickerFlyoutButton}">
                             <Grid ColumnDefinitions="*, Auto">
                                 <Grid Name="PART_FlyoutButtonContentGrid" Grid.Column="0">
@@ -253,10 +253,10 @@
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
         </Style>
 
-        <Style Selector="^.Large">
+        <Style Selector="^.Large /template/ Button#PART_FlyoutButton">
             <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonLargeHeight}" />
         </Style>
-        <Style Selector="^.Small">
+        <Style Selector="^.Small /template/ Button#PART_FlyoutButton">
             <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonSmallHeight}" />
         </Style>
     </ControlTheme>
