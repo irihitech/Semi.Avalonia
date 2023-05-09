@@ -49,6 +49,9 @@
         <Style Selector="^.Tertiary">
             <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
         </Style>
+        <Style Selector="^.Success">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultSuccessForeground}" />
+        </Style>
         <Style Selector="^.Warning">
             <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultWarningForeground}" />
         </Style>
@@ -125,6 +128,19 @@
             <Style Selector="^:pressed">
                 <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidTertiaryPressedBackground}" />
                 <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidTertiaryPressedBorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidSuccessBackground}" />
+            <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidSuccessBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidSuccessPointeroverBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidSuccessPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidSuccessPressedBackground}" />
+                <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidSuccessPressedBorderBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
