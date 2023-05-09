@@ -18,7 +18,7 @@
                 <Border
                     MinHeight="{TemplateBinding MinHeight}"
                     MaxWidth="{TemplateBinding MaxWidth}"
-                    Margin="0,4"
+                    Margin="4"
                     Padding="{TemplateBinding Padding}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     Background="{TemplateBinding Background}"
@@ -26,7 +26,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <ScrollViewer Theme="{StaticResource MenuScrollViewer}">
+                    <ScrollViewer Theme="{DynamicResource MenuScrollViewer}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
                             Grid.IsSharedSizeScope="True"
