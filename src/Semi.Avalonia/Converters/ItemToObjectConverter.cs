@@ -12,9 +12,9 @@ public class ItemToObjectConverter: IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is ItemCollection list)
+        if (value is int i)
         {
-            return list.Select(a => new object());
+            return Enumerable.Repeat(new object(), i).ToList();
         }
         return new List<object>();
     }

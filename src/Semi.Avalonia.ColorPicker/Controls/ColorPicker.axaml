@@ -167,7 +167,7 @@
                                                 Orientation="Vertical">
                                                 <primitives:ColorSlider.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <ReflectionBinding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </primitives:ColorSlider.IsVisible>
                                             </primitives:ColorSlider>
@@ -323,6 +323,7 @@
                                                 Margin="0,0,12,0"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
+                                                Classes="Small"
                                                 IsVisible="{TemplateBinding IsComponentTextInputVisible}"
                                                 Maximum="{Binding Maximum, ElementName=Component1Slider}"
                                                 Minimum="{Binding Minimum, ElementName=Component1Slider}"
@@ -353,6 +354,7 @@
                                                 Margin="0,0,12,0"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
+                                                Classes="Small"
                                                 IsVisible="{TemplateBinding IsComponentTextInputVisible}"
                                                 Maximum="{Binding Maximum, ElementName=Component2Slider}"
                                                 Minimum="{Binding Minimum, ElementName=Component2Slider}"
@@ -383,6 +385,7 @@
                                                 Margin="0,0,12,0"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
+                                                Classes="Small"
                                                 IsVisible="{TemplateBinding IsComponentTextInputVisible}"
                                                 Maximum="{Binding Maximum, ElementName=Component3Slider}"
                                                 Minimum="{Binding Minimum, ElementName=Component3Slider}"
@@ -413,6 +416,7 @@
                                                 Margin="0,0,12,0"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
+                                                Classes="Small"
                                                 IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                                 Maximum="{Binding Maximum, ElementName=AlphaComponentSlider}"
                                                 Minimum="{Binding Minimum, ElementName=AlphaComponentSlider}"
@@ -421,8 +425,8 @@
                                                 Value="{Binding Value, ElementName=AlphaComponentSlider}">
                                                 <NumericUpDown.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                                        <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <ReflectionBinding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <ReflectionBinding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </NumericUpDown.IsVisible>
                                             </NumericUpDown>
@@ -443,8 +447,8 @@
                                                 TickFrequency="1">
                                                 <primitives:ColorSlider.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                                        <Binding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <ReflectionBinding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <ReflectionBinding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </primitives:ColorSlider.IsVisible>
                                             </primitives:ColorSlider>

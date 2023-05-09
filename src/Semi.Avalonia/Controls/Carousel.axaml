@@ -141,7 +141,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         ItemContainerTheme="{DynamicResource CarouselIndicatorDotListBoxItem}"
-                        ItemsSource="{TemplateBinding ItemsSource,
+                        ItemsSource="{TemplateBinding ItemCount,
+                                                      Mode=OneWay,
                                                       Converter={StaticResource ItemsConverter}}"
                         SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                         <ListBox.ItemsPanel>
