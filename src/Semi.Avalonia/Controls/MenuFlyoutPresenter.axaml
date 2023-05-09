@@ -13,30 +13,26 @@
         <Setter Property="MenuFlyoutPresenter.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="MenuFlyoutPresenter.Margin" Value="4" />
-        <Setter Property="MenuFlyoutPresenter.CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
+        <Setter Property="MenuFlyoutPresenter.CornerRadius" Value="{DynamicResource MenuFlyoutCornerRadius}" />
         <Setter Property="MenuFlyoutPresenter.Template">
             <ControlTemplate TargetType="MenuFlyoutPresenter">
                 <Border
                     Name="LayoutRoot"
-                    MinWidth="{DynamicResource MenuFlyoutMinWidth}"
-                    MinHeight="{DynamicResource MenuFlyoutMinHeight}"
-                    MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
-                    MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
-                    Padding="{DynamicResource MenuFlyoutPadding}"
-                    HorizontalAlignment="Stretch"
-                    Background="{DynamicResource MenuFlyoutBackground}"
-                    BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
-                    BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
+                    Margin="4"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
                     BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
-                    CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
+                    ClipToBounds="False"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    UseLayoutRounding="False">
                     <ScrollViewer
                         HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         Theme="{StaticResource MenuScrollViewer}"
                         VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
-                            Margin="{DynamicResource MenuFlyoutScrollerMargin}"
+                            Margin="{TemplateBinding Padding}"
                             Grid.IsSharedSizeScope="True"
                             ItemsPanel="{TemplateBinding ItemsPanel}"
                             KeyboardNavigation.TabNavigation="Continue" />
