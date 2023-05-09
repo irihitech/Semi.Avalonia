@@ -53,8 +53,8 @@
         <Setter Property="FlyoutPresenter.UseLayoutRounding" Value="False" />
         <Setter Property="FlyoutPresenter.FontWeight" Value="{DynamicResource FlyoutFontWeight}" />
         <Setter Property="FlyoutPresenter.Background" Value="Transparent" />
-        <Setter Property="FlyoutPresenter.BorderBrush" Value="{DynamicResource FlyoutBorderBrush}" />
-        <Setter Property="FlyoutPresenter.BorderThickness" Value="{DynamicResource FlyoutBorderThickness}" />
+        <Setter Property="FlyoutPresenter.BorderBrush" Value="Transparent" />
+        <Setter Property="FlyoutPresenter.BorderThickness" Value="0" />
         <Setter Property="FlyoutPresenter.Padding" Value="{DynamicResource FlyoutPadding}" />
         <Setter Property="FlyoutPresenter.MinWidth" Value="{DynamicResource FlyoutMinWidth}" />
         <Setter Property="FlyoutPresenter.MaxWidth" Value="{DynamicResource FlyoutMaxWidth}" />
@@ -73,7 +73,6 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    BoxShadow="{DynamicResource FlyoutBorderBoxShadow}"
                     ClipToBounds="False"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     UseLayoutRounding="False">
