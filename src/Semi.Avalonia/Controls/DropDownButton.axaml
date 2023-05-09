@@ -66,6 +66,9 @@
         <Style Selector="^.Tertiary">
             <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
         </Style>
+        <Style Selector="^.Success">
+            <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonDefaultSuccessForeground}" />
+        </Style>
         <Style Selector="^.Warning">
             <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonDefaultWarningForeground}" />
         </Style>
@@ -188,6 +191,19 @@
             <Style Selector="^:pressed">
                 <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonSolidTertiaryPressedBackground}" />
                 <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonSolidTertiaryPressedBorderBrush}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+            <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonSolidSuccessBackground}" />
+            <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonSolidSuccessBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonSolidSuccessPointeroverBackground}" />
+                <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonSolidSuccessPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonSolidSuccessPressedBackground}" />
+                <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonSolidSuccessPressedBorderBrush}" />
             </Style>
         </Style>
         <Style Selector="^.Warning">
