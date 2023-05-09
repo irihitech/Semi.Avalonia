@@ -12,35 +12,38 @@
         <Setter Property="AutoCompleteBox.MaxDropDownHeight" Value="{DynamicResource AutoCompleteMaxDropdownHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="AutoCompleteBox">
-                <Panel>
-                    <TextBox
-                        Name="PART_TextBox"
-                        VerticalAlignment="Center"
-                        DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                        Watermark="{TemplateBinding Watermark}" />
-                    <Popup
-                        Name="PART_Popup"
-                        MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                        IsLightDismissEnabled="True"
-                        PlacementTarget="{TemplateBinding}">
-                        <Border
-                            Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
-                            HorizontalAlignment="Stretch"
-                            Background="{DynamicResource AutoCompleteBoxPopupBackground}"
-                            BorderBrush="{DynamicResource AutoCompleteBoxPopupBorderBrush}"
-                            BorderThickness="{DynamicResource AutoCompleteBoxPopupBorderThickness}"
-                            BoxShadow="{DynamicResource AutoCompleteBoxPopupBoxShadow}"
-                            CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}">
-                            <ListBox
-                                Name="PART_SelectingItemsControl"
-                                Foreground="{TemplateBinding Foreground}"
-                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                                ScrollViewer.VerticalScrollBarVisibility="Auto" />
-                        </Border>
-                    </Popup>
-                </Panel>
+                <DataValidationErrors>
+                    <Panel>
+                        <TextBox
+                            Name="PART_TextBox"
+                            VerticalAlignment="Center"
+                            DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                            Theme="{DynamicResource NonErrorTextBox}"
+                            Watermark="{TemplateBinding Watermark}" />
+                        <Popup
+                            Name="PART_Popup"
+                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                            IsLightDismissEnabled="True"
+                            PlacementTarget="{TemplateBinding}">
+                            <Border
+                                Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
+                                HorizontalAlignment="Stretch"
+                                Background="{DynamicResource AutoCompleteBoxPopupBackground}"
+                                BorderBrush="{DynamicResource AutoCompleteBoxPopupBorderBrush}"
+                                BorderThickness="{DynamicResource AutoCompleteBoxPopupBorderThickness}"
+                                BoxShadow="{DynamicResource AutoCompleteBoxPopupBoxShadow}"
+                                CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}">
+                                <ListBox
+                                    Name="PART_SelectingItemsControl"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    ItemTemplate="{TemplateBinding ItemTemplate}"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </DataValidationErrors>
             </ControlTemplate>
         </Setter>
 

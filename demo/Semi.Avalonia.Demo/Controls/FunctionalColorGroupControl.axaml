@@ -23,11 +23,10 @@
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <controls:ColorItemControl
                                                     Width="40"
                                                     Height="20"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Background="{Binding Brush}"
                                                     CornerRadius="3" />
                                             </DataTemplate>
@@ -35,11 +34,10 @@
                                     </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
                                                     Margin="12,0,12,0"
                                                     VerticalAlignment="Center"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -47,28 +45,26 @@
                                     <DataGridTextColumn
                                         Width="*"
                                         x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{Binding ColorDisplayName}"
+                                        Binding="{ReflectionBinding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
                                     <DataGridTemplateColumn Width="100" Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
                                                     Margin="12,0,12,0"
                                                     VerticalAlignment="Center"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Width="80" Header="Opacity">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
                                                     Margin="12,0,12,0"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Text="{Binding Brush.Opacity}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -81,11 +77,10 @@
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <controls:ColorItemControl
                                                     Width="40"
                                                     Height="20"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Background="{Binding Brush}"
                                                     CornerRadius="3" />
                                             </DataTemplate>
@@ -93,11 +88,10 @@
                                     </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
                                                     Margin="12,0,12,0"
                                                     VerticalAlignment="Center"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -105,28 +99,26 @@
                                     <DataGridTextColumn
                                         Width="*"
                                         x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{Binding ColorDisplayName}"
+                                        Binding="{ReflectionBinding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
                                     <DataGridTemplateColumn Width="100" Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
                                                     Margin="12,0,12,0"
                                                     VerticalAlignment="Center"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Width="80" Header="Opacity">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
                                                     Margin="12,0,12,0"
                                                     HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
-                                                    x:DataType="viewModels:ColorItemViewModel"
                                                     Text="{Binding Brush.Opacity}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
