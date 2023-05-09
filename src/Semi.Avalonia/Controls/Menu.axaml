@@ -27,10 +27,10 @@
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="0">
-                                <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
                         <PathIcon
@@ -50,10 +50,10 @@
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="100">
-                                <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
-                                <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <ReflectionBinding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
                         <PathIcon
