@@ -6,7 +6,7 @@
         <Setter Property="Background" Value="{DynamicResource HeaderedContentControlDefaultBackground}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource HeaderedContentControlDefaultBorderBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource HeaderedContentControlCornerRadius}" />
         <Setter Property="Width" Value="400" />
         <Setter Property="Height" Value="200" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -21,6 +21,7 @@
                     Height="{TemplateBinding Height}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid RowDefinitions="Auto,Auto,*">
                         <ContentPresenter
