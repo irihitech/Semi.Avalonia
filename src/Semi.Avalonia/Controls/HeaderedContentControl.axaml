@@ -1,0 +1,49 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:CompileBindings="True">
+    <ControlTheme x:Key="GroupBox" TargetType="HeaderedContentControl">
+        <Setter Property="Background" Value="{DynamicResource HeaderedContentControlDefaultBackground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource HeaderedContentControlDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource HeaderedContentControlCornerRadius}" />
+        <Setter Property="Width" Value="400" />
+        <Setter Property="Height" Value="200" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="HeaderedContentControl">
+                <Border
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid RowDefinitions="Auto,Auto,*">
+                        <ContentPresenter
+                            Grid.Row="0"
+                            FontWeight="Bold"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Margin="16" />
+                        <Rectangle
+                            Grid.Row="1"
+                            Fill="{TemplateBinding BorderBrush}"
+                            Height="1" />
+                        <ContentPresenter
+                            Grid.Row="2"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Margin="16" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
