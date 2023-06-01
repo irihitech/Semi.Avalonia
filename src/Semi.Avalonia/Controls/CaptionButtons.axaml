@@ -53,7 +53,7 @@
                             Data="{DynamicResource WindowExpandGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
-                    <Button x:Name="PART_MinimiseButton" Theme="{StaticResource CaptionButton}">
+                    <Button x:Name="PART_MinimizeButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
                             Width="12"
                             Height="12"
@@ -99,7 +99,7 @@
         <Style Selector="^:fullscreen /template/ Button#PART_RestoreButton">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style Selector="^:fullscreen /template/ Button#PART_MinimiseButton">
+        <Style Selector="^:fullscreen /template/ Button#PART_MinimizeButton">
             <Setter Property="IsVisible" Value="False" />
         </Style>
     </ControlTheme>
