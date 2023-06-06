@@ -7,6 +7,10 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton BorderThickness="10" BorderBrush="Gray" Background="LightBlue">Border</RadioButton>
+                <RadioButton BorderThickness="10" BorderBrush="Gray" Background="LightBlue" />
+            </StackPanel>
             <TextBlock Text="Radio Buttons" />
             <StackPanel Orientation="Horizontal">
                 <RadioButton>Unchecked</RadioButton>
@@ -118,7 +122,7 @@
                         <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton 
+                <RadioButton
                     IsChecked="True"
                     IsEnabled="False"
                     Width="300"

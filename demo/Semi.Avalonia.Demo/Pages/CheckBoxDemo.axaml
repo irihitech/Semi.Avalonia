@@ -8,7 +8,11 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox BorderThickness="10" BorderBrush="Gray" Background="LightBlue">Border</CheckBox>
+                <CheckBox BorderThickness="10" BorderBrush="Gray" Background="LightBlue" />
+            </StackPanel>
             <TextBlock Text="CheckBox" />
             <StackPanel Orientation="Horizontal">
                 <CheckBox>Unchecked</CheckBox>
