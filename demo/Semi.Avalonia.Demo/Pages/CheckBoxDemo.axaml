@@ -9,12 +9,6 @@
     mc:Ignorable="d">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel HorizontalAlignment="Left" Spacing="20">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox BorderThickness="10" BorderBrush="Gray" Background="LightBlue">Border</CheckBox>
-                <CheckBox BorderThickness="10" BorderBrush="Gray" Background="LightBlue" />
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" IsThreeState="True" BorderThickness="10"
-                          BorderBrush="Gray" Background="LightBlue" />
-            </StackPanel>
             <TextBlock Text="CheckBox" />
             <StackPanel Orientation="Horizontal">
                 <CheckBox>Unchecked</CheckBox>
@@ -35,14 +29,23 @@
             <TextBlock Text="SimpleCheckBox" />
             <StackPanel Orientation="Horizontal">
                 <CheckBox Theme="{StaticResource SimpleCheckBox}" />
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" IsChecked="True" />
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" IsChecked="{x:Null}" IsThreeState="True" />
+                <CheckBox IsChecked="True" Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox
+                    IsChecked="{x:Null}"
+                    IsThreeState="True"
+                    Theme="{StaticResource SimpleCheckBox}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" IsEnabled="False" />
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" IsEnabled="False" IsChecked="True" />
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" IsEnabled="False" IsChecked="{x:Null}"
-                          IsThreeState="True" />
+                <CheckBox IsEnabled="False" Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox
+                    IsChecked="{x:Null}"
+                    IsEnabled="False"
+                    IsThreeState="True"
+                    Theme="{StaticResource SimpleCheckBox}" />
             </StackPanel>
             <TextBlock Margin="0,16" Text="CardCheckBox" />
             <StackPanel Orientation="Horizontal">
