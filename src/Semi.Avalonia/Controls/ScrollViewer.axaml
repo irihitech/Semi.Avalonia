@@ -209,6 +209,9 @@
         <Style Selector="^ /template/ RepeatButton:pointerover &gt; PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonPointeroverForeground}" />
         </Style>
+        <Style Selector="^ /template/ RepeatButton:pressed &gt; PathIcon">
+            <Setter Property="RenderTransform" Value="scale(0.92)" />
+        </Style>
 
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
