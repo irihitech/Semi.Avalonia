@@ -9,11 +9,26 @@
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Left" Spacing="20">
         <ProgressBar
+            Width="100"
+            Height="100"
+            IsIndeterminate="True"
+            Maximum="{Binding #slider.Maximum}"
+            Minimum="{Binding #slider.Minimum}"
+            Theme="{DynamicResource ProgressRing}"
+            Value="{Binding #slider.Value}" />
+        <Slider
+            Name="slider"
+            Width="300"
+            IsSnapToTickEnabled="True"
+            Maximum="100"
+            Minimum="0"
+            TickFrequency="10" />
+        <ProgressBar
             Width="200"
             Maximum="100"
             Minimum="0"
             ShowProgressText="True"
-            Value="20" />
+            Value="{Binding #slider.Value}" />
         <ProgressBar
             Width="200"
             IsIndeterminate="True"
