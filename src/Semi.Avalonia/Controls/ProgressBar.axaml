@@ -372,7 +372,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontWeight="{DynamicResource ProgressBarTextFontWeight}"
-                        Foreground="{DynamicResource ProgressBarTextForeground}">
+                        Foreground="{DynamicResource ProgressBarTextForeground}"
+                        IsVisible="{TemplateBinding ShowProgressText}">
                         <TextBlock.Text>
                             <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                 <TemplateBinding Property="ProgressTextFormat" />
