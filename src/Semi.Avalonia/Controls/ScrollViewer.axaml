@@ -193,10 +193,7 @@
             </Setter>
         </Style>
         <Style Selector="^ /template/ Thumb#thumb:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
-        </Style>
-        <Style Selector="^ /template/ Thumb#thumb:pressed">
-            <Setter Property="Background" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbPointeroverForeground}" />
         </Style>
         <Style Selector="^:horizontal /template/ Thumb#thumb">
             <Setter Property="MinWidth" Value="{DynamicResource ScrollBarThickness}" />
