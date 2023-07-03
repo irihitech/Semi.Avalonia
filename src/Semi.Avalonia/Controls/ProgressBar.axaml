@@ -170,14 +170,23 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^.Primary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarPrimaryForeground}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSecondaryForeground}" />
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarTertiaryForeground}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
+        </Style>
         <Style Selector="^.Warning">
             <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
         </Style>
         <Style Selector="^.Error">
             <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
-        </Style>
-        <Style Selector="^.Success">
-            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
         </Style>
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -387,14 +396,23 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^.Primary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarPrimaryForeground}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSecondaryForeground}" />
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarTertiaryForeground}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
+        </Style>
         <Style Selector="^.Warning">
             <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
         </Style>
         <Style Selector="^.Error">
             <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
-        </Style>
-        <Style Selector="^.Success">
-            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
         </Style>
         <Style Selector="^:indeterminate /template/ Arc#Indicator">
             <Setter Property="Opacity" Value="0" />
