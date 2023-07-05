@@ -26,6 +26,27 @@
                 </CheckBox>
             </StackPanel>
             <CheckBox Width="120" HorizontalAlignment="Left">Checkbox should wrap its text</CheckBox>
+            <TextBlock Text="SimpleCheckBox" />
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox IsChecked="True" Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox
+                    IsChecked="{x:Null}"
+                    IsThreeState="True"
+                    Theme="{StaticResource SimpleCheckBox}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsEnabled="False" Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Theme="{StaticResource SimpleCheckBox}" />
+                <CheckBox
+                    IsChecked="{x:Null}"
+                    IsEnabled="False"
+                    IsThreeState="True"
+                    Theme="{StaticResource SimpleCheckBox}" />
+            </StackPanel>
             <TextBlock Margin="0,16" Text="CardCheckBox" />
             <StackPanel Orientation="Horizontal">
                 <CheckBox Width="300" Theme="{DynamicResource CardCheckBox}">
