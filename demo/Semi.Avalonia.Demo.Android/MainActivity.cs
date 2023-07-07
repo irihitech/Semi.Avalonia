@@ -4,9 +4,9 @@ using Avalonia.Android;
 
 namespace Semi.Avalonia.Demo.Android;
 
-[Activity(Label = "Semi.Avalonia.Demo.Android", Icon = "@drawable/Icon", Theme = "@style/MyTheme.NoActionBar",
-    LaunchMode = LaunchMode.SingleTop, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
-public class MainActivity : AvaloniaMainActivity
+[Activity(Label = "Semi.Avalonia.Demo.Android", Icon = "@drawable/Icon", MainLauncher = true, Theme = "@style/MyTheme.NoActionBar",
+    LaunchMode = LaunchMode.SingleTop, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
+public class MainActivity : AvaloniaMainActivity<App>
 {
     
 }
