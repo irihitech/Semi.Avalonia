@@ -7,77 +7,219 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel
-        Width="500"
-        HorizontalAlignment="Left"
-        Spacing="20">
-        <StackPanel.Styles>
-            <Style Selector="Label">
-                <Setter Property="Margin" Value="4" />
-            </Style>
-        </StackPanel.Styles>
-        <WrapPanel>
-            <Label Theme="{StaticResource TagLabel}">Label</Label>
-            <Label Classes="Large" Theme="{StaticResource TagLabel}">Large Label</Label>
-            <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle Label</Label>
-            <Label Classes="Large Circle" Theme="{StaticResource TagLabel}">Large Circle Label</Label>
-        </WrapPanel>
-        <WrapPanel>
-            <Label Classes="Amber" Theme="{StaticResource TagLabel}">Amber</Label>
-            <Label Classes="Blue" Theme="{StaticResource TagLabel}">Blue</Label>
-            <Label Classes="Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
-            <Label Classes="Green" Theme="{StaticResource TagLabel}">Green</Label>
-            <Label Classes="Grey" Theme="{StaticResource TagLabel}">Grey</Label>
-            <Label Classes="Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
-            <Label Classes="LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
-            <Label Classes="LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
-            <Label Classes="Lime" Theme="{StaticResource TagLabel}">Lime</Label>
-            <Label Classes="Orange" Theme="{StaticResource TagLabel}">Orange</Label>
-            <Label Classes="Pink" Theme="{StaticResource TagLabel}">Pink</Label>
-            <Label Classes="Purple" Theme="{StaticResource TagLabel}">Purple</Label>
-            <Label Classes="Red" Theme="{StaticResource TagLabel}">Red</Label>
-            <Label Classes="Teal" Theme="{StaticResource TagLabel}">Teal</Label>
-            <Label Classes="Violet" Theme="{StaticResource TagLabel}">Violet</Label>
-            <Label Classes="Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
-            <Label Classes="White" Theme="{StaticResource TagLabel}">White</Label>
-        </WrapPanel>
-        <WrapPanel>
-            <Label Classes="Ghost Amber" Theme="{StaticResource TagLabel}">Amber</Label>
-            <Label Classes="Ghost Blue" Theme="{StaticResource TagLabel}">Blue</Label>
-            <Label Classes="Ghost Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
-            <Label Classes="Ghost Green" Theme="{StaticResource TagLabel}">Green</Label>
-            <Label Classes="Ghost Grey" Theme="{StaticResource TagLabel}">Grey</Label>
-            <Label Classes="Ghost Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
-            <Label Classes="Ghost LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
-            <Label Classes="Ghost LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
-            <Label Classes="Ghost Lime" Theme="{StaticResource TagLabel}">Lime</Label>
-            <Label Classes="Ghost Orange" Theme="{StaticResource TagLabel}">Orange</Label>
-            <Label Classes="Ghost Pink" Theme="{StaticResource TagLabel}">Pink</Label>
-            <Label Classes="Ghost Purple" Theme="{StaticResource TagLabel}">Purple</Label>
-            <Label Classes="Ghost Red" Theme="{StaticResource TagLabel}">Red</Label>
-            <Label Classes="Ghost Teal" Theme="{StaticResource TagLabel}">Teal</Label>
-            <Label Classes="Ghost Violet" Theme="{StaticResource TagLabel}">Violet</Label>
-            <Label Classes="Ghost Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
-            <Label Classes="Ghost White" Theme="{StaticResource TagLabel}">White</Label>
-        </WrapPanel>
-        <WrapPanel>
-            <Label Classes="Solid Amber" Theme="{StaticResource TagLabel}">Amber</Label>
-            <Label Classes="Solid Blue" Theme="{StaticResource TagLabel}">Blue</Label>
-            <Label Classes="Solid Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
-            <Label Classes="Solid Green" Theme="{StaticResource TagLabel}">Green</Label>
-            <Label Classes="Solid Grey" Theme="{StaticResource TagLabel}">Grey</Label>
-            <Label Classes="Solid Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
-            <Label Classes="Solid LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
-            <Label Classes="Solid LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
-            <Label Classes="Solid Lime" Theme="{StaticResource TagLabel}">Lime</Label>
-            <Label Classes="Solid Orange" Theme="{StaticResource TagLabel}">Orange</Label>
-            <Label Classes="Solid Pink" Theme="{StaticResource TagLabel}">Pink</Label>
-            <Label Classes="Solid Purple" Theme="{StaticResource TagLabel}">Purple</Label>
-            <Label Classes="Solid Red" Theme="{StaticResource TagLabel}">Red</Label>
-            <Label Classes="Solid Teal" Theme="{StaticResource TagLabel}">Teal</Label>
-            <Label Classes="Solid Violet" Theme="{StaticResource TagLabel}">Violet</Label>
-            <Label Classes="Solid Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
-            <Label Classes="Solid White" Theme="{StaticResource TagLabel}">White</Label>
-        </WrapPanel>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel.Styles>
+                <Style Selector="Label">
+                    <Setter Property="Margin" Value="4" />
+                </Style>
+            </StackPanel.Styles>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector="Label TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="4" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <HeaderedContentControl
+                        Height="400"
+                        Margin="16"
+                        VerticalAlignment="Top"
+                        Header="Default Theme"
+                        Theme="{DynamicResource GroupBox}">
+                        <Grid
+                            VerticalAlignment="Top"
+                            ColumnDefinitions="Auto, *"
+                            RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
+                            <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0">-</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0">Secondary</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0">Tertiary</TextBlock>
+                            <TextBlock Grid.Row="5" Grid.Column="0">Quaternary</TextBlock>
+                            <TextBlock Grid.Row="6" Grid.Column="0">Warning</TextBlock>
+                            <TextBlock Grid.Row="7" Grid.Column="0">Danger</TextBlock>
+                            <TextBlock Grid.Row="8" Grid.Column="0">Success</TextBlock>
+                            <TextBlock Grid.Row="9" Grid.Column="0">Mark</TextBlock>
+                            <TextBlock Grid.Row="10" Grid.Column="0">Code</TextBlock>
+                            <Label Grid.Row="2" Grid.Column="1">Text</Label>
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Classes="Secondary">
+                                Secondary
+                            </Label>
+                            <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Classes="Tertiary">
+                                Tertiary
+                            </Label>
+                            <Label
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Classes="Quaternary">
+                                Quaternary
+                            </Label>
+                            <Label
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Classes="Warning">
+                                Warning
+                            </Label>
+                            <Label
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                Classes="Danger">
+                                Danger
+                            </Label>
+                            <Label
+                                Grid.Row="8"
+                                Grid.Column="1"
+                                Classes="Success">
+                                Success
+                            </Label>
+                            <Label
+                                Grid.Row="9"
+                                Grid.Column="1"
+                                Classes="Mark">
+                                Default Mark
+                            </Label>
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                Classes="Code">
+                                Code
+                            </Label>
+                        </Grid>
+                    </HeaderedContentControl>
+                    <HeaderedContentControl
+                        Height="400"
+                        Margin="16"
+                        VerticalAlignment="Top"
+                        Header="Theme: TitleLabel"
+                        Theme="{DynamicResource GroupBox}">
+                        <Grid
+                            VerticalAlignment="Top"
+                            Background="{Binding}"
+                            ColumnDefinitions="Auto, *"
+                            RowDefinitions="*,*,*,*,*,*,*,*">
+                            <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0">H1</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0">H2</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0">H3</TextBlock>
+                            <TextBlock Grid.Row="5" Grid.Column="0">H4</TextBlock>
+                            <TextBlock Grid.Row="6" Grid.Column="0">H5</TextBlock>
+                            <TextBlock Grid.Row="7" Grid.Column="0">H6</TextBlock>
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Classes="H1"
+                                Theme="{StaticResource TitleLabel}">
+                                Header 1
+                            </Label>
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Classes="H2"
+                                Theme="{StaticResource TitleLabel}">
+                                Header 2
+                            </Label>
+                            <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Classes="H3"
+                                Theme="{StaticResource TitleLabel}">
+                                Header 3
+                            </Label>
+                            <Label
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Classes="H4"
+                                Theme="{StaticResource TitleLabel}">
+                                Header 4
+                            </Label>
+                            <Label
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Classes="H5"
+                                Theme="{StaticResource TitleLabel}">
+                                Header 5
+                            </Label>
+                            <Label
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                Classes="H6"
+                                Theme="{StaticResource TitleLabel}">
+                                Header 6
+                            </Label>
+                        </Grid>
+                    </HeaderedContentControl>
+                </StackPanel>
+            </ScrollViewer>
+            <WrapPanel>
+                <Label Theme="{StaticResource TagLabel}">Label</Label>
+                <Label Classes="Large" Theme="{StaticResource TagLabel}">Large Label</Label>
+                <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle Label</Label>
+                <Label Classes="Large Circle" Theme="{StaticResource TagLabel}">Large Circle Label</Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Classes="Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+                <Label Classes="Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+                <Label Classes="Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+                <Label Classes="Green" Theme="{StaticResource TagLabel}">Green</Label>
+                <Label Classes="Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                <Label Classes="Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+                <Label Classes="LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+                <Label Classes="LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+                <Label Classes="Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+                <Label Classes="Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+                <Label Classes="Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+                <Label Classes="Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+                <Label Classes="Red" Theme="{StaticResource TagLabel}">Red</Label>
+                <Label Classes="Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+                <Label Classes="Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+                <Label Classes="Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+                <Label Classes="White" Theme="{StaticResource TagLabel}">White</Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Classes="Ghost Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+                <Label Classes="Ghost Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+                <Label Classes="Ghost Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+                <Label Classes="Ghost Green" Theme="{StaticResource TagLabel}">Green</Label>
+                <Label Classes="Ghost Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                <Label Classes="Ghost Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+                <Label Classes="Ghost LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+                <Label Classes="Ghost LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+                <Label Classes="Ghost Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+                <Label Classes="Ghost Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+                <Label Classes="Ghost Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+                <Label Classes="Ghost Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+                <Label Classes="Ghost Red" Theme="{StaticResource TagLabel}">Red</Label>
+                <Label Classes="Ghost Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+                <Label Classes="Ghost Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+                <Label Classes="Ghost Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+                <Label Classes="Ghost White" Theme="{StaticResource TagLabel}">White</Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Classes="Solid Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+                <Label Classes="Solid Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+                <Label Classes="Solid Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+                <Label Classes="Solid Green" Theme="{StaticResource TagLabel}">Green</Label>
+                <Label Classes="Solid Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                <Label Classes="Solid Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+                <Label Classes="Solid LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+                <Label Classes="Solid LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+                <Label Classes="Solid Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+                <Label Classes="Solid Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+                <Label Classes="Solid Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+                <Label Classes="Solid Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+                <Label Classes="Solid Red" Theme="{StaticResource TagLabel}">Red</Label>
+                <Label Classes="Solid Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+                <Label Classes="Solid Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+                <Label Classes="Solid Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+                <Label Classes="Solid White" Theme="{StaticResource TagLabel}">White</Label>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
