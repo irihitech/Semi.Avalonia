@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.Styling;
 using Semi.Avalonia.Demo.Views;
 
 namespace Semi.Avalonia.Demo.Desktop;
