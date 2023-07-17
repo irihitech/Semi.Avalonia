@@ -4,23 +4,23 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
-    
+
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**" />
-        <TrimmerRootDescriptor Include="Roots.xml" />
+        <AvaloniaResource Include="Assets\**"/>
+        <TrimmerRootDescriptor Include="Roots.xml"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Semi.Avalonia.ColorPicker\Semi.Avalonia.ColorPicker.csproj" />
-      <ProjectReference Include="..\..\src\Semi.Avalonia.DataGrid\Semi.Avalonia.DataGrid.csproj" />
-      <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj" />
+        <ProjectReference Include="..\..\src\Semi.Avalonia.ColorPicker\Semi.Avalonia.ColorPicker.csproj"/>
+        <ProjectReference Include="..\..\src\Semi.Avalonia.DataGrid\Semi.Avalonia.DataGrid.csproj"/>
+        <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj"/>
     </ItemGroup>
 </Project>

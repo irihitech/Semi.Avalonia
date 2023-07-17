@@ -10,7 +10,7 @@ namespace Semi.Avalonia.Demo.Web;
 internal partial class Program
 {
     private static async Task Main(string[] args) => await BuildAvaloniaApp()
-        .UseAntDesignToolkit()
+        .WithSemiFont()
         .StartBrowserAppAsync("out");
 
     public static AppBuilder BuildAvaloniaApp()
