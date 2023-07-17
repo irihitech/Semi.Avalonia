@@ -4,11 +4,11 @@
     x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
         <Setter Property="Padding" Value="8,0,0,0" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
         <Setter Property="MinHeight" Value="32" />
@@ -17,50 +17,45 @@
         <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDefaultBorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
-                <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
-                    <Border
-                        x:Name="PART_Border"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        HorizontalAlignment="Center"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-
-                    <Grid
-                        Grid.Column="0"
-                        Margin="0,0,0,0"
-                        VerticalAlignment="Center">
-                        <Border
-                            x:Name="NormalRectangle"
-                            Width="{DynamicResource CheckBoxBoxWidth}"
-                            Height="{DynamicResource CheckBoxBoxHeight}"
-                            Background="{DynamicResource CheckBoxDefaultBackground}"
-                            BorderBrush="{DynamicResource CheckBoxDefaultBorderBrush}"
-                            BorderThickness="{DynamicResource CheckBoxBoxBorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            UseLayoutRounding="False" />
-                        <PathIcon
-                            Name="CheckGlyph"
-                            Width="{DynamicResource CheckBoxBoxGlyphWidth}"
-                            Height="{DynamicResource CheckBoxBoxGlyphHeight}"
-                            Foreground="{DynamicResource CheckBoxGlyphFill}" />
-
+                <Border
+                    x:Name="RootBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
+                        <Grid
+                            Grid.Column="0"
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center">
+                            <Border
+                                x:Name="NormalRectangle"
+                                Width="{DynamicResource CheckBoxBoxWidth}"
+                                Height="{DynamicResource CheckBoxBoxHeight}"
+                                Background="{DynamicResource CheckBoxDefaultBackground}"
+                                BorderBrush="{DynamicResource CheckBoxDefaultBorderBrush}"
+                                BorderThickness="{DynamicResource CheckBoxBoxBorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                UseLayoutRounding="False" />
+                            <PathIcon
+                                Name="CheckGlyph"
+                                Width="{DynamicResource CheckBoxBoxGlyphWidth}"
+                                Height="{DynamicResource CheckBoxBoxGlyphHeight}"
+                                Foreground="{DynamicResource CheckBoxGlyphFill}" />
+                        </Grid>
+                        <ContentPresenter
+                            x:Name="ContentPresenter"
+                            Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                            RecognizesAccessKey="True"
+                            TextWrapping="Wrap" />
                     </Grid>
-                    <ContentPresenter
-                        x:Name="ContentPresenter"
-                        Grid.Column="1"
-                        Margin="{TemplateBinding Padding}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="Center"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                        IsVisible="{TemplateBinding Content,
-                                                    Converter={x:Static ObjectConverters.IsNotNull}}"
-                        RecognizesAccessKey="True"
-                        TextWrapping="Wrap" />
-                </Grid>
+                </Border>
             </ControlTemplate>
         </Setter>
 
@@ -166,6 +161,155 @@
                 <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedDisabledBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedDisabledBackground}" />
+                </Style>
+
+                <Style Selector="^ /template/ Path#CheckGlyph">
+                    <Setter Property="Fill" Value="{DynamicResource CheckBoxGlyphDisabledFill}" />
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SimpleCheckBox" TargetType="CheckBox">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
+        <Setter Property="Foreground" Value="{DynamicResource CheckBoxForeground}" />
+        <Setter Property="Background" Value="{DynamicResource CheckBoxDefaultBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDefaultBorderBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CheckBox">
+                <Border
+                    x:Name="RootBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
+                        <Grid
+                            Grid.Column="0"
+                            Margin="0,0,0,0"
+                            VerticalAlignment="Center">
+                            <Border
+                                x:Name="NormalRectangle"
+                                Width="{DynamicResource CheckBoxBoxWidth}"
+                                Height="{DynamicResource CheckBoxBoxHeight}"
+                                Background="{DynamicResource CheckBoxDefaultBackground}"
+                                BorderBrush="{DynamicResource CheckBoxDefaultBorderBrush}"
+                                BorderThickness="{DynamicResource CheckBoxBoxBorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                UseLayoutRounding="False" />
+                            <PathIcon
+                                Name="CheckGlyph"
+                                Width="{DynamicResource CheckBoxBoxGlyphWidth}"
+                                Height="{DynamicResource CheckBoxBoxGlyphHeight}"
+                                Foreground="{DynamicResource CheckBoxGlyphFill}" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Unchecked Pointerover State  -->
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxPointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CheckBoxPointeroverBackground}" />
+            </Style>
+        </Style>
+
+        <!--  Unchecked Pressed State  -->
+        <Style Selector="^:pressed">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxPressedBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CheckBoxPressedBackground}" />
+            </Style>
+        </Style>
+
+        <!--  Unchecked Disabled state  -->
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDefaultDisabledBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CheckBoxDefaultDisabledBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedDefaultBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedDefaultBackground}" />
+            </Style>
+
+            <Style Selector="^ /template/ PathIcon#CheckGlyph">
+                <Setter Property="Data" Value="{DynamicResource CheckBoxCheckGlyph}" />
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+
+            <!--  Checked Pointerover State  -->
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedPointeroverBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedPointeroverBackground}" />
+                </Style>
+            </Style>
+
+            <!--  Checked Pressed State  -->
+            <Style Selector="^:pressed">
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedPressedBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedPressedBackground}" />
+                </Style>
+            </Style>
+
+            <!--  Checked Disabled State  -->
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedDisabledBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedDisabledBackground}" />
+                </Style>
+
+                <Style Selector="^ /template/ Path#CheckGlyph">
+                    <Setter Property="Fill" Value="{DynamicResource CheckBoxGlyphDisabledFill}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:indeterminate">
+            <Style Selector="^ /template/ Border#NormalRectangle">
+                <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedDefaultBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedDefaultBackground}" />
+            </Style>
+
+            <Style Selector="^ /template/ PathIcon#CheckGlyph">
+                <Setter Property="Data" Value="{DynamicResource CheckBoxIndeterminateGlyph}" />
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+
+            <!--  Checked Pointerover State  -->
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedPointeroverBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedPointeroverBackground}" />
+                </Style>
+            </Style>
+
+            <!--  Checked Pressed State  -->
+            <Style Selector="^:pressed">
+                <Style Selector="^ /template/ Border#NormalRectangle">
+                    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedPressedBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedPressedBackground}" />
+                </Style>
+            </Style>
+
+            <!--  Checked Disabled State  -->
+            <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Border#NormalRectangle">
                     <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckedDisabledBorderBrush}" />
                     <Setter Property="Background" Value="{DynamicResource CheckBoxCheckedDisabledBackground}" />
