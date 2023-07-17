@@ -2,6 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:Avalonia.Controls.Converters"
+    xmlns:semiConverters="clr-namespace:Semi.Avalonia.Converters"
     x:CompileBindings="True">
     <Design.PreviewWith>
         <StackPanel Margin="20" Spacing="20">
@@ -169,14 +170,23 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^.Primary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarPrimaryForeground}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSecondaryForeground}" />
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarTertiaryForeground}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
+        </Style>
         <Style Selector="^.Warning">
             <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
         </Style>
         <Style Selector="^.Error">
             <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
-        </Style>
-        <Style Selector="^.Success">
-            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
         </Style>
         <Style Selector="^:horizontal /template/ Border#PART_Indicator">
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -324,6 +334,107 @@
             <Style Selector="^ /template/ TextBlock#PART_ProgressText">
                 <Setter Property="TextBlock.Foreground" Value="{DynamicResource ProgressBarOuterTextForeground}" />
             </Style>
+        </Style>
+    </ControlTheme>
+
+    <semiConverters:PositionToAngleConverter x:Key="AngleConverter" />
+
+    <ControlTheme x:Key="ProgressRing" TargetType="ProgressBar">
+        <Setter Property="Foreground" Value="{DynamicResource ProgressBarIndicatorBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ProgressBarBackground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Panel>
+                    <Border Name="PART_Indicator" />
+                    <Arc
+                        Name="Background"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Background}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="6"
+                        SweepAngle="360" />
+                    <Arc
+                        Name="Indicator"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Foreground}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="6"
+                        SweepAngle="{TemplateBinding Percentage,
+                                                     Converter={StaticResource AngleConverter}}" />
+                    <Arc
+                        Name="IndeterminateIndicator"
+                        Opacity="0"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Foreground}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="6"
+                        SweepAngle="{TemplateBinding Percentage,
+                                                     Converter={StaticResource AngleConverter}}" />
+                    <TextBlock
+                        Name="PART_ProgressText"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontWeight="{DynamicResource ProgressBarTextFontWeight}"
+                        Foreground="{DynamicResource ProgressBarTextForeground}"
+                        IsVisible="{TemplateBinding ShowProgressText}">
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                <TemplateBinding Property="ProgressTextFormat" />
+                                <TemplateBinding Property="Value" />
+                                <TemplateBinding Property="Percentage" />
+                                <TemplateBinding Property="Minimum" />
+                                <TemplateBinding Property="Maximum" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.Primary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarPrimaryForeground}" />
+        </Style>
+        <Style Selector="^.Secondary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSecondaryForeground}" />
+        </Style>
+        <Style Selector="^.Tertiary">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarTertiaryForeground}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarSuccessForeground}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
+        </Style>
+        <Style Selector="^.Error">
+            <Setter Property="ProgressBar.Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
+        </Style>
+        <Style Selector="^:indeterminate /template/ Arc#Indicator">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+        <Style Selector="^:indeterminate /template/ Arc#IndeterminateIndicator">
+            <Setter Property="Opacity" Value="1" />
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:2">
+                    <KeyFrame KeyTime="0:0:0">
+                        <Setter Property="StartAngle" Value="-90" />
+                        <Setter Property="SweepAngle" Value="20" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.5">
+                        <Setter Property="StartAngle" Value="90" />
+                        <Setter Property="SweepAngle" Value="160" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:2">
+                        <Setter Property="StartAngle" Value="270" />
+                        <Setter Property="SweepAngle" Value="20" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
         </Style>
     </ControlTheme>
 </ResourceDictionary>

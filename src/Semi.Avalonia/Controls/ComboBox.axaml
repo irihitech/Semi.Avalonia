@@ -40,8 +40,6 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
-        <Setter Property="PlaceholderForeground" Value="{DynamicResource ComboBoxPlaceHolderForeground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
@@ -50,8 +48,8 @@
                             x:Name="Background"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
-                            MinHeight="{DynamicResource ComboBoxDefaultHeight}"
                             MinWidth="{DynamicResource ComboBoxThemeMinWidth}"
+                            MinHeight="{DynamicResource ComboBoxDefaultHeight}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -63,7 +61,8 @@
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Foreground="{TemplateBinding Foreground}"
-                            IsVisible="{TemplateBinding SelectionBoxItem,Converter={x:Static ObjectConverters.IsNull}}"
+                            IsVisible="{TemplateBinding SelectionBoxItem,
+                                                        Converter={x:Static ObjectConverters.IsNull}}"
                             Opacity="0.3"
                             Text="{TemplateBinding PlaceholderText}" />
                         <ContentPresenter
@@ -105,7 +104,8 @@
                             ClipToBounds="False"
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"
-                            IsOpen="{TemplateBinding IsDropDownOpen,Mode=TwoWay}"
+                            IsOpen="{TemplateBinding IsDropDownOpen,
+                                                     Mode=TwoWay}"
                             PlacementTarget="Background"
                             WindowManagerAddShadowHint="False">
                             <Border
@@ -118,9 +118,7 @@
                                 BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
                                 ClipToBounds="True"
                                 CornerRadius="6">
-                                <ScrollViewer
-                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Margin="{DynamicResource ComboBoxDropdownContentMargin}"

@@ -24,6 +24,10 @@
         <Setter Property="RadioButton.HorizontalContentAlignment" Value="Left" />
         <Setter Property="RadioButton.VerticalContentAlignment" Value="Center" />
         <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonFontSize}" />
+        <Setter Property="RadioButton.CornerRadius" Value="{DynamicResource RadioButtonBoxCornerRadius}" />
+        <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonForeground}" />
+        <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonDefaultBackground}" />
+        <Setter Property="RadioButton.BorderBrush" Value="{DynamicResource RadioButtonDefaultBorderBrush}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <Border
