@@ -2,11 +2,11 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
-                <MergeResourceInclude x:Key="Default" Source="avares://Semi.Avalonia/Themes/Light/Light.axaml" />
-                <MergeResourceInclude x:Key="Dark" Source="avares://Semi.Avalonia/Themes/Dark/Dark.axaml" />
+                <MergeResourceInclude x:Key="Default" Source="avares://Semi.Avalonia/Themes/Light/_index.axaml" />
+                <MergeResourceInclude x:Key="Dark" Source="avares://Semi.Avalonia/Themes/Dark/_index.axaml" />
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Semi.Avalonia/Controls/Controls.axaml" />
+                <ResourceInclude Source="avares://Semi.Avalonia/Controls/_index.axaml" />
                 <ResourceInclude Source="avares://Semi.Avalonia/Themes/Base.axaml" />
                 <ResourceInclude Source="avares://Semi.Avalonia/Themes/Shared/_index.axaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -15,5 +15,4 @@
     <Style Selector=":is(UserControl)">
         <Setter Property="Theme" Value="{DynamicResource {x:Type UserControl}}" />
     </Style>
-    <!--  Add Styles Here  -->
 </Styles>
