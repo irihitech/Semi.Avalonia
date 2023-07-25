@@ -12,17 +12,4 @@ public partial class Overview : UserControl
     {
         InitializeComponent();
     }
-
-    private void ToggleButton_OnIsCheckedChanged(object sender, RoutedEventArgs e)
-    {
-        var variant = Application.Current!.RequestedThemeVariant;
-        if (variant?.Key == "Dark")
-        {
-            Application.Current!.RequestedThemeVariant = ThemeVariant.Light;
-        }
-        else
-        {
-            Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
-        }
-    }
 }

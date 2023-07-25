@@ -2,233 +2,351 @@
     x:Class="Semi.Avalonia.Demo.Pages.Overview"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Avalonia.Markup.Xaml.Converters;assembly=Avalonia.Markup.Xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1000"
-    d:DesignWidth="800"
+    d:DesignWidth="1920"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="Border.CodeBlock">
+            <Setter Property="BorderBrush" Value="{DynamicResource SemiColorBorder}" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
+        </Style>
+    </UserControl.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <StackPanel Spacing="5">
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
-                <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
-                <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
-                <Button Classes="Success" Theme="{DynamicResource SolidButton}">Success</Button>
-                <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
-                <Button Classes="Danger" Theme="{DynamicResource SolidButton}">Danger</Button>
-                <Button
-                    Classes="Primary"
-                    IsEnabled="False"
-                    Theme="{DynamicResource SolidButton}">
-                    Danger
-                </Button>
+        <StackPanel Margin="20">
+            <StackPanel
+                Margin="20"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <PathIcon
+                    Width="32"
+                    Height="32"
+                    Data="M10.6201 17.5C6.06377 17.5 2.37012 13.8063 2.37012 9.25C2.37012 4.69365 6.06377 1 10.6201 1V17.5ZM13.3701 6.5C17.9265 6.5 21.6201 10.1936 21.6201 14.75C21.6201 19.3063 17.9265 23 13.3701 23V6.5Z" />
+                <PathIcon
+                    Width="10"
+                    Height="10"
+                    Margin="20,0"
+                    Data="M20.5 13.5C21.3284 13.5 22 12.8284 22 12C22 11.1716 21.3284 10.5 20.5 10.5L13.5 10.5L13.5 3.5C13.5 2.67157 12.8284 2 12 2C11.1716 2 10.5 2.67157 10.5 3.5L10.5 10.5L3.5 10.5C2.67157 10.5 2 11.1716 2 12C2 12.8284 2.67157 13.5 3.5 13.5L10.5 13.5V20.5C10.5 21.3284 11.1716 22 12 22C12.8284 22 13.5 21.3284 13.5 20.5V13.5L20.5 13.5Z" />
+                <Image Width="32" Height="32">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="#8B44AC" Geometry="M74.8535 85.8231C75.0263 85.8231 75.1954 85.8231 75.3679 85.8231C80.7347 85.8231 85.1439 81.8027 85.7614 76.6019L85.8357 41.7604C85.2255 18.5931 66.2537 0 42.9393 0C19.2399 0 0.02771 19.2122 0.02771 42.9116C0.02771 66.3573 18.8309 85.418 42.18 85.8231H74.8535Z" />
+                                <GeometryDrawing Brush="#F9F9FB" Geometry="M43.0585 14.6143C29.5513 14.6143 18.2555 24.082 15.4454 36.7432C18.1357 37.4975 20.1087 39.9679 20.1087 42.8992C20.1087 45.8305 18.1357 48.301 15.4454 49.0552C18.2555 61.7164 29.5513 71.1842 43.0585 71.1842C47.9754 71.1842 52.5993 69.9296 56.6276 67.723V70.9926H71.3435V44.0716C71.3569 43.7138 71.3435 43.2603 71.3435 42.8992C71.3435 27.2779 58.6799 14.6143 43.0585 14.6143ZM29.5096 42.8992C29.5096 35.4164 35.5757 29.3503 43.0585 29.3503C50.5414 29.3503 56.6074 35.4164 56.6074 42.8992C56.6074 50.3821 50.5414 56.4481 43.0585 56.4481C35.5757 56.4481 29.5096 50.3821 29.5096 42.8992Z" />
+                                <GeometryDrawing Brush="#F9F9FB" Geometry="M18.105 42.8805C18.105 45.3803 16.0785 47.4068 13.5787 47.4068C11.0789 47.4068 9.05237 45.3803 9.05237 42.8805C9.05237 40.3807 11.0789 38.3542 13.5787 38.3542C16.0785 38.3542 18.105 40.3807 18.105 42.8805Z" />
+                            </DrawingGroup>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Label Theme="{StaticResource TagLabel}">Label</Label>
-                <Label Classes="Large" Theme="{StaticResource TagLabel}">Large Label</Label>
-                <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle Label</Label>
-                <Label Classes="Large Circle" Theme="{StaticResource TagLabel}">Large Circle Label</Label>
+            <TextBlock
+                HorizontalAlignment="Center"
+                Classes="H1"
+                Text="Semi Avalonia"
+                Theme="{DynamicResource TitleTextBlock}" />
+            <TextBlock
+                MaxWidth="600"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"
+                Classes="Secondary"
+                Text="AvaloniaUI Theme inspired by Semi Design. An easy-to-customize modern design system that helps designers and developers create high-quality products."
+                TextWrapping="Wrap" />
+            <StackPanel
+                Margin="0,10,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Margin="12,0"
+                    FontWeight="600"
+                    Text="Modern" />
+                <TextBlock
+                    Margin="12,0"
+                    FontWeight="600"
+                    Foreground="{Binding #color.Color, Converter={StaticResource ColorToBrushConverter}, Mode=TwoWay}"
+                    Text="Flexible" />
+                <TextBlock
+                    Margin="12,0"
+                    FontWeight="600"
+                    Text="Simple" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Label Classes="Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
-                <Label Classes="Ghost Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
-                <Label Classes="Solid Blue" Theme="{StaticResource TagLabel}">Indigo</Label>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel
-                    Margin="0,0,16,0"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <RadioButton Margin="0,0,8,0">Option 1</RadioButton>
-                    <RadioButton>Option 2</RadioButton>
-                </StackPanel>
-                <Border VerticalAlignment="Center" Theme="{StaticResource RadioButtonGroupBorder}">
+            <StackPanel HorizontalAlignment="Center">
+                <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <RadioButton IsChecked="True" Theme="{StaticResource ButtonRadioButton}">选项 1</RadioButton>
-                        <RadioButton Theme="{StaticResource ButtonRadioButton}">选项 2</RadioButton>
+                        <StackPanel Margin="16,0">
+                            <Button
+                                Margin="0,8"
+                                Classes="Primary"
+                                Content="Primary"
+                                Theme="{DynamicResource SolidButton}" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Secondary"
+                                Content="Secondary"
+                                Theme="{DynamicResource SolidButton}" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Tertiary"
+                                Content="Tertiary"
+                                Theme="{DynamicResource SolidButton}" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Success"
+                                Content="Success"
+                                Theme="{DynamicResource SolidButton}" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Warning"
+                                Content="Warning"
+                                Theme="{DynamicResource SolidButton}" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Danger"
+                                Content="Danger"
+                                Theme="{DynamicResource SolidButton}" />
+                        </StackPanel>
+                        <Calendar Margin="16,0" />
+                        <StackPanel Margin="16,0">
+                            <TextBox
+                                Width="300"
+                                Margin="0,12"
+                                InnerLeftContent="https://"
+                                InnerRightContent=".com" />
+                            <DatePicker Width="300" Margin="0,12" />
+                            <CalendarDatePicker Width="300" Margin="0,12" />
+                            <NumericUpDown Width="300" Margin="0,12" />
+                            <ComboBox Width="300" Margin="0,12">
+                                <ComboBoxItem>Avalonia</ComboBoxItem>
+                                <ComboBoxItem>Semi Design</ComboBoxItem>
+                                <ComboBoxItem>IRIHI Technology</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <UniformGrid HorizontalAlignment="Center" Columns="3">
+                                <UniformGrid.Styles>
+                                    <Style Selector="CheckBox">
+                                        <Setter Property="Margin" Value="4" />
+                                    </Style>
+                                </UniformGrid.Styles>
+                                <CheckBox Content="Windows" IsChecked="True" />
+                                <CheckBox Content="macOS" IsChecked="True" />
+                                <CheckBox Content="Linux" IsChecked="True" />
+                                <CheckBox
+                                    Content="iOS"
+                                    IsChecked="{x:Null}"
+                                    IsThreeState="True" />
+                                <CheckBox
+                                    Content="Android"
+                                    IsChecked="{x:Null}"
+                                    IsThreeState="True" />
+                                <CheckBox
+                                    Content="Wasm"
+                                    IsChecked="{x:Null}"
+                                    IsThreeState="True" />
+                            </UniformGrid>
+                            <UniformGrid HorizontalAlignment="Center" Columns="3">
+                                <UniformGrid.Styles>
+                                    <Style Selector="CheckBox">
+                                        <Setter Property="Margin" Value="4" />
+                                    </Style>
+                                </UniformGrid.Styles>
+                                <CheckBox
+                                    Content="Windows"
+                                    IsChecked="True"
+                                    Theme="{DynamicResource CardCheckBox}" />
+                                <CheckBox
+                                    Content="macOS"
+                                    IsChecked="True"
+                                    Theme="{DynamicResource CardCheckBox}" />
+                                <CheckBox
+                                    Content="Linux"
+                                    IsChecked="True"
+                                    Theme="{DynamicResource CardCheckBox}" />
+                                <CheckBox
+                                    Content="iOS"
+                                    IsChecked="{x:Null}"
+                                    IsThreeState="True"
+                                    Theme="{DynamicResource CardCheckBox}" />
+                                <CheckBox
+                                    Content="Android"
+                                    IsChecked="{x:Null}"
+                                    IsThreeState="True"
+                                    Theme="{DynamicResource CardCheckBox}" />
+                                <CheckBox
+                                    Content="Wasm"
+                                    IsChecked="{x:Null}"
+                                    IsThreeState="True"
+                                    Theme="{DynamicResource CardCheckBox}" />
+                            </UniformGrid>
+                        </StackPanel>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="16,0">
+                            <Button
+                                Margin="0,8"
+                                Classes="Primary"
+                                Content="Primary" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Secondary"
+                                Content="Secondary" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Tertiary"
+                                Content="Tertiary" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Success"
+                                Content="Success" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Warning"
+                                Content="Warning" />
+                            <Button
+                                Margin="0,8"
+                                Classes="Danger"
+                                Content="Danger" />
+                        </StackPanel>
+                        <ColorView
+                            Name="color"
+                            VerticalAlignment="Top"
+                            Palette="{DynamicResource SemiColorPalette}"
+                            SelectedIndex="2"
+                            Color="#8B44AC" />
+                        <StackPanel Width="300" Margin="8">
+                            <StackPanel Orientation="Horizontal">
+                                <Slider
+                                    Name="slider"
+                                    Width="200"
+                                    Margin="16"
+                                    Maximum="100"
+                                    Minimum="0" />
+                                <ToggleSwitch Name="three" IsChecked="True" />
+                            </StackPanel>
+                            <UniformGrid Columns="2">
+                                <ProgressBar
+                                    Width="100"
+                                    MinWidth="100"
+                                    Margin="0,16"
+                                    IsIndeterminate="{Binding #three.IsChecked}"
+                                    ShowProgressText="True"
+                                    Value="{Binding #slider.Value}" />
+                                <ProgressBar
+                                    Width="100"
+                                    Height="100"
+                                    IsIndeterminate="{Binding #three.IsChecked}"
+                                    ShowProgressText="True"
+                                    Theme="{DynamicResource ProgressRing}"
+                                    Value="{Binding #slider.Value}" />
+                            </UniformGrid>
+                            <TabStrip Margin="0,8">
+                                <TabStripItem Content="Tab 1" />
+                                <TabStripItem Content="Tab 2" />
+                                <TabStripItem Content="Tab 3" />
+                            </TabStrip>
+                            <Menu Margin="0,8">
+                                <MenuItem Header="Menu 1">
+                                    <MenuItem Header="SubMenu 1" />
+                                    <MenuItem Header="SubMenu 2" />
+                                    <MenuItem Header="SubMenu 3" />
+                                </MenuItem>
+                                <MenuItem Header="Menu 2">
+                                    <MenuItem Header="SubMenu 1" />
+                                    <MenuItem Header="SubMenu 2" />
+                                    <MenuItem Header="SubMenu 3" />
+                                    <MenuItem Header="SubMenu 4">
+                                        <MenuItem Header="SubMenu 1" />
+                                        <MenuItem Header="SubMenu 2" />
+                                        <MenuItem Header="SubMenu 3" />
+                                    </MenuItem>
+                                </MenuItem>
+                                <MenuItem Header="Menu 3" />
+                            </Menu>
+
+                        </StackPanel>
+                        <StackPanel Margin="8">
+
+                            <UniformGrid HorizontalAlignment="Center" Columns="3">
+                                <UniformGrid.Styles>
+                                    <Style Selector="RadioButton">
+                                        <Setter Property="Margin" Value="4" />
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </UniformGrid.Styles>
+                                <RadioButton Content="Avalonia" IsChecked="True" />
+                                <RadioButton Content="WPF" />
+                                <RadioButton Content="Xamarin" />
+                            </UniformGrid>
+                            <UniformGrid HorizontalAlignment="Center" Columns="3">
+                                <UniformGrid.Styles>
+                                    <Style Selector="RadioButton">
+                                        <Setter Property="Margin" Value="4" />
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </UniformGrid.Styles>
+                                <RadioButton
+                                    Content="Avalonia"
+                                    IsChecked="True"
+                                    Theme="{DynamicResource CardRadioButton}" />
+                                <RadioButton Content="WPF" Theme="{DynamicResource CardRadioButton}" />
+                                <RadioButton Content="Xamarin" Theme="{DynamicResource CardRadioButton}" />
+                            </UniformGrid>
+                            <WrapPanel Width="300">
+                                <WrapPanel.Styles>
+                                    <Style Selector="Label">
+                                        <Setter Property="Margin" Value="4" />
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    </Style>
+                                </WrapPanel.Styles>
+                                <Label Classes="Red" Theme="{StaticResource TagLabel}">Red</Label>
+                                <Label Classes="Pink" Theme="{StaticResource TagLabel}">Pink</Label>
+                                <Label Classes="Purple" Theme="{StaticResource TagLabel}">Purple</Label>
+                                <Label Classes="Violet" Theme="{StaticResource TagLabel}">Violet</Label>
+                                <Label Classes="Indigo" Theme="{StaticResource TagLabel}">Indigo</Label>
+                                <Label Classes="Blue" Theme="{StaticResource TagLabel}">Blue</Label>
+                                <Label Classes="LightBlue" Theme="{StaticResource TagLabel}">LightBlue</Label>
+                                <Label Classes="Cyan" Theme="{StaticResource TagLabel}">Cyan</Label>
+                                <Label Classes="Teal" Theme="{StaticResource TagLabel}">Teal</Label>
+                                <Label Classes="Green" Theme="{StaticResource TagLabel}">Green</Label>
+                                <Label Classes="LightGreen" Theme="{StaticResource TagLabel}">LightGreen</Label>
+                                <Label Classes="Lime" Theme="{StaticResource TagLabel}">Lime</Label>
+                                <Label Classes="Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
+                                <Label Classes="Amber" Theme="{StaticResource TagLabel}">Amber</Label>
+                                <Label Classes="Orange" Theme="{StaticResource TagLabel}">Orange</Label>
+                                <Label Classes="Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                                <Label Classes="White" Theme="{StaticResource TagLabel}">White</Label>
+                                <Label Classes="Large" Theme="{StaticResource TagLabel}">Large</Label>
+                                <Label Classes="Circle" Theme="{StaticResource TagLabel}">Circle</Label>
+                            </WrapPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock
+                    Margin="0,32,0,16"
+                    Classes="H5"
+                    Text="Start to install"
+                    Theme="{DynamicResource TitleTextBlock}" />
+                <TextBlock Text="Install via nuget: " />
+                <Border Margin="0,16" Classes="CodeBlock">
+                    <SelectableTextBlock FontFamily="Consolas" Text="dotnet add package Semi.Avalonia --version 0.1.0-preview8" />
+                </Border>
+                <TextBlock Text="Reference styles: " />
+                <Border Margin="0,16" Classes="CodeBlock">
+                    <StackPanel>
+                        <SelectableTextBlock FontFamily="Consolas" Text="&lt;Application.Styles&gt;" />
+                        <SelectableTextBlock FontFamily="Consolas" Text="    &lt;StyleInclude Source=&quot;avares://Semi.Avalonia/Themes/Index.axaml&quot; /&gt;" />
+                        <SelectableTextBlock FontFamily="Consolas" Text="&lt;/Application.Styles&gt;" />
                     </StackPanel>
                 </Border>
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton Margin="4" Theme="{StaticResource CardRadioButton}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="True"
-                        Theme="{StaticResource CardRadioButton}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton Margin="4" Theme="{StaticResource PureCardRadioButton}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="True"
-                        Theme="{StaticResource PureCardRadioButton}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox Margin="0,0,8,0">Avalonia</CheckBox>
-                    <CheckBox Margin="0,0,8,0" IsChecked="True">WPF</CheckBox>
-                    <CheckBox IsChecked="{x:Null}" IsThreeState="True">UWP</CheckBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox Margin="4" Theme="{StaticResource CardCheckBox}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                        </StackPanel>
-                    </CheckBox>
-                    <CheckBox
-                        Margin="4"
-                        IsChecked="True"
-                        Theme="{StaticResource CardCheckBox}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                        </StackPanel>
-                    </CheckBox>
-                    <CheckBox
-                        Margin="4"
-                        IsChecked="{x:Null}"
-                        IsThreeState="True"
-                        Theme="{StaticResource CardCheckBox}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 3</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 3</TextBlock>
-                        </StackPanel>
-                    </CheckBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox Margin="4" Theme="{StaticResource PureCardCheckBox}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 1</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 1</TextBlock>
-                        </StackPanel>
-                    </CheckBox>
-                    <CheckBox
-                        Margin="4"
-                        IsChecked="True"
-                        Theme="{StaticResource PureCardCheckBox}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 2</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 2</TextBlock>
-                        </StackPanel>
-                    </CheckBox>
-                    <CheckBox
-                        Margin="4"
-                        IsChecked="{x:Null}"
-                        IsThreeState="True"
-                        Theme="{StaticResource PureCardCheckBox}">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">Option 3</TextBlock>
-                            <TextBlock Classes="Tertiary">Description 3</TextBlock>
-                        </StackPanel>
-                    </CheckBox>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ToggleSwitch
-                    Content="Content"
-                    OffContent="No"
-                    OnContent="Yes" />
-                <ProgressBar
-                    Classes="Right"
-                    ShowProgressText="True"
-                    Value="20" />
-                <Slider
-                    Width="200"
-                    Margin="30,0"
-                    Orientation="Horizontal"
-                    Value="30" />
-            </StackPanel>
-            <TabControl>
-                <TabItem Header="Tab 1">
-                    <TextBlock Margin="8">Tab Content 1</TextBlock>
-                </TabItem>
-                <TabItem Header="Tab 2">
-                    <TextBlock Margin="8">Tab Content 2</TextBlock>
-                </TabItem>
-                <TabItem Header="Tab 3">
-                    <TextBlock Margin="8">Tab Content 3</TextBlock>
-                </TabItem>
-            </TabControl>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <ComboBox Width="200" PlaceholderText="Please Select">
-                    <ComboBoxItem>Item 1</ComboBoxItem>
-                    <ComboBoxItem>Item 2</ComboBoxItem>
-                    <ComboBoxItem>Item 3</ComboBoxItem>
-                </ComboBox>
-                <DatePicker />
-                <TimePicker />
-                <CalendarDatePicker />
-            </StackPanel>
-            <Grid ColumnDefinitions="*, *, *">
-                <Border Theme="{StaticResource CardBorder}">
-                    <TextBlock>Card</TextBlock>
-                </Border>
-                <Border
-                    Grid.Column="1"
-                    Classes="Hover"
-                    Theme="{StaticResource CardBorder}">
-                    <TextBlock>Shadow on hover</TextBlock>
-                </Border>
-                <Border
-                    Grid.Column="2"
-                    Classes="Shadow"
-                    Theme="{StaticResource CardBorder}">
-                    <TextBlock>Shadow</TextBlock>
-                </Border>
-            </Grid>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <TextBox
-                    Width="200"
-                    InnerLeftContent="http://"
-                    InnerRightContent=".com" />
-                <TextBox
-                    Width="200"
-                    Classes="revealPasswordButton"
-                    PasswordChar="*"
-                    Text="Avalonia" />
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <TreeView>
-                    <TreeViewItem Header="Level 1" IsExpanded="True">
-                        <TreeViewItem Header="Level 2" />
-                        <TreeViewItem Header="Level 2" />
-                        <TreeViewItem Header="Level 2" IsExpanded="True">
-                            <TreeViewItem Header="Level 3" />
-                            <TreeViewItem Header="Level 3" />
-                        </TreeViewItem>
-                    </TreeViewItem>
-                </TreeView>
-                <ListBox SelectedIndex="3">
-                    <TextBlock>List Item 1</TextBlock>
-                    <TextBlock>List Item 2</TextBlock>
-                    <TextBlock>List Item 3</TextBlock>
-                    <TextBlock>List Item 4</TextBlock>
-                    <TextBlock>List Item 5</TextBlock>
-                </ListBox>
-                <Calendar />
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
