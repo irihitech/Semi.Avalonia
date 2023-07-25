@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:Avalonia.Markup.Xaml.Converters;assembly=Avalonia.Markup.Xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Semi.Avalonia.Demo.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1000"
     d:DesignWidth="1920"
@@ -335,18 +336,53 @@
                     Classes="H5"
                     Text="Start to install"
                     Theme="{DynamicResource TitleTextBlock}" />
-                <TextBlock Text="Install via nuget: " />
-                <Border Margin="0,16" Classes="CodeBlock">
-                    <SelectableTextBlock FontFamily="Consolas" Text="dotnet add package Semi.Avalonia --version 0.1.0-preview8" />
-                </Border>
-                <TextBlock Text="Reference styles: " />
-                <Border Margin="0,16" Classes="CodeBlock">
-                    <StackPanel>
-                        <SelectableTextBlock FontFamily="Consolas" Text="&lt;Application.Styles&gt;" />
-                        <SelectableTextBlock FontFamily="Consolas" Text="    &lt;StyleInclude Source=&quot;avares://Semi.Avalonia/Themes/Index.axaml&quot; /&gt;" />
-                        <SelectableTextBlock FontFamily="Consolas" Text="&lt;/Application.Styles&gt;" />
-                    </StackPanel>
-                </Border>
+                <TabControl Padding="8">
+                    <TabItem Header="Main">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].MainInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].MainStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="DataGrid">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].DataGridInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].DataGridStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ColorPicker">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].ColorPickerInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].ColorPickerStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
