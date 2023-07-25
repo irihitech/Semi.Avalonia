@@ -3,6 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:conv="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls.TreeDataGrid">
     <!--  Add Resources Here  -->
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <TreeDataGridColumnHeader Header="123" />
+        </StackPanel>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeDataGrid}" TargetType="TreeDataGrid">
         <Setter Property="Template">
             <ControlTemplate>
@@ -47,17 +52,21 @@
 
     <ControlTheme x:Key="{x:Type TreeDataGridColumnHeader}" TargetType="TreeDataGridColumnHeader">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="MinHeight" Value="25" />
-        <Setter Property="Padding" Value="4 2" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Padding" Value="8 2 0 2" />
+        <Setter Property="CornerRadius" Value="4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Name="DataGridBorder"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel>
+                    <Border
+                        Name="DataGridBorder"
+                        Margin="4"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                     <DockPanel VerticalAlignment="Stretch">
                         <Panel DockPanel.Dock="Right" TabIndex="2">
                             <Rectangle
@@ -78,14 +87,15 @@
                                 </Thumb.Template>
                             </Thumb>
                         </Panel>
-                        <Path
+                        <PathIcon
                             Name="SortIcon"
-                            Height="12"
+                            Width="8"
+                            Height="8"
+                            Margin="0,0,8,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             DockPanel.Dock="Right"
-                            Fill="{TemplateBinding Foreground}"
-                            Stretch="Uniform"
+                            Foreground="{TemplateBinding Foreground}"
                             TabIndex="1" />
                         <ContentPresenter
                             Name="PART_ContentPresenter"
@@ -102,7 +112,7 @@
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
                     </DockPanel>
-                </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -118,12 +128,12 @@
             <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderForegroundPressedBrush}" />
         </Style>
 
-        <Style Selector="^[SortDirection=Ascending] /template/ Path#SortIcon">
+        <Style Selector="^[SortDirection=Ascending] /template/ PathIcon#SortIcon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Data" Value="{DynamicResource TreeDataGridSortIconAscendingPath}" />
         </Style>
 
-        <Style Selector="^[SortDirection=Descending] /template/ Path#SortIcon">
+        <Style Selector="^[SortDirection=Descending] /template/ PathIcon#SortIcon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Data" Value="{DynamicResource TreeDataGridSortIconDescendingPath}" />
         </Style>
