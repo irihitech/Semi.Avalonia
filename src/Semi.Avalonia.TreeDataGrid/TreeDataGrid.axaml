@@ -10,7 +10,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type TreeDataGrid}" TargetType="TreeDataGrid">
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="TreeDataGrid">
                 <Border
                     x:Name="RootBorder"
                     Background="{TemplateBinding Background}"
@@ -42,23 +42,22 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-
         <Style Selector="^/template/ Border#ColumnHeadersPresenterBorder">
             <Setter Property="BorderThickness" Value="0 0 0 1" />
             <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridGridLinesBrush}" />
         </Style>
-
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TreeDataGridColumnHeader}" TargetType="TreeDataGridColumnHeader">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MinHeight" Value="32" />
         <Setter Property="Padding" Value="8 2 0 2" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="TreeDataGridColumnHeader">
                 <Panel>
                     <Border
                         Name="DataGridBorder"
@@ -117,15 +116,15 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ Border#DataGridBorder">
-            <Setter Property="Background" Value="{DynamicResource TreeDataGridHeaderBackgroundPointerOverBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridHeaderBorderBrushPointerOverBrush}" />
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderForegroundPointerOverBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TreeDataGridHeaderPointerOverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridHeaderPointerOverBorderBrush}" />
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderPointerOverForeground}" />
         </Style>
 
         <Style Selector="^:pressed /template/ Border#DataGridBorder">
-            <Setter Property="Background" Value="{DynamicResource TreeDataGridHeaderBackgroundPressedBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridHeaderBorderBrushPressedBrush}" />
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderForegroundPressedBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TreeDataGridHeaderPressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridHeaderPressedBorderBrush}" />
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderPressedForeground}" />
         </Style>
 
         <Style Selector="^[SortDirection=Ascending] /template/ PathIcon#SortIcon">
@@ -141,27 +140,33 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TreeDataGridRow}" TargetType="TreeDataGridRow">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    x:Name="RowBorder"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel>
+                    <Border
+                        Name="RowBorder"
+                        Margin="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                     <TreeDataGridCellsPresenter
                         Name="PART_CellsPresenter"
                         ElementFactory="{TemplateBinding ElementFactory}"
                         Items="{TemplateBinding Columns}"
                         Rows="{TemplateBinding Rows}" />
-                </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^:selected /template/ TreeDataGridCellsPresenter#PART_CellsPresenter">
-            <Setter Property="Background" Value="{DynamicResource TreeDataGridSelectedCellBackgroundBrush}" />
+        <Style Selector="^:selected /template/ Border#RowBorder">
+            <Setter Property="Background" Value="{DynamicResource TreeDataGridCellSelectedBackground}" />
         </Style>
-
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TreeDataGridCheckBoxCell}" TargetType="TreeDataGridCheckBoxCell">
@@ -179,7 +184,8 @@
                         IsChecked="{TemplateBinding Value,
                                                     Mode=TwoWay}"
                         IsEnabled="{Binding !IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
-                        IsThreeState="{TemplateBinding IsThreeState}" />
+                        IsThreeState="{TemplateBinding IsThreeState}"
+                        Theme="{DynamicResource SimpleCheckBox}" />
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -244,7 +250,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TreeDataGridTextCell}" TargetType="TreeDataGridTextCell">
-        <Setter Property="Padding" Value="4 2" />
+        <Setter Property="Padding" Value="8 4" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -274,7 +280,11 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                        <TextBox Name="PART_Edit" Text="{TemplateBinding Value, Mode=TwoWay}" />
+                        <TextBox
+                            Name="PART_Edit"
+                            Classes="Small"
+                            Text="{TemplateBinding Value,
+                                                   Mode=TwoWay}" />
                     </Border>
                 </ControlTemplate>
             </Setter>
@@ -288,8 +298,7 @@
         </Style>
 
         <Style Selector="^:editing /template/ TextBox#PART_Edit DataValidationErrors">
-            <Setter Property="Template" Value="{DynamicResource TooltipDataValidationContentTemplate}" />
-            <Setter Property="ErrorTemplate" Value="{DynamicResource TooltipDataValidationErrorTemplate}" />
+            <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
         </Style>
 
     </ControlTheme>
