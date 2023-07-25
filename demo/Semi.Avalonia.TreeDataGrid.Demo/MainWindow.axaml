@@ -10,9 +10,12 @@
     d:DesignWidth="800"
     x:DataType="vm:SongsPageViewModel"
     mc:Ignorable="d">
-    <TabControl>
-        <TabItem Header="Songs">
-            <TreeDataGrid Source="{Binding Songs}" />
-        </TabItem>
-    </TabControl>
+    <Grid RowDefinitions="Auto, *">
+        <Button Click="Button_OnClick" Content="Theme" />
+        <TabControl Grid.Row="1">
+            <TabItem Header="Songs">
+                <TreeDataGrid Source="{Binding Songs}" />
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

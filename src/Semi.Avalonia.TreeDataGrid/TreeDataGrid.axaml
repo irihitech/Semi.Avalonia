@@ -181,6 +181,8 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <CheckBox
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        VerticalAlignment="Center"
                         IsChecked="{TemplateBinding Value,
                                                     Mode=TwoWay}"
                         IsEnabled="{Binding !IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"

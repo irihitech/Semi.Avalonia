@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Controls.Models.TreeDataGrid;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -9,20 +10,26 @@ namespace Semi.Avalonia.TreeDataGrid.Demo.ViewModels;
 
 public class SongsPageViewModel: ObservableObject
 {
-    private readonly ObservableCollection<Song> _songs;
+    private readonly ObservableCollection<SongViewModel> _songs;
     
-    public FlatTreeDataGridSource<Song> Songs { get; }
+    public FlatTreeDataGridSource<SongViewModel> Songs { get; }
 
     public SongsPageViewModel()
     {
-        _songs = new ObservableCollection<Song>(Song.Songs);
+        _songs = new ObservableCollection<SongViewModel>(Song.Songs.Select(a => new SongViewModel()
+        {
+            Title = a.Title, Artist = a.Artist, Album = a.Album, CountOfComment = a.CountOfComment,
+            IsSelected = false
+        }));
         
-        Songs = new FlatTreeDataGridSource<Song>(_songs)
+        Songs = new FlatTreeDataGridSource<SongViewModel>(_songs)
         {
             Columns =
             {
-                new TextColumn<Song,string>("Title", a=>a.Title, (o, a) => o.Title = a, new GridLength(6, GridUnitType.Star)),
-                new TextColumn<Song,string>("Artist", a=>a.Artist, (o, a) => o.Artist = a, new GridLength(6, GridUnitType.Star)),
+                new CheckBoxColumn<SongViewModel>("IsSelected", a=>a.IsSelected, (model, b) => { model.IsSelected = b; }, new GridLength(72, GridUnitType.Pixel)),
+                new TextColumn<SongViewModel,string>("Title", a=>a.Title, (o, a) => o.Title = a, new GridLength(6, GridUnitType.Star)),
+                new TextColumn<SongViewModel,string>("Artist", a=>a.Artist, (o, a) => o.Artist = a, new GridLength(6, GridUnitType.Star)),
+                new TextColumn<SongViewModel,string>("Album", a=>a.Album, (o, a) => o.Album = a, new GridLength(6, GridUnitType.Star)),
             }
         };
     }
