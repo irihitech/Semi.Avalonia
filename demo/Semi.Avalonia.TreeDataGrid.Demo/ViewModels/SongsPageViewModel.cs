@@ -21,15 +21,21 @@ public class SongsPageViewModel: ObservableObject
             Title = a.Title, Artist = a.Artist, Album = a.Album, CountOfComment = a.CountOfComment,
             IsSelected = false
         }));
-        
+
         Songs = new FlatTreeDataGridSource<SongViewModel>(_songs)
         {
             Columns =
             {
-                new CheckBoxColumn<SongViewModel>("IsSelected", a=>a.IsSelected, (model, b) => { model.IsSelected = b; }, new GridLength(72, GridUnitType.Pixel)),
-                new TextColumn<SongViewModel,string>("Title", a=>a.Title, (o, a) => o.Title = a, new GridLength(6, GridUnitType.Star)),
-                new TextColumn<SongViewModel,string>("Artist", a=>a.Artist, (o, a) => o.Artist = a, new GridLength(6, GridUnitType.Star)),
-                new TextColumn<SongViewModel,string>("Album", a=>a.Album, (o, a) => o.Album = a, new GridLength(6, GridUnitType.Star)),
+                new CheckBoxColumn<SongViewModel>("IsSelected", a => a.IsSelected,
+                    (model, b) => { model.IsSelected = b; }, new GridLength(108, GridUnitType.Pixel)),
+                new TextColumn<SongViewModel, string>("Title", a => a.Title, (o, a) => o.Title = a,
+                    new GridLength(6, GridUnitType.Star)),
+                new TextColumn<SongViewModel, string>("Artist", a => a.Artist, (o, a) => o.Artist = a,
+                    new GridLength(6, GridUnitType.Star)),
+                new TemplateColumn<SongViewModel>("Album", "AlbumCell", "AlbumEditCell",
+                    new GridLength(6, GridUnitType.Star)),
+                new TemplateColumn<SongViewModel>("Comments", "CommentsCell", "CommentsEditCell",
+                    new GridLength(6, GridUnitType.Star)),
             }
         };
     }
@@ -56,6 +62,25 @@ public class Song
         Url = $"https://music.163.com/song?id={netEaseId}";
         
     }
+
+    public static List<string> Albums { get; set; } = new List<string>()
+    {
+        "A.S.I.A",
+        "饕餮人间",
+        "七步咙咚呛",
+        "大惊小怪",
+        "The ONE",
+        "以梦为马 (壮志骄阳版)",
+        "emo了",
+        "一眼万年",
+        "冲刺吧",
+        "爱的赏味期限",
+        "COSMIC ANTHEM / 手紙",
+        "世界晚安",
+        "明年也要好好长大",
+        "320万年前",
+        "W.O.R.L.D.",
+    };
 
     public static List<Song> Songs { get; set; } = new List<Song>()
     {

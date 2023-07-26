@@ -195,8 +195,9 @@
 
     <ControlTheme x:Key="TreeDataGridExpandCollapseChevron" TargetType="ToggleButton">
         <Setter Property="Margin" Value="0" />
-        <Setter Property="Width" Value="12" />
-        <Setter Property="Height" Value="12" />
+        <Setter Property="Width" Value="8" />
+        <Setter Property="Height" Value="8" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -205,18 +206,17 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="Transparent">
-                    <Path
+                    <PathIcon
                         x:Name="ChevronPath"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
-                        Fill="{TemplateBinding Foreground}"
-                        Stretch="Uniform" />
+                        Foreground="{TemplateBinding Foreground}" />
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:checked /template/ Path#ChevronPath">
-            <Setter Property="Data" Value="{DynamicResource TreeDataGridItemExpandedChevronPathData}" />
+        <Style Selector="^:checked /template/ PathIcon#ChevronPath">
+            <Setter Property="PathIcon.RenderTransform" Value="rotate(90deg)" />
         </Style>
     </ControlTheme>
 
@@ -263,7 +263,9 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <TextBlock
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
+                        Background="Transparent"
                         Text="{TemplateBinding Value}"
                         TextTrimming="{TemplateBinding TextTrimming}"
                         TextWrapping="{TemplateBinding TextWrapping}" />

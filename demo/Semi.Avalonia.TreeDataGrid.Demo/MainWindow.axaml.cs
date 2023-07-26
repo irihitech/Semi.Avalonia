@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Styling;
 using Semi.Avalonia.TreeDataGrid.Demo.ViewModels;
@@ -11,7 +12,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        this.DataContext = new SongsPageViewModel();
+        this.DataContext = new MainViewModel();
     }
 
     private void Button_OnClick(object? sender, RoutedEventArgs e)
@@ -21,6 +22,15 @@ public partial class MainWindow : Window
         {
             var theme = app.ActualThemeVariant;
             app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
+        }
+    }
+    
+    private void SelectedPath_KeyDown(object? sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+        {
+            var vm = (MainViewModel)DataContext!;
+            vm.FilesContext.SelectedPath = ((TextBox)sender!).Text;
         }
     }
 }
