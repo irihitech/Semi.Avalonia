@@ -49,7 +49,7 @@ public class Song
     public string? Artist { get; set; }
     public TimeSpan? Duration { get; set; }
     public string? Album { get; set; }
-    public int CountOfComment { get; set; }
+    public int? CountOfComment { get; set; }
     public string Url { get; set; }
 
     public Song(string title, string artist, int m, int s, string album, int countOfComment, int netEaseId)
@@ -153,7 +153,7 @@ public class SongViewModel: ObservableObject
     private string? _title;
     private string? _artist;
     private string? _album;
-    private int _countOfComment;
+    private int? _countOfComment;
     private bool? _isSelected;
     public string? Title
     {
@@ -170,7 +170,7 @@ public class SongViewModel: ObservableObject
         get => _album;
         set => SetProperty(ref _album, value);
     }
-    public int CountOfComment
+    public int? CountOfComment
     {
         get => _countOfComment;
         set => SetProperty(ref _countOfComment, value);
