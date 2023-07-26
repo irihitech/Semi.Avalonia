@@ -112,10 +112,18 @@
                                             </MultiBinding>
                                         </Image.Source>
                                     </Image>
-                                    <TextBox VerticalAlignment="Center" Text="{Binding Name}" />
+                                    <TextBox
+                                        VerticalAlignment="Center"
+                                        Classes="Small"
+                                        Text="{Binding Name}">
+                                        <TextBox.Styles>
+                                            <Style Selector="DataValidationErrors">
+                                                <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
+                                            </Style>
+                                        </TextBox.Styles>
+                                    </TextBox>
                                 </StackPanel>
                             </DataTemplate>
-
                         </TreeDataGrid.Resources>
                         <TreeDataGrid.Styles>
                             <Style Selector="TreeDataGrid TreeDataGridRow:nth-child(2n)">
