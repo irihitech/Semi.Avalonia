@@ -1,0 +1,342 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls.TreeDataGrid">
+    <!--  Add Resources Here  -->
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <TreeDataGridColumnHeader Header="123" />
+        </StackPanel>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type TreeDataGrid}" TargetType="TreeDataGrid">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TreeDataGrid">
+                <Border
+                    x:Name="RootBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <ScrollViewer
+                            Name="PART_HeaderScrollViewer"
+                            DockPanel.Dock="Top"
+                            HorizontalScrollBarVisibility="Hidden"
+                            IsVisible="{TemplateBinding ShowColumnHeaders}"
+                            VerticalScrollBarVisibility="Disabled">
+                            <Border x:Name="ColumnHeadersPresenterBorder">
+                                <TreeDataGridColumnHeadersPresenter
+                                    Name="PART_ColumnHeadersPresenter"
+                                    ElementFactory="{TemplateBinding ElementFactory}"
+                                    Items="{TemplateBinding Columns}" />
+                            </Border>
+                        </ScrollViewer>
+                        <ScrollViewer Name="PART_ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                            <TreeDataGridRowsPresenter
+                                Name="PART_RowsPresenter"
+                                Columns="{TemplateBinding Columns}"
+                                ElementFactory="{TemplateBinding ElementFactory}"
+                                Items="{TemplateBinding Rows}" />
+                        </ScrollViewer>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^/template/ Border#ColumnHeadersPresenterBorder">
+            <Setter Property="BorderThickness" Value="0 0 0 1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridGridLinesBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeDataGridColumnHeader}" TargetType="TreeDataGridColumnHeader">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Padding" Value="8 2 0 2" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TreeDataGridColumnHeader">
+                <Panel>
+                    <Border
+                        Name="DataGridBorder"
+                        Margin="4"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                    <DockPanel VerticalAlignment="Stretch">
+                        <Panel DockPanel.Dock="Right" TabIndex="2">
+                            <Rectangle
+                                Width="1"
+                                HorizontalAlignment="Right"
+                                Fill="{DynamicResource TreeDataGridGridLinesBrush}" />
+                            <Thumb
+                                Name="PART_Resizer"
+                                Width="5"
+                                Background="Transparent"
+                                Cursor="SizeWestEast"
+                                DockPanel.Dock="Right"
+                                IsVisible="{TemplateBinding CanUserResize}">
+                                <Thumb.Template>
+                                    <ControlTemplate>
+                                        <Border VerticalAlignment="Stretch" Background="{TemplateBinding Background}" />
+                                    </ControlTemplate>
+                                </Thumb.Template>
+                            </Thumb>
+                        </Panel>
+                        <PathIcon
+                            Name="SortIcon"
+                            Width="8"
+                            Height="8"
+                            Margin="0,0,8,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right"
+                            Foreground="{TemplateBinding Foreground}"
+                            TabIndex="1" />
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            TabIndex="0">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="x:String">
+                                    <TextBlock Text="{Binding}" TextTrimming="CharacterEllipsis" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                    </DockPanel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ Border#DataGridBorder">
+            <Setter Property="Background" Value="{DynamicResource TreeDataGridHeaderPointerOverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridHeaderPointerOverBorderBrush}" />
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderPointerOverForeground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ Border#DataGridBorder">
+            <Setter Property="Background" Value="{DynamicResource TreeDataGridHeaderPressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TreeDataGridHeaderPressedBorderBrush}" />
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TreeDataGridHeaderPressedForeground}" />
+        </Style>
+
+        <Style Selector="^[SortDirection=Ascending] /template/ PathIcon#SortIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Data" Value="{DynamicResource TreeDataGridSortIconAscendingPath}" />
+        </Style>
+
+        <Style Selector="^[SortDirection=Descending] /template/ PathIcon#SortIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Data" Value="{DynamicResource TreeDataGridSortIconDescendingPath}" />
+        </Style>
+
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeDataGridRow}" TargetType="TreeDataGridRow">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border
+                        Name="RowBorder"
+                        Margin="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                    <TreeDataGridCellsPresenter
+                        Name="PART_CellsPresenter"
+                        ElementFactory="{TemplateBinding ElementFactory}"
+                        Items="{TemplateBinding Columns}"
+                        Rows="{TemplateBinding Rows}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:selected /template/ Border#RowBorder">
+            <Setter Property="Background" Value="{DynamicResource TreeDataGridCellSelectedBackground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeDataGridCheckBoxCell}" TargetType="TreeDataGridCheckBoxCell">
+        <Setter Property="Padding" Value="4 2" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    x:Name="CellBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <CheckBox
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        VerticalAlignment="Center"
+                        IsChecked="{TemplateBinding Value,
+                                                    Mode=TwoWay}"
+                        IsEnabled="{Binding !IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
+                        IsThreeState="{TemplateBinding IsThreeState}"
+                        Theme="{DynamicResource SimpleCheckBox}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TreeDataGridExpandCollapseChevron" TargetType="ToggleButton">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Width" Value="8" />
+        <Setter Property="Height" Value="8" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent">
+                    <PathIcon
+                        x:Name="ChevronPath"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
+                        Foreground="{TemplateBinding Foreground}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:checked /template/ PathIcon#ChevronPath">
+            <Setter Property="PathIcon.RenderTransform" Value="rotate(90deg)" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeDataGridExpanderCell}" TargetType="TreeDataGridExpanderCell">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    x:Name="CellBorder"
+                    Padding="{TemplateBinding Indent,
+                                              Converter={x:Static conv:IndentConverter.Instance}}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Border
+                            Width="12"
+                            Height="12"
+                            Margin="4,0"
+                            DockPanel.Dock="Left">
+                            <ToggleButton
+                                Focusable="False"
+                                IsChecked="{TemplateBinding IsExpanded,
+                                                            Mode=TwoWay}"
+                                IsVisible="{TemplateBinding ShowExpander}"
+                                Theme="{StaticResource TreeDataGridExpandCollapseChevron}" />
+                        </Border>
+                        <Decorator Name="PART_Content" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeDataGridTextCell}" TargetType="TreeDataGridTextCell">
+        <Setter Property="Padding" Value="8 4" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    x:Name="CellBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <TextBlock
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        Text="{TemplateBinding Value}"
+                        TextTrimming="{TemplateBinding TextTrimming}"
+                        TextWrapping="{TemplateBinding TextWrapping}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:editing">
+            <Setter Property="Padding" Value="4 2" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border
+                        x:Name="CellBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <TextBox
+                            Name="PART_Edit"
+                            Classes="Small"
+                            Text="{TemplateBinding Value,
+                                                   Mode=TwoWay}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:editing /template/ TextBox#PART_Edit">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="MinHeight" Value="25" />
+            <Setter Property="Padding" Value="10,3,6,3" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style Selector="^:editing /template/ TextBox#PART_Edit DataValidationErrors">
+            <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
+        </Style>
+
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeDataGridTemplateCell}" TargetType="TreeDataGridTemplateCell">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:editing">
+            <Setter Property="Padding" Value="4 2" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter
+                        Name="PART_EditingContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding EditingTemplate}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
