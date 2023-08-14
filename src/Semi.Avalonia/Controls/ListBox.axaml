@@ -120,11 +120,11 @@
         <Setter Property="ListBoxItem.Cursor" Value="Hand" />
         <Setter Property="ListBoxItem.HorizontalContentAlignment" Value="Left" />
         <Setter Property="ListBoxItem.VerticalContentAlignment" Value="Center" />
-        <Setter Property="ListBoxItem.FontSize" Value="{DynamicResource RadioButtonFontSize}" />
-        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource RadioButtonBoxCornerRadius}" />
-        <Setter Property="ListBoxItem.Foreground" Value="{DynamicResource RadioButtonForeground}" />
-        <Setter Property="ListBoxItem.Background" Value="{DynamicResource RadioButtonDefaultBackground}" />
-        <Setter Property="ListBoxItem.BorderBrush" Value="{DynamicResource RadioButtonDefaultBorderBrush}" />
+        <Setter Property="ListBoxItem.FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupBoxCornerRadius}" />
+        <Setter Property="ListBoxItem.Foreground" Value="{DynamicResource ListBoxItemRadioGroupForeground}" />
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemRadioGroupDefaultBackground}" />
+        <Setter Property="ListBoxItem.BorderBrush" Value="{DynamicResource ListBoxItemRadioGroupDefaultBorderBrush}" />
         <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Border
@@ -136,24 +136,24 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="Auto,*">
-                        <Grid Margin="{DynamicResource RadioButtonIconMargin}"
+                        <Grid Margin="{DynamicResource ListBoxItemRadioGroupIconMargin}"
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Ellipse
                                 Name="OuterEllipse"
-                                Width="{DynamicResource RadioButtonIconRadius}"
-                                Height="{DynamicResource RadioButtonIconRadius}"
-                                Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
-                                Stroke="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}"
+                                Width="{DynamicResource ListBoxItemRadioGroupIconRadius}"
+                                Height="{DynamicResource ListBoxItemRadioGroupIconRadius}"
+                                Fill="{DynamicResource ListBoxItemRadioGroupUncheckIconDefaultBackground}"
+                                Stroke="{DynamicResource ListBoxItemRadioGroupUncheckIconDefaultBorderBrush}"
                                 StrokeThickness="1"
                                 UseLayoutRounding="False" />
 
                             <Ellipse
                                 Name="CheckGlyph"
-                                Width="{DynamicResource RadioButtonGlyphRadius}"
-                                Height="{DynamicResource RadioButtonGlyphRadius}"
-                                Fill="{DynamicResource RadioButtonCheckGlyphFill}"
+                                Width="{DynamicResource ListBoxItemRadioGroupGlyphRadius}"
+                                Height="{DynamicResource ListBoxItemRadioGroupGlyphRadius}"
+                                Fill="{DynamicResource ListBoxItemRadioGroupCheckGlyphFill}"
                                 Opacity="0"
-                                Stroke="{DynamicResource RadioButtonCheckGlyphFill}"
+                                Stroke="{DynamicResource ListBoxItemRadioGroupCheckGlyphFill}"
                                 StrokeThickness="0"
                                 UseLayoutRounding="False" />
                         </Grid>
@@ -167,8 +167,8 @@
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             Foreground="{TemplateBinding Foreground}"
                             RecognizesAccessKey="True"
-                            TextElement.FontSize="{DynamicResource RadioButtonFontSize}"
-                            TextElement.Foreground="{DynamicResource RadioButtonForeground}" />
+                            TextElement.FontSize="{DynamicResource ListBoxItemRadioGroupFontSize}"
+                            TextElement.Foreground="{DynamicResource ListBoxItemRadioGroupForeground}" />
                     </Grid>
                 </Border>
 
@@ -178,8 +178,8 @@
 
         <!--  Unchecked State  -->
         <Style Selector="^ /template/ Ellipse#OuterEllipse">
-            <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}" />
-            <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDefaultBackground}" />
+            <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconDefaultBorderBrush}" />
+            <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconDefaultBackground}" />
         </Style>
         <Style Selector="^ /template/ Ellipse#CheckGlyph">
             <Setter Property="Ellipse.Opacity" Value="0" />
@@ -188,8 +188,8 @@
         <!--  Unchecked Pointerover State  -->
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
-                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPointeroverBackground}" />
+                <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconPointeroverBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconPointeroverBackground}" />
             </Style>
             <Style Selector="^ /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="0" />
@@ -199,8 +199,8 @@
         <!--  Unchecked Pressed State  -->
         <Style Selector="^:pressed">
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPressedBorderBrush}" />
-                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPressedBackground}" />
+                <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconPressedBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconPressedBackground}" />
             </Style>
             <Style Selector="^ /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="0" />
@@ -210,22 +210,22 @@
         <!--  Unchecked Disabled state  -->
         <Style Selector="^:disabled">
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDisabledBorderBrush}" />
-                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDisabledBackground}" />
+                <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconDisabledBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupUncheckIconDisabledBackground}" />
             </Style>
             <Style Selector="^ /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="0" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource ListBoxItemRadioGroupDisabledForeground}" />
             </Style>
         </Style>
 
         <!--  Checked State  -->
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDefaultBorderBrush}" />
-                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDefaultBackground}" />
+                <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupCheckIconDefaultBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupCheckIconDefaultBackground}" />
             </Style>
             <Style Selector="^ /template/ Ellipse#CheckGlyph">
                 <Setter Property="Ellipse.Opacity" Value="1" />
@@ -234,8 +234,8 @@
             <!--  Checked Pointerover State  -->
             <Style Selector="^:pointerover">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
+                    <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupCheckIconPointeroverBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupCheckIconPointeroverBackground}" />
                 </Style>
                 <Style Selector="^ /template/ Ellipse#CheckGlyph">
                     <Setter Property="Ellipse.Opacity" Value="1" />
@@ -245,8 +245,8 @@
             <!--  Checked Pressed State  -->
             <Style Selector="^:pressed">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPressedBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPressedBackground}" />
+                    <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupCheckIconPressedBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupCheckIconPressedBackground}" />
                 </Style>
                 <Style Selector="^ /template/ Ellipse#CheckGlyph">
                     <Setter Property="Ellipse.Opacity" Value="1" />
@@ -256,14 +256,14 @@
             <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                    <Setter Property="Stroke" Value="{DynamicResource ListBoxItemRadioGroupCheckIconDisabledBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource ListBoxItemRadioGroupCheckIconDisabledBackground}" />
                 </Style>
                 <Style Selector="^ /template/ Ellipse#CheckGlyph">
                     <Setter Property="Ellipse.Opacity" Value="1" />
                 </Style>
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                    <Setter Property="Foreground" Value="{DynamicResource ListBoxItemRadioGroupDisabledForeground}" />
                 </Style>
             </Style>
         </Style>
