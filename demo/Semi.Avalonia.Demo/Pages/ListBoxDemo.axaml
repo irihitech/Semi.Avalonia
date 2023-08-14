@@ -28,6 +28,20 @@
                      ItemTemplate="{StaticResource PandaTemplate}"
                      ItemContainerTheme="{StaticResource PandaControlTheme}">
             </ListBox>
+            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                <ListBox Theme="{DynamicResource ButtonRadioGroupListBox}"
+                         ItemsSource="{Binding $parent[local:ListBoxDemo].Items}"
+                         ItemTemplate="{StaticResource PandaTemplate}">
+                </ListBox>
+            </Border>
+            <ListBox Theme="{DynamicResource CardRadioGroupListBox}"
+                     ItemsSource="{Binding $parent[local:ListBoxDemo].Items}"
+                     ItemTemplate="{StaticResource PandaTemplate}">
+            </ListBox>
+            <ListBox Theme="{DynamicResource PureCardRadioGroupListBox}"
+                     ItemsSource="{Binding $parent[local:ListBoxDemo].Items}"
+                     ItemTemplate="{StaticResource PandaTemplate}">
+            </ListBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
