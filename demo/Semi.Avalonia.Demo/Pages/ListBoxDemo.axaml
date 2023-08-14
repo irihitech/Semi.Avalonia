@@ -4,22 +4,30 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Semi.Avalonia.Demo.Pages"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ListBox>
-        <ListBoxItem>Item 1</ListBoxItem>
-        <ListBoxItem>Item 2</ListBoxItem>
-        <ListBoxItem IsEnabled="False">Item 3</ListBoxItem>
-        <ListBoxItem>Item 4</ListBoxItem>
-        <ListBoxItem>Item 5</ListBoxItem>
-        <ListBoxItem>Item 6</ListBoxItem>
-        <ListBoxItem>Item 7</ListBoxItem>
-        <ListBoxItem IsEnabled="False">Item 8</ListBoxItem>
-        <ListBoxItem>Item 9</ListBoxItem>
-        <ListBoxItem>Item 10</ListBoxItem>
-        <ListBoxItem>Item 11</ListBoxItem>
-        <ListBoxItem>Item 12</ListBoxItem>
-        <ListBoxItem>Item 13</ListBoxItem>
-    </ListBox>
+    <UserControl.Resources>
+        <DataTemplate x:Key="PandaTemplate" DataType="local:Panda">
+            <TextBlock Text="{Binding Name}" />
+        </DataTemplate>
+        <ControlTheme
+            x:Key="PandaControlTheme"
+            BasedOn="{StaticResource RadioGroupListBoxItem}"
+            TargetType="ListBoxItem">
+            <Setter Property="IsEnabled" Value="{Binding IsAvailable}" />
+        </ControlTheme>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <StackPanel>
+            <ListBox ItemsSource="{Binding $parent[local:ListBoxDemo].Items}"
+                     ItemTemplate="{StaticResource PandaTemplate}" />
+            <ListBox Theme="{DynamicResource RadioGroupListBox}"
+                     ItemsSource="{Binding $parent[local:ListBoxDemo].Items}"
+                     ItemTemplate="{StaticResource PandaTemplate}"
+                     ItemContainerTheme="{StaticResource PandaControlTheme}">
+            </ListBox>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
