@@ -140,18 +140,6 @@
                             <ListBoxItem>Avalonia</ListBoxItem>
                             <ListBoxItem IsSelected="True">WPF</ListBoxItem>
                         </ListBox>
-
-                        <TextBlock Text="Theme: PureCardCheckGroupListBox"/>
-                        <ListBox
-                            SelectionMode="Multiple"
-                            Theme="{DynamicResource PureCardCheckGroupListBox}"
-                            ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
-                        <ListBox Theme="{DynamicResource PureCardCheckGroupListBox}"
-                                 SelectionMode="Multiple"
-                                 IsEnabled="False">
-                            <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
-                            <ListBoxItem>WPF</ListBoxItem>
-                        </ListBox>
                     </StackPanel>
                 </ScrollViewer>
             </HeaderedContentControl>
