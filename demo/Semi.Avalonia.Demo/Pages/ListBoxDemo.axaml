@@ -8,8 +8,13 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Styles>
+        <Style Selector="ListBox">
+            <Setter Property="SelectionMode" Value="Multiple" />
+        </Style>
+    </UserControl.Styles>
     <ScrollViewer>
-        <Grid ColumnDefinitions="*,*">
+        <Grid ColumnDefinitions="*,*,*">
             <HeaderedContentControl
                 Grid.Column="0"
                 Theme="{StaticResource GroupBox}"
@@ -104,6 +109,46 @@
                         <ListBoxItem>WPF</ListBoxItem>
                     </ListBox>
                 </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl
+                Grid.Column="2"
+                Theme="{DynamicResource GroupBox}"
+                Header="CheckGroupListBox">
+                <ScrollViewer>
+                    <StackPanel Spacing="20">
+                        <ListBox
+                            SelectionMode="Multiple"
+                            Theme="{DynamicResource CheckGroupListBox}"
+                            ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
+                        <ListBox Theme="{DynamicResource CheckGroupListBox}"
+                                 SelectionMode="Multiple"
+                                 IsEnabled="False">
+                            <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
+                            <ListBoxItem>WPF</ListBoxItem>
+                        </ListBox>
+                        <ListBox
+                            SelectionMode="Multiple"
+                            Theme="{DynamicResource CardCheckGroupListBox}"
+                            ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
+                        <ListBox Theme="{DynamicResource CardCheckGroupListBox}"
+                                 SelectionMode="Multiple"
+                                 IsEnabled="False">
+                            <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
+                            <ListBoxItem>WPF</ListBoxItem>
+                        </ListBox>
+                        <ListBox
+                            SelectionMode="Multiple"
+                            Theme="{DynamicResource PureCardCheckGroupListBox}"
+                            ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
+                        <ListBox Theme="{DynamicResource PureCardCheckGroupListBox}"
+                                 SelectionMode="Multiple"
+                                 IsEnabled="False">
+                            <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
+                            <ListBoxItem>WPF</ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </ScrollViewer>
             </HeaderedContentControl>
         </Grid>
     </ScrollViewer>
