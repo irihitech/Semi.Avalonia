@@ -5,14 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Semi.Avalonia.Demo.Pages"
-    d:DesignHeight="450"
+    d:DesignHeight="900"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <UserControl.Styles>
-        <Style Selector="ListBox">
-            <Setter Property="SelectionMode" Value="Multiple" />
-        </Style>
-    </UserControl.Styles>
     <ScrollViewer>
         <Grid ColumnDefinitions="*,*,*">
             <HeaderedContentControl
@@ -21,6 +16,7 @@
                 Header="Default">
                 <ScrollViewer>
                     <StackPanel Spacing="20">
+                        <TextBlock Text="Theme: Default"/>
                         <ListBox ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                         <ListBox IsEnabled="False">
                             <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
@@ -35,14 +31,16 @@
                 Theme="{DynamicResource GroupBox}"
                 Header="RadioGroupListBox">
                 <StackPanel Spacing="20">
+                    <TextBlock Text="Theme: RadioGroupListBox"/>
                     <ListBox
                         Theme="{DynamicResource RadioGroupListBox}"
                         ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                     <ListBox Theme="{DynamicResource RadioGroupListBox}" IsEnabled="False">
-                        <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
-                        <ListBoxItem>WPF</ListBoxItem>
+                        <ListBoxItem>Avalonia</ListBoxItem>
+                        <ListBoxItem IsSelected="True">WPF</ListBoxItem>
                     </ListBox>
 
+                    <TextBlock Text="Theme: ButtonRadioGroupListBox"/>
                     <StackPanel Orientation="Horizontal">
                         <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
                             <ListBox Theme="{DynamicResource ButtonRadioGroupListBox}">
@@ -95,6 +93,7 @@
                         </Border>
                     </StackPanel>
 
+                    <TextBlock Text="Theme: CardRadioGroupListBox"/>
                     <ListBox Theme="{DynamicResource CardRadioGroupListBox}"
                              ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                     <ListBox Theme="{DynamicResource CardRadioGroupListBox}" IsEnabled="False">
@@ -102,11 +101,12 @@
                         <ListBoxItem>WPF</ListBoxItem>
                     </ListBox>
 
+                    <TextBlock Text="Theme: PureCardRadioGroupListBox"/>
                     <ListBox Theme="{DynamicResource PureCardRadioGroupListBox}"
                              ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                     <ListBox Theme="{DynamicResource PureCardRadioGroupListBox}" IsEnabled="False">
-                        <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
-                        <ListBoxItem>WPF</ListBoxItem>
+                        <ListBoxItem>Avalonia</ListBoxItem>
+                        <ListBoxItem IsSelected="True">WPF</ListBoxItem>
                     </ListBox>
                 </StackPanel>
             </HeaderedContentControl>
@@ -117,6 +117,7 @@
                 Header="CheckGroupListBox">
                 <ScrollViewer>
                     <StackPanel Spacing="20">
+                        <TextBlock Text="Theme: CheckGroupListBox"/>
                         <ListBox
                             SelectionMode="Multiple"
                             Theme="{DynamicResource CheckGroupListBox}"
@@ -127,6 +128,8 @@
                             <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
                             <ListBoxItem>WPF</ListBoxItem>
                         </ListBox>
+
+                        <TextBlock Text="Theme: CardCheckGroupListBox"/>
                         <ListBox
                             SelectionMode="Multiple"
                             Theme="{DynamicResource CardCheckGroupListBox}"
@@ -134,9 +137,11 @@
                         <ListBox Theme="{DynamicResource CardCheckGroupListBox}"
                                  SelectionMode="Multiple"
                                  IsEnabled="False">
-                            <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
-                            <ListBoxItem>WPF</ListBoxItem>
+                            <ListBoxItem>Avalonia</ListBoxItem>
+                            <ListBoxItem IsSelected="True">WPF</ListBoxItem>
                         </ListBox>
+
+                        <TextBlock Text="Theme: PureCardCheckGroupListBox"/>
                         <ListBox
                             SelectionMode="Multiple"
                             Theme="{DynamicResource PureCardCheckGroupListBox}"
