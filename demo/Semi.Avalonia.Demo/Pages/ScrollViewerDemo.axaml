@@ -7,27 +7,69 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
-        <ScrollViewer
-            Width="200"
-            Height="200"
-            Margin="10"
-            HorizontalScrollBarVisibility="Auto">
-            <Rectangle
-                Width="300"
-                Height="300"
-                Fill="{DynamicResource SemiYellow2}" />
-        </ScrollViewer>
-        <ScrollViewer
-            Width="200"
-            Height="200"
-            Margin="10"
-            HorizontalScrollBarVisibility="Auto"
-            Theme="{DynamicResource StaticScrollViewer}">
-            <Rectangle
-                Width="300"
-                Height="300"
-                Fill="{DynamicResource SemiYellow2}" />
-        </ScrollViewer>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <ScrollViewer
+                Width="200"
+                Height="200"
+                Margin="10"
+                HorizontalScrollBarVisibility="Auto">
+                <Grid RowDefinitions="Auto,Auto"
+                      ColumnDefinitions="Auto,Auto"
+                      Width="300" Height="300">
+                    <Rectangle
+                        Grid.Row="0" Grid.Column="0"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiYellow2}" />
+                    <Rectangle
+                        Grid.Row="0" Grid.Column="1"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiBlue2}" />
+                    <Rectangle
+                        Grid.Row="1" Grid.Column="0"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiPink2}" />
+                    <Rectangle
+                        Grid.Row="1" Grid.Column="1"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiGreen2}" />
+                </Grid>
+            </ScrollViewer>
+            <ScrollViewer
+                Width="200"
+                Height="200"
+                Margin="10"
+                HorizontalScrollBarVisibility="Auto"
+                Theme="{DynamicResource StaticScrollViewer}">
+                <Grid RowDefinitions="Auto,Auto"
+                      ColumnDefinitions="Auto,Auto"
+                      Width="300" Height="300">
+                    <Rectangle
+                        Grid.Row="0" Grid.Column="0"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiYellow2}" />
+                    <Rectangle
+                        Grid.Row="0" Grid.Column="1"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiBlue2}" />
+                    <Rectangle
+                        Grid.Row="1" Grid.Column="0"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiPink2}" />
+                    <Rectangle
+                        Grid.Row="1" Grid.Column="1"
+                        Width="150"
+                        Height="150"
+                        Fill="{DynamicResource SemiGreen2}" />
+                </Grid>
+            </ScrollViewer>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

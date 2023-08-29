@@ -36,15 +36,20 @@ public partial class ButtonSpinnerDemo : UserControl
 
     private readonly string[] _mountains = new[]
     {
-        "Everest",
-        "K2 (Mount Godwin Austen)",
-        "Kangchenjunga",
-        "Lhotse",
-        "Makalu",
-        "Cho Oyu",
-        "Dhaulagiri",
-        "Manaslu",
-        "Nanga Parbat",
-        "Annapurna"
+        "A.S.I.A",
+        "饕餮人间",
+        "七步咙咚呛",
+        "大惊小怪",
+        "The ONE",
+        "以梦为马 (壮志骄阳版)",
+        "emo了",
+        "一眼万年",
+        "冲刺吧",
+        "爱的赏味期限",
+        "COSMIC ANTHEM / 手紙",
+        "世界晚安",
+        "明年也要好好长大",
+        "320万年前",
+        "W.O.R.L.D.",
     };
 }

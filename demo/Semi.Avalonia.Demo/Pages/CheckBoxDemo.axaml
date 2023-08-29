@@ -47,126 +47,79 @@
                     IsThreeState="True"
                     Theme="{StaticResource SimpleCheckBox}" />
             </StackPanel>
-            <TextBlock Margin="0,16" Text="CardCheckBox" />
+            <TextBlock Text="CardCheckBox" />
             <StackPanel Orientation="Horizontal">
-                <CheckBox Width="300" Theme="{DynamicResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                <StackPanel.Styles>
+                    <Style Selector="CheckBox">
+                        <Setter Property="Width" Value="150" />
+                        <Setter Property="Margin" Value="8" />
+                    </Style>
+                </StackPanel.Styles>
                 <CheckBox
-                    Width="300"
+                    Content="Windows"
                     IsChecked="True"
-                    Theme="{DynamicResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                    Theme="{DynamicResource CardCheckBox}" />
                 <CheckBox
-                    Width="300"
+                    Content="macOS"
+                    IsChecked="True"
+                    IsEnabled="False"
+                    Theme="{DynamicResource CardCheckBox}" />
+                <CheckBox
+                    Content="Linux"
+                    IsChecked="True"
+                    Theme="{DynamicResource CardCheckBox}" />
+                <CheckBox
+                    Content="iOS"
                     IsChecked="{x:Null}"
                     IsThreeState="True"
-                    Theme="{DynamicResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                    Theme="{DynamicResource CardCheckBox}" />
+                <CheckBox
+                    Content="Android"
+                    IsChecked="{x:Null}"
+                    IsThreeState="True"
+                    Theme="{DynamicResource CardCheckBox}" />
+                <CheckBox
+                    Content="Wasm"
+                    IsChecked="False"
+                    IsThreeState="True"
+                    Theme="{DynamicResource CardCheckBox}" />
             </StackPanel>
+            <TextBlock Text="PureCardCheckBox" />
             <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="CheckBox">
+                        <Setter Property="Width" Value="150" />
+                        <Setter Property="Margin" Value="8" />
+                    </Style>
+                </StackPanel.Styles>
                 <CheckBox
-                    Width="300"
-                    IsEnabled="False"
-                    Theme="{DynamicResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                    Content="Windows"
+                    IsChecked="True"
+                    Theme="{DynamicResource PureCardCheckBox}" />
                 <CheckBox
-                    Width="300"
+                    Content="macOS"
                     IsChecked="True"
                     IsEnabled="False"
-                    Theme="{DynamicResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                    Theme="{DynamicResource PureCardCheckBox}" />
                 <CheckBox
-                    Width="300"
-                    IsChecked="{x:Null}"
-                    IsEnabled="False"
-                    IsThreeState="True"
-                    Theme="{DynamicResource CardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-            </StackPanel>
-            <TextBlock Margin="0,16" Text="PureCardCheckBox" />
-            <StackPanel Orientation="Horizontal">
-                <CheckBox Width="300" Theme="{DynamicResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    Width="300"
+                    Content="Linux"
                     IsChecked="True"
-                    Theme="{DynamicResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                    Theme="{DynamicResource PureCardCheckBox}" />
                 <CheckBox
-                    Width="300"
+                    Content="iOS"
                     IsChecked="{x:Null}"
-                    IsEnabled="True"
                     IsThreeState="True"
-                    Theme="{DynamicResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
+                    Theme="{DynamicResource PureCardCheckBox}" />
                 <CheckBox
-                    Width="300"
-                    IsEnabled="False"
-                    Theme="{DynamicResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    Width="300"
-                    IsChecked="True"
-                    IsEnabled="False"
-                    Theme="{DynamicResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
-                <CheckBox
-                    Width="300"
+                    Content="Android"
                     IsChecked="{x:Null}"
-                    IsEnabled="False"
                     IsThreeState="True"
-                    Theme="{DynamicResource PureCardCheckBox}">
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold">复选框标题</TextBlock>
-                        <TextBlock TextWrapping="Wrap">Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统</TextBlock>
-                    </StackPanel>
-                </CheckBox>
+                    Theme="{DynamicResource PureCardCheckBox}" />
+                <CheckBox
+                    Content="Wasm"
+                    IsChecked="False"
+                    IsThreeState="True"
+                    Theme="{DynamicResource PureCardCheckBox}" />
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

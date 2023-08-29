@@ -1,0 +1,138 @@
+<Window
+    x:Class="Semi.Avalonia.TreeDataGrid.Demo.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Semi.Avalonia.TreeDataGrid.Demo.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.TreeDataGrid.Demo.ViewModels;assembly=Semi.Avalonia.TreeDataGrid.Demo"
+    Title="Semi.Avalonia.TreeDataGrid.Demo"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:MainViewModel"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <converters:FileIconConverter x:Key="FileIconConverter">
+            <PathGeometry x:Key="file">M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z</PathGeometry>
+            <PathGeometry x:Key="folderOpen">M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z</PathGeometry>
+            <PathGeometry x:Key="folderClosed">M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z</PathGeometry>
+        </converters:FileIconConverter>
+    </Window.Resources>
+    <Grid RowDefinitions="Auto, *">
+        <Button
+            HorizontalAlignment="Right"
+            Click="Button_OnClick"
+            Content="Theme" />
+        <TabControl Grid.Row="1">
+            <TabItem Header="Songs">
+                <TreeDataGrid
+                    AutoDragDropRows="True"
+                    DataContext="{Binding SongsContext}"
+                    Source="{Binding Songs}">
+                    <TreeDataGrid.Resources>
+                        <DataTemplate x:Key="AlbumCell" DataType="vm:SongViewModel">
+                            <TextBlock
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                Text="{Binding Album}" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="AlbumEditCell" DataType="vm:SongViewModel">
+                            <ComboBox
+                                VerticalAlignment="Center"
+                                Classes="Small"
+                                ItemsSource="{x:Static vm:Song.Albums}"
+                                SelectedItem="{Binding Album}" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="CommentsCell" DataType="vm:SongViewModel">
+                            <TextBlock VerticalAlignment="Center" Text="{Binding CountOfComment}" />
+                        </DataTemplate>
+                        <DataTemplate x:Key="CommentsEditCell" DataType="vm:SongViewModel">
+                            <NumericUpDown
+                                Width="100"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Classes="Small"
+                                Value="{Binding CountOfComment}" />
+                        </DataTemplate>
+                    </TreeDataGrid.Resources>
+                    <TreeDataGrid.Styles>
+                        <Style Selector="TreeDataGrid TreeDataGridRow:nth-last-child(2n)">
+                            <Setter Property="Background" Value="#20808080" />
+                        </Style>
+                    </TreeDataGrid.Styles>
+                </TreeDataGrid>
+            </TabItem>
+            <TabItem Header="Files">
+                <Grid DataContext="{Binding FilesContext}" RowDefinitions="Auto, *">
+                    <DockPanel Margin="0,4" DockPanel.Dock="Top">
+                        <ComboBox
+                            DockPanel.Dock="Left"
+                            ItemsSource="{Binding Drives}"
+                            SelectedItem="{Binding SelectedDrive}" />
+                        <TextBox
+                            Margin="4,0,0,0"
+                            VerticalContentAlignment="Center"
+                            KeyDown="SelectedPath_KeyDown"
+                            Text="{Binding SelectedPath, Mode=OneWay}" />
+                    </DockPanel>
+                    <TreeDataGrid
+                        Name="fileViewer"
+                        Grid.Row="1"
+                        Source="{Binding Source}">
+                        <TreeDataGrid.Resources>
+
+                            <!--  Template for Name column cells  -->
+                            <DataTemplate x:Key="FileNameCell" DataType="vm:FileNodeViewModel">
+                                <StackPanel Orientation="Horizontal">
+                                    <PathIcon
+                                        Width="16"
+                                        Height="16"
+                                        Margin="8,0"
+                                        VerticalAlignment="Center">
+                                        <PathIcon.Data>
+                                            <MultiBinding Converter="{StaticResource FileIconConverter}">
+                                                <Binding Path="IsDirectory" />
+                                                <Binding Path="IsExpanded" />
+                                            </MultiBinding>
+                                        </PathIcon.Data>
+                                    </PathIcon>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                            <!--  Edit template for Name column cells  -->
+                            <DataTemplate x:Key="FileNameEditCell" DataType="vm:FileNodeViewModel">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Margin="0,0,4,0" VerticalAlignment="Center">
+                                        <Image.Source>
+                                            <MultiBinding Converter="{StaticResource FileIconConverter}">
+                                                <Binding Path="IsDirectory" />
+                                                <Binding Path="IsExpanded" />
+                                            </MultiBinding>
+                                        </Image.Source>
+                                    </Image>
+                                    <TextBox
+                                        VerticalAlignment="Center"
+                                        Classes="Small"
+                                        Text="{Binding Name}">
+                                        <TextBox.Styles>
+                                            <Style Selector="DataValidationErrors">
+                                                <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
+                                            </Style>
+                                        </TextBox.Styles>
+                                    </TextBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </TreeDataGrid.Resources>
+                        <TreeDataGrid.Styles>
+                            <Style Selector="TreeDataGrid TreeDataGridRow:nth-child(2n)">
+                                <Setter Property="Background" Value="#20808080" />
+                            </Style>
+                        </TreeDataGrid.Styles>
+                    </TreeDataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

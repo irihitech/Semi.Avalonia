@@ -1,0 +1,163 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.SelectableTextBlockDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="SelectableTextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="4" />
+                </Style>
+            </StackPanel.Styles>
+            <HeaderedContentControl
+                Width="400"
+                Height="400"
+                Margin="16"
+                VerticalAlignment="Top"
+                Header="Default Theme"
+                Theme="{DynamicResource GroupBox}">
+                <Grid
+                    VerticalAlignment="Top"
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
+                    <SelectableTextBlock Grid.Row="1" Grid.Column="0">Classes</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="2" Grid.Column="0">-</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="3" Grid.Column="0">Secondary</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="4" Grid.Column="0">Tertiary</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="5" Grid.Column="0">Quaternary</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="6" Grid.Column="0">Warning</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="7" Grid.Column="0">Danger</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="8" Grid.Column="0">Success</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="9" Grid.Column="0">Mark</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="10" Grid.Column="0">Underline</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="11" Grid.Column="0">Delete</SelectableTextBlock>
+
+                    <SelectableTextBlock Grid.Row="2" Grid.Column="1">Text</SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Classes="Secondary">
+                        Secondary
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Classes="Tertiary">
+                        Tertiary
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Classes="Quaternary">
+                        Quaternary
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Classes="Warning">
+                        Warning
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Classes="Danger">
+                        Danger
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="8"
+                        Grid.Column="1"
+                        Classes="Success">
+                        Success
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        Classes="Mark">
+                        Default Mark
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        Classes="Underline">
+                        Underline
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="11"
+                        Grid.Column="1"
+                        Classes="Delete">
+                        Delete
+                    </SelectableTextBlock>
+                </Grid>
+            </HeaderedContentControl>
+            <HeaderedContentControl
+                Width="400"
+                Height="400"
+                Margin="16"
+                VerticalAlignment="Top"
+                Header="Theme: TitleSelectableTextBlock"
+                Theme="{DynamicResource GroupBox}">
+                <Grid
+                    VerticalAlignment="Top"
+                    Background="{Binding}"
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="*,*,*,*,*,*,*,*">
+                    <SelectableTextBlock Grid.Row="1" Grid.Column="0">Classes</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="2" Grid.Column="0">H1</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="3" Grid.Column="0">H2</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="4" Grid.Column="0">H3</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="5" Grid.Column="0">H4</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="6" Grid.Column="0">H5</SelectableTextBlock>
+                    <SelectableTextBlock Grid.Row="7" Grid.Column="0">H6</SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Classes="H1"
+                        Theme="{StaticResource TitleSelectableTextBlock}">
+                        Header 1
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Classes="H2"
+                        Theme="{StaticResource TitleSelectableTextBlock}">
+                        Header 2
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Classes="H3"
+                        Theme="{StaticResource TitleSelectableTextBlock}">
+                        Header 3
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Classes="H4"
+                        Theme="{StaticResource TitleSelectableTextBlock}">
+                        Header 4
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Classes="H5"
+                        Theme="{StaticResource TitleSelectableTextBlock}">
+                        Header 5
+                    </SelectableTextBlock>
+                    <SelectableTextBlock
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Classes="H6"
+                        Theme="{StaticResource TitleSelectableTextBlock}">
+                        Header 6
+                    </SelectableTextBlock>
+                </Grid>
+            </HeaderedContentControl>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

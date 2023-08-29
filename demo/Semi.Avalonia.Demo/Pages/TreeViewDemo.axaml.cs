@@ -19,6 +19,8 @@ public class TreeViewVm : ObservableObject
 {
     public ObservableCollection<TreeViewItemVm> Items { get; set; }
 
+    public ObservableCollection<FirstItem>? MultipleLevelItems { get; set; }
+
     public TreeViewVm()
     {
         Items = new ObservableCollection<TreeViewItemVm>()
@@ -33,6 +35,25 @@ public class TreeViewVm : ObservableObject
             },
             },
         };
+
+        MultipleLevelItems = new();
+        for (int i = 1; i < 6; i++)
+        {
+            FirstItem firstItem = new FirstItem { Id = i, Name = $"FirstItem {i}" };
+            firstItem.SecondItems = new();
+            for (int j = 1; j < 6; j++)
+            {
+                SecondItem secondItem = new SecondItem { Id = j, Name = $"SecondItem {j}" };
+                secondItem.ThirdItemItems = new();
+                for (int k = 1; k < 6; k++)
+                {
+                    ThirdItem thirdItem = new ThirdItem { Id = k, Name = $"ThirdItem {k}" };
+                    secondItem.ThirdItemItems.Add(thirdItem);
+                }
+                firstItem.SecondItems.Add(secondItem);
+            }
+            MultipleLevelItems.Add(firstItem);
+        }
     }
 }
 
@@ -42,3 +63,24 @@ public partial class TreeViewItemVm : ObservableObject
     public string Name { get; set; }
     public string Id { get; set; }
 }
+
+public class ItemBase
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+}
+public class FirstItem : ItemBase
+{
+    public ObservableCollection<SecondItem>? SecondItems { get; set; }
+}
+public class SecondItem : ItemBase
+{
+    public ObservableCollection<ThirdItem>? ThirdItemItems { get; set; }
+
+}
+public class ThirdItem : ItemBase
+{
+}
+
+
+

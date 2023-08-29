@@ -7,82 +7,157 @@
     d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Orientation="Horizontal">
-        <StackPanel
-            Margin="20"
-            HorizontalAlignment="Left"
-            Spacing="5">
-            <TextBlock>Styles for TextBlock</TextBlock>
-            <TextBlock Classes="H1" Theme="{StaticResource TitleTextBlock}">Header 1</TextBlock>
-            <TextBlock Classes="H2" Theme="{StaticResource TitleTextBlock}">Header 1</TextBlock>
-            <TextBlock Classes="H3" Theme="{StaticResource TitleTextBlock}">Header 1</TextBlock>
-            <TextBlock Classes="H4" Theme="{StaticResource TitleTextBlock}">Header 1</TextBlock>
-            <TextBlock Classes="H5" Theme="{StaticResource TitleTextBlock}">Header 1</TextBlock>
-            <TextBlock Classes="H6" Theme="{StaticResource TitleTextBlock}">Header 1</TextBlock>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="4" />
+                </Style>
+            </StackPanel.Styles>
+            <HeaderedContentControl
+                Width="400"
+                Height="400"
+                Margin="16"
+                VerticalAlignment="Top"
+                Header="Default Theme"
+                Theme="{DynamicResource GroupBox}">
+                <Grid
+                    VerticalAlignment="Top"
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
+                    <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0">-</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0">Secondary</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0">Tertiary</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="0">Quaternary</TextBlock>
+                    <TextBlock Grid.Row="6" Grid.Column="0">Warning</TextBlock>
+                    <TextBlock Grid.Row="7" Grid.Column="0">Danger</TextBlock>
+                    <TextBlock Grid.Row="8" Grid.Column="0">Success</TextBlock>
+                    <TextBlock Grid.Row="9" Grid.Column="0">Mark</TextBlock>
+                    <TextBlock Grid.Row="10" Grid.Column="0">Underline</TextBlock>
+                    <TextBlock Grid.Row="11" Grid.Column="0">Delete</TextBlock>
 
-            <TextBlock>Text</TextBlock>
-            <TextBlock Classes="Secondary">Secondary</TextBlock>
-            <TextBlock Classes="Tertiary">Tertiary</TextBlock>
-            <TextBlock Classes="Quaternary">Quaternary</TextBlock>
-            <TextBlock Classes="Warning">Warning</TextBlock>
-            <TextBlock Classes="Warning" IsEnabled="False">Warning disabled</TextBlock>
-            <TextBlock Classes="Danger">Danger</TextBlock>
-            <TextBlock Classes="Success">Success</TextBlock>
-            <TextBlock IsEnabled="False">Disabled</TextBlock>
-            <TextBlock Classes="Mark">Default Mark</TextBlock>
-            <TextBlock Classes="Underline">Underline</TextBlock>
-            <TextBlock Classes="Delete">Delete</TextBlock>
-            <TextBlock Classes="Underline Delete">Underline and Delete</TextBlock>
-        </StackPanel>
-        <StackPanel
-            Margin="20"
-            HorizontalAlignment="Left"
-            Spacing="5">
-            <TextBlock>Styles for SelectableTextBlock</TextBlock>
-            <SelectableTextBlock Classes="H1" Theme="{StaticResource TitleSelectableTextBlock}">Header 1</SelectableTextBlock>
-            <SelectableTextBlock Classes="H2" Theme="{StaticResource TitleSelectableTextBlock}">Header 1</SelectableTextBlock>
-            <SelectableTextBlock Classes="H3" Theme="{StaticResource TitleSelectableTextBlock}">Header 1</SelectableTextBlock>
-            <SelectableTextBlock Classes="H4" Theme="{StaticResource TitleSelectableTextBlock}">Header 1</SelectableTextBlock>
-            <SelectableTextBlock Classes="H5" Theme="{StaticResource TitleSelectableTextBlock}">Header 1</SelectableTextBlock>
-            <SelectableTextBlock Classes="H6" Theme="{StaticResource TitleSelectableTextBlock}">Header 1</SelectableTextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="1">Text</TextBlock>
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Classes="Secondary">
+                        Secondary
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Classes="Tertiary">
+                        Tertiary
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Classes="Quaternary">
+                        Quaternary
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Classes="Warning">
+                        Warning
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Classes="Danger">
+                        Danger
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="8"
+                        Grid.Column="1"
+                        Classes="Success">
+                        Success
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        Classes="Mark">
+                        Default Mark
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        Classes="Underline">
+                        Underline
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="11"
+                        Grid.Column="1"
+                        Classes="Delete">
+                        Delete
+                    </TextBlock>
+                </Grid>
+            </HeaderedContentControl>
+            <HeaderedContentControl
+                Width="400"
+                Height="400"
+                Margin="16"
+                VerticalAlignment="Top"
+                Header="Theme: TitleTextBlock"
+                Theme="{DynamicResource GroupBox}">
+                <Grid
+                    VerticalAlignment="Top"
+                    ColumnDefinitions="Auto, *"
+                    RowDefinitions="*,*,*,*,*,*,*,*">
+                    <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0">H1</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0">H2</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0">H3</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="0">H4</TextBlock>
+                    <TextBlock Grid.Row="6" Grid.Column="0">H5</TextBlock>
+                    <TextBlock Grid.Row="7" Grid.Column="0">H6</TextBlock>
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Classes="H1"
+                        Theme="{StaticResource TitleTextBlock}">
+                        Header 1
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Classes="H2"
+                        Theme="{StaticResource TitleTextBlock}">
+                        Header 2
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Classes="H3"
+                        Theme="{StaticResource TitleTextBlock}">
+                        Header 3
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Classes="H4"
+                        Theme="{StaticResource TitleTextBlock}">
+                        Header 4
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Classes="H5"
+                        Theme="{StaticResource TitleTextBlock}">
+                        Header 5
+                    </TextBlock>
+                    <TextBlock
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Classes="H6"
+                        Theme="{StaticResource TitleTextBlock}">
+                        Header 6
+                    </TextBlock>
+                </Grid>
 
-            <SelectableTextBlock>Text</SelectableTextBlock>
-            <SelectableTextBlock Classes="Secondary">Secondary</SelectableTextBlock>
-            <SelectableTextBlock Classes="Tertiary">Tertiary</SelectableTextBlock>
-            <SelectableTextBlock Classes="Quaternary">Quaternary</SelectableTextBlock>
-            <SelectableTextBlock Classes="Warning">Warning</SelectableTextBlock>
-            <SelectableTextBlock Classes="Warning" IsEnabled="False">Warning disabled</SelectableTextBlock>
-            <SelectableTextBlock Classes="Danger">Danger</SelectableTextBlock>
-            <SelectableTextBlock Classes="Success">Success</SelectableTextBlock>
-            <SelectableTextBlock IsEnabled="False">Disabled</SelectableTextBlock>
-            <SelectableTextBlock Classes="Mark">Default Mark</SelectableTextBlock>
-            <SelectableTextBlock Classes="Underline">Underline</SelectableTextBlock>
-            <SelectableTextBlock Classes="Delete">Delete</SelectableTextBlock>
-            <SelectableTextBlock Classes="Underline Delete">Underline and Delete</SelectableTextBlock>
+            </HeaderedContentControl>
         </StackPanel>
-        <StackPanel
-            Margin="20"
-            HorizontalAlignment="Left"
-            Spacing="5">
-            <TextBlock>Styles for Label</TextBlock>
-            <Label Classes="H1" Theme="{StaticResource TitleLabel}">Header 1</Label>
-            <Label Classes="H2" Theme="{StaticResource TitleLabel}">Header 1</Label>
-            <Label Classes="H3" Theme="{StaticResource TitleLabel}">Header 1</Label>
-            <Label Classes="H4" Theme="{StaticResource TitleLabel}">Header 1</Label>
-            <Label Classes="H5" Theme="{StaticResource TitleLabel}">Header 1</Label>
-            <Label Classes="H6" Theme="{StaticResource TitleLabel}">Header 1</Label>
-
-            <Label>Text</Label>
-            <Label Classes="Secondary">Secondary</Label>
-            <Label Classes="Tertiary">Tertiary</Label>
-            <Label Classes="Quaternary">Quaternary</Label>
-            <Label Classes="Warning">Warning</Label>
-            <Label Classes="Warning" IsEnabled="False">Warning disabled</Label>
-            <Label Classes="Danger">Danger</Label>
-            <Label Classes="Success">Success</Label>
-            <Label IsEnabled="False">Disabled</Label>
-            <Label Classes="Mark">Default Mark</Label>
-            <Label Classes="Code">Example Code</Label>
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>

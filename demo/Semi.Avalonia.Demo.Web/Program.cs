@@ -1,17 +1,16 @@
 ﻿using System.Runtime.Versioning;
+using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Media;
-using Semi.Avalonia.Demo.Web;
 using Avalonia.Browser;
 
 [assembly: SupportedOSPlatform("browser")]
 
+namespace Semi.Avalonia.Demo.Web;
+
 internal partial class Program
 {
-    private static void Main(string[] args)
-    {
-        BuildAvaloniaApp(); //.SetupBrowserApp("out");
-    }
+    private static async Task Main(string[] args) => await BuildAvaloniaApp()
+        .StartBrowserAppAsync("out");
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>();

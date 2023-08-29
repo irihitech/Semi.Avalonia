@@ -11,19 +11,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Assets\SourceHanSansCN-Regular.otf" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <AvaloniaResource Include="Assets\SourceHanSansCN-Regular.otf" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj" />
+        <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj" />
     </ItemGroup>
 </Project>
