@@ -1,18 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  
-  <Import Project="../Package.props" />
-  
-  <PropertyGroup>
-    <Title>Semi.Avalonia</Title>
-    <PackageReleaseNotes>Update to Avalonia 11.0.0-rc1</PackageReleaseNotes>
-  </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-  </ItemGroup>
+    <Import Project="../Package.props"/>
 
-  <ItemGroup>
-    <Folder Include="Themes\Styles" />
-  </ItemGroup>
+    <PropertyGroup>
+        <Title>Semi.Avalonia</Title>
+        <PackageReleaseNotes>Update to Avalonia 11.0.0-rc1</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+    </ItemGroup>
 
 </Project>

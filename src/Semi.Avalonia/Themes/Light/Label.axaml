@@ -1,109 +1,95 @@
-<ResourceDictionary
-    xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Typography related resources are combined with TextBlock  -->
-
-    <Thickness x:Key="LabelTagBorderThickness">1</Thickness>
-    <Thickness x:Key="LabelTagSmallPadding">8 2</Thickness>
-    <Thickness x:Key="LabelTagLargePadding">8 4</Thickness>
-    <sys:Double x:Key="LabelTagSmallHeight">20</sys:Double>
-    <sys:Double x:Key="LabelTagLargeHeight">24</sys:Double>
-    <sys:Double x:Key="LabelTagFontSize">12</sys:Double>
-    <CornerRadius x:Key="LabelTagSquareCornerRadius">3</CornerRadius>
-    <CornerRadius x:Key="LabelTagCircleCornerRadius">9999</CornerRadius>
-
-    <SolidColorBrush x:Key="LabelTagLightAmberForeground" Color="#784606" />
-    <SolidColorBrush x:Key="LabelTagLightAmberBackground" Opacity="0.15" Color="#F0B114" />
-    <SolidColorBrush x:Key="LabelTagLightBlueForeground" Color="#003D8F" />
-    <SolidColorBrush x:Key="LabelTagLightBlueBackground" Opacity="0.15" Color="#0077FA" />
-    <SolidColorBrush x:Key="LabelTagLightCyanForeground" Color="#004D5B" />
-    <SolidColorBrush x:Key="LabelTagLightCyanBackground" Opacity="0.15" Color="#05A4B6" />
-    <SolidColorBrush x:Key="LabelTagLightGreenForeground" Color="#1B5924" />
-    <SolidColorBrush x:Key="LabelTagLightGreenBackground" Opacity="0.15" Color="#3BB346" />
-    <SolidColorBrush x:Key="LabelTagLightGreyForeground" Color="#2E3238" />
-    <SolidColorBrush x:Key="LabelTagLightGreyBackground" Opacity="0.15" Color="#6B7075" />
-    <SolidColorBrush x:Key="LabelTagLightIndigoForeground" Color="#1F2878" />
-    <SolidColorBrush x:Key="LabelTagLightIndigoBackground" Opacity="0.15" Color="#3F51B5" />
-    <SolidColorBrush x:Key="LabelTagLightLightBlueForeground" Color="#004B83" />
-    <SolidColorBrush x:Key="LabelTagLightLightBlueBackground" Opacity="0.15" Color="#0095EE" />
-    <SolidColorBrush x:Key="LabelTagLightLightGreenForeground" Color="#395B1B" />
-    <SolidColorBrush x:Key="LabelTagLightLightGreenBackground" Opacity="0.15" Color="#7BB63C" />
-    <SolidColorBrush x:Key="LabelTagLightLimeForeground" Color="#486800" />
-    <SolidColorBrush x:Key="LabelTagLightLimeBackground" Opacity="0.15" Color="#9BD100" />
-    <SolidColorBrush x:Key="LabelTagLightOrangeForeground" Color="#7E3100" />
-    <SolidColorBrush x:Key="LabelTagLightOrangeBackground" Opacity="0.15" Color="#FC8800" />
+    <SolidColorBrush x:Key="LabelTagLightRedForeground" Color="#8E0805" />
+    <SolidColorBrush x:Key="LabelTagLightRedBackground" Opacity="0.15" Color="#F93920" />
     <SolidColorBrush x:Key="LabelTagLightPinkForeground" Color="#7E053A" />
     <SolidColorBrush x:Key="LabelTagLightPinkBackground" Opacity="0.15" Color="#E91E63" />
     <SolidColorBrush x:Key="LabelTagLightPurpleForeground" Color="#5C0F75" />
     <SolidColorBrush x:Key="LabelTagLightPurpleBackground" Opacity="0.15" Color="#9E28B3" />
-    <SolidColorBrush x:Key="LabelTagLightRedForeground" Color="#8E0805" />
-    <SolidColorBrush x:Key="LabelTagLightRedBackground" Opacity="0.15" Color="#F93920" />
-    <SolidColorBrush x:Key="LabelTagLightTealForeground" Color="#005955" />
-    <SolidColorBrush x:Key="LabelTagLightTealBackground" Opacity="0.15" Color="#00B3A1" />
     <SolidColorBrush x:Key="LabelTagLightVioletForeground" Color="#6A3AC7" />
     <SolidColorBrush x:Key="LabelTagLightVioletBackground" Opacity="0.15" Color="#361C8A" />
+    <SolidColorBrush x:Key="LabelTagLightIndigoForeground" Color="#1F2878" />
+    <SolidColorBrush x:Key="LabelTagLightIndigoBackground" Opacity="0.15" Color="#3F51B5" />
+    <SolidColorBrush x:Key="LabelTagLightBlueForeground" Color="#003D8F" />
+    <SolidColorBrush x:Key="LabelTagLightBlueBackground" Opacity="0.15" Color="#0077FA" />
+    <SolidColorBrush x:Key="LabelTagLightLightBlueForeground" Color="#004B83" />
+    <SolidColorBrush x:Key="LabelTagLightLightBlueBackground" Opacity="0.15" Color="#0095EE" />
+    <SolidColorBrush x:Key="LabelTagLightCyanForeground" Color="#004D5B" />
+    <SolidColorBrush x:Key="LabelTagLightCyanBackground" Opacity="0.15" Color="#05A4B6" />
+    <SolidColorBrush x:Key="LabelTagLightTealForeground" Color="#005955" />
+    <SolidColorBrush x:Key="LabelTagLightTealBackground" Opacity="0.15" Color="#00B3A1" />
+    <SolidColorBrush x:Key="LabelTagLightGreenForeground" Color="#1B5924" />
+    <SolidColorBrush x:Key="LabelTagLightGreenBackground" Opacity="0.15" Color="#3BB346" />
+    <SolidColorBrush x:Key="LabelTagLightLightGreenForeground" Color="#395B1B" />
+    <SolidColorBrush x:Key="LabelTagLightLightGreenBackground" Opacity="0.15" Color="#7BB63C" />
+    <SolidColorBrush x:Key="LabelTagLightLimeForeground" Color="#486800" />
+    <SolidColorBrush x:Key="LabelTagLightLimeBackground" Opacity="0.15" Color="#9BD100" />
     <SolidColorBrush x:Key="LabelTagLightYellowForeground" Color="#7D6A00" />
     <SolidColorBrush x:Key="LabelTagLightYellowBackground" Opacity="0.15" Color="#FAC800" />
+    <SolidColorBrush x:Key="LabelTagLightAmberForeground" Color="#784606" />
+    <SolidColorBrush x:Key="LabelTagLightAmberBackground" Opacity="0.15" Color="#F0B114" />
+    <SolidColorBrush x:Key="LabelTagLightOrangeForeground" Color="#7E3100" />
+    <SolidColorBrush x:Key="LabelTagLightOrangeBackground" Opacity="0.15" Color="#FC8800" />
+    <SolidColorBrush x:Key="LabelTagLightGreyForeground" Color="#2E3238" />
+    <SolidColorBrush x:Key="LabelTagLightGreyBackground" Opacity="0.15" Color="#6B7075" />
     <SolidColorBrush x:Key="LabelTagLightWhiteForeground" Color="#1C1F23" />
     <SolidColorBrush x:Key="LabelTagLightWhiteBackground" Opacity="0.15" Color="#FFFFFF" />
     <SolidColorBrush x:Key="LabelTagLightWhiteBorderBrush" Color="#C6CACD" />
 
-    <SolidColorBrush x:Key="LabelTagGhostAmberBorderBrush" Color="#F3C341" />
-    <SolidColorBrush x:Key="LabelTagGhostAmberForeground" Color="#F0B114" />
-    <SolidColorBrush x:Key="LabelTagGhostBlueBorderBrush" Color="#3295FB" />
-    <SolidColorBrush x:Key="LabelTagGhostBlueForeground" Color="#0077FA" />
-    <SolidColorBrush x:Key="LabelTagGhostCyanBorderBrush" Color="#2CB8C5" />
-    <SolidColorBrush x:Key="LabelTagGhostCyanForeground" Color="#05A4B6" />
-    <SolidColorBrush x:Key="LabelTagGhostGreenBorderBrush" Color="#5AC262" />
-    <SolidColorBrush x:Key="LabelTagGhostGreenForeground" Color="#3BB346" />
-    <SolidColorBrush x:Key="LabelTagGhostGreyBorderBrush" Color="#888D92" />
-    <SolidColorBrush x:Key="LabelTagGhostGreyForeground" Color="#6B7075" />
-    <SolidColorBrush x:Key="LabelTagGhostIndigoBorderBrush" Color="#5E6FC4" />
-    <SolidColorBrush x:Key="LabelTagGhostIndigoForeground" Color="#3F51B5" />
-    <SolidColorBrush x:Key="LabelTagGhostLightBlueBorderBrush" Color="#30ACF1" />
-    <SolidColorBrush x:Key="LabelTagGhostLightBlueForeground" Color="#0095EE" />
-    <SolidColorBrush x:Key="LabelTagGhostLightGreenBorderBrush" Color="#93C55B" />
-    <SolidColorBrush x:Key="LabelTagGhostLightGreenForeground" Color="#7BB63C" />
-    <SolidColorBrush x:Key="LabelTagGhostLimeBorderBrush" Color="#A7DA2C" />
-    <SolidColorBrush x:Key="LabelTagGhostLimeForeground" Color="#9BD100" />
-    <SolidColorBrush x:Key="LabelTagGhostOrangeBorderBrush" Color="#FDA633" />
-    <SolidColorBrush x:Key="LabelTagGhostOrangeForeground" Color="#FC8800" />
+    <SolidColorBrush x:Key="LabelTagGhostRedBorderBrush" Color="#FA664C" />
+    <SolidColorBrush x:Key="LabelTagGhostRedForeground" Color="#F93920" />
     <SolidColorBrush x:Key="LabelTagGhostPinkBorderBrush" Color="#ED487B" />
     <SolidColorBrush x:Key="LabelTagGhostPinkForeground" Color="#E91E63" />
     <SolidColorBrush x:Key="LabelTagGhostPurpleBorderBrush" Color="#B449C2" />
     <SolidColorBrush x:Key="LabelTagGhostPurpleForeground" Color="#9E28B3" />
-    <SolidColorBrush x:Key="LabelTagGhostRedBorderBrush" Color="#FA664C" />
-    <SolidColorBrush x:Key="LabelTagGhostRedForeground" Color="#F93920" />
-    <SolidColorBrush x:Key="LabelTagGhostTealBorderBrush" Color="#27C2B0" />
-    <SolidColorBrush x:Key="LabelTagGhostTealForeground" Color="#00B3A1" />
     <SolidColorBrush x:Key="LabelTagGhostVioletBorderBrush" Color="#885BD2" />
     <SolidColorBrush x:Key="LabelTagGhostVioletForeground" Color="#6A3AC7" />
+    <SolidColorBrush x:Key="LabelTagGhostIndigoBorderBrush" Color="#5E6FC4" />
+    <SolidColorBrush x:Key="LabelTagGhostIndigoForeground" Color="#3F51B5" />
+    <SolidColorBrush x:Key="LabelTagGhostBlueBorderBrush" Color="#3295FB" />
+    <SolidColorBrush x:Key="LabelTagGhostBlueForeground" Color="#0077FA" />
+    <SolidColorBrush x:Key="LabelTagGhostLightBlueBorderBrush" Color="#30ACF1" />
+    <SolidColorBrush x:Key="LabelTagGhostLightBlueForeground" Color="#0095EE" />
+    <SolidColorBrush x:Key="LabelTagGhostCyanBorderBrush" Color="#2CB8C5" />
+    <SolidColorBrush x:Key="LabelTagGhostCyanForeground" Color="#05A4B6" />
+    <SolidColorBrush x:Key="LabelTagGhostTealBorderBrush" Color="#27C2B0" />
+    <SolidColorBrush x:Key="LabelTagGhostTealForeground" Color="#00B3A1" />
+    <SolidColorBrush x:Key="LabelTagGhostGreenBorderBrush" Color="#5AC262" />
+    <SolidColorBrush x:Key="LabelTagGhostGreenForeground" Color="#3BB346" />
+    <SolidColorBrush x:Key="LabelTagGhostLightGreenBorderBrush" Color="#93C55B" />
+    <SolidColorBrush x:Key="LabelTagGhostLightGreenForeground" Color="#7BB63C" />
+    <SolidColorBrush x:Key="LabelTagGhostLimeBorderBrush" Color="#A7DA2C" />
+    <SolidColorBrush x:Key="LabelTagGhostLimeForeground" Color="#9BD100" />
     <SolidColorBrush x:Key="LabelTagGhostYellowBorderBrush" Color="#FBDA32" />
     <SolidColorBrush x:Key="LabelTagGhostYellowForeground" Color="#FAC800" />
+    <SolidColorBrush x:Key="LabelTagGhostAmberBorderBrush" Color="#F3C341" />
+    <SolidColorBrush x:Key="LabelTagGhostAmberForeground" Color="#F0B114" />
+    <SolidColorBrush x:Key="LabelTagGhostOrangeBorderBrush" Color="#FDA633" />
+    <SolidColorBrush x:Key="LabelTagGhostOrangeForeground" Color="#FC8800" />
+    <SolidColorBrush x:Key="LabelTagGhostGreyBorderBrush" Color="#888D92" />
+    <SolidColorBrush x:Key="LabelTagGhostGreyForeground" Color="#6B7075" />
     <SolidColorBrush x:Key="LabelTagGhostWhiteBorderBrush" Color="#C6CACD" />
     <SolidColorBrush x:Key="LabelTagGhostWhiteForeground" Color="#1C1F23" />
 
     <SolidColorBrush x:Key="LabelTagSolidForeground" Color="#FFFFFF" />
-    <SolidColorBrush x:Key="LabelTagSolidAmberBackground" Color="#F0B114" />
-    <SolidColorBrush x:Key="LabelTagSolidBlueBackground" Color="#0077FA" />
-    <SolidColorBrush x:Key="LabelTagSolidCyanBackground" Color="#05A4B6" />
-    <SolidColorBrush x:Key="LabelTagSolidGreenBackground" Color="#3BB346" />
-    <SolidColorBrush x:Key="LabelTagSolidGreyBackground" Color="#6B7075" />
-    <SolidColorBrush x:Key="LabelTagSolidIndigoBackground" Color="#3F51B5" />
-    <SolidColorBrush x:Key="LabelTagSolidLightBlueBackground" Color="#0095EE" />
-    <SolidColorBrush x:Key="LabelTagSolidLightGreenBackground" Color="#7BB63C" />
-    <SolidColorBrush x:Key="LabelTagSolidLimeBackground" Color="#9BD100" />
-    <SolidColorBrush x:Key="LabelTagSolidOrangeBackground" Color="#FC8800" />
+    <SolidColorBrush x:Key="LabelTagSolidRedBackground" Color="#F93920" />
     <SolidColorBrush x:Key="LabelTagSolidPinkBackground" Color="#E91E63" />
     <SolidColorBrush x:Key="LabelTagSolidPurpleBackground" Color="#9E28B3" />
-    <SolidColorBrush x:Key="LabelTagSolidRedBackground" Color="#F93920" />
-    <SolidColorBrush x:Key="LabelTagSolidTealBackground" Color="#00B3A1" />
     <SolidColorBrush x:Key="LabelTagSolidVioletBackground" Color="#6A3AC7" />
+    <SolidColorBrush x:Key="LabelTagSolidIndigoBackground" Color="#3F51B5" />
+    <SolidColorBrush x:Key="LabelTagSolidBlueBackground" Color="#0077FA" />
+    <SolidColorBrush x:Key="LabelTagSolidLightBlueBackground" Color="#0095EE" />
+    <SolidColorBrush x:Key="LabelTagSolidCyanBackground" Color="#05A4B6" />
+    <SolidColorBrush x:Key="LabelTagSolidTealBackground" Color="#00B3A1" />
+    <SolidColorBrush x:Key="LabelTagSolidGreenBackground" Color="#3BB346" />
+    <SolidColorBrush x:Key="LabelTagSolidLightGreenBackground" Color="#7BB63C" />
+    <SolidColorBrush x:Key="LabelTagSolidLimeBackground" Color="#9BD100" />
     <SolidColorBrush x:Key="LabelTagSolidYellowBackground" Color="#FAC800" />
+    <SolidColorBrush x:Key="LabelTagSolidAmberBackground" Color="#F0B114" />
+    <SolidColorBrush x:Key="LabelTagSolidOrangeBackground" Color="#FC8800" />
+    <SolidColorBrush x:Key="LabelTagSolidGreyBackground" Color="#6B7075" />
 
     <SolidColorBrush x:Key="LabelTagSolidWhiteBackground" Color="#FFFFFF" />
     <SolidColorBrush x:Key="LabelTagSolidWhiteBorderBrush" Color="#C6CACD" />
     <SolidColorBrush x:Key="LabelTagSolidWhiteForeground" Color="#1C1F23" />
-
-
 </ResourceDictionary>
