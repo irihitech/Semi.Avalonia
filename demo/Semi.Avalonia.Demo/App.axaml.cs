@@ -3,7 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Semi.Avalonia.Demo.Views;
 
-namespace Semi.Avalonia.Demo.Web;
+namespace Semi.Avalonia.Demo;
 
 public partial class App : Application
 {
@@ -14,10 +14,16 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
+        switch (ApplicationLifetime)
         {
-            singleViewPlatform.MainView = new MainView();
+            case IClassicDesktopStyleApplicationLifetime desktop:
+                desktop.MainWindow = new MainWindow();
+                break;
+            case ISingleViewApplicationLifetime singleView:
+                singleView.MainView = new MainView();
+                break;
         }
+
         base.OnFrameworkInitializationCompleted();
     }
 }
