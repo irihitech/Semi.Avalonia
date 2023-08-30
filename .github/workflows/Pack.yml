@@ -16,11 +16,14 @@ jobs:
       - name: Nuget Semi.Avalonia
         run: dotnet pack ./src/Semi.Avalonia -o ./nugets
 
+      - name: Nuget Semi.Avalonia.ColorPicker
+        run: dotnet pack ./src/Semi.Avalonia.ColorPicker  -o ./nugets
+
       - name: Nuget Semi.Avalonia.DataGrid
         run: dotnet pack ./src/Semi.Avalonia.DataGrid  -o ./nugets
 
-      - name: Nuget Semi.Avalonia.ColorPicker
-        run: dotnet pack ./src/Semi.Avalonia.ColorPicker  -o ./nugets
+      - name: Nuget Semi.Avalonia.TreeDataGrid
+        run: dotnet pack ./src/Semi.Avalonia.TreeDataGrid  -o ./nugets
 
       - name: Desktop
         run: dotnet publish ./demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
