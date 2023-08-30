@@ -352,6 +352,21 @@
                             </Border>
                         </StackPanel>
                     </TabItem>
+                    <TabItem Header="ColorPicker">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].ColorPickerInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].ColorPickerStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
                     <TabItem Header="DataGrid">
                         <StackPanel>
                             <TextBlock Text="Install via nuget: " />
@@ -367,17 +382,17 @@
                             </Border>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="ColorPicker">
+                    <TabItem Header="TreeDataGrid">
                         <StackPanel>
                             <TextBlock Text="Install via nuget: " />
                             <Border Margin="0,16" Classes="CodeBlock">
-                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].ColorPickerInstall}" />
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].TreeDataGridInstall}" />
                             </Border>
                             <TextBlock Text="Reference styles: " />
                             <Border Margin="0,16" Classes="CodeBlock">
                                 <SelectableTextBlock
                                     FontFamily="Consolas"
-                                    Text="{Binding $parent[local:Overview].ColorPickerStyle}"
+                                    Text="{Binding $parent[local:Overview].TreeDataGridStyle}"
                                     TextWrapping="Wrap" />
                             </Border>
                         </StackPanel>
