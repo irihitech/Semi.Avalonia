@@ -9,7 +9,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarDatePickerBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CalendarDatePickerCornerRadius}" />
-        <Setter Property="CalendarDatePicker.IsTodayHighlighted" Value="True" />
+        <Setter Property="IsTodayHighlighted" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -75,7 +75,7 @@
                                     Name="ClearButton"
                                     Grid.Column="1"
                                     Padding="0,0,8,0"
-                                    Content="{DynamicResource TextBoxClearButtonData}"
+                                    Content="{DynamicResource IconButtonClearData}"
                                     Command="{Binding $parent[CalendarDatePicker].Clear}"
                                     Focusable="False"
                                     IsVisible="False"
