@@ -135,11 +135,17 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="DatePicker">
                 <DataValidationErrors>
-                    <Grid Name="LayoutRoot" Margin="{TemplateBinding Padding}">
+                    <Grid
+                        Name="LayoutRoot"
+                        Margin="{TemplateBinding Padding}"
+                        ColumnDefinitions="*, Auto">
                         <Button
                             Name="PART_FlyoutButton"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
                             Width="298"
                             MinWidth="298"
+                            MinHeight="{DynamicResource DateTimePickerButtonDefaultHeight}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{TemplateBinding Background}"
@@ -150,7 +156,6 @@
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             Foreground="{TemplateBinding Foreground}"
                             IsEnabled="{TemplateBinding IsEnabled}"
-                            MinHeight="{DynamicResource DateTimePickerButtonDefaultHeight}"
                             Theme="{StaticResource DateTimePickerFlyoutButton}">
                             <Grid ColumnDefinitions="*, Auto">
                                 <Grid
@@ -210,20 +215,37 @@
                                     Foreground="{DynamicResource DateTimePickerIconForeground}" />
                             </Grid>
                         </Button>
-
                         <Popup
                             Name="PART_Popup"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
                             IsLightDismissEnabled="True"
                             Placement="Bottom"
                             PlacementTarget="{TemplateBinding}"
                             WindowManagerAddShadowHint="False">
                             <DatePickerPresenter Name="PART_PickerPresenter" />
                         </Popup>
-
+                        <Button
+                            Name="ClearButton"
+                            Grid.Column="1"
+                            Command="{Binding $parent[DatePicker].Clear}"
+                            Content="{DynamicResource TextBoxClearButtonData}"
+                            IsVisible="False"
+                            Margin="0 0 8 0"
+                            Theme="{DynamicResource ButtonInputInnerButton}" />
                     </Grid>
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.clearButton:pointerover, ^.ClearButton:pointerover">
+            <Style Selector="^:not(:hasnodate) /template/ Button#ClearButton">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:not(:hasnodate) /template/ PathIcon#PART_Icon">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
+        </Style>
 
         <Style Selector="^:disabled /template/ PathIcon#PART_Icon">
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonDisabledIconForeground}" />

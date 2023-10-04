@@ -33,6 +33,7 @@
         <Setter Property="MaxDropDownHeight" Value="504" />
         <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBackground}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="CornerRadius" Value="{DynamicResource ComboBoxSelectorCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -43,11 +44,11 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
-                    <Grid ColumnDefinitions="*,32">
+                    <Grid ColumnDefinitions="*, Auto, 32">
                         <Border
                             x:Name="Background"
                             Grid.Column="0"
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="3"
                             MinWidth="{DynamicResource ComboBoxThemeMinWidth}"
                             MinHeight="{DynamicResource ComboBoxDefaultHeight}"
                             Background="{TemplateBinding Background}"
@@ -73,10 +74,16 @@
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding SelectionBoxItem}"
                             ContentTemplate="{TemplateBinding ItemTemplate}" />
-
+                        <Button
+                            Grid.Column="1"
+                            Name="ClearButton"
+                            Content="{DynamicResource TextBoxClearButtonData}"
+                            IsVisible="False"
+                            Command="{Binding $parent[ComboBox].Clear}"
+                            Theme="{DynamicResource ButtonInputInnerButton}" />
                         <Border
                             x:Name="DropDownOverlay"
-                            Grid.Column="1"
+                            Grid.Column="2"
                             Width="30"
                             Margin="0,1,1,1"
                             HorizontalAlignment="Right"
@@ -85,7 +92,7 @@
 
                         <PathIcon
                             x:Name="DropDownGlyph"
-                            Grid.Column="1"
+                            Grid.Column="2"
                             Width="12"
                             Height="12"
                             Margin="0,0,10,0"
@@ -130,6 +137,12 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
+        
+        <Style Selector="^.clearButton, ^.ClearButton">
+            <Style Selector="^:pointerover /template/ Button#ClearButton" >
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}"></Setter>
+            </Style>
+        </Style>
 
         <Style Selector="^.Large /template/ Border#Background">
             <Setter Property="ComboBox.MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
