@@ -108,7 +108,7 @@
                                             DisplayDateStart="{TemplateBinding DisplayDateStart}"
                                             FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                             IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                            SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay}">
+                                            SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}">
                                         </Calendar>
                                     </Border>
                                 </Popup>
