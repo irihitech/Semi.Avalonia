@@ -205,7 +205,7 @@
 
     </ControlTheme>
 
-    <ControlTheme x:Key="ButtonInputInnerButton" TargetType="Button">
+    <ControlTheme x:Key="InnerIconButton" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
@@ -214,6 +214,7 @@
                     <PathIcon
                         Width="16"
                         Height="16"
+                        Margin="{TemplateBinding Padding}"
                         Data="{TemplateBinding Content}"
                         Foreground="{TemplateBinding Foreground}" />
                 </ContentControl>
