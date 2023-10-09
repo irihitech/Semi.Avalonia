@@ -2,26 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <Design.PreviewWith>
-        <StackPanel
-            Width="200"
-            Margin="20"
-            Spacing="20">
-            <TextBox
-                Classes="clearButton"
-                Text="Hello"
-                Theme="{StaticResource BorderlessTextBox}" />
-            <TextBox
-                Classes="Large"
-                Text="Hello"
-                Theme="{StaticResource BorderlessTextBox}" />
-            <TextBox
-                Classes="Small"
-                Text="Hello"
-                Theme="{StaticResource BorderlessTextBox}" />
-        </StackPanel>
-    </Design.PreviewWith>
-
     <MenuFlyout x:Key="DefaultTextBoxContextFlyout" Placement="Bottom">
         <MenuItem
             x:Name="TextBoxContextFlyoutCutItem"
