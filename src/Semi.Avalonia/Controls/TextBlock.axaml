@@ -10,34 +10,34 @@
     <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock">
         <!--<Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />-->
         <Style Selector="^.Secondary">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
         </Style>
         <Style Selector="^.Tertiary">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockTertiaryForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockTertiaryForeground}" />
         </Style>
         <Style Selector="^.Quaternary">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockQuaternaryForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockQuaternaryForeground}" />
         </Style>
         <Style Selector="^.Success">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockSuccessForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockSuccessForeground}" />
         </Style>
         <Style Selector="^.Warning">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockWarningForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockWarningForeground}" />
         </Style>
         <Style Selector="^.Danger">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDangerForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockDangerForeground}" />
         </Style>
         <Style Selector="^.Mark">
-            <Setter Property="TextBlock.Background" Value="{DynamicResource TextBlockMarkBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TextBlockMarkBackground}" />
         </Style>
         <Style Selector="^.Underline">
-            <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+            <Setter Property="TextDecorations" Value="Underline" />
         </Style>
         <Style Selector="^.Delete">
-            <Setter Property="TextBlock.TextDecorations" Value="StrikeThrough" />
+            <Setter Property="TextDecorations" Value="StrikeThrough" />
         </Style>
         <Style Selector="^.Underline.Delete">
-            <Setter Property="TextBlock.TextDecorations">
+            <Setter Property="TextDecorations">
                 <TextDecorationCollection>
                     <TextDecoration Location="Underline" />
                     <TextDecoration Location="Strikethrough" />
@@ -45,7 +45,7 @@
             </Setter>
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
         </Style>
     </ControlTheme>
     <ControlTheme
@@ -54,25 +54,25 @@
         TargetType="TextBlock">
         <Setter Property="TextBlock.FontWeight" Value="{DynamicResource TextBlockTitleFontWeight}" />
         <Style Selector="^.H1">
-            <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH1FontSize}" />
+            <Setter Property="FontSize" Value="{DynamicResource TextBlockTitleH1FontSize}" />
         </Style>
         <Style Selector="^.H2">
-            <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH2FontSize}" />
+            <Setter Property="FontSize" Value="{DynamicResource TextBlockTitleH2FontSize}" />
         </Style>
         <Style Selector="^.H3">
-            <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH3FontSize}" />
+            <Setter Property="FontSize" Value="{DynamicResource TextBlockTitleH3FontSize}" />
         </Style>
         <Style Selector="^.H4">
-            <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH4FontSize}" />
+            <Setter Property="FontSize" Value="{DynamicResource TextBlockTitleH4FontSize}" />
         </Style>
         <Style Selector="^.H5">
-            <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH5FontSize}" />
+            <Setter Property="FontSize" Value="{DynamicResource TextBlockTitleH5FontSize}" />
         </Style>
         <Style Selector="^.H6">
-            <Setter Property="TextBlock.FontSize" Value="{DynamicResource TextBlockTitleH6FontSize}" />
+            <Setter Property="FontSize" Value="{DynamicResource TextBlockTitleH6FontSize}" />
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockDisabledForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
