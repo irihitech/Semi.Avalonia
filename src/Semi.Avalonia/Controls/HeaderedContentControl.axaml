@@ -2,6 +2,47 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <ControlTheme x:Key="{x:Type HeaderedContentControl}" TargetType="HeaderedContentControl">
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}">
+                    <Grid RowDefinitions="auto *">
+                        <ContentPresenter
+                            Name="PART_HeaderPresenter"
+                            Content="{TemplateBinding Header}"
+                            RecognizesAccessKey="True"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontStyle="{TemplateBinding FontStyle}"
+                            Grid.Row="0" />
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Content="{TemplateBinding Content}"
+                            RecognizesAccessKey="True"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontStyle="{TemplateBinding FontStyle}"
+                            Grid.Row="1" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
     <ControlTheme x:Key="GroupBox" TargetType="HeaderedContentControl">
         <Setter Property="Background" Value="{DynamicResource HeaderedContentControlDefaultBackground}" />
         <Setter Property="BorderThickness" Value="1" />
