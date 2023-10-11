@@ -132,12 +132,12 @@
 
         <Style Selector="^.Large">
             <Style Selector="^ /template/ TextBox#PART_TextBox">
-                <Setter Property="TextBox.MinHeight" Value="{DynamicResource CalendarDatePickerInnerLargeHeight}" />
+                <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerInnerLargeHeight}" />
             </Style>
         </Style>
         <Style Selector="^.Small">
             <Style Selector="^ /template/ TextBox#PART_TextBox">
-                <Setter Property="TextBox.MinHeight" Value="{DynamicResource CalendarDatePickerInnerSmallHeight}" />
+                <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerInnerSmallHeight}" />
             </Style>
         </Style>
 
@@ -188,21 +188,21 @@
 
         <Style Selector="^.Bordered">
             <Style Selector="^ Border#Background">
-                <Setter Property="Border.Background" Value="{DynamicResource CalendarDatePickerBorderedDefaultBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedDefaultBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBorderedDefaultBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedDefaultBorderBrush}" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#Background">
-                <Setter Property="Border.Background" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:focus-within /template/ Border#Background">
-                <Setter Property="Border.Background" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Border#Background">
                     <Setter Property="Background" Value="{DynamicResource CalendarDatePickerDisabledBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
                 </Style>
 
                 <Style Selector="^ /template/ Button#PART_Button">
@@ -215,16 +215,16 @@
                     <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsBorderBrush}" />
                 </Style>
                 <Style Selector="^:pointerover /template/ Border#Background">
-                    <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsPointerOverBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsPointerOverBorderBrush}" />
                 </Style>
                 <Style Selector="^:pressed /template/ Border#Background">
-                    <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsPressedBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsPressedBorderBrush}" />
                 </Style>
                 <Style Selector="^:focus-within /template/ Border#Background">
-                    <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
                 </Style>
             </Style>
         </Style>

@@ -137,21 +137,21 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked">
-            <Setter Property="RadioButton.Background" Value="{DynamicResource ColorViewRadioButtonCheckedBackground}" />
-            <Setter Property="RadioButton.Foreground" Value="{DynamicResource ColorViewRadioButtonCheckedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ColorViewRadioButtonCheckedBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ColorViewRadioButtonCheckedForeground}" />
             <Style Selector="^:pointerover">
-                <Setter Property="RadioButton.Background" Value="{DynamicResource ColorViewRadioButtonCheckedPointeroverBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ColorViewRadioButtonCheckedPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="RadioButton.Background" Value="{DynamicResource ColorViewRadioButtonCheckedPressedBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ColorViewRadioButtonCheckedPressedBackground}" />
             </Style>
         </Style>
         <Style Selector="^:unchecked">
             <Style Selector="^:pointerover">
-                <Setter Property="RadioButton.Background" Value="{DynamicResource ColorViewRadioButtonPointeroverBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ColorViewRadioButtonPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="RadioButton.Background" Value="{DynamicResource ColorViewRadioButtonPressedBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ColorViewRadioButtonPressedBackground}" />
             </Style>
         </Style>
     </ControlTheme>
@@ -532,30 +532,30 @@
         </Setter>
         <Style Selector="^[ColorModel=Rgba]">
             <Style Selector="^ /template/ NumericUpDown#Component1NumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="R" />
+                <Setter Property="Tag" Value="R" />
             </Style>
             <Style Selector="^ /template/ NumericUpDown#Component2NumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="G" />
+                <Setter Property="Tag" Value="G" />
             </Style>
             <Style Selector="^ /template/ NumericUpDown#Component3NumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="B" />
+                <Setter Property="Tag" Value="B" />
             </Style>
             <Style Selector="^ /template/ NumericUpDown#AlphaComponentNumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="A" />
+                <Setter Property="Tag" Value="A" />
             </Style>
         </Style>
         <Style Selector="^[ColorModel=Hsva]">
             <Style Selector="^ /template/ NumericUpDown#Component1NumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="H" />
+                <Setter Property="Tag" Value="H" />
             </Style>
             <Style Selector="^ /template/ NumericUpDown#Component2NumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="S" />
+                <Setter Property="Tag" Value="S" />
             </Style>
             <Style Selector="^ /template/ NumericUpDown#Component3NumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="V" />
+                <Setter Property="Tag" Value="V" />
             </Style>
             <Style Selector="^ /template/ NumericUpDown#AlphaComponentNumericUpDown">
-                <Setter Property="NumericUpDown.Tag" Value="A" />
+                <Setter Property="Tag" Value="A" />
             </Style>
         </Style>
     </ControlTheme>
