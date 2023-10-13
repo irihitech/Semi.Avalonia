@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="https://irihi.tech/semi"
     x:CompileBindings="True">
     <!--  Button Theme Key: Solid Light Border Borderless; Default is Light  -->
     <!--  Button Default Classes: Primary Secondary, Tertiary, Warning, Danger; Default is Primary  -->
@@ -89,7 +90,7 @@
     </ControlTheme>
 
     <ControlTheme
-        x:Key="SolidButton"
+        x:Key="{x:Static semi:ThemeKeys.SolidButton}"
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="Button">
         <Setter Property="Button.Foreground" Value="{DynamicResource ButtonSolidForeground}" />

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:semi="https://irihi.tech/semi"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -20,7 +21,7 @@
         </StackPanel>
         <TextBlock>Solid</TextBlock>
         <StackPanel Orientation="Horizontal" Spacing="20">
-            <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
+            <Button Classes="Primary" Theme="{DynamicResource {x:Static semi:ThemeKeys.SolidButton}}">Primary</Button>
             <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
             <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
             <Button Classes="Success" Theme="{DynamicResource SolidButton}">Success</Button>
