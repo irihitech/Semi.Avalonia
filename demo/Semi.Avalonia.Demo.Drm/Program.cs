@@ -29,7 +29,7 @@ namespace Semi.Avalonia.Demo.Drm
             if (args.Contains("--drm"))
             {
                 SilenceConsole();
-                builder.StartLinuxDrm(args: args, card: "/dev/dri/card0", scaling: 1);
+                builder.StartLinuxDrm(args: args, card: "/dev/dri/card1", scaling: 1);
             }
             else
             {
