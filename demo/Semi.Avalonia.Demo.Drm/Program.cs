@@ -1,59 +1,53 @@
-﻿using Avalonia;
-using Avalonia.Dialogs;
-using Avalonia.Media;
-using System;
+﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
+using Avalonia;
 
-namespace Semi.Avalonia.Demo.Drm
+namespace Semi.Avalonia.Demo.Drm;
+
+class Program
 {
-    internal class Program
+    // Initialization code. Don't use any Avalonia, third-party APIs or any
+    // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
+    // yet and stuff might break.
+    [STAThread]
+    public static int Main(string[] args)
     {
-        // Initialization code. Don't use any Avalonia, third-party APIs or any
-        // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
-        // yet and stuff might break.
-        [STAThread]
-        public static void Main(string[] args)
+        var builder = BuildAvaloniaApp();
+
+        double GetScaling()
         {
-            var builder = BuildAvaloniaApp();
-            builder.With(new FontManagerOptions
-            {
-                FontFallbacks = new[]
-                {
-                new FontFallback
-                {
-                    FontFamily = new FontFamily("Microsoft YaHei")
-                }
-            }
-            });
-            if (args.Contains("--drm"))
-            {
-                SilenceConsole();
-                builder.StartLinuxDrm(args: args, card: "/dev/dri/card1", scaling: 1);
-            }
-            else
-            {
-                builder.StartWithClassicDesktopLifetime(args);
-            }
+            var idx = Array.IndexOf(args, "--scaling");
+            if (idx != 0 && args.Length > idx + 1 &&
+                double.TryParse(args[idx + 1], NumberStyles.Any, CultureInfo.InvariantCulture, out var scaling))
+                return scaling;
+            return 1;
         }
 
-        // Avalonia configuration, don't remove; also used by visual designer.
-        public static AppBuilder BuildAvaloniaApp()
-            => AppBuilder.Configure<App>()
-                .UseManagedSystemDialogs()
-                .UsePlatformDetect()
-                .With(new Win32PlatformOptions())
-                .LogToTrace();
-
-        private static void SilenceConsole()
+        if (args.Contains("--drm"))
         {
-            new Thread(() =>
+            SilenceConsole();
+            return builder.StartLinuxDrm(args: args, card: "/dev/dri/card1", scaling: GetScaling());
+        }
+
+        return builder.StartWithClassicDesktopLifetime(args);
+    }
+
+    // Avalonia configuration, don't remove; also used by visual designer.
+    public static AppBuilder BuildAvaloniaApp()
+        => AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+            .LogToTrace();
+
+    private static void SilenceConsole()
+    {
+        new Thread(() =>
             {
                 Console.CursorVisible = false;
                 while (true)
                     Console.ReadKey(true);
             })
             { IsBackground = true }.Start();
-        }
     }
 }
