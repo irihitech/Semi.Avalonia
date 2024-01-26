@@ -155,7 +155,6 @@
                     <DataValidationErrors>
                         <Grid
                             x:Name="SliderContainer"
-                            MinWidth="{DynamicResource SliderVerticalWidth}"
                             Margin="{TemplateBinding Padding}"
                             Background="{DynamicResource SliderContainerBackground}"
                             ColumnDefinitions="Auto,Auto,Auto">
@@ -254,7 +253,7 @@
         </Style>
 
         <Style Selector="^:error /template/ Thumb#thumb">
-            <Setter Property="Thumb.BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
         </Style>
 
         <!--  Disabled State  -->
@@ -269,7 +268,7 @@
             </Style>
 
             <Style Selector="^ /template/ Thumb">
-                <Setter Property="Thumb.BorderBrush" Value="{DynamicResource SliderThumbDisabledBorderBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SliderThumbDisabledBorderBrush}" />
             </Style>
         </Style>
 

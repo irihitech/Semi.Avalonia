@@ -13,43 +13,48 @@
     mc:Ignorable="d">
     <TabControl>
         <TabItem Header="DataGrid">
-            <DataGrid
-                Margin="8"
-                CanUserReorderColumns="True"
-                CanUserResizeColumns="True"
-                CanUserSortColumns="True"
-                HeadersVisibility="All"
-                IsReadOnly="True"
-                ItemsSource="{Binding GridData1}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-                        Width="6*"
-                        x:DataType="vm:Song"
-                        Binding="{Binding Title}"
-                        Header="Title" />
-                    <DataGridTextColumn
-                        Width="6*"
-                        x:DataType="vm:Song"
-                        Binding="{Binding Artist}"
-                        Header="Artist" />
-                    <DataGridTextColumn
-                        Width="6*"
-                        x:DataType="vm:Song"
-                        Binding="{Binding Album}"
-                        Header="Album" />
-                    <DataGridTemplateColumn Header="Duration" SortMemberPath="Duration">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock
-                                    Margin="8,0,0,0"
-                                    VerticalAlignment="Center"
-                                    Text="{Binding Duration}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
+           <Grid RowDefinitions="Auto, *">
+               <ToggleSwitch Grid.Row="0" Content="Disable" Name="DisableToggle"></ToggleSwitch>
+               <DataGrid Grid.Row="1"
+                         Margin="8"
+                         CanUserReorderColumns="True"
+                         CanUserResizeColumns="True"
+                         CanUserSortColumns="True"
+                         HeadersVisibility="All"
+                         IsReadOnly="True"
+                         IsEnabled="{Binding #DisableToggle.IsChecked}"
+                         ItemsSource="{Binding GridData1}">
+                   <DataGrid.Columns>
+                       <DataGridTextColumn
+                           Width="6*"
+                           x:DataType="vm:Song"
+                           Binding="{Binding Title}"
+                           Header="Title" />
+                       <DataGridTextColumn
+                           Width="6*"
+                           x:DataType="vm:Song"
+                           Binding="{Binding Artist}"
+                           Header="Artist" />
+                       <DataGridTextColumn
+                           Width="6*"
+                           x:DataType="vm:Song"
+                           Binding="{Binding Album}"
+                           Header="Album" />
+                       <DataGridTemplateColumn Header="Duration" SortMemberPath="Duration">
+                           <DataGridTemplateColumn.CellTemplate>
+                               <DataTemplate>
+                                   <TextBlock
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding Duration}" />
+                               </DataTemplate>
+                           </DataGridTemplateColumn.CellTemplate>
+                       </DataGridTemplateColumn>
+                   </DataGrid.Columns>
 
-            </DataGrid>
+               </DataGrid>
+               
+           </Grid>
         </TabItem>
         <TabItem Header="Grouping">
             <DataGrid
@@ -162,6 +167,7 @@
                     Grid.Row="2"
                     Margin="12,0,12,12"
                     HorizontalAlignment="Right"
+                    Command="{Binding AddCommand}"
                     Content="Add" />
             </Grid>
         </TabItem>

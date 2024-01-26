@@ -75,24 +75,24 @@
         <!--  Selected state  -->
         <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
-            <Setter Property="ContentPresenter.FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
+            <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
             <Setter Property="Cursor" Value="Hand" />
             <Style Selector="^:pointerover /template/ Label#PART_ContentPresenter">
-                <Setter Property="Label.Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
-                <Setter Property="Border.Background" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#PART_SelectedPipe">
-                <Setter Property="Border.Background" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
             </Style>
         </Style>
 
         <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
-            <Setter Property="Border.Background" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
         </Style>
 
         <!--  Selected Pressed state  -->

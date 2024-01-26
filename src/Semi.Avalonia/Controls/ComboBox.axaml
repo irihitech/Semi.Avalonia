@@ -145,10 +145,10 @@
         </Style>
 
         <Style Selector="^.Large /template/ Border#Background">
-            <Setter Property="ComboBox.MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
         </Style>
         <Style Selector="^.Small /template/ Border#Background">
-            <Setter Property="ComboBox.MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
         </Style>
 
         <!--  Pointerover State  -->
@@ -220,8 +220,8 @@
             </Style>
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Border#Background">
-                    <Setter Property="Border.Background" Value="{DynamicResource ComboBoxSelectorDisabledBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorDisabledBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderBrush}" />
                 </Style>
                 <Style Selector="^ /template/ ContentControl#ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource ComboBoxDisabledForeground}" />
