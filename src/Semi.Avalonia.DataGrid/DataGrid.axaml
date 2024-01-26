@@ -19,7 +19,7 @@
             <Setter Property="MinHeight" Value="20" />
         </Style>
         <Style Selector="^:error:focus /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.BorderBrush" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
         <Style Selector="^ /template/ DataValidationErrors">
             <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
@@ -369,7 +369,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked /template/ PathIcon">
-            <Setter Property="PathIcon.RenderTransform" Value="rotate(90deg)" />
+            <Setter Property="RenderTransform" Value="rotate(90deg)" />
         </Style>
     </ControlTheme>
 

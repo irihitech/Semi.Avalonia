@@ -85,10 +85,10 @@
         </Setter>
 
         <Style Selector="^:checked /template/ PathIcon#PART_ExpandIconPath">
-            <Setter Property="PathIcon.RenderTransform" Value="rotate(90deg)" />
+            <Setter Property="RenderTransform" Value="rotate(90deg)" />
         </Style>
         <Style Selector="^:pointerover /template/ PathIcon#PART_ExpandIconPath">
-            <Setter Property="PathIcon.Foreground" Value="{DynamicResource TreeViewItemIconHoverForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TreeViewItemIconHoverForeground}" />
         </Style>
     </ControlTheme>
 
@@ -173,8 +173,8 @@
         </Style>
 
         <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">
-            <Setter Property="ToggleButton.Opacity" Value="0" />
-            <Setter Property="ToggleButton.IsHitTestVisible" Value="False" />
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
 
     </ControlTheme>

@@ -241,21 +241,21 @@
                         Name="PART_HorizontalScrollBar"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Opacity="0"
                         Orientation="Horizontal" />
                     <ScrollBar
                         Name="PART_VerticalScrollBar"
                         Grid.Row="0"
                         Grid.Column="1"
-                        Opacity="0"
                         Orientation="Vertical" />
                     <Panel
                         Grid.Row="1"
-                        Grid.Column="1"
-                        Background="{DynamicResource ColorScrollBarBackground}" />
+                        Grid.Column="1" />
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ScrollBar">
+            <Setter Property="Opacity" Value="0"></Setter>
+        </Style>
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ ScrollBar#PART_HorizontalScrollBar">
                 <Setter Property="Opacity" Value="1" />
@@ -299,8 +299,7 @@
                         Orientation="Vertical" />
                     <Panel
                         Grid.Row="1"
-                        Grid.Column="1"
-                        Background="{DynamicResource ColorScrollBarBackground}" />
+                        Grid.Column="1" />
                 </Grid>
             </ControlTemplate>
         </Setter>

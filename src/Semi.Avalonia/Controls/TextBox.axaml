@@ -2,26 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <Design.PreviewWith>
-        <StackPanel
-            Width="200"
-            Margin="20"
-            Spacing="20">
-            <TextBox
-                Classes="clearButton"
-                Text="Hello"
-                Theme="{StaticResource BorderlessTextBox}" />
-            <TextBox
-                Classes="Large"
-                Text="Hello"
-                Theme="{StaticResource BorderlessTextBox}" />
-            <TextBox
-                Classes="Small"
-                Text="Hello"
-                Theme="{StaticResource BorderlessTextBox}" />
-        </StackPanel>
-    </Design.PreviewWith>
-
     <MenuFlyout x:Key="DefaultTextBoxContextFlyout" Placement="Bottom">
         <MenuItem
             x:Name="TextBoxContextFlyoutCutItem"
@@ -45,25 +25,6 @@
 
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <ControlTheme.Resources>
-            <ControlTheme x:Key="InputClearButton" TargetType="Button">
-                <Setter Property="Button.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
-                <Setter Property="Button.Cursor" Value="Hand" />
-                <Setter Property="Button.Template">
-                    <ControlTemplate TargetType="Button">
-                        <!--  Background must be transparent or hit test will fail  -->
-                        <ContentControl Background="Transparent">
-                            <PathIcon
-                                Width="16"
-                                Height="16"
-                                Data="{DynamicResource TextBoxClearButtonData}"
-                                Foreground="{TemplateBinding Foreground}" />
-                        </ContentControl>
-                    </ControlTemplate>
-                </Setter>
-                <Style Selector="^:pointerover">
-                    <Setter Property="Button.Foreground" Value="{DynamicResource TextBoxButtonPointeroverForeground}" />
-                </Style>
-            </ControlTheme>
             <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
                 <Setter Property="ToggleButton.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
                 <Setter Property="ToggleButton.Cursor" Value="Hand" />
@@ -159,8 +120,9 @@
                                 Name="PART_ClearButton"
                                 Grid.Column="2"
                                 Command="{Binding $parent[TextBox].Clear}"
+                                Content="{DynamicResource IconButtonClearData}"
                                 IsVisible="False"
-                                Theme="{StaticResource InputClearButton}" />
+                                Theme="{StaticResource InnerIconButton}" />
                             <ToggleButton
                                 Name="PART_RevealButton"
                                 Grid.Column="3"
@@ -183,20 +145,20 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.Background" Value="{DynamicResource TextBoxPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
         </Style>
         <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
-            <Setter Property="Border.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxDisabledBackground}" />
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
         </Style>
 
         <Style Selector="^:error">
@@ -205,30 +167,30 @@
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
-                <Setter Property="Border.BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
-                <Setter Property="Border.BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
             </Style>
         </Style>
 
         <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="Button.IsVisible" Value="True" />
+                <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="Button.IsVisible" Value="True" />
+                <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
-                <Setter Property="ToggleButton.IsVisible" Value="True" />
+                <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
         <Style Selector="^.Large /template/ Border#PART_ContentPresenterBorder">
@@ -239,15 +201,15 @@
         </Style>
 
         <Style Selector="^.Bordered">
-            <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderedDefaultBackground}" />
-            <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderedDefaultBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxBorderedDefaultBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderedDefaultBorderBrush}" />
             <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource TextBoxBorderedPointeroverBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource TextBoxBorderedPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:focus">
-                <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxBorderedPointeroverBackground}" />
-                <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource TextBoxBorderedPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
                 <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
@@ -260,16 +222,16 @@
                     <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsBorderBrush}" />
                 </Style>
                 <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
-                    <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsPointerOverBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsPointerOverBorderBrush}" />
                 </Style>
                 <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
-                    <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsPressedBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsPressedBorderBrush}" />
                 </Style>
                 <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
-                    <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
-                    <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+                    <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
                 </Style>
             </Style>
         </Style>
@@ -353,20 +315,20 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.Background" Value="{DynamicResource TextBoxPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
         </Style>
         <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="Border.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
-            <Setter Property="Border.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource TextBoxDisabledBackground}" />
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
         </Style>
 
         <Style Selector="^:error">
@@ -375,16 +337,16 @@
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
-                <Setter Property="Border.BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointerOverBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
-                <Setter Property="Border.BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
             </Style>
         </Style>
     </ControlTheme>
