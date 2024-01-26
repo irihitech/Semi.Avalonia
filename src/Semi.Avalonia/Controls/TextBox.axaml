@@ -25,25 +25,6 @@
 
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <ControlTheme.Resources>
-            <ControlTheme x:Key="InputClearButton" TargetType="Button">
-                <Setter Property="Button.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
-                <Setter Property="Button.Cursor" Value="Hand" />
-                <Setter Property="Button.Template">
-                    <ControlTemplate TargetType="Button">
-                        <!--  Background must be transparent or hit test will fail  -->
-                        <ContentControl Background="Transparent">
-                            <PathIcon
-                                Width="16"
-                                Height="16"
-                                Data="{DynamicResource TextBoxClearButtonData}"
-                                Foreground="{TemplateBinding Foreground}" />
-                        </ContentControl>
-                    </ControlTemplate>
-                </Setter>
-                <Style Selector="^:pointerover">
-                    <Setter Property="Foreground" Value="{DynamicResource TextBoxButtonPointeroverForeground}" />
-                </Style>
-            </ControlTheme>
             <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
                 <Setter Property="ToggleButton.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
                 <Setter Property="ToggleButton.Cursor" Value="Hand" />
@@ -139,8 +120,9 @@
                                 Name="PART_ClearButton"
                                 Grid.Column="2"
                                 Command="{Binding $parent[TextBox].Clear}"
+                                Content="{DynamicResource IconButtonClearData}"
                                 IsVisible="False"
-                                Theme="{StaticResource InputClearButton}" />
+                                Theme="{StaticResource InnerIconButton}" />
                             <ToggleButton
                                 Name="PART_RevealButton"
                                 Grid.Column="3"

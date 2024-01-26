@@ -3,33 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <!--  Add Resources Here  -->
-    <ControlTheme x:Key="CalendarDatePickerButton" TargetType="Button">
-        <Setter Property="Button.Foreground" Value="{DynamicResource CalendarDatePickerIconForeground}" />
-        <Setter Property="Button.Template">
-            <ControlTemplate TargetType="Button">
-                <Grid Margin="{TemplateBinding Padding}" Background="Transparent">
-                    <PathIcon
-                        Width="16"
-                        Height="16"
-                        Data="{DynamicResource CalendarDatePickerIconGlyph}"
-                        Foreground="{TemplateBinding Foreground}" />
-                </Grid>
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^:pointerover /template/ PathIcon">
-            <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerIconPointeroverForeground}" />
-        </Style>
-        <Style Selector="^:pressed /template/ PathIcon">
-            <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerIconPointeroverForeground}" />
-        </Style>
-    </ControlTheme>
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarDatePickerBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CalendarDatePickerCornerRadius}" />
-        <Setter Property="CalendarDatePicker.IsTodayHighlighted" Value="True" />
+        <Setter Property="IsTodayHighlighted" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -51,10 +31,11 @@
                             <Grid
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
-                                ColumnDefinitions="*,Auto">
+                                ColumnDefinitions="*, Auto, Auto">
                                 <TextBox
                                     Name="PART_TextBox"
                                     Grid.Column="0"
+                                    Grid.ColumnSpan="2"
                                     MinHeight="{DynamicResource CalendarDatePickerDefaultHeight}"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
@@ -91,14 +72,24 @@
                                     </TextBox.Styles>
                                 </TextBox>
                                 <Button
-                                    Name="PART_Button"
+                                    Name="ClearButton"
                                     Grid.Column="1"
                                     Padding="0,0,8,0"
-                                    Cursor="Hand"
+                                    Content="{DynamicResource IconButtonClearData}"
+                                    Command="{Binding $parent[CalendarDatePicker].Clear}"
                                     Focusable="False"
-                                    Theme="{DynamicResource CalendarDatePickerButton}" />
+                                    IsVisible="False"
+                                    Theme="{DynamicResource InnerIconButton}" />
+                                <Button
+                                    Name="PART_Button"
+                                    Grid.Column="2"
+                                    Padding="0,0,8,0"
+                                    Content="{DynamicResource CalendarDatePickerIconGlyph}"
+                                    Focusable="False"
+                                    Theme="{DynamicResource InnerIconButton}" />
                                 <Popup
                                     Name="PART_Popup"
+                                    Grid.Column="0"
                                     HorizontalOffset="-8"
                                     IsLightDismissEnabled="True"
                                     PlacementTarget="{TemplateBinding}"
@@ -117,8 +108,8 @@
                                             DisplayDateStart="{TemplateBinding DisplayDateStart}"
                                             FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                             IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                            SelectedDate="{TemplateBinding SelectedDate,
-                                                                           Mode=TwoWay}" />
+                                            SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}">
+                                        </Calendar>
                                     </Border>
                                 </Popup>
                             </Grid>
@@ -129,6 +120,12 @@
 
             </ControlTemplate>
         </Setter>
+        
+        <Style Selector="^.clearButton, ^.ClearButton">
+            <Style Selector="^:pointerover /template/ Button#ClearButton">
+                <Setter Property="IsVisible" Value="{Binding $parent[CalendarDatePicker].SelectedDate, Converter={x:Static ObjectConverters.IsNotNull}}"></Setter>
+            </Style>
+        </Style>
 
         <Style Selector="^.Large">
             <Style Selector="^ /template/ TextBox#PART_TextBox">

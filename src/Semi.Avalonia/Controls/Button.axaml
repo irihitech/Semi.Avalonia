@@ -204,4 +204,27 @@
         </Style>
 
     </ControlTheme>
+
+    <ControlTheme x:Key="InnerIconButton" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <ContentControl Background="Transparent">
+                    <PathIcon
+                        Width="16"
+                        Height="16"
+                        Margin="{TemplateBinding Padding}"
+                        Data="{TemplateBinding Content}"
+                        Foreground="{TemplateBinding Foreground}" />
+                </ContentControl>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPointeroverForeground}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPressedForeground}" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>
