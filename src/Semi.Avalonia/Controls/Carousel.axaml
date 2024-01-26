@@ -34,8 +34,8 @@
                     <Border Padding="4" Background="Transparent">
                         <Ellipse
                             Name="Container"
-                            Width="{DynamicResource CarouselIndicatorSelectedHeight}"
-                            Height="{DynamicResource CarouselIndicatorSelectedHeight}"
+                            Width="{DynamicResource CarouselIndicatorWidth}"
+                            Height="{DynamicResource CarouselIndicatorHeight}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Fill="{TemplateBinding Foreground}" />
@@ -61,18 +61,12 @@
         <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Panel Background="Transparent">
-                    <Border Padding="4,0" Background="Transparent">
+                    <Border Padding="2,0" Background="Transparent">
                         <Border
                             Name="Container"
-                            Width="{DynamicResource CarouselIndicatorSelectedHeight}"
-                            Height="{DynamicResource CarouselIndicatorSelectedHeight}"
-                            Background="{TemplateBinding Background}"
-                            CornerRadius="99">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <DoubleTransition Property="Width" Duration="0:0:0.2" />
-                                </Transitions>
-                            </Border.Transitions>
+                            Width="{DynamicResource CarouselIndicatorLineWidth}"
+                            Height="{DynamicResource CarouselIndicatorLineHeight}"
+                            Background="{TemplateBinding Background}">
                         </Border>
                     </Border>
                 </Panel>
@@ -86,7 +80,44 @@
         </Style>
         <Style Selector="^:selected /template/ Border#Container">
             <Setter Property="Background" Value="{DynamicResource CarouselIndicatorSelectedForeground}" />
-            <Setter Property="Width" Value="{DynamicResource CarouselIndicatorLineSelectedWidth}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CarouselIndicatorColumnarListBoxItem" TargetType="ListBoxItem">
+        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource CarouselIndicatorForeground}" />
+        <Setter Property="ListBoxItem.Template">
+            <ControlTemplate TargetType="ListBoxItem">
+                <Panel Background="Transparent">
+                    <Border Padding="2,0" Background="Transparent">
+                        <Border Width="{DynamicResource CarouselIndicatorColumnarWidth}"
+                                Height="{DynamicResource CarouselIndicatorColumnarSelectedHeight}">
+                            <Rectangle
+                                Name="Container"
+                                Width="{DynamicResource CarouselIndicatorColumnarWidth}"
+                                Height="{DynamicResource CarouselIndicatorColumnarHeight}"
+                                VerticalAlignment="Bottom"
+                                Fill="{TemplateBinding Background}">
+                                <Rectangle.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Height" Duration="0:0:0.2"></DoubleTransition>
+                                    </Transitions>
+                                </Rectangle.Transitions>
+                            </Rectangle>
+                        </Border>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Rectangle#Container">
+            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPointeroverForeground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Rectangle#Container">
+            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPressedForeground}" />
+        </Style>
+        <Style Selector="^:selected /template/ Rectangle#Container">
+            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorSelectedForeground}" />
+            <Setter Property="Height" Value="{DynamicResource CarouselIndicatorColumnarSelectedHeight}" />
         </Style>
     </ControlTheme>
 
@@ -136,7 +167,7 @@
                         Name="PART_ItemsPresenter2"
                         Grid.Row="1"
                         Grid.Column="1"
-                        MaxHeight="20"
+                        MaxHeight="30"
                         Margin="0,8"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -179,6 +210,18 @@
         </Setter>
         <Style Selector="^.Line /template/ ListBox#PART_ItemsPresenter2">
             <Setter Property="ItemContainerTheme" Value="{DynamicResource CarouselIndicatorLineListBoxItem}" />
+        </Style>
+        <Style Selector="^.Columnar /template/ ListBox#PART_ItemsPresenter2">
+            <Setter Property="ItemContainerTheme" Value="{DynamicResource CarouselIndicatorColumnarListBoxItem}" />
+        </Style>
+        <Style Selector="^.Left /template/ ListBox#PART_ItemsPresenter2">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style Selector="^.Center /template/ ListBox#PART_ItemsPresenter2">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^.Right /template/ ListBox#PART_ItemsPresenter2">
+            <Setter Property="HorizontalAlignment" Value="Right" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
