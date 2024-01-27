@@ -86,29 +86,29 @@
         </Setter>
 
         <Style Selector="^:expanded /template/ PathIcon#PART_PathIcon">
-            <Setter Property="PathIcon.RenderTransform" Value="rotate(180deg)" />
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
         </Style>
 
         <Style Selector="^:right">
             <Style Selector="^ /template/ LayoutTransformControl#ExpanderHeaderLayoutContainer">
-                <Setter Property="LayoutTransformControl.LayoutTransform">
+                <Setter Property="LayoutTransform">
                     <RotateTransform Angle="-90" />
                 </Setter>
                 <Setter Property="VerticalAlignment" Value="Stretch" />
             </Style>
-            <Setter Property="Expander.HorizontalAlignment" Value="Left" />
-            <Setter Property="Expander.VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
         </Style>
 
         <Style Selector="^:left">
             <Style Selector="^ /template/ LayoutTransformControl#ExpanderHeaderLayoutContainer">
-                <Setter Property="LayoutTransformControl.LayoutTransform">
+                <Setter Property="LayoutTransform">
                     <RotateTransform Angle="90" />
                 </Setter>
                 <Setter Property="VerticalAlignment" Value="Stretch" />
             </Style>
-            <Setter Property="Expander.HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Expander.VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
         </Style>
 
         <Style Selector="^:left /template/ LayoutTransformControl#ExpanderHeaderLayoutContainer">
@@ -125,30 +125,30 @@
         </Style>
 
         <Style Selector="^:left /template/ Border#ExpanderContent">
-            <Setter Property="Border.MinWidth" Value="2" />
-            <Setter Property="Border.BorderThickness" Value="{DynamicResource ExpanderLeftContentBorderThickness}" />
+            <Setter Property="MinWidth" Value="2" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderLeftContentBorderThickness}" />
         </Style>
         <Style Selector="^:up /template/ Border#ExpanderContent">
-            <Setter Property="Border.MinHeight" Value="2" />
-            <Setter Property="Border.BorderThickness" Value="{DynamicResource ExpanderUpContentBorderThickness}" />
+            <Setter Property="MinHeight" Value="2" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderUpContentBorderThickness}" />
         </Style>
         <Style Selector="^:right /template/ Border#ExpanderContent">
-            <Setter Property="Border.MinWidth" Value="2" />
-            <Setter Property="Border.BorderThickness" Value="{DynamicResource ExpanderRightContentBorderThickness}" />
+            <Setter Property="MinWidth" Value="2" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderRightContentBorderThickness}" />
         </Style>
         <Style Selector="^:down /template/ Border#ExpanderContent">
-            <Setter Property="Border.MinHeight" Value="2" />
-            <Setter Property="Border.BorderThickness" Value="{DynamicResource ExpanderDownContentBorderThickness}" />
+            <Setter Property="MinHeight" Value="2" />
+            <Setter Property="BorderThickness" Value="{DynamicResource ExpanderDownContentBorderThickness}" />
         </Style>
 
         <Style Selector="^ /template/ ToggleButton#ExpanderHeader:pointerover">
-            <Setter Property="ToggleButton.Background" Value="{DynamicResource ExpanderHeaderHoverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ExpanderHeaderHoverBackground}" />
         </Style>
         <Style Selector="^ /template/ ToggleButton#ExpanderHeader:pressed">
-            <Setter Property="ToggleButton.Background" Value="{DynamicResource ExpanderHeaderPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ExpanderHeaderPressedBackground}" />
         </Style>
         <Style Selector="^ /template/ ToggleButton#ExpanderHeader:disabled">
-            <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ExpanderHeaderDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ExpanderHeaderDisabledForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

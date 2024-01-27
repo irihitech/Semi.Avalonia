@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
@@ -14,6 +15,8 @@ public class DataGridDemoViewModel: ObservableObject
     public DataGridCollectionView GridData2 { get; set; }
     
     public ObservableCollection<SongViewModel> GridData3 { get; set; }
+    
+    public RelayCommand AddCommand { get; set; }
 
     public DataGridDemoViewModel()
     {
@@ -28,6 +31,12 @@ public class DataGridDemoViewModel: ObservableObject
             CountOfComment = a.CountOfComment,
             IsSelected = false
         }));
+        AddCommand = new RelayCommand(Add);
+    }
+
+    private void Add()
+    {
+        GridData3.Add(new SongViewModel());
     }
 }
 

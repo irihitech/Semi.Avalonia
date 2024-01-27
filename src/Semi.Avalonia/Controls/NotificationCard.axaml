@@ -37,8 +37,8 @@
                                     Height="16"
                                     Margin="16,16,12,0"
                                     VerticalAlignment="Top"
-                                    Data="{DynamicResource InformationIconPathData}"
-                                    IsVisible="False" />
+                                    IsVisible="False"
+                                    Data="{DynamicResource NotificationCardInformationIconPathData}"/>
                                 <ContentControl
                                     Name="PART_Content"
                                     MinHeight="64"
@@ -134,24 +134,24 @@
         </Style>
 
         <Style Selector="^:information /template/ PathIcon#NotificationIcon">
-            <Setter Property="PathIcon.IsVisible" Value="True" />
-            <Setter Property="PathIcon.Foreground" Value="{DynamicResource NotificationCardInformationIconForeground}" />
-            <Setter Property="PathIcon.Data" Value="{DynamicResource NotificationCardInformationIconPathData}" />
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardInformationIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardInformationIconPathData}" />
         </Style>
         <Style Selector="^:success /template/ PathIcon#NotificationIcon">
-            <Setter Property="PathIcon.IsVisible" Value="True" />
-            <Setter Property="PathIcon.Foreground" Value="{DynamicResource NotificationCardSuccessIconForeground}" />
-            <Setter Property="PathIcon.Data" Value="{DynamicResource NotificationCardSuccessIconPathData}" />
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardSuccessIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardSuccessIconPathData}" />
         </Style>
         <Style Selector="^:warning /template/ PathIcon#NotificationIcon">
-            <Setter Property="PathIcon.IsVisible" Value="True" />
-            <Setter Property="PathIcon.Foreground" Value="{DynamicResource NotificationCardWarningIconForeground}" />
-            <Setter Property="PathIcon.Data" Value="{DynamicResource NotificationCardWarningIconPathData}" />
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardWarningIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardWarningIconPathData}" />
         </Style>
         <Style Selector="^:error /template/ PathIcon#NotificationIcon">
-            <Setter Property="PathIcon.IsVisible" Value="True" />
-            <Setter Property="PathIcon.Foreground" Value="{DynamicResource NotificationCardErrorIconForeground}" />
-            <Setter Property="PathIcon.Data" Value="{DynamicResource NotificationCardErrorIconPathData}" />
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardErrorIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardErrorIconPathData}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

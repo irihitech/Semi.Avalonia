@@ -52,5 +52,22 @@
                 <TextBlock Text="Text 4" />
             </Border>
         </Carousel>
+        <Carousel Classes="Columnar Left" Theme="{DynamicResource FullCarousel}">
+            <Carousel.PageTransition>
+                <PageSlide Orientation="Horizontal" Duration="0.25" />
+            </Carousel.PageTransition>
+            <Border Background="#EAF5FF">
+                <TextBlock Text="Text 1" />
+            </Border>
+            <Border Background="#F9F9F9">
+                <TextBlock Text="Text 2" />
+            </Border>
+            <Border Background="#FFF8EA">
+                <TextBlock Text="Text 3" />
+            </Border>
+            <Border Background="#FEF2ED">
+                <TextBlock Text="Text 4" />
+            </Border>
+        </Carousel>
     </StackPanel>
 </UserControl>
