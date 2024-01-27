@@ -11,6 +11,7 @@
                 <Border Background="{TemplateBinding Background}">
                     <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
                         <Path
+                            Name="PART_Path"
                             Data="{TemplateBinding Data}"
                             Fill="{TemplateBinding Foreground}"
                             Stretch="Uniform" />
@@ -18,5 +19,8 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^.Active /template/ Path#PART_Path">
+            <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"></Setter>
+        </Style>
     </ControlTheme>
 </ResourceDictionary>
