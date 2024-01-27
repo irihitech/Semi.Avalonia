@@ -75,11 +75,11 @@
                             Content="{TemplateBinding SelectionBoxItem}"
                             ContentTemplate="{TemplateBinding ItemTemplate}" />
                         <Button
-                            Grid.Column="1"
                             Name="ClearButton"
+                            Grid.Column="1"
+                            Command="{Binding $parent[ComboBox].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
                             IsVisible="False"
-                            Command="{Binding $parent[ComboBox].Clear}"
                             Theme="{DynamicResource InnerIconButton}" />
                         <Border
                             x:Name="DropDownOverlay"
@@ -125,7 +125,10 @@
                                 BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
                                 ClipToBounds="True"
                                 CornerRadius="6">
-                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ScrollViewer
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Margin="{DynamicResource ComboBoxDropdownContentMargin}"
@@ -137,10 +140,10 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^:pointerover /template/ Button#ClearButton" >
-                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}"></Setter>
+            <Style Selector="^:pointerover /template/ Button#ClearButton">
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </Style>
         </Style>
 
