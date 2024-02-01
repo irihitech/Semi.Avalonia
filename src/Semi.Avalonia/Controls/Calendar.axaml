@@ -170,18 +170,18 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentControl">
-            <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarButtonPointeroverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:pressed /template/ ContentControl">
-            <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarButtonPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonPressedBackground}" />
         </Style>
 
         <Style Selector="^:selected">
             <Style Selector="^ /template/ ContentControl">
-                <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarButtonSelectedBackground}" />
-                <Setter Property="ContentControl.Foreground" Value="{DynamicResource CalendarItemCalendarButtonSelectedForeground}" />
-                <Setter Property="ContentControl.FontWeight" Value="{DynamicResource CalendarItemCalendarButtonSelectedFontWeight}" />
+                <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonSelectedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarButtonSelectedForeground}" />
+                <Setter Property="FontWeight" Value="{DynamicResource CalendarItemCalendarButtonSelectedFontWeight}" />
             </Style>
         </Style>
 
@@ -232,25 +232,25 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentControl">
-            <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarDayButtonPointeroverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:pressed /template/ ContentControl">
-            <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarDayButtonPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonPressedBackground}" />
         </Style>
 
         <Style Selector="^:today /template/ ContentControl">
-            <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarDayButtonTodayBackground}" />
-            <Setter Property="ContentControl.Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonTodayForeground}" />
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonTodayBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonTodayForeground}" />
         </Style>
 
         <Style Selector="^:selected /template/ ContentControl">
-            <Setter Property="ContentControl.Background" Value="{DynamicResource CalendarItemCalendarDayButtonSelectedBackground}" />
-            <Setter Property="ContentControl.Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonSelectedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonSelectedBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonSelectedForeground}" />
         </Style>
 
         <Style Selector="^:inactive /template/ ContentControl">
-            <Setter Property="ContentControl.Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonInactiveForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonInactiveForeground}" />
         </Style>
 
         <Style Selector="^:blackout /template/ ContentControl">

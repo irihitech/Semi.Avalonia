@@ -34,7 +34,6 @@
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonDisabledBackground}" />
-            <Setter Property="Foreground" Value="{DynamicResource ButtonSpinnerRepeatButtonDisabledForeground}" />
         </Style>
     </ControlTheme>
 
@@ -98,7 +97,7 @@
         </Setter>
         <Style Selector="^[ButtonSpinnerLocation=Left] /template/ Border#ButtonGroup">
             <Setter Property="Grid.Column" Value="0" />
-            <Setter Property="Border.Margin" Value="0 0 4 0" />
+            <Setter Property="Margin" Value="0 0 4 0" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

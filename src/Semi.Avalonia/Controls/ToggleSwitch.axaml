@@ -113,45 +113,45 @@
 
         <Style Selector="^:unchecked">
             <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
-                <Setter Property="ContentPresenter.IsVisible" Value="False" />
+                <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
-                <Setter Property="ContentPresenter.IsVisible" Value="True" />
+                <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDefaultBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDefaultBackground}" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPointeroverBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPressedBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPressedBackground}" />
             </Style>
             <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBackground}" />
-                <Setter Property="Border.BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
-                <Setter Property="Border.BorderThickness" Value="1" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
             </Style>
         </Style>
 
         <Style Selector="^:checked">
             <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
-                <Setter Property="ContentPresenter.IsVisible" Value="True" />
+                <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
-                <Setter Property="ContentPresenter.IsVisible" Value="False" />
+                <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedDefaultBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerCheckedDefaultBackground}" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedPointeroverBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerCheckedPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedPressedBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerCheckedPressedBackground}" />
             </Style>
             <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
-                <Setter Property="Border.Background" Value="{DynamicResource ToggleSwitchContainerCheckedDisabledBackground}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerCheckedDisabledBackground}" />
             </Style>
         </Style>
     </ControlTheme>

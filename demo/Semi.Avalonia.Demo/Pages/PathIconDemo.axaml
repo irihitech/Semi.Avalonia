@@ -1,0 +1,22 @@
+﻿<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.PathIconDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel HorizontalAlignment="Left" >
+        <TextBlock Text="Size"></TextBlock>
+        <Slider Name="width" Minimum="0" Maximum="100" Value="20" Width="300"></Slider>
+        <ToggleSwitch Name="active" Content="Active"></ToggleSwitch>
+        <PathIcon
+            Classes.Active="{Binding ElementName=active, Path=IsChecked}"
+            BorderBrush="{DynamicResource SemiRed6}"
+            Width="{Binding #width.Value}"
+            Height="{Binding #width.Value}"
+            Data="M12 3L2 12H5V20H19V12H22L12 3M13 18H11V16H13V18M13 14H11V8H13V14Z"
+            Foreground="{DynamicResource SemiBlue6}" />
+    </StackPanel>
+</UserControl>
