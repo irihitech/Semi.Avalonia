@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
 env:
-    PROJECT_PATH: demo/Semi.Avalonia.Demo.Web/Semi.Avalonia.Demo.Web.csproj
-    OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Debug/net7.0/browser-wasm/AppBundle
+  PROJECT_PATH: demo/Semi.Avalonia.Demo.Web/Semi.Avalonia.Demo.Web.csproj
+  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net7.0/browser-wasm/AppBundle
 on:
   push:
     branches: [ "deploy" ]
@@ -13,19 +13,22 @@ jobs:
   deploy-to-github-pages:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
 
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1.9.0
+    - name: Setup .NET 7
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 7.0.405
 
     - name: Install wasm-tools
-      run: dotnet workload install wasm-tools wasm-experimental
+      run: dotnet workload install wasm-tools wasm-tools-net7
 
     - name: Install DotNetCompress
-      run: dotnet tool install --global DotNetCompress --version 2.0.0 --no-cache
+      run: dotnet tool install --global DotNetCompress --version 3.0.0 --no-cache
 
     - name: Publish .NET Project
-      run: dotnet publish $PROJECT_PATH -c Debug -o debug --nologo
+      run: dotnet publish $PROJECT_PATH -c Release -o release --nologo
 
     - name: Change base-tag in index.html
       run: sed -i 's/<base href="\/" \/>/<base href="\/Semi.Avalonia\/" \/>/g' $OUTPUT_PATH/index.html
@@ -43,7 +46,7 @@ jobs:
       run: touch $OUTPUT_PATH/.nojekyll
 
     - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.7
+      uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
