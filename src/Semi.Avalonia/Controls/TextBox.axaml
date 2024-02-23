@@ -264,7 +264,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                        <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto, *">
+                        <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto, *, Auto">
                             <ContentPresenter
                                 Grid.Column="0"
                                 Padding="{DynamicResource TextBoxInnerLeftContentPadding}"
@@ -308,6 +308,13 @@
                                         TextWrapping="{TemplateBinding TextWrapping}" />
                                 </Panel>
                             </ScrollViewer>
+                            <ContentPresenter
+                                Grid.Column="2"
+                                Padding="{DynamicResource TextBoxInnerRightContentPadding}"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding InnerRightContent}"
+                                Foreground="{DynamicResource TextBoxInnerForeground}"
+                                IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                         </Grid>
                     </Border>
                 </DataValidationErrors>
