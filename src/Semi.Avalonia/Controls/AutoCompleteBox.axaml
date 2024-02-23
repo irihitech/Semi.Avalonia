@@ -19,6 +19,8 @@
                             VerticalAlignment="Center"
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             Theme="{DynamicResource NonErrorTextBox}"
+                            InnerLeftContent="{TemplateBinding InnerLeftContent}"
+                            InnerRightContent="{TemplateBinding InnerRightContent}"
                             Watermark="{TemplateBinding Watermark}" />
                         <Popup
                             Name="PART_Popup"
