@@ -80,11 +80,11 @@
                             <TextBox
                                 IsVisible="{Binding !SelectingFolder}"
                                 Text="{Binding FileName}"
-                                Watermark="File name" />
+                                Watermark="{DynamicResource STRING_CHOOSER_FILE_NAME}" />
                         </DockPanel>
                         <CheckBox
                             VerticalAlignment="Center"
-                            Content="Show hidden files"
+                            Content="{DynamicResource STRING_CHOOSER_SHOW_HIDDEN_FILES}"
                             DockPanel.Dock="Left"
                             IsChecked="{Binding ShowHiddenFiles}" />
                         <UniformGrid
@@ -94,15 +94,13 @@
                             <Button
                                 Margin="8,0,0,0"
                                 Classes="Primary"
-                                Command="{Binding Ok}">
-                                OK
-                            </Button>
+                                Command="{Binding Ok}"
+                                Content="{DynamicResource STRING_CHOOSER_DIALOG_OK}" />
                             <Button
                                 Margin="8,0,0,0"
                                 Classes="Danger"
-                                Command="{Binding Cancel}">
-                                Cancel
-                            </Button>
+                                Command="{Binding Cancel}"
+                                Content="{DynamicResource STRING_CHOOSER_DIALOG_CANCEL}" />
                         </UniformGrid>
                     </DockPanel>
                     <Border

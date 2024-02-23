@@ -1,9 +1,13 @@
 <Application
     x:Class="Semi.Avalonia.Demo.App"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="https://irihi.tech/semi">
     <Application.Styles>
+        <!-- You can still reference in old way. 
         <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+         -->
+        <semi:SemiTheme Locale="zh-CN"/>
         <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
         <StyleInclude Source="avares://Semi.Avalonia.ColorPicker/Index.axaml" />
     </Application.Styles>
