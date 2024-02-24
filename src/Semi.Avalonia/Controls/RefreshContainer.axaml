@@ -30,18 +30,19 @@
         <Setter Property="Height" Value="100" />
         <Setter Property="Background" Value="{DynamicResource RefreshContainerIconBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource RefreshContainerIconForeground}" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon Name="PART_Icon"
+                          Data="{DynamicResource RefreshContainerIconGlyph}"
+                          Width="24"
+                          Height="24" />
+            </Template>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid
-                    Name="PART_Root"
-                    MinHeight="80"
-                    Background="{TemplateBinding Background}">
-                    <Grid.Styles>
-                        <Style Selector="PathIcon#PART_Icon">
-                            <Setter Property="Data" Value="{DynamicResource RefreshContainerIconGlyph}" />
-                        </Style>
-                    </Grid.Styles>
-                </Grid>
+                <Grid Name="PART_Root"
+                      MinHeight="80"
+                      Background="{TemplateBinding Background}" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
