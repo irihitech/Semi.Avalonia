@@ -28,14 +28,14 @@
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="IsHitTestVisible" Value="False" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Background" Value="{DynamicResource RefreshContainerIconBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource RefreshContainerIconForeground}" />
+        <Setter Property="Background" Value="{DynamicResource RefreshVisualizerIconBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource RefreshVisualizerIconForeground}" />
         <Setter Property="Content">
             <Template>
                 <PathIcon Name="PART_Icon"
-                          Data="{DynamicResource RefreshContainerIconGlyph}"
-                          Width="24"
-                          Height="24" />
+                          Data="{DynamicResource RefreshVisualizerIconGlyph}"
+                          Width="{DynamicResource RefreshVisualizerIconSize}"
+                          Height="{DynamicResource RefreshVisualizerIconSize}" />
             </Template>
         </Setter>
         <Setter Property="Template">
