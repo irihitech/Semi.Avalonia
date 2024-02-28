@@ -32,10 +32,15 @@
         <Setter Property="Foreground" Value="{DynamicResource RefreshVisualizerIconForeground}" />
         <Setter Property="Content">
             <Template>
-                <PathIcon Name="PART_Icon"
-                          Data="{DynamicResource RefreshVisualizerIconGlyph}"
-                          Width="{DynamicResource RefreshVisualizerIconSize}"
-                          Height="{DynamicResource RefreshVisualizerIconSize}" />
+                <Arc
+                    Name="PART_Icon"
+                    Width="{DynamicResource RefreshVisualizerIconSize}"
+                    Height="{DynamicResource RefreshVisualizerIconSize}"
+                    StartAngle="0"
+                    Stroke="{DynamicResource RefreshVisualizerIconForeground}"
+                    StrokeThickness="3"
+                    StrokeLineCap="Round"
+                    SweepAngle="270" />
             </Template>
         </Setter>
         <Setter Property="Template">
