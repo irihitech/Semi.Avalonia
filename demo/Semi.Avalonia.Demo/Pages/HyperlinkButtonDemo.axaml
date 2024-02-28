@@ -19,6 +19,18 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <HyperlinkButton
+                Height="30"
+                IsEnabled="False"
+                NavigateUri="http://www.irihi.tech/">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="Not Enabled"
+                    TextDecorations="Underline"
+                    VerticalAlignment="Center" />
+            </HyperlinkButton>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <HyperlinkButton
                 BorderThickness="1"
                 Classes="WithIcon"
                 Height="30"

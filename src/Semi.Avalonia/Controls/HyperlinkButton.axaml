@@ -32,45 +32,6 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^.WithIcon">
-            <Setter Property="Template">
-                <ControlTemplate TargetType="HyperlinkButton">
-                    <Grid
-                        ColumnDefinitions="Auto,*"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                        x:Name="RootGrid">
-                        <Grid Grid.Column="0" VerticalAlignment="Top">
-                            <Border
-                                Background="{DynamicResource CheckBoxDefaultBackground}"
-                                Height="{DynamicResource HyperlinkButtonIconHeight}"
-                                Opacity="0"
-                                UseLayoutRounding="False"
-                                Width="{DynamicResource HyperlinkButtonIconWidth}"
-                                x:Name="BackgroundRectangle" />
-                            <!--  <PathIcon  -->
-                            <!--  Data="{DynamicResource HyperlinkButtonLinkGlyph}"  -->
-                            <!--  Foreground="{DynamicResource CheckBoxForeground}"  -->
-                            <!--  Height="{DynamicResource HyperlinkButtonLinkGlyphHeight}"  -->
-                            <!--  Name="LinkGlyph"  -->
-                            <!--  VerticalAlignment="Bottom"  -->
-                            <!--  Width="{DynamicResource HyperlinkButtonLinkGlyphWidth}" />  -->
-                        </Grid>
-                        <ContentPresenter
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Cursor="{TemplateBinding Cursor}"
-                            Grid.Column="1"
-                            IsVisible="{TemplateBinding Content,
-                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
-                            RecognizesAccessKey="True"
-                            VerticalAlignment="Center"
-                            x:Name="ContentPresenter" />
-                    </Grid>
-                </ControlTemplate>
-            </Setter>
-        </Style>
-
         <!--  Unvisited Pointerover State  -->
         <Style Selector="^:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
@@ -102,6 +63,102 @@
             <!--  Visited Disabled State  -->
             <Style Selector="^:disabled">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.WithIcon">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="HyperlinkButton">
+                    <Grid ColumnDefinitions="Auto,*" x:Name="RootGrid">
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <Border
+                                Background="{DynamicResource CheckBoxDefaultBackground}"
+                                Height="{DynamicResource HyperlinkButtonIconHeight}"
+                                Opacity="0"
+                                UseLayoutRounding="False"
+                                Width="{DynamicResource HyperlinkButtonIconWidth}"
+                                x:Name="BackgroundRectangle" />
+                            <PathIcon
+                                Data="{DynamicResource HyperlinkButtonLinkGlyph}"
+                                Foreground="{DynamicResource CheckBoxForeground}"
+                                Height="{DynamicResource HyperlinkButtonLinkGlyphHeight}"
+                                Name="LinkGlyph"
+                                VerticalAlignment="Center"
+                                Width="{DynamicResource HyperlinkButtonLinkGlyphWidth}" />
+                        </Grid>
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Cursor="{TemplateBinding Cursor}"
+                            Grid.Column="1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Padding="8,0,0,0"
+                            RecognizesAccessKey="True"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center"
+                            x:Name="ContentPresenter" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+            <!--  Unvisited Pointerover State  -->
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+                </Style>
+            </Style>
+
+            <!--  Unvisited Pressed State  -->
+            <Style Selector="^:pressed">
+                <Setter Property="RenderTransform" Value="scale(0.98)" />
+            </Style>
+
+            <!--  Unvisited Disabled state  -->
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:visited">
+                <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                </Style>
+
+                <!--  Visited Pointerover State  -->
+                <Style Selector="^:pointerover">
+                    <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+                    </Style>
+                    <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+                    </Style>
+                </Style>
+
+                <!--  Visited Pressed State  -->
+                <Style Selector="^:pressed">
+                    <Setter Property="RenderTransform" Value="scale(0.98)" />
+                </Style>
+
+                <!--  Visited Disabled State  -->
+                <Style Selector="^:disabled">
+                    <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+                    </Style>
+                    <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+                    </Style>
+                </Style>
             </Style>
         </Style>
     </ControlTheme>
