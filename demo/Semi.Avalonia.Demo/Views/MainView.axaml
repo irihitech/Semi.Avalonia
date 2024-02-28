@@ -1,13 +1,13 @@
 <UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
     x:Class="Semi.Avalonia.Demo.Views.MainView"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="using:Semi.Avalonia.Demo.Pages"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    mc:Ignorable="d">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,52 +21,52 @@
             Margin="8"
             Padding="12,4"
             Theme="{DynamicResource CardBorder}">
-            <Grid VerticalAlignment="Center" ColumnDefinitions="*, Auto">
+            <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                     <TextBlock
-                        VerticalAlignment="Center"
                         Classes="H6"
                         Text="Semi Avalonia"
-                        Theme="{DynamicResource TitleTextBlock}" />
+                        Theme="{DynamicResource TitleTextBlock}"
+                        VerticalAlignment="Center" />
                     <TextBlock
                         Margin="8,0"
-                        VerticalAlignment="Center"
-                        Text="/" />
+                        Text="/"
+                        VerticalAlignment="Center" />
                     <TextBlock
-                        Margin="8,0"
-                        VerticalAlignment="Center"
                         Classes="Secondary"
-                        Text="{Binding #tab.SelectedItem.Header}" />
+                        Margin="8,0"
+                        Text="{Binding #tab.SelectedItem.Header}"
+                        VerticalAlignment="Center" />
                 </StackPanel>
                 <ToggleSwitch
                     Grid.Column="1"
-                    Padding="4"
                     IsCheckedChanged="ToggleButton_OnIsCheckedChanged"
+                    Padding="4"
                     Theme="{DynamicResource ButtonToggleSwitch}">
                     <ToggleSwitch.OnContent>
                         <PathIcon
-                            Width="16"
-                            Height="16"
                             Data="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM17 15C17.476 15 17.9408 14.9525 18.3901 14.862C17.296 17.3011 14.8464 19 12 19C8.13401 19 5 15.866 5 12C5 8.60996 7.40983 5.78277 10.6099 5.13803C10.218 6.01173 10 6.98041 10 8C10 11.866 13.134 15 17 15Z"
-                            Foreground="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                            Foreground="{DynamicResource ButtonDefaultTertiaryForeground}"
+                            Height="16"
+                            Width="16" />
                     </ToggleSwitch.OnContent>
                     <ToggleSwitch.OffContent>
                         <PathIcon
-                            Width="16"
-                            Height="16"
                             Data="M3.55 19.09L4.96 20.5L6.76 18.71L5.34 17.29M12 6C8.69 6 6 8.69 6 12S8.69 18 12 18 18 15.31 18 12C18 8.68 15.31 6 12 6M20 13H23V11H20M17.24 18.71L19.04 20.5L20.45 19.09L18.66 17.29M20.45 5L19.04 3.6L17.24 5.39L18.66 6.81M13 1H11V4H13M6.76 5.39L4.96 3.6L3.55 5L5.34 6.81L6.76 5.39M1 13H4V11H1M13 20H11V23H13"
-                            Foreground="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                            Foreground="{DynamicResource ButtonDefaultTertiaryForeground}"
+                            Height="16"
+                            Width="16" />
                     </ToggleSwitch.OffContent>
                 </ToggleSwitch>
             </Grid>
 
         </Border>
         <TabControl
-            Name="tab"
             Grid.Row="1"
-            Margin="8"
-            Padding="20,0,0,0"
             HorizontalAlignment="Stretch"
+            Margin="8"
+            Name="tab"
+            Padding="20,0,0,0"
             TabStripPlacement="Left"
             Theme="{DynamicResource NavigationTab}">
             <TabItem Header="Overview">
@@ -126,6 +126,9 @@
             <TabItem Header="HeaderedContentControl">
                 <pages:HeaderedContentControlDemo />
             </TabItem>
+            <TabItem Header="HyperlinkButton">
+                <pages:HyperlinkButtonDemo />
+            </TabItem>
             <TabItem Header="Label">
                 <pages:LabelDemo />
             </TabItem>
@@ -145,7 +148,7 @@
                 <pages:NumericUpDownDemo />
             </TabItem>
             <TabItem Header="PathIcon">
-                <pages:PathIconDemo/>
+                <pages:PathIconDemo />
             </TabItem>
             <TabItem Header="ProgressBar">
                 <pages:ProgressBarDemo />

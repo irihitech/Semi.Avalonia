@@ -1,0 +1,108 @@
+<ResourceDictionary
+    x:CompileBindings="True"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="HyperlinkButton" x:Key="{x:Type HyperlinkButton}">
+        <Setter Property="Padding" Value="0,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Foreground" Value="{DynamicResource CheckBoxForeground}" />
+        <Setter Property="Background" Value="{DynamicResource CheckBoxDefaultBackground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="HyperlinkButton">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    Cursor="{TemplateBinding Cursor}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Padding="{TemplateBinding Padding}"
+                    RecognizesAccessKey="True"
+                    TextElement.FontFeatures="{TemplateBinding FontWeight}"
+                    TextElement.FontSize="{TemplateBinding FontSize}"
+                    TextElement.FontWeight="{TemplateBinding FontWeight}"
+                    UseLayoutRounding="False"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    x:Name="PART_ContentPresenter" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.WithIcon">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="HyperlinkButton">
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        x:Name="RootGrid">
+                        <Grid Grid.Column="0" VerticalAlignment="Top">
+                            <Border
+                                Background="{DynamicResource CheckBoxDefaultBackground}"
+                                Height="{DynamicResource HyperlinkButtonIconHeight}"
+                                Opacity="0"
+                                UseLayoutRounding="False"
+                                Width="{DynamicResource HyperlinkButtonIconWidth}"
+                                x:Name="BackgroundRectangle" />
+                            <!--  <PathIcon  -->
+                            <!--  Data="{DynamicResource HyperlinkButtonLinkGlyph}"  -->
+                            <!--  Foreground="{DynamicResource CheckBoxForeground}"  -->
+                            <!--  Height="{DynamicResource HyperlinkButtonLinkGlyphHeight}"  -->
+                            <!--  Name="LinkGlyph"  -->
+                            <!--  VerticalAlignment="Bottom"  -->
+                            <!--  Width="{DynamicResource HyperlinkButtonLinkGlyphWidth}" />  -->
+                        </Grid>
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Cursor="{TemplateBinding Cursor}"
+                            Grid.Column="1"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            RecognizesAccessKey="True"
+                            VerticalAlignment="Center"
+                            x:Name="ContentPresenter" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <!--  Unvisited Pointerover State  -->
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        </Style>
+
+        <!--  Unvisited Pressed State  -->
+        <Style Selector="^:pressed">
+            <Setter Property="RenderTransform" Value="scale(0.98)" />
+        </Style>
+
+        <!--  Unvisited Disabled state  -->
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^:visited">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
+
+            <!--  Visited Pointerover State  -->
+            <Style Selector="^:pointerover">
+                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+            </Style>
+
+            <!--  Visited Pressed State  -->
+            <Style Selector="^:pressed">
+                <Setter Property="RenderTransform" Value="scale(0.98)" />
+            </Style>
+
+            <!--  Visited Disabled State  -->
+            <Style Selector="^:disabled">
+                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
