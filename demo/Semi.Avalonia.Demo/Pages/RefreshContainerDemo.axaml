@@ -4,12 +4,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    x:DataType="pages:RefreshContainerDemoViewModel"
+    x:CompileBindings="True"
     mc:Ignorable="d">
-    <StackPanel HorizontalAlignment="Left" Spacing="20">
-        <RefreshContainer Name="container">
-            <TextBlock Text="Content" />
+    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Top">
+        <Label DockPanel.Dock="Top">A control that supports pull to refresh</Label>
+        <RefreshContainer Name="Refresh"
+                          DockPanel.Dock="Bottom"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          PullDirection="TopToBottom"
+                          RefreshRequested="RefreshContainerPage_RefreshRequested"
+                          Margin="5">
+            <ListBox HorizontalAlignment="Stretch"
+                     VerticalAlignment="Top"
+                     ItemsSource="{Binding Items}" />
         </RefreshContainer>
-    </StackPanel>
+    </DockPanel>
 </UserControl>
