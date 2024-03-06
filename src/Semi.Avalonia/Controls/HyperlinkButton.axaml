@@ -15,26 +15,48 @@
         <Setter Property="Background" Value="{DynamicResource HyperlinkButtonDefaultBackground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="HyperlinkButton">
-                <ContentPresenter
-                    Background="{TemplateBinding Background}"
-                    Content="{TemplateBinding Content}"
-                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                    Cursor="{TemplateBinding Cursor}"
-                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    Padding="{TemplateBinding Padding}"
-                    RecognizesAccessKey="True"
-                    TextElement.FontFeatures="{TemplateBinding FontWeight}"
-                    TextElement.FontSize="{TemplateBinding FontSize}"
-                    TextElement.FontWeight="{TemplateBinding FontWeight}"
-                    UseLayoutRounding="False"
-                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    x:Name="PART_ContentPresenter" />
+                <Grid ColumnDefinitions="Auto,*" x:Name="RootGrid">
+                    <Grid
+                        Grid.Column="0"
+                        IsVisible="False"
+                        VerticalAlignment="Center"
+                        x:Name="IconGrid">
+                        <Border
+                            Background="{DynamicResource HyperlinkButtonDefaultBackground}"
+                            Height="{DynamicResource HyperlinkButtonIconHeight}"
+                            Opacity="0"
+                            UseLayoutRounding="False"
+                            Width="{DynamicResource HyperlinkButtonIconWidth}"
+                            x:Name="BackgroundRectangle" />
+                        <PathIcon
+                            Data="{DynamicResource HyperlinkButtonLinkGlyph}"
+                            Foreground="{DynamicResource HyperlinkButtonForeground}"
+                            Height="{DynamicResource HyperlinkButtonLinkGlyphHeight}"
+                            Name="LinkGlyph"
+                            VerticalAlignment="Center"
+                            Width="{DynamicResource HyperlinkButtonLinkGlyphWidth}" />
+                    </Grid>
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Cursor="{TemplateBinding Cursor}"
+                        Grid.Column="1"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Padding="8,0,0,0"
+                        RecognizesAccessKey="True"
+                        VerticalAlignment="Center"
+                        x:Name="ContentPresenter" />
+                </Grid>
             </ControlTemplate>
         </Setter>
 
-        <!--  Unvisited Pointerover State  -->
         <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
+            <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
+            </Style>
         </Style>
 
         <!--  Unvisited Pressed State  -->
@@ -44,15 +66,30 @@
 
         <!--  Unvisited Disabled state  -->
         <Style Selector="^:disabled">
-            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
+            <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
+            </Style>
         </Style>
 
         <Style Selector="^:visited">
-            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonVisitedForeground}" />
+            <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonVisitedForeground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonVisitedForeground}" />
+            </Style>
 
             <!--  Visited Pointerover State  -->
             <Style Selector="^:pointerover">
-                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
+                <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
+                </Style>
             </Style>
 
             <!--  Visited Pressed State  -->
@@ -62,100 +99,18 @@
 
             <!--  Visited Disabled State  -->
             <Style Selector="^:disabled">
-                <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
+                <Style Selector="^ /template/ PathIcon#LinkGlyph">
+                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
+                </Style>
             </Style>
         </Style>
 
         <Style Selector="^.WithIcon">
-            <Setter Property="Template">
-                <ControlTemplate TargetType="HyperlinkButton">
-                    <Grid ColumnDefinitions="Auto,*" x:Name="RootGrid">
-                        <Grid Grid.Column="0" VerticalAlignment="Center">
-                            <Border
-                                Background="{DynamicResource HyperlinkButtonDefaultBackground}"
-                                Height="{DynamicResource HyperlinkButtonIconHeight}"
-                                Opacity="0"
-                                UseLayoutRounding="False"
-                                Width="{DynamicResource HyperlinkButtonIconWidth}"
-                                x:Name="BackgroundRectangle" />
-                            <PathIcon
-                                Data="{DynamicResource HyperlinkButtonLinkGlyph}"
-                                Foreground="{DynamicResource HyperlinkButtonForeground}"
-                                Height="{DynamicResource HyperlinkButtonLinkGlyphHeight}"
-                                Name="LinkGlyph"
-                                VerticalAlignment="Center"
-                                Width="{DynamicResource HyperlinkButtonLinkGlyphWidth}" />
-                        </Grid>
-                        <ContentPresenter
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Cursor="{TemplateBinding Cursor}"
-                            Grid.Column="1"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Padding="8,0,0,0"
-                            RecognizesAccessKey="True"
-                            VerticalAlignment="Center"
-                            x:Name="ContentPresenter" />
-                    </Grid>
-                </ControlTemplate>
-            </Setter>
-            <!--  Unvisited Pointerover State  -->
-            <Style Selector="^:pointerover">
-                <Style Selector="^ /template/ PathIcon#LinkGlyph">
-                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
-                </Style>
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
-                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
-                </Style>
-            </Style>
-
-            <!--  Unvisited Pressed State  -->
-            <Style Selector="^:pressed">
-                <Setter Property="RenderTransform" Value="scale(0.98)" />
-            </Style>
-
-            <!--  Unvisited Disabled state  -->
-            <Style Selector="^:disabled">
-                <Style Selector="^ /template/ PathIcon#LinkGlyph">
-                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
-                </Style>
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
-                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
-                </Style>
-            </Style>
-
-            <Style Selector="^:visited">
-                <Style Selector="^ /template/ PathIcon#LinkGlyph">
-                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonVisitedForeground}" />
-                </Style>
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
-                    <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonVisitedForeground}" />
-                </Style>
-
-                <!--  Visited Pointerover State  -->
-                <Style Selector="^:pointerover">
-                    <Style Selector="^ /template/ PathIcon#LinkGlyph">
-                        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
-                    </Style>
-                    <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
-                        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonOverForeground}" />
-                    </Style>
-                </Style>
-
-                <!--  Visited Pressed State  -->
-                <Style Selector="^:pressed">
-                    <Setter Property="RenderTransform" Value="scale(0.98)" />
-                </Style>
-
-                <!--  Visited Disabled State  -->
-                <Style Selector="^:disabled">
-                    <Style Selector="^ /template/ PathIcon#LinkGlyph">
-                        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
-                    </Style>
-                    <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
-                        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonDisabledForeground}" />
-                    </Style>
-                </Style>
+            <Style Selector="^ /template/ Grid#IconGrid">
+                <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
     </ControlTheme>
