@@ -12,6 +12,11 @@ public partial class ButtonSpinnerDemo : UserControl
         InitializeComponent();
     }
 
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
     public void OnSpin(object sender, SpinEventArgs e)
     {
         var spinner = (ButtonSpinner)sender;

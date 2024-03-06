@@ -11,4 +11,9 @@ public partial class CarouselDemo : UserControl
     {
         InitializeComponent();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }

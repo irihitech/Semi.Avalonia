@@ -13,6 +13,11 @@ public partial class TreeViewDemo : UserControl
         InitializeComponent();
         this.DataContext = new TreeViewVm();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }
 
 public class TreeViewVm : ObservableObject

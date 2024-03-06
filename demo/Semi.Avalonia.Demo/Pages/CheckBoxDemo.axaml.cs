@@ -10,4 +10,9 @@ public partial class CheckBoxDemo : UserControl
     {
         InitializeComponent();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }

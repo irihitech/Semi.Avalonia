@@ -14,6 +14,11 @@ public partial class AutoCompleteBoxDemo : UserControl
         InitializeComponent();
         this.DataContext = new AutoCompleteBoxDemoViewModel();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }
 
 public class AutoCompleteBoxDemoViewModel: ObservableObject

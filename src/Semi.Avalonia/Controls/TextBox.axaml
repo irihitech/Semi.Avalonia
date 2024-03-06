@@ -2,6 +2,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <TextBox Text="Text" />
+        </Border>
+    </Design.PreviewWith>
     <MenuFlyout x:Key="DefaultTextBoxContextFlyout" Placement="Bottom">
         <MenuItem
             x:Name="TextBoxContextFlyoutCutItem"
@@ -152,6 +157,9 @@
         </Style>
         <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />
+        </Style>
+        <Style Selector="^:focus /template/ TextBlock#PART_Watermark">
+            <Setter Property="IsVisible" Value="false" />
         </Style>
         <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
@@ -319,6 +327,9 @@
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
+        </Style>
+        <Style Selector="^:focus /template/ TextBlock#PART_Watermark">
+            <Setter Property="IsVisible" Value="false" />
         </Style>
         <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" />

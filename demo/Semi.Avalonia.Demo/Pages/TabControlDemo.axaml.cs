@@ -12,4 +12,9 @@ public partial class TabControlDemo : UserControl
         InitializeComponent();
         this.DataContext = new TabControlDemoViewModel();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }

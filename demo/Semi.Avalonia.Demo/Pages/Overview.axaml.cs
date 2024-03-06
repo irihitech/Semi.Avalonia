@@ -13,6 +13,11 @@ public partial class Overview : UserControl
         InitializeComponent();
     }
 
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
     public string MainInstall { get; set; } = "dotnet add package Semi.Avalonia --version 11.0.7";
 
     public string MainStyle { get; set; } = """

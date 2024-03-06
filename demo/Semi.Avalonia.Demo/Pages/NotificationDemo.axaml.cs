@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Notifications;
 using Avalonia.Interactivity;
+using Avalonia.Markup.Xaml;
 
 namespace Semi.Avalonia.Demo.Pages;
 
@@ -14,6 +15,12 @@ public partial class NotificationDemo : UserControl
     {
         InitializeComponent();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {

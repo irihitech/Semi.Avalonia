@@ -13,7 +13,12 @@ public partial class PaletteDemo : UserControl
     public PaletteDemo()
     {
         InitializeComponent();
-        
+
+    }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
     }
 
     protected override async  void OnApplyTemplate(TemplateAppliedEventArgs e)

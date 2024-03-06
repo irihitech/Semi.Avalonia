@@ -24,4 +24,9 @@ public partial class DataGridDemo : UserControl
         InitializeComponent();
         DataContext = new DataGridDemoViewModel();
     }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
 }
