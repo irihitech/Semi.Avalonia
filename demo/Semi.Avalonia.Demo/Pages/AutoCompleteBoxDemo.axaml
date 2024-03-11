@@ -17,69 +17,58 @@
         <StackPanel.Styles>
             <Style Selector="AutoCompleteBox">
                 <Setter Property="Width" Value="300" />
+                <Setter Property="ItemsSource">
+                    <Binding Path="States" />
+                </Setter>
+                <Setter Property="ItemTemplate">
+                    <DataTemplate DataType="local:StateData">
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </Setter>
+            </Style>
+            <Style Selector="AutoCompleteBox.Split">
+                <Setter Property="Width" Value="100" />
             </Style>
         </StackPanel.Styles>
+        <StackPanel Orientation="Horizontal">
+            <AutoCompleteBox Classes="Split Large"
+                             ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox Classes="Split"
+                             ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox Classes="Split Small"
+                             ValueMemberBinding="{ReflectionBinding Name}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <AutoCompleteBox Classes="Split"
+                             IsEnabled="False"
+                             ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox Classes="Split Bordered"
+                             ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox Classes="Split Bordered"
+                             IsEnabled="False"
+                             ValueMemberBinding="{ReflectionBinding Name}" />
+        </StackPanel>
+
         <AutoCompleteBox
-            ItemsSource="{Binding States}"
-            ValueMemberBinding="{Binding Name}"
-            Watermark="Please select a State">
-            <AutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="local:StateData">
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </AutoCompleteBox.ItemTemplate>
-        </AutoCompleteBox>
+            Watermark="Please select a State"
+            ValueMemberBinding="{Binding Name}" />
         <AutoCompleteBox
             Classes="Large"
-            ItemsSource="{Binding States}"
-            ValueMemberBinding="{ReflectionBinding Name}">
-            <AutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="local:StateData">
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </AutoCompleteBox.ItemTemplate>
-        </AutoCompleteBox>
+            ValueMemberBinding="{ReflectionBinding Name}" />
         <AutoCompleteBox
             Classes="Small"
-            ItemsSource="{Binding States}"
-            ValueMemberBinding="{ReflectionBinding Name}">
-            <AutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="local:StateData">
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </AutoCompleteBox.ItemTemplate>
-        </AutoCompleteBox>
+            ValueMemberBinding="{ReflectionBinding Name}" />
         <AutoCompleteBox
             Classes="Bordered"
-            ItemsSource="{Binding States}"
-            ValueMemberBinding="{ReflectionBinding Name}">
-            <AutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="local:StateData">
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </AutoCompleteBox.ItemTemplate>
-        </AutoCompleteBox>
+            ValueMemberBinding="{ReflectionBinding Name}" />
         <AutoCompleteBox
             IsEnabled="False"
-            ItemsSource="{Binding States}"
-            ValueMemberBinding="{ReflectionBinding Name}"
-            Watermark="Disabled">
-            <AutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="local:StateData">
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </AutoCompleteBox.ItemTemplate>
-        </AutoCompleteBox>
-        <AutoCompleteBox 
+            Watermark="Disabled"
+            ValueMemberBinding="{ReflectionBinding Name}" />
+        <AutoCompleteBox
             InnerLeftContent="https://"
             InnerRightContent=".com"
-            ItemsSource="{Binding States}"
-            ValueMemberBinding="{ReflectionBinding Name}">
-            <AutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="local:StateData">
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </AutoCompleteBox.ItemTemplate>
-        </AutoCompleteBox>
+            ValueMemberBinding="{ReflectionBinding Name}" />
     </StackPanel>
 </UserControl>
