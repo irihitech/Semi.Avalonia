@@ -8,6 +8,24 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel Orientation="Horizontal">
+            <NumericUpDown Classes="Large" Width="150" ButtonSpinnerLocation="Left"/>
+            <NumericUpDown Width="150" ShowButtonSpinner="False" />
+            <NumericUpDown Classes="Small" Width="150" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <NumericUpDown Width="150" ButtonSpinnerLocation="Left" />
+            <NumericUpDown Width="150" ShowButtonSpinner="False" />
+            <NumericUpDown Width="150" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <NumericUpDown Width="150" ShowButtonSpinner="False" />
+            <NumericUpDown IsEnabled="False" Width="150" />
+            <NumericUpDown Width="150" ButtonSpinnerLocation="Left" />
+        </StackPanel>
+
         <NumericUpDown
             Width="200"
             Maximum="100"
