@@ -2,16 +2,16 @@ name: Pack
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "action/pack" ]
   pull_request:
-    branches: [ "release" ]
+    branches: [ "action/pack" ]
 
 jobs:
   nuget_desktop:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Nuget Semi.Avalonia
         run: dotnet pack ./src/Semi.Avalonia -o ./nugets
@@ -28,8 +28,8 @@ jobs:
       - name: Desktop
         run: dotnet publish ./demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
 
-      - name: Upload
-        uses: actions/upload-artifact@v3.1.2
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: nuget_desktop
           path: |
@@ -40,7 +40,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: CD Android
         run: cd ./demo/Semi.Avalonia.Demo.Android
@@ -52,7 +52,7 @@ jobs:
         run: dotnet publish ./demo/Semi.Avalonia.Demo.Android -c Release -f net7.0-android --no-restore
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: android
           path: ./**/publish/*Signed.apk
