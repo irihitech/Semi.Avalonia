@@ -70,5 +70,16 @@
                 </DataTemplate>
             </AutoCompleteBox.ItemTemplate>
         </AutoCompleteBox>
+        <AutoCompleteBox 
+            InnerLeftContent="https://"
+            InnerRightContent=".com"
+            ItemsSource="{Binding States}"
+            ValueMemberBinding="{ReflectionBinding Name}">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate DataType="local:StateData">
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
     </StackPanel>
 </UserControl>

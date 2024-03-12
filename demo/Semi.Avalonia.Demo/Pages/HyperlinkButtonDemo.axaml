@@ -1,0 +1,43 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Semi.Avalonia.Demo.Pages.HyperlinkButtonDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel Orientation="Horizontal">
+            <HyperlinkButton Height="20" NavigateUri="http://www.irihi.tech/">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="iRihi Homepage"
+                    TextDecorations="Underline"
+                    VerticalAlignment="Center" />
+            </HyperlinkButton>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <HyperlinkButton Height="20" IsEnabled="False">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="Not Enabled"
+                    TextDecorations="Underline"
+                    VerticalAlignment="Center" />
+            </HyperlinkButton>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <HyperlinkButton
+                BorderThickness="1"
+                Classes="WithIcon"
+                Height="20"
+                NavigateUri="http://www.irihi.tech/">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="Link with Icon"
+                    TextDecorations="Underline"
+                    VerticalAlignment="Center" />
+            </HyperlinkButton>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
