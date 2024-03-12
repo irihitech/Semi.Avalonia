@@ -17,10 +17,33 @@
     <converters:ToBrushConverter x:Key="ToBrushConverter" />
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="64" />
         <Setter Property="MinWidth" Value="64" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Content">
+            <Template>
+                <Panel>
+                    <Border
+                        Margin="1,1,0,1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius,
+                                                       Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
+                    <Border
+                        Margin="1,1,0,1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding HsvColor,
+                                                     Converter={StaticResource ToBrushConverter}}"
+                        CornerRadius="{TemplateBinding CornerRadius,
+                                                       Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
+                </Panel>
+            </Template>
+        </Setter>
         <Setter Property="Palette">
             <controls:FluentColorPalette />
         </Setter>
@@ -33,6 +56,8 @@
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     ClipToBounds="True"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     UseLayoutRounding="False">
                     <DropDownButton.Styles>
@@ -40,26 +65,6 @@
                             <Setter Property="Padding" Value="0" />
                         </Style>
                     </DropDownButton.Styles>
-                    <DropDownButton.Content>
-                        <!--  Preview color  -->
-                        <Panel>
-                            <Border
-                                Margin="1,1,0,1"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                CornerRadius="{TemplateBinding CornerRadius,
-                                                               Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
-                            <Border
-                                Margin="1,1,0,1"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Background="{TemplateBinding HsvColor,
-                                                             Converter={StaticResource ToBrushConverter}}"
-                                CornerRadius="{TemplateBinding CornerRadius,
-                                                               Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
-                        </Panel>
-                    </DropDownButton.Content>
                     <DropDownButton.Flyout>
                         <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource ColorPickerFlyoutPlacement}">
 
@@ -468,6 +473,44 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="HexColorPicker"
+        BasedOn="{StaticResource {x:Type ColorPicker}}"
+        TargetType="ColorPicker">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Content">
+            <Template>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Border
+                        Grid.Column="0"
+                        Width="{Binding $self.Bounds.Height}"
+                        Margin="1,1,0,1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border
+                        Grid.Column="0"
+                        Width="{Binding $self.Bounds.Height}"
+                        Margin="1,1,0,1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding HsvColor,
+                                                     Converter={StaticResource ToBrushConverter}}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="8,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontWeight="Regular"
+                        Foreground="{DynamicResource TextBlockDefaultForeground}"
+                        Text="{Binding $parent[ColorPicker].Color}" />
+                </Grid>
+            </Template>
         </Setter>
     </ControlTheme>
 
