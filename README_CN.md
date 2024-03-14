@@ -3,23 +3,23 @@
 [![Semi Avalonia](https://img.shields.io/nuget/v/Semi.Avalonia.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
 [![Semi Avalonia](https://img.shields.io/nuget/dt/Semi.Avalonia.svg?style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
 
-[中文](./README_CN.md)
+[English](./README.md)
 
-Avalonia Theme inspired by Semi Design
+Avalonia UI 控件主题，灵感来自 Semi Design
 
-If you are looking for more customized controls, Please try [Ursa](https://github.com/irihitech/Ursa.Avalonia)
+如果您希望使用更多的拓展控件，欢迎尝试 [Ursa](https://github.com/irihitech/Ursa.Avalonia)
 
 ![Light](./docs/demo.jpg)
 
-## How to Use
+## 如何使用
 
-### Installation
+### 安装
 
 ```bash
 dotnet add package Semi.Avalonia --version 11.0.7
 ```
 
-Include Semi Design Styles in application:
+在样式中引用 Semi 主题：
 
 ```xaml
 <Application.Styles>
@@ -27,9 +27,9 @@ Include Semi Design Styles in application:
 </Application.Styles>
 ```
 
-That's all.
+这样就可以了。
 
-ColorPicker, DataGrid and TreeDataGrid are distributed in separated packages. Please install if you need. 
+ColorPicker， DataGrid 和 TreeDataGrid 的样式单独分发，如果需要请安装并引用。
 
 ```bash
 dotnet add package Semi.Avalonia.ColorPicker --version 11.0.7
@@ -45,23 +45,24 @@ dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.7
 </Application.Styles>
 ```
 
-## Demo
+## 示例
 
-You can always download demo executable to play around with Semi Avalonia Themes.
+您可以从 Semi Avalonia 的 release 页下载并试用 Semi Avalonia 的展示应用。
+
 <https://github.com/irihitech/Semi.Avalonia/releases>
 
-## Version compatibility
+## 版本兼容性
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
-| 11.0.7              | 11.0.7           |
+| 11.0.7              | >=11.0.7           |
 | 11.0.1              | <=11.0.6         |
 
-## TODO
+## 代办事项
 
 * FocusAdorner
 
-## Credits
+## 致谢
 
 [Semi Design](https://semi.design/)
 
