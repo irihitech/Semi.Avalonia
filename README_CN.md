@@ -29,7 +29,7 @@ dotnet add package Semi.Avalonia --version 11.0.7
 
 这样就可以了。
 
-ColorPicker， DataGrid 和 GreeDataGrid 的样式单独分发，如果需要请安装并引用。
+ColorPicker， DataGrid 和 TreeDataGrid 的样式单独分发，如果需要请安装并引用。
 
 ```bash
 dotnet add package Semi.Avalonia.ColorPicker --version 11.0.7
