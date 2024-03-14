@@ -7,6 +7,8 @@
 
 Avalonia UI 控件主题，灵感来自 Semi Design
 
+如果您希望使用更多的拓展控件，欢迎尝试 [Ursa](https://github.com/irihitech/Ursa.Avalonia)
+
 ![Light](./docs/demo.jpg)
 
 ## 如何使用

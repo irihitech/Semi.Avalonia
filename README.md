@@ -7,6 +7,8 @@
 
 Avalonia Theme inspired by Semi Design
 
+If you are looking for more customized controls, Please try [Ursa](https://github.com/irihitech/Ursa.Avalonia)
+
 ![Light](./docs/demo.jpg)
 
 ## How to Use
