@@ -8,27 +8,33 @@
 
     <!--  Button Light  -->
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-        <Setter Property="Button.Background" Value="{DynamicResource ButtonDefaultBackground}" />
-        <Setter Property="Button.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="Button.BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
-        <Setter Property="Button.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="Button.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="Button.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="Button.RenderTransform" Value="none" />
-        <Setter Property="Button.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="Button.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
-        <Setter Property="Button.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="Button.VerticalContentAlignment" Value="Center" />
-        <Setter Property="Button.MinHeight" Value="12" />
-        <Setter Property="Button.Cursor" Value="Hand" />
-        <Setter Property="Button.Template">
+        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="Button">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Content="{TemplateBinding Content}"
@@ -81,9 +87,11 @@
         </Style>
 
         <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
             <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
         </Style>
         <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
             <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
         </Style>
     </ControlTheme>

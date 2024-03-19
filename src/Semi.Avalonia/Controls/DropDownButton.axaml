@@ -4,24 +4,30 @@
     x:CompileBindings="True">
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
-        <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonDefaultBackground}" />
-        <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
-        <Setter Property="DropDownButton.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="DropDownButton.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="DropDownButton.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="DropDownButton.RenderTransform" Value="none" />
-        <Setter Property="DropDownButton.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="DropDownButton.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
-        <Setter Property="DropDownButton.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="DropDownButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="DropDownButton.MinHeight" Value="12" />
-        <Setter Property="DropDownButton.Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="DropDownButton">
                 <Border
                     x:Name="RootBorder"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"
@@ -94,31 +100,35 @@
 
         <Style Selector="^.Large">
             <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
         </Style>
         <Style Selector="^.Small">
             <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SolidDropDownButton" TargetType="DropDownButton">
-        <Setter Property="DropDownButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
-        <Setter Property="DropDownButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
-        <Setter Property="DropDownButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
-        <Setter Property="DropDownButton.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="DropDownButton.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="DropDownButton.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="DropDownButton.RenderTransform" Value="none" />
-        <Setter Property="DropDownButton.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="DropDownButton.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
-        <Setter Property="DropDownButton.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="DropDownButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="DropDownButton.MinHeight" Value="12" />
-        <Setter Property="DropDownButton.Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="DropDownButton">
                 <Border
                     x:Name="RootBorder"
                     Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"

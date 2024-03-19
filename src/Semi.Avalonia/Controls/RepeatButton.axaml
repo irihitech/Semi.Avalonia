@@ -3,24 +3,30 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type RepeatButton}" TargetType="RepeatButton">
-        <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonDefaultBackground}" />
-        <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
-        <Setter Property="RepeatButton.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="RepeatButton.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="RepeatButton.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="RepeatButton.RenderTransform" Value="none" />
-        <Setter Property="RepeatButton.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="RepeatButton.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
-        <Setter Property="RepeatButton.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="RepeatButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="RepeatButton.MinHeight" Value="12" />
-        <Setter Property="RepeatButton.Cursor" Value="Hand" />
-        <Setter Property="RepeatButton.Template">
+        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="RepeatButton">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     Padding="{TemplateBinding Padding}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Background="{TemplateBinding Background}"
@@ -77,9 +83,11 @@
 
         <Style Selector="^.Large">
             <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
         </Style>
         <Style Selector="^.Small">
             <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
         </Style>
     </ControlTheme>
 
@@ -87,9 +95,9 @@
         x:Key="SolidRepeatButton"
         BasedOn="{StaticResource {x:Type RepeatButton}}"
         TargetType="RepeatButton">
-        <Setter Property="RepeatButton.Foreground" Value="{DynamicResource ButtonSolidForeground}" />
-        <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
-        <Setter Property="RepeatButton.BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
 
         <Style Selector="^.Primary">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />

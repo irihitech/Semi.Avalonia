@@ -2,80 +2,86 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <SplitButton>Hello</SplitButton>
+        </StackPanel>
+    </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
-        <Setter Property="SplitButton.Background" Value="{DynamicResource ButtonDefaultBackground}" />
-        <Setter Property="SplitButton.Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="SplitButton.BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
-        <Setter Property="SplitButton.CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="SplitButton.BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="SplitButton.Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="SplitButton.RenderTransform" Value="none" />
-        <Setter Property="SplitButton.FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="SplitButton.FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
-        <Setter Property="SplitButton.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="SplitButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="SplitButton.MinHeight" Value="12" />
+        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="SplitButton">
-                <Grid ColumnDefinitions="*,Auto,Auto">
-                    <Button
-                        x:Name="PART_PrimaryButton"
-                        Grid.Column="0"
-                        Padding="{TemplateBinding Padding}"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Command="{TemplateBinding Command}"
-                        CommandParameter="{TemplateBinding CommandParameter}"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                        CornerRadius="3 0 0 3"
-                        Focusable="False"
-                        FontFamily="{TemplateBinding FontFamily}"
-                        FontSize="{TemplateBinding FontSize}"
-                        FontWeight="{TemplateBinding FontWeight}"
-                        Foreground="{TemplateBinding Foreground}"
-                        KeyboardNavigation.IsTabStop="False" />
-
-                    <Border
-                        x:Name="SeparatorBorder"
-                        Grid.Column="1"
-                        Width="{DynamicResource SplitButtonSeparatorWidth}"
-                        Background="Transparent"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="0.5" />
-
-                    <Button
-                        x:Name="PART_SecondaryButton"
-                        Grid.Column="2"
-                        Padding="4,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="0 3 3 0"
-                        Focusable="False"
-                        Foreground="{TemplateBinding Foreground}"
-                        KeyboardNavigation.IsTabStop="False">
-                        <PathIcon
-                            Width="12"
-                            Height="12"
-                            Data="{DynamicResource SplitButtonIconGlyph}"
-                            Foreground="{Binding $parent[Button].Foreground}" />
-                    </Button>
-                </Grid>
+                <Border BackgroundSizing="OuterBorderEdge" ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel >
+                        <Button
+                            x:Name="PART_SecondaryButton"
+                            DockPanel.Dock="Right"
+                            Padding="4,0"
+                            CornerRadius="0"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Focusable="False"
+                            Foreground="{TemplateBinding Foreground}"
+                            KeyboardNavigation.IsTabStop="False">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{DynamicResource SplitButtonIconGlyph}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+                        <Rectangle
+                            x:Name="SeparatorBorder"
+                            DockPanel.Dock="Right"
+                            Width="{DynamicResource SplitButtonSeparatorWidth}"
+                            VerticalAlignment="Stretch"
+                            Fill="{TemplateBinding BorderBrush}"
+                            StrokeThickness="0" />
+                        <Button
+                            x:Name="PART_PrimaryButton"
+                            CornerRadius="0"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Command="{TemplateBinding Command}"
+                            CommandParameter="{TemplateBinding CommandParameter}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding Foreground}"
+                            KeyboardNavigation.IsTabStop="False" />
+                    </DockPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
-
-
+        
         <Style Selector="^.Secondary /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultSecondaryForeground}" />
         </Style>
@@ -117,11 +123,17 @@
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             </Style>
         </Style>
-        <Style Selector="^.Large /template/ Button">
+        <Style Selector="^.Large /template/ Button#PART_PrimaryButton">
             <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
         </Style>
-        <Style Selector="^.Small /template/ Button">
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small /template/ Button#PART_PrimaryButton">
             <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
         </Style>
         <Style Selector="^:disabled /template/ Button">
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
