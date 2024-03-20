@@ -10,6 +10,18 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Classes="Large" Width="150"/>
+                <TextBox Width="150"/>
+                <TextBox Classes="Small" Width="150"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox IsEnabled="False" Width="150"/>
+                <TextBox Classes="Bordered" Width="150"/>
+                <TextBox Classes="Bordered" IsEnabled="False" Width="150"/>
+            </StackPanel>
+
             <TextBox Width="300" />
             <TextBox Width="300" Classes="Large" />
             <TextBox Width="300" Classes="Small" />

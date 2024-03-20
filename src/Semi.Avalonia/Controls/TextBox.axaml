@@ -53,11 +53,14 @@
         <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
         <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
         <Setter Property="TextBox.BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
+        <Setter Property="TextBox.BackgroundSizing" Value="OuterBorderEdge" />
         <Setter Property="TextBox.CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
         <Setter Property="TextBox.FontSize" Value="14" />
         <Setter Property="TextBox.Cursor" Value="Ibeam" />
         <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
         <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
         <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
@@ -67,8 +70,8 @@
                 <DataValidationErrors>
                     <Border
                         Name="PART_ContentPresenterBorder"
-                        MinHeight="{DynamicResource TextBoxWrapperDefaultHeight}"
                         Background="{TemplateBinding Background}"
+                        BackgroundSizing="{TemplateBinding BackgroundSizing}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
@@ -198,11 +201,11 @@
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
-        <Style Selector="^.Large /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="MinHeight" Value="{DynamicResource TextBoxWrapperLargeHeight}" />
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxLargeHeight}" />
         </Style>
-        <Style Selector="^.Small /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="MinHeight" Value="{DynamicResource TextBoxWrapperSmallHeight}" />
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxSmallHeight}" />
         </Style>
 
         <Style Selector="^.Bordered">
@@ -248,13 +251,15 @@
         <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
         <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
         <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
+        <Setter Property="TextBox.BackgroundSizing" Value="OuterBorderEdge" />
         <Setter Property="TextBox.BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
         <Setter Property="TextBox.CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
         <Setter Property="TextBox.FontSize" Value="14" />
         <Setter Property="TextBox.Cursor" Value="Ibeam" />
         <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
         <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
-        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxWrapperDefaultHeight}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
         <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
@@ -266,6 +271,7 @@
                         Name="PART_ContentPresenterBorder"
                         MinHeight="{TemplateBinding MinHeight}"
                         Background="{TemplateBinding Background}"
+                        BackgroundSizing="{TemplateBinding BackgroundSizing}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
