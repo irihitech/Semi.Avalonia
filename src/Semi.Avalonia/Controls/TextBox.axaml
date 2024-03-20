@@ -59,6 +59,7 @@
         <Setter Property="TextBox.Cursor" Value="Ibeam" />
         <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
         <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
         <Setter Property="TextBox.VerticalAlignment" Value="Center" />
         <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
@@ -69,7 +70,6 @@
                 <DataValidationErrors>
                     <Border
                         Name="PART_ContentPresenterBorder"
-                        MinHeight="{DynamicResource TextBoxWrapperDefaultHeight}"
                         Background="{TemplateBinding Background}"
                         BackgroundSizing="{TemplateBinding BackgroundSizing}"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -196,11 +196,11 @@
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
-        <Style Selector="^.Large /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="MinHeight" Value="{DynamicResource TextBoxWrapperLargeHeight}" />
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxLargeHeight}" />
         </Style>
-        <Style Selector="^.Small /template/ Border#PART_ContentPresenterBorder">
-            <Setter Property="MinHeight" Value="{DynamicResource TextBoxWrapperSmallHeight}" />
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxSmallHeight}" />
         </Style>
 
         <Style Selector="^.Bordered">
@@ -253,7 +253,7 @@
         <Setter Property="TextBox.Cursor" Value="Ibeam" />
         <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
         <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
-        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxWrapperDefaultHeight}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
         <Setter Property="TextBox.VerticalAlignment" Value="Center" />
         <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
