@@ -7,6 +7,7 @@
         <Setter Property="NumericUpDown.VerticalAlignment" Value="Center" />
         <Setter Property="NumericUpDown.VerticalContentAlignment" Value="Center" />
         <Setter Property="NumericUpDown.CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
+        <Setter Property="NumericUpDown.MinHeight" Value="{DynamicResource NumericUpDownDefaultHeight}" />
         <Setter Property="NumericUpDown.Template">
             <ControlTemplate TargetType="NumericUpDown">
                 <DataValidationErrors>
@@ -24,7 +25,8 @@
                         <TextBox
                             Name="PART_TextBox"
                             Height="{TemplateBinding Height}"
-                            MinHeight="{DynamicResource NumericUpDownWrapperDefaultHeight}"
+                            MinHeight="0"
+                            VerticalAlignment="Stretch"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             AcceptsReturn="False"
@@ -44,11 +46,11 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^.Large /template/ TextBox#PART_TextBox">
-            <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownWrapperLargeHeight}" />
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownLargeHeight}" />
         </Style>
-        <Style Selector="^.Small /template/ TextBox#PART_TextBox">
-            <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownWrapperSmallHeight}" />
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownSmallHeight}" />
         </Style>
 
         <Style Selector="^:error">

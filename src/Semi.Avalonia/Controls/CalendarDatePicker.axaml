@@ -16,6 +16,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="8 0" />
+        <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerDefaultHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CalendarDatePicker">
                 <DataValidationErrors>
@@ -38,7 +39,7 @@
                                 Name="PART_TextBox"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="2"
-                                MinHeight="{DynamicResource CalendarDatePickerDefaultHeight}"
+                                MinHeight="0"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -129,14 +130,10 @@
         </Style>
 
         <Style Selector="^.Large">
-            <Style Selector="^ /template/ TextBox#PART_TextBox">
-                <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerInnerLargeHeight}" />
-            </Style>
+            <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerLargeHeight}" />
         </Style>
         <Style Selector="^.Small">
-            <Style Selector="^ /template/ TextBox#PART_TextBox">
-                <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerInnerSmallHeight}" />
-            </Style>
+            <Setter Property="MinHeight" Value="{DynamicResource CalendarDatePickerSmallHeight}" />
         </Style>
 
         <Style Selector="^:pointerover">
