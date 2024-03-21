@@ -45,6 +45,36 @@ dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.7
 </Application.Styles>
 ```
 
+如果需要进行 AOT 发布，则需要在项目中包含 rd.xml 文件：
+
+```xml
+<ItemGroup>
+    <RdXmlFile Include="rd.xml"/>
+</ItemGroup>
+```
+
+rd.xml 文件的内容如下：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Directives>
+    <!--
+        This file is part of RdXmlLibrary project.
+        Visit https://github.com/kant2002/rdxmllibrary for latest version.
+        If you have modifications specific to this Nuget package,
+        please contribute back.
+    -->
+    <Application>
+        <Assembly Name="Avalonia.Markup.Xaml" Dynamic="Required All"/>
+        <Assembly Name="Semi.Avalonia" Dynamic="Required All"/>
+        <!-- If you don't use these, please don't include them.
+            <Assembly Name="Semi.Avalonia.DataGrid" Dynamic="Required All"/>
+            <Assembly Name="Semi.Avalonia.ColorPicker" Dynamic="Required All"/>
+        -->
+    </Application>
+</Directives>
+```
+
 ## 示例
 
 您可以从 Semi Avalonia 的 release 页下载并试用 Semi Avalonia 的展示应用。
@@ -55,7 +85,7 @@ dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.7
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
-| 11.0.7              | >=11.0.7           |
+| 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
 
 ## 代办事项

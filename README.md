@@ -29,7 +29,7 @@ Include Semi Design Styles in application:
 
 That's all.
 
-ColorPicker, DataGrid and TreeDataGrid are distributed in separated packages. Please install if you need. 
+ColorPicker, DataGrid and TreeDataGrid are distributed in separated packages. Please install if you need.
 
 ```bash
 dotnet add package Semi.Avalonia.ColorPicker --version 11.0.7
@@ -45,6 +45,36 @@ dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.7
 </Application.Styles>
 ```
 
+If AOT publishing is required, you need to include the rd.xml file in your project:
+
+```xml
+<ItemGroup>
+    <RdXmlFile Include="rd.xml"/>
+</ItemGroup>
+```
+
+The contents of the rd.xml file should be as follows:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Directives>
+    <!--
+        This file is part of RdXmlLibrary project.
+        Visit https://github.com/kant2002/rdxmllibrary for latest version.
+        If you have modifications specific to this Nuget package,
+        please contribute back.
+    -->
+    <Application>
+        <Assembly Name="Avalonia.Markup.Xaml" Dynamic="Required All"/>
+        <Assembly Name="Semi.Avalonia" Dynamic="Required All"/>
+        <!-- If you don't use these, please don't include them.
+            <Assembly Name="Semi.Avalonia.DataGrid" Dynamic="Required All"/>
+            <Assembly Name="Semi.Avalonia.ColorPicker" Dynamic="Required All"/>
+        -->
+    </Application>
+</Directives>
+```
+
 ## Demo
 
 You can always download demo executable to play around with Semi Avalonia Themes.
@@ -54,7 +84,7 @@ You can always download demo executable to play around with Semi Avalonia Themes
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
-| 11.0.7              | 11.0.7           |
+| 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
 
 ## TODO
