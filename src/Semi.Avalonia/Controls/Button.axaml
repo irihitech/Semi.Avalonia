@@ -151,11 +151,11 @@
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidTertiaryBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidTertiaryBorderBrush}" />
             </Style>
-            <Style Selector="^:pointerover">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidTertiaryPointeroverBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidTertiaryPointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed">
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidTertiaryPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidTertiaryPressedBorderBrush}" />
             </Style>
@@ -166,11 +166,11 @@
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidSuccessBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidSuccessBorderBrush}" />
             </Style>
-            <Style Selector="^:pointerover">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidSuccessPointeroverBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidSuccessPointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed">
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidSuccessPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidSuccessPressedBorderBrush}" />
             </Style>
@@ -181,11 +181,11 @@
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidWarningBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidWarningBorderBrush}" />
             </Style>
-            <Style Selector="^:pointerover">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidWarningPointeroverBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidWarningPointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed">
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidWarningPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidWarningPressedBorderBrush}" />
             </Style>
@@ -196,17 +196,17 @@
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidDangerBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidDangerBorderBrush}" />
             </Style>
-            <Style Selector="^:pointerover">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidDangerPointeroverBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidDangerPointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed">
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidDangerPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidDangerPressedBorderBrush}" />
             </Style>
         </Style>
 
-        <Style Selector="^:disabled">
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
