@@ -234,6 +234,9 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
         </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme
