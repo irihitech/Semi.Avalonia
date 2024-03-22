@@ -99,9 +99,14 @@
                     IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <SplitButton Content="Small" Classes="Small"></SplitButton>
-                <SplitButton Content="Default" ></SplitButton>
-                <SplitButton Content="Large" Classes="Large"></SplitButton>
+                <SplitButton Content="Default" Classes="Secondary" />
+                <SplitButton Theme="{DynamicResource SolidSplitButton}" Content="Solid" Classes="Secondary" />
+                <SplitButton Theme="{DynamicResource BorderlessSplitButton}" Content="Borderless" Classes="Secondary" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <SplitButton Classes="Small" Content="Small" />
+                <SplitButton Content="Default" />
+                <SplitButton Classes="Large" Content="Large" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSplitButton Content="Submit">
@@ -123,9 +128,9 @@
                     IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSplitButton Content="Small" Classes="Small"></ToggleSplitButton>
-                <ToggleSplitButton Content="Default" ></ToggleSplitButton>
-                <ToggleSplitButton Content="Large" Classes="Large"></ToggleSplitButton>
+                <ToggleSplitButton Classes="Small" Content="Small" />
+                <ToggleSplitButton Content="Default" />
+                <ToggleSplitButton Classes="Large" Content="Large" />
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

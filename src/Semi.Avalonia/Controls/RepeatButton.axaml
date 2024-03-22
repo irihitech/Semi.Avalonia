@@ -28,9 +28,7 @@
                     VerticalAlignment="Stretch"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Background="{TemplateBinding Background}"
                     BackgroundSizing="{TemplateBinding BackgroundSizing}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -44,6 +42,11 @@
 
         <Style Selector="^:pressed">
             <Setter Property="RenderTransform" Value="scale(0.98)" />
+        </Style>
+        
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="Background" Value="{TemplateBinding Background}" />
         </Style>
 
         <Style Selector="^.Primary">
