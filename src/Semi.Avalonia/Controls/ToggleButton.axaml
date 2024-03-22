@@ -20,24 +20,30 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
-        <Setter Property="ToggleButton.Background" Value="{DynamicResource ToggleButtonDefaultBackground}" />
-        <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ToggleButtonDefaultPrimaryForeground}" />
-        <Setter Property="ToggleButton.BorderBrush" Value="{DynamicResource ToggleButtonDefaultBorderBrush}" />
-        <Setter Property="ToggleButton.CornerRadius" Value="{DynamicResource ToggleButtonCornerRadius}" />
-        <Setter Property="ToggleButton.BorderThickness" Value="{DynamicResource ToggleButtonBorderThickness}" />
-        <Setter Property="ToggleButton.Padding" Value="{DynamicResource ToggleButtonDefaultPadding}" />
-        <Setter Property="ToggleButton.RenderTransform" Value="none" />
-        <Setter Property="ToggleButton.FontSize" Value="{DynamicResource ToggleButtonDefaultFontSize}" />
-        <Setter Property="ToggleButton.FontWeight" Value="{DynamicResource ToggleButtonDefaultFontWeight}" />
-        <Setter Property="ToggleButton.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="ToggleButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="ToggleButton.MinHeight" Value="12" />
-        <Setter Property="ToggleButton.Cursor" Value="Hand" />
-        <Setter Property="ToggleButton.Template">
+        <Setter Property="Background" Value="{DynamicResource ToggleButtonDefaultBackground}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="Foreground" Value="{DynamicResource ToggleButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ToggleButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ToggleButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="FontSize" Value="{DynamicResource ToggleButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ToggleButtonDefaultFontWeight}" />
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     Padding="{TemplateBinding Padding}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Background="{TemplateBinding Background}"
@@ -252,9 +258,11 @@
 
         <Style Selector="^.Large">
             <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
         </Style>
         <Style Selector="^.Small">
             <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
