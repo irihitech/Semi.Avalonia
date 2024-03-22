@@ -16,7 +16,7 @@
             <RepeatButton Classes="Success">Success</RepeatButton>
             <RepeatButton Classes="Warning">Warning</RepeatButton>
             <RepeatButton Classes="Danger">Danger</RepeatButton>
-            <RepeatButton Classes="Danger" IsEnabled="False">Danger</RepeatButton>
+            <RepeatButton Classes="Danger" IsEnabled="False">Disabled</RepeatButton>
         </StackPanel>
         <TextBlock>Solid</TextBlock>
         <StackPanel Orientation="Horizontal" Spacing="20">
@@ -30,7 +30,7 @@
                 Classes="Danger"
                 IsEnabled="False"
                 Theme="{DynamicResource SolidRepeatButton}">
-                Danger
+                Disabled
             </RepeatButton>
         </StackPanel>
         <TextBlock>Borderless</TextBlock>
@@ -45,7 +45,7 @@
                 Classes="Danger"
                 IsEnabled="False"
                 Theme="{DynamicResource BorderlessRepeatButton}">
-                Danger
+                Disabled
             </RepeatButton>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="8">

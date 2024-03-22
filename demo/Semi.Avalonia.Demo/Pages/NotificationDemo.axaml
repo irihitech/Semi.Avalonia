@@ -8,10 +8,17 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel.Styles>
+            <Style Selector="Button">
+                <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+            </Style>
+        </StackPanel.Styles>
+
         <Button Click="InfoButton_OnClick" Content="Default" />
         <Button Click="InfoButton_OnClick" Content="Information" />
-        <Button Click="InfoButton_OnClick" Content="Success" />
-        <Button Click="InfoButton_OnClick" Content="Warning" />
-        <Button Click="InfoButton_OnClick" Content="Error" />
+        <Button Click="InfoButton_OnClick" Content="Success" Classes="Success" />
+        <Button Click="InfoButton_OnClick" Content="Warning" Classes="Warning" />
+        <Button Click="InfoButton_OnClick" Content="Error" Classes="Danger" />
     </StackPanel>
 </UserControl>
