@@ -7,6 +7,33 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel.Styles>
+                <Style Selector="SplitButton">
+                    <Setter Property="Flyout">
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Submit All" />
+                            <MenuItem Header="Submit Updated" />
+                        </MenuFlyout>
+                    </Setter>
+                </Style>
+                <Style Selector="DropDownButton">
+                    <Setter Property="Flyout">
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Submit All" />
+                            <MenuItem Header="Submit Updated" />
+                        </MenuFlyout>
+                    </Setter>
+                </Style>
+                <Style Selector="ToggleSplitButton">
+                    <Setter Property="Flyout">
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Submit All" />
+                            <MenuItem Header="Submit Updated" />
+                        </MenuFlyout>
+                    </Setter>
+                </Style>
+            </StackPanel.Styles>
+
             <TextBlock>Light (Default)</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary">Primary</Button>
@@ -52,80 +79,66 @@
                     Danger
                 </Button>
             </StackPanel>
+
             <TextBlock>DropDownButton</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <DropDownButton Content="Submit">
-                    <DropDownButton.Flyout>
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </DropDownButton.Flyout>
-                </DropDownButton>
-                <DropDownButton Content="Submit" Theme="{DynamicResource SolidDropDownButton}">
-                    <DropDownButton.Flyout>
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </DropDownButton.Flyout>
-                </DropDownButton>
-                <DropDownButton Content="Submit" Theme="{DynamicResource BorderlessDropDownButton}">
-                    <DropDownButton.Flyout>
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </DropDownButton.Flyout>
-                </DropDownButton>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <SplitButton Content="Submit">
-                    <SplitButton.Flyout>
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </SplitButton.Flyout>
-                </SplitButton>
-                <SplitButton Classes="Secondary" Content="Submit" />
-                <SplitButton Classes="Tertiary" Content="Submit" />
-                <SplitButton Classes="Success" Content="Submit" />
-                <SplitButton Classes="Warning" Content="Submit" />
-                <SplitButton Classes="Danger" Content="Submit" />
-                <SplitButton
+                <DropDownButton Content="Primary" />
+                <DropDownButton Classes="Secondary" Content="Secondary" />
+                <DropDownButton Classes="Tertiary" Content="Tertiary" />
+                <DropDownButton Classes="Success" Content="Success" />
+                <DropDownButton Classes="Warning" Content="Warning" />
+                <DropDownButton Classes="Danger" Content="Danger" />
+                <DropDownButton
                     Classes="Danger"
-                    Content="Submit"
+                    Content="Danger"
                     IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <SplitButton Content="Default" Classes="Secondary" />
-                <SplitButton Theme="{DynamicResource SolidSplitButton}" Content="Solid" Classes="Secondary" />
-                <SplitButton Theme="{DynamicResource BorderlessSplitButton}" Content="Borderless" Classes="Secondary" />
+                <DropDownButton Content="Default" Classes="Success"/>
+                <DropDownButton Content="Solid" Theme="{DynamicResource SolidDropDownButton}" Classes="Success"/>
+                <DropDownButton Content="Borderless" Theme="{DynamicResource BorderlessDropDownButton}" Classes="Success"/>
+                <DropDownButton Content="Default" Classes="Success" IsEnabled="False"/>
+                <DropDownButton Content="Solid" Theme="{DynamicResource SolidDropDownButton}" Classes="Success" IsEnabled="False"/>
+                <DropDownButton Content="Borderless" Theme="{DynamicResource BorderlessDropDownButton}" Classes="Success" IsEnabled="False"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <DropDownButton Classes="Small" Content="Small" />
+                <DropDownButton Content="Default" />
+                <DropDownButton Classes="Large" Content="Large" />
+            </StackPanel>
+
+            <TextBlock>SplitButton</TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <SplitButton Content="Primary" />
+                <SplitButton Classes="Secondary" Content="Secondary" />
+                <SplitButton Classes="Tertiary" Content="Tertiary" />
+                <SplitButton Classes="Success" Content="Success" />
+                <SplitButton Classes="Warning" Content="Warning" />
+                <SplitButton Classes="Danger" Content="Danger" />
+                <SplitButton Classes="Danger" Content="Danger" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <SplitButton Content="Default" Classes="Success" />
+                <SplitButton Theme="{DynamicResource SolidSplitButton}" Content="Solid" Classes="Success" />
+                <SplitButton Theme="{DynamicResource BorderlessSplitButton}" Content="Borderless" Classes="Success" />
+                <SplitButton Content="Default" Classes="Success" IsEnabled="False" />
+                <SplitButton Theme="{DynamicResource SolidSplitButton}" Content="Solid" Classes="Success" IsEnabled="False" />
+                <SplitButton Theme="{DynamicResource BorderlessSplitButton}" Content="Borderless" Classes="Success" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <SplitButton Classes="Small" Content="Small" />
                 <SplitButton Content="Default" />
                 <SplitButton Classes="Large" Content="Large" />
             </StackPanel>
+            <TextBlock>ToggleSplitButton</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSplitButton Content="Submit">
-                    <ToggleSplitButton.Flyout>
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </ToggleSplitButton.Flyout>
-                </ToggleSplitButton>
-                <ToggleSplitButton Classes="Secondary" Content="Submit" />
-                <ToggleSplitButton Classes="Tertiary" Content="Submit" />
-                <ToggleSplitButton Classes="Success" Content="Submit" />
-                <ToggleSplitButton Classes="Warning" Content="Submit" />
-                <ToggleSplitButton Classes="Danger" Content="Submit" />
-                <ToggleSplitButton
-                    Classes="Danger"
-                    Content="Submit"
-                    IsEnabled="False" />
+                <ToggleSplitButton Content="Primary" />
+                <ToggleSplitButton Classes="Secondary" Content="Secondary" />
+                <ToggleSplitButton Classes="Tertiary" Content="Tertiary" />
+                <ToggleSplitButton Classes="Success" Content="Success" />
+                <ToggleSplitButton Classes="Warning" Content="Warning" />
+                <ToggleSplitButton Classes="Danger" Content="Danger" />
+                <ToggleSplitButton Classes="Danger" Content="Danger" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSplitButton Classes="Small" Content="Small" />
