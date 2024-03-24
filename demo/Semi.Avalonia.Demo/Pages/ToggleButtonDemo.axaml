@@ -17,7 +17,7 @@
             <ToggleButton Classes="Success">Success</ToggleButton>
             <ToggleButton Classes="Warning">Warning</ToggleButton>
             <ToggleButton Classes="Danger">Danger</ToggleButton>
-            <ToggleButton Classes="Danger" IsEnabled="False">Danger</ToggleButton>
+            <ToggleButton Classes="Danger" IsEnabled="False">Disabled</ToggleButton>
         </StackPanel>
         <TextBlock Text="Toggle Button Checked State" />
         <StackPanel Orientation="Horizontal" Spacing="20">
@@ -32,7 +32,7 @@
                 Classes="Danger"
                 IsChecked="True"
                 IsEnabled="False">
-                Danger
+                Disabled
             </ToggleButton>
         </StackPanel>
         <TextBlock Text="Toggle Button Three State" />
@@ -79,7 +79,7 @@
                 IsChecked="{x:Null}"
                 IsEnabled="False"
                 IsThreeState="True">
-                Danger
+                Disabled
             </ToggleButton>
         </StackPanel>
         <StackPanel Orientation="Horizontal">

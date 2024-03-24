@@ -26,29 +26,7 @@
                     </DataTemplate>
                 </Setter>
             </Style>
-            <Style Selector="AutoCompleteBox.Split">
-                <Setter Property="Width" Value="100" />
-            </Style>
         </StackPanel.Styles>
-        <StackPanel Orientation="Horizontal">
-            <AutoCompleteBox Classes="Split Large"
-                             ValueMemberBinding="{ReflectionBinding Name}" />
-            <AutoCompleteBox Classes="Split"
-                             ValueMemberBinding="{ReflectionBinding Name}" />
-            <AutoCompleteBox Classes="Split Small"
-                             ValueMemberBinding="{ReflectionBinding Name}" />
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal">
-            <AutoCompleteBox Classes="Split"
-                             IsEnabled="False"
-                             ValueMemberBinding="{ReflectionBinding Name}" />
-            <AutoCompleteBox Classes="Split Bordered"
-                             ValueMemberBinding="{ReflectionBinding Name}" />
-            <AutoCompleteBox Classes="Split Bordered"
-                             IsEnabled="False"
-                             ValueMemberBinding="{ReflectionBinding Name}" />
-        </StackPanel>
 
         <AutoCompleteBox
             Watermark="Please select a State"
@@ -70,5 +48,41 @@
             InnerLeftContent="https://"
             InnerRightContent=".com"
             ValueMemberBinding="{ReflectionBinding Name}" />
+
+        <StackPanel Orientation="Horizontal">
+            <AutoCompleteBox
+                Width="100"
+                Classes="Large"
+                Watermark="Large"
+                ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox
+                Width="100"
+                Watermark="Default"
+                ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox
+                Width="100"
+                Classes="Small"
+                Watermark="Small"
+                ValueMemberBinding="{ReflectionBinding Name}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <AutoCompleteBox
+                Width="100"
+                IsEnabled="False"
+                Watermark="Disabled"
+                ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox
+                Width="100"
+                Classes="Bordered"
+                Watermark="Bordered"
+                ValueMemberBinding="{ReflectionBinding Name}" />
+            <AutoCompleteBox
+                Width="100"
+                Classes="Bordered"
+                IsEnabled="False"
+                ValueMemberBinding="{ReflectionBinding Name}" />
+        </StackPanel>
+
     </StackPanel>
 </UserControl>
