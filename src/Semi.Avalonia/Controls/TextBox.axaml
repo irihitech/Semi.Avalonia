@@ -243,6 +243,13 @@
                 </Style>
             </Style>
         </Style>
+        
+        <Style Selector="^.TextArea">
+            <Setter Property="AcceptsReturn" Value="True"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+            <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxTextAreaContentPadding}"></Setter>
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxTextAreaHeight}"></Setter>
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="NonErrorTextBox" TargetType="TextBox">
