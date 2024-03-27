@@ -136,6 +136,7 @@
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
@@ -149,7 +150,7 @@
                             Grid.ColumnSpan="2"
                             Width="242"
                             MinWidth="242"
-                            MinHeight="{DynamicResource DateTimePickerButtonDefaultHeight}"
+                            MinHeight="0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{TemplateBinding Background}"
@@ -171,7 +172,7 @@
                                         VerticalAlignment="Stretch">
                                         <TextBlock
                                             x:Name="PART_HourTextBlock"
-                                            Padding="12,4"
+                                            Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             FontFamily="{TemplateBinding FontFamily}"
@@ -183,7 +184,6 @@
                                         Name="PART_FirstColumnDivider"
                                         Grid.Column="1"
                                         Width="1"
-                                        Margin="0,4"
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
@@ -194,7 +194,7 @@
                                         VerticalAlignment="Stretch">
                                         <TextBlock
                                             x:Name="PART_MinuteTextBlock"
-                                            Padding="12,4"
+                                            Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             FontFamily="{TemplateBinding FontFamily}"
@@ -206,7 +206,6 @@
                                         Name="PART_SecondColumnDivider"
                                         Grid.Column="3"
                                         Width="1"
-                                        Margin="0,4"
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
@@ -217,7 +216,7 @@
                                         VerticalAlignment="Stretch">
                                         <TextBlock
                                             x:Name="PART_PeriodTextBlock"
-                                            Padding="12,4"
+                                            Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             FontFamily="{TemplateBinding FontFamily}"
@@ -278,10 +277,10 @@
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
         </Style>
 
-        <Style Selector="^.Large /template/ Button#PART_FlyoutButton">
+        <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonLargeHeight}" />
         </Style>
-        <Style Selector="^.Small /template/ Button#PART_FlyoutButton">
+        <Style Selector="^.Small">
             <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonSmallHeight}" />
         </Style>
     </ControlTheme>

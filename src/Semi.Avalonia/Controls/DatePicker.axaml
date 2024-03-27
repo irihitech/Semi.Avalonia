@@ -132,6 +132,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerButtonCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="DatePicker">
                 <DataValidationErrors>
@@ -145,7 +146,7 @@
                             Grid.ColumnSpan="2"
                             Width="298"
                             MinWidth="298"
-                            MinHeight="{DynamicResource DateTimePickerButtonDefaultHeight}"
+                            MinHeight="0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{TemplateBinding Background}"
@@ -165,7 +166,7 @@
                                     ColumnDefinitions="78*,Auto,132*,Auto,78*">
                                     <TextBlock
                                         Name="PART_DayTextBlock"
-                                        Padding="12,4"
+                                        Padding="12,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
@@ -174,7 +175,7 @@
                                         Text="day" />
                                     <TextBlock
                                         Name="PART_MonthTextBlock"
-                                        Padding="12,4"
+                                        Padding="12,0"
                                         VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
@@ -183,7 +184,7 @@
                                         TextAlignment="Left" />
                                     <TextBlock
                                         Name="PART_YearTextBlock"
-                                        Padding="12,4"
+                                        Padding="12,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
@@ -194,14 +195,16 @@
                                         x:Name="PART_FirstSpacer"
                                         Grid.Column="1"
                                         Width="1"
-                                        Margin="0,4"
+                                        Height="{TemplateBinding Height}"
+                                        MinHeight="{TemplateBinding MinHeight}"
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                                     <Rectangle
                                         x:Name="PART_SecondSpacer"
                                         Grid.Column="3"
                                         Width="1"
-                                        Margin="0,4"
+                                        Height="{TemplateBinding Height}"
+                                        MinHeight="{TemplateBinding MinHeight}"
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                                 </Grid>
@@ -255,10 +258,10 @@
         <Style Selector="^:hasnodate /template/ Button#PART_FlyoutButton TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
         </Style>
-        <Style Selector="^.Large /template/ Button#PART_FlyoutButton">
+        <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonLargeHeight}" />
         </Style>
-        <Style Selector="^.Small /template/ Button#PART_FlyoutButton">
+        <Style Selector="^.Small">
             <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonSmallHeight}" />
         </Style>
     </ControlTheme>
