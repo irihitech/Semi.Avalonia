@@ -32,6 +32,7 @@
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="MaxDropDownHeight" Value="504" />
         <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBackground}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="CornerRadius" Value="{DynamicResource ComboBoxSelectorCornerRadius}" />
@@ -41,6 +42,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="MinHeight" Value="{DynamicResource ComboBoxDefaultHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
@@ -49,9 +51,8 @@
                             x:Name="Background"
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
-                            MinWidth="{DynamicResource ComboBoxThemeMinWidth}"
-                            MinHeight="{DynamicResource ComboBoxDefaultHeight}"
                             Background="{TemplateBinding Background}"
+                            BackgroundSizing="{TemplateBinding BackgroundSizing}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}" />
@@ -61,6 +62,7 @@
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            TextTrimming="CharacterEllipsis"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding SelectionBoxItem,
                                                         Converter={x:Static ObjectConverters.IsNull}}"
@@ -147,10 +149,10 @@
             </Style>
         </Style>
 
-        <Style Selector="^.Large /template/ Border#Background">
+        <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
         </Style>
-        <Style Selector="^.Small /template/ Border#Background">
+        <Style Selector="^.Small">
             <Setter Property="MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
         </Style>
 

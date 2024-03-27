@@ -15,5 +15,16 @@
         <TimePicker ClockIdentifier="12HourClock" IsEnabled="False" />
         <TimePicker Classes="Large" />
         <TimePicker Classes="Small" />
+        <StackPanel Orientation="Horizontal">
+            <TimePicker Classes="Large" ClockIdentifier="12HourClock"/>
+            <TimePicker ClockIdentifier="12HourClock"/>
+            <TimePicker Classes="Small" ClockIdentifier="12HourClock"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TimePicker IsEnabled="False" />
+            <TimePicker Classes="Bordered" />
+            <TimePicker Classes="Bordered" IsEnabled="False" />
+        </StackPanel>
+
     </StackPanel>
 </UserControl>

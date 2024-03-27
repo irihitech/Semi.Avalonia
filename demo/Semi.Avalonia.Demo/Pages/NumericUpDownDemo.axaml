@@ -4,62 +4,53 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="800"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel.Styles>
+            <Style Selector="NumericUpDown">
+                <Setter Property="Width" Value="300" />
+                <Setter Property="Maximum" Value="100" />
+                <Setter Property="Minimum" Value="0" />
+            </Style>
+        </StackPanel.Styles>
+
+        <NumericUpDown />
+        <NumericUpDown Increment="10" />
+        <NumericUpDown ButtonSpinnerLocation="Left" />
+        <NumericUpDown ShowButtonSpinner="False" />
+        <NumericUpDown Classes="Large" />
+        <NumericUpDown Classes="Small" />
+        <NumericUpDown InnerLeftContent="Price" InnerRightContent="$" />
+
         <StackPanel Orientation="Horizontal">
-            <NumericUpDown Classes="Large" Width="150" ButtonSpinnerLocation="Left"/>
-            <NumericUpDown Width="150" ShowButtonSpinner="False" />
-            <NumericUpDown Classes="Small" Width="150" />
+            <NumericUpDown
+                Width="100"
+                Classes="Large"
+                Watermark="Large"
+                ButtonSpinnerLocation="Left" />
+            <NumericUpDown
+                Width="100"
+                Watermark="Default"
+                ShowButtonSpinner="False" />
+            <NumericUpDown
+                Width="100"
+                Watermark="Small"
+                Classes="Small" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
-            <NumericUpDown Width="150" ButtonSpinnerLocation="Left" />
-            <NumericUpDown Width="150" ShowButtonSpinner="False" />
-            <NumericUpDown Width="150" />
+            <NumericUpDown Width="100" ButtonSpinnerLocation="Left" />
+            <NumericUpDown Width="100" ShowButtonSpinner="False" />
+            <NumericUpDown Width="100" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
-            <NumericUpDown Width="150" ShowButtonSpinner="False" />
-            <NumericUpDown IsEnabled="False" Width="150" />
-            <NumericUpDown Width="150" ButtonSpinnerLocation="Left" />
+            <NumericUpDown Width="100" ShowButtonSpinner="False" />
+            <NumericUpDown Width="100" IsEnabled="False" />
+            <NumericUpDown Width="100" ButtonSpinnerLocation="Left" />
         </StackPanel>
 
-        <NumericUpDown
-            Width="200"
-            Maximum="100"
-            Minimum="0" />
-        <NumericUpDown
-            Width="200"
-            Increment="10"
-            Maximum="100"
-            Minimum="0" />
-        <NumericUpDown
-            Width="200"
-            ButtonSpinnerLocation="Left"
-            Maximum="100"
-            Minimum="0" />
-        <NumericUpDown
-            Width="200"
-            Maximum="100"
-            Minimum="0"
-            ShowButtonSpinner="False" />
-        <NumericUpDown
-            Width="200"
-            Classes="Large"
-            Maximum="100"
-            Minimum="0" />
-        <NumericUpDown
-            Width="200"
-            Classes="Small"
-            Maximum="100"
-            Minimum="0" />
-        <NumericUpDown
-            Width="200"
-            InnerLeftContent="Price"
-            InnerRightContent="$"
-            Maximum="100"
-            Minimum="0" />
     </StackPanel>
 </UserControl>

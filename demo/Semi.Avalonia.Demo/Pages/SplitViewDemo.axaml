@@ -14,11 +14,13 @@
                 Orientation="Vertical"
                 Spacing="4">
                 <ToggleButton
+                    HorizontalAlignment="Stretch"
                     Name="PaneOpenButton"
                     Content="IsPaneOpen"
                     IsChecked="{Binding IsPaneOpen, ElementName=SplitView}" />
 
                 <ToggleButton
+                    HorizontalAlignment="Stretch"
                     Name="UseLightDismissOverlayModeButton"
                     Content="UseLightDismissOverlayMode"
                     IsChecked="{Binding UseLightDismissOverlayMode, ElementName=SplitView}" />

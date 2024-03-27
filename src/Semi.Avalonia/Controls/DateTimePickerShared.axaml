@@ -6,7 +6,8 @@
 
     <ControlTheme x:Key="DateTimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
-        <Setter Property="Button.VerticalAlignment" Value="Stretch" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter
@@ -14,6 +15,7 @@
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Content="{TemplateBinding Content}"

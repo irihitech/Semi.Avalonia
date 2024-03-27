@@ -5,23 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:system="clr-namespace:System;assembly=netstandard"
-    d:DesignHeight="450"
+    d:DesignHeight="800"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
-            <StackPanel Orientation="Horizontal">
-                <TextBox Classes="Large" Width="150"/>
-                <TextBox Width="150"/>
-                <TextBox Classes="Small" Width="150"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBox IsEnabled="False" Width="150"/>
-                <TextBox Classes="Bordered" Width="150"/>
-                <TextBox Classes="Bordered" IsEnabled="False" Width="150"/>
-            </StackPanel>
-
             <TextBox Width="300" />
             <TextBox Width="300" Classes="Large" />
             <TextBox Width="300" Classes="Small" />
@@ -54,6 +42,34 @@
                 InnerLeftContent="http://"
                 InnerRightContent=".com"
                 IsEnabled="False" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox
+                    Width="150"
+                    Classes="Large"
+                    Watermark="Large" />
+                <TextBox
+                    Width="150"
+                    Watermark="Default" />
+                <TextBox
+                    Width="150"
+                    Classes="Small"
+                    Watermark="Small" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox
+                    Width="150"
+                    IsEnabled="False"
+                    Watermark="Disabled" />
+                <TextBox
+                    Width="150"
+                    Classes="Bordered"
+                    Watermark="Bordered" />
+                <TextBox
+                    Width="150"
+                    Classes="Bordered"
+                    IsEnabled="False" />
+            </StackPanel>
             <TextBox Width="300" Classes="TextArea" />
         </StackPanel>
     </ScrollViewer>
