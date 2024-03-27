@@ -121,7 +121,7 @@ public class Song
         new("指鹿为马", "熊猫堂ProducePandas", 3, 12, "W.O.R.L.D.", 74, 2063175272),
         new("热带季风Remix", "熊猫堂ProducePandas", 3, 22, "W.O.R.L.D.", 23, 2063173319),
         new("加州梦境", "熊猫堂ProducePandas", 2, 56, "W.O.R.L.D.", 1662, 2063173324),
-        new("渐进自由", "熊猫堂ProducePandas", 4, 19, "W.O.R.L.D.", 124, 2063173321),
+        new("渐近自由", "熊猫堂ProducePandas", 4, 19, "W.O.R.L.D.", 124, 2063173321),
         new("世界所有的烂漫", "熊猫堂ProducePandas", 3, 30, "W.O.R.L.D.", 335, 2053388775),
     };
 }
