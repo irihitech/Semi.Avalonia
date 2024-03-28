@@ -131,13 +131,13 @@
                                     <ColumnDefinition Width="200" SharedSizeGroup="Size" />
                                 </Grid.ColumnDefinitions>
                                 <GridSplitter Grid.Column="1" Width="1" />
-                                <TextBlock Grid.Column="2" Text="Name" />
+                                <TextBlock Grid.Column="2" Text="{DynamicResource STRING_CHOOSER_NAME_COLUMN}" />
                                 <GridSplitter Grid.Column="3" Width="1" />
-                                <TextBlock Grid.Column="4" Text="Date Modified" />
+                                <TextBlock Grid.Column="4" Text="{DynamicResource STRING_CHOOSER_DATEMODIFIED_COLUMN}" />
                                 <GridSplitter Grid.Column="5" Width="1" />
-                                <TextBlock Grid.Column="6" Text="Type" />
+                                <TextBlock Grid.Column="6" Text="{DynamicResource STRING_CHOOSER_TYPE_COLUMN}" />
                                 <GridSplitter Grid.Column="7" Width="1" />
-                                <TextBlock Grid.Column="8" Text="Size" />
+                                <TextBlock Grid.Column="8" Text="{DynamicResource STRING_CHOOSER_SIZE_COLUMN}" />
                             </Grid>
                             <ListBox
                                 Name="PART_Files"
