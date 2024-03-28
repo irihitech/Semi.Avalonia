@@ -4,145 +4,190 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+    d:DesignHeight="1000"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <Design.DataContext>
+        <pages:SplitViewDemoViewModel />
+    </Design.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <StreamGeometry x:Key="NavigationMenuExpandIconGlyph">M5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2ZM6 4C5.44772 4 5 4.44772 5 5V19C5 19.5523 5.44772 20 6 20H9C9.55229 20 10 19.5523 10 19V5C10 4.44772 9.55229 4 9 4H6Z</StreamGeometry>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Border>
         <Grid ColumnDefinitions="*,400">
-            <StackPanel
-                Grid.Column="1"
-                Orientation="Vertical"
-                Spacing="4">
-                <ToggleButton
-                    HorizontalAlignment="Stretch"
-                    Name="PaneOpenButton"
-                    Content="IsPaneOpen"
-                    IsChecked="{Binding IsPaneOpen, ElementName=SplitView}" />
+            <Border Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0">
+                <Grid RowDefinitions="*, *, *, *, *, *" ColumnDefinitions="Auto, *">
+                    <Label
+                        Grid.Row="0" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="IsPaneOpen" />
+                    <ToggleSwitch
+                        Grid.Row="0" Grid.Column="1"
+                        Name="PaneOpenButton"
+                        IsChecked="{Binding #SplitView.IsPaneOpen}" />
 
-                <ToggleButton
-                    HorizontalAlignment="Stretch"
-                    Name="UseLightDismissOverlayModeButton"
-                    Content="UseLightDismissOverlayMode"
-                    IsChecked="{Binding UseLightDismissOverlayMode, ElementName=SplitView}" />
+                    <Label
+                        Grid.Row="1" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="UseLightDismissOverlayMode" />
+                    <ToggleSwitch
+                        Grid.Row="1" Grid.Column="1"
+                        Name="UseLightDismissOverlayModeButton"
+                        IsChecked="{Binding #SplitView.UseLightDismissOverlayMode}" />
 
-                <ToggleSwitch
-                    Content="Placement"
-                    OffContent="Left"
-                    OnContent="Right" />
+                    <Label
+                        Grid.Row="2" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="Placement" />
+                    <ToggleSwitch
+                        Grid.Row="2" Grid.Column="1"
+                        OffContent="Left"
+                        OnContent="Right"
+                        IsChecked="{Binding #SplitView.PanePlacement}" />
 
-                <TextBlock Text="DisplayMode" />
-                <ComboBox
-                    Name="DisplayModeSelector"
-                    Width="170"
-                    Margin="10"
-                    SelectedIndex="{Binding DisplayMode}">
-                    <ComboBoxItem>Inline</ComboBoxItem>
-                    <ComboBoxItem>CompactInline</ComboBoxItem>
-                    <ComboBoxItem>Overlay</ComboBoxItem>
-                    <ComboBoxItem>CompactOverlay</ComboBoxItem>
-                </ComboBox>
+                    <Label
+                        Grid.Row="3" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="DisplayMode" />
+                    <ComboBox
+                        Grid.Row="3" Grid.Column="1"
+                        Name="DisplayModeSelector"
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding DisplayModes}"
+                        SelectedIndex="{Binding #SplitView.DisplayMode}" />
 
-                <TextBlock Text="PaneBackground" />
-                <ComboBox
-                    Name="PaneBackgroundSelector"
-                    Width="170"
-                    Margin="10"
-                    SelectedIndex="0">
-                    <ComboBoxItem Tag="White">White</ComboBoxItem>
-                    <ComboBoxItem Tag="Red">Red</ComboBoxItem>
-                    <ComboBoxItem Tag="Blue">Blue</ComboBoxItem>
-                    <ComboBoxItem Tag="Green">Green</ComboBoxItem>
-                </ComboBox>
+                    <Label
+                        Grid.Row="4" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="{Binding #CompactPaneLengthSlider.Value, StringFormat='{}CompactPaneLength: {0}'}" />
+                    <Slider
+                        Grid.Row="4" Grid.Column="1"
+                        Name="CompactPaneLengthSlider"
+                        Maximum="128"
+                        Minimum="0"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        Value="{Binding #SplitView.CompactPaneLength}" />
 
-                <TextBlock Text="{Binding Value, ElementName=OpenPaneLengthSlider, StringFormat='{}OpenPaneLength: {0}'}" />
-                <Slider
-                    Name="OpenPaneLengthSlider"
-                    Width="150"
-                    Maximum="500"
-                    Minimum="128"
-                    Value="256" />
-
-                <TextBlock Text="{Binding Value, ElementName=CompactPaneLengthSlider, StringFormat='{}CompactPaneLength: {0}'}" />
-                <Slider
-                    Name="CompactPaneLengthSlider"
-                    Width="150"
-                    Maximum="128"
-                    Minimum="24"
-                    Value="48" />
-            </StackPanel>
-            <Border BorderBrush="{DynamicResource SystemControlHighlightBaseLowBrush}" BorderThickness="1">
-                <!--  {Binding SelectedItem.Tag, ElementName=PaneBackgroundSelector}  -->
+                    <Label
+                        Grid.Row="5" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="{Binding #OpenPaneLengthSlider.Value,StringFormat='{}OpenPaneLength: {0}'}" />
+                    <Slider
+                        Grid.Row="5" Grid.Column="1"
+                        Name="OpenPaneLengthSlider"
+                        Maximum="500"
+                        Minimum="128"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        Value="{Binding #SplitView.OpenPaneLength}" />
+                </Grid>
+            </Border>
+            <Border
+                Grid.Column="0"
+                BorderBrush="{DynamicResource SemiGrey1}"
+                BorderThickness="1">
                 <SplitView
                     Name="SplitView"
-                    CompactPaneLength="{Binding Value, ElementName=CompactPaneLengthSlider}"
                     DisplayMode="CompactOverlay"
-                    OpenPaneLength="{Binding Value, ElementName=OpenPaneLengthSlider}"
-                    PaneBackground="{Binding SelectedItem.Tag, ElementName=PaneBackgroundSelector}"
-                    PanePlacement="{Binding PanePlacement}">
+                    CompactPaneLength="48"
+                    OpenPaneLength="256">
+                    <SplitView.Background>
+                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                            <GradientStop Color="#6b4c1b" Offset="0" />
+                            <GradientStop Color="#291e10" Offset="1" />
+                        </LinearGradientBrush>
+                    </SplitView.Background>
                     <SplitView.Pane>
-                        <Grid RowDefinitions="Auto,Auto,*,Auto">
+                        <Grid RowDefinitions="Auto,*,Auto">
                             <TextBlock
+                                Grid.Row="0"
                                 Name="PaneHeader"
-                                Margin="5,12,0,0"
+                                Margin="8,12"
                                 FontWeight="Bold"
-                                Text="PANE CONTENT" />
-                            <ComboBox Grid.Row="1" Width="150">
-                                <ComboBoxItem Content="Item1" />
-                                <ComboBoxItem Content="Item2" />
-                                <ComboBoxItem Content="Item3" />
-                            </ComboBox>
-                            <ListBoxItem
+                                Text="Playlist" />
+                            <ListBox
+                                Grid.Row="1"
+                                ItemsSource="{Binding Songs}" />
+                            <ToggleSwitch
                                 Grid.Row="2"
-                                Margin="0,10"
-                                VerticalAlignment="Top">
-                                <StackPanel Orientation="Horizontal">
-                                    <!--  Path glyph from materialdesignicons.com  -->
-                                    <Border Width="48">
-                                        <Viewbox
-                                            Width="24"
-                                            Height="24"
-                                            HorizontalAlignment="Left">
-                                            <Canvas Width="24" Height="24">
-                                                <Path Data="M16 17V19H2V17S2 13 9 13 16 17 16 17M12.5 7.5A3.5 3.5 0 1 0 9 11A3.5 3.5 0 0 0 12.5 7.5M15.94 13A5.32 5.32 0 0 1 18 17V19H22V17S22 13.37 15.94 13M15 4A3.39 3.39 0 0 0 13.07 4.59A5 5 0 0 1 13.07 10.41A3.39 3.39 0 0 0 15 11A3.5 3.5 0 0 0 15 4Z" Fill="{DynamicResource SystemControlForegroundBaseHighBrush}" />
-                                            </Canvas>
-                                        </Viewbox>
-                                    </Border>
-                                    <TextBlock VerticalAlignment="Center" Text="People" />
-                                </StackPanel>
-                            </ListBoxItem>
-                            <TextBlock
-                                Grid.Row="3"
-                                Margin="60,12"
-                                Text="Item at bottom" />
+                                Theme="{DynamicResource ButtonToggleSwitch}"
+                                IsChecked="{Binding #SplitView.IsPaneOpen}">
+                                <ToggleSwitch.OnContent>
+                                    <PathIcon
+                                        Width="16"
+                                        Height="16"
+                                        Data="{StaticResource NavigationMenuExpandIconGlyph}" />
+                                </ToggleSwitch.OnContent>
+                                <ToggleSwitch.OffContent>
+                                    <PathIcon
+                                        Width="16"
+                                        Height="16"
+                                        Data="{StaticResource NavigationMenuExpandIconGlyph}" />
+                                </ToggleSwitch.OffContent>
+                            </ToggleSwitch>
                         </Grid>
                     </SplitView.Pane>
 
-                    <Grid>
-                        <Grid.Styles>
-                            <Style Selector="TextBlock">
-                                <Setter Property="FontSize" Value="14" />
-                                <Setter Property="FontWeight" Value="700" />
+                    <Panel>
+                        <Panel.Styles>
+                            <Style Selector="Image#AlbumCover">
+                                <Style.Animations>
+                                    <Animation IterationCount="Infinite" Duration="0:0:40">
+                                        <KeyFrame Cue="0%">
+                                            <Setter Property="RotateTransform.Angle" Value="0" />
+                                        </KeyFrame>
+                                        <KeyFrame Cue="100%">
+                                            <Setter Property="RotateTransform.Angle" Value="360" />
+                                        </KeyFrame>
+                                    </Animation>
+                                </Style.Animations>
                             </Style>
-                        </Grid.Styles>
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Text="SplitViewContent" />
-                        <TextBlock Text="SplitViewContent" TextAlignment="Left" />
-                        <TextBlock
-                            HorizontalAlignment="Right"
-                            Text="SplitViewContent"
-                            TextAlignment="Left" />
-                        <TextBlock
-                            VerticalAlignment="Bottom"
-                            Text="SplitViewContent"
-                            TextAlignment="Left" />
-                        <TextBlock
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            Text="SplitViewContent"
-                            TextAlignment="Left" />
-                    </Grid>
+                        </Panel.Styles>
+                        <Image
+                            Source="/Assets/WORLD.png"
+                            Name="AlbumCover"
+                            Width="200"
+                            Height="200" />
+                        <Arc
+                            Width="290"
+                            Height="290"
+                            StartAngle="0"
+                            SweepAngle="360"
+                            StrokeJoin="Round"
+                            StrokeLineCap="Round"
+                            StrokeThickness="45">
+                            <Arc.Stroke>
+                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                    <GradientStop Color="#010101" Offset="0" />
+                                    <GradientStop Color="#363636" Offset="0.5" />
+                                    <GradientStop Color="#010101" Offset="1" />
+                                </LinearGradientBrush>
+                            </Arc.Stroke>
+                        </Arc>
+                        <Arc
+                            Width="294"
+                            Height="294"
+                            StartAngle="0"
+                            SweepAngle="360"
+                            StrokeJoin="Round"
+                            StrokeLineCap="Round"
+                            StrokeThickness="4"
+                            Stroke="Black" />
+                        <Arc
+                            Width="310"
+                            Height="310"
+                            StartAngle="0"
+                            SweepAngle="360"
+                            StrokeJoin="Round"
+                            StrokeLineCap="Round"
+                            StrokeThickness="10"
+                            Stroke="#C6CACD"
+                            Opacity="0.1" />
+                    </Panel>
 
                 </SplitView>
             </Border>
