@@ -46,7 +46,7 @@
                         Grid.Row="2" Grid.Column="1"
                         OffContent="Left"
                         OnContent="Right"
-                        IsChecked="{Binding #SplitView.PanePlacement}" />
+                        IsChecked="{Binding #SplitView.PanePlacement, Mode=OneWayToSource}" />
 
                     <Label
                         Grid.Row="3" Grid.Column="0"
