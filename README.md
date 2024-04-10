@@ -80,6 +80,12 @@ The contents of the rd.xml file should be as follows:
 You can always download demo executable to play around with Semi Avalonia Themes.
 <https://github.com/irihitech/Semi.Avalonia/releases>
 
+## Support
+
+We offer limited free community support for Semi Avalonia and Ursa. Please join our group via FeiShu(Lark)
+
+![FeiShu](./docs/community-support.png) 
+
 ## Version compatibility
 
 | Semi Design Version | Avalonia Version |
