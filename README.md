@@ -82,7 +82,7 @@ You can always download demo executable to play around with Semi Avalonia Themes
 
 ## Support
 
-We offer limited free community support for Semi Avalonia and Ursa. Please join our group via FeiShu(Lark)
+We offer limited free community support for Semi Avalonia and Ursa. If you have any question or suggestion, feel free to raise issues and discussions via GitHub, and you are welcomed to join our group via FeiShu(Lark)
 
 ![FeiShu](./docs/community-support.png) 
 
