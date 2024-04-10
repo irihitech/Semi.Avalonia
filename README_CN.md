@@ -81,6 +81,13 @@ rd.xml 文件的内容如下：
 
 <https://github.com/irihitech/Semi.Avalonia/releases>
 
+## 社区支持
+
+我们提供有限度的免费社区支持，如果您有任何问题或建议，除了在GitHub上提交issue或发起讨论，也欢迎加入我们的飞书交流群：
+
+![FeiShu](./docs/community-support.png)
+
+
 ## 版本兼容性
 
 | Semi Design Version | Avalonia Version |
