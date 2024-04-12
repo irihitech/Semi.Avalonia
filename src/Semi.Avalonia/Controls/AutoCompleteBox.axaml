@@ -19,7 +19,7 @@
                         <TextBox
                             Name="PART_TextBox"
                             VerticalAlignment="Stretch"
-                            MinHeight="0"
+                            MinHeight="{TemplateBinding MinHeight}"
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             Theme="{DynamicResource NonErrorTextBox}"
                             InnerLeftContent="{TemplateBinding InnerLeftContent}"
