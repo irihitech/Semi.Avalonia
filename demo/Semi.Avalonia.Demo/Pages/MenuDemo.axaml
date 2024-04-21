@@ -25,14 +25,30 @@
                         <MenuItem Header="Submenu Level 2" />
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Menu Item with _Checkbox">
+                <MenuItem Header="Menu Item with _Icon">
                     <MenuItem.Icon>
                         <TextBlock>😊</TextBlock>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="Menu Item with _Checkbox" ToggleType="CheckBox" />
             </MenuItem>
             <MenuItem Header="_Second">
                 <MenuItem Header="Second _Menu Item" />
+                <MenuItem IsChecked="True" Header="Second Menu toggle item" ToggleType="CheckBox" />
+                <Separator />
+                <MenuItem GroupName="A" Header="Radio 1 - group" ToggleType="Radio" />
+                <MenuItem IsChecked="True" GroupName="A" Header="Radio 2 - group" ToggleType="Radio" />
+                <MenuItem GroupName="A" Header="Radio 3 - group" ToggleType="Radio">
+                    <MenuItem Header="Radio 4 - group" ToggleType="Radio" GroupName="A" />
+                    <MenuItem Header="Radio 5 - group" ToggleType="Radio" GroupName="A" />
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Radio 1" ToggleType="Radio" />
+                <MenuItem IsChecked="True" Header="Radio 2" ToggleType="Radio" />
+                <MenuItem Header="Radio 3" ToggleType="Radio">
+                    <MenuItem Header="Radio 4" ToggleType="Radio" />
+                    <MenuItem Header="Radio 5" ToggleType="Radio" />
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Parent">
                 <MenuItem Header="Child 1" />
@@ -86,7 +102,7 @@
                         <MenuItem Header="Submenu _1" />
                         <MenuItem Header="Submenu _2" />
                     </MenuItem>
-                    <MenuItem Header="Menu Item with _Checkbox">
+                    <MenuItem Header="Menu Item with _Icon">
                         <MenuItem.Icon>
                             <CheckBox
                                 Padding="0"
@@ -95,6 +111,7 @@
                                 IsHitTestVisible="False" />
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem Header="Menu Item with _Checkbox" ToggleType="CheckBox" />
                     <MenuItem Header="Menu Item that won't close on click" StaysOpenOnClick="True" />
                 </ContextMenu>
             </Border.ContextMenu>
@@ -113,7 +130,7 @@
                         <MenuItem Header="Submenu _1" />
                         <MenuItem Header="Submenu _2" />
                     </MenuItem>
-                    <MenuItem Header="Menu Item with _Checkbox">
+                    <MenuItem Header="Menu Item with _Icon">
                         <MenuItem.Icon>
                             <CheckBox
                                 Padding="0"
@@ -122,6 +139,7 @@
                                 IsHitTestVisible="False" />
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem Header="Menu Item with _Checkbox" ToggleType="CheckBox" />
                 </MenuFlyout>
             </Border.ContextFlyout>
             <TextBlock Text="Right Click to show Context Flyout" />
