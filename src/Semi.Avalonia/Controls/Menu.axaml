@@ -120,14 +120,26 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="ToggleIcon" />
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIcon" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemChevron" />
                             </Grid.ColumnDefinitions>
 
+                            <ContentControl
+                                Name="PART_ToggleIconPresenter"
+                                Grid.Column="0"
+                                Width="16"
+                                Height="16"
+                                Margin="{DynamicResource MenuItemIconMargin}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsVisible="False" />
+
                             <Viewbox
                                 Name="PART_IconPresenter"
+                                Grid.Column="1"
                                 Width="16"
                                 Height="16"
                                 Margin="{DynamicResource MenuItemIconMargin}"
@@ -143,14 +155,14 @@
 
                             <ContentPresenter
                                 Name="PART_HeaderPresenter"
-                                Grid.Column="1"
+                                Grid.Column="2"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
                                 Content="{TemplateBinding Header}"
                                 RecognizesAccessKey="True" />
                             <TextBlock
                                 x:Name="PART_InputGestureText"
-                                Grid.Column="2"
+                                Grid.Column="3"
                                 Margin="{DynamicResource MenuItemInputGestureTextMargin}"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
@@ -159,7 +171,7 @@
                                                        Converter={StaticResource KeyGestureConverter}}" />
                             <PathIcon
                                 Name="PART_ExpandIcon"
-                                Grid.Column="3"
+                                Grid.Column="4"
                                 Width="8"
                                 Height="8"
                                 Margin="{DynamicResource MenuItemExpandIconMargin}"
@@ -242,6 +254,27 @@
                 <ControlTemplate>
                     <Separator />
                 </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:checked:toggle /template/ ContentControl#PART_ToggleIconPresenter">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Content">
+                <Template>
+                    <PathIcon
+                        Foreground="{Binding $parent[MenuItem].Foreground}"
+                        Data="{StaticResource MenuCheckGlyph}" />
+                </Template>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:checked:radio /template/ ContentControl#PART_ToggleIconPresenter">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Content">
+                <Template>
+                    <Ellipse Fill="{Binding $parent[MenuItem].Foreground}"
+                             Margin="4" Width="8" Height="8" />
+                </Template>
             </Setter>
         </Style>
     </ControlTheme>
