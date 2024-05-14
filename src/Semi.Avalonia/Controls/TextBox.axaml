@@ -378,4 +378,80 @@
             </Style>
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="LooklessTextBox" TargetType="TextBox">
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
+        <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
+        <Setter Property="TextBox.FontSize" Value="14" />
+        <Setter Property="TextBox.Cursor" Value="Ibeam" />
+        <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
+        <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
+        <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="TextBox.Template">
+            <ControlTemplate TargetType="TextBox">
+                <Border Name="PART_ContentPresenterBorder" MinHeight="{TemplateBinding MinHeight}">
+                    <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto, *, Auto">
+                        <ContentPresenter
+                            Grid.Column="0"
+                            Padding="{DynamicResource TextBoxInnerLeftContentPadding}"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding InnerLeftContent}"
+                            Foreground="{DynamicResource TextBoxInnerForeground}"
+                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        <ScrollViewer
+                            Grid.Column="1"
+                            AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                            HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                            IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                            VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                            <Panel>
+                                <TextBlock
+                                    Name="PART_Watermark"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                    Opacity="0.5"
+                                    Text="{TemplateBinding Watermark}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}" />
+                                <TextPresenter
+                                    Name="PART_TextPresenter"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    CaretBrush="{TemplateBinding CaretBrush}"
+                                    CaretIndex="{TemplateBinding CaretIndex}"
+                                    LineHeight="{TemplateBinding LineHeight}"
+                                    PasswordChar="{TemplateBinding PasswordChar}"
+                                    RevealPassword="{TemplateBinding RevealPassword}"
+                                    SelectionBrush="{TemplateBinding SelectionBrush}"
+                                    SelectionEnd="{TemplateBinding SelectionEnd}"
+                                    SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                    SelectionStart="{TemplateBinding SelectionStart}"
+                                    Text="{TemplateBinding Text, Mode=TwoWay}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}" />
+                            </Panel>
+                        </ScrollViewer>
+                        <ContentPresenter
+                            Grid.Column="2"
+                            Padding="{DynamicResource TextBoxInnerRightContentPadding}"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding InnerRightContent}"
+                            Foreground="{DynamicResource TextBoxInnerForeground}"
+                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>
