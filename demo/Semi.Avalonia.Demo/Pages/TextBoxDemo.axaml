@@ -71,6 +71,12 @@
                     IsEnabled="False" />
             </StackPanel>
             <TextBox Width="300" Classes="TextArea" />
+            <TextBox
+                Width="300"
+                Theme="{StaticResource LooklessTextBox}"
+                Watermark="Lookless TextBox"
+                InnerLeftContent="http://"
+                InnerRightContent=".com" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>
