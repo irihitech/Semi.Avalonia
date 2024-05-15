@@ -179,6 +179,10 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorPressedBorderBrush}" />
         </Style>
 
+        <Style Selector="^:focus-visible">
+            <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorPressedBorderBrush}" />
+        </Style>
+
         <!--  Disabled State  -->
         <Style Selector="^:disabled">
             <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorDisabledBackground}" />
@@ -223,6 +227,9 @@
             <Style Selector="^:pressed /template/ Border#Background">
                 <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBorderedPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPressedBorderBrush}" />
+            </Style>
+            <Style Selector="^:focus-visible /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Border#Background">
@@ -304,6 +311,10 @@
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedPointeroverBackground}" />
             </Style>
+        </Style>
+
+        <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
