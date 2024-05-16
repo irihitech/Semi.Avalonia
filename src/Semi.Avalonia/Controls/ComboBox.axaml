@@ -161,9 +161,18 @@
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorPointeroverBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorPointeroverBorderBrush}" />
+            <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+                <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconPointeroverForeground}" />
+            </Style>
         </Style>
-        <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-            <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconPointeroverForeground}" />
+
+        <!--  Focus State  -->
+        <Style Selector="^:focus">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorFocusBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorFocusBorderBrush}" />
+            <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+                <Setter Property="Foreground" Value="{DynamicResource ComboBoxIconFocusForeground}" />
+            </Style>
         </Style>
 
         <!--  Pressed State  -->
@@ -223,6 +232,10 @@
             <Style Selector="^:pressed /template/ Border#Background">
                 <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBorderedPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPressedBorderBrush}" />
+            </Style>
+            <Style Selector="^:focus /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBorderedFocusBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedFocusBorderBrush}" />
             </Style>
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Border#Background">
@@ -286,6 +299,10 @@
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
         </Style>
 
+        <Style Selector="^:focus /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemFocusBackground}" />
+        </Style>
+
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemDisabledBackground}" />
         </Style>
@@ -305,5 +322,6 @@
                 <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedPointeroverBackground}" />
             </Style>
         </Style>
+
     </ControlTheme>
 </ResourceDictionary>
