@@ -45,7 +45,7 @@
                                     <DataGridTextColumn
                                         Width="*"
                                         x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{ReflectionBinding ColorDisplayName}"
+                                        Binding="{Binding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
                                     <DataGridTemplateColumn Width="100" Header="Hex">
@@ -99,7 +99,7 @@
                                     <DataGridTextColumn
                                         Width="*"
                                         x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{ReflectionBinding ColorDisplayName}"
+                                        Binding="{Binding ColorDisplayName}"
                                         CanUserSort="False"
                                         Header="Name" />
                                     <DataGridTemplateColumn Width="100" Header="Hex">
