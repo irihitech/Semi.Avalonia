@@ -172,7 +172,7 @@
                                                 Orientation="Vertical">
                                                 <primitives:ColorSlider.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <ReflectionBinding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </primitives:ColorSlider.IsVisible>
                                             </primitives:ColorSlider>
@@ -430,8 +430,8 @@
                                                 Value="{Binding Value, ElementName=AlphaComponentSlider}">
                                                 <NumericUpDown.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <ReflectionBinding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                                        <ReflectionBinding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </NumericUpDown.IsVisible>
                                             </NumericUpDown>
@@ -452,8 +452,8 @@
                                                 TickFrequency="1">
                                                 <primitives:ColorSlider.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <ReflectionBinding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                                        <ReflectionBinding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </primitives:ColorSlider.IsVisible>
                                             </primitives:ColorSlider>

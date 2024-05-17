@@ -159,7 +159,7 @@
                             <TextBlock.Text>
                                 <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                     <TemplateBinding Property="ProgressTextFormat" />
-                                    <ReflectionBinding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                     <TemplateBinding Property="Percentage" />
                                     <TemplateBinding Property="Minimum" />
                                     <TemplateBinding Property="Maximum" />

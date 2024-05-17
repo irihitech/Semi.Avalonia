@@ -31,7 +31,7 @@
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             AcceptsReturn="False"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            DataValidationErrors.Errors="{ReflectionBinding $parent[NumericUpDown].(DataValidationErrors.Errors)}"
+                            DataValidationErrors.Errors="{Binding $parent[NumericUpDown].(DataValidationErrors.Errors)}"
                             FontSize="{TemplateBinding FontSize}"
                             Foreground="{TemplateBinding Foreground}"
                             IsReadOnly="{TemplateBinding IsReadOnly}"
