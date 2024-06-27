@@ -251,7 +251,7 @@ public static class ColorTokens
     {
         new ("SemiColorPrimary", "Primary"),
         new ("SemiColorPrimaryPointerover", "Primary Pointerover"),
-        new ("SemiColorPrimaryPressed", "Primary Pressed"),
+        new ("SemiColorPrimaryActive", "Primary Active"),
         new ("SemiColorPrimaryDisabled", "Primary Disabled"),
         new ("SemiColorPrimaryLight", "Primary Light"),
         new ("SemiColorPrimaryLightPointerover", "Primary Light Pointerover"),
@@ -262,7 +262,7 @@ public static class ColorTokens
     {
         new ("SemiColorSecondary", "Secondary"),
         new ("SemiColorSecondaryPointerover", "Secondary Pointerover"),
-        new ("SemiColorSecondaryPressed", "Secondary Pressed"),
+        new ("SemiColorSecondaryActive", "Secondary Active"),
         new ("SemiColorSecondaryDisabled", "Secondary Disabled"),
         new ("SemiColorSecondaryLight", "Secondary Light"),
         new ("SemiColorSecondaryLightPointerover", "Secondary Light Pointerover"),
@@ -273,7 +273,7 @@ public static class ColorTokens
     {
         new ("SemiColorTertiary", "Tertiary"),
         new ("SemiColorTertiaryPointerover", "Tertiary Pointerover"),
-        new ("SemiColorTertiaryPressed", "Tertiary Pressed"),
+        new ("SemiColorTertiaryActive", "Tertiary Active"),
         new ("SemiColorTertiaryLight", "Tertiary Light"),
         new ("SemiColorTertiaryLightPointerover", "Tertiary Light Pointerover"),
         new ("SemiColorTertiaryLightActive", "Tertiary Light Active"),
@@ -283,7 +283,7 @@ public static class ColorTokens
     {
         new ("SemiColorInformation", "Information"),
         new ("SemiColorInformationPointerover", "Information Pointerover"),
-        new ("SemiColorInformationPressed", "Information Pressed"),
+        new ("SemiColorInformationActive", "Information Active"),
         new ("SemiColorInformationDisabled", "Information Disabled"),
         new ("SemiColorInformationLight", "Information Light"),
         new ("SemiColorInformationLightPointerover", "Information Light Pointerover"),
@@ -294,7 +294,7 @@ public static class ColorTokens
     {
         new ("SemiColorSuccess", "Success"),
         new ("SemiColorSuccessPointerover", "Success Pointerover"),
-        new ("SemiColorSuccessPressed", "Success Pressed"),
+        new ("SemiColorSuccessActive", "Success Active"),
         new ("SemiColorSuccessDisabled", "Success Disabled"),
         new ("SemiColorSuccessLight", "Success Light"),
         new ("SemiColorSuccessLightPointerover", "Success Light Pointerover"),
@@ -305,7 +305,7 @@ public static class ColorTokens
     {
         new ("SemiColorWarning", "Warning"),
         new ("SemiColorWarningPointerover", "Warning Pointerover"),
-        new ("SemiColorWarningPressed", "Warning Pressed"),
+        new ("SemiColorWarningActive", "Warning Active"),
         new ("SemiColorWarningLight", "Warning Light"),
         new ("SemiColorWarningLightPointerover", "Warning Light Pointerover"),
         new ("SemiColorWarningLightActive", "Warning Light Active"),
@@ -315,7 +315,7 @@ public static class ColorTokens
     {
         new ("SemiColorDanger", "Danger"),
         new ("SemiColorDangerPointerover", "Danger Pointerover"),
-        new ("SemiColorDangerPressed", "Danger Pressed"),
+        new ("SemiColorDangerActive", "Danger Active"),
         new ("SemiColorDangerLight", "Danger Light"),
         new ("SemiColorDangerLightPointerover", "Danger Light Pointerover"),
         new ("SemiColorDangerLightActive", "Danger Light Active"),
