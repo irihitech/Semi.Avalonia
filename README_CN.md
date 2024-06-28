@@ -16,7 +16,7 @@ Avalonia UI 控件主题，灵感来自 Semi Design
 ### 安装
 
 ```bash
-dotnet add package Semi.Avalonia --version 11.0.7
+dotnet add package Semi.Avalonia
 ```
 
 在样式中引用 Semi 主题：
@@ -32,9 +32,9 @@ dotnet add package Semi.Avalonia --version 11.0.7
 ColorPicker， DataGrid 和 TreeDataGrid 的样式单独分发，如果需要请安装并引用。
 
 ```bash
-dotnet add package Semi.Avalonia.ColorPicker --version 11.0.7
-dotnet add package Semi.Avalonia.DataGrid --version 11.0.7
-dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.7
+dotnet add package Semi.Avalonia.ColorPicker
+dotnet add package Semi.Avalonia.DataGrid
+dotnet add package Semi.Avalonia.TreeDataGrid
 ```
 
 ```xaml
@@ -92,12 +92,9 @@ rd.xml 文件的内容如下：
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
+| 11.1.0-rc           | >=11.1.0-rc      |
 | 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
-
-## 代办事项
-
-* FocusAdorner
 
 ## 致谢
 

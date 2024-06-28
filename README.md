@@ -16,7 +16,7 @@ If you are looking for more customized controls, Please try [Ursa](https://githu
 ### Installation
 
 ```bash
-dotnet add package Semi.Avalonia --version 11.0.7
+dotnet add package Semi.Avalonia
 ```
 
 Include Semi Design Styles in application:
@@ -32,9 +32,9 @@ That's all.
 ColorPicker, DataGrid and TreeDataGrid are distributed in separated packages. Please install if you need.
 
 ```bash
-dotnet add package Semi.Avalonia.ColorPicker --version 11.0.7
-dotnet add package Semi.Avalonia.DataGrid --version 11.0.7
-dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.7
+dotnet add package Semi.Avalonia.ColorPicker
+dotnet add package Semi.Avalonia.DataGrid
+dotnet add package Semi.Avalonia.TreeDataGrid
 ```
 
 ```xaml
@@ -90,12 +90,9 @@ We offer limited free community support for Semi Avalonia and Ursa. If you have 
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
+| 11.1.0-rc           | >=11.1.0-rc      |
 | 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
-
-## TODO
-
-* FocusAdorner
 
 ## Credits
 
