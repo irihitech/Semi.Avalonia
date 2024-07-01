@@ -11,8 +11,8 @@ public class SemiTheme: Styles
 {
     private static readonly Dictionary<CultureInfo, string> _localeToResource = new()
     {
-        { new CultureInfo("zh-CN"), "avares://Semi.Avalonia/Locale/zh-CN.axaml" },
-        { new CultureInfo("en-US"), "avares://Semi.Avalonia/Locale/en-US.axaml" },
+        { new CultureInfo("zh-cn"), "avares://Semi.Avalonia/Locale/zh-cn.axaml" },
+        { new CultureInfo("en-us"), "avares://Semi.Avalonia/Locale/en-us.axaml" },
     };
     
     private readonly IServiceProvider? sp;
@@ -43,13 +43,13 @@ public class SemiTheme: Styles
     {
         if (locale is null)
         {
-            return _localeToResource[new CultureInfo("zh-CN")];
+            return _localeToResource[new CultureInfo("zh-cn")];
         }
 
         if (_localeToResource.TryGetValue(locale, out var resource))
         {
             return resource;
         }
-        return _localeToResource[new CultureInfo("zh-CN")];
+        return _localeToResource[new CultureInfo("zh-cn")];
     }
 }

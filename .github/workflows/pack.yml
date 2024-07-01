@@ -49,7 +49,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet publish ./demo/Semi.Avalonia.Demo.Android -c Release -f net7.0-android --no-restore
+        run: dotnet publish ./demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.1

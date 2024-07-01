@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 env:
   PROJECT_PATH: demo/Semi.Avalonia.Demo.Web/Semi.Avalonia.Demo.Web.csproj
-  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net7.0/browser-wasm/AppBundle
+  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net8.0-browser/publish/wwwroot
 on:
   push:
     branches: [ "action/deploy" ]
@@ -16,31 +16,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - name: Setup .NET 7
+      - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 7.0.405
+          dotnet-version: 8.0.x
 
       - name: Install wasm-tools
-        run: dotnet workload install wasm-tools wasm-tools-net7
-
-      - name: Install DotNetCompress
-        run: dotnet tool install --global DotNetCompress --version 3.0.0 --no-cache
+        run: dotnet workload install wasm-tools
 
       - name: Publish .NET Project
-        run: dotnet publish $PROJECT_PATH -c Release -o release --nologo
+        run: dotnet publish $PROJECT_PATH -c Release --nologo
 
       - name: Change base-tag in index.html
         run: sed -i 's/<base href="\/" \/>/<base href="\/Semi.Avalonia\/" \/>/g' $OUTPUT_PATH/index.html
 
       - name: copy index.html to 404.html
         run: cp $OUTPUT_PATH/index.html $OUTPUT_PATH/404.html
-
-      - name: Compress Output using Brotli
-        run: DotNetCompress -d $OUTPUT_PATH -p "*.dll" "*.js" "*.wasm" --format br --threads 4
-
-      - name: Compress Output using GZip
-        run: DotNetCompress -d $OUTPUT_PATH -p "*.dll" "*.js" "*.wasm" --format gz --threads 4
 
       - name: Add .nojekyll file
         run: touch $OUTPUT_PATH/.nojekyll
