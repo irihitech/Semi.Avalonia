@@ -5,14 +5,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+        <AvaloniaResource Include="Assets\**"/>
+        <TrimmerRootDescriptor Include="Roots.xml"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj" />
+        <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)"/>
     </ItemGroup>
 
     <ItemGroup>
-        <TrimmerRootDescriptor Include="linker.xml" />
+        <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj"/>
     </ItemGroup>
 </Project>
