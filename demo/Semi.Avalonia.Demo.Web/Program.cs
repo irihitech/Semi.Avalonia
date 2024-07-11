@@ -10,6 +10,7 @@ namespace Semi.Avalonia.Demo.Web;
 internal sealed partial class Program
 {
     private static Task Main(string[] args) => BuildAvaloniaApp()
+        .WithSourceHanSansCNFont()
         .StartBrowserAppAsync("out");
 
     public static AppBuilder BuildAvaloniaApp()
