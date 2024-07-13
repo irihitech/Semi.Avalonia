@@ -185,6 +185,10 @@
         <Style Selector="^.Warning">
             <Setter Property="Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
         </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="Foreground" Value="{DynamicResource ProgressBarDangerForeground}" />
+        </Style>
+        <!-- Error style is obsolete, use Danger instead -->
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
         </Style>
@@ -411,6 +415,10 @@
         <Style Selector="^.Warning">
             <Setter Property="Foreground" Value="{DynamicResource ProgressBarWarningForeground}" />
         </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="Foreground" Value="{DynamicResource ProgressBarDangerForeground}" />
+        </Style>
+        <!-- Error style is obsolete, use Danger instead -->
         <Style Selector="^.Error">
             <Setter Property="Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
         </Style>
