@@ -89,6 +89,13 @@
                     Disabled
                 </Button>
             </StackPanel>
+            <TextBlock>Disabled</TextBlock>
+            <StackPanel Background="{DynamicResource SemiColorBackground1}" Orientation="Horizontal" Spacing="20">
+                <Button IsEnabled="False">Light</Button>
+                <Button IsEnabled="False" Theme="{DynamicResource SolidButton}">Solid</Button>
+                <Button IsEnabled="False" Theme="{DynamicResource OutlineButton}">Outline</Button>
+                <Button IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Borderless</Button>
+            </StackPanel>
 
             <TextBlock>DropDownButton</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="8">
@@ -154,6 +161,12 @@
                 <ToggleSplitButton Classes="Warning" Content="Warning" />
                 <ToggleSplitButton Classes="Danger" Content="Danger" />
                 <ToggleSplitButton Classes="Danger" Content="Disabled" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSplitButton Content="Default" Classes="Success" />
+                <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True"  />
+                <ToggleSplitButton Content="Default" Classes="Success" IsEnabled="False" />
+                <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSplitButton Classes="Small" Content="Small" />

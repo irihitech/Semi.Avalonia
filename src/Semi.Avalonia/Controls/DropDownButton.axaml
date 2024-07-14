@@ -110,7 +110,6 @@
         </Style>
         <Style Selector="^:disabled /template/ Border#RootBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
         </Style>
 
         <Style Selector="^.Large">
@@ -232,7 +231,7 @@
         </Style>
         <Style Selector="^:disabled /template/ Border#RootBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
