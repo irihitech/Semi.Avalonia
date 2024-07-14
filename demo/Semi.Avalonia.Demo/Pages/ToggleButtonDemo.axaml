@@ -82,7 +82,14 @@
                 Disabled
             </ToggleButton>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <TextBlock Text="Toggle Button Disabled State" />
+        <StackPanel Background="{DynamicResource SemiColorBackground1}" Orientation="Horizontal" Spacing="20">
+            <ToggleButton IsThreeState="True" IsEnabled="False">Default</ToggleButton>
+            <ToggleButton IsThreeState="True" IsEnabled="False" IsChecked="True">Checked</ToggleButton>
+            <ToggleButton IsThreeState="True" IsEnabled="False" IsChecked="{x:Null}">Indeterminate</ToggleButton>
+        </StackPanel>
+        <TextBlock Text="Toggle Button Size" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
             <ToggleButton Classes="Small" IsThreeState="True">Small</ToggleButton>
             <ToggleButton IsThreeState="True">Default</ToggleButton>
             <ToggleButton Classes="Large" IsThreeState="True">Large</ToggleButton>

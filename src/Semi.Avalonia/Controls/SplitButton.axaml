@@ -221,6 +221,10 @@
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
+        <!-- only for ToggleSplitButton -->
+        <Style Selector="^:checked:disabled /template/ Button">
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme
