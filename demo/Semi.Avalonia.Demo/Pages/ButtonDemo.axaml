@@ -44,11 +44,6 @@
                 <Button Classes="Danger">Danger</Button>
                 <Button Classes="Danger" IsEnabled="False">Disabled</Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary Small">Small</Button>
-                <Button Classes="Primary">Default</Button>
-                <Button Classes="Primary Large">Large</Button>
-            </StackPanel>
             <TextBlock>Solid</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
@@ -95,6 +90,12 @@
                 <Button IsEnabled="False" Theme="{DynamicResource SolidButton}">Solid</Button>
                 <Button IsEnabled="False" Theme="{DynamicResource OutlineButton}">Outline</Button>
                 <Button IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Borderless</Button>
+            </StackPanel>
+            <TextBlock>Size Classes</TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Classes="Primary Small">Small</Button>
+                <Button Classes="Primary">Default</Button>
+                <Button Classes="Primary Large">Large</Button>
             </StackPanel>
 
             <TextBlock>DropDownButton</TextBlock>

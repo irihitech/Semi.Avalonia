@@ -33,6 +33,21 @@
                 Disabled
             </RepeatButton>
         </StackPanel>
+        <TextBlock>Outline</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <RepeatButton Classes="Primary" Theme="{DynamicResource OutlineRepeatButton}">Primary</RepeatButton>
+            <RepeatButton Classes="Secondary" Theme="{DynamicResource OutlineRepeatButton}">Secondary</RepeatButton>
+            <RepeatButton Classes="Tertiary" Theme="{DynamicResource OutlineRepeatButton}">Tertiary</RepeatButton>
+            <RepeatButton Classes="Success" Theme="{DynamicResource OutlineRepeatButton}">Success</RepeatButton>
+            <RepeatButton Classes="Warning" Theme="{DynamicResource OutlineRepeatButton}">Warning</RepeatButton>
+            <RepeatButton Classes="Danger" Theme="{DynamicResource OutlineRepeatButton}">Danger</RepeatButton>
+            <RepeatButton
+                Classes="Danger"
+                IsEnabled="False"
+                Theme="{DynamicResource OutlineRepeatButton}">
+                Disabled
+            </RepeatButton>
+        </StackPanel>
         <TextBlock>Borderless</TextBlock>
         <StackPanel Orientation="Horizontal" Spacing="20">
             <RepeatButton Classes="Primary" Theme="{DynamicResource BorderlessRepeatButton}">Primary</RepeatButton>
@@ -48,7 +63,15 @@
                 Disabled
             </RepeatButton>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Spacing="8">
+        <TextBlock>Disabled</TextBlock>
+        <StackPanel Background="{DynamicResource SemiColorBackground1}" Orientation="Horizontal" Spacing="20">
+            <Button IsEnabled="False">Light</Button>
+            <Button IsEnabled="False" Theme="{DynamicResource SolidButton}">Solid</Button>
+            <Button IsEnabled="False" Theme="{DynamicResource OutlineButton}">Outline</Button>
+            <Button IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Borderless</Button>
+        </StackPanel>
+        <TextBlock>Size Classes</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
             <RepeatButton Classes="Small">Small</RepeatButton>
             <RepeatButton>Default</RepeatButton>
             <RepeatButton Classes="Large">Large</RepeatButton>
