@@ -31,6 +31,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
+        <Setter Property="CalendarItem.MinWidth" Value="{DynamicResource CalendarMinWidth}" />
         <Setter Property="CalendarItem.MinHeight" Value="{DynamicResource CalendarMinHeight}" />
         <Setter Property="CalendarItem.DayTitleTemplate">
             <Template>
@@ -53,7 +54,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid
-                        MinWidth="{DynamicResource CalendarMinWidth}"
+                        MinWidth="{TemplateBinding MinWidth}"
                         MinHeight="{TemplateBinding MinHeight}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
