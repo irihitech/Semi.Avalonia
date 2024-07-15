@@ -44,11 +44,6 @@
                 <Button Classes="Danger">Danger</Button>
                 <Button Classes="Danger" IsEnabled="False">Disabled</Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary Small">Small</Button>
-                <Button Classes="Primary">Default</Button>
-                <Button Classes="Primary Large">Large</Button>
-            </StackPanel>
             <TextBlock>Solid</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
@@ -64,6 +59,16 @@
                     Disabled
                 </Button>
             </StackPanel>
+            <TextBlock>Outline</TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Classes="Primary" Theme="{DynamicResource OutlineButton}">Primary</Button>
+                <Button Classes="Secondary" Theme="{DynamicResource OutlineButton}">Secondary</Button>
+                <Button Classes="Tertiary" Theme="{DynamicResource OutlineButton}">Tertiary</Button>
+                <Button Classes="Success" Theme="{DynamicResource OutlineButton}">Success</Button>
+                <Button Classes="Warning" Theme="{DynamicResource OutlineButton}">Warning</Button>
+                <Button Classes="Danger" Theme="{DynamicResource OutlineButton}">Danger</Button>
+                <Button Classes="Danger" Theme="{DynamicResource OutlineButton}" IsEnabled="False">Disabled</Button>
+            </StackPanel>
             <TextBlock>Borderless</TextBlock>
             <StackPanel Orientation="Horizontal" Spacing="20">
                 <Button Classes="Primary" Theme="{DynamicResource BorderlessButton}">Primary</Button>
@@ -78,6 +83,19 @@
                     Theme="{DynamicResource BorderlessButton}">
                     Disabled
                 </Button>
+            </StackPanel>
+            <TextBlock>Disabled</TextBlock>
+            <StackPanel Background="{DynamicResource SemiColorBackground1}" Orientation="Horizontal" Spacing="20">
+                <Button IsEnabled="False">Light</Button>
+                <Button IsEnabled="False" Theme="{DynamicResource SolidButton}">Solid</Button>
+                <Button IsEnabled="False" Theme="{DynamicResource OutlineButton}">Outline</Button>
+                <Button IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Borderless</Button>
+            </StackPanel>
+            <TextBlock>Size Classes</TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Classes="Primary Small">Small</Button>
+                <Button Classes="Primary">Default</Button>
+                <Button Classes="Primary Large">Large</Button>
             </StackPanel>
 
             <TextBlock>DropDownButton</TextBlock>
@@ -96,9 +114,11 @@
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <DropDownButton Content="Default" Classes="Success"/>
                 <DropDownButton Content="Solid" Theme="{DynamicResource SolidDropDownButton}" Classes="Success"/>
+                <DropDownButton Content="Outline" Theme="{DynamicResource OutlineDropDownButton}" Classes="Success"/>
                 <DropDownButton Content="Borderless" Theme="{DynamicResource BorderlessDropDownButton}" Classes="Success"/>
                 <DropDownButton Content="Default" Classes="Success" IsEnabled="False"/>
                 <DropDownButton Content="Solid" Theme="{DynamicResource SolidDropDownButton}" Classes="Success" IsEnabled="False"/>
+                <DropDownButton Content="Outline" Theme="{DynamicResource OutlineDropDownButton}" Classes="Success" IsEnabled="False"/>
                 <DropDownButton Content="Borderless" Theme="{DynamicResource BorderlessDropDownButton}" Classes="Success" IsEnabled="False"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
@@ -119,11 +139,13 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <SplitButton Content="Default" Classes="Success" />
-                <SplitButton Theme="{DynamicResource SolidSplitButton}" Content="Solid" Classes="Success" />
-                <SplitButton Theme="{DynamicResource BorderlessSplitButton}" Content="Borderless" Classes="Success" />
+                <SplitButton Content="Solid" Theme="{DynamicResource SolidSplitButton}"  Classes="Success" />
+                <SplitButton Content="Outline" Theme="{DynamicResource OutlineSplitButton}" Classes="Success" />
+                <SplitButton Content="Borderless" Theme="{DynamicResource BorderlessSplitButton}" Classes="Success" />
                 <SplitButton Content="Default" Classes="Success" IsEnabled="False" />
-                <SplitButton Theme="{DynamicResource SolidSplitButton}" Content="Solid" Classes="Success" IsEnabled="False" />
-                <SplitButton Theme="{DynamicResource BorderlessSplitButton}" Content="Borderless" Classes="Success" IsEnabled="False" />
+                <SplitButton Content="Solid" Theme="{DynamicResource SolidSplitButton}" Classes="Success" IsEnabled="False" />
+                <SplitButton Content="Outline" Theme="{DynamicResource OutlineSplitButton}" Classes="Success" IsEnabled="False" />
+                <SplitButton Content="Borderless" Theme="{DynamicResource BorderlessSplitButton}" Classes="Success" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <SplitButton Classes="Small" Content="Small" />
@@ -140,6 +162,12 @@
                 <ToggleSplitButton Classes="Warning" Content="Warning" />
                 <ToggleSplitButton Classes="Danger" Content="Danger" />
                 <ToggleSplitButton Classes="Danger" Content="Disabled" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSplitButton Content="Default" Classes="Success" />
+                <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True"  />
+                <ToggleSplitButton Content="Default" Classes="Success" IsEnabled="False" />
+                <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSplitButton Classes="Small" Content="Small" />

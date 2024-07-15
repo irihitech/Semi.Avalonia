@@ -4,17 +4,17 @@
     x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type RepeatButton}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
-        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="RenderTransform" Value="none" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="RenderTransform" Value="none" />
         <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
         <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
@@ -22,7 +22,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="RepeatButton">
                 <ContentPresenter
-                    Name="PART_ContentPresenter"
+                    x:Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
@@ -43,7 +43,7 @@
         <Style Selector="^:pressed">
             <Setter Property="RenderTransform" Value="scale(0.98)" />
         </Style>
-        
+
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
             <Setter Property="Background" Value="{TemplateBinding Background}" />
@@ -80,17 +80,16 @@
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
 
         <Style Selector="^.Large">
-            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
             <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
         </Style>
         <Style Selector="^.Small">
-            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
             <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
         </Style>
     </ControlTheme>
 
@@ -103,6 +102,16 @@
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
         </Style>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
+        </Style>
+
         <Style Selector="^.Primary">
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
@@ -196,7 +205,39 @@
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="OutlineRepeatButton"
+        BasedOn="{StaticResource {x:Type RepeatButton}}"
+        TargetType="RepeatButton">
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^.Success /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineSuccessBorderBrush}" />
+        </Style>
+        <Style Selector="^.Warning /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineWarningBorderBrush}" />
+        </Style>
+        <Style Selector="^.Danger /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
@@ -206,8 +247,8 @@
         BasedOn="{StaticResource {x:Type RepeatButton}}"
         TargetType="RepeatButton">
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="RepeatButton.Background" Value="Transparent" />
-            <Setter Property="RepeatButton.BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BorderBrush" Value="Transparent" />

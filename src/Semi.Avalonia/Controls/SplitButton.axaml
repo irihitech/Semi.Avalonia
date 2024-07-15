@@ -116,7 +116,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^ /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
@@ -130,7 +130,7 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPressedBorderBrush}" />
             </Style>
         </Style>
-        
+
 
         <Style Selector="^.Secondary /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultSecondaryForeground}" />
@@ -158,7 +158,7 @@
                     <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
                 </Style>
             </Style>
-            
+
             <Style Selector="^.Secondary /template/ Button">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidSecondaryBackground}" />
                 <Style Selector="^:pointerover">
@@ -218,8 +218,12 @@
             <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
         </Style>
         <Style Selector="^:disabled /template/ Button">
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+        <!-- only for ToggleSplitButton -->
+        <Style Selector="^:checked:disabled /template/ Button">
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
         </Style>
     </ControlTheme>
 
@@ -230,7 +234,7 @@
         <Style Selector="^ /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
-            
+
             <Style Selector="^:pointerover">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
             </Style>
@@ -301,7 +305,37 @@
         </Style>
 
         <Style Selector="^:disabled /template/ Button">
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="OutlineSplitButton"
+        BasedOn="{StaticResource {x:Type SplitButton}}"
+        TargetType="SplitButton">
+        <Style Selector="^ /template/ Button">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Success /template/ Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineSuccessBorderBrush}" />
+        </Style>
+        <Style Selector="^.Warning /template/ Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineWarningBorderBrush}" />
+        </Style>
+        <Style Selector="^.Danger /template/ Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
