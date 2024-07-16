@@ -55,7 +55,19 @@
                                 <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                             </Panel>
 
-                            <Panel Name="PART_PeriodHost" Grid.Column="4">
+                            <Panel Name="PART_SecondHost" Grid.Column="4">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <DateTimePickerPanel
+                                        Name="PART_SecondSelector"
+                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        PanelType="Second"
+                                        ShouldLoop="True" />
+                                </ScrollViewer>
+                                <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource FluentDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_SecondDownButton" Theme="{StaticResource FluentDateTimePickerDownButton}" />
+                            </Panel>
+
+                            <Panel Name="PART_PeriodHost" Grid.Column="6">
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_PeriodSelector"
@@ -81,6 +93,12 @@
                                 Margin="0,4"
                                 HorizontalAlignment="Center"
                                 Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                            <Rectangle
+                                Name="PART_ThirdSpacer"
+                                Grid.Column="5"
+                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                HorizontalAlignment="Center"
+                                Fill="{DynamicResource TimePickerFlyoutPresenterSpacerFill}" />
                         </Grid>
 
                         <Grid
@@ -217,6 +235,25 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch">
                                         <TextBlock
+                                            x:Name="PART_SecondTextBlock"
+                                            Padding="{DynamicResource TimePickerHostPadding}"
+                                            HorizontalAlignment="Center"
+                                            Text="{DynamicResource StringTimePickerSecondText}" />
+                                    </Border>
+
+                                    <Rectangle
+                                        Name="PART_ThirdColumnDivider"
+                                        Grid.Column="5"
+                                        Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                        HorizontalAlignment="Center"
+                                        Fill="{DynamicResource TimePickerSpacerFill}" />
+
+                                    <Border
+                                        x:Name="PART_FourthPickerHost"
+                                        Grid.Column="6"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch">
+                                        <TextBlock
                                             x:Name="PART_PeriodTextBlock"
                                             Padding="12,0"
                                             HorizontalAlignment="Center"
@@ -261,7 +298,7 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^.clearButton:pointerover, ^.ClearButton:pointerover">
             <Style Selector="^:not(:hasnotime) /template/ Button#ClearButton">
                 <Setter Property="IsVisible" Value="True" />
