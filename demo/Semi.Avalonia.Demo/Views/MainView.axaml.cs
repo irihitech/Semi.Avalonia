@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -20,5 +21,21 @@ public partial class MainView : UserControl
             var theme = app.ActualThemeVariant;
             app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
         }
+    }
+
+    private async void OpenRepository(object sender, RoutedEventArgs e)
+    {
+        var top = TopLevel.GetTopLevel(this);
+        if (top is null) return;
+        var launcher = top.Launcher;
+        await launcher.LaunchUriAsync(new Uri("https://github.com/irihitech/Semi.Avalonia"));
+    }
+
+    private async void OpenDocumentation(object sender, RoutedEventArgs e)
+    {
+        var top = TopLevel.GetTopLevel(this);
+        if (top is null) return;
+        var launcher = top.Launcher;
+        await launcher.LaunchUriAsync(new Uri("https://docs.irihi.tech/semi"));
     }
 }
