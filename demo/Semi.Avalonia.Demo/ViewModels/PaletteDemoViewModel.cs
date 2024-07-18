@@ -47,8 +47,8 @@ public class PaletteDemoViewModel: ObservableObject
 
     public PaletteDemoViewModel()
     {
-        _lightResourceDictionary = AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Light/Palette.axaml")) as ResourceDictionary;
-        _darkResourceDictionary = AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Dark/Palette.axaml")) as ResourceDictionary;
+        _lightResourceDictionary  = new Light.Palette();
+        _darkResourceDictionary = new Dark.Palette();
         WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
     }
 
