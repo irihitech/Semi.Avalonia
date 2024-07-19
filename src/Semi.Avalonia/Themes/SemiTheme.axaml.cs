@@ -4,15 +4,16 @@ using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using Semi.Avalonia.Locale;
 
 namespace Semi.Avalonia;
 
 public class SemiTheme: Styles
 {
-    private static readonly Dictionary<CultureInfo, string> _localeToResource = new()
+    private static readonly Dictionary<CultureInfo, ResourceDictionary> _localeToResource = new()
     {
-        { new CultureInfo("zh-CN"), "avares://Semi.Avalonia/Locale/zh-CN.axaml" },
-        { new CultureInfo("en-US"), "avares://Semi.Avalonia/Locale/en-US.axaml" },
+        { new CultureInfo("zh-cn"), new zh_cn() },
+        { new CultureInfo("en-us"), new en_us() },
     };
     
     private readonly IServiceProvider? sp;
@@ -30,26 +31,24 @@ public class SemiTheme: Styles
         { 
             _locale = value;
             var resource = TryGetLocaleResource(value);
-            var d = AvaloniaXamlLoader.Load(sp, new Uri(resource)) as ResourceDictionary;
-            if (d is null) return;
-            foreach (var kv in d)
+            if(resource is null) return;
+            foreach (var kv in resource)
             {
                 this.Resources.Add(kv);
             }
         }
     }
     
-    private static string TryGetLocaleResource(CultureInfo? locale)
+    private static ResourceDictionary? TryGetLocaleResource(CultureInfo? locale)
     {
         if (locale is null)
         {
-            return _localeToResource[new CultureInfo("zh-CN")];
+            return _localeToResource[new CultureInfo("zh-cn")];
         }
-
         if (_localeToResource.TryGetValue(locale, out var resource))
         {
             return resource;
         }
-        return _localeToResource[new CultureInfo("zh-CN")];
+        return _localeToResource[new CultureInfo("zh-cn")];
     }
 }

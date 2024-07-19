@@ -7,6 +7,10 @@
         <PackageReleaseNotes>Update to 11.0.7</PackageReleaseNotes>
     </PropertyGroup>
 
+    <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
     </ItemGroup>
