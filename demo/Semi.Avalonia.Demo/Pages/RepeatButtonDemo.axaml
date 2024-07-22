@@ -16,7 +16,7 @@
             <RepeatButton Classes="Success">Success</RepeatButton>
             <RepeatButton Classes="Warning">Warning</RepeatButton>
             <RepeatButton Classes="Danger">Danger</RepeatButton>
-            <RepeatButton Classes="Primary" IsEnabled="False">Danger</RepeatButton>
+            <RepeatButton Classes="Danger" IsEnabled="False">Disabled</RepeatButton>
         </StackPanel>
         <TextBlock>Solid</TextBlock>
         <StackPanel Orientation="Horizontal" Spacing="20">
@@ -27,10 +27,25 @@
             <RepeatButton Classes="Warning" Theme="{DynamicResource SolidRepeatButton}">Warning</RepeatButton>
             <RepeatButton Classes="Danger" Theme="{DynamicResource SolidRepeatButton}">Danger</RepeatButton>
             <RepeatButton
-                Classes="Primary"
+                Classes="Danger"
                 IsEnabled="False"
                 Theme="{DynamicResource SolidRepeatButton}">
-                Danger
+                Disabled
+            </RepeatButton>
+        </StackPanel>
+        <TextBlock>Outline</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <RepeatButton Classes="Primary" Theme="{DynamicResource OutlineRepeatButton}">Primary</RepeatButton>
+            <RepeatButton Classes="Secondary" Theme="{DynamicResource OutlineRepeatButton}">Secondary</RepeatButton>
+            <RepeatButton Classes="Tertiary" Theme="{DynamicResource OutlineRepeatButton}">Tertiary</RepeatButton>
+            <RepeatButton Classes="Success" Theme="{DynamicResource OutlineRepeatButton}">Success</RepeatButton>
+            <RepeatButton Classes="Warning" Theme="{DynamicResource OutlineRepeatButton}">Warning</RepeatButton>
+            <RepeatButton Classes="Danger" Theme="{DynamicResource OutlineRepeatButton}">Danger</RepeatButton>
+            <RepeatButton
+                Classes="Danger"
+                IsEnabled="False"
+                Theme="{DynamicResource OutlineRepeatButton}">
+                Disabled
             </RepeatButton>
         </StackPanel>
         <TextBlock>Borderless</TextBlock>
@@ -42,11 +57,24 @@
             <RepeatButton Classes="Warning" Theme="{DynamicResource BorderlessRepeatButton}">Warning</RepeatButton>
             <RepeatButton Classes="Danger" Theme="{DynamicResource BorderlessRepeatButton}">Danger</RepeatButton>
             <RepeatButton
-                Classes="Primary"
+                Classes="Danger"
                 IsEnabled="False"
                 Theme="{DynamicResource BorderlessRepeatButton}">
-                Danger
+                Disabled
             </RepeatButton>
+        </StackPanel>
+        <TextBlock>Disabled</TextBlock>
+        <StackPanel Background="{DynamicResource SemiColorBackground1}" Orientation="Horizontal" Spacing="20">
+            <Button IsEnabled="False">Light</Button>
+            <Button IsEnabled="False" Theme="{DynamicResource SolidButton}">Solid</Button>
+            <Button IsEnabled="False" Theme="{DynamicResource OutlineButton}">Outline</Button>
+            <Button IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Borderless</Button>
+        </StackPanel>
+        <TextBlock>Size Classes</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <RepeatButton Classes="Small">Small</RepeatButton>
+            <RepeatButton>Default</RepeatButton>
+            <RepeatButton Classes="Large">Large</RepeatButton>
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -2,9 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <!--  Button Theme Key: Solid Light Border Borderless; Default is Light  -->
-    <!--  Button Default Classes: Primary Secondary, Tertiary, Warning, Danger; Default is Primary  -->
-    <!--  State： default pointerover pressed disabled  -->
+    <!--  Button Theme Key: Light, Solid, Outline, Borderless; Default is Light  -->
+    <!--  Button Default Classes: Primary, Secondary, Tertiary, Success, Warning, Danger; Default is Primary  -->
+    <!--  State: default, pointerover, pressed, disabled  -->
 
     <!--  Button Light  -->
     <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
@@ -76,7 +76,6 @@
 
         <Style Selector="^:disabled">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
 
@@ -186,7 +185,37 @@
 
         <Style Selector="^:disabled">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="OutlineButton"
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineSuccessBorderBrush}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineWarningBorderBrush}" />
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>

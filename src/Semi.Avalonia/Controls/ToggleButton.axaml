@@ -67,6 +67,7 @@
 
         <Style Selector="^:disabled">
             <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonDefaultDisabledBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ToggleButtonDefaultBackground}" />
         </Style>
 
         <Style Selector="^.Primary">
@@ -153,6 +154,7 @@
             </Style>
             <Style Selector="^:disabled">
                 <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonDefaultDisabledBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleButtonCheckedDisabledBackground}" />
             </Style>
         </Style>
 
@@ -242,12 +244,12 @@
             </Style>
             <Style Selector="^:disabled">
                 <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonIndeterminateDisabledBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ToggleButtonDefaultBackground}" />
             </Style>
         </Style>
 
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource ToggleButtonDefaultDisabledForeground}" />
-            <Setter Property="Background" Value="{DynamicResource ToggleButtonDefaultDisabledBackground}" />
         </Style>
 
         <Style Selector="^.Large">
