@@ -3,23 +3,28 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0-android</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+        <Nullable>enable</Nullable>
         <ApplicationId>com.irihitech.Semi.Avalonia</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <AndroidPackageFormat>apk</AndroidPackageFormat>
-        <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
+        <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <RootNamespace>Semi.Avalonia.Demo.Android</RootNamespace>
     </PropertyGroup>
 
-    <Import Project="../Directory.Build.props" />
-
     <ItemGroup>
-      <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
+        <AndroidResource Include="Icon.png">
+            <Link>Resources\drawable\Icon.png</Link>
+        </AndroidResource>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj" />
+        <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.1"/>
     </ItemGroup>
-    
+
+    <ItemGroup>
+        <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj"/>
+    </ItemGroup>
 </Project>
