@@ -7,6 +7,10 @@
 
 Avalonia Theme inspired by Semi Design
 
+Semi.Avalonia can be previewed in the browser [here](https://irihitech.github.io/Semi.Avalonia/)
+
+If you are looking for more detailed documentation, Please visit [Semi Documentation](https://docs.irihi.tech/semi/)
+
 If you are looking for more customized controls, Please try [Ursa](https://github.com/irihitech/Ursa.Avalonia)
 
 ![Light](./docs/demo.jpg)
@@ -23,7 +27,9 @@ Include Semi Design Styles in application:
 
 ```xaml
 <Application.Styles>
-    <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+<!-- You can still reference in old way.  -->
+<!-- <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" /> -->
+    <semi:SemiTheme Locale="zh-cn" />
 </Application.Styles>
 ```
 
@@ -45,36 +51,6 @@ dotnet add package Semi.Avalonia.TreeDataGrid
 </Application.Styles>
 ```
 
-If AOT publishing is required, you need to include the rd.xml file in your project:
-
-```xml
-<ItemGroup>
-    <RdXmlFile Include="rd.xml"/>
-</ItemGroup>
-```
-
-The contents of the rd.xml file should be as follows:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Directives>
-    <!--
-        This file is part of RdXmlLibrary project.
-        Visit https://github.com/kant2002/rdxmllibrary for latest version.
-        If you have modifications specific to this Nuget package,
-        please contribute back.
-    -->
-    <Application>
-        <Assembly Name="Avalonia.Markup.Xaml" Dynamic="Required All"/>
-        <Assembly Name="Semi.Avalonia" Dynamic="Required All"/>
-        <!-- If you don't use these, please don't include them.
-            <Assembly Name="Semi.Avalonia.DataGrid" Dynamic="Required All"/>
-            <Assembly Name="Semi.Avalonia.ColorPicker" Dynamic="Required All"/>
-        -->
-    </Application>
-</Directives>
-```
-
 ## Demo
 
 You can always download demo executable to play around with Semi Avalonia Themes.
@@ -90,7 +66,7 @@ We offer limited free community support for Semi Avalonia and Ursa. If you have 
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
-| 11.1.0-rc           | >=11.1.0-rc      |
+| 11.1.0              | >=11.1.0         |
 | 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
 

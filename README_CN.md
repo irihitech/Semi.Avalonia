@@ -7,6 +7,10 @@
 
 Avalonia UI 控件主题，灵感来自 Semi Design
 
+Semi.Avalonia 现在可以在浏览器上 [查看效果](https://irihitech.github.io/Semi.Avalonia/)
+
+如果您希望查看更详细的文档，请浏览 [Semi 文档](https://docs.irihi.tech/semi/)
+
 如果您希望使用更多的拓展控件，欢迎尝试 [Ursa](https://github.com/irihitech/Ursa.Avalonia)
 
 ![Light](./docs/demo.jpg)
@@ -23,13 +27,15 @@ dotnet add package Semi.Avalonia
 
 ```xaml
 <Application.Styles>
-    <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+<!-- 您仍然可以使用旧版方式引用  -->
+<!-- <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" /> -->
+    <semi:SemiTheme Locale="zh-cn" />
 </Application.Styles>
 ```
 
 这样就可以了。
 
-ColorPicker， DataGrid 和 TreeDataGrid 的样式单独分发，如果需要请安装并引用。
+ColorPicker、DataGrid 和 TreeDataGrid 的样式单独分发，如果需要请安装并引用。
 
 ```bash
 dotnet add package Semi.Avalonia.ColorPicker
@@ -43,36 +49,6 @@ dotnet add package Semi.Avalonia.TreeDataGrid
     <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
     <StyleInclude Source="avares://Semi.Avalonia.TreeDataGrid/Index.axaml" />
 </Application.Styles>
-```
-
-如果需要进行 AOT 发布，则需要在项目中包含 rd.xml 文件：
-
-```xml
-<ItemGroup>
-    <RdXmlFile Include="rd.xml"/>
-</ItemGroup>
-```
-
-rd.xml 文件的内容如下：
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Directives>
-    <!--
-        This file is part of RdXmlLibrary project.
-        Visit https://github.com/kant2002/rdxmllibrary for latest version.
-        If you have modifications specific to this Nuget package,
-        please contribute back.
-    -->
-    <Application>
-        <Assembly Name="Avalonia.Markup.Xaml" Dynamic="Required All"/>
-        <Assembly Name="Semi.Avalonia" Dynamic="Required All"/>
-        <!-- If you don't use these, please don't include them.
-            <Assembly Name="Semi.Avalonia.DataGrid" Dynamic="Required All"/>
-            <Assembly Name="Semi.Avalonia.ColorPicker" Dynamic="Required All"/>
-        -->
-    </Application>
-</Directives>
 ```
 
 ## 示例
@@ -92,7 +68,7 @@ rd.xml 文件的内容如下：
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
-| 11.1.0-rc           | >=11.1.0-rc      |
+| 11.1.0              | >=11.1.0         |
 | 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
 
