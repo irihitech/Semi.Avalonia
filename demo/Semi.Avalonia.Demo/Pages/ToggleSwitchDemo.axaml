@@ -7,7 +7,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Spacing="20">
+    <StackPanel Spacing="8" Margin="20">
         <ToggleSwitch
             Content="Content"
             OffContent="OffContent"
@@ -24,11 +24,19 @@
             IsEnabled="False"
             OffContent="OffContent"
             OnContent="OnContent" />
-        <ToggleSwitch
-            Theme="{DynamicResource SimpleToggleSwitch}"
-            Content="Content"
-            OffContent="OffContent"
-            OnContent="OnContent" />
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" IsChecked="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" IsChecked="True" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large" IsChecked="True"/>
+        </StackPanel>
+
         <ToggleSwitch Theme="{DynamicResource ButtonToggleSwitch}">
             <ToggleSwitch.OnContent>
                 <PathIcon

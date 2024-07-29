@@ -2,7 +2,7 @@
     <!--  Light  -->
     <SolidColorBrush x:Key="ButtonDefaultPrimaryForeground" Color="#0077FA" />
     <SolidColorBrush x:Key="ButtonDefaultSecondaryForeground" Color="#0095EE" />
-    <SolidColorBrush x:Key="ButtonDefaultTertiaryForeground" Color="#6B7075" />
+    <SolidColorBrush x:Key="ButtonDefaultTertiaryForeground" Opacity="0.8" Color="#1C1F23" />
     <SolidColorBrush x:Key="ButtonDefaultSuccessForeground" Color="#3BB346" />
     <SolidColorBrush x:Key="ButtonDefaultWarningForeground" Color="#FC8800" />
     <SolidColorBrush x:Key="ButtonDefaultDangerForeground" Color="#F93920" />
@@ -11,7 +11,6 @@
     <SolidColorBrush x:Key="ButtonDefaultBackground" Opacity="0.05" Color="#2E3238" />
     <SolidColorBrush x:Key="ButtonDefaultPointeroverBackground" Opacity="0.09" Color="#2E3238" />
     <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Opacity="0.13" Color="#2E3238" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBackground" Color="#E6E8EA" />
 
     <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="Transparent" />
@@ -69,8 +68,20 @@
     <SolidColorBrush x:Key="ButtonSolidDangerBorderBrush" Color="#F93920" />
     <SolidColorBrush x:Key="ButtonSolidDangerPointeroverBorderBrush" Color="#D52515" />
     <SolidColorBrush x:Key="ButtonSolidDangerPressedBorderBrush" Color="#B2140C" />
+
+    <SolidColorBrush x:Key="ButtonSolidDisabledBackground" Color="#E6E8EA" />
     <!--  end Solid  -->
-    
+
+    <!--  Outline -->
+    <SolidColorBrush x:Key="ButtonOutlineBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonOutlineBorderBrush" Opacity="0.08" Color="#1C1F23" />
+    <SolidColorBrush x:Key="ButtonOutlinePointeroverBackground" Opacity="0.05" Color="#2E3238" />
+    <SolidColorBrush x:Key="ButtonOutlinePressedBackground" Opacity="0.09" Color="#2E3238" />
+    <SolidColorBrush x:Key="ButtonOutlineSuccessBorderBrush" Color="#3BB346" />
+    <SolidColorBrush x:Key="ButtonOutlineWarningBorderBrush" Color="#FC8800" />
+    <SolidColorBrush x:Key="ButtonOutlineDangerBorderBrush" Color="#F93920" />
+    <!--  end Outline  -->
+
     <SolidColorBrush x:Key="ButtonInputInnerForeground" Color="#6B7075" />
     <SolidColorBrush x:Key="ButtonInputInnerPointeroverForeground" Color="#555B61" />
     <SolidColorBrush x:Key="ButtonInputInnerPressedForeground" Color="#41464C" />

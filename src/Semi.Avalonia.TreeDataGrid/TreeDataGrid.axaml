@@ -149,7 +149,7 @@
                 <Panel>
                     <Border
                         Name="RowBorder"
-                        Margin="2"
+                        Margin="{DynamicResource TreeDataGridRowMargin}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
@@ -183,8 +183,7 @@
                     <CheckBox
                         HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                         VerticalAlignment="Center"
-                        IsChecked="{TemplateBinding Value,
-                                                    Mode=TwoWay}"
+                        IsChecked="{TemplateBinding Value, Mode=TwoWay}"
                         IsEnabled="{Binding !IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
                         IsThreeState="{TemplateBinding IsThreeState}"
                         Theme="{DynamicResource SimpleCheckBox}" />
@@ -239,8 +238,7 @@
                             DockPanel.Dock="Left">
                             <ToggleButton
                                 Focusable="False"
-                                IsChecked="{TemplateBinding IsExpanded,
-                                                            Mode=TwoWay}"
+                                IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
                                 IsVisible="{TemplateBinding ShowExpander}"
                                 Theme="{StaticResource TreeDataGridExpandCollapseChevron}" />
                         </Border>
@@ -287,8 +285,7 @@
                         <TextBox
                             Name="PART_Edit"
                             Classes="Small"
-                            Text="{TemplateBinding Value,
-                                                   Mode=TwoWay}" />
+                            Text="{TemplateBinding Value, Mode=TwoWay}" />
                     </Border>
                 </ControlTemplate>
             </Setter>
