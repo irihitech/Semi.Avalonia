@@ -41,7 +41,6 @@
         <Setter Property="ButtonSpinner.BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}" />
         <Setter Property="ButtonSpinner.BorderThickness" Value="0" />
         <Setter Property="ButtonSpinner.MinWidth" Value="300" />
-        <!--  Add Resource  -->
         <Setter Property="ButtonSpinner.Template">
             <ControlTemplate TargetType="ButtonSpinner">
                 <Grid ColumnDefinitions="Auto, *, Auto">
@@ -49,8 +48,7 @@
                         Grid.Column="1"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        UseLayoutRounding="False">
+                        CornerRadius="{TemplateBinding CornerRadius}">
                         <ContentPresenter
                             Name="PART_ContentPresenter"
                             Padding="{TemplateBinding Padding}"
