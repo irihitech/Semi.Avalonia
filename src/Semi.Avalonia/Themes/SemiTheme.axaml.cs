@@ -8,14 +8,15 @@ using Semi.Avalonia.Locale;
 
 namespace Semi.Avalonia;
 
-public class SemiTheme: Styles
+public class SemiTheme : Styles
 {
     private static readonly Dictionary<CultureInfo, ResourceDictionary> _localeToResource = new()
     {
         { new CultureInfo("zh-cn"), new zh_cn() },
         { new CultureInfo("en-us"), new en_us() },
+        { new CultureInfo("ru-ru"), new ru_ru() },
     };
-    
+
     private readonly IServiceProvider? sp;
     public SemiTheme(IServiceProvider? provider = null)
     {
@@ -28,17 +29,17 @@ public class SemiTheme: Styles
     {
         get => _locale;
         set
-        { 
+        {
             _locale = value;
             var resource = TryGetLocaleResource(value);
-            if(resource is null) return;
+            if (resource is null) return;
             foreach (var kv in resource)
             {
                 this.Resources.Add(kv);
             }
         }
     }
-    
+
     private static ResourceDictionary? TryGetLocaleResource(CultureInfo? locale)
     {
         if (locale is null)
