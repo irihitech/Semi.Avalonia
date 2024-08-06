@@ -26,15 +26,38 @@
             OnContent="OnContent" />
         <StackPanel Orientation="Horizontal">
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" />
-            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" IsChecked="True"/>
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" IsChecked="True" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small Loading" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small Loading" IsChecked="True" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" />
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" IsChecked="True" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Loading" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Loading" IsChecked="True" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large" />
-            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large" IsChecked="True"/>
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large" IsChecked="True" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large Loading" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Large Loading" IsChecked="True" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="关" OnContent="开"/>
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="〇" OnContent="｜"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="关" OnContent="开" IsChecked="True" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="〇" OnContent="｜" IsChecked="True" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="关" OnContent="开" Classes="Large" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="〇" OnContent="｜" Classes="Large" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="关" OnContent="开" Classes="Large" IsChecked="True" />
+            <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="〇" OnContent="｜" Classes="Large" IsChecked="True" />
         </StackPanel>
 
         <ToggleSwitch Theme="{DynamicResource ButtonToggleSwitch}">
