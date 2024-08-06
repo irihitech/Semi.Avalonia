@@ -278,29 +278,29 @@
         x:Key="SimpleToggleSwitch"
         BasedOn="{StaticResource {x:Type ToggleSwitch}}"
         TargetType="ToggleSwitch">
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="FontSize" Value="{DynamicResource SimpleToggleSwitchFontSize}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
-                <Grid
+                <Border
+                    x:Name="SwitchBackgroundBorder"
                     Background="{TemplateBinding Background}"
                     Cursor="Hand"
-                    ColumnDefinitions="Auto, *">
+                    Width="{DynamicResource ToggleSwitchDefaultWidth}"
+                    Height="{DynamicResource ToggleSwitchDefaultHeight}"
+                    CornerRadius="100">
+                    <Border.Transitions>
+                        <Transitions>
+                            <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        </Transitions>
+                    </Border.Transitions>
                     <Grid
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        TemplatedControl.IsTemplateFocusTarget="True" />
-                    <Border
-                        x:Name="SwitchBackgroundBorder"
-                        Grid.Column="0"
-                        Width="{DynamicResource ToggleSwitchDefaultWidth}"
-                        Height="{DynamicResource ToggleSwitchDefaultHeight}"
-                        CornerRadius="100">
-                        <Border.Transitions>
-                            <Transitions>
-                                <BrushTransition Property="Background" Duration="0:0:0.2" />
-                            </Transitions>
-                        </Border.Transitions>
+                        ColumnDefinitions="*,*">
                         <Canvas
                             x:Name="PART_SwitchKnob"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
                             Width="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                             Height="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                             HorizontalAlignment="Left">
@@ -347,9 +347,41 @@
                                 </Arc>
                             </Grid>
                         </Canvas>
-                    </Border>
-                </Grid>
+                        <ContentPresenter
+                            x:Name="PART_OnContentPresenter"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Content="{TemplateBinding OnContent}"
+                            ContentTemplate="{TemplateBinding OnContentTemplate}" />
+                        <ContentPresenter
+                            x:Name="PART_OffContentPresenter"
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Content="{TemplateBinding OffContent}"
+                            ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                    </Grid>
+                </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^:unchecked">
+            <Setter Property="Foreground" Value="{DynamicResource SimpleToggleSwitchContainerUnCheckedForeground}" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="{DynamicResource SimpleToggleSwitchContainerCheckedForeground}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
     </ControlTheme>
 </ResourceDictionary>
