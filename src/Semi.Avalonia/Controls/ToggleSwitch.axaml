@@ -72,6 +72,37 @@
                                         Background="White"
                                         BoxShadow="0 0 1 1 #222E3238"
                                         CornerRadius="100" />
+                                    <Arc
+                                        x:Name="SwitchKnobLoadingIndicator"
+                                        IsVisible="False"
+                                        StrokeThickness="2"
+                                        StartAngle="0"
+                                        SweepAngle="140"
+                                        StrokeJoin="Round"
+                                        StrokeLineCap="Round">
+                                        <Arc.Stroke>
+                                            <ConicGradientBrush>
+                                                <GradientStops>
+                                                    <GradientStop Offset="0.1" Color="Transparent"/>
+                                                    <GradientStop Offset="0.7" Color="White"/>
+                                                </GradientStops>
+                                            </ConicGradientBrush>
+                                        </Arc.Stroke>
+                                        <Arc.Styles>
+                                            <Style Selector="Arc[IsVisible=True]">
+                                                <Style.Animations>
+                                                    <Animation IterationCount="Infinite" Duration="0:0:0.6">
+                                                        <KeyFrame Cue="0%">
+                                                            <Setter Property="RotateTransform.Angle" Value="0.0" />
+                                                        </KeyFrame>
+                                                        <KeyFrame Cue="100%">
+                                                            <Setter Property="RotateTransform.Angle" Value="360.0" />
+                                                        </KeyFrame>
+                                                    </Animation>
+                                                </Style.Animations>
+                                            </Style>
+                                        </Arc.Styles>
+                                    </Arc>
                                 </Grid>
                             </Canvas>
                         </Border>
@@ -149,6 +180,22 @@
                 <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerCheckedDisabledBackground}" />
             </Style>
         </Style>
+
+        <Style Selector="^.Loading">
+            <Style Selector="^ /template/ Border#SwitchKnobIndicator">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ Arc#SwitchKnobLoadingIndicator">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:unchecked /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:checked /template/ Border#SwitchBackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerCheckedPointeroverBackground}" />
+            </Style>
+        </Style>
+
         <Style Selector="^.Small">
             <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchSmallWidth}" />
@@ -162,6 +209,9 @@
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchIndicatorSmallWidth}" />
                 <Setter Property="Height" Value="{DynamicResource ToggleSwitchIndicatorSmallWidth}" />
                 <Setter Property="Margin" Value="{DynamicResource ToggleSwitchIndicatorSmallMargin}"/>
+            </Style>
+            <Style Selector="^ /template/ Arc#SwitchKnobLoadingIndicator">
+                <Setter Property="StrokeThickness" Value="{DynamicResource ToggleSwitchLoadingIndicatorSmallStrokeThickness}" />
             </Style>
         </Style>
         <Style Selector="^.Large">
@@ -177,6 +227,9 @@
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchIndicatorLargeWidth}" />
                 <Setter Property="Height" Value="{DynamicResource ToggleSwitchIndicatorLargeWidth}" />
                 <Setter Property="Margin" Value="{DynamicResource ToggleSwitchIndicatorLargeMargin}"/>
+            </Style>
+            <Style Selector="^ /template/ Arc#SwitchKnobLoadingIndicator">
+                <Setter Property="StrokeThickness" Value="{DynamicResource ToggleSwitchLoadingIndicatorLargeStrokeThickness}" />
             </Style>
         </Style>
     </ControlTheme>
@@ -261,6 +314,37 @@
                                     Background="White"
                                     BoxShadow="0 0 1 1 #222E3238"
                                     CornerRadius="100" />
+                                <Arc
+                                    x:Name="SwitchKnobLoadingIndicator"
+                                    IsVisible="False"
+                                    StrokeThickness="2"
+                                    StartAngle="0"
+                                    SweepAngle="140"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round">
+                                    <Arc.Stroke>
+                                        <ConicGradientBrush>
+                                            <GradientStops>
+                                                <GradientStop Offset="0.1" Color="Transparent" />
+                                                <GradientStop Offset="0.7" Color="White" />
+                                            </GradientStops>
+                                        </ConicGradientBrush>
+                                    </Arc.Stroke>
+                                    <Arc.Styles>
+                                        <Style Selector="Arc[IsVisible=True]">
+                                            <Style.Animations>
+                                                <Animation IterationCount="Infinite" Duration="0:0:0.6">
+                                                    <KeyFrame Cue="0%">
+                                                        <Setter Property="RotateTransform.Angle" Value="0.0" />
+                                                    </KeyFrame>
+                                                    <KeyFrame Cue="100%">
+                                                        <Setter Property="RotateTransform.Angle" Value="360.0" />
+                                                    </KeyFrame>
+                                                </Animation>
+                                            </Style.Animations>
+                                        </Style>
+                                    </Arc.Styles>
+                                </Arc>
                             </Grid>
                         </Canvas>
                     </Border>
