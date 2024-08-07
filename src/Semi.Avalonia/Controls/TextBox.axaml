@@ -26,7 +26,7 @@
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <ControlTheme.Resources>
             <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
-                <Setter Property="ToggleButton.Foreground" Value="{DynamicResource TextBoxButtonDefaultForeground}" />
+                <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
                 <Setter Property="ToggleButton.Cursor" Value="Hand" />
                 <Setter Property="ToggleButton.Template">
                     <ControlTemplate TargetType="ToggleButton">
@@ -45,6 +45,12 @@
                         </Panel>
                     </ControlTemplate>
                 </Setter>
+                <Style Selector="^:pointerover">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPointeroverForeground}" />
+                </Style>
+                <Style Selector="^:pressed">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPressedForeground}" />
+                </Style>
             </ControlTheme>
         </ControlTheme.Resources>
         <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxForeground}" />
