@@ -76,7 +76,7 @@
                             </TextBox>
                             <Button
                                 Name="ClearButton"
-                                Grid.Column="1"
+                                Grid.Column="2"
                                 Padding="0,0,8,0"
                                 Content="{DynamicResource IconButtonClearData}"
                                 Command="{Binding $parent[CalendarDatePicker].Clear}"
@@ -122,10 +122,13 @@
 
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^:pointerover /template/ Button#ClearButton">
-                <Setter Property="IsVisible" Value="{Binding $parent[CalendarDatePicker].SelectedDate, Converter={x:Static ObjectConverters.IsNotNull}}"></Setter>
+                <Setter Property="IsVisible" Value="{Binding $parent[CalendarDatePicker].SelectedDate, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Button#PART_Button">
+                <Setter Property="IsVisible" Value="{Binding $parent[CalendarDatePicker].SelectedDate, Converter={x:Static ObjectConverters.IsNull}}" />
             </Style>
         </Style>
 
