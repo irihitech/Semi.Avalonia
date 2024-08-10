@@ -322,7 +322,7 @@
                                 RowDefinitions="Auto,24,1*,1*,1*,1*,12"
                                 UseLayoutRounding="False">
                                 <Grid.Styles>
-                                    <Style Selector="NumericUpDown /template/ TextBox">
+                                    <Style Selector="NumericUpDown">
                                         <Setter Property="InnerLeftContent">
                                             <Template>
                                                 <TextBlock Width="12" Text="{Binding $parent[NumericUpDown].Tag}" />
