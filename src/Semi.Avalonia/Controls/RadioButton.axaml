@@ -39,7 +39,11 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="Auto,*">
-                        <Grid Margin="{DynamicResource RadioButtonIconMargin}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <Grid
+                            Grid.Column="0"
+                            TemplatedControl.IsTemplateFocusTarget="True"
+                            Margin="{DynamicResource RadioButtonIconMargin}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Ellipse
                                 Name="OuterEllipse"
                                 Width="{DynamicResource RadioButtonIconRadius}"

@@ -46,11 +46,11 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
-                    <Grid ColumnDefinitions="*, Auto, 32">
+                    <Grid ColumnDefinitions="*, 32">
                         <Border
                             x:Name="Background"
                             Grid.Column="0"
-                            Grid.ColumnSpan="3"
+                            Grid.ColumnSpan="2"
                             Background="{TemplateBinding Background}"
                             BackgroundSizing="{TemplateBinding BackgroundSizing}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -86,7 +86,7 @@
                             Theme="{DynamicResource InnerIconButton}" />
                         <Border
                             x:Name="DropDownOverlay"
-                            Grid.Column="2"
+                            Grid.Column="1"
                             Width="30"
                             Margin="0,1,1,1"
                             HorizontalAlignment="Right"
@@ -95,7 +95,7 @@
 
                         <PathIcon
                             x:Name="DropDownGlyph"
-                            Grid.Column="2"
+                            Grid.Column="1"
                             Width="12"
                             Height="12"
                             Margin="0,0,10,0"
@@ -147,6 +147,9 @@
         <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^:pointerover /template/ Button#ClearButton">
                 <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"/>
             </Style>
         </Style>
 
