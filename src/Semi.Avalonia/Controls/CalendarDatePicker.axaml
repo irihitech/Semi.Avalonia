@@ -34,11 +34,10 @@
                         <Grid
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            ColumnDefinitions="*, Auto, Auto">
+                            ColumnDefinitions="*, Auto">
                             <TextBox
                                 Name="PART_TextBox"
                                 Grid.Column="0"
-                                Grid.ColumnSpan="2"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
@@ -76,7 +75,7 @@
                             </TextBox>
                             <Button
                                 Name="ClearButton"
-                                Grid.Column="2"
+                                Grid.Column="1"
                                 Padding="0,0,8,0"
                                 Content="{DynamicResource IconButtonClearData}"
                                 Command="{Binding $parent[CalendarDatePicker].Clear}"
@@ -85,7 +84,7 @@
                                 Theme="{DynamicResource InnerIconButton}" />
                             <Button
                                 Name="PART_Button"
-                                Grid.Column="2"
+                                Grid.Column="1"
                                 Padding="0,0,8,0"
                                 Content="{DynamicResource CalendarDatePickerIconGlyph}"
                                 Focusable="False"
