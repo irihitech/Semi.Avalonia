@@ -6,6 +6,7 @@
     xmlns:globalization="using:System.Globalization"
     xmlns:pc="using:Avalonia.Controls.Primitives.Converters"
     xmlns:primitives="using:Avalonia.Controls.Primitives"
+    xmlns:cvts="clr-namespace:Semi.Avalonia.ColorPicker.Converters"
     x:CompileBindings="True">
     <pc:ContrastBrushConverter x:Key="ContrastBrushConverter" />
     <converters:ColorToDisplayNameConverter x:Key="ColorToDisplayNameConverter" />
@@ -13,6 +14,9 @@
     <converters:DoNothingForNullConverter x:Key="DoNothingForNullConverter" />
     <converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
     <converters:ToBrushConverter x:Key="ToBrushConverter" />
+    <cvts:HsvColorToTextConverter x:Key="HsvColorToTextConverter" />
+    <cvts:ColorToTextConverter x:Key="ColorToTextConverter" />
+    <cvts:ToColorModel x:Key="ToColorModel" />
     <globalization:NumberFormatInfo x:Key="ColorViewComponentNumberFormat" NumberDecimalDigits="0" />
 
     <VisualBrush
@@ -562,30 +566,18 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleColorView" TargetType="ColorView">
+        <Setter Property="Width" Value="280" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
         <Setter Property="Template">
             <ControlTemplate TargetType="{x:Type ColorView}">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" MinHeight="280"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" MinHeight="280" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <!--  Backgrounds  -->
-                    <Border
-                        x:Name="ContentBackgroundBorder"
-                        Grid.Row="0"
-                        Grid.RowSpan="3"
-                        Height="{TemplateBinding Height}"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{DynamicResource ColorViewContentBackgroundBrush}"
-                        BorderBrush="{DynamicResource ColorViewContentBorderBrush}"
-                        BorderThickness="0,1,0,0"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-
                     <!--  Spectrum Tab  -->
                     <Border
                         Grid.Row="0"
@@ -596,7 +588,7 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Components="{TemplateBinding ColorSpectrumComponents}"
-                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                            HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                             MaxHue="{TemplateBinding MaxHue}"
                             MaxSaturation="{TemplateBinding MaxSaturation}"
                             MaxValue="{TemplateBinding MaxValue}"
@@ -644,22 +636,36 @@
                             Width="20"
                             Height="20"
                             CornerRadius="4" />
-                        <Panel>
+                        <Panel
+                            x:Name="PART_TextBoxPanel"
+                            Width="106"
+                            Margin="4 0 0 0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center">
                             <TextBox
                                 x:Name="PART_HexTextBox"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Center"
-                                Margin="4 0 0 0"
                                 Classes="Small"
                                 AutomationProperties.Name="Hexadecimal Color"
                                 InnerLeftContent="#"
-                                IsVisible="{TemplateBinding IsHexInputVisible}"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hex}"
+                                Text="{Binding  #ColorSpectrum.Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
                                 MaxLength="8" />
+                            <TextBox
+                                x:Name="PART_HsvaTextBox"
+                                Classes="Small"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hsva}"
+                                Text="{TemplateBinding HsvColor, Converter={StaticResource HsvColorToTextConverter}, Mode=TwoWay}" />
+                            <TextBox
+                                x:Name="PART_RgbaTextBox"
+                                Classes="Small"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Rgba}"
+                                Text="{TemplateBinding Color, Converter={StaticResource ColorToTextConverter}, Mode=TwoWay}" />
                         </Panel>
 
                         <NumericUpDown
                             x:Name="AlphaComponentNumericUpDown"
                             Width="70"
+                            HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             AllowSpin="True"
                             Classes="Small"
@@ -669,27 +675,24 @@
                             NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                             ShowButtonSpinner="False"
                             InnerRightContent="%"
-                            Value="{Binding #ColorSpectrumAlphaSlider.Value}">
-                            <NumericUpDown.IsVisible>
-                                <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                    <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </NumericUpDown.IsVisible>
-                        </NumericUpDown>
+                            IsVisible="{TemplateBinding IsAlphaVisible}"
+                            Value="{Binding #ColorSpectrumAlphaSlider.Value}" />
                         <ComboBox
-                            x:Name="ColorComponentComboBox"
+                            x:Name="ColorModelComboBox"
                             Width="80"
                             VerticalAlignment="Center"
                             Classes="Small"
-                            SelectedValue="{TemplateBinding ColorModel}">
-                            <ColorModel>Rgba</ColorModel>
+                            SelectedValue="Hex">
+                            Hex<ColorModel>Rgba</ColorModel>
                             <ColorModel>Hsva</ColorModel>
                         </ComboBox>
                     </StackPanel>
                 </Grid>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^[IsAlphaVisible=False] /template/ Panel#PART_TextBoxPanel">
+            <Setter Property="Width" Value="176" />
+        </Style>
     </ControlTheme>
 
     <Design.PreviewWith>
@@ -698,6 +701,6 @@
             IsAlphaVisible="True"
             IsAlphaEnabled="True"
             ColorModel="Hsva"
-            HsvColor="hsv(120,1,1,30)" />
+            HsvColor="hsv(120,7%,90%)" />
     </Design.PreviewWith>
 </ResourceDictionary>
