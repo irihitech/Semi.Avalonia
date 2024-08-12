@@ -622,7 +622,6 @@
                                             AutomationProperties.Name="Hexadecimal Color"
                                             InnerLeftContent="#"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hex}"
-                                            Text="{Binding  #ColorSpectrum.Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
                                             MaxLength="8" />
                                         <TextBox
                                             x:Name="PART_HsvaTextBox"
