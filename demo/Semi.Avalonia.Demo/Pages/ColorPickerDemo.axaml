@@ -9,46 +9,48 @@
     d:DesignHeight="1450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Spacing="20">
-        <StackPanel
-            VerticalAlignment="Top"
-            Orientation="Horizontal"
-            Spacing="20">
-            <ColorView ColorSpectrumShape="Ring" />
-            <ColorView ColorSpectrumShape="Box" />
-            <ColorView Palette="{DynamicResource SemiColorPalette}" />
+    <ScrollViewer>
+        <StackPanel Spacing="20">
+            <StackPanel
+                VerticalAlignment="Top"
+                Orientation="Horizontal"
+                Spacing="20">
+                <ColorView ColorSpectrumShape="Ring" />
+                <ColorView ColorSpectrumShape="Box" />
+                <ColorView Palette="{DynamicResource SemiColorPalette}" />
+            </StackPanel>
+            <StackPanel
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <ColorView
+                    Theme="{StaticResource SimpleColorView}"
+                    IsAlphaVisible="True"
+                    HsvColor="hsv(120,11%,10%)" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <ColorPicker ColorSpectrumShape="Ring">
+                    <ColorPicker.Palette>
+                        <controls:FlatHalfColorPalette />
+                    </ColorPicker.Palette>
+                </ColorPicker>
+                <ColorPicker ColorSpectrumShape="Box">
+                    <ColorPicker.Palette>
+                        <colorPicker:SemiColorLightPalette />
+                    </ColorPicker.Palette>
+                </ColorPicker>
+
+                <ColorPicker ColorSpectrumShape="Box" Theme="{DynamicResource HexColorPicker}">
+                    <ColorPicker.Palette>
+                        <colorPicker:SemiColorLightPalette />
+                    </ColorPicker.Palette>
+                </ColorPicker>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <ColorPicker Theme="{StaticResource SimpleColorPicker}"
+                             HsvColor="hsv(120,11%,10%)" />
+                <ColorPicker Theme="{StaticResource HexSimpleColorPicker}"
+                             HsvColor="hsv(120,11%,10%)" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel
-            VerticalAlignment="Top"
-            Orientation="Horizontal">
-            <ColorView
-                Theme="{StaticResource SimpleColorView}"
-                IsAlphaVisible="True"
-                HsvColor="hsv(120,11%,10%)" />
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-            <ColorPicker ColorSpectrumShape="Ring">
-                <ColorPicker.Palette>
-                    <controls:FlatHalfColorPalette />
-                </ColorPicker.Palette>
-            </ColorPicker>
-            <ColorPicker ColorSpectrumShape="Box">
-                <ColorPicker.Palette>
-                    <colorPicker:SemiColorLightPalette />
-                </ColorPicker.Palette>
-            </ColorPicker>
-            
-            <ColorPicker ColorSpectrumShape="Box" Theme="{DynamicResource HexColorPicker}">
-                <ColorPicker.Palette>
-                    <colorPicker:SemiColorLightPalette />
-                </ColorPicker.Palette>
-            </ColorPicker>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-            <ColorPicker Theme="{StaticResource SimpleColorPicker}"
-                HsvColor="hsv(120,11%,10%)" />
-            <ColorPicker Theme="{StaticResource HexSimpleColorPicker}"
-                HsvColor="hsv(120,11%,10%)" />
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>
