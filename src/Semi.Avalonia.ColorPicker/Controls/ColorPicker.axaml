@@ -514,4 +514,200 @@
         </Setter>
     </ControlTheme>
 
+    <ControlTheme
+        x:Key="SimpleColorPicker"
+        BasedOn="{StaticResource {x:Type ColorPicker}}"
+        TargetType="ColorPicker">
+        <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="{x:Type ColorPicker}">
+                <DropDownButton
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Padding="0,0,10,0"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    ClipToBounds="True"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    UseLayoutRounding="False">
+                    <DropDownButton.Styles>
+                        <Style Selector="FlyoutPresenter.nopadding">
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </DropDownButton.Styles>
+                    <DropDownButton.Flyout>
+                        <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource ColorPickerFlyoutPlacement}">
+
+                            <!--
+                                The following is copy-pasted from the ColorView's control template.
+                                It MUST always be kept in sync with the ColorView (which is master).
+                                Note the only changes are resources specific to the ColorPicker.
+                            -->
+                            <Grid Width="280">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" MinHeight="280" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--  Spectrum Tab  -->
+                                <Border
+                                    Grid.Row="0"
+                                    CornerRadius="8 8 0 0"
+                                    ClipToBounds="True">
+                                    <primitives:ColorSpectrum
+                                        x:Name="ColorSpectrum"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Components="{TemplateBinding ColorSpectrumComponents}"
+                                        HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
+                                        MaxHue="{TemplateBinding MaxHue}"
+                                        MaxSaturation="{TemplateBinding MaxSaturation}"
+                                        MaxValue="{TemplateBinding MaxValue}"
+                                        MinHue="{TemplateBinding MinHue}"
+                                        MinSaturation="{TemplateBinding MinSaturation}"
+                                        MinValue="{TemplateBinding MinValue}"
+                                        Shape="{TemplateBinding ColorSpectrumShape}" />
+                                </Border>
+                                <primitives:ColorSlider
+                                    x:Name="ColorSpectrumThirdComponentSlider"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    AutomationProperties.Name="Third Component"
+                                    ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
+                                    ColorModel="Hsva"
+                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
+                                    IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
+                                    Orientation="Horizontal" />
+
+                                <primitives:ColorSlider
+                                    x:Name="ColorSpectrumAlphaSlider"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    AutomationProperties.Name="Alpha Component"
+                                    ColorComponent="Alpha"
+                                    ColorModel="Hsva"
+                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
+                                    IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                    IsVisible="{TemplateBinding IsAlphaVisible}"
+                                    IsRoundingEnabled="True"
+                                    IsSnapToTickEnabled="True"
+                                    TickFrequency="1"
+                                    Orientation="Horizontal">
+                                </primitives:ColorSlider>
+                                <StackPanel
+                                    Grid.Row="3"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0 8 0 0">
+                                    <Border
+                                        Background="{TemplateBinding Color, Converter={StaticResource ToBrushConverter}}"
+                                        Width="20"
+                                        Height="20"
+                                        CornerRadius="4" />
+                                    <Panel
+                                        x:Name="PART_TextBoxPanel"
+                                        Width="106"
+                                        Margin="4 0 0 0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center">
+                                        <TextBox
+                                            x:Name="PART_HexTextBox"
+                                            Classes="Small"
+                                            AutomationProperties.Name="Hexadecimal Color"
+                                            InnerLeftContent="#"
+                                            IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hex}"
+                                            Text="{Binding  #ColorSpectrum.Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
+                                            MaxLength="8" />
+                                        <TextBox
+                                            x:Name="PART_HsvaTextBox"
+                                            Classes="Small"
+                                            IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hsva}"
+                                            Text="{TemplateBinding HsvColor, Converter={StaticResource HsvColorToTextConverter}, Mode=TwoWay}" />
+                                        <TextBox
+                                            x:Name="PART_RgbaTextBox"
+                                            Classes="Small"
+                                            IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Rgba}"
+                                            Text="{TemplateBinding Color, Converter={StaticResource ColorToTextConverter}, Mode=TwoWay}" />
+                                    </Panel>
+
+                                    <NumericUpDown
+                                        x:Name="AlphaComponentNumericUpDown"
+                                        Width="70"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        AllowSpin="True"
+                                        Classes="Small"
+                                        IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                        Maximum="{Binding #ColorSpectrumAlphaSlider.Maximum}"
+                                        Minimum="{Binding #ColorSpectrumAlphaSlider.Minimum}"
+                                        NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                        ShowButtonSpinner="False"
+                                        InnerRightContent="%"
+                                        IsVisible="{TemplateBinding IsAlphaVisible}"
+                                        Value="{Binding #ColorSpectrumAlphaSlider.Value}" />
+                                    <ComboBox
+                                        x:Name="ColorModelComboBox"
+                                        Width="80"
+                                        VerticalAlignment="Center"
+                                        Classes="Small"
+                                        SelectedValue="Hex">
+                                        Hex<ColorModel>Rgba</ColorModel>
+                                        <ColorModel>Hsva</ColorModel>
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                        </Flyout>
+                    </DropDownButton.Flyout>
+                </DropDownButton>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[IsAlphaVisible=False] /template/ Panel#PART_TextBoxPanel">
+            <Setter Property="Width" Value="176" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="HexSimpleColorPicker"
+        BasedOn="{StaticResource SimpleColorPicker}"
+        TargetType="ColorPicker">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Content">
+            <Template>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Border
+                        Grid.Column="0"
+                        Width="{Binding $self.Bounds.Height}"
+                        Margin="1,1,0,1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border
+                        Grid.Column="0"
+                        Width="{Binding $self.Bounds.Height}"
+                        Margin="1,1,0,1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding HsvColor,
+                                                     Converter={StaticResource ToBrushConverter}}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="8,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontWeight="Regular"
+                        Foreground="{DynamicResource TextBlockDefaultForeground}"
+                        Text="{Binding $parent[ColorPicker].Color}" />
+                </Grid>
+            </Template>
+        </Setter>
+    </ControlTheme>
+
 </ResourceDictionary>

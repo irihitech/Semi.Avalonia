@@ -44,5 +44,11 @@
                 </ColorPicker.Palette>
             </ColorPicker>
         </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <ColorPicker Theme="{StaticResource SimpleColorPicker}"
+                HsvColor="hsv(120,11%,10%)" />
+            <ColorPicker Theme="{StaticResource HexSimpleColorPicker}"
+                HsvColor="hsv(120,11%,10%)" />
+        </StackPanel>
     </StackPanel>
 </UserControl>
