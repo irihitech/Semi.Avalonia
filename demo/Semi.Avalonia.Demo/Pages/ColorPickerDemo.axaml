@@ -15,7 +15,7 @@
                 VerticalAlignment="Top"
                 Orientation="Horizontal"
                 Spacing="20">
-                <ColorView ColorSpectrumShape="Ring" />
+                <ColorView Name="Test" ColorSpectrumShape="Ring" />
                 <ColorView ColorSpectrumShape="Box" />
                 <ColorView Palette="{DynamicResource SemiColorPalette}" />
             </StackPanel>
@@ -23,9 +23,14 @@
                 VerticalAlignment="Top"
                 Orientation="Horizontal">
                 <ColorView
+                    Name="SimpleColorViewTest"
                     Theme="{StaticResource SimpleColorView}"
                     IsAlphaVisible="True"
                     HsvColor="hsv(120,11%,10%)" />
+                <StackPanel>
+                    <TextBlock Text="{Binding #SimpleColorViewTest.HsvColor}" />
+                    <TextBlock Text="{Binding #SimpleColorViewTest.Color}" />
+                </StackPanel>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                 <ColorPicker ColorSpectrumShape="Ring">

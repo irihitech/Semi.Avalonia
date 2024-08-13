@@ -579,7 +579,7 @@
                                     AutomationProperties.Name="Third Component"
                                     ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
                                     ColorModel="Hsva"
-                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
                                     Orientation="Horizontal" />
 
@@ -591,7 +591,7 @@
                                     AutomationProperties.Name="Alpha Component"
                                     ColorComponent="Alpha"
                                     ColorModel="Hsva"
-                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                     IsVisible="{TemplateBinding IsAlphaVisible}"
                                     IsRoundingEnabled="True"
@@ -619,20 +619,20 @@
                                         <TextBox
                                             x:Name="PART_HexTextBox"
                                             Classes="Small"
-                                            AutomationProperties.Name="Hexadecimal Color"
                                             InnerLeftContent="#"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hex}"
+                                            Text="{TemplateBinding Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
                                             MaxLength="8" />
-                                        <TextBox
-                                            x:Name="PART_HsvaTextBox"
-                                            Classes="Small"
-                                            IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hsva}"
-                                            Text="{TemplateBinding HsvColor, Converter={StaticResource HsvColorToTextConverter}, Mode=TwoWay}" />
                                         <TextBox
                                             x:Name="PART_RgbaTextBox"
                                             Classes="Small"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Rgba}"
                                             Text="{TemplateBinding Color, Converter={StaticResource ColorToTextConverter}, Mode=TwoWay}" />
+                                        <TextBox
+                                            x:Name="PART_HsvaTextBox"
+                                            Classes="Small"
+                                            IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hsva}"
+                                            Text="{TemplateBinding HsvColor, Converter={StaticResource HsvColorToTextConverter}, Mode=TwoWay}" />
                                     </Panel>
 
                                     <NumericUpDown
