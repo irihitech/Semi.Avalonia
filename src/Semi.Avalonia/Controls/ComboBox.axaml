@@ -46,7 +46,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
-                    <Grid ColumnDefinitions="*, 32">
+                    <Grid ColumnDefinitions="*, Auto">
                         <Border
                             x:Name="Background"
                             Grid.Column="0"
@@ -80,8 +80,10 @@
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
+                            Margin="0,0,8,0"
                             Command="{Binding $parent[ComboBox].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
+                            Focusable="False"
                             IsVisible="False"
                             Theme="{DynamicResource InnerIconButton}" />
                         <Border
@@ -98,9 +100,7 @@
                             Grid.Column="1"
                             Width="12"
                             Height="12"
-                            Margin="0,0,10,0"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
+                            Margin="0,0,12,0"
                             Data="{DynamicResource ComboBoxIcon}"
                             Foreground="{DynamicResource ComboBoxIconDefaultForeground}"
                             IsHitTestVisible="False"
