@@ -22,6 +22,15 @@ public partial class NotificationDemo : UserControl
         _manager = new WindowNotificationManager(topLevel) { MaxItems = 3 };
     }
 
+    private void PositionButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        if (sender is RadioButton b && b.Content is string s)
+        {
+            Enum.TryParse<NotificationPosition>(s, out var t);
+            _manager.Position = t;
+        }
+    }
+
     private void NormalButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (sender is Button b && b.Content is string s)
@@ -29,16 +38,6 @@ public partial class NotificationDemo : UserControl
             _manager?.Show(Enum.TryParse<NotificationType>(s, out var t)
                 ? new Notification(t.ToString(), "This is message", t)
                 : new Notification(s, "This is message"));
-        }
-    }
-
-    private void PositionButton_OnClick(object? sender, RoutedEventArgs e)
-    {
-        if (sender is Button b && b.Content is string s)
-        {
-            Enum.TryParse<NotificationPosition>(s, out var t);
-            _manager.Position = t;
-            _manager?.Show(new Notification(t.ToString(), "This is message"));
         }
     }
 
