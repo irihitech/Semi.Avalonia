@@ -33,52 +33,56 @@
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
                     <Border
                         Margin="{DynamicResource NotificationCardMargin}"
-                        Padding="{DynamicResource NotificationCardPadding}"
-                        BoxShadow="{DynamicResource NotificationCardBoxShadows}"
                         Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel>
-                            <PathIcon
-                                Name="NotificationIcon"
-                                Width="{DynamicResource NotificationCardIconWidth}"
-                                Height="{DynamicResource NotificationCardIconHeight}"
-                                Margin="{DynamicResource NotificationCardIconMargin}"
-                                VerticalAlignment="Top"
-                                IsVisible="False"
-                                Data="{DynamicResource NotificationCardInformationIconPathData}" />
-                            <ContentControl
-                                Name="PART_Content"
-                                Content="{TemplateBinding Content}">
-                                <ContentControl.DataTemplates>
-                                    <DataTemplate DataType="INotification">
-                                        <StackPanel Spacing="{DynamicResource NotificationCardTitleSpacing}">
-                                            <SelectableTextBlock
-                                                Foreground="{DynamicResource NotificationCardTitleForeground}"
-                                                FontSize="{DynamicResource NotificationCardTitleFontSize}"
-                                                FontWeight="{DynamicResource NotificationCardTitleFontWeight}"
-                                                IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                                Text="{Binding Title}" />
+                        <Border
+                            x:Name="PART_RootBorder"
+                            Padding="{DynamicResource NotificationCardPadding}"
+                            BoxShadow="{DynamicResource NotificationCardBoxShadow}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <DockPanel>
+                                <PathIcon
+                                    Name="NotificationIcon"
+                                    Width="{DynamicResource NotificationCardIconWidth}"
+                                    Height="{DynamicResource NotificationCardIconHeight}"
+                                    Margin="{DynamicResource NotificationCardIconMargin}"
+                                    VerticalAlignment="Top"
+                                    IsVisible="False"
+                                    Data="{DynamicResource NotificationCardInformationIconPathData}" />
+                                <ContentControl
+                                    Name="PART_Content"
+                                    Content="{TemplateBinding Content}">
+                                    <ContentControl.DataTemplates>
+                                        <DataTemplate DataType="INotification">
+                                            <StackPanel Spacing="{DynamicResource NotificationCardTitleSpacing}">
+                                                <SelectableTextBlock
+                                                    Foreground="{DynamicResource NotificationCardTitleForeground}"
+                                                    FontSize="{DynamicResource NotificationCardTitleFontSize}"
+                                                    FontWeight="{DynamicResource NotificationCardTitleFontWeight}"
+                                                    IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                                    Text="{Binding Title}" />
+                                                <SelectableTextBlock
+                                                    Foreground="{DynamicResource NotificationCardMessageForeground}"
+                                                    FontSize="{DynamicResource NotificationCardMessageFontSize}"
+                                                    FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
+                                                    Text="{Binding Message}"
+                                                    TextWrapping="Wrap" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                        <DataTemplate DataType="x:String">
                                             <SelectableTextBlock
                                                 Foreground="{DynamicResource NotificationCardMessageForeground}"
                                                 FontSize="{DynamicResource NotificationCardMessageFontSize}"
                                                 FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
-                                                Text="{Binding Message}"
+                                                Text="{Binding}"
                                                 TextWrapping="Wrap" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                    <DataTemplate DataType="x:String">
-                                        <SelectableTextBlock
-                                            Foreground="{DynamicResource NotificationCardMessageForeground}"
-                                            FontSize="{DynamicResource NotificationCardMessageFontSize}"
-                                            FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
-                                            Text="{Binding}"
-                                            TextWrapping="Wrap" />
-                                    </DataTemplate>
-                                </ContentControl.DataTemplates>
-                            </ContentControl>
-                        </DockPanel>
+                                        </DataTemplate>
+                                    </ContentControl.DataTemplates>
+                                </ContentControl>
+                            </DockPanel>
+                        </Border>
                     </Border>
                 </LayoutTransformControl>
             </ControlTemplate>
@@ -162,6 +166,26 @@
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Foreground" Value="{DynamicResource NotificationCardErrorIconForeground}" />
             <Setter Property="Data" Value="{DynamicResource NotificationCardErrorIconPathData}" />
+        </Style>
+
+        <Style Selector="^.Light">
+            <Setter Property="Background" Value="{DynamicResource SemiColorBackground0}" />
+            <Style Selector="^:information /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorInformation}" />
+                <Setter Property="Background" Value="{DynamicResource SemiColorInformationLight}" />
+            </Style>
+            <Style Selector="^:success /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorSuccess}" />
+                <Setter Property="Background" Value="{DynamicResource SemiColorSuccessLight}" />
+            </Style>
+            <Style Selector="^:warning /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorWarning}" />
+                <Setter Property="Background" Value="{DynamicResource SemiColorWarningLight}" />
+            </Style>
+            <Style Selector="^:error /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorDanger}" />
+                <Setter Property="Background" Value="{DynamicResource SemiColorDangerLight}" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
