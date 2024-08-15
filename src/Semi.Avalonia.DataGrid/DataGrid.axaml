@@ -471,6 +471,7 @@
         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="SelectionMode" Value="Extended" />
         <Setter Property="GridLinesVisibility" Value="None" />
+        <Setter Property="ScrollViewer.AllowAutoHide" Value="True"></Setter>
         <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource DataGridLineBrush}" />
         <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource DataGridLineBrush}" />
         <Setter Property="DropLocationIndicatorTemplate">
@@ -568,6 +569,16 @@
             </Style>
             <Style Selector="^ /template/ Rectangle#PART_ColumnHeadersAndRowsSeparator">
                 <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
+        
+        <Style Selector="^[(ScrollViewer.AllowAutoHide)=False]">
+            <Style Selector="^ /template/ DataGridRowsPresenter#PART_RowsPresenter">
+                <Setter Property="Grid.RowSpan" Value="1"></Setter>
+                <Setter Property="Grid.ColumnSpan" Value="2"></Setter>
+            </Style>
+            <Style Selector="^ /template/ DataGridColumnHeadersPresenter#PART_ColumnHeadersPresenter">
+                <Setter Property="Grid.ColumnSpan" Value="1"></Setter>
             </Style>
         </Style>
     </ControlTheme>
