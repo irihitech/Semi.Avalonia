@@ -14,7 +14,10 @@
     <TabControl>
         <TabItem Header="DataGrid">
            <Grid RowDefinitions="Auto, *">
-               <ToggleSwitch Grid.Row="0" Content="Disable" Name="DisableToggle"></ToggleSwitch>
+               <StackPanel Grid.Row="0" Orientation="Horizontal">
+                   <ToggleSwitch Content="Disable" Name="DisableToggle" />
+                   <ToggleSwitch Content="ScrollViewerHide" Name="ScrollViewerHide" />
+               </StackPanel>
                <DataGrid Grid.Row="1"
                          Margin="8"
                          CanUserReorderColumns="True"
@@ -22,6 +25,7 @@
                          CanUserSortColumns="True"
                          HeadersVisibility="All"
                          IsReadOnly="True"
+                         ScrollViewer.AllowAutoHide="{Binding #ScrollViewerHide.IsChecked}"
                          IsEnabled="{Binding #DisableToggle.IsChecked}"
                          ItemsSource="{Binding GridData1}">
                    <DataGrid.Columns>
