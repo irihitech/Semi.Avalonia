@@ -54,8 +54,20 @@
                                 <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                 <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                             </Panel>
+                            
+                            <Panel Name="PART_SecondHost" Grid.Column="4">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <DateTimePickerPanel
+                                        Name="PART_SecondSelector"
+                                        ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
+                                        PanelType="Second"
+                                        ShouldLoop="True" />
+                                </ScrollViewer>
+                                <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_SecondDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                            </Panel>
 
-                            <Panel Name="PART_PeriodHost" Grid.Column="4">
+                            <Panel Name="PART_PeriodHost" Grid.Column="6">
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_PeriodSelector"
@@ -77,6 +89,13 @@
                             <Rectangle
                                 Name="PART_SecondSpacer"
                                 Grid.Column="3"
+                                Width="1"
+                                Margin="0,4"
+                                HorizontalAlignment="Center"
+                                Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                            <Rectangle
+                                Name="PART_ThirdSpacer"
+                                Grid.Column="5"
                                 Width="1"
                                 Margin="0,4"
                                 HorizontalAlignment="Center"
@@ -214,6 +233,29 @@
                                     <Border
                                         x:Name="PART_ThirdPickerHost"
                                         Grid.Column="4"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch">
+                                        <TextBlock
+                                            x:Name="PART_SecondTextBlock"
+                                            Padding="12,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="{TemplateBinding FontFamily}"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            FontWeight="{TemplateBinding FontWeight}"
+                                            Text="{DynamicResource STRING_TIMEPICKER_SECOND_TEXT}"/>
+                                    </Border>
+                                    
+                                    <Rectangle
+                                        Name="PART_ThirdColumnDivider"
+                                        Grid.Column="5"
+                                        Width="1"
+                                        HorizontalAlignment="Center"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <Border
+                                        x:Name="PART_FourthPickerHost"
+                                        Grid.Column="6"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch">
                                         <TextBlock
