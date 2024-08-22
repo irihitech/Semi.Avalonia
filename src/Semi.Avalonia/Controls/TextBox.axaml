@@ -4,19 +4,16 @@
     x:CompileBindings="True">
     <MenuFlyout x:Key="DefaultTextBoxContextFlyout" Placement="Bottom">
         <MenuItem
-            x:Name="TextBoxContextFlyoutCutItem"
             Command="{Binding $parent[TextBox].Cut}"
             Header="{DynamicResource STRING_MENU_CUT}"
             InputGesture="{x:Static TextBox.CutGesture}"
             IsEnabled="{Binding $parent[TextBox].CanCut}" />
         <MenuItem
-            x:Name="TextBoxContextFlyoutCopyItem"
             Command="{Binding $parent[TextBox].Copy}"
             Header="{DynamicResource STRING_MENU_COPY}"
             InputGesture="{x:Static TextBox.CopyGesture}"
             IsEnabled="{Binding $parent[TextBox].CanCopy}" />
         <MenuItem
-            x:Name="TextBoxContextFlyoutPasteItem"
             Command="{Binding $parent[TextBox].Paste}"
             Header="{DynamicResource STRING_MENU_PASTE}"
             InputGesture="{x:Static TextBox.PasteGesture}"
