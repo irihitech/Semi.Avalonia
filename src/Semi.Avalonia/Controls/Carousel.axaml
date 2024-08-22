@@ -13,6 +13,7 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
+                    BringIntoViewOnFocusChange="True"
                     HorizontalScrollBarVisibility="Hidden"
                     VerticalScrollBarVisibility="Hidden">
                     <ItemsPresenter
@@ -66,8 +67,7 @@
                             Name="Container"
                             Width="{DynamicResource CarouselIndicatorLineWidth}"
                             Height="{DynamicResource CarouselIndicatorLineHeight}"
-                            Background="{TemplateBinding Background}">
-                        </Border>
+                            Background="{TemplateBinding Background}" />
                     </Border>
                 </Panel>
             </ControlTemplate>
@@ -90,8 +90,7 @@
             <ControlTemplate TargetType="ListBoxItem">
                 <Panel Background="Transparent">
                     <Border Padding="2,0" Background="Transparent">
-                        <Border Width="{DynamicResource CarouselIndicatorColumnarWidth}"
-                                Height="{DynamicResource CarouselIndicatorColumnarSelectedHeight}">
+                        <Border Width="{DynamicResource CarouselIndicatorColumnarWidth}" Height="{DynamicResource CarouselIndicatorColumnarSelectedHeight}">
                             <Rectangle
                                 Name="Container"
                                 Width="{DynamicResource CarouselIndicatorColumnarWidth}"
@@ -100,7 +99,7 @@
                                 Fill="{TemplateBinding Background}">
                                 <Rectangle.Transitions>
                                     <Transitions>
-                                        <DoubleTransition Property="Height" Duration="0:0:0.2"></DoubleTransition>
+                                        <DoubleTransition Property="Height" Duration="0:0:0.2" />
                                     </Transitions>
                                 </Rectangle.Transitions>
                             </Rectangle>
