@@ -4,6 +4,7 @@
     xmlns:converters="using:Semi.Avalonia.Converters"
     xmlns:dialogs="clr-namespace:Avalonia.Dialogs;assembly=Avalonia.Dialogs"
     xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs"
+    xmlns:cvt="using:Avalonia.Controls.Converters"
     x:CompileBindings="True">
     <!--  Add Resources Here  -->
     <Design.PreviewWith>
@@ -191,6 +192,48 @@
                         </DockPanel>
                     </Border>
                 </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type dialogs:ManagedFileChooserOverwritePrompt}"
+                  TargetType="dialogs:ManagedFileChooserOverwritePrompt">
+        <Setter Property="MaxWidth" Value="400" />
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <StackPanel Spacing="10">
+                        <TextBlock TextWrapping="Wrap">
+                            <TextBlock.Text>
+                                <MultiBinding>
+                                    <MultiBinding.Converter>
+                                        <cvt:StringFormatConverter />
+                                    </MultiBinding.Converter>
+                                    <DynamicResource ResourceKey="STRING_CHOOSER_PROMPT_FILE_ALREADY_EXISTS" />
+                                    <TemplateBinding Property="FileName" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <StackPanel HorizontalAlignment="Right"
+                                    Spacing="10"
+                                    Orientation="Horizontal">
+                            <Button Theme="{StaticResource SolidButton}"
+                                    Content="{DynamicResource STRING_CHOOSER_DIALOG_OK}"
+                                    HorizontalContentAlignment="Center"
+                                    IsDefault="True"
+                                    Command="{Binding Confirm, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Button Content="{DynamicResource STRING_CHOOSER_DIALOG_CANCEL}"
+                                    IsCancel="True"
+                                    HorizontalContentAlignment="Center"
+                                    Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

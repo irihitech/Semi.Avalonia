@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Dialogs;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Platform.Storage;
 
 namespace Semi.Avalonia.Demo.Pages;
@@ -14,14 +10,14 @@ public partial class ManagedFileChooserDemo : UserControl
     public ManagedFileChooserDemo()
     {
         InitializeComponent();
-        openFileDialog.Click += OpenFileDialog;
-        selectFolderDialog.Click += SelectFolderDialog;
-        saveFileDialog.Click += SaveFileDialog;
+        OpenFileButton.Click += OpenFileDialog;
+        SelectFolderButton.Click += SelectFolderDialog;
+        SaveFileButton.Click += SaveFileDialog;
     }
 
-    private async void OpenFileDialog(object sender, RoutedEventArgs args)
+    private async void OpenFileDialog(object? sender, RoutedEventArgs args)
     {
-        IStorageProvider? sp = GetStorageProvider();
+        var sp = GetStorageProvider();
         if (sp is null) return;
         var result = await sp.OpenFilePickerAsync(new FilePickerOpenOptions()
         {
@@ -30,9 +26,10 @@ public partial class ManagedFileChooserDemo : UserControl
             AllowMultiple = true,
         });
     }
-    private async void SelectFolderDialog(object sender, RoutedEventArgs args)
+
+    private async void SelectFolderDialog(object? sender, RoutedEventArgs args)
     {
-        IStorageProvider? sp = GetStorageProvider();
+        var sp = GetStorageProvider();
         if (sp is null) return;
         var result = await sp.OpenFolderPickerAsync(new FolderPickerOpenOptions()
         {
@@ -40,16 +37,17 @@ public partial class ManagedFileChooserDemo : UserControl
             AllowMultiple = true,
         });
     }
-    private async void SaveFileDialog(object sender, RoutedEventArgs args)
+
+    private async void SaveFileDialog(object? sender, RoutedEventArgs args)
     {
-        IStorageProvider? sp = GetStorageProvider();
+        var sp = GetStorageProvider();
         if (sp is null) return;
         var result = await sp.SaveFilePickerAsync(new FilePickerSaveOptions()
         {
-            Title = "Open File",
+            Title = "Save File",
         });
     }
-    
+
     private IStorageProvider? GetStorageProvider()
     {
         var topLevel = TopLevel.GetTopLevel(this);
@@ -58,10 +56,10 @@ public partial class ManagedFileChooserDemo : UserControl
 
     List<FilePickerFileType>? GetFileTypes()
     {
-        return new List<FilePickerFileType>
-        {
+        return
+        [
             FilePickerFileTypes.All,
             FilePickerFileTypes.TextPlain
-        };
+        ];
     }
 }
