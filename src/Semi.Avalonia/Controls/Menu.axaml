@@ -201,7 +201,7 @@
                             BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
                             BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                             CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
-                            <ScrollViewer Theme="{StaticResource MenuScrollViewer}">
+                            <ScrollViewer Theme="{StaticResource MenuScrollViewer}" CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
                                 <ItemsPresenter
                                     Name="PART_ItemsPresenter"
                                     Grid.IsSharedSizeScope="True"
@@ -304,7 +304,7 @@
                                 BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
                                 BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                                 CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
-                                <ScrollViewer Theme="{StaticResource MenuScrollViewer}">
+                                <ScrollViewer Theme="{StaticResource MenuScrollViewer}" CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Grid.IsSharedSizeScope="True"
