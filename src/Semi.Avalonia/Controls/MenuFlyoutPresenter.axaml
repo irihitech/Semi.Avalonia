@@ -2,7 +2,21 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <!--  Add Resources Here  -->
+    <Design.PreviewWith>
+        <ThemeVariantScope RequestedThemeVariant="Dark">
+            <MenuFlyoutPresenter>
+                <MenuFlyoutPresenter.Items>
+                    <MenuItem Header="Menu Item 1" />
+                    <MenuItem Header="Menu Item 2" />
+                    <MenuItem Header="Menu Item 3" />
+                    <MenuItem Header="Menu Item 4" />
+                    <MenuItem Header="Menu Item 5" />
+                    <MenuItem Header="Menu Item 6" />
+                </MenuFlyoutPresenter.Items>
+            </MenuFlyoutPresenter>
+        </ThemeVariantScope>
+    </Design.PreviewWith>
+
     <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
         <Setter Property="MenuFlyoutPresenter.Background" Value="{DynamicResource MenuFlyoutBackground}" />
         <Setter Property="MenuFlyoutPresenter.BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
@@ -23,12 +37,13 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
-                    ClipToBounds="False"
+                    ClipToBounds="True"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     UseLayoutRounding="False">
                     <ScrollViewer
-                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         Theme="{StaticResource MenuScrollViewer}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
