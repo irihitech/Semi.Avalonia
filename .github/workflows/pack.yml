@@ -1,4 +1,4 @@
-name: Pack
+name: Pack Nuget
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ "action/pack" ]
 
 jobs:
-  nuget_desktop:
-    runs-on: windows-latest
+  nuget:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -25,34 +25,8 @@ jobs:
       - name: Nuget Semi.Avalonia.TreeDataGrid
         run: dotnet pack ./src/Semi.Avalonia.TreeDataGrid  -o ./nugets
 
-      - name: Desktop
-        run: dotnet publish ./demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true --self-contained true
-
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
-          name: nuget_desktop
-          path: |
-            ./nugets
-            ./**/publish/*.exe
-
-  android:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-
-      - name: CD Android
-        run: cd ./demo/Semi.Avalonia.Demo.Android
-
-      - name: Restore Dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet publish ./demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
-        with:
-          name: android
-          path: ./**/publish/*Signed.apk
+          name: nugets
+          path: ./nugets
