@@ -34,7 +34,7 @@ jobs:
 
       - name: Zip win-x64 AOT
         run: |
-          $files = Get-ChildItem -Path ./publish/win64/* -Recurse -Exclude *.pdb
+          $files = Get-ChildItem -Path ./publish/win64-aot/* -Recurse -Exclude *.pdb
           Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
 
       - name: Upload a Build Artifact
