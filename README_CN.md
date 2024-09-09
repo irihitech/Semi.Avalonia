@@ -26,11 +26,13 @@ dotnet add package Semi.Avalonia
 在样式中引用 Semi 主题：
 
 ```xaml
-<Application.Styles>
-<!-- 您仍然可以使用旧版方式引用  -->
-<!-- <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" /> -->
-    <semi:SemiTheme Locale="zh-cn" />
-</Application.Styles>
+<Application
+    ...
+    xmlns:semi="https://irihi.tech/semi">
+    <Application.Styles>
+        <semi:SemiTheme Locale="zh-CN" />
+    </Application.Styles>
+</Application>
 ```
 
 这样就可以了。
