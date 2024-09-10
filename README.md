@@ -26,11 +26,13 @@ dotnet add package Semi.Avalonia
 Include Semi Design Styles in application:
 
 ```xaml
-<Application.Styles>
-<!-- You can still reference in old way.  -->
-<!-- <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" /> -->
-    <semi:SemiTheme Locale="zh-cn" />
-</Application.Styles>
+<Application
+    ...
+    xmlns:semi="https://irihi.tech/semi">
+    <Application.Styles>
+        <semi:SemiTheme Locale="zh-CN" />
+    </Application.Styles>
+</Application>
 ```
 
 That's all.
