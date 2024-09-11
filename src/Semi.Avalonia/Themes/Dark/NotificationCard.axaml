@@ -1,10 +1,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="NotificationCardForeground" Color="#F9F9F9" />
     <SolidColorBrush x:Key="NotificationCardBorderBrush" Opacity="0.08" Color="White" />
     <SolidColorBrush x:Key="NotificationCardBackground" Color="#43444A" />
     <SolidColorBrush x:Key="NotificationCardInformationIconForeground" Color="#54A9FF" />
     <SolidColorBrush x:Key="NotificationCardSuccessIconForeground" Color="#5DC264" />
     <SolidColorBrush x:Key="NotificationCardWarningIconForeground" Color="#FFAE43" />
     <SolidColorBrush x:Key="NotificationCardErrorIconForeground" Color="#FC725A" />
-    <BoxShadows x:Key="NotificationCardBoxShadows">0 0 8 0 #1AFFFFFF</BoxShadows>
+    <BoxShadows x:Key="NotificationCardBoxShadows">inset 0 0 0 1 #1AFFFFFF, 0 4 14 0 #40000000</BoxShadows>
+    <SolidColorBrush x:Key="NotificationCardTitleForeground" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="NotificationCardMessageForeground" Opacity="0.8" Color="#F9F9F9" />
 </ResourceDictionary>

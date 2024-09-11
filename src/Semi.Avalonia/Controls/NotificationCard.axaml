@@ -3,65 +3,69 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <Design.PreviewWith>
-        <NotificationCard>
-            <TextBlock Text="Hello World" />
-        </NotificationCard>
+        <ThemeVariantScope RequestedThemeVariant="Dark">
+            <StackPanel>
+                <NotificationCard />
+                <NotificationCard>
+                    Hello, Semi.Avalonia!
+                </NotificationCard>
+            </StackPanel>
+        </ThemeVariantScope>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="MinWidth" Value="{DynamicResource NotificationCardWidth}" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Foreground" Value="{DynamicResource NotificationCardForeground}" />
-        <Setter Property="RenderTransformOrigin" Value="50%,75%" />
         <Setter Property="BorderThickness" Value="{DynamicResource NotificationCardBorderThickness}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardBorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource NotificationCardBackground}" />
         <Setter Property="CornerRadius" Value="{DynamicResource NotificationCardCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="NotificationCard">
                 <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
                     <Border
-                        Margin="8"
-                        BoxShadow="{DynamicResource NotificationCardBoxShadows}"
+                        Margin="{DynamicResource NotificationCardMargin}"
+                        Background="{TemplateBinding Background}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Border
-                            Background="{TemplateBinding Background}"
+                            x:Name="PART_RootBorder"
+                            Padding="{DynamicResource NotificationCardPadding}"
+                            BoxShadow="{DynamicResource NotificationCardBoxShadows}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            ClipToBounds="True"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                            <DockPanel>
+                            <DockPanel MinWidth="{DynamicResource NotificationCardMinWidth}">
                                 <PathIcon
                                     Name="NotificationIcon"
-                                    Width="16"
-                                    Height="16"
-                                    Margin="16,16,12,0"
+                                    Width="{DynamicResource NotificationCardIconWidth}"
+                                    Height="{DynamicResource NotificationCardIconHeight}"
+                                    Margin="{DynamicResource NotificationCardIconMargin}"
                                     VerticalAlignment="Top"
                                     IsVisible="False"
-                                    Data="{DynamicResource NotificationCardInformationIconPathData}"/>
+                                    Data="{DynamicResource NotificationCardInformationIconPathData}" />
                                 <ContentControl
                                     Name="PART_Content"
-                                    MinHeight="64"
                                     Content="{TemplateBinding Content}">
                                     <ContentControl.DataTemplates>
                                         <DataTemplate DataType="INotification">
-                                            <StackPanel Margin="0,8,8,8" Spacing="8">
-                                                <TextBlock
-                                                    FontSize="16"
-                                                    FontWeight="600"
+                                            <StackPanel Spacing="{DynamicResource NotificationCardTitleSpacing}">
+                                                <SelectableTextBlock
+                                                    Foreground="{DynamicResource NotificationCardTitleForeground}"
+                                                    FontSize="{DynamicResource NotificationCardTitleFontSize}"
+                                                    FontWeight="{DynamicResource NotificationCardTitleFontWeight}"
+                                                    IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                                     Text="{Binding Title}" />
-                                                <TextBlock
-                                                    MaxHeight="80"
-                                                    Margin="0,0,8,0"
-                                                    FontSize="14"
-                                                    FontWeight="400"
+                                                <SelectableTextBlock
+                                                    Foreground="{DynamicResource NotificationCardMessageForeground}"
+                                                    FontSize="{DynamicResource NotificationCardMessageFontSize}"
+                                                    FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
+                                                    IsVisible="{Binding Message, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                                     Text="{Binding Message}"
                                                     TextWrapping="Wrap" />
                                             </StackPanel>
                                         </DataTemplate>
                                         <DataTemplate DataType="x:String">
-                                            <TextBlock
-                                                Margin="12"
+                                            <SelectableTextBlock
+                                                Foreground="{DynamicResource NotificationCardMessageForeground}"
+                                                FontSize="{DynamicResource NotificationCardMessageFontSize}"
+                                                FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
                                                 Text="{Binding}"
                                                 TextWrapping="Wrap" />
                                         </DataTemplate>
