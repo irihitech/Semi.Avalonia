@@ -168,22 +168,22 @@
         </Style>
 
         <Style Selector="^.Light">
-            <Setter Property="Background" Value="{DynamicResource SemiColorBackground0}" />
+            <Setter Property="Background" Value="{DynamicResource NotificationCardLightBackground}" />
             <Style Selector="^:information /template/ Border#PART_RootBorder">
-                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorInformation}" />
-                <Setter Property="Background" Value="{DynamicResource SemiColorInformationLight}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightInformationBackground}"/>
             </Style>
             <Style Selector="^:success /template/ Border#PART_RootBorder">
-                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorSuccess}" />
-                <Setter Property="Background" Value="{DynamicResource SemiColorSuccessLight}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightSuccessBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightSuccessBackground}" />
             </Style>
             <Style Selector="^:warning /template/ Border#PART_RootBorder">
-                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorWarning}" />
-                <Setter Property="Background" Value="{DynamicResource SemiColorWarningLight}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightWarningBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightWarningBackground}" />
             </Style>
             <Style Selector="^:error /template/ Border#PART_RootBorder">
-                <Setter Property="BorderBrush" Value="{DynamicResource SemiColorDanger}" />
-                <Setter Property="Background" Value="{DynamicResource SemiColorDangerLight}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightErrorBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightErrorBackground}" />
             </Style>
         </Style>
     </ControlTheme>
