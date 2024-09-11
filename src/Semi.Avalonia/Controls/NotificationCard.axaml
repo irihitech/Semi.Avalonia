@@ -5,16 +5,17 @@
     <Design.PreviewWith>
         <ThemeVariantScope RequestedThemeVariant="Dark">
             <StackPanel>
+                <NotificationCard />
                 <NotificationCard>
                     Hello, Semi.Avalonia!
                 </NotificationCard>
                 <NotificationCard NotificationType="Success">
                     <Notification Title="Welcome" Message="Hello, Semi.Avalonia!" />
                 </NotificationCard>
-                <NotificationCard NotificationType="Warning">
-                    <Notification Title="" Message="Hello, Semi.Avalonia!" />
+                <NotificationCard NotificationType="Warning" Classes="Light">
+                    <Notification Title="Welcome" />
                 </NotificationCard>
-                <NotificationCard NotificationType="Error">
+                <NotificationCard NotificationType="Error" Classes="Light">
                     <Notification Message="Hello, Semi.Avalonia!" />
                 </NotificationCard>
             </StackPanel>
@@ -22,10 +23,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="MinWidth" Value="{DynamicResource NotificationCardMinWidth}" />
-        <Setter Property="RenderTransformOrigin" Value="50%,75%" />
         <Setter Property="BorderThickness" Value="{DynamicResource NotificationCardBorderThickness}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardBorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource NotificationCardBackground}" />
         <Setter Property="CornerRadius" Value="{DynamicResource NotificationCardCornerRadius}" />
         <Setter Property="Template">
@@ -38,11 +36,11 @@
                         <Border
                             x:Name="PART_RootBorder"
                             Padding="{DynamicResource NotificationCardPadding}"
-                            BoxShadow="{DynamicResource NotificationCardBoxShadow}"
+                            BoxShadow="{DynamicResource NotificationCardBoxShadows}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                            <DockPanel>
+                            <DockPanel MinWidth="{DynamicResource NotificationCardMinWidth}">
                                 <PathIcon
                                     Name="NotificationIcon"
                                     Width="{DynamicResource NotificationCardIconWidth}"
@@ -67,6 +65,7 @@
                                                     Foreground="{DynamicResource NotificationCardMessageForeground}"
                                                     FontSize="{DynamicResource NotificationCardMessageFontSize}"
                                                     FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
+                                                    IsVisible="{Binding Message, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                                     Text="{Binding Message}"
                                                     TextWrapping="Wrap" />
                                             </StackPanel>
