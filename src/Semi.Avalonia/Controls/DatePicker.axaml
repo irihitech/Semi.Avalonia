@@ -171,7 +171,7 @@
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}"
-                                        Text="day" />
+                                        Text="{DynamicResource STRING_DATEPICKER_DAY_TEXT}" />
                                     <TextBlock
                                         Name="PART_MonthTextBlock"
                                         Padding="12,4"
@@ -179,7 +179,7 @@
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}"
-                                        Text="month"
+                                        Text="{DynamicResource STRING_DATEPICKER_MONTH_TEXT}"
                                         TextAlignment="Left" />
                                     <TextBlock
                                         Name="PART_YearTextBlock"
@@ -189,7 +189,7 @@
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}"
-                                        Text="year" />
+                                        Text="{DynamicResource STRING_DATEPICKER_YEAR_TEXT}" />
                                     <Rectangle
                                         x:Name="PART_FirstSpacer"
                                         Grid.Column="1"

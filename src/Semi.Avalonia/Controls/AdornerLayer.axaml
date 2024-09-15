@@ -5,11 +5,8 @@
     <ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer">
         <Setter Property="DefaultFocusAdorner">
             <FocusAdornerTemplate>
-                <Rectangle
-                    Margin="{DynamicResource AdornerLayerMargin}"
-                    Stroke="{DynamicResource AdornerLayerBackground}"
-                    StrokeDashArray="1,2"
-                    StrokeThickness="{DynamicResource AdornerLayerThickness}" />
+                <Border BorderThickness="{DynamicResource AdornerLayerBorderThickness}"
+                        BorderBrush="{DynamicResource AdornerLayerStroke}" />
             </FocusAdornerTemplate>
         </Setter>
     </ControlTheme>

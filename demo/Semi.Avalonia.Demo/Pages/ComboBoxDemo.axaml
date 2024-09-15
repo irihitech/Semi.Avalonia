@@ -4,71 +4,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+    d:DesignHeight="800"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <Design.DataContext>
+        <pages:ComboBoxDemoViewModel />
+    </Design.DataContext>
     <StackPanel Spacing="20">
-        <ComboBox Width="150">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" Classes="ClearButton">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" PlaceholderText="Please Select">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" IsEnabled="False">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox
-            Width="150"
-            Classes="Large"
-            IsEnabled="False">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" Classes="Small">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" Classes="Bordered">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
-        <ComboBox
-            Width="150"
-            Classes="Bordered"
-            IsEnabled="False">
-            <ComboBoxItem>Ding</ComboBoxItem>
-            <ComboBoxItem>Otter</ComboBoxItem>
-            <ComboBoxItem>Husky</ComboBoxItem>
-            <ComboBoxItem>Mr. 17</ComboBoxItem>
-            <ComboBoxItem>Cass</ComboBoxItem>
-        </ComboBox>
+        <StackPanel.Styles>
+            <Style Selector="ComboBox">
+                <Setter Property="Width" Value="300" />
+                <Setter Property="ItemsSource" Value="{Binding Items}" />
+            </Style>
+        </StackPanel.Styles>
+
+        <ComboBox />
+        <ComboBox Classes="ClearButton" />
+        <ComboBox PlaceholderText="Please Select" />
+        <ComboBox IsEnabled="False" />
+        <ComboBox Classes="Large" IsEnabled="False" />
+        <ComboBox Classes="Small" />
+        <ComboBox Classes="Bordered" />
+        <ComboBox Classes="Bordered" IsEnabled="False" />
+
+        <StackPanel Orientation="Horizontal">
+            <ComboBox Width="100" Classes="Large" PlaceholderText="Large" />
+            <ComboBox Width="100" PlaceholderText="Default" />
+            <ComboBox Width="100" Classes="Small" PlaceholderText="Small" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <ComboBox Width="100" IsEnabled="False" PlaceholderText="Disabled" />
+            <ComboBox Width="100" Classes="Bordered" PlaceholderText="Bordered" />
+            <ComboBox Width="100" Classes="Bordered" IsEnabled="False" />
+        </StackPanel>
     </StackPanel>
 </UserControl>

@@ -7,11 +7,23 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel HorizontalAlignment="Left" Spacing="20">
-        <Button Click="InfoButton_OnClick" Content="Default" />
-        <Button Click="InfoButton_OnClick" Content="Information" />
-        <Button Click="InfoButton_OnClick" Content="Success" />
-        <Button Click="InfoButton_OnClick" Content="Warning" />
-        <Button Click="InfoButton_OnClick" Content="Error" />
+    <StackPanel Spacing="20">
+        <UniformGrid Rows="2" Columns="2" Width="500" HorizontalAlignment="Left">
+            <UniformGrid.Styles>
+                <Style Selector="RadioButton">
+                    <Setter Property="Theme" Value="{DynamicResource PureCardRadioButton}" />
+                </Style>
+            </UniformGrid.Styles>
+            <RadioButton Click="PositionButton_OnClick" Content="TopLeft" />
+            <RadioButton Click="PositionButton_OnClick" Content="TopRight" IsChecked="True" />
+            <RadioButton Click="PositionButton_OnClick" Content="BottomLeft" />
+            <RadioButton Click="PositionButton_OnClick" Content="BottomRight" />
+        </UniformGrid>
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Button Click="NormalButton_OnClick" Content="Information" />
+            <Button Click="NormalButton_OnClick" Content="Success" Classes="Success" />
+            <Button Click="NormalButton_OnClick" Content="Warning" Classes="Warning" />
+            <Button Click="NormalButton_OnClick" Content="Error" Classes="Danger" />
+        </StackPanel>
     </StackPanel>
 </UserControl>

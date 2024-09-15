@@ -26,7 +26,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <ScrollViewer Theme="{DynamicResource MenuScrollViewer}">
+                    <ScrollViewer Theme="{DynamicResource MenuScrollViewer}" CornerRadius="{TemplateBinding CornerRadius}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
                             Grid.IsSharedSizeScope="True"
