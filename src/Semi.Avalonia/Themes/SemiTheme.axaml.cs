@@ -10,6 +10,8 @@ namespace Semi.Avalonia;
 
 public class SemiTheme : Styles
 {
+    public static ThemeVariant Aquatic => new ThemeVariant(nameof(Aquatic), ThemeVariant.Dark);
+    
     private static readonly Dictionary<CultureInfo, ResourceDictionary> _localeToResource = new()
     {
         { new CultureInfo("zh-cn"), new zh_cn() },
