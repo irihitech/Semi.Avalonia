@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-        <Setter Property="Padding" Value="8,0,0,0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Cursor" Value="Hand" />
@@ -11,7 +10,6 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
-        <Setter Property="MinHeight" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource CheckBoxForeground}" />
         <Setter Property="Background" Value="{DynamicResource CheckBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDefaultBorderBrush}" />
@@ -23,12 +21,11 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
-                        <Grid
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Panel
                             Grid.Column="0"
                             TemplatedControl.IsTemplateFocusTarget="True"
-                            Margin="0,0,0,0"
-                            VerticalAlignment="Center">
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Border
                                 x:Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
@@ -39,21 +36,22 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                Name="CheckGlyph"
+                                x:Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
-                        </Grid>
+                        </Panel>
                         <ContentPresenter
-                            x:Name="ContentPresenter"
+                            x:Name="PART_ContentPresenter"
                             Grid.Column="1"
-                            Margin="{TemplateBinding Padding}"
+                            Margin="{DynamicResource CheckBoxContentMargin}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="Center"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
                             RecognizesAccessKey="True"
+                            FontSize="{TemplateBinding FontSize}"
                             TextWrapping="Wrap" />
                     </Grid>
                 </Border>
@@ -78,7 +76,7 @@
 
         <!--  Unchecked Disabled state  -->
         <Style Selector="^:disabled">
-            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ Border#NormalRectangle">
@@ -116,7 +114,7 @@
 
             <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
                 <Style Selector="^ /template/ Border#NormalRectangle">
@@ -159,7 +157,7 @@
 
             <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
                 <Style Selector="^ /template/ Border#NormalRectangle">
