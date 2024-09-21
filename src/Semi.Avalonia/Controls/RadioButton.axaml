@@ -153,16 +153,21 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="RadioButtonGroupBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioButtonGroupCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonGroupBackground}" />
+    </ControlTheme>
+
     <ControlTheme x:Key="ButtonRadioButton" TargetType="RadioButton">
-        <Setter Property="RadioButton.CornerRadius" Value="{DynamicResource RadioButtonButtonCornerRadius}" />
-        <Setter Property="RadioButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="RadioButton.Margin" Value="2" />
-        <Setter Property="RadioButton.Cursor" Value="Hand" />
-        <Setter Property="RadioButton.FontWeight" Value="{DynamicResource RadioButtonButtonFontWeight}" />
-        <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonButtonDefaultFontSize}" />
-        <Setter Property="RadioButton.Padding" Value="{DynamicResource RadioButtonButtonDefaultPadding}" />
-        <Setter Property="RadioButton.Foreground" Value="{DynamicResource RadioButtonButtonUncheckedForeground}" />
-        <Setter Property="RadioButton.Template">
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioButtonButtonCornerRadius}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontWeight" Value="{DynamicResource RadioButtonButtonFontWeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource RadioButtonButtonDefaultFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource RadioButtonButtonDefaultPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource RadioButtonButtonUncheckedForeground}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
@@ -209,16 +214,16 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CardRadioButton" TargetType="RadioButton">
-        <Setter Property="RadioButton.Padding" Value="{DynamicResource RadioButtonCardPadding}" />
-        <Setter Property="RadioButton.BorderThickness" Value="1" />
-        <Setter Property="RadioButton.CornerRadius" Value="{DynamicResource RadioButtonCardCornerRadius}" />
-        <Setter Property="RadioButton.Cursor" Value="Hand" />
-        <Setter Property="RadioButton.HorizontalAlignment" Value="Left" />
-        <Setter Property="RadioButton.VerticalAlignment" Value="Center" />
-        <Setter Property="RadioButton.HorizontalContentAlignment" Value="Left" />
-        <Setter Property="RadioButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
-        <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource RadioButtonCardPadding}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioButtonCardCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
+        <Setter Property="FontSize" Value="{DynamicResource RadioButtonFontSize}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <Border
@@ -377,14 +382,14 @@
     </ControlTheme>
 
     <ControlTheme x:Key="PureCardRadioButton" TargetType="RadioButton">
-        <Setter Property="RadioButton.CornerRadius" Value="{DynamicResource RadioButtonCardCornerRadius}" />
-        <Setter Property="RadioButton.Cursor" Value="Hand" />
-        <Setter Property="RadioButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="RadioButton.BorderThickness" Value="1" />
-        <Setter Property="RadioButton.FontSize" Value="{DynamicResource RadioButtonFontSize}" />
-        <Setter Property="RadioButton.Padding" Value="{DynamicResource RadioButtonCardPadding}" />
-        <Setter Property="RadioButton.Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
-        <Setter Property="RadioButton.Template">
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioButtonCardCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontSize" Value="{DynamicResource RadioButtonFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource RadioButtonCardPadding}" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
