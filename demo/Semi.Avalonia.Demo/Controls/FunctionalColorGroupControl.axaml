@@ -5,9 +5,7 @@
     xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     x:CompileBindings="True"
     x:DataType="viewModels:FunctionalColorGroupViewModel">
-    <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type controls:FunctionalColorGroupControl}" TargetType="controls:FunctionalColorGroupControl">
-        <!--  Add Resources Here  -->
         <Setter Property="controls:FunctionalColorGroupControl.Template">
             <ControlTemplate x:DataType="viewModels:FunctionalColorGroupViewModel" TargetType="controls:FunctionalColorGroupControl">
                 <Grid RowDefinitions="Auto, *">
