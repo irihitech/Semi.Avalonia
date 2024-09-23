@@ -2,19 +2,27 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <ThemeVariantScope RequestedThemeVariant="Dark">
+            <StackPanel Background="{DynamicResource SemiBackground0Color}">
+                <CheckBox>Hello</CheckBox>
+                <CheckBox>Hello</CheckBox>
+                <CheckBox Theme="{DynamicResource CardCheckBox}">Hello</CheckBox>
+                <CheckBox Theme="{DynamicResource PureCardCheckBox}">Hello</CheckBox>
+            </StackPanel>
+        </ThemeVariantScope>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-        <Setter Property="Padding" Value="8,0,0,0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
-        <Setter Property="MinHeight" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource CheckBoxForeground}" />
         <Setter Property="Background" Value="{DynamicResource CheckBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <Border
@@ -23,12 +31,11 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
-                        <Grid
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Panel
                             Grid.Column="0"
                             TemplatedControl.IsTemplateFocusTarget="True"
-                            Margin="0,0,0,0"
-                            VerticalAlignment="Center">
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Border
                                 x:Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
@@ -39,20 +46,21 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                Name="CheckGlyph"
+                                x:Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
-                        </Grid>
+                        </Panel>
                         <ContentPresenter
-                            x:Name="ContentPresenter"
+                            x:Name="PART_ContentPresenter"
                             Grid.Column="1"
-                            Margin="{TemplateBinding Padding}"
+                            Margin="{DynamicResource CheckBoxContentMargin}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="Center"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                            FontSize="{TemplateBinding FontSize}"
                             RecognizesAccessKey="True"
                             TextWrapping="Wrap" />
                     </Grid>
@@ -78,7 +86,7 @@
 
         <!--  Unchecked Disabled state  -->
         <Style Selector="^:disabled">
-            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ Border#NormalRectangle">
@@ -116,7 +124,7 @@
 
             <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
                 <Style Selector="^ /template/ Border#NormalRectangle">
@@ -159,7 +167,7 @@
 
             <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
                 <Style Selector="^ /template/ Border#NormalRectangle">
@@ -177,14 +185,14 @@
     <ControlTheme x:Key="SimpleCheckBox" TargetType="CheckBox">
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
         <Setter Property="Foreground" Value="{DynamicResource CheckBoxForeground}" />
         <Setter Property="Background" Value="{DynamicResource CheckBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxBoxCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <Border
@@ -193,11 +201,11 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
-                        <Grid
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Panel
                             Grid.Column="0"
-                            Margin="0,0,0,0"
-                            VerticalAlignment="Center">
+                            TemplatedControl.IsTemplateFocusTarget="True"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Border
                                 x:Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
@@ -208,11 +216,11 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                Name="CheckGlyph"
+                                x:Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
-                        </Grid>
+                        </Panel>
                     </Grid>
                 </Border>
             </ControlTemplate>
@@ -324,27 +332,31 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CardCheckBox" TargetType="CheckBox">
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource CheckBoxCardPadding}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource CheckBoxCardBorderThickness}" />
+        <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxCardCornerRadius}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="CheckBox.Template">
+        <Setter Property="BorderThickness" Value="{DynamicResource CheckBoxCardBorderThickness}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <Border
-                    Name="RootBorder"
+                    x:Name="RootBorder"
                     Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid
-                        x:Name="RootGrid"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         ColumnDefinitions="Auto,*">
-                        <Grid Grid.Column="0" VerticalAlignment="Top">
+                        <Panel
+                            Grid.Column="0"
+                            VerticalAlignment="Top"
+                            Margin="{DynamicResource CheckBoxBoxMargin}">
                             <Border
                                 x:Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
@@ -355,21 +367,23 @@
                                 CornerRadius="{DynamicResource CheckBoxBoxCornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                Name="CheckGlyph"
+                                x:Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
+                        </Panel>
 
-                        </Grid>
                         <ContentPresenter
-                            x:Name="ContentPresenter"
+                            x:Name="PART_ContentPresenter"
                             Grid.Column="1"
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
+                            Margin="{DynamicResource CheckBoxContentMargin}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            IsVisible="{TemplateBinding Content,
-                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                            FontSize="{TemplateBinding FontSize}"
                             RecognizesAccessKey="True"
                             TextWrapping="Wrap" />
                     </Grid>
@@ -399,7 +413,7 @@
 
         <!--  Unchecked Disabled state  -->
         <Style Selector="^:disabled">
-            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ Border#NormalRectangle">
@@ -450,7 +464,7 @@
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCardCheckedDisabledBorderBrush}" />
                 </Style>
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
                 <Style Selector="^ /template/ Border#NormalRectangle">
@@ -505,7 +519,7 @@
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCardCheckedDisabledBorderBrush}" />
                 </Style>
-                <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource CheckBoxDisabledForeground}" />
                 </Style>
                 <Style Selector="^ /template/ Border#NormalRectangle">
@@ -521,20 +535,22 @@
     </ControlTheme>
 
     <ControlTheme x:Key="PureCardCheckBox" TargetType="CheckBox">
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource CheckBoxCardPadding}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource CheckBoxCardBorderThickness}" />
+        <Setter Property="FontSize" Value="{DynamicResource CheckBoxFontSize}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CheckBoxCardCornerRadius}" />
-        <Setter Property="CheckBox.VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="CheckBox.Template">
+        <Setter Property="BorderThickness" Value="{DynamicResource CheckBoxCardBorderThickness}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
-                    Margin="{TemplateBinding Margin}"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Foreground="{TemplateBinding Foreground}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -542,7 +558,8 @@
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     RecognizesAccessKey="True"
-                    UseLayoutRounding="False" />
+                    UseLayoutRounding="False"
+                    TextWrapping="Wrap" />
             </ControlTemplate>
         </Setter>
 
