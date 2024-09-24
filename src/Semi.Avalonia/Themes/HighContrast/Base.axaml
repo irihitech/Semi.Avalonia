@@ -10,91 +10,48 @@
     <!--Button-->
     <!--  Light  -->
     <SolidColorBrush x:Key="ButtonDefaultPrimaryForeground" Color="{StaticResource HotlightBrush}" />
-    <SolidColorBrush x:Key="ButtonDefaultSecondaryForeground" Color="#40B4F3" />
-    <SolidColorBrush x:Key="ButtonDefaultTertiaryForeground" Opacity="0.8" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="ButtonDefaultSuccessForeground" Color="#5DC264" />
-    <SolidColorBrush x:Key="ButtonDefaultWarningForeground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ButtonDefaultDangerForeground" Color="#FC725A" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Color="{StaticResource InactiveForeground}" />
 
     <SolidColorBrush x:Key="ButtonDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ButtonDefaultPointeroverBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Color="{StaticResource Background}" />
 
-    <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="{StaticResource Foreground}" />
-    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="{StaticResource HotlightBrush}" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="{StaticResource HotlightBrush}" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Color="{StaticResource InactiveForeground}" />
+    <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Color="Transparent" />
     <!--  end Light  -->
 
     <!--  Solid  -->
     <SolidColorBrush x:Key="ButtonSolidForeground" Color="{StaticResource ButtonForeground}" />
 
     <SolidColorBrush x:Key="ButtonSolidPrimaryBackground" Color="{StaticResource SelectedBackground}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBackground" Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBackground" Color="{StaticResource SelectedBackground}" />
     <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBackground" Color="{StaticResource Background}" />
 
-    <SolidColorBrush x:Key="ButtonSolidSecondaryBackground" Color="#40B4F3" />
-    <SolidColorBrush x:Key="ButtonSolidSecondaryPointeroverBackground" Color="#6EC8F6" />
-    <SolidColorBrush x:Key="ButtonSolidSecondaryPressedBackground" Color="#9DDCF9" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryBorderBrush" Color="{StaticResource SelectedBackground}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBorderBrush" Color="{StaticResource SelectedBackground}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBorderBrush" Color="{StaticResource Background}" />
 
-    <SolidColorBrush x:Key="ButtonSolidTertiaryBackground" Color="#888D92" />
-    <SolidColorBrush x:Key="ButtonSolidTertiaryPointeroverBackground" Color="#A7ABB0" />
-    <SolidColorBrush x:Key="ButtonSolidTertiaryPressedBackground" Color="#C6CACD" />
-
-    <SolidColorBrush x:Key="ButtonSolidSuccessBackground" Color="#5DC264" />
-    <SolidColorBrush x:Key="ButtonSolidSuccessPointeroverBackground" Color="#7FD184" />
-    <SolidColorBrush x:Key="ButtonSolidSuccessPressedBackground" Color="#A6E1A8" />
-
-    <SolidColorBrush x:Key="ButtonSolidWarningBackground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ButtonSolidWarningPointeroverBackground" Color="#FFC772" />
-    <SolidColorBrush x:Key="ButtonSolidWarningPressedBackground" Color="#FFDDA1" />
-
-    <SolidColorBrush x:Key="ButtonSolidDangerBackground" Color="#FC725A" />
-    <SolidColorBrush x:Key="ButtonSolidDangerPointeroverBackground" Color="#FD9983" />
-    <SolidColorBrush x:Key="ButtonSolidDangerPressedBackground" Color="#FDBEAC" />
-
-    <SolidColorBrush x:Key="ButtonSolidPrimaryBorderBrush" Color="#54A9FF" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBorderBrush" Color="#7FC1FF" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBorderBrush" Color="#A9D7FF" />
-
-    <SolidColorBrush x:Key="ButtonSolidSecondaryBorderBrush" Color="#40B4F3" />
-    <SolidColorBrush x:Key="ButtonSolidSecondaryPointeroverBorderBrush" Color="#6EC8F6" />
-    <SolidColorBrush x:Key="ButtonSolidSecondaryPressedBorderBrush" Color="#9DDCF9" />
-
-    <SolidColorBrush x:Key="ButtonSolidTertiaryBorderBrush" Color="#888D92" />
-    <SolidColorBrush x:Key="ButtonSolidTertiaryPointeroverBorderBrush" Color="#A7ABB0" />
-    <SolidColorBrush x:Key="ButtonSolidTertiaryPressedBorderBrush" Color="#C6CACD" />
-
-    <SolidColorBrush x:Key="ButtonSolidSuccessBorderBrush" Color="#5DC264" />
-    <SolidColorBrush x:Key="ButtonSolidSuccessPointeroverBorderBrush" Color="#7FD184" />
-    <SolidColorBrush x:Key="ButtonSolidSuccessPressedBorderBrush" Color="#A6E1A8" />
-
-    <SolidColorBrush x:Key="ButtonSolidWarningBorderBrush" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ButtonSolidWarningPointeroverBorderBrush" Color="#FFC772" />
-    <SolidColorBrush x:Key="ButtonSolidWarningPressedBorderBrush" Color="#FFDDA1" />
-
-    <SolidColorBrush x:Key="ButtonSolidDangerBorderBrush" Color="#FC725A" />
-    <SolidColorBrush x:Key="ButtonSolidDangerPointeroverBorderBrush" Color="#FD9983" />
-    <SolidColorBrush x:Key="ButtonSolidDangerPressedBorderBrush" Color="#FDBEAC" />
-
-    <SolidColorBrush x:Key="ButtonSolidDisabledBackground" Color="#2E3238" />
+    <SolidColorBrush x:Key="ButtonSolidDisabledBackground" Color="{StaticResource InactiveForeground}" />
     <!--  end Solid  -->
 
+    <!--  Borderless -->
+    <SolidColorBrush x:Key="ButtonBorderlessBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonBorderlessBorderBrush" Color="Transparent" />
+    <!--  end Borderless  -->
+
     <!--  Outline -->
-    <SolidColorBrush x:Key="ButtonOutlineBackground" Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="ButtonOutlineBackground" Color="Transparent" />
     <SolidColorBrush x:Key="ButtonOutlineBorderBrush" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="ButtonOutlinePointeroverBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ButtonOutlinePressedBackground" Color="{StaticResource Background}" />
-    <SolidColorBrush x:Key="ButtonOutlineSuccessBorderBrush" Color="#5DC264" />
-    <SolidColorBrush x:Key="ButtonOutlineWarningBorderBrush" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ButtonOutlineDangerBorderBrush" Color="#FC725A" />
     <!--  end Outline  -->
 
     <SolidColorBrush x:Key="ButtonInputInnerForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="ButtonInputInnerPointeroverForeground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="ButtonInputInnerPressedForeground" Color="{StaticResource HotlightBrush}" />
-    
+
     <!-- ButtonSpinner -->
     <SolidColorBrush x:Key="ButtonSpinnerRepeatButtonBackground" Color="{StaticResource ButtonBackground}" />
     <SolidColorBrush x:Key="ButtonSpinnerRepeatButtonPointeroverBackground" Color="{StaticResource Background}" />
@@ -102,7 +59,7 @@
     <SolidColorBrush x:Key="ButtonSpinnerRepeatButtonDisabledBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ButtonSpinnerRepeatButtonForeground" Color="{StaticResource ButtonForeground}" />
     <SolidColorBrush x:Key="ButtonSpinnerRepeatButtonBorderBrush" Color="{StaticResource ButtonForeground}" />
-    
+
     <!-- Calendar -->
     <SolidColorBrush x:Key="CalendarBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="CalendarForeground" Color="{StaticResource Foreground}" />
@@ -137,7 +94,7 @@
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonDisabledForeground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBlackoutForeground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonInactiveForeground" Color="{StaticResource InactiveForeground}" />
-    
+
     <!-- CalendarDatePicker -->
     <SolidColorBrush x:Key="CalendarDatePickerIconForeground" Color="{StaticResource ButtonForeground}" />
     <SolidColorBrush x:Key="CalendarDatePickerForeground" Color="{StaticResource Foreground}" />
@@ -147,20 +104,20 @@
     <SolidColorBrush x:Key="CalendarDatePickerFocusBorderBrush" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="CalendarDatePickerDisabledBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="CalendarDatePickerDisabledIconForeground" Color="{StaticResource InactiveForeground}" />
-    <SolidColorBrush x:Key="CalendarDatePickerBorderBrush" Color="{StaticResource Foreground}"/>
+    <SolidColorBrush x:Key="CalendarDatePickerBorderBrush" Color="{StaticResource Foreground}" />
 
     <SolidColorBrush x:Key="CalendarDatePickerBorderedDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="CalendarDatePickerBorderedDefaultBorderBrush" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="CalendarDatePickerBorderedPointeroverBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="CalendarDatePickerBorderedPointeroverBorderBrush" Color="{StaticResource HotlightBrush}" />
-    
+
     <!-- CaptionButtons -->
     <SolidColorBrush x:Key="CaptionButtonPointeroverBackground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="CaptionButtonPressedBackground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="CaptionButtonClosePointeroverBackground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="CaptionButtonClosePressedBackground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="CaptionButtonForeground" Color="{StaticResource ButtonForeground}" />
-    
+
     <!-- CheckBox -->
     <SolidColorBrush x:Key="CheckBoxForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="CheckBoxDisabledForeground" Color="{StaticResource InactiveForeground}" />
@@ -182,7 +139,7 @@
     <SolidColorBrush x:Key="CheckBoxCheckedPressedBackground" Color="{StaticResource SelectedBackground}" />
     <SolidColorBrush x:Key="CheckBoxCheckedPressedBorderBrush" Color="{StaticResource SelectedBackground}" />
 
-    <SolidColorBrush x:Key="CheckBoxDefaultDisabledBackground"  Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="CheckBoxDefaultDisabledBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="CheckBoxDefaultDisabledBorderBrush" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="CheckBoxCheckedDisabledBackground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="CheckBoxCheckedDisabledBorderBrush" Color="{StaticResource InactiveForeground}" />
@@ -194,7 +151,7 @@
     <SolidColorBrush x:Key="CheckBoxCardPressedBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="CheckBoxCardCheckedPointeroverBorderBrush" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="CheckBoxCardCheckedPressedBorderBrush" Color="{StaticResource HotlightBrush}" />
-    
+
     <!-- ComboBox -->
     <SolidColorBrush x:Key="ComboBoxSelectorBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBackground" Color="{StaticResource Background}" />
@@ -213,7 +170,7 @@
     <SolidColorBrush x:Key="ComboBoxIconDisabledForeground" Color="{StaticResource InactiveForeground}" />
 
     <SolidColorBrush x:Key="ComboBoxDisabledForeground" Color="{StaticResource InactiveForeground}" />
-    
+
     <SolidColorBrush x:Key="ComboBoxPopupBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ComboBoxPopupBorderBrush" Color="{StaticResource Foreground}" />
 
@@ -237,7 +194,7 @@
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedFocusBorderBrush" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedPressedBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedPressedBorderBrush" Color="{StaticResource HotlightBrush}" />
-    
+
     <!-- DateTimePickerShared -->
     <SolidColorBrush x:Key="DateTimePickerListItemBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="DateTimePickerPopupBackground" Color="{StaticResource Background}" />
@@ -263,7 +220,7 @@
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledIconForeground" Color="{StaticResource InactiveForeground}" />
-    
+
     <!-- Expander -->
     <SolidColorBrush x:Key="ExpanderSeparatorBorderBrush" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="ExpanderHeaderForeground" Color="{StaticResource Foreground}" />
@@ -272,26 +229,26 @@
     <SolidColorBrush x:Key="ExpanderHeaderHoverBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ExpanderHeaderPressedBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ExpanderContentForeground" Color="{StaticResource Foreground}" />
-    
+
     <!-- Flyout -->
     <SolidColorBrush x:Key="FlyoutBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="FlyoutForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource Foreground}" />
-    
+
     <!-- GridSplitter -->
     <SolidColorBrush x:Key="GridSplitterBackground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="GridSplitterPreviewBackground" Color="{StaticResource HotlightBrush}" />
-    
+
     <!-- HeaderedContentControl -->
     <SolidColorBrush x:Key="HeaderedContentControlDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="HeaderedContentControlDefaultBorderBrush" Color="{StaticResource Foreground}" />
-    
-    <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{StaticResource HotlightBrush}"  />
-    <SolidColorBrush x:Key="HyperlinkButtonDefaultBackground" Color="{StaticResource Background}"  />
-    <SolidColorBrush x:Key="HyperlinkButtonOverForeground" Color="{StaticResource HotlightBrush}"  />
-    <SolidColorBrush x:Key="HyperlinkButtonDisabledForeground" Color="{StaticResource InactiveForeground}"   />
-    <SolidColorBrush x:Key="HyperlinkButtonVisitedForeground" Color="{StaticResource HotlightBrush}"  />
-    
+
+    <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{StaticResource HotlightBrush}" />
+    <SolidColorBrush x:Key="HyperlinkButtonDefaultBackground" Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="HyperlinkButtonOverForeground" Color="{StaticResource HotlightBrush}" />
+    <SolidColorBrush x:Key="HyperlinkButtonDisabledForeground" Color="{StaticResource InactiveForeground}" />
+    <SolidColorBrush x:Key="HyperlinkButtonVisitedForeground" Color="{StaticResource HotlightBrush}" />
+
     <!-- ListBox -->
     <SolidColorBrush x:Key="ListBoxItemDisabledForeground" Color="{StaticResource InactiveForeground}" />
 
@@ -304,7 +261,7 @@
     <SolidColorBrush x:Key="ListBoxItemSelectedDisabledBackground" Color="{StaticResource SelectedBackground}" />
 
     <!-- RadioGroupListBox -->
-    <SolidColorBrush x:Key="ListBoxItemRadioGroupDisabledForeground"  Color="{StaticResource InactiveForeground}" />
+    <SolidColorBrush x:Key="ListBoxItemRadioGroupDisabledForeground" Color="{StaticResource InactiveForeground}" />
 
     <SolidColorBrush x:Key="ListBoxItemRadioGroupUncheckIconDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ListBoxItemRadioGroupUncheckIconPointeroverBackground" Color="{StaticResource Background}" />
@@ -384,14 +341,14 @@
     <SolidColorBrush x:Key="ListBoxItemCheckCardPressedBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ListBoxItemCheckCardCheckedPointeroverBorderBrush" Color="{StaticResource SelectedBackground}" />
     <SolidColorBrush x:Key="ListBoxItemCheckCardCheckedPressedBorderBrush" Color="{StaticResource SelectedBackground}" />
-    
+
     <!-- ManagedFileChooser -->
     <SolidColorBrush x:Key="ManagedFileChooserIconForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="ManagedFileChooserTextForeground" Color="{StaticResource Foreground}" />
-    
+
 
     <!--Menu-->
-    <SolidColorBrush x:Key="MenuFlyoutScrollViewerIconForeground"  Color="{StaticResource Foreground}" />
+    <SolidColorBrush x:Key="MenuFlyoutScrollViewerIconForeground" Color="{StaticResource Foreground}" />
 
     <!--  MenuFlyout  -->
     <SolidColorBrush x:Key="MenuFlyoutBackground" Color="{StaticResource Background}" />
@@ -412,7 +369,7 @@
     <SolidColorBrush x:Key="MenuItemDisabledForeground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="MenuItemDisabledInputGestureTextForeground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="MenuItemDisabledExpandIconForeground" Color="{StaticResource InactiveForeground}" />
-    
+
     <!--Notification-->
     <SolidColorBrush x:Key="NotificationCardBorderBrush" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="NotificationCardBackground" Color="{StaticResource Background}" />
@@ -422,7 +379,7 @@
     <SolidColorBrush x:Key="NotificationCardErrorIconForeground" Color="#FC725A" />
     <SolidColorBrush x:Key="NotificationCardTitleForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="NotificationCardMessageForeground" Color="{StaticResource Foreground}" />
-    
+
     <SolidColorBrush x:Key="NotificationCardLightBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="NotificationCardLightInformationBorderBrush" Color="#54A9FF" />
     <SolidColorBrush x:Key="NotificationCardLightInformationBackground" Opacity="0.2" Color="#54A9FF" />
@@ -432,7 +389,7 @@
     <SolidColorBrush x:Key="NotificationCardLightWarningBackground" Opacity="0.2" Color="#FFAE43" />
     <SolidColorBrush x:Key="NotificationCardLightErrorBorderBrush" Color="#FC725A" />
     <SolidColorBrush x:Key="NotificationCardLightErrorBackground" Opacity="0.2" Color="#FC725A" />
-    
+
     <!--  ProgressBar  -->
     <SolidColorBrush x:Key="ProgressBarIndicatorBrush" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="ProgressBarBackground" Color="{StaticResource Background}" />
@@ -445,7 +402,7 @@
     <SolidColorBrush x:Key="ProgressBarSuccessForeground" Color="#5DC264" />
     <SolidColorBrush x:Key="ProgressBarWarningForeground" Color="#FFAE43" />
     <SolidColorBrush x:Key="ProgressBarDangerForeground" Color="#FC725A" />
-    
+
     <!-- RadioButton -->
     <SolidColorBrush x:Key="RadioButtonDisabledForeground" Color="{StaticResource InactiveForeground}" />
 
@@ -478,7 +435,7 @@
 
     <!-- ButtonRadioButton -->
     <SolidColorBrush x:Key="RadioButtonButtonUncheckedForeground" Color="{StaticResource Foreground}" />
-    <SolidColorBrush x:Key="RadioButtonButtonUncheckedPointeroverBackground"  Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="RadioButtonButtonUncheckedPointeroverBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="RadioButtonButtonUncheckedDisabledForeground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="RadioButtonButtonCheckedBackground" Color="{StaticResource SelectedBackground}" />
     <SolidColorBrush x:Key="RadioButtonButtonCheckedForeground" Color="{StaticResource SelectedForeground}" />
@@ -493,18 +450,18 @@
     <SolidColorBrush x:Key="RadioButtonCardCheckPressedBorderBrush" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="RadioButtonCardUncheckPointeroverBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="RadioButtonCardUncheckPressedBackground" Color="{StaticResource Background}" />
-    
+
     <!-- RefreshContainer -->
     <SolidColorBrush x:Key="RefreshVisualizerIconForeground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="RefreshVisualizerIconBackground" Color="Transparent" />
-    
+
     <!-- ScrollViewer -->
     <SolidColorBrush x:Key="ScrollBarButtonDefaultForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="ScrollBarButtonPointeroverForeground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="ScrollBarThumbForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="ScrollBarThumbPointeroverForeground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="ScrollBarBackground" Color="Transparent" />
-    
+
     <!-- Slider -->
     <SolidColorBrush x:Key="SliderTrackForeground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="SliderTrackBackground" Color="{StaticResource Foreground}" />
@@ -518,12 +475,12 @@
     <SolidColorBrush x:Key="SliderTrackDisabledForeground" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="SliderThumbDisabledBorderBrush" Color="{StaticResource InactiveForeground}" />
     <SolidColorBrush x:Key="SliderTrackDisabledBackground" Color="{StaticResource Background}" />
-    
+
     <!-- SplitView -->
     <SolidColorBrush x:Key="SplitViewSeparatorBackground" Color="{StaticResource Foreground}" />
-    <SolidColorBrush x:Key="SplitViewMaskBrush"  Color="Transparent" />
+    <SolidColorBrush x:Key="SplitViewMaskBrush" Color="Transparent" />
     <SolidColorBrush x:Key="SplitViewPaneBackground" Color="{StaticResource Background}" />
-    
+
     <!-- TabItem -->
     <SolidColorBrush x:Key="TabItemLinePipeBackground" Color="Transparent" />
     <SolidColorBrush x:Key="TabItemLinePipeSelectedBackground" Color="{StaticResource SelectedBackground}" />
@@ -533,7 +490,7 @@
     <SolidColorBrush x:Key="TabItemLineHeaderForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="TabItemLineHeaderPointeroverForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="TabItemLineHeaderSelectedForeground" Color="{StaticResource Foreground}" />
-    
+
     <!-- TextBlock -->
     <SolidColorBrush x:Key="TextBlockDefaultForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="TextBlockSecondaryForeground" Opacity="0.8" Color="#F9F9F9" />
@@ -550,7 +507,7 @@
 
     <SolidColorBrush x:Key="TextBlockSelectionBackground" Color="{StaticResource SelectedBackground}" />
     <SolidColorBrush x:Key="TextBlockSelectionForeground" Color="{StaticResource SelectedForeground}" />
-    
+
     <!-- TextBox -->
     <SolidColorBrush x:Key="TextBoxTextCaretBrush" Color="{StaticResource Foreground}" />
 
@@ -573,7 +530,7 @@
 
     <SolidColorBrush x:Key="TextBoxSelectionBackground" Color="{StaticResource SelectedBackground}" />
     <SolidColorBrush x:Key="TextBoxSelectionForeground" Color="{StaticResource Foreground}" />
-    
+
     <!-- ToggleButton -->
     <SolidColorBrush x:Key="ToggleButtonDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ToggleButtonDefaultPointeroverBackground" Color="{StaticResource Background}" />
@@ -657,7 +614,7 @@
     <SolidColorBrush x:Key="ToggleButtonDangerIndeterminatePressedForeground" Color="#FDBEAC" />
 
     <SolidColorBrush x:Key="ToggleButtonIndeterminateDisabledBorderBrush" Color="{StaticResource InactiveForeground}" />
-    
+
     <!-- ToggleSwitch -->
     <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" Color="{StaticResource Background}" />
@@ -673,7 +630,7 @@
 
     <SolidColorBrush x:Key="SimpleToggleSwitchContainerUnCheckedForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="SimpleToggleSwitchContainerCheckedForeground" Color="{StaticResource SelectedForeground}" />
-    
+
     <!-- TreeView -->
     <SolidColorBrush x:Key="TreeViewItemDefaultForeground" Color="{StaticResource Foreground}" />
     <SolidColorBrush x:Key="TreeViewItemIconDefaultForeground" Color="{StaticResource Foreground}" />
@@ -686,7 +643,7 @@
     <SolidColorBrush x:Key="TreeViewItemSelectedBackground" Color="{StaticResource HotlightBrush}" />
     <SolidColorBrush x:Key="TreeViewItemDisabledBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="TreeViewItemSelectedDisabledBackground" Color="{StaticResource Background}" />
-    
+
     <!-- Window -->
     <SolidColorBrush x:Key="WindowDefaultBackground" Color="{StaticResource Background}" />
     <SolidColorBrush x:Key="WindowDefaultForeground" Color="{StaticResource Foreground}" />
