@@ -9,32 +9,35 @@
     <SolidColorBrush x:Key="BorderCardBorderBrush" Color="{StaticResource WindowTextColor}" />
     <!--Button-->
     <!--  Light  -->
-    <SolidColorBrush x:Key="ButtonDefaultPrimaryForeground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPrimaryForeground" Color="{StaticResource ButtonTextColor}" />
     <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Color="{StaticResource GrayTextColor}" />
 
     <SolidColorBrush x:Key="ButtonDefaultBackground" Color="{StaticResource ButtonFaceColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPointeroverBackground" Color="{StaticResource ButtonFaceColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Color="{StaticResource ButtonFaceColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPointeroverForeground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPressedForeground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Color="{StaticResource HighlightTextColor}" />
 
     <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
     <!--  end Light  -->
 
     <!--  Solid  -->
-    <SolidColorBrush x:Key="ButtonSolidForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ButtonSolidForeground" Color="{StaticResource HighlightTextColor}" />
 
     <SolidColorBrush x:Key="ButtonSolidPrimaryBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBackground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedForeground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBackground" Color="{StaticResource ButtonFaceColor}" />
 
     <SolidColorBrush x:Key="ButtonSolidPrimaryBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBorderBrush" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBorderBrush" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBorderBrush" Color="{StaticResource HighlightColor}" />
 
     <SolidColorBrush x:Key="ButtonSolidDisabledBackground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="ButtonSolidDisabledForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ButtonSolidDisabledForeground" Color="{StaticResource ButtonFaceColor}" />
     <SolidColorBrush x:Key="ButtonSolidDisabledBorderBrush" Color="Transparent" />
     <!--  end Solid  -->
 
@@ -273,7 +276,7 @@
     <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconDefaultBackground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconPointeroverBackground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconPressedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconDisabledBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconDisabledBackground" Color="{StaticResource GrayTextColor}" />
     <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconDefaultBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ListBoxItemRadioGroupCheckIconPressedBorderBrush" Color="{StaticResource HighlightColor}" />
@@ -326,8 +329,8 @@
 
     <SolidColorBrush x:Key="ListBoxItemCheckDefaultDisabledBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="ListBoxItemCheckDefaultDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="ListBoxItemCheckCheckedDisabledBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ListBoxItemCheckCheckedDisabledBorderBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ListBoxItemCheckCheckedDisabledBackground" Color="{StaticResource GrayTextColor}" />
+    <SolidColorBrush x:Key="ListBoxItemCheckCheckedDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
 
     <!-- CardCheckGroupListBox -->
     <SolidColorBrush x:Key="ListBoxItemCheckCardCheckedBackground" Color="{StaticResource WindowColor}" />
