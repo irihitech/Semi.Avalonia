@@ -92,12 +92,12 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
-        <Setter Property="Separator.Background" Value="{DynamicResource MenuItemSeparatorBackground}" />
-        <Setter Property="Separator.Focusable" Value="False" />
-        <Setter Property="Separator.Height" Value="{DynamicResource MenuItemSeparatorHeight}" />
-        <Setter Property="Separator.HorizontalAlignment" Value="Stretch" />
-        <Setter Property="Separator.Margin" Value="{DynamicResource MenuItemSeparatorMargin}" />
-        <Setter Property="Separator.Template">
+        <Setter Property="Background" Value="{DynamicResource MenuItemSeparatorBackground}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Height" Value="{DynamicResource MenuItemSeparatorHeight}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="{DynamicResource MenuItemSeparatorMargin}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="Separator">
                 <Border
                     Height="{TemplateBinding Height}"
@@ -115,7 +115,8 @@
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
-        <Setter Property="MenuItem.Cursor" Value="Hand" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MenuItemCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
         <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
         <Setter Property="Template">
@@ -293,7 +294,8 @@
     <ControlTheme x:Key="TopLevelMenuItem" TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
-        <Setter Property="MenuItem.Cursor" Value="Hand" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MenuItemCornerRadius}"/>
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
         <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
         <Setter Property="Template">
@@ -369,8 +371,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Menu.ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
+        <Setter Property="Background" Value="{DynamicResource MenuBackground}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Menu">
                 <Border
