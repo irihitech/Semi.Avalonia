@@ -3,7 +3,7 @@
     <SolidColorBrush x:Key="AdornerLayerStroke" Color="{StaticResource WindowTextColor}" />
     <!--AutoCompleteBox-->
     <SolidColorBrush x:Key="AutoCompleteBoxPopupBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="AutoCompleteBoxPopupBorderBrush" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="AutoCompleteBoxPopupBorderBrush" Color="{StaticResource ButtonTextColor}" />
     <!--Border-->
     <SolidColorBrush x:Key="BorderCardBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="BorderCardBorderBrush" Color="{StaticResource WindowTextColor}" />
@@ -51,9 +51,9 @@
     <SolidColorBrush x:Key="ButtonOutlinePressedBackground" Color="{StaticResource WindowColor}" />
     <!--  end Outline  -->
 
-    <SolidColorBrush x:Key="ButtonInputInnerForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ButtonInputInnerPointeroverForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ButtonInputInnerPressedForeground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="ButtonInputInnerForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ButtonInputInnerPointeroverForeground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ButtonInputInnerPressedForeground" Color="{StaticResource HighlightColor}" />
 
     <!-- ButtonSpinner -->
     <SolidColorBrush x:Key="ButtonSpinnerRepeatButtonBackground" Color="{StaticResource ButtonFaceColor}" />
@@ -101,13 +101,14 @@
     <!-- CalendarDatePicker -->
     <SolidColorBrush x:Key="CalendarDatePickerIconForeground" Color="{StaticResource ButtonTextColor}" />
     <SolidColorBrush x:Key="CalendarDatePickerForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="CalendarDatePickerIconPointeroverForeground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="CalendarDatePickerIconPointeroverForeground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="CalendarDatePickerBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CalendarDatePickerPointeroverBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CalendarDatePickerFocusBorderBrush" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="CalendarDatePickerPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="CalendarDatePickerPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="CalendarDatePickerFocusBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="CalendarDatePickerDisabledBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="CalendarDatePickerDisabledIconForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CalendarDatePickerBorderBrush" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="CalendarDatePickerBorderBrush" Color="{StaticResource ButtonTextColor}" />
 
     <!-- CaptionButtons -->
     <SolidColorBrush x:Key="CaptionButtonPointeroverBackground" Color="{StaticResource HotlightColor}" />
@@ -152,26 +153,26 @@
 
     <!-- ComboBox -->
     <SolidColorBrush x:Key="ComboBoxSelectorBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="ComboBoxSelectorFocusBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPressedBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectorPressedBackground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="ComboBoxSelectorDisabledBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="ComboBoxSelectorDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="ComboBoxSelectorBorderBrush" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBorderBrush" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ComboBoxSelectorFocusBorderBrush" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPressedBorderBrush" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectorBorderBrush" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectorFocusBorderBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ComboBoxSelectorPressedBorderBrush" Color="{StaticResource HighlightColor}" />
 
-    <SolidColorBrush x:Key="ComboBoxIconDefaultForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ComboBoxIconPointeroverForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ComboBoxIconFocusForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ComboBoxIconPressedForeground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="ComboBoxIconDefaultForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ComboBoxIconPointeroverForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ComboBoxIconFocusForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ComboBoxIconPressedForeground" Color="{StaticResource ButtonTextColor}" />
     <SolidColorBrush x:Key="ComboBoxIconDisabledForeground" Color="{StaticResource GrayTextColor}" />
 
     <SolidColorBrush x:Key="ComboBoxDisabledForeground" Color="{StaticResource GrayTextColor}" />
 
     <SolidColorBrush x:Key="ComboBoxPopupBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ComboBoxPopupBorderBrush" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="ComboBoxPopupBorderBrush" Color="{StaticResource ButtonTextColor}" />
 
     <SolidColorBrush x:Key="ComboBoxItemForeground" Color="{StaticResource WindowTextColor}" />
 
@@ -203,14 +204,15 @@
     <SolidColorBrush x:Key="DateTimePickerSeparatorBackground" Color="{StaticResource WindowTextColor}" />
 
 
-    <SolidColorBrush x:Key="DateTimePickerButtonBorderBrush" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="DateTimePickerButtonBorderBrush" Color="{StaticResource ButtonTextColor}" />
     <SolidColorBrush x:Key="DateTimePickerButtonBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="DateTimePickerButtonForeground" Color="{StaticResource WindowTextColor}" />
 
     <SolidColorBrush x:Key="DateTimePickerIconForeground" Color="{StaticResource WindowTextColor}" />
     <SolidColorBrush x:Key="DateTimePickerEmptyForeground" Color="{StaticResource WindowTextColor}" />
 
-    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledIconForeground" Color="{StaticResource GrayTextColor}" />
@@ -509,11 +511,12 @@
     <!-- TextBox -->
     <SolidColorBrush x:Key="TextBoxTextCaretBrush" Color="{StaticResource WindowTextColor}" />
 
-    <SolidColorBrush x:Key="TextBoxDefaultBorderBrush" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="TextBoxDefaultBorderBrush" Color="{StaticResource ButtonTextColor}" />
     <SolidColorBrush x:Key="TextBoxDefaultBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="TextBoxPointeroverBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="TextBoxPressedBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="TextBoxFocusBorderBrush" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="TextBoxPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="TextBoxPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="TextBoxPressedBackground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="TextBoxFocusBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="TextBoxForeground" Color="{StaticResource WindowTextColor}" />
     <SolidColorBrush x:Key="TextBoxInnerForeground" Color="{StaticResource WindowTextColor}" />
 
