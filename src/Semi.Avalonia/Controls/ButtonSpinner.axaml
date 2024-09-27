@@ -8,9 +8,9 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="ButtonSpinnerRepeatButton" TargetType="RepeatButton">
-        <Setter Property="RepeatButton.Background" Value="{DynamicResource ButtonSpinnerRepeatButtonBackground}" />
-        <Setter Property="RepeatButton.Cursor" Value="Hand" />
-        <Setter Property="RepeatButton.Template">
+        <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonBackground}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
@@ -38,10 +38,10 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner">
-        <Setter Property="ButtonSpinner.BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}" />
-        <Setter Property="ButtonSpinner.BorderThickness" Value="0" />
-        <Setter Property="ButtonSpinner.MinWidth" Value="300" />
-        <Setter Property="ButtonSpinner.Template">
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="MinWidth" Value="300" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ButtonSpinner">
                 <Grid ColumnDefinitions="Auto, *, Auto">
                     <Border
@@ -96,6 +96,9 @@
         <Style Selector="^[ButtonSpinnerLocation=Left] /template/ Border#ButtonGroup">
             <Setter Property="Grid.Column" Value="0" />
             <Setter Property="Margin" Value="0 0 4 0" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#ButtonGroup">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonPointeroverBorderBrush}"/>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
