@@ -259,7 +259,7 @@
     <SolidColorBrush x:Key="ListBoxItemSelectedBackground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ListBoxItemSelectedPointeroverBackground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ListBoxItemDisabledBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedDisabledBackground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedDisabledBackground" Color="{StaticResource HighlightTextColor}" />
 
     <!-- RadioGroupListBox -->
     <SolidColorBrush x:Key="ListBoxItemRadioGroupDisabledForeground" Color="{StaticResource GrayTextColor}" />
@@ -373,36 +373,19 @@
 
     <!--Notification-->
     <SolidColorBrush x:Key="NotificationCardBorderBrush" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="NotificationCardBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="NotificationCardInformationIconForeground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="NotificationCardSuccessIconForeground" Color="#5DC264" />
-    <SolidColorBrush x:Key="NotificationCardWarningIconForeground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="NotificationCardErrorIconForeground" Color="#FC725A" />
+    <SolidColorBrush x:Key="NotificationCardBackground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="NotificationCardTitleForeground" Color="{StaticResource WindowTextColor}" />
     <SolidColorBrush x:Key="NotificationCardMessageForeground" Color="{StaticResource WindowTextColor}" />
 
     <SolidColorBrush x:Key="NotificationCardLightBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="NotificationCardLightInformationBorderBrush" Color="#54A9FF" />
-    <SolidColorBrush x:Key="NotificationCardLightInformationBackground" Opacity="0.2" Color="#54A9FF" />
-    <SolidColorBrush x:Key="NotificationCardLightSuccessBorderBrush" Color="#5DC264" />
-    <SolidColorBrush x:Key="NotificationCardLightSuccessBackground" Opacity="0.2" Color="#5DC264" />
-    <SolidColorBrush x:Key="NotificationCardLightWarningBorderBrush" Color="#FFAE43" />
-    <SolidColorBrush x:Key="NotificationCardLightWarningBackground" Opacity="0.2" Color="#FFAE43" />
-    <SolidColorBrush x:Key="NotificationCardLightErrorBorderBrush" Color="#FC725A" />
-    <SolidColorBrush x:Key="NotificationCardLightErrorBackground" Opacity="0.2" Color="#FC725A" />
 
     <!--  ProgressBar  -->
-    <SolidColorBrush x:Key="ProgressBarIndicatorBrush" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ProgressBarBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ProgressBarIndicatorBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ProgressBarBackground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="ProgressBarTextForeground" Color="{StaticResource WindowTextColor}" />
     <SolidColorBrush x:Key="ProgressBarOuterTextForeground" Color="{StaticResource WindowTextColor}" />
     <SolidColorBrush x:Key="ProgressBarRootBorderBrush" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ProgressBarPrimaryForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ProgressBarSecondaryForeground" Color="#40B4F3" />
-    <SolidColorBrush x:Key="ProgressBarTertiaryForeground" Color="#888D92" />
-    <SolidColorBrush x:Key="ProgressBarSuccessForeground" Color="#5DC264" />
-    <SolidColorBrush x:Key="ProgressBarWarningForeground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ProgressBarDangerForeground" Color="#FC725A" />
+    <SolidColorBrush x:Key="ProgressBarPrimaryForeground" Color="{StaticResource HighlightColor}" />
 
     <!-- RadioButton -->
     <SolidColorBrush x:Key="RadioButtonDisabledForeground" Color="{StaticResource GrayTextColor}" />
@@ -453,39 +436,39 @@
     <SolidColorBrush x:Key="RadioButtonCardUncheckPressedBackground" Color="{StaticResource WindowColor}" />
 
     <!-- RefreshContainer -->
-    <SolidColorBrush x:Key="RefreshVisualizerIconForeground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="RefreshVisualizerIconForeground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="RefreshVisualizerIconBackground" Color="Transparent" />
 
     <!-- ScrollViewer -->
-    <SolidColorBrush x:Key="ScrollBarButtonDefaultForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ScrollBarButtonPointeroverForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ScrollBarThumbForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ScrollBarThumbPointeroverForeground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="ScrollBarButtonDefaultForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ScrollBarButtonPointeroverForeground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ScrollBarThumbForeground" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="ScrollBarThumbPointeroverForeground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ScrollBarBackground" Color="Transparent" />
 
     <!-- Slider -->
-    <SolidColorBrush x:Key="SliderTrackForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="SliderTrackBackground" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="SliderTrackForeground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="SliderTrackBackground" Color="{StaticResource HighlightTextColor}" />
 
-    <SolidColorBrush x:Key="SliderTickForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="SliderThumbBorderBrush" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="SliderTickForeground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="SliderThumbBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="SliderThumbPointeroverBorderBrush" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="SliderThumbPressedBorderBrush" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="SliderThumbPressedBorderBrush" Color="{StaticResource HighlightColor}" />
 
     <SolidColorBrush x:Key="SliderTrackDisabledForeground" Color="{StaticResource GrayTextColor}" />
     <SolidColorBrush x:Key="SliderThumbDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
     <SolidColorBrush x:Key="SliderTrackDisabledBackground" Color="{StaticResource WindowColor}" />
 
     <!-- SplitView -->
-    <SolidColorBrush x:Key="SplitViewSeparatorBackground" Color="{StaticResource WindowTextColor}" />
+    <SolidColorBrush x:Key="SplitViewSeparatorBackground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="SplitViewMaskBrush" Color="Transparent" />
     <SolidColorBrush x:Key="SplitViewPaneBackground" Color="{StaticResource WindowColor}" />
 
     <!-- TabItem -->
     <SolidColorBrush x:Key="TabItemLinePipeBackground" Color="Transparent" />
     <SolidColorBrush x:Key="TabItemLinePipeSelectedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="TabItemLinePipePointeroverBorderBrush" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="TabItemLinePipePointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="TabItemLinePipePressedBorderBrush" Color="{StaticResource HotlightColor}" />
 
     <SolidColorBrush x:Key="TabItemLineHeaderForeground" Color="{StaticResource WindowTextColor}" />
@@ -613,15 +596,15 @@
     <SolidColorBrush x:Key="ToggleButtonIndeterminateDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
 
     <!-- ToggleSwitch -->
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPressedBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" Color="{StaticResource HighlightTextColor}" />
+    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPressedBackground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDisabledBackground" Color="{StaticResource WindowColor}" />
 
     <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
 
     <SolidColorBrush x:Key="ToggleSwitchContainerCheckedDefaultBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerCheckedPointeroverBackground" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="ToggleSwitchContainerCheckedPointeroverBackground" Color="{StaticResource HotlightColor}" />
     <SolidColorBrush x:Key="ToggleSwitchContainerCheckedPressedBackground" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="ToggleSwitchContainerCheckedDisabledBackground" Color="{StaticResource GrayTextColor}" />
 
@@ -635,8 +618,10 @@
     <SolidColorBrush x:Key="TreeViewItemDisabledForeground" Color="{StaticResource GrayTextColor}" />
 
     <SolidColorBrush x:Key="TreeViewItemDefaultBackground" Color="{StaticResource WindowColor}" />
+    <SolidColorBrush x:Key="TreeViewItemPointeroverForeground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="TreeViewItemPointeroverBackground" Color="{StaticResource HotlightColor}" />
     <SolidColorBrush x:Key="TreeViewItemPressedBackground" Color="{StaticResource HotlightColor}" />
+    <SolidColorBrush x:Key="TreeViewItemSelectedForeground" Color="{StaticResource HighlightTextColor}" />
     <SolidColorBrush x:Key="TreeViewItemSelectedBackground" Color="{StaticResource HotlightColor}" />
     <SolidColorBrush x:Key="TreeViewItemDisabledBackground" Color="{StaticResource WindowColor}" />
     <SolidColorBrush x:Key="TreeViewItemSelectedDisabledBackground" Color="{StaticResource WindowColor}" />
