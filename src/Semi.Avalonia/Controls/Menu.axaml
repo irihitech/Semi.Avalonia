@@ -234,6 +234,15 @@
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
                 <Setter Property="Background" Value="{DynamicResource MenuItemPointeroverBackground}" />
             </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_InputGestureText">
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_ExpandIcon">
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
+            </Style>
         </Style>
 
         <!--  Listen for PART_LayoutRoot:pointerover, so it will not be triggered when subitem is pressed  -->
@@ -355,6 +364,9 @@
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
                 <Setter Property="Background" Value="{DynamicResource MenuItemPointeroverBackground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
             </Style>
         </Style>
 
