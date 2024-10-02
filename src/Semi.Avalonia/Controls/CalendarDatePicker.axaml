@@ -2,7 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
@@ -103,7 +102,6 @@
                                     CornerRadius="{DynamicResource CalendarCornerRadius}">
                                     <Calendar
                                         Name="PART_Calendar"
-                                        BorderThickness="0"
                                         CornerRadius="{Binding $parent[Border].CornerRadius}"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
@@ -141,6 +139,7 @@
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#Background">
                 <Setter Property="Background" Value="{DynamicResource CalendarDatePickerPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerPointeroverBorderBrush}" />
             </Style>
         </Style>
 

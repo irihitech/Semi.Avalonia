@@ -2,8 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <!--  Add Resources Here  -->
-
     <ControlTheme x:Key="DateTimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
@@ -26,6 +24,7 @@
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
