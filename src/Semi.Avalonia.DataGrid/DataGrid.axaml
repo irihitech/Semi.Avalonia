@@ -407,10 +407,11 @@
                             Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding IsPropertyNameVisible}" />
-                        <TextBlock
+                        <ContentControl
+                            Name="PART_GroupKeyContentControl"
                             Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
-                            Text="{Binding Key}" />
+                            Content="{Binding Key}" />
                         <TextBlock
                             Name="PART_ItemCountElement"
                             Margin="4,0,0,0"
