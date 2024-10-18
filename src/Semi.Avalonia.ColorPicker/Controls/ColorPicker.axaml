@@ -52,7 +52,6 @@
                 <DropDownButton
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    Padding="0,0,10,0"
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     ClipToBounds="True"
@@ -474,6 +473,10 @@
                 </DropDownButton>
             </ControlTemplate>
         </Setter>
+        
+        <Style Selector="^ /template/ DropDownButton">
+            <Setter Property="Padding" Value="0 0 10 0"></Setter>
+        </Style>
     </ControlTheme>
 
     <ControlTheme
@@ -524,7 +527,6 @@
                 <DropDownButton
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    Padding="0,0,10,0"
                     HorizontalContentAlignment="Stretch"
                     VerticalContentAlignment="Stretch"
                     ClipToBounds="True"
