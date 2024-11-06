@@ -12,13 +12,13 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
-        <Setter Property="TabItem.Background" Value="{DynamicResource TabItemLinePipeBackground}" />
-        <Setter Property="TabItem.Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
-        <Setter Property="TabItem.Margin" Value="0" />
-        <Setter Property="TabItem.Padding" Value="8 4" />
-        <Setter Property="TabItem.MinHeight" Value="5" />
-        <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
-        <Setter Property="TabItem.Template">
+        <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="8 4" />
+        <Setter Property="MinHeight" Value="5" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="TabItem">
                 <Border
                     Name="PART_LayoutRoot"

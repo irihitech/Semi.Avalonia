@@ -12,11 +12,11 @@
     </MenuFlyout>
 
     <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
-        <Setter Property="SelectableTextBlock.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
-        <Setter Property="SelectableTextBlock.FontSize" Value="{DynamicResource TextBlockFontSize}" />
-        <Setter Property="SelectableTextBlock.Cursor" Value="Ibeam" />
-        <Setter Property="SelectableTextBlock.SelectionBrush" Value="{DynamicResource TextBlockSelectionBackground}" />
-        <Setter Property="SelectableTextBlock.SelectionForegroundBrush" Value="{DynamicResource TextBlockSelectionForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
+        <Setter Property="FontSize" Value="{DynamicResource TextBlockFontSize}" />
+        <Setter Property="Cursor" Value="Ibeam" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource TextBlockSelectionBackground}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextBlockSelectionForeground}" />
         <Style Selector="^.Secondary">
             <Setter Property="Foreground" Value="{DynamicResource TextBlockSecondaryForeground}" />
         </Style>
