@@ -18,17 +18,17 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
-        <Setter Property="MenuFlyoutPresenter.Background" Value="{DynamicResource MenuFlyoutBackground}" />
-        <Setter Property="MenuFlyoutPresenter.BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
-        <Setter Property="MenuFlyoutPresenter.BorderThickness" Value="{DynamicResource MenuFlyoutBorderThickness}" />
-        <Setter Property="MenuFlyoutPresenter.Padding" Value="{DynamicResource MenuFlyoutPadding}" />
-        <Setter Property="MenuFlyoutPresenter.FontSize" Value="{DynamicResource TextBlockFontSize}" />
-        <Setter Property="MenuFlyoutPresenter.FontWeight" Value="{DynamicResource TextBlockFontWeight}" />
-        <Setter Property="MenuFlyoutPresenter.Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
+        <Setter Property="Background" Value="{DynamicResource MenuFlyoutBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource MenuFlyoutBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuFlyoutPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource TextBlockFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TextBlockFontWeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBlockDefaultForeground}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="MenuFlyoutPresenter.CornerRadius" Value="{DynamicResource MenuFlyoutCornerRadius}" />
-        <Setter Property="MenuFlyoutPresenter.Template">
+        <Setter Property="CornerRadius" Value="{DynamicResource MenuFlyoutCornerRadius}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="MenuFlyoutPresenter">
                 <Border
                     Name="LayoutRoot"

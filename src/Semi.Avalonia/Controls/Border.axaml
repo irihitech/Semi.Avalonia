@@ -17,12 +17,12 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="CardBorder" TargetType="Border">
-        <Setter Property="Border.Padding" Value="{DynamicResource ThicknessCardPadding}" />
-        <Setter Property="Border.BorderBrush" Value="{DynamicResource BorderCardBorderBrush}" />
-        <Setter Property="Border.CornerRadius" Value="{DynamicResource RadiusCardCornerRadius}" />
-        <Setter Property="Border.Background" Value="{DynamicResource BorderCardBackground}" />
-        <Setter Property="Border.BorderThickness" Value="{DynamicResource ThicknessCardBorderThickness}" />
-        <Setter Property="Border.Margin" Value="{DynamicResource ThicknessCardMargin}" />
+        <Setter Property="Padding" Value="{DynamicResource ThicknessCardPadding}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderCardBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadiusCardCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource BorderCardBackground}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThicknessCardBorderThickness}" />
+        <Setter Property="Margin" Value="{DynamicResource ThicknessCardMargin}" />
         <Style Selector="^.Shadow">
             <Setter Property="BoxShadow" Value="{DynamicResource BorderCardBoxShadow}" />
         </Style>
