@@ -3,17 +3,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type ContextMenu}" TargetType="ContextMenu">
-        <Setter Property="ContextMenu.Background" Value="{DynamicResource MenuFlyoutBackground}" />
-        <Setter Property="ContextMenu.BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
-        <Setter Property="ContextMenu.BorderThickness" Value="{DynamicResource MenuFlyoutBorderThickness}" />
-        <Setter Property="ContextMenu.CornerRadius" Value="{DynamicResource MenuFlyoutCornerRadius}" />
-        <Setter Property="ContextMenu.MaxWidth" Value="{DynamicResource MenuFlyoutMaxWidth}" />
-        <Setter Property="ContextMenu.MinHeight" Value="{DynamicResource MenuFlyoutMinHeight}" />
-        <Setter Property="ContextMenu.Padding" Value="{DynamicResource MenuFlyoutPadding}" />
-        <Setter Property="ContextMenu.HorizontalAlignment" Value="Stretch" />
-        <Setter Property="TextBlock.FontWeight" Value="Normal" />
-        <Setter Property="ContextMenu.WindowManagerAddShadowHint" Value="False" />
-        <Setter Property="ContextMenu.Template">
+        <Setter Property="Background" Value="{DynamicResource MenuFlyoutBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource MenuFlyoutBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MenuFlyoutCornerRadius}" />
+        <Setter Property="MaxWidth" Value="{DynamicResource MenuFlyoutMaxWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource MenuFlyoutMinHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource MenuFlyoutPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="WindowManagerAddShadowHint" Value="False" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ContextMenu">
                 <Border
                     MinHeight="{TemplateBinding MinHeight}"

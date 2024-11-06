@@ -3,24 +3,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type FlyoutPresenter}" TargetType="FlyoutPresenter">
-        <Setter Property="FlyoutPresenter.HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="FlyoutPresenter.VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="FlyoutPresenter.UseLayoutRounding" Value="False" />
-        <Setter Property="FlyoutPresenter.FontWeight" Value="{DynamicResource FlyoutFontWeight}" />
-        <Setter Property="FlyoutPresenter.Background" Value="{DynamicResource FlyoutBackground}" />
-        <Setter Property="FlyoutPresenter.BorderBrush" Value="{DynamicResource FlyoutBorderBrush}" />
-        <Setter Property="FlyoutPresenter.BorderThickness" Value="{DynamicResource FlyoutBorderThickness}" />
-        <Setter Property="FlyoutPresenter.Padding" Value="{DynamicResource FlyoutPadding}" />
-        <Setter Property="FlyoutPresenter.MinWidth" Value="{DynamicResource FlyoutMinWidth}" />
-        <Setter Property="FlyoutPresenter.MaxWidth" Value="{DynamicResource FlyoutMaxWidth}" />
-        <Setter Property="FlyoutPresenter.MinHeight" Value="{DynamicResource FlyoutMinHeight}" />
-        <Setter Property="FlyoutPresenter.MaxHeight" Value="{DynamicResource FlyoutMaxHeight}" />
-        <Setter Property="FlyoutPresenter.Foreground" Value="{DynamicResource FlyoutForeground}" />
-        <Setter Property="FlyoutPresenter.ClipToBounds" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="FontWeight" Value="{DynamicResource FlyoutFontWeight}" />
+        <Setter Property="Background" Value="{DynamicResource FlyoutBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource FlyoutBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource FlyoutBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource FlyoutPadding}" />
+        <Setter Property="MinWidth" Value="{DynamicResource FlyoutMinWidth}" />
+        <Setter Property="MaxWidth" Value="{DynamicResource FlyoutMaxWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource FlyoutMinHeight}" />
+        <Setter Property="MaxHeight" Value="{DynamicResource FlyoutMaxHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource FlyoutForeground}" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="FlyoutPresenter.CornerRadius" Value="{DynamicResource FlyoutCornerRadius}" />
-        <Setter Property="FlyoutPresenter.Template">
+        <Setter Property="CornerRadius" Value="{DynamicResource FlyoutCornerRadius}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="FlyoutPresenter">
                 <Border
                     Name="LayoutRoot"
@@ -48,25 +48,25 @@
     </ControlTheme>
 
     <ControlTheme x:Key="LightFlyout" TargetType="FlyoutPresenter">
-        <Setter Property="FlyoutPresenter.HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="FlyoutPresenter.VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="FlyoutPresenter.UseLayoutRounding" Value="False" />
-        <Setter Property="FlyoutPresenter.FontWeight" Value="{DynamicResource FlyoutFontWeight}" />
-        <Setter Property="FlyoutPresenter.Background" Value="Transparent" />
-        <Setter Property="FlyoutPresenter.BorderBrush" Value="Transparent" />
-        <Setter Property="FlyoutPresenter.BorderThickness" Value="0" />
-        <Setter Property="FlyoutPresenter.Padding" Value="{DynamicResource FlyoutPadding}" />
-        <Setter Property="FlyoutPresenter.MinWidth" Value="{DynamicResource FlyoutMinWidth}" />
-        <Setter Property="FlyoutPresenter.MaxWidth" Value="{DynamicResource FlyoutMaxWidth}" />
-        <Setter Property="FlyoutPresenter.MinHeight" Value="{DynamicResource FlyoutMinHeight}" />
-        <Setter Property="FlyoutPresenter.MaxHeight" Value="{DynamicResource FlyoutMaxHeight}" />
-        <Setter Property="FlyoutPresenter.Foreground" Value="{DynamicResource FlyoutForeground}" />
-        <Setter Property="FlyoutPresenter.ClipToBounds" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="FontWeight" Value="{DynamicResource FlyoutFontWeight}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="{DynamicResource FlyoutPadding}" />
+        <Setter Property="MinWidth" Value="{DynamicResource FlyoutMinWidth}" />
+        <Setter Property="MaxWidth" Value="{DynamicResource FlyoutMaxWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource FlyoutMinHeight}" />
+        <Setter Property="MaxHeight" Value="{DynamicResource FlyoutMaxHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource FlyoutForeground}" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="FlyoutPresenter.CornerRadius" Value="{DynamicResource FlyoutCornerRadius}" />
-        <Setter Property="FlyoutPresenter.Margin" Value="4" />
-        <Setter Property="FlyoutPresenter.Template">
+        <Setter Property="CornerRadius" Value="{DynamicResource FlyoutCornerRadius}" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="FlyoutPresenter">
                 <Border
                     Name="LayoutRoot"

@@ -26,9 +26,9 @@
 
     <ControlTheme x:Key="CarouselIndicatorDotListBoxItem" TargetType="ListBoxItem">
         <!--  Use fit in different color themes, Use Foreground to normal, Background to hover, BorderBrush to Selected  -->
-        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
-        <Setter Property="ListBoxItem.Foreground" Value="{DynamicResource CarouselIndicatorForeground}" />
-        <Setter Property="ListBoxItem.Template">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorForeground}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Panel>
                     <Border Padding="4" Background="Transparent">
@@ -56,9 +56,9 @@
 
     <ControlTheme x:Key="CarouselIndicatorLineListBoxItem" TargetType="ListBoxItem">
         <!--  Use fit in different color themes, Use Foreground to normal, Background to hover, BorderBrush to Selected  -->
-        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
-        <Setter Property="ListBoxItem.Background" Value="{DynamicResource CarouselIndicatorForeground}" />
-        <Setter Property="ListBoxItem.Template">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{DynamicResource CarouselIndicatorForeground}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Panel Background="Transparent">
                     <Border Padding="2,0" Background="Transparent">
@@ -84,9 +84,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CarouselIndicatorColumnarListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
-        <Setter Property="ListBoxItem.Background" Value="{DynamicResource CarouselIndicatorForeground}" />
-        <Setter Property="ListBoxItem.Template">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{DynamicResource CarouselIndicatorForeground}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Panel Background="Transparent">
                     <Border Padding="2,0" Background="Transparent">
@@ -122,9 +122,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CarouselButton" TargetType="Button">
-        <Setter Property="Button.Cursor" Value="Hand" />
-        <Setter Property="Button.Foreground" Value="{DynamicResource CarouselButtonForeground}" />
-        <Setter Property="Button.Template">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource CarouselButtonForeground}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="Button">
                 <Grid Background="Transparent">
                     <PathIcon

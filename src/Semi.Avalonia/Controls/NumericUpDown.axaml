@@ -4,11 +4,11 @@
     x:CompileBindings="True">
     <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
-        <Setter Property="NumericUpDown.VerticalAlignment" Value="Center" />
-        <Setter Property="NumericUpDown.VerticalContentAlignment" Value="Center" />
-        <Setter Property="NumericUpDown.CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
-        <Setter Property="NumericUpDown.MinHeight" Value="{DynamicResource NumericUpDownDefaultHeight}" />
-        <Setter Property="NumericUpDown.Template">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
+        <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownDefaultHeight}" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="NumericUpDown">
                 <DataValidationErrors>
                     <ButtonSpinner

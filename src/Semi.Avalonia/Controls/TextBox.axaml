@@ -511,9 +511,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
-        <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
-        <Setter Property="ToggleButton.Cursor" Value="Hand" />
-        <Setter Property="ToggleButton.Template">
+        <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <!--  Background must be transparent or hit test will fail  -->
                 <Panel Background="Transparent">
