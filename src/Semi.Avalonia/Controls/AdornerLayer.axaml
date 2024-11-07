@@ -5,9 +5,17 @@
     <ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer">
         <Setter Property="DefaultFocusAdorner">
             <FocusAdornerTemplate>
-                <Border BorderThickness="{DynamicResource AdornerLayerBorderThickness}"
-                        BorderBrush="{DynamicResource AdornerLayerStroke}" />
+                <Border Theme="{DynamicResource AdornerLayerBorder}" />
             </FocusAdornerTemplate>
         </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="AdornerLayerBorder" TargetType="Border">
+        <Setter Property="BorderThickness" Value="{DynamicResource AdornerLayerBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource AdornerLayerBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource AdornerLayerCornerRadius}" />
+        <Style Selector="^.Solid">
+            <Setter Property="BorderBrush" Value="{DynamicResource AdornerLayerSolidBorderBrush}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

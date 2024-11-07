@@ -102,6 +102,12 @@
         x:Key="SolidButton"
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="Button">
+        <Setter Property="FocusAdorner">
+            <FocusAdornerTemplate>
+                <Border Theme="{DynamicResource AdornerLayerBorder}"
+                        Classes="Solid" />
+            </FocusAdornerTemplate>
+        </Setter>
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />

@@ -69,31 +69,6 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Button
-                            Name="PART_SecondaryButton"
-                            Padding="4,0"
-                            VerticalAlignment="Stretch"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="0"
-                            DockPanel.Dock="Right"
-                            Focusable="False"
-                            KeyboardNavigation.IsTabStop="False"
-                            Theme="{DynamicResource SemiSplitButtonElement}">
-                            <PathIcon
-                                Width="12"
-                                Height="12"
-                                Data="{DynamicResource SplitButtonIconGlyph}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
-                        <Rectangle
-                            Name="SeparatorBorder"
-                            Width="{DynamicResource SplitButtonSeparatorWidth}"
-                            VerticalAlignment="Stretch"
-                            DockPanel.Dock="Right"
-                            Fill="{TemplateBinding BorderBrush}"
-                            StrokeThickness="0" />
-                        <Button
                             Name="PART_PrimaryButton"
                             Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="Stretch"
@@ -106,12 +81,33 @@
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             CornerRadius="0"
-                            Focusable="False"
                             FontFamily="{TemplateBinding FontFamily}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}"
-                            KeyboardNavigation.IsTabStop="False"
+                            DockPanel.Dock="Left"
                             Theme="{DynamicResource SemiSplitButtonElement}" />
+                        <Rectangle
+                            Name="SeparatorBorder"
+                            Width="{DynamicResource SplitButtonSeparatorWidth}"
+                            VerticalAlignment="Stretch"
+                            DockPanel.Dock="Left"
+                            Fill="{TemplateBinding BorderBrush}"
+                            StrokeThickness="0" />
+                        <Button
+                            Name="PART_SecondaryButton"
+                            Padding="4,0"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0"
+                            Theme="{DynamicResource SemiSplitButtonElement}">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Data="{DynamicResource SplitButtonIconGlyph}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
                     </DockPanel>
                 </Border>
             </ControlTemplate>
@@ -149,6 +145,12 @@
         </Style>
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Button">
+                <Setter Property="FocusAdorner">
+                    <FocusAdornerTemplate>
+                        <Border Theme="{DynamicResource AdornerLayerBorder}"
+                                Classes="Solid" />
+                    </FocusAdornerTemplate>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
                 <Style Selector="^:pointerover">
@@ -232,6 +234,12 @@
         BasedOn="{StaticResource {x:Type SplitButton}}"
         TargetType="SplitButton">
         <Style Selector="^ /template/ Button">
+            <Setter Property="FocusAdorner">
+                <FocusAdornerTemplate>
+                    <Border Theme="{DynamicResource AdornerLayerBorder}"
+                            Classes="Solid" />
+                </FocusAdornerTemplate>
+            </Setter>
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
 

@@ -96,6 +96,12 @@
         </Style>
 
         <Style Selector="^:checked">
+            <Setter Property="FocusAdorner">
+                <FocusAdornerTemplate>
+                    <Border Theme="{DynamicResource AdornerLayerBorder}"
+                            Classes="Solid" />
+                </FocusAdornerTemplate>
+            </Setter>
             <Setter Property="Foreground" Value="{DynamicResource ToggleButtonCheckedForeground}" />
             <Setter Property="Background" Value="{DynamicResource ToggleButtonPrimaryCheckedBackground}" />
             <Style Selector="^.Primary">
