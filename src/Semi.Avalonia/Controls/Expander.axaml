@@ -28,9 +28,9 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="Expander">
                 <DockPanel>
-                    <LayoutTransformControl x:Name="ExpanderHeaderLayoutContainer" Margin="{DynamicResource ExpanderHeaderMargin}">
+                    <LayoutTransformControl Name="ExpanderHeaderLayoutContainer" Margin="{DynamicResource ExpanderHeaderMargin}">
                         <ToggleButton
-                            x:Name="ExpanderHeader"
+                            Name="ExpanderHeader"
                             Padding="{DynamicResource ExpanderHeaderPadding}"
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Stretch"
@@ -64,12 +64,12 @@
                     </LayoutTransformControl>
                     <LayoutTransformControl Name="ExpanderContentLayoutContainer" MinHeight="1">
                         <Border
-                            x:Name="ExpanderContent"
+                            Name="ExpanderContent"
                             MinHeight="2"
                             BorderBrush="{DynamicResource ExpanderSeparatorBorderBrush}"
                             BorderThickness="0,0,0,1">
                             <ContentPresenter
-                                x:Name="PART_ContentPresenter"
+                                Name="PART_ContentPresenter"
                                 Margin="{DynamicResource ExpanderContentMargin}"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"

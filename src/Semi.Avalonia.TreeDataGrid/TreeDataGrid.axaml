@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="TreeDataGrid">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -23,7 +23,7 @@
                             HorizontalScrollBarVisibility="Hidden"
                             IsVisible="{TemplateBinding ShowColumnHeaders}"
                             VerticalScrollBarVisibility="Disabled">
-                            <Border x:Name="ColumnHeadersPresenterBorder">
+                            <Border Name="ColumnHeadersPresenterBorder">
                                 <TreeDataGridColumnHeadersPresenter
                                     Name="PART_ColumnHeadersPresenter"
                                     ElementFactory="{TemplateBinding ElementFactory}"
@@ -173,7 +173,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
-                    x:Name="CellBorder"
+                    Name="CellBorder"
                     Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -205,7 +205,7 @@
                     VerticalAlignment="Center"
                     Background="Transparent">
                     <PathIcon
-                        x:Name="ChevronPath"
+                        Name="ChevronPath"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
@@ -222,7 +222,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
-                    x:Name="CellBorder"
+                    Name="CellBorder"
                     Padding="{TemplateBinding Indent,
                                               Converter={x:Static conv:IndentConverter.Instance}}"
                     Background="{TemplateBinding Background}"
@@ -253,7 +253,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
-                    x:Name="CellBorder"
+                    Name="CellBorder"
                     Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -275,7 +275,7 @@
             <Setter Property="Template">
                 <ControlTemplate>
                     <Border
-                        x:Name="CellBorder"
+                        Name="CellBorder"
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"

@@ -7,7 +7,7 @@
             <ControlTemplate TargetType="DataValidationErrors">
                 <DockPanel LastChildFill="True">
                     <ContentControl
-                        x:Name="InlineDataValidationContentControl"
+                        Name="InlineDataValidationContentControl"
                         Margin="0,4,0,0"
                         Content="{Binding (DataValidationErrors.Errors)}"
                         ContentTemplate="{TemplateBinding ErrorTemplate}"

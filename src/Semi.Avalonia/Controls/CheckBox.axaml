@@ -26,7 +26,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -37,7 +37,7 @@
                             TemplatedControl.IsTemplateFocusTarget="True"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Border
-                                x:Name="NormalRectangle"
+                                Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
                                 Height="{DynamicResource CheckBoxBoxHeight}"
                                 Background="{DynamicResource CheckBoxDefaultBackground}"
@@ -46,13 +46,13 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                x:Name="CheckGlyph"
+                                Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
                         </Panel>
                         <ContentPresenter
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             Grid.Column="1"
                             Margin="{DynamicResource CheckBoxContentMargin}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -196,7 +196,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -207,7 +207,7 @@
                             TemplatedControl.IsTemplateFocusTarget="True"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Border
-                                x:Name="NormalRectangle"
+                                Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
                                 Height="{DynamicResource CheckBoxBoxHeight}"
                                 Background="{DynamicResource CheckBoxDefaultBackground}"
@@ -216,7 +216,7 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                x:Name="CheckGlyph"
+                                Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
@@ -343,7 +343,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -358,7 +358,7 @@
                             VerticalAlignment="Top"
                             Margin="{DynamicResource CheckBoxBoxMargin}">
                             <Border
-                                x:Name="NormalRectangle"
+                                Name="NormalRectangle"
                                 Width="{DynamicResource CheckBoxBoxWidth}"
                                 Height="{DynamicResource CheckBoxBoxHeight}"
                                 Background="{DynamicResource CheckBoxDefaultBackground}"
@@ -367,14 +367,14 @@
                                 CornerRadius="{DynamicResource CheckBoxBoxCornerRadius}"
                                 UseLayoutRounding="False" />
                             <PathIcon
-                                x:Name="CheckGlyph"
+                                Name="CheckGlyph"
                                 Width="{DynamicResource CheckBoxBoxGlyphWidth}"
                                 Height="{DynamicResource CheckBoxBoxGlyphHeight}"
                                 Foreground="{DynamicResource CheckBoxGlyphFill}" />
                         </Panel>
 
                         <ContentPresenter
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             Grid.Column="1"
                             Margin="{DynamicResource CheckBoxContentMargin}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -546,7 +546,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"

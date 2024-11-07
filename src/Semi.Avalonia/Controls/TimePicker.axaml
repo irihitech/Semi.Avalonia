@@ -164,7 +164,7 @@
                         Margin="{TemplateBinding Padding}"
                         ColumnDefinitions="*, Auto">
                         <Button
-                            x:Name="PART_FlyoutButton"
+                            Name="PART_FlyoutButton"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Width="242"
@@ -185,12 +185,12 @@
                                 <Grid Name="PART_FlyoutButtonContentGrid" Grid.Column="0">
                                     <!--  Ignore col defs here, set in code  -->
                                     <Border
-                                        x:Name="PART_FirstPickerHost"
+                                        Name="PART_FirstPickerHost"
                                         Grid.Column="0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch">
                                         <TextBlock
-                                            x:Name="PART_HourTextBlock"
+                                            Name="PART_HourTextBlock"
                                             Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
@@ -208,12 +208,12 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <Border
-                                        x:Name="PART_SecondPickerHost"
+                                        Name="PART_SecondPickerHost"
                                         Grid.Column="2"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch">
                                         <TextBlock
-                                            x:Name="PART_MinuteTextBlock"
+                                            Name="PART_MinuteTextBlock"
                                             Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
@@ -231,12 +231,12 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <Border
-                                        x:Name="PART_ThirdPickerHost"
+                                        Name="PART_ThirdPickerHost"
                                         Grid.Column="4"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch">
                                         <TextBlock
-                                            x:Name="PART_SecondTextBlock"
+                                            Name="PART_SecondTextBlock"
                                             Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
@@ -254,12 +254,12 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <Border
-                                        x:Name="PART_FourthPickerHost"
+                                        Name="PART_FourthPickerHost"
                                         Grid.Column="6"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch">
                                         <TextBlock
-                                            x:Name="PART_PeriodTextBlock"
+                                            Name="PART_PeriodTextBlock"
                                             Padding="12,0"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
