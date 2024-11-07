@@ -25,7 +25,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
@@ -69,7 +69,7 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Button
-                            x:Name="PART_SecondaryButton"
+                            Name="PART_SecondaryButton"
                             Padding="4,0"
                             VerticalAlignment="Stretch"
                             HorizontalContentAlignment="Center"
@@ -87,14 +87,14 @@
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
                         <Rectangle
-                            x:Name="SeparatorBorder"
+                            Name="SeparatorBorder"
                             Width="{DynamicResource SplitButtonSeparatorWidth}"
                             VerticalAlignment="Stretch"
                             DockPanel.Dock="Right"
                             Fill="{TemplateBinding BorderBrush}"
                             StrokeThickness="0" />
                         <Button
-                            x:Name="PART_PrimaryButton"
+                            Name="PART_PrimaryButton"
                             Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"

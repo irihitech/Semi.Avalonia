@@ -81,7 +81,7 @@
                                 <!--  Backgrounds  -->
                                 <!--  TODO: Background="{DynamicResource ColorViewTabBackgroundBrush}"  -->
                                 <Border
-                                    x:Name="ContentBackgroundBorder"
+                                    Name="ContentBackgroundBorder"
                                     Grid.Row="0"
                                     Grid.RowSpan="2"
                                     Height="{TemplateBinding Height}"
@@ -93,7 +93,7 @@
                                     CornerRadius="{TemplateBinding CornerRadius}" />
 
                                 <TabControl
-                                    x:Name="PART_TabControl"
+                                    Name="PART_TabControl"
                                     Grid.Row="0"
                                     Padding="0"
                                     VerticalAlignment="Stretch"
@@ -130,7 +130,7 @@
                                                 <ColumnDefinition Width="Auto" MinWidth="32" />
                                             </Grid.ColumnDefinitions>
                                             <primitives:ColorSlider
-                                                x:Name="ColorSpectrumThirdComponentSlider"
+                                                Name="ColorSpectrumThirdComponentSlider"
                                                 Grid.Column="0"
                                                 Margin="0,0,12,0"
                                                 HorizontalAlignment="Center"
@@ -144,7 +144,7 @@
                                                 IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
                                                 Orientation="Vertical" />
                                             <primitives:ColorSpectrum
-                                                x:Name="ColorSpectrum"
+                                                Name="ColorSpectrum"
                                                 Grid.Column="1"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
@@ -158,7 +158,7 @@
                                                 MinValue="{TemplateBinding MinValue}"
                                                 Shape="{TemplateBinding ColorSpectrumShape}" />
                                             <primitives:ColorSlider
-                                                x:Name="ColorSpectrumAlphaSlider"
+                                                Name="ColorSpectrumAlphaSlider"
                                                 Grid.Column="2"
                                                 Margin="12,0,0,0"
                                                 HorizontalAlignment="Center"
@@ -282,7 +282,7 @@
                                                     CornerRadius="3">
                                                     <Grid ColumnDefinitions="1*,1*" IsVisible="{TemplateBinding IsColorModelVisible}">
                                                         <RadioButton
-                                                            x:Name="RgbRadioButton"
+                                                            Name="RgbRadioButton"
                                                             Grid.Column="0"
                                                             HorizontalContentAlignment="Center"
                                                             VerticalContentAlignment="Center"
@@ -294,7 +294,7 @@
                                                                                         Mode=TwoWay}"
                                                             Theme="{DynamicResource ColorViewRadioButton}" />
                                                         <RadioButton
-                                                            x:Name="HsvRadioButton"
+                                                            Name="HsvRadioButton"
                                                             Grid.Column="1"
                                                             HorizontalContentAlignment="Center"
                                                             VerticalContentAlignment="Center"
@@ -308,7 +308,7 @@
                                                     </Grid>
                                                 </Border>
                                                 <TextBox
-                                                    x:Name="PART_HexTextBox"
+                                                    Name="PART_HexTextBox"
                                                     Grid.Column="2"
                                                     Height="32"
                                                     HorizontalAlignment="Stretch"
@@ -320,7 +320,7 @@
                                             <!--  Color component editing controls  -->
                                             <!--  Component 1 RGB:Red HSV:Hue  -->
                                             <NumericUpDown
-                                                x:Name="Component1NumericUpDown"
+                                                Name="Component1NumericUpDown"
                                                 Grid.Row="2"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
@@ -335,7 +335,7 @@
                                                 ShowButtonSpinner="False"
                                                 Value="{Binding Value, ElementName=Component1Slider}" />
                                             <primitives:ColorSlider
-                                                x:Name="Component1Slider"
+                                                Name="Component1Slider"
                                                 Grid.Row="2"
                                                 Grid.Column="1"
                                                 HorizontalAlignment="Stretch"
@@ -351,7 +351,7 @@
                                                 TickFrequency="1" />
                                             <!--  Component 2 RGB:Green HSV:Saturation  -->
                                             <NumericUpDown
-                                                x:Name="Component2NumericUpDown"
+                                                Name="Component2NumericUpDown"
                                                 Grid.Row="3"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
@@ -366,7 +366,7 @@
                                                 ShowButtonSpinner="False"
                                                 Value="{Binding Value, ElementName=Component2Slider}" />
                                             <primitives:ColorSlider
-                                                x:Name="Component2Slider"
+                                                Name="Component2Slider"
                                                 Grid.Row="3"
                                                 Grid.Column="1"
                                                 HorizontalAlignment="Stretch"
@@ -382,7 +382,7 @@
                                                 TickFrequency="1" />
                                             <!--  Component 3 RGB:Blue HSV:Value  -->
                                             <NumericUpDown
-                                                x:Name="Component3NumericUpDown"
+                                                Name="Component3NumericUpDown"
                                                 Grid.Row="4"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
@@ -397,7 +397,7 @@
                                                 ShowButtonSpinner="False"
                                                 Value="{Binding Value, ElementName=Component3Slider}" />
                                             <primitives:ColorSlider
-                                                x:Name="Component3Slider"
+                                                Name="Component3Slider"
                                                 Grid.Row="4"
                                                 Grid.Column="1"
                                                 HorizontalAlignment="Stretch"
@@ -413,7 +413,7 @@
                                                 TickFrequency="1" />
                                             <!--  Alpha Component  -->
                                             <NumericUpDown
-                                                x:Name="AlphaComponentNumericUpDown"
+                                                Name="AlphaComponentNumericUpDown"
                                                 Grid.Row="5"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
@@ -435,7 +435,7 @@
                                                 </NumericUpDown.IsVisible>
                                             </NumericUpDown>
                                             <primitives:ColorSlider
-                                                x:Name="AlphaComponentSlider"
+                                                Name="AlphaComponentSlider"
                                                 Grid.Row="5"
                                                 Grid.Column="1"
                                                 HorizontalAlignment="Stretch"
@@ -560,7 +560,7 @@
                                     CornerRadius="8 8 0 0"
                                     ClipToBounds="True">
                                     <primitives:ColorSpectrum
-                                        x:Name="ColorSpectrum"
+                                        Name="ColorSpectrum"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Components="{TemplateBinding ColorSpectrumComponents}"
@@ -574,7 +574,7 @@
                                         Shape="{TemplateBinding ColorSpectrumShape}" />
                                 </Border>
                                 <primitives:ColorSlider
-                                    x:Name="ColorSpectrumThirdComponentSlider"
+                                    Name="ColorSpectrumThirdComponentSlider"
                                     Grid.Row="1"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
@@ -586,7 +586,7 @@
                                     Orientation="Horizontal" />
 
                                 <primitives:ColorSlider
-                                    x:Name="ColorSpectrumAlphaSlider"
+                                    Name="ColorSpectrumAlphaSlider"
                                     Grid.Row="2"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
@@ -613,32 +613,32 @@
                                         Height="20"
                                         CornerRadius="4" />
                                     <Panel
-                                        x:Name="PART_TextBoxPanel"
+                                        Name="PART_TextBoxPanel"
                                         Width="106"
                                         Margin="4 0 0 0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center">
                                         <TextBox
-                                            x:Name="PART_HexTextBox"
+                                            Name="PART_HexTextBox"
                                             Classes="Small"
                                             InnerLeftContent="#"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hex}"
                                             Text="{TemplateBinding Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
                                             MaxLength="8" />
                                         <TextBox
-                                            x:Name="PART_RgbaTextBox"
+                                            Name="PART_RgbaTextBox"
                                             Classes="Small"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Rgba}"
                                             Text="{TemplateBinding Color, Converter={StaticResource ColorToTextConverter}, Mode=TwoWay}" />
                                         <TextBox
-                                            x:Name="PART_HsvaTextBox"
+                                            Name="PART_HsvaTextBox"
                                             Classes="Small"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hsva}"
                                             Text="{TemplateBinding HsvColor, Converter={StaticResource HsvColorToTextConverter}, Mode=TwoWay}" />
                                     </Panel>
 
                                     <NumericUpDown
-                                        x:Name="AlphaComponentNumericUpDown"
+                                        Name="AlphaComponentNumericUpDown"
                                         Width="70"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
@@ -653,7 +653,7 @@
                                         IsVisible="{TemplateBinding IsAlphaVisible}"
                                         Value="{Binding #ColorSpectrumAlphaSlider.Value}" />
                                     <ComboBox
-                                        x:Name="ColorModelComboBox"
+                                        Name="ColorModelComboBox"
                                         Width="80"
                                         VerticalAlignment="Center"
                                         Classes="Small"

@@ -23,7 +23,7 @@
                             ClipToBounds="True"
                             ZIndex="100">
                             <ContentPresenter
-                                x:Name="PART_PanePresenter"
+                                Name="PART_PanePresenter"
                                 Content="{TemplateBinding Pane}"
                                 ContentTemplate="{TemplateBinding PaneTemplate}" />
                             <Rectangle
@@ -35,7 +35,7 @@
 
                         <Panel Name="ContentRoot">
                             <ContentPresenter
-                                x:Name="PART_ContentPresenter"
+                                Name="PART_ContentPresenter"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <Rectangle
@@ -114,7 +114,7 @@
                             ClipToBounds="True"
                             ZIndex="100">
                             <ContentPresenter
-                                x:Name="PART_PanePresenter"
+                                Name="PART_PanePresenter"
                                 Content="{TemplateBinding Pane}"
                                 ContentTemplate="{TemplateBinding PaneTemplate}" />
                             <Rectangle
@@ -126,7 +126,7 @@
 
                         <Panel Name="ContentRoot">
                             <ContentPresenter
-                                x:Name="PART_ContentPresenter"
+                                Name="PART_ContentPresenter"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <Rectangle Name="LightDismissLayer" IsVisible="False" />

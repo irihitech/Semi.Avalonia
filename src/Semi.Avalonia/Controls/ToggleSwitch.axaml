@@ -38,7 +38,7 @@
                     RowDefinitions="Auto,*"
                     ColumnDefinitions="Auto, *">
                     <ContentPresenter
-                        x:Name="PART_ContentPresenter"
+                        Name="PART_ContentPresenter"
                         Grid.Row="0" Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Margin="{DynamicResource ToggleSwitchHeaderMargin}"
@@ -49,7 +49,7 @@
                         RecognizesAccessKey="True" />
 
                     <Border
-                        x:Name="SwitchBackgroundBorder"
+                        Name="SwitchBackgroundBorder"
                         Grid.Row="1" Grid.Column="0"
                         TemplatedControl.IsTemplateFocusTarget="True"
                         Width="{DynamicResource ToggleSwitchDefaultWidth}"
@@ -61,22 +61,22 @@
                             </Transitions>
                         </Border.Transitions>
                         <Canvas
-                            x:Name="PART_SwitchKnob"
+                            Name="PART_SwitchKnob"
                             Width="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                             Height="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                             HorizontalAlignment="Left">
                             <Grid
-                                x:Name="PART_MovingKnobs"
+                                Name="PART_MovingKnobs"
                                 Width="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                                 Height="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                                 Margin="{DynamicResource ToggleSwitchIndicatorDefaultMargin}">
                                 <Border
-                                    x:Name="SwitchKnobIndicator"
+                                    Name="SwitchKnobIndicator"
                                     Background="White"
                                     BoxShadow="0 0 1 1 #222E3238"
                                     CornerRadius="100" />
                                 <Arc
-                                    x:Name="SwitchKnobLoadingIndicator"
+                                    Name="SwitchKnobLoadingIndicator"
                                     IsVisible="False"
                                     StrokeThickness="2"
                                     StartAngle="0"
@@ -111,7 +111,7 @@
                     </Border>
 
                     <ContentPresenter
-                        x:Name="PART_OnContentPresenter"
+                        Name="PART_OnContentPresenter"
                         Grid.Row="1" Grid.Column="1"
                         Margin="{DynamicResource ToggleSwitchOnContentMargin}"
                         HorizontalAlignment="Left"
@@ -120,7 +120,7 @@
                         Content="{TemplateBinding OnContent}"
                         ContentTemplate="{TemplateBinding OnContentTemplate}" />
                     <ContentPresenter
-                        x:Name="PART_OffContentPresenter"
+                        Name="PART_OffContentPresenter"
                         Grid.Row="1" Grid.Column="1"
                         Margin="{DynamicResource ToggleSwitchOnContentMargin}"
                         HorizontalAlignment="Left"
@@ -255,15 +255,15 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Cursor="Hand">
                     <Panel>
-                        <Panel x:Name="PART_SwitchKnob" />
-                        <Panel x:Name="PART_MovingKnobs" />
+                        <Panel Name="PART_SwitchKnob" />
+                        <Panel Name="PART_MovingKnobs" />
                         <ContentPresenter
-                            x:Name="PART_OnContentPresenter"
+                            Name="PART_OnContentPresenter"
                             Margin="{DynamicResource ToggleSwitchOnContentMargin}"
                             Content="{TemplateBinding OnContent}"
                             ContentTemplate="{TemplateBinding OnContentTemplate}" />
                         <ContentPresenter
-                            x:Name="PART_OffContentPresenter"
+                            Name="PART_OffContentPresenter"
                             Margin="{DynamicResource ToggleSwitchOnContentMargin}"
                             Content="{TemplateBinding OffContent}"
                             ContentTemplate="{TemplateBinding OffContentTemplate}" />
@@ -289,7 +289,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
                 <Border
-                    x:Name="SwitchBackgroundBorder"
+                    Name="SwitchBackgroundBorder"
                     Background="{TemplateBinding Background}"
                     Cursor="Hand"
                     Width="{DynamicResource ToggleSwitchDefaultWidth}"
@@ -303,24 +303,24 @@
                     <Grid
                         ColumnDefinitions="*,*">
                         <Canvas
-                            x:Name="PART_SwitchKnob"
+                            Name="PART_SwitchKnob"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Width="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                             Height="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                             HorizontalAlignment="Left">
                             <Grid
-                                x:Name="PART_MovingKnobs"
+                                Name="PART_MovingKnobs"
                                 Width="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                                 Height="{DynamicResource ToggleSwitchIndicatorDefaultWidth}"
                                 Margin="{DynamicResource ToggleSwitchIndicatorDefaultMargin}">
                                 <Border
-                                    x:Name="SwitchKnobIndicator"
+                                    Name="SwitchKnobIndicator"
                                     Background="White"
                                     BoxShadow="0 0 1 1 #222E3238"
                                     CornerRadius="100" />
                                 <Arc
-                                    x:Name="SwitchKnobLoadingIndicator"
+                                    Name="SwitchKnobLoadingIndicator"
                                     IsVisible="False"
                                     StrokeThickness="2"
                                     StartAngle="0"
@@ -353,7 +353,7 @@
                             </Grid>
                         </Canvas>
                         <ContentPresenter
-                            x:Name="PART_OnContentPresenter"
+                            Name="PART_OnContentPresenter"
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
@@ -362,7 +362,7 @@
                             Content="{TemplateBinding OnContent}"
                             ContentTemplate="{TemplateBinding OnContentTemplate}" />
                         <ContentPresenter
-                            x:Name="PART_OffContentPresenter"
+                            Name="PART_OffContentPresenter"
                             Grid.Column="1"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"

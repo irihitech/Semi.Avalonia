@@ -45,7 +45,7 @@
                     Orientation="Horizontal"
                     Spacing="2"
                     TextElement.FontSize="10">
-                    <Button x:Name="PART_FullScreenButton" Theme="{StaticResource CaptionButton}">
+                    <Button Name="PART_FullScreenButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
                             Name="PART_FullScreenButtonIcon"
                             Width="12"
@@ -53,14 +53,14 @@
                             Data="{DynamicResource WindowExpandGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
-                    <Button x:Name="PART_MinimizeButton" Theme="{StaticResource CaptionButton}">
+                    <Button Name="PART_MinimizeButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
                             Width="12"
                             Height="12"
                             Data="{DynamicResource WindowMinimizeGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
-                    <Button x:Name="PART_RestoreButton" Theme="{StaticResource CaptionButton}">
+                    <Button Name="PART_RestoreButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
                             Name="PART_RestoreButtonIcon"
                             Width="12"
@@ -69,7 +69,7 @@
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
                     <Button
-                        x:Name="PART_CloseButton"
+                        Name="PART_CloseButton"
                         Background="{DynamicResource CaptionButtonClosePointeroverBackground}"
                         BorderBrush="{DynamicResource CaptionButtonClosePressedBackground}"
                         Theme="{StaticResource CaptionButton}">
