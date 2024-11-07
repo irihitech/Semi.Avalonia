@@ -101,7 +101,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </TabItem>
-        <TabItem x:Name="EditableTab" Header="Editable">
+        <TabItem Name="EditableTab" Header="Editable">
             <Grid Margin="8" RowDefinitions="Auto,*,Auto">
                 <StackPanel
                     Grid.Row="0"
@@ -109,14 +109,14 @@
                     Spacing="4">
                     <TextBlock VerticalAlignment="Center" Text="FontSize:" />
                     <Slider
-                        x:Name="FontSizeSlider"
+                        Name="FontSizeSlider"
                         Width="100"
                         VerticalAlignment="Center"
                         Maximum="30"
                         Minimum="5"
                         Value="14" />
                     <CheckBox
-                        x:Name="IsThreeStateCheckBox"
+                        Name="IsThreeStateCheckBox"
                         Content="IsThreeState"
                         IsChecked="False" />
                 </StackPanel>

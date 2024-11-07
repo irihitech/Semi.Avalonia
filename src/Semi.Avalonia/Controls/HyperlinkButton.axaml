@@ -15,20 +15,20 @@
         <Setter Property="Background" Value="{DynamicResource HyperlinkButtonDefaultBackground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="HyperlinkButton">
-                <Grid ColumnDefinitions="Auto,*" x:Name="RootGrid">
+                <Grid ColumnDefinitions="Auto,*" Name="RootGrid">
                     <Grid
                         Grid.Column="0"
                         IsVisible="False"
                         Margin="0,0,8,0"
                         VerticalAlignment="Center"
-                        x:Name="IconGrid">
+                        Name="IconGrid">
                         <Border
                             Background="{DynamicResource HyperlinkButtonDefaultBackground}"
                             Height="{DynamicResource HyperlinkButtonIconHeight}"
                             Opacity="0"
                             UseLayoutRounding="False"
                             Width="{DynamicResource HyperlinkButtonIconWidth}"
-                            x:Name="BackgroundRectangle" />
+                            Name="BackgroundRectangle" />
                         <PathIcon
                             Data="{DynamicResource HyperlinkButtonLinkGlyph}"
                             Foreground="{DynamicResource HyperlinkButtonForeground}"
@@ -46,7 +46,7 @@
                         Padding="0,0,0,0"
                         RecognizesAccessKey="True"
                         VerticalAlignment="Center"
-                        x:Name="ContentPresenter" />
+                        Name="ContentPresenter" />
                 </Grid>
             </ControlTemplate>
         </Setter>

@@ -30,7 +30,7 @@
                                 VerticalAlignment="Stretch"
                                 Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" />
                             <Border
-                                x:Name="PART_AccentDecrement2Border"
+                                Name="PART_AccentDecrement2Border"
                                 Grid.Column="0"
                                 Background="{TemplateBinding HsvColor,
                                                              Converter={StaticResource AccentColorConverter},
@@ -39,7 +39,7 @@
                                                                Converter={StaticResource LeftCornerRadiusFilterConverter}}"
                                 Tag="-2" />
                             <Border
-                                x:Name="PART_AccentDecrement1Border"
+                                Name="PART_AccentDecrement1Border"
                                 Grid.Column="1"
                                 Background="{TemplateBinding HsvColor,
                                                              Converter={StaticResource AccentColorConverter},
@@ -60,14 +60,14 @@
                                 VerticalAlignment="Stretch"
                                 Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" />
                             <Border
-                                x:Name="PART_AccentIncrement1Border"
+                                Name="PART_AccentIncrement1Border"
                                 Grid.Column="0"
                                 Background="{TemplateBinding HsvColor,
                                                              Converter={StaticResource AccentColorConverter},
                                                              ConverterParameter='1'}"
                                 Tag="1" />
                             <Border
-                                x:Name="PART_AccentIncrement2Border"
+                                Name="PART_AccentIncrement2Border"
                                 Grid.Column="1"
                                 Background="{TemplateBinding HsvColor,
                                                              Converter={StaticResource AccentColorConverter},

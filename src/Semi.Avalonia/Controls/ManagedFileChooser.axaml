@@ -30,7 +30,7 @@
                         DockPanel.Dock="Left"
                         Theme="{DynamicResource CardBorder}">
                         <ListBox
-                            x:Name="PART_QuickLinks"
+                            Name="PART_QuickLinks"
                             Focusable="False"
                             ItemsSource="{Binding QuickLinks}"
                             SelectedIndex="{Binding QuickLinksSelectedIndex}">
@@ -49,7 +49,7 @@
                         </ListBox>
                     </Border>
                     <DockPanel
-                        x:Name="NavBar"
+                        Name="NavBar"
                         Margin="8,8,8,0"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Top">
@@ -63,7 +63,7 @@
                                 Data="{DynamicResource ManagedFileChooserUpButtonGlyph}"
                                 Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
                         </Button>
-                        <TextBox x:Name="Location" Text="{Binding Location}">
+                        <TextBox Name="Location" Text="{Binding Location}">
                             <TextBox.KeyBindings>
                                 <KeyBinding Command="{Binding EnterPressed}" Gesture="Enter" />
                             </TextBox.KeyBindings>
@@ -88,7 +88,7 @@
                             DockPanel.Dock="Left"
                             IsChecked="{Binding ShowHiddenFiles}" />
                         <UniformGrid
-                            x:Name="Finalize"
+                            Name="Finalize"
                             HorizontalAlignment="Right"
                             Rows="1">
                             <Button
