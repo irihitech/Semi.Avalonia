@@ -49,7 +49,7 @@
                 <DataValidationErrors>
                     <Grid ColumnDefinitions="*, Auto">
                         <Border
-                            x:Name="Background"
+                            Name="Background"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Background="{TemplateBinding Background}"
@@ -59,7 +59,7 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             MinHeight="{TemplateBinding MinHeight}" />
                         <TextBlock
-                            x:Name="PlaceholderTextBlock"
+                            Name="PlaceholderTextBlock"
                             Grid.Column="0"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -71,7 +71,7 @@
                             Opacity="0.3"
                             Text="{TemplateBinding PlaceholderText}" />
                         <ContentPresenter
-                            x:Name="ContentPresenter"
+                            Name="ContentPresenter"
                             Grid.Column="0"
                             Margin="{TemplateBinding Padding}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -88,7 +88,7 @@
                             IsVisible="False"
                             Theme="{DynamicResource InnerIconButton}" />
                         <Border
-                            x:Name="DropDownOverlay"
+                            Name="DropDownOverlay"
                             Grid.Column="1"
                             Width="30"
                             Margin="0,1,1,1"
@@ -97,7 +97,7 @@
                             IsVisible="False" />
 
                         <PathIcon
-                            x:Name="DropDownGlyph"
+                            Name="DropDownGlyph"
                             Grid.Column="1"
                             Width="12"
                             Height="12"
@@ -119,7 +119,7 @@
                             PlacementTarget="Background"
                             WindowManagerAddShadowHint="False">
                             <Border
-                                x:Name="PopupBorder"
+                                Name="PopupBorder"
                                 Margin="0,4"
                                 HorizontalAlignment="Stretch"
                                 Background="{DynamicResource ComboBoxPopupBackground}"

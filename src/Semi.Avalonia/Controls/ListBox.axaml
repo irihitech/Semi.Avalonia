@@ -297,7 +297,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Margin="{TemplateBinding Margin}"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -546,7 +546,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Margin="{TemplateBinding Margin}"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -623,18 +623,18 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*">
+                    <Grid Name="RootGrid" ColumnDefinitions="Auto,*">
                         <Grid
                             Grid.Column="0"
                             Margin="0,0,0,0"
                             VerticalAlignment="Center">
                             <Border
-                                x:Name="NormalRectangle"
+                                Name="NormalRectangle"
                                 Width="{DynamicResource ListBoxItemCheckBoxWidth}"
                                 Height="{DynamicResource ListBoxItemCheckBoxHeight}"
                                 Background="{DynamicResource ListBoxItemCheckDefaultBackground}"
@@ -649,7 +649,7 @@
                                 Foreground="{DynamicResource ListBoxItemCheckGlyphFill}" />
                         </Grid>
                         <ContentPresenter
-                            x:Name="ContentPresenter"
+                            Name="ContentPresenter"
                             Grid.Column="1"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -805,13 +805,13 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid
-                        x:Name="RootGrid"
+                        Name="RootGrid"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         ColumnDefinitions="Auto,*">
                         <Grid Grid.Column="0" VerticalAlignment="Top">
                             <Border
-                                x:Name="NormalRectangle"
+                                Name="NormalRectangle"
                                 Width="{DynamicResource ListBoxItemCheckBoxWidth}"
                                 Height="{DynamicResource ListBoxItemCheckBoxHeight}"
                                 Background="{DynamicResource ListBoxItemCheckDefaultBackground}"
@@ -827,7 +827,7 @@
 
                         </Grid>
                         <ContentPresenter
-                            x:Name="ContentPresenter"
+                            Name="ContentPresenter"
                             Grid.Column="1"
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"

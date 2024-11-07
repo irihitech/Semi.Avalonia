@@ -10,16 +10,16 @@
             <ControlTemplate>
                 <Panel HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="Stretch">
                     <Panel
-                        x:Name="PART_MouseTracker"
+                        Name="PART_MouseTracker"
                         Height="1"
                         VerticalAlignment="Top" />
-                    <Panel x:Name="PART_Container">
+                    <Panel Name="PART_Container">
                         <Border
-                            x:Name="PART_Background"
+                            Name="PART_Background"
                             Background="{TemplateBinding Background}"
                             IsHitTestVisible="False" />
                         <CaptionButtons
-                            x:Name="PART_CaptionButtons"
+                            Name="PART_CaptionButtons"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             Foreground="{TemplateBinding Foreground}" />

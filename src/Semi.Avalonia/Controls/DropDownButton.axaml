@@ -22,16 +22,16 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="DropDownButton">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="InnerGrid" ColumnDefinitions="*,Auto">
+                    <Grid Name="InnerGrid" ColumnDefinitions="*,Auto">
                         <ContentPresenter
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             Grid.Column="0"
                             Padding="{TemplateBinding Padding}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -41,7 +41,7 @@
                             Foreground="{TemplateBinding Foreground}"
                             RecognizesAccessKey="True" />
                         <PathIcon
-                            x:Name="DropDownGlyph"
+                            Name="DropDownGlyph"
                             Grid.Column="1"
                             Width="12"
                             Height="12"
