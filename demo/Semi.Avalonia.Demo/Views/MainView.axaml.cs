@@ -43,20 +43,21 @@ public partial class MainView : UserControl
     }
 }
 
-public partial class MainViewModel: ObservableObject
+public partial class MainViewModel : ObservableObject
 {
-    public ObservableCollection<ThemeItem> Themes { get; } = new()
-    {
-        new ThemeItem("Light", ThemeVariant.Light),
-        new ThemeItem("Dark", ThemeVariant.Dark),
-        new ThemeItem("Aquatic", SemiTheme.Aquatic),
-        new ThemeItem("Desert", SemiTheme.Desert),
-        new ThemeItem("Dust", SemiTheme.Dust),
-        new ThemeItem("NightSky", SemiTheme.NightSky),
-    };
-    
+    public ObservableCollection<ThemeItem> Themes { get; } =
+    [
+        new("Default", ThemeVariant.Default),
+        new("Light", ThemeVariant.Light),
+        new("Dark", ThemeVariant.Dark),
+        new("Aquatic", SemiTheme.Aquatic),
+        new("Desert", SemiTheme.Desert),
+        new("Dust", SemiTheme.Dust),
+        new("NightSky", SemiTheme.NightSky)
+    ];
+
     [ObservableProperty] private ThemeItem? _selectedTheme;
-    
+
     partial void OnSelectedThemeChanged(ThemeItem? oldValue, ThemeItem? newValue)
     {
         if (newValue is null) return;
@@ -66,7 +67,6 @@ public partial class MainViewModel: ObservableObject
             app.RequestedThemeVariant = newValue.Theme;
         }
     }
-    
 }
 
 public class ThemeItem(string name, ThemeVariant theme)
