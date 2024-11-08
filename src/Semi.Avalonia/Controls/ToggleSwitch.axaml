@@ -17,9 +17,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FocusAdorner">
             <FocusAdornerTemplate>
-                <Border BorderThickness="{DynamicResource AdornerLayerBorderThickness}"
-                        BorderBrush="{DynamicResource AdornerLayerStroke}" 
-                        CornerRadius="100"/>
+                <Border Theme="{DynamicResource AdornerLayerBorder}"
+                        CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}"/>
             </FocusAdornerTemplate>
         </Setter>
         <Setter Property="KnobTransitions">
@@ -56,7 +55,7 @@
                         Height="{DynamicResource ToggleSwitchDefaultHeight}"
                         BorderBrush="{DynamicResource ToggleSwitchDefaultBorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="100">
+                        CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}">
                         <Border.Transitions>
                             <Transitions>
                                 <BrushTransition Property="Background" Duration="0:0:0.2" />
@@ -76,7 +75,7 @@
                                     Name="SwitchKnobIndicator"
                                     Background="White"
                                     BoxShadow="0 0 1 1 #222E3238"
-                                    CornerRadius="100" />
+                                    CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}" />
                                 <Arc
                                     Name="SwitchKnobLoadingIndicator"
                                     IsVisible="False"
@@ -244,8 +243,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FocusAdorner">
             <FocusAdornerTemplate>
-                <Border BorderThickness="{DynamicResource AdornerLayerBorderThickness}"
-                        BorderBrush="{DynamicResource AdornerLayerStroke}" />
+                <Border Theme="{StaticResource AdornerLayerBorder}" />
             </FocusAdornerTemplate>
         </Setter>
         <Setter Property="Template">
@@ -298,7 +296,7 @@
                     Height="{DynamicResource ToggleSwitchDefaultHeight}"
                     BorderBrush="{DynamicResource ToggleSwitchDefaultBorderBrush}"
                     BorderThickness="1"
-                    CornerRadius="100">
+                    CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}">
                     <Border.Transitions>
                         <Transitions>
                             <BrushTransition Property="Background" Duration="0:0:0.2" />
@@ -322,7 +320,7 @@
                                     Name="SwitchKnobIndicator"
                                     Background="White"
                                     BoxShadow="0 0 1 1 #222E3238"
-                                    CornerRadius="100" />
+                                    CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}" />
                                 <Arc
                                     Name="SwitchKnobLoadingIndicator"
                                     IsVisible="False"

@@ -125,6 +125,12 @@
         x:Key="SolidDropDownButton"
         BasedOn="{StaticResource {x:Type DropDownButton}}"
         TargetType="DropDownButton">
+        <Setter Property="FocusAdorner">
+            <FocusAdornerTemplate>
+                <Border Theme="{DynamicResource AdornerLayerBorder}"
+                        Classes="Solid" />
+            </FocusAdornerTemplate>
+        </Setter>
         <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
         <Style Selector="^ /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
