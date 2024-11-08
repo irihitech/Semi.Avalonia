@@ -1,7 +1,31 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <StackPanel Spacing="20">
+            <HeaderedContentControl
+                Theme="{DynamicResource GroupBox}"
+                Header="Header" />
+            <HeaderedContentControl
+                Theme="{DynamicResource GroupBox}"
+                Content="Content" />
+            <HeaderedContentControl
+                Theme="{DynamicResource GroupBox}"
+                MaxWidth="360"
+                Content="Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统。设计系统包含设计语言以及一整套可复用的前端组件，帮助设计师与开发者更容易地打造高质量的、用户体验一致的、符合设计规范的 Web 应用。">
+                <HeaderedContentControl.Header>
+                    <Panel>
+                        <SelectableTextBlock Text="Semi Design" />
+                        <HyperlinkButton HorizontalAlignment="Right" Content="更多" />
+                    </Panel>
+                </HeaderedContentControl.Header>
+            </HeaderedContentControl>
+        </StackPanel>
+    </Design.PreviewWith>
+    <converters:MarginMultiplierConverter x:Key="SeparatorBorderMultiplier" Top="True" Indent="1" />
+
     <ControlTheme x:Key="{x:Type HeaderedContentControl}" TargetType="HeaderedContentControl">
         <Setter Property="Padding" Value="3" />
         <Setter Property="Template">
@@ -12,31 +36,31 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Background="{TemplateBinding Background}"
                     Padding="{TemplateBinding Padding}">
-                    <Grid RowDefinitions="auto *">
+                    <Grid RowDefinitions="Auto,*">
                         <ContentPresenter
                             Name="PART_HeaderPresenter"
+                            Grid.Row="0"
                             Content="{TemplateBinding Header}"
-                            RecognizesAccessKey="True"
                             ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            RecognizesAccessKey="True"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}"
                             FontFamily="{TemplateBinding FontFamily}"
-                            FontStyle="{TemplateBinding FontStyle}"
-                            Grid.Row="0" />
+                            FontStyle="{TemplateBinding FontStyle}" />
                         <ContentPresenter
                             Name="PART_ContentPresenter"
+                            Grid.Row="1"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             Content="{TemplateBinding Content}"
                             RecognizesAccessKey="True"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}"
                             FontFamily="{TemplateBinding FontFamily}"
-                            FontStyle="{TemplateBinding FontStyle}"
-                            Grid.Row="1" />
+                            FontStyle="{TemplateBinding FontStyle}" />
                     </Grid>
                 </Border>
             </ControlTemplate>
@@ -44,42 +68,46 @@
     </ControlTheme>
 
     <ControlTheme x:Key="GroupBox" TargetType="HeaderedContentControl">
-        <Setter Property="Background" Value="{DynamicResource HeaderedContentControlDefaultBackground}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource HeaderedContentControlDefaultBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource HeaderedContentControlBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource HeaderedContentControlBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource HeaderedContentControlBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource HeaderedContentControlCornerRadius}" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <ControlTemplate TargetType="HeaderedContentControl">
                 <Border
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    BorderThickness="{TemplateBinding BorderThickness}">
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid RowDefinitions="Auto,Auto,Auto">
                         <ContentPresenter
+                            Name="PART_HeaderPresenter"
                             Grid.Row="0"
-                            FontWeight="Bold"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Stretch"
+                            Padding="{DynamicResource HeaderedContentControlHeaderPadding}"
+                            FontWeight="{DynamicResource HeaderedContentControlHeaderFontWeight}"
+                            IsVisible="{TemplateBinding Header,Converter={x:Static ObjectConverters.IsNotNull}}"
                             Content="{TemplateBinding Header}"
-                            ContentTemplate="{TemplateBinding HeaderTemplate}"
-                            Margin="16" />
-                        <Rectangle
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                        <Border
+                            Name="SeparatorBorder"
                             Grid.Row="1"
-                            Fill="{TemplateBinding BorderBrush}"
-                            Height="1" />
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource SeparatorBorderMultiplier}}">
+                            <Border.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <TemplateBinding Property="Header" Converter="{x:Static ObjectConverters.IsNotNull}" />
+                                    <TemplateBinding Property="Content" Converter="{x:Static ObjectConverters.IsNotNull}" />
+                                </MultiBinding>
+                            </Border.IsVisible>
+                        </Border>
                         <ContentPresenter
+                            Name="PART_ContentPresenter"
                             Grid.Row="2"
+                            IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Padding="{DynamicResource HeaderedContentControlContentPadding}"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Margin="16" />
+                            TextWrapping="Wrap" />
                     </Grid>
                 </Border>
             </ControlTemplate>
