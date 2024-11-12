@@ -30,11 +30,11 @@
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Padding" Value="{DynamicResource ComboBoxSelectorDefaultPadding}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
-        <Setter Property="MaxDropDownHeight" Value="504" />
+        <Setter Property="MaxDropDownHeight" Value="{DynamicResource ComboBoxPopupMaxDropDownHeight}" />
         <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderBrush}" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ComboBoxSelectorThickness}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="CornerRadius" Value="{DynamicResource ComboBoxSelectorCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
@@ -80,27 +80,19 @@
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
-                            Margin="0,0,8,0"
+                            Margin="{DynamicResource ComboBoxClearButtonMargin}"
                             Command="{Binding $parent[ComboBox].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
                             Focusable="False"
                             IsVisible="False"
                             Theme="{DynamicResource InnerIconButton}" />
-                        <Border
-                            Name="DropDownOverlay"
-                            Grid.Column="1"
-                            Width="30"
-                            Margin="0,1,1,1"
-                            HorizontalAlignment="Right"
-                            Background="Transparent"
-                            IsVisible="False" />
 
                         <PathIcon
                             Name="DropDownGlyph"
                             Grid.Column="1"
-                            Width="12"
-                            Height="12"
-                            Margin="0,0,12,0"
+                            Width="{DynamicResource ComboBoxIconWidth}"
+                            Height="{DynamicResource ComboBoxIconHeight}"
+                            Margin="{DynamicResource ComboBoxIconMargin}"
                             Data="{DynamicResource ComboBoxIcon}"
                             Foreground="{DynamicResource ComboBoxIconDefaultForeground}"
                             IsHitTestVisible="False"
@@ -119,14 +111,14 @@
                             WindowManagerAddShadowHint="False">
                             <Border
                                 Name="PopupBorder"
-                                Margin="0,4"
                                 HorizontalAlignment="Stretch"
+                                Margin="{DynamicResource ComboBoxPopupBorderMargin}"
                                 Background="{DynamicResource ComboBoxPopupBackground}"
                                 BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
                                 BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
                                 BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
-                                ClipToBounds="True"
-                                CornerRadius="6">
+                                CornerRadius="{DynamicResource ComboBoxPopupBoxCornerRadius}"
+                                ClipToBounds="True">
                                 <ScrollViewer
                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                     IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
