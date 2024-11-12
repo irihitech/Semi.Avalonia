@@ -1,12 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <LangVersion>latest</LangVersion>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <!-- Uncomment below to enable Native AOT compilation-->
+        <!--<PublishAot>true</PublishAot>-->
+        <!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->
     </PropertyGroup>
 
     <Import Project="../Directory.Build.props" />
@@ -18,7 +21,6 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="$(CommunityToolkitVersion)" />
     </ItemGroup>
-
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj" />
