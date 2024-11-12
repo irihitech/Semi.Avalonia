@@ -65,8 +65,7 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             TextTrimming="CharacterEllipsis"
                             Foreground="{TemplateBinding Foreground}"
-                            IsVisible="{TemplateBinding SelectionBoxItem,
-                                                        Converter={x:Static ObjectConverters.IsNull}}"
+                            IsVisible="{TemplateBinding SelectionBoxItem,Converter={x:Static ObjectConverters.IsNull}}"
                             Opacity="0.3"
                             Text="{TemplateBinding PlaceholderText}" />
                         <ContentPresenter
@@ -130,11 +129,10 @@
                                 CornerRadius="6">
                                 <ScrollViewer
                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                    IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                    IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                     VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
-                                        Margin="{DynamicResource ComboBoxDropdownContentMargin}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
                                 </ScrollViewer>
                             </Border>

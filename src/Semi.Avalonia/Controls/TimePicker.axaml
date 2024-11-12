@@ -20,7 +20,8 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     BoxShadow="{DynamicResource DateTimePickerFlyoutBoxShadow}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
                     <Grid Name="ContentPanel" RowDefinitions="*,Auto">
                         <Grid Name="PART_PickerContainer">
                             <Grid.Styles>
@@ -109,6 +110,7 @@
                                     Data="{DynamicResource DateTimePickerDismissGlyph}" />
                             </Button>
                             <Rectangle
+                                Grid.Column="0"
                                 Grid.ColumnSpan="2"
                                 Height="1"
                                 VerticalAlignment="Top"
