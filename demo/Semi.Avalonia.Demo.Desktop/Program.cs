@@ -16,13 +16,13 @@ class Program
     public static void Main(string[] args) => BuildAvaloniaApp()
         .With(new FontManagerOptions
         {
-            FontFallbacks = new[]
-            {
+            FontFallbacks =
+            [
                 new FontFallback
                 {
                     FontFamily = new FontFamily("Microsoft YaHei")
                 }
-            }
+            ]
         })
         .StartWithClassicDesktopLifetime(args);
 
