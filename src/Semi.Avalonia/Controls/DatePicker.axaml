@@ -22,100 +22,107 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     BoxShadow="{DynamicResource DateTimePickerFlyoutBoxShadow}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    ClipToBounds="True">
-                    <Grid Name="ContentPanel" RowDefinitions="*,Auto">
-                        <Grid Name="PART_PickerContainer">
-                            <Grid.Styles>
-                                <Style Selector="DateTimePickerPanel > ListBoxItem">
-                                    <Setter Property="Theme" Value="{StaticResource DateTimePickerItem}" />
-                                </Style>
-                            </Grid.Styles>
-                            <!--  Column Definitions set in code, ignore here  -->
-                            <Panel Name="PART_MonthHost">
-                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
-                                    <DateTimePickerPanel
-                                        Name="PART_MonthSelector"
-                                        ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
-                                        PanelType="Month"
-                                        ShouldLoop="True" />
-                                </ScrollViewer>
-                                <RepeatButton Name="PART_MonthUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                <RepeatButton Name="PART_MonthDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
-                            </Panel>
-                            <Panel Name="PART_DayHost">
-                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
-                                    <DateTimePickerPanel
-                                        Name="PART_DaySelector"
-                                        ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
-                                        PanelType="Day"
-                                        ShouldLoop="True" />
-                                </ScrollViewer>
-                                <RepeatButton Name="PART_DayUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                <RepeatButton Name="PART_DayDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
-                            </Panel>
-                            <Panel Name="PART_YearHost">
-                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
-                                    <DateTimePickerPanel
-                                        Name="PART_YearSelector"
-                                        ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
-                                        PanelType="Year"
-                                        ShouldLoop="False" />
-                                </ScrollViewer>
-                                <RepeatButton Name="PART_YearUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                <RepeatButton Name="PART_YearDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
-                            </Panel>
-                            <Rectangle
-                                Name="PART_FirstSpacer"
-                                Grid.Column="1"
-                                Width="1"
-                                Margin="0,4"
-                                HorizontalAlignment="Center"
-                                Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
-                            <Rectangle
-                                Name="PART_SecondSpacer"
-                                Grid.Column="3"
-                                Width="1"
-                                Margin="0,4"
-                                HorizontalAlignment="Center"
-                                Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
-                        </Grid>
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="True">
+                        <Grid Name="ContentPanel" RowDefinitions="*,Auto">
+                            <Grid Name="PART_PickerContainer">
+                                <Grid.Styles>
+                                    <Style Selector="DateTimePickerPanel > ListBoxItem">
+                                        <Setter Property="Theme" Value="{StaticResource DateTimePickerItem}" />
+                                    </Style>
+                                </Grid.Styles>
+                                <!--  Column Definitions set in code, ignore here  -->
+                                <Panel Name="PART_MonthHost">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                        <DateTimePickerPanel
+                                            Name="PART_MonthSelector"
+                                            ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
+                                            PanelType="Month"
+                                            ShouldLoop="True" />
+                                    </ScrollViewer>
+                                    <RepeatButton Name="PART_MonthUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_MonthDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                </Panel>
+                                <Panel Name="PART_DayHost">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                        <DateTimePickerPanel
+                                            Name="PART_DaySelector"
+                                            ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
+                                            PanelType="Day"
+                                            ShouldLoop="True" />
+                                    </ScrollViewer>
+                                    <RepeatButton Name="PART_DayUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_DayDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                </Panel>
+                                <Panel Name="PART_YearHost">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                        <DateTimePickerPanel
+                                            Name="PART_YearSelector"
+                                            ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
+                                            PanelType="Year"
+                                            ShouldLoop="False" />
+                                    </ScrollViewer>
+                                    <RepeatButton Name="PART_YearUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_YearDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                </Panel>
+                                <Rectangle
+                                    Name="PART_FirstSpacer"
+                                    Grid.Column="1"
+                                    Width="1"
+                                    Margin="0,4"
+                                    HorizontalAlignment="Center"
+                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                <Rectangle
+                                    Name="PART_SecondSpacer"
+                                    Grid.Column="3"
+                                    Width="1"
+                                    Margin="0,4"
+                                    HorizontalAlignment="Center"
+                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                            </Grid>
 
-                        <Grid
-                            Name="AcceptDismissGrid"
-                            Grid.Row="1"
-                            ColumnDefinitions="*,*">
-                            <Button
-                                Name="PART_AcceptButton"
-                                Grid.Column="0"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Theme="{StaticResource DateTimePickerButton}">
-                                <PathIcon
-                                    Width="12"
-                                    Height="12"
-                                    Data="{DynamicResource DateTimePickerAcceptGlyph}" />
-                            </Button>
-                            <Button
-                                Name="PART_DismissButton"
-                                Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                FontSize="16"
-                                Theme="{StaticResource DateTimePickerButton}">
-                                <PathIcon
-                                    Width="12"
-                                    Height="12"
-                                    Data="{DynamicResource DateTimePickerDismissGlyph}" />
-                            </Button>
-                            <Rectangle
-                                Grid.Column="0"
-                                Grid.ColumnSpan="2"
-                                Height="1"
-                                VerticalAlignment="Top"
-                                Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                            <Grid
+                                Name="AcceptDismissGrid"
+                                Grid.Row="1"
+                                ColumnDefinitions="*,Auto,*">
+                                <Button
+                                    Name="PART_AcceptButton"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Theme="{StaticResource DateTimePickerButton}">
+                                    <PathIcon
+                                        Width="12"
+                                        Height="12"
+                                        Data="{DynamicResource DateTimePickerAcceptGlyph}" />
+                                </Button>
+                                <Rectangle
+                                    Grid.Column="1"
+                                    Width="1"
+                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                <Button
+                                    Name="PART_DismissButton"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    FontSize="16"
+                                    Theme="{StaticResource DateTimePickerButton}">
+                                    <PathIcon
+                                        Width="12"
+                                        Height="12"
+                                        Data="{DynamicResource DateTimePickerDismissGlyph}" />
+                                </Button>
+                                <Rectangle
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Height="1"
+                                    VerticalAlignment="Top"
+                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Border>
                 </Border>
             </ControlTemplate>
         </Setter>
