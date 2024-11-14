@@ -47,6 +47,7 @@ public class PaletteDemoViewModel : ObservableObject
     }
 
     public ObservableCollection<FunctionalColorGroupViewModel> FunctionalColors { get; set; } = [];
+    public ObservableCollection<ShadowGroupViewModel> Shadows { get; set; } = [];
 
     public PaletteDemoViewModel()
     {
@@ -59,6 +60,7 @@ public class PaletteDemoViewModel : ObservableObject
     {
         InitializePalette();
         InitializeFunctionalColors();
+        InitializeShadows();
     }
 
     private void InitializePalette()
@@ -95,6 +97,11 @@ public class PaletteDemoViewModel : ObservableObject
         FunctionalColors.Add(new FunctionalColorGroupViewModel("Fill", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.FillTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel("Border", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BorderTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel("Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
+    }
+
+    private void InitializeShadows()
+    {
+        Shadows.Add(new ShadowGroupViewModel("Shadow", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.ShadowTokens));
     }
 
     private void OnClickColorItem(PaletteDemoViewModel vm, ColorItemViewModel item)
@@ -254,6 +261,79 @@ public class FunctionalColorGroupViewModel : ObservableObject
     }
 }
 
+public class ShadowItemViewModel : ObservableObject
+{
+    private string _shadowDisplayName = null!;
+
+    public string ShadowDisplayName
+    {
+        get => _shadowDisplayName;
+        set => SetProperty(ref _shadowDisplayName, value);
+    }
+
+    private string _resourceKey = null!;
+
+    public string ResourceKey
+    {
+        get => _resourceKey;
+        set => SetProperty(ref _resourceKey, value);
+    }
+
+    private string _boxShadowValue = null!;
+
+    public string BoxShadowValue
+    {
+        get => _boxShadowValue;
+        set => SetProperty(ref _boxShadowValue, value);
+    }
+
+    public ShadowItemViewModel(string shadowDisplayName, BoxShadows boxShadows, string resourceKey)
+    {
+        ShadowDisplayName = shadowDisplayName;
+        ResourceKey = resourceKey;
+        BoxShadowValue = boxShadows.ToString();
+    }
+}
+
+public class ShadowGroupViewModel : ObservableObject
+{
+    private string _title = null!;
+
+    public string Title
+    {
+        get => _title;
+        set => SetProperty(ref _title, value);
+    }
+
+    public ObservableCollection<ShadowItemViewModel> LightShadows { get; set; } = [];
+    public ObservableCollection<ShadowItemViewModel> DarkShadows { get; set; } = [];
+
+
+    public ShadowGroupViewModel(string title, IResourceDictionary? lightDictionary,
+        IResourceDictionary? darkDictionary, IReadOnlyList<Tuple<string, string>> tokens)
+    {
+        Title = title;
+        foreach (var (key, name) in tokens)
+        {
+            if (lightDictionary?.TryGetValue(key, out var lightValue) ?? false)
+            {
+                if (lightValue is BoxShadows lightShadow)
+                {
+                    LightShadows.Add(new ShadowItemViewModel(name, lightShadow, key));
+                }
+            }
+
+            if (darkDictionary?.TryGetValue(key, out var darkValue) ?? false)
+            {
+                if (darkValue is BoxShadows darkShadow)
+                {
+                    DarkShadows.Add(new ShadowItemViewModel(name, darkShadow, key));
+                }
+            }
+        }
+    }
+}
+
 public static class ColorTokens
 {
     public static IReadOnlyList<Tuple<string, string>> PrimaryTokens { get; } = new List<Tuple<string, string>>
@@ -373,5 +453,11 @@ public static class ColorTokens
         new("SemiColorDisabledBorder", "Disabled Border"),
         new("SemiColorDisabledBackground", "Disabled Background"),
         new("SemiColorDisabledFill", "Disabled Fill"),
+    };
+
+    public static IReadOnlyList<Tuple<string, string>> ShadowTokens { get; } = new List<Tuple<string, string>>
+    {
+        new("SemiColorShadow", "Shadow"),
+        new("SemiShadowElevated", "Shadow Elevated"),
     };
 }

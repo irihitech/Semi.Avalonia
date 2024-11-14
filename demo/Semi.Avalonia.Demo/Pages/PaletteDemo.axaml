@@ -21,6 +21,7 @@
                 <ResourceInclude Source="../Controls/ColorItemControl.axaml" />
                 <ResourceInclude Source="../Controls/ColorDetailControl.axaml" />
                 <ResourceInclude Source="../Controls/FunctionalColorGroupControl.axaml" />
+                <ResourceInclude Source="../Controls/ShadowGroupControl.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -115,7 +116,6 @@
                     <ItemsControl ItemsSource="{Binding FunctionalColors}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <!--    -->
                                 <controls:FunctionalColorGroupControl
                                     Title="{Binding Title}"
                                     DarkColors="{Binding DarkColors}"
@@ -123,6 +123,18 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+
+                    <ItemsControl ItemsSource="{Binding Shadows}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <controls:ShadowGroupControl
+                                    Title="{Binding Title}"
+                                    DarkShadows="{Binding DarkShadows}"
+                                    LightShadows="{Binding LightShadows}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                 </StackPanel>
             </ScrollViewer>
         </SplitView.Content>
