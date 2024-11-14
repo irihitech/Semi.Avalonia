@@ -205,13 +205,13 @@
             <Setter Property="MinHeight" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
         </Style>
-        <Style Selector="^ /template/ RepeatButton &gt; PathIcon">
+        <Style Selector="^ /template/ RepeatButton > PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
         </Style>
-        <Style Selector="^ /template/ RepeatButton:pointerover &gt; PathIcon">
+        <Style Selector="^ /template/ RepeatButton:pointerover > PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonPointeroverForeground}" />
         </Style>
-        <Style Selector="^ /template/ RepeatButton:pressed &gt; PathIcon">
+        <Style Selector="^ /template/ RepeatButton:pressed > PathIcon">
             <Setter Property="RenderTransform" Value="scale(0.92)" />
         </Style>
 
@@ -346,11 +346,11 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ RepeatButton &gt; Path">
+        <Style Selector="^ /template/ RepeatButton > Path">
             <Setter Property="Fill" Value="{DynamicResource ColorScrollBarButtonDefaultForeground}" />
         </Style>
 
-        <Style Selector="^ /template/ RepeatButton:pointerover &gt; Path">
+        <Style Selector="^ /template/ RepeatButton:pointerover > Path">
             <Setter Property="Fill" Value="{DynamicResource ColorScrollBarButtonPointeroverForeground}" />
         </Style>
     </ControlTheme>

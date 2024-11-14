@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="800"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -13,15 +13,13 @@
                 <Style Selector="Label">
                     <Setter Property="Margin" Value="4" />
                 </Style>
+                <Style Selector="Grid > TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="4" />
+                </Style>
             </StackPanel.Styles>
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel.Styles>
-                        <Style Selector="Label, TextBlock">
-                            <Setter Property="VerticalAlignment" Value="Center" />
-                            <Setter Property="Margin" Value="4" />
-                        </Style>
-                    </StackPanel.Styles>
                     <HeaderedContentControl
                         Width="400"
                         Height="400"
@@ -32,62 +30,62 @@
                         <Grid
                             VerticalAlignment="Top"
                             ColumnDefinitions="Auto, *"
-                            RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
-                            <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
-                            <TextBlock Grid.Row="2" Grid.Column="0">-</TextBlock>
-                            <TextBlock Grid.Row="3" Grid.Column="0">Secondary</TextBlock>
-                            <TextBlock Grid.Row="4" Grid.Column="0">Tertiary</TextBlock>
-                            <TextBlock Grid.Row="5" Grid.Column="0">Quaternary</TextBlock>
-                            <TextBlock Grid.Row="6" Grid.Column="0">Success</TextBlock>
-                            <TextBlock Grid.Row="7" Grid.Column="0">Warning</TextBlock>
-                            <TextBlock Grid.Row="8" Grid.Column="0">Danger</TextBlock>
-                            <TextBlock Grid.Row="9" Grid.Column="0">Mark</TextBlock>
-                            <TextBlock Grid.Row="10" Grid.Column="0">Code</TextBlock>
-                            <Label Grid.Row="2" Grid.Column="1">Text</Label>
+                            RowDefinitions="*,*,*,*,*,*,*,*,*,*,*">
+                            <TextBlock Grid.Row="0"  Grid.Column="0">Classes</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0">-</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0">Secondary</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0">Tertiary</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0">Quaternary</TextBlock>
+                            <TextBlock Grid.Row="5" Grid.Column="0">Success</TextBlock>
+                            <TextBlock Grid.Row="6" Grid.Column="0">Warning</TextBlock>
+                            <TextBlock Grid.Row="7" Grid.Column="0">Danger</TextBlock>
+                            <TextBlock Grid.Row="8" Grid.Column="0">Mark</TextBlock>
+                            <TextBlock Grid.Row="9" Grid.Column="0">Code</TextBlock>
+                            <Label Grid.Row="1" Grid.Column="1">Text</Label>
                             <Label
-                                Grid.Row="3"
+                                Grid.Row="2"
                                 Grid.Column="1"
                                 Classes="Secondary">
                                 Secondary
                             </Label>
                             <Label
-                                Grid.Row="4"
+                                Grid.Row="3"
                                 Grid.Column="1"
                                 Classes="Tertiary">
                                 Tertiary
                             </Label>
                             <Label
-                                Grid.Row="5"
+                                Grid.Row="4"
                                 Grid.Column="1"
                                 Classes="Quaternary">
                                 Quaternary
                             </Label>
                             <Label
-                                Grid.Row="6"
+                                Grid.Row="5"
                                 Grid.Column="1"
                                 Classes="Success">
                                 Success
                             </Label>
                             <Label
-                                Grid.Row="7"
+                                Grid.Row="6"
                                 Grid.Column="1"
                                 Classes="Warning">
                                 Warning
                             </Label>
                             <Label
-                                Grid.Row="8"
+                                Grid.Row="7"
                                 Grid.Column="1"
                                 Classes="Danger">
                                 Danger
                             </Label>
                             <Label
-                                Grid.Row="9"
+                                Grid.Row="8"
                                 Grid.Column="1"
                                 Classes="Mark">
                                 Default Mark
                             </Label>
                             <Label
-                                Grid.Row="10"
+                                Grid.Row="9"
                                 Grid.Column="1"
                                 Classes="Code">
                                 Code
@@ -104,51 +102,51 @@
                         <Grid
                             VerticalAlignment="Top"
                             ColumnDefinitions="Auto, *"
-                            RowDefinitions="*,*,*,*,*,*,*,*">
-                            <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
-                            <TextBlock Grid.Row="2" Grid.Column="0">H1</TextBlock>
-                            <TextBlock Grid.Row="3" Grid.Column="0">H2</TextBlock>
-                            <TextBlock Grid.Row="4" Grid.Column="0">H3</TextBlock>
-                            <TextBlock Grid.Row="5" Grid.Column="0">H4</TextBlock>
-                            <TextBlock Grid.Row="6" Grid.Column="0">H5</TextBlock>
-                            <TextBlock Grid.Row="7" Grid.Column="0">H6</TextBlock>
+                            RowDefinitions="*,*,*,*,*,*,*">
+                            <TextBlock Grid.Row="0" Grid.Column="0">Classes</TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0">H1</TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0">H2</TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0">H3</TextBlock>
+                            <TextBlock Grid.Row="4" Grid.Column="0">H4</TextBlock>
+                            <TextBlock Grid.Row="5" Grid.Column="0">H5</TextBlock>
+                            <TextBlock Grid.Row="6" Grid.Column="0">H6</TextBlock>
                             <Label
-                                Grid.Row="2"
+                                Grid.Row="1"
                                 Grid.Column="1"
                                 Classes="H1"
                                 Theme="{StaticResource TitleLabel}">
                                 Header 1
                             </Label>
                             <Label
-                                Grid.Row="3"
+                                Grid.Row="2"
                                 Grid.Column="1"
                                 Classes="H2"
                                 Theme="{StaticResource TitleLabel}">
                                 Header 2
                             </Label>
                             <Label
-                                Grid.Row="4"
+                                Grid.Row="3"
                                 Grid.Column="1"
                                 Classes="H3"
                                 Theme="{StaticResource TitleLabel}">
                                 Header 3
                             </Label>
                             <Label
-                                Grid.Row="5"
+                                Grid.Row="4"
                                 Grid.Column="1"
                                 Classes="H4"
                                 Theme="{StaticResource TitleLabel}">
                                 Header 4
                             </Label>
                             <Label
-                                Grid.Row="6"
+                                Grid.Row="5"
                                 Grid.Column="1"
                                 Classes="H5"
                                 Theme="{StaticResource TitleLabel}">
                                 Header 5
                             </Label>
                             <Label
-                                Grid.Row="7"
+                                Grid.Row="6"
                                 Grid.Column="1"
                                 Classes="H6"
                                 Theme="{StaticResource TitleLabel}">

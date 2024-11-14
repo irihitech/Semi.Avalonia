@@ -1,28 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <LangVersion>latest</LangVersion>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <!-- Uncomment below to enable Native AOT compilation-->
+        <!--<PublishAot>true</PublishAot>-->
+        <!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->
     </PropertyGroup>
 
     <Import Project="../Directory.Build.props" />
-    
+
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
         <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="$(CommunityToolkitVersion)" />
     </ItemGroup>
 
-
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj" />
-      <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj" />
+        <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj" />
+        <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj" />
     </ItemGroup>
 </Project>
