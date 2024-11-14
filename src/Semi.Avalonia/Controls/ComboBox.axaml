@@ -117,16 +117,19 @@
                                 BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
                                 BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
                                 BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
-                                CornerRadius="{DynamicResource ComboBoxPopupBoxCornerRadius}"
-                                ClipToBounds="True">
-                                <ScrollViewer
-                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                    IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
-                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                    <ItemsPresenter
-                                        Name="PART_ItemsPresenter"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                </ScrollViewer>
+                                CornerRadius="{DynamicResource ComboBoxPopupBoxCornerRadius}">
+                                <Border
+                                    CornerRadius="{DynamicResource ComboBoxPopupBoxCornerRadius}"
+                                    ClipToBounds="True">
+                                    <ScrollViewer
+                                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                        IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                        <ItemsPresenter
+                                            Name="PART_ItemsPresenter"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                    </ScrollViewer>
+                                </Border>
                             </Border>
                         </Popup>
                     </Grid>
