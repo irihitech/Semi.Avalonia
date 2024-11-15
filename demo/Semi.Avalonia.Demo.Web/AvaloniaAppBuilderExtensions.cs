@@ -11,6 +11,6 @@ public static class AvaloniaAppBuilderExtensions
         builder.With(new FontManagerOptions
         {
             DefaultFamilyName = DefaultFontFamily,
-            FontFallbacks = new[] { new FontFallback { FontFamily = new FontFamily(DefaultFontFamily) } }
+            FontFallbacks = [new FontFallback { FontFamily = new FontFamily(DefaultFontFamily) }]
         });
 }
