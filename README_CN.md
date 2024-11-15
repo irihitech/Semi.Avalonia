@@ -56,7 +56,6 @@ dotnet add package Semi.Avalonia.TreeDataGrid
 ## 示例
 
 您可以从 Semi Avalonia 的 release 页下载并试用 Semi Avalonia 的展示应用。
-
 <https://github.com/irihitech/Semi.Avalonia/releases>
 
 ## 社区支持
@@ -65,11 +64,12 @@ dotnet add package Semi.Avalonia.TreeDataGrid
 
 ![FeiShu](./docs/community-support.png)
 
-
 ## 版本兼容性
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
+| 11.2.1              | 11.2.1           |
+| 11.2.0              | 11.2.0           |
 | 11.1.0              | >=11.1.0         |
 | 11.0.7              | >=11.0.7         |
 | 11.0.1              | <=11.0.6         |
