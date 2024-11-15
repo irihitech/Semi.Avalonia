@@ -1,0 +1,88 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
+    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    x:CompileBindings="True"
+    x:DataType="viewModels:ShadowGroupViewModel">
+    <ControlTheme x:Key="{x:Type controls:ShadowGroupControl}" TargetType="controls:ShadowGroupControl">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:ShadowGroupControl">
+                <Grid RowDefinitions="Auto, *">
+                    <SelectableTextBlock
+                        Grid.Row="0"
+                        Margin="0,16,0,0"
+                        Classes="H3"
+                        Text="{TemplateBinding Title}"
+                        Theme="{DynamicResource TitleSelectableTextBlock}" />
+                    <TabControl Grid.Row="1">
+                        <TabItem Header="Light">
+                            <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightShadows}">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ShadowItemViewModel">
+                                                <SelectableTextBlock
+                                                    Margin="12,0,12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding ResourceKey}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn
+                                        Width="*"
+                                        x:DataType="viewModels:ShadowItemViewModel"
+                                        Binding="{Binding ShadowDisplayName}"
+                                        CanUserSort="False"
+                                        Header="Name" />
+                                    <DataGridTemplateColumn Width="300" Header="BoxShadows">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ShadowItemViewModel">
+                                                <SelectableTextBlock
+                                                    Margin="12,0,12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding BoxShadowValue}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </TabItem>
+                        <TabItem Header="Dark">
+                            <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding DarkShadows}">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ShadowItemViewModel">
+                                                <SelectableTextBlock
+                                                    Margin="12,0,12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding ResourceKey}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn
+                                        Width="*"
+                                        x:DataType="viewModels:ShadowItemViewModel"
+                                        Binding="{Binding ShadowDisplayName}"
+                                        CanUserSort="False"
+                                        Header="Name" />
+                                    <DataGridTemplateColumn Width="300" Header="BoxShadows">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ShadowItemViewModel">
+                                                <SelectableTextBlock
+                                                    Margin="12,0,12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding BoxShadowValue}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
