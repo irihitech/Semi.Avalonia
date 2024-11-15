@@ -1,10 +1,10 @@
-name: Pack Nuget
+name: Pack TreeDataGrid Nuget
 
 on:
   push:
-    branches: [ "action/pack" ]
+    branches: [ "action/pack-tree" ]
   pull_request:
-    branches: [ "action/pack" ]
+    branches: [ "action/pack-tree" ]
 
 jobs:
   nuget:
@@ -13,14 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - name: Nuget Semi.Avalonia
-        run: dotnet pack ./src/Semi.Avalonia -o ./nugets
-
-      - name: Nuget Semi.Avalonia.ColorPicker
-        run: dotnet pack ./src/Semi.Avalonia.ColorPicker  -o ./nugets
-
-      - name: Nuget Semi.Avalonia.DataGrid
-        run: dotnet pack ./src/Semi.Avalonia.DataGrid  -o ./nugets
+      - name: Nuget Semi.Avalonia.TreeDataGrid
+        run: dotnet pack ./src/Semi.Avalonia.TreeDataGrid  -o ./nugets
 
       - name: Publish NuGet package
         run: dotnet nuget push "./nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
