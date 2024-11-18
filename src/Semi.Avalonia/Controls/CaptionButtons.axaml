@@ -2,6 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <CaptionButtons />
+    </Design.PreviewWith>
     <ControlTheme x:Key="CaptionButton" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource CaptionButtonPointeroverBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonPressedBackground}" />
@@ -46,23 +49,20 @@
                     <Button Name="PART_FullScreenButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
                             Name="PART_FullScreenButtonIcon"
-                            Width="12"
-                            Height="12"
+                            Theme="{DynamicResource InnerPathIcon}"
                             Data="{DynamicResource WindowExpandGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
                     <Button Name="PART_MinimizeButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
-                            Width="12"
-                            Height="12"
+                            Theme="{DynamicResource InnerPathIcon}"
                             Data="{DynamicResource WindowMinimizeGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
                     <Button Name="PART_RestoreButton" Theme="{StaticResource CaptionButton}">
                         <PathIcon
                             Name="PART_RestoreButtonIcon"
-                            Width="12"
-                            Height="12"
+                            Theme="{DynamicResource InnerPathIcon}"
                             Data="{DynamicResource WindowMaximizeGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
@@ -80,8 +80,7 @@
                             </Style>
                         </Button.Styles>
                         <PathIcon
-                            Width="12"
-                            Height="12"
+                            Theme="{DynamicResource InnerPathIcon}"
                             Data="{DynamicResource WindowCloseIconGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
