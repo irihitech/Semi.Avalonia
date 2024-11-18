@@ -2,7 +2,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <!--  Add Resources Here  -->
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Width="300" Height="400">
+            <CalendarDatePicker Classes="ClearButton" />
+        </StackPanel>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
@@ -76,19 +80,19 @@
                             <Button
                                 Name="ClearButton"
                                 Grid.Column="1"
-                                Padding="0,0,8,0"
+                                Theme="{DynamicResource InnerIconButton}"
+                                Margin="8 0"
                                 Content="{DynamicResource IconButtonClearData}"
                                 Command="{Binding $parent[CalendarDatePicker].Clear}"
                                 Focusable="False"
-                                IsVisible="False"
-                                Theme="{DynamicResource InnerIconButton}" />
+                                IsVisible="False" />
                             <Button
                                 Name="PART_Button"
                                 Grid.Column="1"
-                                Padding="0,0,8,0"
+                                Theme="{DynamicResource InnerIconButton}"
+                                Margin="8 0"
                                 Content="{DynamicResource CalendarDatePickerIconGlyph}"
-                                Focusable="False"
-                                Theme="{DynamicResource InnerIconButton}" />
+                                Focusable="False" />
                             <Popup
                                 Name="PART_Popup"
                                 Grid.Column="0"
@@ -103,7 +107,6 @@
                                     CornerRadius="{DynamicResource CalendarCornerRadius}">
                                     <Calendar
                                         Name="PART_Calendar"
-                                        BorderThickness="0"
                                         CornerRadius="{Binding $parent[Border].CornerRadius}"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
