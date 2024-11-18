@@ -73,8 +73,8 @@
                                 Grid.Row="0"
                                 Theme="{StaticResource ButtonSpinnerRepeatButton}">
                                 <PathIcon
-                                    Width="8"
-                                    Height="8"
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Classes="ExtraSmall"
                                     Data="{DynamicResource ButtonSpinnerIncreaseButtonGlyph}"
                                     Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
                             </RepeatButton>
@@ -83,8 +83,8 @@
                                 Grid.Row="1"
                                 Theme="{StaticResource ButtonSpinnerRepeatButton}">
                                 <PathIcon
-                                    Width="8"
-                                    Height="8"
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Classes="ExtraSmall"
                                     Data="{DynamicResource ButtonSpinnerDecreaseButtonGlyph}"
                                     Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
                             </RepeatButton>

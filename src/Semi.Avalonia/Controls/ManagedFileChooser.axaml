@@ -39,8 +39,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Spacing="4">
                                         <PathIcon
-                                            Width="16"
-                                            Height="16"
+                                            Theme="{DynamicResource InnerPathIcon}"
                                             Data="{Binding IconKey, Converter={StaticResource Icons}}"
                                             Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
                                         <TextBlock Foreground="{DynamicResource ManagedFileChooserTextForeground}" Text="{Binding DisplayName}" />
@@ -59,8 +58,7 @@
                             DockPanel.Dock="Left"
                             Theme="{DynamicResource BorderlessButton}">
                             <PathIcon
-                                Width="16"
-                                Height="16"
+                                Theme="{DynamicResource InnerPathIcon}"
                                 Data="{DynamicResource ManagedFileChooserUpButtonGlyph}"
                                 Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
                         </Button>
@@ -160,8 +158,7 @@
                                                 <ColumnDefinition SharedSizeGroup="Size" />
                                             </Grid.ColumnDefinitions>
                                             <PathIcon
-                                                Width="16"
-                                                Height="16"
+                                                Theme="{DynamicResource InnerPathIcon}"
                                                 Data="{Binding IconKey, Converter={StaticResource Icons}}"
                                                 Foreground="{DynamicResource ManagedFileChooserIconForeground}" />
                                             <TextBlock

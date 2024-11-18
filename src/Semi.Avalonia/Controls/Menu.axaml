@@ -40,8 +40,7 @@
                                 </MultiBinding>
                             </RepeatButton.IsVisible>
                             <PathIcon
-                                Width="8"
-                                Height="8"
+                                Theme="{DynamicResource InnerPathIcon}"
                                 Data="{DynamicResource MenuScrollViewerUpButtonGlyph}"
                                 Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
                         </RepeatButton>
@@ -66,8 +65,7 @@
                                 </MultiBinding>
                             </RepeatButton.IsVisible>
                             <PathIcon
-                                Width="8"
-                                Height="8"
+                                Theme="{DynamicResource InnerPathIcon}"
                                 Data="{DynamicResource MenuScrollViewerDownButtonGlyph}"
                                 Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
                         </RepeatButton>
@@ -184,8 +182,7 @@
                             <PathIcon
                                 Name="PART_ExpandIcon"
                                 Grid.Column="4"
-                                Width="8"
-                                Height="8"
+                                Theme="{DynamicResource InnerPathIcon}"
                                 Margin="{DynamicResource MenuItemExpandIconMargin}"
                                 VerticalAlignment="Center"
                                 Data="{DynamicResource MenuItemExpandIconGlyph}"
@@ -274,6 +271,7 @@
             <Setter Property="Content">
                 <Template>
                     <PathIcon
+                        Theme="{DynamicResource InnerPathIcon}"
                         Foreground="{Binding $parent[MenuItem].Foreground}"
                         Data="{StaticResource MenuCheckGlyph}" />
                 </Template>

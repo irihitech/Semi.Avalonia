@@ -128,8 +128,9 @@
             <ControlTemplate TargetType="Button">
                 <Grid Background="Transparent">
                     <PathIcon
-                        Width="24"
-                        Height="24"
+                        Theme="{DynamicResource InnerPathIcon}"
+                        Width="32"
+                        Height="32"
                         Data="{DynamicResource CarouselButtonGlyph}"
                         Foreground="{TemplateBinding Foreground}" />
                 </Grid>
