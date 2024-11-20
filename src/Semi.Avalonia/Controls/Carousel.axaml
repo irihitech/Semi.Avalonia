@@ -1,9 +1,8 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:Semi.Avalonia.Converters"
+    xmlns:converter="clr-namespace:Semi.Avalonia.Converters"
     x:CompileBindings="True">
-    <converters:ItemToObjectConverter x:Key="ItemsConverter" />
     <Design.PreviewWith>
         <StackPanel Spacing="20" Width="800" Height="800">
             <StackPanel.Styles>
@@ -90,26 +89,26 @@
             <ControlTemplate TargetType="ListBoxItem">
                 <Ellipse
                     Name="Container"
-                    Width="{DynamicResource CarouselIndicatorWidth}"
-                    Height="{DynamicResource CarouselIndicatorHeight}"
+                    Width="{DynamicResource CarouselIndicatorDotWidth}"
+                    Height="{DynamicResource CarouselIndicatorDotHeight}"
                     Fill="{TemplateBinding Foreground}" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Ellipse#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPointeroverForeground}" />
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorPointeroverForeground}" />
         </Style>
-        <Style Selector="^:pressed /template/ Ellipse#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPressedForeground}" />
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorPressedForeground}" />
         </Style>
-        <Style Selector="^:selected /template/ Ellipse#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorSelectedForeground}" />
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorSelectedForeground}" />
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="CarouselIndicatorLineListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorForeground}" />
+    <ControlTheme x:Key="CarouselIndicatorLineListBoxItem"
+                  BasedOn="{StaticResource CarouselIndicatorDotListBoxItem}"
+                  TargetType="ListBoxItem">
         <Setter Property="Margin" Value="2 0"/>
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Rectangle
@@ -118,23 +117,14 @@
                     Fill="{TemplateBinding Foreground}" />
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Rectangle#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPointeroverForeground}" />
-        </Style>
-        <Style Selector="^:pressed /template/ Rectangle#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPressedForeground}" />
-        </Style>
-        <Style Selector="^:selected /template/ Rectangle#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorSelectedForeground}" />
-        </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="CarouselIndicatorColumnarListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorForeground}" />
+    <ControlTheme x:Key="CarouselIndicatorColumnarListBoxItem"
+                  BasedOn="{StaticResource CarouselIndicatorDotListBoxItem}"
+                  TargetType="ListBoxItem">
         <Setter Property="Width" Value="{DynamicResource CarouselIndicatorColumnarWidth}"/>
         <Setter Property="Height" Value="{DynamicResource CarouselIndicatorColumnarSelectedHeight}"/>
         <Setter Property="Margin" Value="2 0"/>
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Rectangle
@@ -151,14 +141,7 @@
                 </Rectangle>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Rectangle#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPointeroverForeground}" />
-        </Style>
-        <Style Selector="^:pressed /template/ Rectangle#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorPressedForeground}" />
-        </Style>
         <Style Selector="^:selected /template/ Rectangle#Container">
-            <Setter Property="Fill" Value="{DynamicResource CarouselIndicatorSelectedForeground}" />
             <Setter Property="Height" Value="{DynamicResource CarouselIndicatorColumnarSelectedHeight}" />
         </Style>
     </ControlTheme>
@@ -215,8 +198,9 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         ItemContainerTheme="{DynamicResource CarouselIndicatorDotListBoxItem}"
-                        ItemsSource="{TemplateBinding ItemCount, Mode=OneWay, Converter={StaticResource ItemsConverter}}"
-                        SelectedIndex="{TemplateBinding SelectedIndex, Mode=TwoWay}">
+                        ItemsSource="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemToObjectConverter}}"
+                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
+                        SelectedIndex="{TemplateBinding SelectedIndex}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal" />
@@ -230,6 +214,7 @@
                         Theme="{DynamicResource CarouselButton}"
                         Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource CarouselButtonForeground}"
+                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
                         Command="{Binding $parent[Carousel].Previous}" />
                     <Button
                         Grid.Row="0"
@@ -238,6 +223,7 @@
                         Theme="{DynamicResource CarouselButton}"
                         Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource CarouselButtonForeground}"
+                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
                         Command="{Binding $parent[Carousel].Next}"
                         RenderTransform="rotate(180deg)" />
                 </Grid>
