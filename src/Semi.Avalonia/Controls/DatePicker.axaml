@@ -71,14 +71,12 @@
                                     Name="PART_FirstSpacer"
                                     Grid.Column="1"
                                     Width="1"
-                                    Margin="0,4"
                                     HorizontalAlignment="Center"
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                                 <Rectangle
                                     Name="PART_SecondSpacer"
                                     Grid.Column="3"
                                     Width="1"
-                                    Margin="0,4"
                                     HorizontalAlignment="Center"
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                             </Grid>
@@ -107,7 +105,6 @@
                                     Grid.Column="2"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
-                                    FontSize="16"
                                     Theme="{StaticResource DateTimePickerButton}">
                                     <PathIcon
                                         Width="12"
@@ -222,8 +219,7 @@
                                 <PathIcon
                                     Name="PART_Icon"
                                     Grid.Column="1"
-                                    Width="16"
-                                    Height="16"
+                                    Theme="{DynamicResource InnerPathIcon}"
                                     Margin="0,0,8,0"
                                     Data="{DynamicResource DatePickerIconGlyph}"
                                     Foreground="{DynamicResource DateTimePickerIconForeground}" />
@@ -242,11 +238,11 @@
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
-                            Margin="0,0,8,0"
+                            Theme="{DynamicResource InnerIconButton}"
+                            Margin="0,0,9,0"
                             Command="{Binding $parent[DatePicker].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
-                            IsVisible="False"
-                            Theme="{DynamicResource InnerIconButton}" />
+                            IsVisible="False" />
                     </Grid>
                 </DataValidationErrors>
             </ControlTemplate>

@@ -510,22 +510,26 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
         <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
+        <!--  Background must be transparent or hit test will fail  -->
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
-                <!--  Background must be transparent or hit test will fail  -->
-                <Panel Background="Transparent">
+                <Panel
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}">
                     <PathIcon
-                        Width="16"
-                        Height="16"
+                        Theme="{DynamicResource InnerPathIcon}"
                         Data="{DynamicResource PasswordBoxRevealButtonData}"
-                        IsVisible="{Binding $parent[ToggleButton].IsChecked, Converter={x:Static BoolConverters.Not}}" />
+                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}" />
                     <PathIcon
-                        Width="16"
-                        Height="16"
+                        Theme="{DynamicResource InnerPathIcon}"
                         Data="{DynamicResource PasswordBoxHideButtonData}"
-                        IsVisible="{Binding $parent[ToggleButton].IsChecked}" />
+                        IsVisible="{TemplateBinding IsChecked}" />
                 </Panel>
             </ControlTemplate>
         </Setter>

@@ -80,19 +80,18 @@
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
-                            Margin="{DynamicResource ComboBoxClearButtonMargin}"
+                            Theme="{DynamicResource InnerIconButton}"
+                            Width="{DynamicResource ComboBoxIconWidth}"
                             Command="{Binding $parent[ComboBox].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
                             Focusable="False"
-                            IsVisible="False"
-                            Theme="{DynamicResource InnerIconButton}" />
+                            IsVisible="False" />
 
                         <PathIcon
                             Name="DropDownGlyph"
                             Grid.Column="1"
+                            Theme="{DynamicResource InnerPathIcon}"
                             Width="{DynamicResource ComboBoxIconWidth}"
-                            Height="{DynamicResource ComboBoxIconHeight}"
-                            Margin="{DynamicResource ComboBoxIconMargin}"
                             Data="{DynamicResource ComboBoxIcon}"
                             Foreground="{DynamicResource ComboBoxIconDefaultForeground}"
                             IsHitTestVisible="False"

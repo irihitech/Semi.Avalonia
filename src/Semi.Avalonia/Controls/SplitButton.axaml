@@ -91,7 +91,7 @@
                             Width="{DynamicResource SplitButtonSeparatorWidth}"
                             VerticalAlignment="Stretch"
                             DockPanel.Dock="Left"
-                            Fill="{TemplateBinding BorderBrush}"
+                            Fill="Transparent"
                             StrokeThickness="0" />
                         <Button
                             Name="PART_SecondaryButton"
@@ -103,8 +103,7 @@
                             CornerRadius="0"
                             Theme="{DynamicResource SemiSplitButtonElement}">
                             <PathIcon
-                                Width="12"
-                                Height="12"
+                                Theme="{DynamicResource InnerPathIcon}"
                                 Data="{DynamicResource SplitButtonIconGlyph}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
