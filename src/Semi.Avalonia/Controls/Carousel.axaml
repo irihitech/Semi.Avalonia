@@ -200,7 +200,7 @@
                         ItemContainerTheme="{DynamicResource CarouselIndicatorDotListBoxItem}"
                         ItemsSource="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemToObjectConverter}}"
                         IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
-                        SelectedIndex="{TemplateBinding SelectedIndex}">
+                        SelectedIndex="{TemplateBinding SelectedIndex, Mode=TwoWay}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal" />
