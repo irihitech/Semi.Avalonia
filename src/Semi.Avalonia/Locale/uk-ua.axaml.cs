@@ -2,7 +2,7 @@
 
 namespace Semi.Avalonia.Locale;
 
-public class uk_uk : ResourceDictionary
+public class uk_ua : ResourceDictionary
 {
     
 }
