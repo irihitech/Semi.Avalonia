@@ -20,7 +20,7 @@ public class SemiTheme : Styles
         { new CultureInfo("zh-cn"), new zh_cn() },
         { new CultureInfo("en-us"), new en_us() },
         { new CultureInfo("ja-jp"), new ja_jp() },
-        { new CultureInfo("uk-uk"), new uk_uk() },
+        { new CultureInfo("uk-ua"), new uk_ua() },
         { new CultureInfo("ru-ru"), new ru_ru() },
     };
 
