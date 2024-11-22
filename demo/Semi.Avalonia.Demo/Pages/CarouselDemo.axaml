@@ -8,20 +8,26 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Styles>
-        <Style Selector="Border">
+        <Style Selector="Carousel">
             <Setter Property="Height" Value="200" />
+            <Style Selector="^ TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="#1C1F23" />
+            </Style>
         </Style>
-        <Style Selector="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="#1C1F23" />
+        <Style Selector="RadioButton">
+            <Setter Property="Theme" Value="{DynamicResource ButtonRadioButton}" />
         </Style>
     </UserControl.Styles>
     <StackPanel Spacing="20">
-        <Carousel Theme="{DynamicResource FullCarousel}">
-            <Carousel.PageTransition>
-                <PageSlide Orientation="Horizontal" Duration="0.25" />
-            </Carousel.PageTransition>
+        <Carousel Theme="{DynamicResource FullCarousel}"
+                  Classes.Dot="{Binding #DotButton.IsChecked}"
+                  Classes.Columnar="{Binding #ColumnarButton.IsChecked}"
+                  Classes.Line="{Binding #LineButton.IsChecked}"
+                  Classes.Left="{Binding #LeftButton.IsChecked}"
+                  Classes.Center="{Binding #CenterButton.IsChecked}"
+                  Classes.Right="{Binding #RightButton.IsChecked}">
             <Border Background="#EAF5FF">
                 <TextBlock Text="Text 1" />
             </Border>
@@ -35,39 +41,39 @@
                 <TextBlock Text="Text 4" />
             </Border>
         </Carousel>
-        <Carousel Classes="Line" Theme="{DynamicResource FullCarousel}">
-            <Carousel.PageTransition>
-                <PageSlide Orientation="Horizontal" Duration="0.25" />
-            </Carousel.PageTransition>
-            <Border Background="#EAF5FF">
-                <TextBlock Text="Text 1" />
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBlock VerticalAlignment="Center" Text="Type" />
+            <Border Theme="{DynamicResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton
+                        Name="DotButton"
+                        IsChecked="True"
+                        Content="Dot" />
+                    <RadioButton
+                        Name="ColumnarButton"
+                        Content="Columnar" />
+                    <RadioButton
+                        Name="LineButton"
+                        Content="Line" />
+                </StackPanel>
             </Border>
-            <Border Background="#F9F9F9">
-                <TextBlock Text="Text 2" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBlock VerticalAlignment="Center" Text="Position" />
+            <Border Theme="{DynamicResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton
+                        Name="LeftButton"
+                        IsChecked="True"
+                        Content="Left" />
+                    <RadioButton
+                        Name="CenterButton"
+                        Content="Center" />
+                    <RadioButton
+                        Name="RightButton"
+                        Content="Right" />
+                </StackPanel>
             </Border>
-            <Border Background="#FFF8EA">
-                <TextBlock Text="Text 3" />
-            </Border>
-            <Border Background="#FEF2ED">
-                <TextBlock Text="Text 4" />
-            </Border>
-        </Carousel>
-        <Carousel Classes="Columnar Left" Theme="{DynamicResource FullCarousel}">
-            <Carousel.PageTransition>
-                <PageSlide Orientation="Horizontal" Duration="0.25" />
-            </Carousel.PageTransition>
-            <Border Background="#EAF5FF">
-                <TextBlock Text="Text 1" />
-            </Border>
-            <Border Background="#F9F9F9">
-                <TextBlock Text="Text 2" />
-            </Border>
-            <Border Background="#FFF8EA">
-                <TextBlock Text="Text 3" />
-            </Border>
-            <Border Background="#FEF2ED">
-                <TextBlock Text="Text 4" />
-            </Border>
-        </Carousel>
+        </StackPanel>
     </StackPanel>
 </UserControl>
