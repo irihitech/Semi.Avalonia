@@ -21,27 +21,29 @@
     </UserControl.Resources>
     <Grid RowDefinitions="Auto, *">
         <Border
+            Grid.Row="0"
             Margin="8"
             Padding="12,4"
             Theme="{DynamicResource CardBorder}">
-            <Grid VerticalAlignment="Center" ColumnDefinitions="*, Auto">
-                <StackPanel Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock
+            <Panel>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <ToggleButton
+                        Name="ExpandButton"
+                        Theme="{DynamicResource SplitViewToggleButton}" />
+                    <SelectableTextBlock
                         VerticalAlignment="Center"
                         Classes="H6"
                         Text="Semi Avalonia"
-                        Theme="{DynamicResource TitleTextBlock}" />
-                    <TextBlock
-                        Margin="8,0"
+                        Theme="{DynamicResource TitleSelectableTextBlock}" />
+                    <SelectableTextBlock
                         VerticalAlignment="Center"
                         Text="/" />
-                    <TextBlock
-                        Margin="8,0"
+                    <SelectableTextBlock
                         VerticalAlignment="Center"
                         Classes="Secondary"
                         Text="{ReflectionBinding #tab.SelectedItem.Header}" />
                 </StackPanel>
-                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button
                         Click="OpenDocumentation"
                         Theme="{DynamicResource BorderlessButton}"
@@ -102,7 +104,7 @@
                         </Button.Styles>
                     </Button>
                 </StackPanel>
-            </Grid>
+            </Panel>
         </Border>
         <TabControl
             Name="tab"
@@ -111,6 +113,7 @@
             Padding="20,0,0,0"
             HorizontalAlignment="Stretch"
             TabStripPlacement="Left"
+            Classes.Dismiss="{Binding #ExpandButton.IsChecked}"
             Theme="{DynamicResource NavigationTab}">
             <TabItem Header="Overview">
                 <pages:Overview />

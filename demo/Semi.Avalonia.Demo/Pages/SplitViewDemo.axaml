@@ -112,23 +112,12 @@
                             <ListBox
                                 Grid.Row="1"
                                 ItemsSource="{Binding Songs}" />
-                            <ToggleSwitch
+                            <ToggleButton
                                 Grid.Row="2"
-                                Theme="{DynamicResource ButtonToggleSwitch}"
+                                Theme="{DynamicResource SplitViewToggleButton}"
+                                HorizontalAlignment="Left"
                                 IsChecked="{Binding #SplitView.IsPaneOpen}">
-                                <ToggleSwitch.OnContent>
-                                    <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource NavigationMenuExpandIconGlyph}" />
-                                </ToggleSwitch.OnContent>
-                                <ToggleSwitch.OffContent>
-                                    <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource NavigationMenuExpandIconGlyph}" />
-                                </ToggleSwitch.OffContent>
-                            </ToggleSwitch>
+                            </ToggleButton>
                         </Grid>
                     </SplitView.Pane>
 

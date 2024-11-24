@@ -1,18 +1,26 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme x:Key="SplitViewToggleButton" TargetType="ToggleButton">
-        <Setter Property="ToggleButton.Template">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Content"
+                Value="M5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2ZM6 4C5.44772 4 5 4.44772 5 5V19C5 19.5523 5.44772 20 6 20H9C9.55229 20 10 19.5523 10 19V5C10 4.44772 9.55229 4 9 4H6Z" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <Border
                     Name="Background"
-                    Padding="8"
+                    Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
-                    CornerRadius="3">
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <PathIcon
                         Name="Icon"
-                        Width="16"
-                        Height="16"
-                        Data="M5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2ZM6 4C5.44772 4 5 4.44772 5 5V19C5 19.5523 5.44772 20 6 20H9C9.55229 20 10 19.5523 10 19V5C10 4.44772 9.55229 4 9 4H6Z"
-                        Foreground="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                        Theme="{DynamicResource InnerPathIcon}"
+                        Data="{TemplateBinding Content}"
+                        Foreground="{TemplateBinding Foreground}" />
                 </Border>
             </ControlTemplate>
         </Setter>
