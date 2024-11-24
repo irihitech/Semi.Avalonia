@@ -1,12 +1,11 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class GridSplitter : UserControl
+public partial class GridSplitterDemo : UserControl
 {
-    public GridSplitter()
+    public GridSplitterDemo()
     {
         InitializeComponent();
     }
