@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -17,36 +18,12 @@ public partial class MainView : UserControl
         InitializeComponent();
         this.DataContext = new MainViewModel();
     }
-
-    private void ToggleButton_OnIsCheckedChanged(object sender, RoutedEventArgs e)
-    {
-        var app = Application.Current;
-        if (app is not null)
-        {
-            var theme = app.ActualThemeVariant;
-            app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
-        }
-    }
-
-    private async void OpenRepository(object sender, RoutedEventArgs e)
-    {
-        var top = TopLevel.GetTopLevel(this);
-        if (top is null) return;
-        var launcher = top.Launcher;
-        await launcher.LaunchUriAsync(new Uri("https://github.com/irihitech/Semi.Avalonia"));
-    }
-
-    private async void OpenDocumentation(object sender, RoutedEventArgs e)
-    {
-        var top = TopLevel.GetTopLevel(this);
-        if (top is null) return;
-        var launcher = top.Launcher;
-        await launcher.LaunchUriAsync(new Uri("https://docs.irihi.tech/semi"));
-    }
 }
 
 public partial class MainViewModel : ObservableObject
 {
+    public string DocumentationUrl => "https://docs.irihi.tech/semi";
+    public string RepoUrl => "https://github.com/irihitech/Semi.Avalonia";
     public IReadOnlyList<MenuItemViewModel> MenuItems { get; }
 
     public MainViewModel()
@@ -88,13 +65,42 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public void SelectTheme(object? obj)
+    private void ToggleTheme()
+    {
+        var app = Application.Current;
+        if (app is null) return;
+        var theme = app.ActualThemeVariant;
+        app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
+    }
+
+    [RelayCommand]
+    private void SelectTheme(object? obj)
     {
         var app = Application.Current;
         if (app is not null)
         {
             app.RequestedThemeVariant = obj as ThemeVariant;
         }
+    }
+
+    [RelayCommand]
+    private static async Task OpenUrl(string url)
+    {
+        var launcher = ResolveDefaultTopLevel()?.Launcher;
+        if (launcher is not null)
+        {
+            await launcher.LaunchUriAsync(new Uri(url));
+        }
+    }
+
+    private static TopLevel? ResolveDefaultTopLevel()
+    {
+        return Application.Current?.ApplicationLifetime switch
+        {
+            IClassicDesktopStyleApplicationLifetime desktopLifetime => desktopLifetime.MainWindow,
+            ISingleViewApplicationLifetime singleView => TopLevel.GetTopLevel(singleView.MainView),
+            _ => null
+        };
     }
 }
 
