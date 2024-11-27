@@ -112,12 +112,12 @@
                             <ListBox
                                 Grid.Row="1"
                                 ItemsSource="{Binding Songs}" />
-                            <ToggleButton
+                            <ToggleSwitch
                                 Grid.Row="2"
-                                Theme="{DynamicResource SplitViewToggleButton}"
+                                Theme="{DynamicResource SplitViewToggleSwitch}"
                                 HorizontalAlignment="Left"
                                 IsChecked="{Binding #SplitView.IsPaneOpen}">
-                            </ToggleButton>
+                            </ToggleSwitch>
                         </Grid>
                     </SplitView.Pane>
 
