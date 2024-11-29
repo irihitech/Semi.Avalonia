@@ -68,7 +68,7 @@ dotnet add package Semi.Avalonia.TreeDataGrid
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
-| 11.2.1              | 11.2.1           |
+| 11.2.1              | >=11.2.1         |
 | 11.2.0              | 11.2.0           |
 | 11.1.0              | >=11.1.0         |
 | 11.0.7              | >=11.0.7         |
