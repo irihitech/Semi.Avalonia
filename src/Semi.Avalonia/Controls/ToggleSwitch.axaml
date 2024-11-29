@@ -3,12 +3,34 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <Design.PreviewWith>
-        <StackPanel Margin="20">
-            <ToggleSwitch
-                Content="Content"
-                OffContent="OffContent"
-                OnContent="OnContent" />
-        </StackPanel>
+        <ThemeVariantScope RequestedThemeVariant="Dark">
+            <StackPanel Spacing="8" Background="{DynamicResource SemiBackground0Color}">
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Classes="Small" />
+                    <ToggleSwitch Classes="Small" IsChecked="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch />
+                    <ToggleSwitch IsChecked="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Classes="Large" />
+                    <ToggleSwitch Classes="Large" IsChecked="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Small" />
+                    <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Small" IsChecked="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" />
+                    <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" IsChecked="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Large" />
+                    <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Large" IsChecked="True" />
+                </StackPanel>
+            </StackPanel>
+        </ThemeVariantScope>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -33,8 +55,6 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
                 <Grid
-                    Background="{TemplateBinding Background}"
-                    Cursor="Hand"
                     RowDefinitions="Auto, *"
                     ColumnDefinitions="Auto, *">
                     <ContentPresenter
@@ -54,9 +74,10 @@
                         TemplatedControl.IsTemplateFocusTarget="True"
                         Width="{DynamicResource ToggleSwitchDefaultWidth}"
                         Height="{DynamicResource ToggleSwitchDefaultHeight}"
+                        BackgroundSizing="OuterBorderEdge"
                         BorderBrush="{DynamicResource ToggleSwitchDefaultBorderBrush}"
-                        BorderThickness="1"
-                        CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}">
+                        BorderThickness="{DynamicResource ToggleSwitchDefaultBorderThickness}"
+                        CornerRadius="{DynamicResource ToggleSwitchDefaultCornerRadius}">
                         <Border.Transitions>
                             <Transitions>
                                 <BrushTransition Property="Background" Duration="0:0:0.2" />
@@ -80,7 +101,7 @@
                                 <Arc
                                     Name="SwitchKnobLoadingIndicator"
                                     IsVisible="False"
-                                    StrokeThickness="2"
+                                    StrokeThickness="{DynamicResource ToggleSwitchLoadingIndicatorDefaultStrokeThickness}"
                                     StartAngle="0"
                                     SweepAngle="140"
                                     StrokeJoin="Round"
@@ -157,7 +178,6 @@
             <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
-                <Setter Property="BorderThickness" Value="1" />
             </Style>
         </Style>
 
@@ -201,6 +221,7 @@
             <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchSmallWidth}" />
                 <Setter Property="Height" Value="{DynamicResource ToggleSwitchSmallHeight}" />
+                <Setter Property="CornerRadius" Value="{DynamicResource ToggleSwitchSmallCornerRadius}" />
             </Style>
             <Style Selector="^ /template/ Canvas#PART_SwitchKnob">
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchIndicatorSmallWidth}" />
@@ -219,6 +240,7 @@
             <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchLargeWidth}" />
                 <Setter Property="Height" Value="{DynamicResource ToggleSwitchLargeHeight}" />
+                <Setter Property="CornerRadius" Value="{DynamicResource ToggleSwitchLargeCornerRadius}" />
             </Style>
             <Style Selector="^ /template/ Canvas#PART_SwitchKnob">
                 <Setter Property="Width" Value="{DynamicResource ToggleSwitchIndicatorLargeWidth}" />
@@ -249,9 +271,10 @@
                     Background="{TemplateBinding Background}"
                     Width="{DynamicResource ToggleSwitchDefaultWidth}"
                     Height="{DynamicResource ToggleSwitchDefaultHeight}"
+                    BackgroundSizing="OuterBorderEdge"
                     BorderBrush="{DynamicResource ToggleSwitchDefaultBorderBrush}"
-                    BorderThickness="1"
-                    CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}">
+                    BorderThickness="{DynamicResource ToggleSwitchDefaultBorderThickness}"
+                    CornerRadius="{DynamicResource ToggleSwitchDefaultCornerRadius}">
                     <Border.Transitions>
                         <Transitions>
                             <BrushTransition Property="Background" Duration="0:0:0.2" />
@@ -279,7 +302,7 @@
                                 <Arc
                                     Name="SwitchKnobLoadingIndicator"
                                     IsVisible="False"
-                                    StrokeThickness="2"
+                                    StrokeThickness="{DynamicResource ToggleSwitchLoadingIndicatorDefaultStrokeThickness}"
                                     StartAngle="0"
                                     SweepAngle="140"
                                     StrokeJoin="Round"
