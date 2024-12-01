@@ -4,78 +4,55 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:system="clr-namespace:System;assembly=netstandard"
     d:DesignHeight="800"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
             <TextBox Width="300" />
-            <TextBox Width="300" Classes="Large" />
-            <TextBox Width="300" Classes="Small" />
-            <TextBox Width="300" Watermark="Please use this" />
-            <TextBox Width="300" InnerLeftContent="http://" />
-            <TextBox Width="300" InnerRightContent=".com" />
-            <TextBox
-                Width="500"
-                InnerLeftContent="http://"
-                InnerRightContent=".com" />
-            <TextBox Width="300" Classes="clearButton" Text="click to clear"/>
-            <TextBox Width="300" Classes="revealPasswordButton" PasswordChar="*" Text="123456"/>
+            <TextBox Width="300" InnerLeftContent="https://" InnerRightContent=".com" />
+            <TextBox Width="300" Classes="clearButton" Text="click to clear" />
+            <TextBox Width="300" Classes="revealPasswordButton" Text="123456" />
             <TextBox
                 Width="300"
                 Classes="ClearButton RevealPasswordButton"
+                InnerLeftContent="https://"
+                InnerRightContent=".com"
                 Text="123456" />
-            <TextBox
-                Width="500"
-                InnerLeftContent="http://"
-                InnerRightContent=".com"
-                IsEnabled="False" />
-            <TextBox
-                Width="500"
-                Classes="Bordered"
-                InnerLeftContent="http://"
-                InnerRightContent=".com" />
-            <TextBox
-                Width="500"
-                Classes="Bordered"
-                InnerLeftContent="http://"
-                InnerRightContent=".com"
-                IsEnabled="False" />
             <StackPanel Orientation="Horizontal">
                 <TextBox
-                    Width="150"
+                    Width="100"
                     Classes="Large"
                     Watermark="Large" />
                 <TextBox
-                    Width="150"
+                    Width="100"
                     Watermark="Default" />
                 <TextBox
-                    Width="150"
+                    Width="100"
                     Classes="Small"
                     Watermark="Small" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBox
-                    Width="150"
+                    Width="100"
                     IsEnabled="False"
                     Watermark="Disabled" />
                 <TextBox
-                    Width="150"
+                    Width="100"
                     Classes="Bordered"
                     Watermark="Bordered" />
                 <TextBox
-                    Width="150"
+                    Width="100"
                     Classes="Bordered"
                     IsEnabled="False" />
             </StackPanel>
-            <TextBox Width="300" Classes="TextArea" />
+            <TextBox Width="300" Classes="TextArea" Watermark="TextArea TextBox" />
             <TextBox
                 Width="300"
                 Theme="{StaticResource LooklessTextBox}"
                 Watermark="Lookless TextBox"
-                InnerLeftContent="http://"
+                InnerLeftContent="https://"
                 InnerRightContent=".com" />
         </StackPanel>
     </ScrollViewer>
