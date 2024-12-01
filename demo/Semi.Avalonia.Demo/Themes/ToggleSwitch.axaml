@@ -1,15 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme x:Key="ThemeToggleSwitch" TargetType="ToggleSwitch">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
+    <ControlTheme x:Key="ThemeToggleSwitch"
+                  BasedOn="{StaticResource ButtonToggleSwitch}"
+                  TargetType="ToggleSwitch">
         <Setter Property="Padding" Value="8" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="OnContentTemplate">
             <DataTemplate>
                 <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
@@ -20,48 +13,17 @@
                 <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
             </DataTemplate>
         </Setter>
-        <Setter Property="Template">
-            <ControlTemplate TargetType="ToggleSwitch">
-                <Border
-                    Name="Background"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel>
-                        <Panel Name="PART_SwitchKnob" />
-                        <Panel Name="PART_MovingKnobs" />
-                        <ContentPresenter
-                            Name="PART_OnContentPresenter"
-                            IsVisible="{TemplateBinding IsChecked}"
-                            Content="{TemplateBinding OnContent}"
-                            ContentTemplate="{TemplateBinding OnContentTemplate}" />
-                        <ContentPresenter
-                            Name="PART_OffContentPresenter"
-                            IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}"
-                            Content="{TemplateBinding OffContent}"
-                            ContentTemplate="{TemplateBinding OffContentTemplate}" />
-                    </Panel>
-                </Border>
-            </ControlTemplate>
+        <Setter Property="ContentTemplate">
+            <DataTemplate>
+                <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
+            </DataTemplate>
         </Setter>
-
-        <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
-        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="SplitViewToggleSwitch"
                   BasedOn="{StaticResource ThemeToggleSwitch}"
                   TargetType="ToggleSwitch">
-        <Setter Property="Width" Value="32" />
-        <Setter Property="Height" Value="32" />
-        <Setter Property="OnContent"
+        <Setter Property="Content"
                 Value="M5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2ZM6 4C5.44772 4 5 4.44772 5 5V19C5 19.5523 5.44772 20 6 20H9C9.55229 20 10 19.5523 10 19V5C10 4.44772 9.55229 4 9 4H6Z" />
-        <Setter Property="OffContent" Value="{Binding $self.OnContent}" />
     </ControlTheme>
 </ResourceDictionary>

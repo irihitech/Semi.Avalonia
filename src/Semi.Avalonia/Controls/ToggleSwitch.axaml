@@ -263,6 +263,7 @@
         TargetType="ToggleSwitch">
         <Setter Property="OnContent" Value="{x:Null}" />
         <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Content" Value="{x:Null}" />
         <Setter Property="FontSize" Value="{DynamicResource SimpleToggleSwitchFontSize}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
@@ -370,48 +371,104 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme
-        x:Key="ButtonToggleSwitch"
-        BasedOn="{StaticResource {x:Type ToggleSwitch}}"
-        TargetType="ToggleSwitch">
-        <Setter Property="Padding" Value="8" />
-        <Setter Property="CornerRadius" Value="3" />
+    <ControlTheme x:Key="ButtonToggleSwitch" TargetType="ToggleSwitch">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="FocusAdorner">
-            <FocusAdornerTemplate>
-                <Border Theme="{StaticResource AdornerLayerBorder}" />
-            </FocusAdornerTemplate>
-        </Setter>
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Content" Value="{x:Null}" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
                 <Border
                     Name="Background"
                     Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Cursor="Hand">
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
                         <Panel Name="PART_SwitchKnob" />
                         <Panel Name="PART_MovingKnobs" />
                         <ContentPresenter
                             Name="PART_OnContentPresenter"
-                            Margin="{DynamicResource ToggleSwitchOnContentMargin}"
+                            IsVisible="{TemplateBinding IsChecked}"
                             Content="{TemplateBinding OnContent}"
                             ContentTemplate="{TemplateBinding OnContentTemplate}" />
                         <ContentPresenter
                             Name="PART_OffContentPresenter"
-                            Margin="{DynamicResource ToggleSwitchOnContentMargin}"
+                            IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}"
                             Content="{TemplateBinding OffContent}"
                             ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}">
+                            <ContentPresenter.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <TemplateBinding Property="Content" Converter="{x:Static ObjectConverters.IsNotNull}" />
+                                    <TemplateBinding Property="OnContent" Converter="{x:Static ObjectConverters.IsNull}" />
+                                    <TemplateBinding Property="OffContent" Converter="{x:Static ObjectConverters.IsNull}" />
+                                </MultiBinding>
+                            </ContentPresenter.IsVisible>
+                        </ContentPresenter>
                     </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
+
+        <Style Selector="^:pressed">
+            <Setter Property="RenderTransform" Value="scale(0.98)" />
+        </Style>
+
+        <Style Selector="^ /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="Background" Value="{TemplateBinding Background}" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPointeroverBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
         </Style>
-        <Style Selector="^:pressed">
+
+        <Style Selector="^:pressed /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPressedBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
+            <!-- <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" /> -->
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
+
+        <Style Selector="^ /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
+            <!-- <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" /> -->
         </Style>
     </ControlTheme>
 </ResourceDictionary>
