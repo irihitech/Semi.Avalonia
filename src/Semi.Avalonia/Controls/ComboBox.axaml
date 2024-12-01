@@ -99,7 +99,6 @@
                         <Popup
                             Name="PART_Popup"
                             Grid.Column="0"
-                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"
@@ -110,6 +109,7 @@
                             <Border
                                 Name="PopupBorder"
                                 HorizontalAlignment="Stretch"
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                 Margin="{DynamicResource ComboBoxPopupBorderMargin}"
                                 Padding="{DynamicResource ComboBoxPopupBorderPadding}"
                                 Background="{DynamicResource ComboBoxPopupBackground}"
