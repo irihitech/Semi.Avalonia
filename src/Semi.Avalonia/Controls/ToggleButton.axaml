@@ -98,7 +98,6 @@
         <Style Selector="^:checked">
             <Setter Property="Foreground" Value="{DynamicResource ToggleButtonCheckedForeground}" />
             <Setter Property="Background" Value="{DynamicResource ToggleButtonPrimaryCheckedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryCheckedBorderBrush}" />
             <Style Selector="^.Primary">
                 <Setter Property="Background" Value="{DynamicResource ToggleButtonPrimaryCheckedBackground}" />
             </Style>
@@ -139,12 +138,9 @@
                 </Style>
             </Style>
             <Style Selector="^:pressed">
-                <Setter Property="Foreground" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedForeground}" />
                 <Setter Property="Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedBorderBrush}" />
                 <Style Selector="^.Primary">
                     <Setter Property="Background" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedBackground}" />
-                    <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryCheckedPressedBorderBrush}" />
                 </Style>
                 <Style Selector="^.Secondary">
                     <Setter Property="Background" Value="{DynamicResource ToggleButtonSecondaryCheckedPressedBackground}" />
@@ -260,9 +256,6 @@
 
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource ToggleButtonDefaultDisabledForeground}" />
-            <Style Selector="^:checked">
-                <Setter Property="Foreground" Value="{DynamicResource ToggleButtonCheckedDisabledForeground}" />
-            </Style>
         </Style>
 
         <Style Selector="^.Large">

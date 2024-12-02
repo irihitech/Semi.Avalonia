@@ -32,7 +32,6 @@
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="MaxDropDownHeight" Value="504" />
         <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderBrush}" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Cursor" Value="Hand" />
@@ -115,7 +114,8 @@
                             ClipToBounds="False"
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"
-                            IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                            IsOpen="{TemplateBinding IsDropDownOpen,
+                                                     Mode=TwoWay}"
                             PlacementTarget="Background"
                             WindowManagerAddShadowHint="False">
                             <Border
@@ -194,7 +194,6 @@
         <!--  Disabled State  -->
         <Style Selector="^:disabled">
             <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorDisabledBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorDisabledBorderBrush}" />
             <Style Selector="^ /template/ ContentControl#ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ComboBoxDisabledForeground}" />
             </Style>
@@ -300,12 +299,10 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPointeroverForeground}" />
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:focus /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemFocusForeground}" />
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemFocusBackground}" />
         </Style>
 
@@ -314,12 +311,10 @@
         </Style>
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPressedForeground}" />
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPressedBackground}" />
         </Style>
 
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemSelectedForeground}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ComboBoxItemSelectedBackground}" />
             </Style>

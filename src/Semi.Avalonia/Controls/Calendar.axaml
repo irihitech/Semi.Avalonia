@@ -2,12 +2,14 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <!--  Add Resources Here  -->
+
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="Foreground" Value="{DynamicResource CalendarForeground}" />
         <Setter Property="Background" Value="{DynamicResource CalendarBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CalendarCornerRadius}" />
+        <Setter Property="Calendar.CornerRadius" Value="{DynamicResource CalendarCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
@@ -29,9 +31,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
-        <Setter Property="MinWidth" Value="{DynamicResource CalendarMinWidth}" />
-        <Setter Property="MinHeight" Value="{DynamicResource CalendarMinHeight}" />
-        <Setter Property="DayTitleTemplate">
+        <Setter Property="CalendarItem.MinWidth" Value="{DynamicResource CalendarMinWidth}" />
+        <Setter Property="CalendarItem.MinHeight" Value="{DynamicResource CalendarMinHeight}" />
+        <Setter Property="CalendarItem.DayTitleTemplate">
             <Template>
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -43,7 +45,7 @@
             </Template>
         </Setter>
 
-        <Setter Property="Template">
+        <Setter Property="CalendarItem.Template">
             <ControlTemplate TargetType="CalendarItem">
                 <Border
                     Padding="16"
@@ -144,13 +146,13 @@
         <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarItemCalendarButtonBorderBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CalendarItemCalendarButtonCornerRadius}" />
+        <Setter Property="CalendarButton.CornerRadius" Value="{DynamicResource CalendarItemCalendarButtonCornerRadius}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="CalendarButton.HorizontalContentAlignment" Value="Center" />
+        <Setter Property="CalendarButton.VerticalContentAlignment" Value="Center" />
+        <Setter Property="CalendarButton.HorizontalAlignment" Value="Stretch" />
+        <Setter Property="CalendarButton.VerticalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CalendarButton">
                 <ContentControl

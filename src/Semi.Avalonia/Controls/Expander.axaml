@@ -9,7 +9,7 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="ExpanderHeaderToggleButtonTheme" TargetType="ToggleButton">
-        <Setter Property="Template">
+        <Setter Property="ToggleButton.Template">
             <ControlTemplate TargetType="ToggleButton">
                 <ContentPresenter
                     Padding="{TemplateBinding Padding}"
@@ -19,13 +19,13 @@
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ExpanderSeparatorBorderBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="Template">
+        <Setter Property="Expander.BorderThickness" Value="1" />
+        <Setter Property="Expander.BorderBrush" Value="{DynamicResource ExpanderSeparatorBorderBrush}" />
+        <Setter Property="Expander.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Expander.HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Expander.HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Expander.VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Expander.Template">
             <ControlTemplate TargetType="Expander">
                 <DockPanel>
                     <LayoutTransformControl x:Name="ExpanderHeaderLayoutContainer" Margin="{DynamicResource ExpanderHeaderMargin}">
@@ -37,7 +37,8 @@
                             Background="{DynamicResource ExpanderHeaderDefaultBackground}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                            IsChecked="{TemplateBinding IsExpanded,
+                                                        Mode=TwoWay}"
                             IsEnabled="{TemplateBinding IsEnabled}"
                             TextElement.FontWeight="{DynamicResource ExpanderHeaderFontWeight}"
                             TextElement.Foreground="{DynamicResource ExpanderHeaderForeground}"
@@ -76,7 +77,8 @@
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 Foreground="{DynamicResource ExpanderContentForeground}"
-                                IsVisible="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+                                IsVisible="{TemplateBinding IsExpanded,
+                                                            Mode=TwoWay}" />
                         </Border>
                     </LayoutTransformControl>
                 </DockPanel>

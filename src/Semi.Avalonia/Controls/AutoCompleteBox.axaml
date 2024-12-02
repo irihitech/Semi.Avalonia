@@ -9,9 +9,9 @@
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="MinHeight" Value="{DynamicResource AutoCompleteBoxDefaultHeight}" />
-        <Setter Property="MaxDropDownHeight" Value="{DynamicResource AutoCompleteMaxDropdownHeight}" />
+        <Setter Property="AutoCompleteBox.VerticalAlignment" Value="Center" />
+        <Setter Property="AutoCompleteBox.MinHeight" Value="{DynamicResource AutoCompleteBoxDefaultHeight}" />
+        <Setter Property="AutoCompleteBox.MaxDropDownHeight" Value="{DynamicResource AutoCompleteMaxDropdownHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="AutoCompleteBox">
                 <DataValidationErrors>

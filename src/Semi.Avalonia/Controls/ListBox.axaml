@@ -16,7 +16,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="Template">
+        <Setter Property="ListBox.Template">
             <ControlTemplate TargetType="ListBox">
                 <Border
                     Name="border"
@@ -43,10 +43,10 @@
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
-        <Setter Property="Background" Value="{DynamicResource ListBoxItemDefaultBackground}" />
-        <Setter Property="Padding" Value="{DynamicResource ListBoxItemDefaultPadding}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ListBoxItemCornerRadius}" />
-        <Setter Property="Template">
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemDefaultBackground}" />
+        <Setter Property="ListBoxItem.Padding" Value="{DynamicResource ListBoxItemDefaultPadding}" />
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemCornerRadius}" />
+        <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <ContentPresenter
                     Name="PART_ContentPresenter"
@@ -75,19 +75,16 @@
 
         <!--  Pointerover State  -->
         <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ListBoxItemPointeroverForeground}" />
             <Setter Property="Background" Value="{DynamicResource ListBoxItemPointeroverBackground}" />
         </Style>
 
         <!--  Pressed State  -->
         <Style Selector="^:pressed">
-            <Setter Property="Foreground" Value="{DynamicResource ListBoxItemPressedForeground}" />
             <Setter Property="Background" Value="{DynamicResource ListBoxItemPressedBackground}" />
         </Style>
 
         <!--  Selected State  -->
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" />
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
             <Style Selector="^:pointerover">
                 <Setter Property="Background"
@@ -98,13 +95,13 @@
 
     <!-- RadioGroup -->
     <ControlTheme x:Key="RadioGroupListBox" TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource RadioGroupListBoxItem}" />
-        <Setter Property="ItemsPanel">
+        <Setter Property="ListBox.ItemContainerTheme" Value="{DynamicResource RadioGroupListBoxItem}" />
+        <Setter Property="ListBox.ItemsPanel">
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal" />
             </ItemsPanelTemplate>
         </Setter>
-        <Setter Property="Template">
+        <Setter Property="ListBox.Template">
             <ControlTemplate TargetType="ListBox">
                 <Border
                     Background="{TemplateBinding Background}"
@@ -120,17 +117,17 @@
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="RadioGroupListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupBoxCornerRadius}" />
-        <Setter Property="Foreground" Value="{DynamicResource ListBoxItemRadioGroupForeground}" />
-        <Setter Property="Background" Value="{DynamicResource ListBoxItemRadioGroupDefaultBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ListBoxItemRadioGroupDefaultBorderBrush}" />
-        <Setter Property="Template">
+        <Setter Property="ListBoxItem.HorizontalAlignment" Value="Left" />
+        <Setter Property="ListBoxItem.VerticalAlignment" Value="Top" />
+        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
+        <Setter Property="ListBoxItem.HorizontalContentAlignment" Value="Left" />
+        <Setter Property="ListBoxItem.VerticalContentAlignment" Value="Center" />
+        <Setter Property="ListBoxItem.FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupBoxCornerRadius}" />
+        <Setter Property="ListBoxItem.Foreground" Value="{DynamicResource ListBoxItemRadioGroupForeground}" />
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemRadioGroupDefaultBackground}" />
+        <Setter Property="ListBoxItem.BorderBrush" Value="{DynamicResource ListBoxItemRadioGroupDefaultBorderBrush}" />
+        <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Border
                     Name="RootBorder"
@@ -283,18 +280,19 @@
     <ControlTheme x:Key="ButtonRadioGroupListBox"
                   BasedOn="{StaticResource RadioGroupListBox}"
                   TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource ButtonRadioGroupListBoxItem}" />
+        <Setter Property="ListBox.ItemContainerTheme" Value="{DynamicResource ButtonRadioGroupListBoxItem}" />
     </ControlTheme>
     <ControlTheme x:Key="ButtonRadioGroupListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupButtonCornerRadius}" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Margin" Value="2" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="FontWeight" Value="{DynamicResource ListBoxItemRadioGroupButtonFontWeight}" />
-        <Setter Property="FontSize" Value="{DynamicResource ListBoxItemRadioGroupButtonDefaultFontSize}" />
-        <Setter Property="Padding" Value="{DynamicResource ListBoxItemRadioGroupButtonDefaultPadding}" />
-        <Setter Property="Foreground" Value="{DynamicResource ListBoxItemRadioGroupButtonUncheckedForeground}" />
-        <Setter Property="Template">
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupButtonCornerRadius}" />
+        <Setter Property="ListBoxItem.VerticalContentAlignment" Value="Center" />
+        <Setter Property="ListBoxItem.Margin" Value="2" />
+        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
+        <Setter Property="ListBoxItem.FontWeight" Value="{DynamicResource ListBoxItemRadioGroupButtonFontWeight}" />
+        <Setter Property="ListBoxItem.FontSize" Value="{DynamicResource ListBoxItemRadioGroupButtonDefaultFontSize}" />
+        <Setter Property="ListBoxItem.Padding" Value="{DynamicResource ListBoxItemRadioGroupButtonDefaultPadding}" />
+        <Setter Property="ListBoxItem.Foreground"
+                Value="{DynamicResource ListBoxItemRadioGroupButtonUncheckedForeground}" />
+        <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
@@ -347,19 +345,19 @@
     <ControlTheme x:Key="CardRadioGroupListBox"
                   BasedOn="{StaticResource RadioGroupListBox}"
                   TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource CardRadioGroupListBoxItem}" />
+        <Setter Property="ListBox.ItemContainerTheme" Value="{DynamicResource CardRadioGroupListBoxItem}" />
     </ControlTheme>
     <ControlTheme x:Key="CardRadioGroupListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="Padding" Value="{DynamicResource ListBoxItemRadioGroupCardPadding}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupCardCornerRadius}" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Background" Value="{DynamicResource ListBoxItemRadioGroupCardDefaultBackground}" />
-        <Setter Property="FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
+        <Setter Property="ListBoxItem.Padding" Value="{DynamicResource ListBoxItemRadioGroupCardPadding}" />
+        <Setter Property="ListBoxItem.BorderThickness" Value="1" />
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupCardCornerRadius}" />
+        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
+        <Setter Property="ListBoxItem.HorizontalAlignment" Value="Left" />
+        <Setter Property="ListBoxItem.VerticalAlignment" Value="Center" />
+        <Setter Property="ListBoxItem.HorizontalContentAlignment" Value="Left" />
+        <Setter Property="ListBoxItem.VerticalContentAlignment" Value="Center" />
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemRadioGroupCardDefaultBackground}" />
+        <Setter Property="ListBoxItem.FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Border
@@ -533,17 +531,17 @@
     <ControlTheme x:Key="PureCardRadioGroupListBox"
                   BasedOn="{StaticResource RadioGroupListBox}"
                   TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource PureCardRadioGroupListBoxItem}" />
+        <Setter Property="ListBox.ItemContainerTheme" Value="{DynamicResource PureCardRadioGroupListBoxItem}" />
     </ControlTheme>
     <ControlTheme x:Key="PureCardRadioGroupListBoxItem" TargetType="ListBoxItem">
-        <Setter Property="CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupCardCornerRadius}" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
-        <Setter Property="Padding" Value="{DynamicResource ListBoxItemRadioGroupCardPadding}" />
-        <Setter Property="Background" Value="{DynamicResource ListBoxItemRadioGroupCardDefaultBackground}" />
-        <Setter Property="Template">
+        <Setter Property="ListBoxItem.CornerRadius" Value="{DynamicResource ListBoxItemRadioGroupCardCornerRadius}" />
+        <Setter Property="ListBoxItem.Cursor" Value="Hand" />
+        <Setter Property="ListBoxItem.VerticalContentAlignment" Value="Center" />
+        <Setter Property="ListBoxItem.BorderThickness" Value="1" />
+        <Setter Property="ListBoxItem.FontSize" Value="{DynamicResource ListBoxItemRadioGroupFontSize}" />
+        <Setter Property="ListBoxItem.Padding" Value="{DynamicResource ListBoxItemRadioGroupCardPadding}" />
+        <Setter Property="ListBoxItem.Background" Value="{DynamicResource ListBoxItemRadioGroupCardDefaultBackground}" />
+        <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <ContentPresenter
                     x:Name="PART_ContentPresenter"
@@ -605,7 +603,7 @@
     <ControlTheme x:Key="CheckGroupListBox"
                   BasedOn="{StaticResource RadioGroupListBox}"
                   TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource CheckGroupListBoxItem}" />
+        <Setter Property="ListBox.ItemContainerTheme" Value="{DynamicResource CheckGroupListBoxItem}" />
     </ControlTheme>
     <ControlTheme x:Key="CheckGroupListBoxItem" TargetType="ListBoxItem">
         <Setter Property="Padding" Value="8,0,0,0" />
@@ -786,7 +784,7 @@
     <ControlTheme x:Key="CardCheckGroupListBox"
                   BasedOn="{StaticResource RadioGroupListBox}"
                   TargetType="ListBox">
-        <Setter Property="ItemContainerTheme" Value="{DynamicResource CardCheckGroupListBoxItem}" />
+        <Setter Property="ListBox.ItemContainerTheme" Value="{DynamicResource CardCheckGroupListBoxItem}" />
     </ControlTheme>
     <ControlTheme x:Key="CardCheckGroupListBoxItem" TargetType="ListBoxItem">
         <Setter Property="Cursor" Value="Hand" />
@@ -795,7 +793,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ListBoxItemCheckCardBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ListBoxItemCheckCardCornerRadius}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Template">
+        <Setter Property="ListBoxItem.Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Border
                     Name="RootBorder"
