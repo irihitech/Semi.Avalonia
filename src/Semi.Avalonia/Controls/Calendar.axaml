@@ -2,14 +2,12 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
-    <!--  Add Resources Here  -->
-
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="Foreground" Value="{DynamicResource CalendarForeground}" />
         <Setter Property="Background" Value="{DynamicResource CalendarBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarBorderThickness}" />
-        <Setter Property="Calendar.CornerRadius" Value="{DynamicResource CalendarCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CalendarCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
@@ -31,9 +29,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
-        <Setter Property="CalendarItem.MinWidth" Value="{DynamicResource CalendarMinWidth}" />
-        <Setter Property="CalendarItem.MinHeight" Value="{DynamicResource CalendarMinHeight}" />
-        <Setter Property="CalendarItem.DayTitleTemplate">
+        <Setter Property="MinWidth" Value="{DynamicResource CalendarMinWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource CalendarMinHeight}" />
+        <Setter Property="DayTitleTemplate">
             <Template>
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -45,7 +43,7 @@
             </Template>
         </Setter>
 
-        <Setter Property="CalendarItem.Template">
+        <Setter Property="Template">
             <ControlTemplate TargetType="CalendarItem">
                 <Border
                     Padding="16"
@@ -97,7 +95,8 @@
                             Name="PART_MonthView"
                             Grid.Row="1"
                             HorizontalAlignment="Stretch"
-                            IsVisible="False">
+                            IsVisible="False"
+                            ColumnDefinitions="*,*,*,*,*,*,*">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="{DynamicResource CalendarItemWeekDayNameHeight}" />
                                 <RowDefinition Height="*" />
@@ -107,33 +106,14 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
                         </Grid>
                         <Grid
                             Name="PART_YearView"
                             Grid.Row="1"
                             Background="{TemplateBinding Background}"
-                            IsVisible="False">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
+                            IsVisible="False"
+                            ColumnDefinitions="*,*,*,*"
+                            RowDefinitions="*,*,*" />
                     </Grid>
                 </Border>
             </ControlTemplate>
@@ -146,13 +126,14 @@
         <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarItemCalendarButtonBorderBrush}" />
-        <Setter Property="CalendarButton.CornerRadius" Value="{DynamicResource CalendarItemCalendarButtonCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CalendarItemCalendarButtonCornerRadius}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="CalendarButton.HorizontalContentAlignment" Value="Center" />
-        <Setter Property="CalendarButton.VerticalContentAlignment" Value="Center" />
-        <Setter Property="CalendarButton.HorizontalAlignment" Value="Stretch" />
-        <Setter Property="CalendarButton.VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CalendarButton">
                 <ContentControl
@@ -213,6 +194,7 @@
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CalendarDayButton">
                 <ContentControl

@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <Design.PreviewWith>
-        <StackPanel Margin="20" Width="300" Height="400">
-            <CalendarDatePicker Classes="ClearButton" />
+        <StackPanel Margin="20" Width="800" Height="400">
+            <CalendarDatePicker HorizontalAlignment="Center" Classes="ClearButton" />
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
@@ -96,25 +96,22 @@
                             <Popup
                                 Name="PART_Popup"
                                 Grid.Column="0"
-                                HorizontalOffset="-8"
                                 IsLightDismissEnabled="True"
-                                PlacementTarget="{TemplateBinding}"
-                                VerticalOffset="-4">
+                                Placement="BottomEdgeAlignedLeft"
+                                PlacementTarget="{TemplateBinding}">
                                 <Border
-                                    Margin="8"
-                                    Background="Transparent"
+                                    Margin="4"
                                     BoxShadow="{DynamicResource CalendarDatePickerPopupBoxShadows}"
                                     CornerRadius="{DynamicResource CalendarCornerRadius}">
                                     <Calendar
                                         Name="PART_Calendar"
-                                        CornerRadius="{Binding $parent[Border].CornerRadius}"
+                                        BorderThickness="0"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
                                         DisplayDateStart="{TemplateBinding DisplayDateStart}"
                                         FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                         IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                        SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}">
-                                    </Calendar>
+                                        SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay}" />
                                 </Border>
                             </Popup>
                         </Grid>
