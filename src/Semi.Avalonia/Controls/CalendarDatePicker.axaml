@@ -101,11 +101,11 @@
                                 PlacementTarget="{TemplateBinding}">
                                 <Border
                                     Margin="4"
-                                    BorderThickness="0"
                                     BoxShadow="{DynamicResource CalendarDatePickerPopupBoxShadows}"
                                     CornerRadius="{DynamicResource CalendarCornerRadius}">
                                     <Calendar
                                         Name="PART_Calendar"
+                                        BorderThickness="0"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
                                         DisplayDateStart="{TemplateBinding DisplayDateStart}"
