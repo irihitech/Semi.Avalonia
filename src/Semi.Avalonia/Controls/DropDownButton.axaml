@@ -2,6 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type DropDownButton}" TargetType="DropDownButton">
         <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
@@ -22,16 +23,16 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="DropDownButton">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     BackgroundSizing="{TemplateBinding BackgroundSizing}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid x:Name="InnerGrid" ColumnDefinitions="*,Auto">
+                    <Grid Name="InnerGrid" ColumnDefinitions="*,Auto">
                         <ContentPresenter
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             Grid.Column="0"
                             Padding="{TemplateBinding Padding}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -41,10 +42,9 @@
                             Foreground="{TemplateBinding Foreground}"
                             RecognizesAccessKey="True" />
                         <PathIcon
-                            x:Name="DropDownGlyph"
+                            Name="DropDownGlyph"
                             Grid.Column="1"
-                            Width="12"
-                            Height="12"
+                            Theme="{DynamicResource InnerPathIcon}"
                             Margin="0,0,8,0"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
@@ -125,6 +125,12 @@
         x:Key="SolidDropDownButton"
         BasedOn="{StaticResource {x:Type DropDownButton}}"
         TargetType="DropDownButton">
+        <Setter Property="FocusAdorner">
+            <FocusAdornerTemplate>
+                <Border Theme="{DynamicResource AdornerLayerBorder}"
+                        Classes="Solid" />
+            </FocusAdornerTemplate>
+        </Setter>
         <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
         <Style Selector="^ /template/ Border#RootBorder">
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
@@ -229,11 +235,11 @@
             </Style>
         </Style>
         <Style Selector="^:disabled /template/ Border#RootBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidDisabledBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
         </Style>
         <Style Selector="^:disabled">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonSolidDisabledForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
 

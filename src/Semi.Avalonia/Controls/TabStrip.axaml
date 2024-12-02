@@ -2,6 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip">
         <Setter Property="Template">
             <ControlTemplate>
@@ -31,13 +32,13 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
-        <Setter Property="TabStripItem.Background" Value="{DynamicResource TabItemLinePipeBackground}" />
-        <Setter Property="TabStripItem.Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
-        <Setter Property="TabStripItem.Margin" Value="0" />
-        <Setter Property="TabStripItem.Padding" Value="8 4" />
-        <Setter Property="TabStripItem.MinHeight" Value="5" />
-        <Setter Property="TabStripItem.VerticalContentAlignment" Value="Center" />
-        <Setter Property="TabStripItem.Template">
+        <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="8 4" />
+        <Setter Property="MinHeight" Value="5" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="TabStripItem">
                 <Border
                     Name="PART_LayoutRoot"

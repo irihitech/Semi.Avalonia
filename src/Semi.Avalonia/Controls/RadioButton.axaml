@@ -27,7 +27,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -38,7 +38,7 @@
                             TemplatedControl.IsTemplateFocusTarget="True"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <Ellipse
-                                x:Name="OuterEllipse"
+                                Name="OuterEllipse"
                                 Width="{DynamicResource RadioButtonIconRadius}"
                                 Height="{DynamicResource RadioButtonIconRadius}"
                                 Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
@@ -47,7 +47,7 @@
                                 UseLayoutRounding="False" />
 
                             <Ellipse
-                                x:Name="CheckGlyph"
+                                Name="CheckGlyph"
                                 Width="{DynamicResource RadioButtonGlyphRadius}"
                                 Height="{DynamicResource RadioButtonGlyphRadius}"
                                 Fill="{DynamicResource RadioButtonCheckGlyphFill}"
@@ -55,7 +55,7 @@
                                 UseLayoutRounding="False" />
                         </Panel>
                         <ContentPresenter
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             Grid.Column="1"
                             Margin="{DynamicResource RadioButtonContentMargin}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -166,7 +166,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Margin="{TemplateBinding Margin}"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -221,7 +221,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <Border
-                    x:Name="RootBorder"
+                    Name="RootBorder"
                     Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -236,7 +236,7 @@
                             VerticalAlignment="Top"
                             Margin="{DynamicResource RadioButtonIconMargin}">
                             <Ellipse
-                                x:Name="OuterEllipse"
+                                Name="OuterEllipse"
                                 Width="{DynamicResource RadioButtonIconRadius}"
                                 Height="{DynamicResource RadioButtonIconRadius}"
                                 Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
@@ -245,7 +245,7 @@
                                 UseLayoutRounding="False" />
 
                             <Ellipse
-                                x:Name="CheckGlyph"
+                                Name="CheckGlyph"
                                 Width="{DynamicResource RadioButtonGlyphRadius}"
                                 Height="{DynamicResource RadioButtonGlyphRadius}"
                                 Fill="{DynamicResource RadioButtonCheckGlyphFill}"
@@ -254,7 +254,7 @@
                         </Panel>
 
                         <ContentPresenter
-                            x:Name="PART_ContentPresenter"
+                            Name="PART_ContentPresenter"
                             Grid.Column="1"
                             Margin="{DynamicResource RadioButtonContentMargin}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -372,7 +372,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="RadioButton">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"

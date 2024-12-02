@@ -2,6 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <!--  Add Resources Here  -->
     <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
@@ -32,10 +33,10 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
+        <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter > WrapPanel">
             <Setter Property="Orientation" Value="Vertical" />
         </Style>
-        <Style Selector="^[TabStripPlacement=Right] /template/ ItemsPresenter#PART_ItemsPresenter &gt; WrapPanel">
+        <Style Selector="^[TabStripPlacement=Right] /template/ ItemsPresenter#PART_ItemsPresenter > WrapPanel">
             <Setter Property="Orientation" Value="Vertical" />
         </Style>
         <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">

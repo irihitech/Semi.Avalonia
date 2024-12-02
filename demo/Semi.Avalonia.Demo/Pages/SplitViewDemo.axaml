@@ -114,20 +114,9 @@
                                 ItemsSource="{Binding Songs}" />
                             <ToggleSwitch
                                 Grid.Row="2"
-                                Theme="{DynamicResource ButtonToggleSwitch}"
+                                Theme="{DynamicResource SplitViewToggleSwitch}"
+                                HorizontalAlignment="Left"
                                 IsChecked="{Binding #SplitView.IsPaneOpen}">
-                                <ToggleSwitch.OnContent>
-                                    <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource NavigationMenuExpandIconGlyph}" />
-                                </ToggleSwitch.OnContent>
-                                <ToggleSwitch.OffContent>
-                                    <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource NavigationMenuExpandIconGlyph}" />
-                                </ToggleSwitch.OffContent>
                             </ToggleSwitch>
                         </Grid>
                     </SplitView.Pane>

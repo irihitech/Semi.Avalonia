@@ -10,83 +10,77 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ScrollViewer">
-                <Border 
-                    ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel>
-                        <DockPanel.Styles>
-                            <Style Selector="RepeatButton:pressed">
-                                <Setter Property="RenderTransform" Value="{x:Null}" />
-                            </Style>
-                        </DockPanel.Styles>
-                        <RepeatButton
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
-                            CornerRadius="0"
-                            DockPanel.Dock="Top"
-                            RenderTransform="{x:Null}">
-                            <RepeatButton.IsVisible>
-                                <MultiBinding
-                                    Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
-                                    ConverterParameter="0">
-                                    <Binding Path="VerticalScrollBarVisibility"
-                                             RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </RepeatButton.IsVisible>
-                            <PathIcon
-                                Width="8"
-                                Height="8"
-                                Data="{DynamicResource MenuScrollViewerUpButtonGlyph}"
-                                Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
-                        </RepeatButton>
-                        <RepeatButton
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
-                            CornerRadius="0"
-                            DockPanel.Dock="Bottom"
-                            RenderTransform="{x:Null}">
-                            <RepeatButton.IsVisible>
-                                <MultiBinding
-                                    Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
-                                    ConverterParameter="100">
-                                    <Binding Path="VerticalScrollBarVisibility"
-                                             RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </RepeatButton.IsVisible>
-                            <PathIcon
-                                Width="8"
-                                Height="8"
-                                Data="{DynamicResource MenuScrollViewerDownButtonGlyph}"
-                                Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
-                        </RepeatButton>
-                        <ScrollContentPresenter
-                            Name="PART_ContentPresenter"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
-                            HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
-                            VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
-                            VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
-                            <ScrollContentPresenter.GestureRecognizers>
-                                <ScrollGestureRecognizer
-                                    CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                                    CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
-                                    IsScrollInertiaEnabled="{Binding IsScrollInertiaEnabled, RelativeSource={RelativeSource TemplatedParent}}" />
-                            </ScrollContentPresenter.GestureRecognizers>
-                        </ScrollContentPresenter>
-                    </DockPanel>
-                </Border>
+                <DockPanel>
+                    <DockPanel.Styles>
+                        <Style Selector="RepeatButton:pressed">
+                            <Setter Property="RenderTransform" Value="{x:Null}" />
+                        </Style>
+                    </DockPanel.Styles>
+                    <RepeatButton
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
+                        CornerRadius="0"
+                        DockPanel.Dock="Top"
+                        RenderTransform="{x:Null}">
+                        <RepeatButton.IsVisible>
+                            <MultiBinding
+                                Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
+                                ConverterParameter="0">
+                                <Binding Path="VerticalScrollBarVisibility"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </RepeatButton.IsVisible>
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Data="{DynamicResource MenuScrollViewerUpButtonGlyph}"
+                            Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
+                    </RepeatButton>
+                    <RepeatButton
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
+                        CornerRadius="0"
+                        DockPanel.Dock="Bottom"
+                        RenderTransform="{x:Null}">
+                        <RepeatButton.IsVisible>
+                            <MultiBinding
+                                Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
+                                ConverterParameter="100">
+                                <Binding Path="VerticalScrollBarVisibility"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </RepeatButton.IsVisible>
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Data="{DynamicResource MenuScrollViewerDownButtonGlyph}"
+                            Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
+                    </RepeatButton>
+                    <ScrollContentPresenter
+                        Name="PART_ContentPresenter"
+                        Margin="{TemplateBinding Padding}"
+                        HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                        HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                        VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                        VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
+                        <ScrollContentPresenter.GestureRecognizers>
+                            <ScrollGestureRecognizer
+                                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                IsScrollInertiaEnabled="{Binding IsScrollInertiaEnabled, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </ScrollContentPresenter.GestureRecognizers>
+                    </ScrollContentPresenter>
+                </DockPanel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -115,7 +109,6 @@
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MenuItemCornerRadius}" />
         <Setter Property="Cursor" Value="Hand" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
         <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
@@ -173,7 +166,7 @@
                                 ContentTemplate="{TemplateBinding HeaderTemplate}"
                                 RecognizesAccessKey="True" />
                             <TextBlock
-                                x:Name="PART_InputGestureText"
+                                Name="PART_InputGestureText"
                                 Grid.Column="3"
                                 Margin="{DynamicResource MenuItemInputGestureTextMargin}"
                                 HorizontalAlignment="Right"
@@ -184,8 +177,7 @@
                             <PathIcon
                                 Name="PART_ExpandIcon"
                                 Grid.Column="4"
-                                Width="8"
-                                Height="8"
+                                Theme="{DynamicResource InnerPathIcon}"
                                 Margin="{DynamicResource MenuItemExpandIconMargin}"
                                 VerticalAlignment="Center"
                                 Data="{DynamicResource MenuItemExpandIconGlyph}"
@@ -234,15 +226,6 @@
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
                 <Setter Property="Background" Value="{DynamicResource MenuItemPointeroverBackground}" />
             </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
-            </Style>
-            <Style Selector="^ /template/ TextBlock#PART_InputGestureText">
-                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
-            </Style>
-            <Style Selector="^ /template/ PathIcon#PART_ExpandIcon">
-                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
-            </Style>
         </Style>
 
         <!--  Listen for PART_LayoutRoot:pointerover, so it will not be triggered when subitem is pressed  -->
@@ -283,6 +266,7 @@
             <Setter Property="Content">
                 <Template>
                     <PathIcon
+                        Theme="{DynamicResource InnerPathIcon}"
                         Foreground="{Binding $parent[MenuItem].Foreground}"
                         Data="{StaticResource MenuCheckGlyph}" />
                 </Template>
@@ -364,9 +348,6 @@
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
                 <Setter Property="Background" Value="{DynamicResource MenuItemPointeroverBackground}" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource MenuItemPointeroverForeground}" />
             </Style>
         </Style>
 

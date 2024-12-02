@@ -4,14 +4,14 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
-        <PackageReleaseNotes>Update to Avalonia 11.1-rc1</PackageReleaseNotes>
+        <Version>11.0.10.1</Version>
+        <PackageReleaseNotes>Update to 11.0.10.1</PackageReleaseNotes>
         <Authors>IRIHI Technology Co., Ltd.</Authors>
         <Description>Avalonia Theme inspired by Semi Design.</Description>
         <RepositoryUrl>https://github.com/irihitech/Semi.Avalonia</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>irihi.png</PackageIcon>
         <PackageProjectUrl>https://github.com/irihitech/Semi.Avalonia</PackageProjectUrl>
-        <AvaloniaVersion>11.0.0</AvaloniaVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.0.10"/>
         <None Include="irihi.png" Pack="true" PackagePath=""/>
     </ItemGroup>
 

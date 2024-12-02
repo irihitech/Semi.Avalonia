@@ -10,16 +10,12 @@ namespace Semi.Avalonia;
 
 public class SemiTheme : Styles
 {
-    public static ThemeVariant Aquatic => new ThemeVariant(nameof(Aquatic), ThemeVariant.Dark);
-    public static ThemeVariant Desert => new ThemeVariant(nameof(Desert), ThemeVariant.Light);
-    public static ThemeVariant Dust => new ThemeVariant(nameof(Dust), ThemeVariant.Dark);
-    public static ThemeVariant NightSky => new ThemeVariant(nameof(NightSky), ThemeVariant.Dark);
-    
     private static readonly Dictionary<CultureInfo, ResourceDictionary> _localeToResource = new()
     {
         { new CultureInfo("zh-cn"), new zh_cn() },
         { new CultureInfo("en-us"), new en_us() },
         { new CultureInfo("ja-jp"), new ja_jp() },
+        { new CultureInfo("uk-ua"), new uk_ua() },
         { new CultureInfo("ru-ru"), new ru_ru() },
     };
 

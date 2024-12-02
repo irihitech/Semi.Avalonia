@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="DateTimePickerListItemBackground" Color="Transparent" />
     <SolidColorBrush x:Key="DateTimePickerPopupBackground" Color="#43444A" />
-    <SolidColorBrush x:Key="DateTimePickerPopupBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonForeground" Opacity="0.6" Color="#F9F9F9" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverForeground" Color="#F9F9F9" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedForeground" Color="#F9F9F9" />
@@ -21,10 +20,9 @@
     <SolidColorBrush x:Key="DateTimePickerEmptyForeground" Opacity="0.5" Color="#F9F9F9" />
 
     <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBackground" Opacity="0.16" Color="White" />
-    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBackground" Opacity="0.04" Color="#E6E8EA" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledIconForeground" Opacity="0.4" Color="#E6E8EA" />
 
-    <BoxShadows x:Key="DateTimePickerFlyoutBoxShadow">0 0 8 0 #1AFFFFFF</BoxShadows>
+    <BoxShadows x:Key="DateTimePickerFlyoutBoxShadow">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
 </ResourceDictionary>

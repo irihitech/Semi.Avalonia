@@ -2,6 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <!--  Add Resources Here  -->
     <ControlTheme x:Key="SliderHorizontalRepeatButton" TargetType="RepeatButton">
         <Setter Property="Template">
             <ControlTemplate TargetType="RepeatButton">
@@ -43,11 +44,11 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SliderThumbTheme" TargetType="Thumb">
-        <Setter Property="Thumb.CornerRadius" Value="{DynamicResource SliderThumbCornerRadius}" />
-        <Setter Property="Thumb.Cursor" Value="Hand" />
-        <Setter Property="Thumb.Background" Value="{DynamicResource SliderThumbBackground}" />
-        <Setter Property="Thumb.BorderBrush" Value="{DynamicResource SliderThumbBorderBrush}" />
-        <Setter Property="Thumb.BorderThickness" Value="{DynamicResource SliderThumbBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SliderThumbCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{DynamicResource SliderThumbBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SliderThumbBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource SliderThumbBorderThickness}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Thumb">
                 <Border
@@ -76,7 +77,7 @@
                 <ControlTemplate TargetType="Slider">
                     <DataValidationErrors>
                         <Grid
-                            x:Name="SliderContainer"
+                            Name="SliderContainer"
                             Margin="{TemplateBinding Padding}"
                             Background="Transparent"
                             RowDefinitions="Auto,Auto,Auto">
@@ -153,7 +154,7 @@
                 <ControlTemplate>
                     <DataValidationErrors>
                         <Grid
-                            x:Name="SliderContainer"
+                            Name="SliderContainer"
                             Margin="{TemplateBinding Padding}"
                             Background="{DynamicResource SliderContainerBackground}"
                             ColumnDefinitions="Auto,Auto,Auto">

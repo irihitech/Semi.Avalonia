@@ -34,7 +34,7 @@
                         Background="{TemplateBinding Background}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Border
-                            x:Name="PART_RootBorder"
+                            Name="PART_RootBorder"
                             Padding="{DynamicResource NotificationCardPadding}"
                             BoxShadow="{DynamicResource NotificationCardBoxShadows}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -43,6 +43,7 @@
                             <DockPanel MinWidth="{DynamicResource NotificationCardMinWidth}">
                                 <PathIcon
                                     Name="NotificationIcon"
+                                    Theme="{DynamicResource InnerPathIcon}"
                                     Width="{DynamicResource NotificationCardIconWidth}"
                                     Height="{DynamicResource NotificationCardIconHeight}"
                                     Margin="{DynamicResource NotificationCardIconMargin}"

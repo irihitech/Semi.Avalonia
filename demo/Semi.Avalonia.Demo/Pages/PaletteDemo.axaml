@@ -17,10 +17,11 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="../Themes/ToggleButton.axaml" />
+                <ResourceInclude Source="../Themes/ToggleSwitch.axaml" />
                 <ResourceInclude Source="../Controls/ColorItemControl.axaml" />
                 <ResourceInclude Source="../Controls/ColorDetailControl.axaml" />
                 <ResourceInclude Source="../Controls/FunctionalColorGroupControl.axaml" />
+                <ResourceInclude Source="../Controls/ShadowGroupControl.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -33,11 +34,11 @@
         PanePlacement="Right">
         <SplitView.Pane>
             <StackPanel>
-                <ToggleButton
+                <ToggleSwitch
                     Name="toggle"
                     HorizontalAlignment="Right"
                     IsChecked="True"
-                    Theme="{DynamicResource SplitViewToggleButton}" />
+                    Theme="{DynamicResource SplitViewToggleSwitch}" />
                 <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
                     <Panel>
                         <TextBlock
@@ -115,7 +116,6 @@
                     <ItemsControl ItemsSource="{Binding FunctionalColors}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <!--    -->
                                 <controls:FunctionalColorGroupControl
                                     Title="{Binding Title}"
                                     DarkColors="{Binding DarkColors}"
@@ -123,6 +123,18 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+
+                    <ItemsControl ItemsSource="{Binding Shadows}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <controls:ShadowGroupControl
+                                    Title="{Binding Title}"
+                                    DarkShadows="{Binding DarkShadows}"
+                                    LightShadows="{Binding LightShadows}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                 </StackPanel>
             </ScrollViewer>
         </SplitView.Content>

@@ -65,8 +65,8 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 Theme="{DynamicResource BorderlessButton}">
                                 <PathIcon
-                                    Width="12"
-                                    Height="12"
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Classes="Large"
                                     Data="{DynamicResource CalendarItemPreviousIconGlyph}"
                                     Foreground="{DynamicResource CalendarItemIconForeground}" />
                             </Button>
@@ -85,8 +85,8 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 Theme="{DynamicResource BorderlessButton}">
                                 <PathIcon
-                                    Width="12"
-                                    Height="12"
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Classes="Large"
                                     Data="{DynamicResource CalendarItemNextIconGlyph}"
                                     Foreground="{DynamicResource CalendarItemIconForeground}" />
                             </Button>
@@ -95,7 +95,8 @@
                             Name="PART_MonthView"
                             Grid.Row="1"
                             HorizontalAlignment="Stretch"
-                            IsVisible="False">
+                            IsVisible="False"
+                            ColumnDefinitions="*,*,*,*,*,*,*">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="{DynamicResource CalendarItemWeekDayNameHeight}" />
                                 <RowDefinition Height="*" />
@@ -105,33 +106,14 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
                         </Grid>
                         <Grid
                             Name="PART_YearView"
                             Grid.Row="1"
                             Background="{TemplateBinding Background}"
-                            IsVisible="False">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
+                            IsVisible="False"
+                            ColumnDefinitions="*,*,*,*"
+                            RowDefinitions="*,*,*" />
                     </Grid>
                 </Border>
             </ControlTemplate>
@@ -151,6 +133,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CalendarButton">
                 <ContentControl
@@ -211,6 +194,7 @@
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="CalendarDayButton">
                 <ContentControl

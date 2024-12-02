@@ -2,6 +2,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Width="800" Height="400">
+            <CalendarDatePicker HorizontalAlignment="Center" Classes="ClearButton" />
+        </StackPanel>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
@@ -20,11 +25,11 @@
             <ControlTemplate TargetType="CalendarDatePicker">
                 <DataValidationErrors>
                     <Panel
-                        x:Name="LayoutRoot"
+                        Name="LayoutRoot"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch">
                         <Border
-                            x:Name="Background"
+                            Name="Background"
                             BackgroundSizing="{TemplateBinding BackgroundSizing}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -75,41 +80,38 @@
                             <Button
                                 Name="ClearButton"
                                 Grid.Column="1"
-                                Padding="0,0,8,0"
+                                Theme="{DynamicResource InnerIconButton}"
+                                Margin="8 0"
                                 Content="{DynamicResource IconButtonClearData}"
                                 Command="{Binding $parent[CalendarDatePicker].Clear}"
                                 Focusable="False"
-                                IsVisible="False"
-                                Theme="{DynamicResource InnerIconButton}" />
+                                IsVisible="False" />
                             <Button
                                 Name="PART_Button"
                                 Grid.Column="1"
-                                Padding="0,0,8,0"
+                                Theme="{DynamicResource InnerIconButton}"
+                                Margin="8 0"
                                 Content="{DynamicResource CalendarDatePickerIconGlyph}"
-                                Focusable="False"
-                                Theme="{DynamicResource InnerIconButton}" />
+                                Focusable="False" />
                             <Popup
                                 Name="PART_Popup"
                                 Grid.Column="0"
-                                HorizontalOffset="-8"
                                 IsLightDismissEnabled="True"
-                                PlacementTarget="{TemplateBinding}"
-                                VerticalOffset="-4">
+                                Placement="BottomEdgeAlignedLeft"
+                                PlacementTarget="{TemplateBinding}">
                                 <Border
-                                    Margin="8"
-                                    Background="Transparent"
+                                    Margin="4"
                                     BoxShadow="{DynamicResource CalendarDatePickerPopupBoxShadows}"
                                     CornerRadius="{DynamicResource CalendarCornerRadius}">
                                     <Calendar
                                         Name="PART_Calendar"
-                                        CornerRadius="{Binding $parent[Border].CornerRadius}"
+                                        BorderThickness="0"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
                                         DisplayDateStart="{TemplateBinding DisplayDateStart}"
                                         FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                         IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                        SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}">
-                                    </Calendar>
+                                        SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay}" />
                                 </Border>
                             </Popup>
                         </Grid>
@@ -139,7 +141,6 @@
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#Background">
                 <Setter Property="Background" Value="{DynamicResource CalendarDatePickerPointeroverBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerPointeroverBorderBrush}" />
             </Style>
         </Style>
 

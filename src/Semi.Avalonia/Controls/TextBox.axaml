@@ -24,25 +24,25 @@
     </MenuFlyout>
 
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
-        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
-        <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
-        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Cursor" Value="Ibeam" />
-        <Setter Property="CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
-        <Setter Property="Padding" Value="{DynamicResource TextBoxContentPadding}" />
-        <Setter Property="MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDefaultBackground}" />
+        <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
+        <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
+        <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
+        <Setter Property="TextBox.BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
+        <Setter Property="TextBox.BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="TextBox.CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
+        <Setter Property="TextBox.FontSize" Value="14" />
+        <Setter Property="TextBox.Cursor" Value="Ibeam" />
+        <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
+        <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
+        <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
-        <Setter Property="Template">
+        <Setter Property="TextBox.ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
+        <Setter Property="TextBox.Template">
             <ControlTemplate TargetType="TextBox">
                 <DataValidationErrors>
                     <Border
@@ -131,7 +131,6 @@
 
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxPointeroverBorderBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
@@ -198,8 +197,8 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Background" Value="{DynamicResource TextBoxDisabledBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+                <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+                <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
             </Style>
 
             <Style Selector="^:error">
@@ -231,25 +230,25 @@
     </ControlTheme>
 
     <ControlTheme x:Key="NonErrorTextBox" TargetType="TextBox">
-        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
-        <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
-        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Cursor" Value="Ibeam" />
-        <Setter Property="CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
-        <Setter Property="Padding" Value="{DynamicResource TextBoxContentPadding}" />
-        <Setter Property="MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDefaultBackground}" />
+        <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
+        <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
+        <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
+        <Setter Property="TextBox.BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
+        <Setter Property="TextBox.BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="TextBox.CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
+        <Setter Property="TextBox.FontSize" Value="14" />
+        <Setter Property="TextBox.Cursor" Value="Ibeam" />
+        <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
+        <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
+        <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
-        <Setter Property="Template">
+        <Setter Property="TextBox.ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
+        <Setter Property="TextBox.Template">
             <ControlTemplate TargetType="TextBox">
                 <DataValidationErrors Theme="{DynamicResource SilentDataValidationErrors}">
                     <Border
@@ -338,7 +337,6 @@
 
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxPointeroverBorderBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
@@ -405,8 +403,8 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderedPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ Border#PART_ContentPresenterBorder">
-                <Setter Property="Background" Value="{DynamicResource TextBoxDisabledBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
+                <Setter Property="TextBox.Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+                <Setter Property="TextBox.BorderBrush" Value="{DynamicResource TextBoxDisabledBorderBrush}" />
             </Style>
 
             <Style Selector="^:error">
@@ -438,19 +436,19 @@
     </ControlTheme>
 
     <ControlTheme x:Key="LooklessTextBox" TargetType="TextBox">
-        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Cursor" Value="Ibeam" />
-        <Setter Property="CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
-        <Setter Property="Padding" Value="{DynamicResource TextBoxContentPadding}" />
-        <Setter Property="MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="TextBox.Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="TextBox.SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
+        <Setter Property="TextBox.SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
+        <Setter Property="TextBox.FontSize" Value="14" />
+        <Setter Property="TextBox.Cursor" Value="Ibeam" />
+        <Setter Property="TextBox.CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
+        <Setter Property="TextBox.Padding" Value="{DynamicResource TextBoxContentPadding}" />
+        <Setter Property="TextBox.MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="TextBox.VerticalAlignment" Value="Center" />
+        <Setter Property="TextBox.VerticalContentAlignment" Value="Center" />
+        <Setter Property="TextBox.FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="Template">
+        <Setter Property="TextBox.Template">
             <ControlTemplate TargetType="TextBox">
                 <Border Name="PART_ContentPresenterBorder" MinHeight="{TemplateBinding MinHeight}">
                     <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="Auto, *, Auto">
@@ -513,22 +511,26 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
-        <Setter Property="ToggleButton.Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
-        <Setter Property="ToggleButton.Cursor" Value="Hand" />
-        <Setter Property="ToggleButton.Template">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
+        <!--  Background must be transparent or hit test will fail  -->
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
-                <!--  Background must be transparent or hit test will fail  -->
-                <Panel Background="Transparent">
+                <Panel
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}">
                     <PathIcon
-                        Width="16"
-                        Height="16"
+                        Theme="{DynamicResource InnerPathIcon}"
                         Data="{DynamicResource PasswordBoxRevealButtonData}"
-                        IsVisible="{Binding $parent[ToggleButton].IsChecked, Converter={x:Static BoolConverters.Not}}" />
+                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}" />
                     <PathIcon
-                        Width="16"
-                        Height="16"
+                        Theme="{DynamicResource InnerPathIcon}"
                         Data="{DynamicResource PasswordBoxHideButtonData}"
-                        IsVisible="{Binding $parent[ToggleButton].IsChecked}" />
+                        IsVisible="{TemplateBinding IsChecked}" />
                 </Panel>
             </ControlTemplate>
         </Setter>

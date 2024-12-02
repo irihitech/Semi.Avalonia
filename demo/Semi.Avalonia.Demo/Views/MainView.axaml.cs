@@ -1,10 +1,13 @@
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Semi.Avalonia.Demo.Views;
 
@@ -15,62 +18,63 @@ public partial class MainView : UserControl
         InitializeComponent();
         this.DataContext = new MainViewModel();
     }
+}
 
-    private void ToggleButton_OnIsCheckedChanged(object sender, RoutedEventArgs e)
+public partial class MainViewModel : ObservableObject
+{
+    public string DocumentationUrl => "https://docs.irihi.tech/semi";
+    public string RepoUrl => "https://github.com/irihitech/Semi.Avalonia";
+    public IReadOnlyList<MenuItemViewModel> MenuItems { get; }
+
+    public MainViewModel()
+    {
+        MenuItems = [];
+    }
+
+    [RelayCommand]
+    private void ToggleTheme()
+    {
+        var app = Application.Current;
+        if (app is null) return;
+        var theme = app.ActualThemeVariant;
+        app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
+    }
+
+    [RelayCommand]
+    private void SelectTheme(object? obj)
     {
         var app = Application.Current;
         if (app is not null)
         {
-            var theme = app.ActualThemeVariant;
-            app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
+            app.RequestedThemeVariant = obj as ThemeVariant;
         }
     }
 
-    private async void OpenRepository(object sender, RoutedEventArgs e)
+    [RelayCommand]
+    private static async Task OpenUrl(string url)
     {
-        var top = TopLevel.GetTopLevel(this);
-        if (top is null) return;
-        var launcher = top.Launcher;
-        await launcher.LaunchUriAsync(new Uri("https://github.com/irihitech/Semi.Avalonia"));
-    }
-
-    private async void OpenDocumentation(object sender, RoutedEventArgs e)
-    {
-        var top = TopLevel.GetTopLevel(this);
-        if (top is null) return;
-        var launcher = top.Launcher;
-        await launcher.LaunchUriAsync(new Uri("https://docs.irihi.tech/semi"));
-    }
-}
-
-public partial class MainViewModel: ObservableObject
-{
-    public ObservableCollection<ThemeItem> Themes { get; } = new()
-    {
-        new ThemeItem("Light", ThemeVariant.Light),
-        new ThemeItem("Dark", ThemeVariant.Dark),
-        new ThemeItem("Aquatic", SemiTheme.Aquatic),
-        new ThemeItem("Desert", SemiTheme.Desert),
-        new ThemeItem("Dust", SemiTheme.Dust),
-        new ThemeItem("NightSky", SemiTheme.NightSky),
-    };
-    
-    [ObservableProperty] private ThemeItem? _selectedTheme;
-    
-    partial void OnSelectedThemeChanged(ThemeItem? oldValue, ThemeItem? newValue)
-    {
-        if (newValue is null) return;
-        var app = Application.Current;
-        if (app is not null)
+        var launcher = ResolveDefaultTopLevel()?.Launcher;
+        if (launcher is not null)
         {
-            app.RequestedThemeVariant = newValue.Theme;
+            await launcher.LaunchUriAsync(new Uri(url));
         }
     }
-    
+
+    private static TopLevel? ResolveDefaultTopLevel()
+    {
+        return Application.Current?.ApplicationLifetime switch
+        {
+            IClassicDesktopStyleApplicationLifetime desktopLifetime => desktopLifetime.MainWindow,
+            ISingleViewApplicationLifetime singleView => TopLevel.GetTopLevel(singleView.MainView),
+            _ => null
+        };
+    }
 }
 
-public class ThemeItem(string name, ThemeVariant theme)
+public class MenuItemViewModel
 {
-    public string Name { get; set; } = name;
-    public ThemeVariant Theme { get; set; } = theme;
+    public string? Header { get; set; }
+    public ICommand? Command { get; set; }
+    public object? CommandParameter { get; set; }
+    public IList<MenuItemViewModel>? Items { get; set; }
 }

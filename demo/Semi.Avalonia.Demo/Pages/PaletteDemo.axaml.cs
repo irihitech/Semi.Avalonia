@@ -13,17 +13,16 @@ public partial class PaletteDemo : UserControl
     public PaletteDemo()
     {
         InitializeComponent();
-        
+        this.DataContext = new PaletteDemoViewModel();
     }
 
     protected override async  void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
-        PaletteDemoViewModel? vm = new PaletteDemoViewModel();
+        PaletteDemoViewModel? vm = this.DataContext as PaletteDemoViewModel;
         await Dispatcher.UIThread.InvokeAsync(() =>
         {
-            vm.InitializeResources();
+            vm?.InitializeResources();
         });
-        DataContext = vm;
     }
 }

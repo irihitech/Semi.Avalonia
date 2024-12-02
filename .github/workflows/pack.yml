@@ -22,8 +22,8 @@ jobs:
       - name: Nuget Semi.Avalonia.DataGrid
         run: dotnet pack ./src/Semi.Avalonia.DataGrid  -o ./nugets
 
-      - name: Nuget Semi.Avalonia.TreeDataGrid
-        run: dotnet pack ./src/Semi.Avalonia.TreeDataGrid  -o ./nugets
+      - name: Publish NuGet package
+        run: dotnet nuget push "./nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.1

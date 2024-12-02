@@ -27,7 +27,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
                 <ContentPresenter
-                    x:Name="PART_ContentPresenter"
+                    Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
@@ -102,6 +102,12 @@
         x:Key="SolidButton"
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="Button">
+        <Setter Property="FocusAdorner">
+            <FocusAdornerTemplate>
+                <Border Theme="{DynamicResource AdornerLayerBorder}"
+                        Classes="Solid" />
+            </FocusAdornerTemplate>
+        </Setter>
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
@@ -113,7 +119,6 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonSolidPrimaryPressedForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
         </Style>
@@ -129,7 +134,6 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource ButtonSolidPrimaryPressedForeground}" />
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
             </Style>
@@ -211,9 +215,9 @@
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonSolidDisabledForeground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidDisabledBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
 
@@ -254,30 +258,32 @@
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="Button">
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
 
     </ControlTheme>
 
     <ControlTheme x:Key="InnerIconButton" TargetType="Button">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
         <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
-                <ContentControl Background="Transparent">
-                    <PathIcon
-                        Width="16"
-                        Height="16"
-                        Margin="{TemplateBinding Padding}"
-                        Data="{TemplateBinding Content}"
-                        Foreground="{TemplateBinding Foreground}" />
-                </ContentControl>
+                <PathIcon
+                    Theme="{DynamicResource InnerPathIcon}"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Data="{TemplateBinding Content}"
+                    Foreground="{TemplateBinding Foreground}"
+                    Background="{TemplateBinding Background}" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">

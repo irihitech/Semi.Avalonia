@@ -1,4 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Add Resources Here  -->
+
     <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
         <Setter Property="OpenPaneLength" Value="{DynamicResource SplitViewOpenPaneThemeLength}" />
         <Setter Property="CompactPaneLength" Value="{DynamicResource SplitViewCompactPaneThemeLength}" />
@@ -21,7 +23,7 @@
                             ClipToBounds="True"
                             ZIndex="100">
                             <ContentPresenter
-                                x:Name="PART_PanePresenter"
+                                Name="PART_PanePresenter"
                                 Content="{TemplateBinding Pane}"
                                 ContentTemplate="{TemplateBinding PaneTemplate}" />
                             <Rectangle
@@ -33,7 +35,7 @@
 
                         <Panel Name="ContentRoot">
                             <ContentPresenter
-                                x:Name="PART_ContentPresenter"
+                                Name="PART_ContentPresenter"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <Rectangle
@@ -112,7 +114,7 @@
                             ClipToBounds="True"
                             ZIndex="100">
                             <ContentPresenter
-                                x:Name="PART_PanePresenter"
+                                Name="PART_PanePresenter"
                                 Content="{TemplateBinding Pane}"
                                 ContentTemplate="{TemplateBinding PaneTemplate}" />
                             <Rectangle
@@ -124,7 +126,7 @@
 
                         <Panel Name="ContentRoot">
                             <ContentPresenter
-                                x:Name="PART_ContentPresenter"
+                                Name="PART_ContentPresenter"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <Rectangle Name="LightDismissLayer" IsVisible="False" />

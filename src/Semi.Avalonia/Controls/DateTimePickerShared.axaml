@@ -2,6 +2,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <!--  Add Resources Here  -->
+
     <ControlTheme x:Key="DateTimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
@@ -24,7 +26,6 @@
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
@@ -57,17 +58,13 @@
         x:Key="DateTimePickerItem"
         BasedOn="{StaticResource {x:Type ListBoxItem}}"
         TargetType="ListBoxItem">
-        <Setter Property="ListBoxItem.CornerRadius" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerListItemBackground}" />
 
         <Style Selector="^:selected">
             <Setter Property="IsHitTestVisible" Value="False" />
-        </Style>
-        <Style Selector="^.MonthItem">
-            <Setter Property="Padding" Value="{DynamicResource DatePickerFlyoutPresenterMonthPadding}" />
-            <Setter Property="HorizontalContentAlignment" Value="Left" />
         </Style>
     </ControlTheme>
 
@@ -83,7 +80,7 @@
             <ControlTemplate TargetType="Button">
                 <Border Background="{TemplateBinding Background}">
                     <ContentPresenter
-                        x:Name="ContentPresenter"
+                        Name="ContentPresenter"
                         Padding="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"

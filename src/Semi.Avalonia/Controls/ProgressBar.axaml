@@ -104,7 +104,7 @@
             <ControlTemplate TargetType="ProgressBar">
                 <Grid ColumnDefinitions="Auto, *, Auto" RowDefinitions="Auto, *, Auto">
                     <Border
-                        x:Name="ProgressBarRoot"
+                        Name="ProgressBarRoot"
                         Grid.Row="1"
                         Grid.Column="1"
                         Background="{TemplateBinding Background}"
@@ -113,31 +113,31 @@
                         ClipToBounds="True"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Panel>
-                            <Panel x:Name="DeterminateRoot" Opacity="1">
+                            <Panel Name="DeterminateRoot" Opacity="1">
                                 <Panel.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Opacity" Duration="0:0:0.197" />
                                     </Transitions>
                                 </Panel.Transitions>
                                 <Border
-                                    x:Name="PART_Indicator"
+                                    Name="PART_Indicator"
                                     Margin="{TemplateBinding Padding}"
                                     Background="{TemplateBinding Foreground}"
                                     CornerRadius="{TemplateBinding CornerRadius}" />
                             </Panel>
-                            <Panel x:Name="IndeterminateRoot" Opacity="0">
+                            <Panel Name="IndeterminateRoot" Opacity="0">
                                 <Panel.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Opacity" Duration="0:0:0.197" />
                                     </Transitions>
                                 </Panel.Transitions>
                                 <Border
-                                    x:Name="IndeterminateProgressBarIndicator"
+                                    Name="IndeterminateProgressBarIndicator"
                                     Margin="{TemplateBinding Padding}"
                                     Background="{TemplateBinding Foreground}"
                                     CornerRadius="{TemplateBinding CornerRadius}" />
                                 <Border
-                                    x:Name="IndeterminateProgressBarIndicator2"
+                                    Name="IndeterminateProgressBarIndicator2"
                                     Margin="{TemplateBinding Padding}"
                                     Background="{TemplateBinding Foreground}"
                                     CornerRadius="{TemplateBinding CornerRadius}" />
@@ -145,7 +145,7 @@
                         </Panel>
                     </Border>
                     <LayoutTransformControl
-                        x:Name="PART_LayoutTransformControl"
+                        Name="PART_LayoutTransformControl"
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="0"

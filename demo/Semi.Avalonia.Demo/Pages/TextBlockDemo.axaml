@@ -10,7 +10,7 @@
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <StackPanel Orientation="Horizontal">
             <StackPanel.Styles>
-                <Style Selector="TextBlock">
+                <Style Selector="Grid > TextBlock">
                     <Setter Property="VerticalAlignment" Value="Center" />
                     <Setter Property="Margin" Value="4" />
                 </Style>
@@ -25,70 +25,70 @@
                 <Grid
                     VerticalAlignment="Top"
                     ColumnDefinitions="Auto, *"
-                    RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
-                    <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="0">-</TextBlock>
-                    <TextBlock Grid.Row="3" Grid.Column="0">Secondary</TextBlock>
-                    <TextBlock Grid.Row="4" Grid.Column="0">Tertiary</TextBlock>
-                    <TextBlock Grid.Row="5" Grid.Column="0">Quaternary</TextBlock>
-                    <TextBlock Grid.Row="6" Grid.Column="0">Success</TextBlock>
-                    <TextBlock Grid.Row="7" Grid.Column="0">Warning</TextBlock>
-                    <TextBlock Grid.Row="8" Grid.Column="0">Danger</TextBlock>
-                    <TextBlock Grid.Row="9" Grid.Column="0">Mark</TextBlock>
-                    <TextBlock Grid.Row="10" Grid.Column="0">Underline</TextBlock>
-                    <TextBlock Grid.Row="11" Grid.Column="0">Delete</TextBlock>
+                    RowDefinitions="*,*,*,*,*,*,*,*,*,*,*">
+                    <TextBlock Grid.Row="0" Grid.Column="0">Classes</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0">-</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0">Secondary</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0">Tertiary</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0">Quaternary</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="0">Success</TextBlock>
+                    <TextBlock Grid.Row="6" Grid.Column="0">Warning</TextBlock>
+                    <TextBlock Grid.Row="7" Grid.Column="0">Danger</TextBlock>
+                    <TextBlock Grid.Row="8" Grid.Column="0">Mark</TextBlock>
+                    <TextBlock Grid.Row="9" Grid.Column="0">Underline</TextBlock>
+                    <TextBlock Grid.Row="10" Grid.Column="0">Delete</TextBlock>
 
-                    <TextBlock Grid.Row="2" Grid.Column="1">Text</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1">Text</TextBlock>
                     <TextBlock
-                        Grid.Row="3"
+                        Grid.Row="2"
                         Grid.Column="1"
                         Classes="Secondary">
                         Secondary
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="4"
+                        Grid.Row="3"
                         Grid.Column="1"
                         Classes="Tertiary">
                         Tertiary
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="5"
+                        Grid.Row="4"
                         Grid.Column="1"
                         Classes="Quaternary">
                         Quaternary
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="6"
+                        Grid.Row="5"
                         Grid.Column="1"
                         Classes="Success">
                         Success
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="7"
+                        Grid.Row="6"
                         Grid.Column="1"
                         Classes="Warning">
                         Warning
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="8"
+                        Grid.Row="7"
                         Grid.Column="1"
                         Classes="Danger">
                         Danger
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="9"
+                        Grid.Row="8"
                         Grid.Column="1"
                         Classes="Mark">
                         Default Mark
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="10"
+                        Grid.Row="9"
                         Grid.Column="1"
                         Classes="Underline">
                         Underline
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="11"
+                        Grid.Row="10"
                         Grid.Column="1"
                         Classes="Delete">
                         Delete
@@ -105,58 +105,57 @@
                 <Grid
                     VerticalAlignment="Top"
                     ColumnDefinitions="Auto, *"
-                    RowDefinitions="*,*,*,*,*,*,*,*">
-                    <TextBlock Grid.Row="1" Grid.Column="0">Classes</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="0">H1</TextBlock>
-                    <TextBlock Grid.Row="3" Grid.Column="0">H2</TextBlock>
-                    <TextBlock Grid.Row="4" Grid.Column="0">H3</TextBlock>
-                    <TextBlock Grid.Row="5" Grid.Column="0">H4</TextBlock>
-                    <TextBlock Grid.Row="6" Grid.Column="0">H5</TextBlock>
-                    <TextBlock Grid.Row="7" Grid.Column="0">H6</TextBlock>
+                    RowDefinitions="*,*,*,*,*,*,*">
+                    <TextBlock Grid.Row="0" Grid.Column="0">Classes</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0">H1</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0">H2</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0">H3</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0">H4</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="0">H5</TextBlock>
+                    <TextBlock Grid.Row="6" Grid.Column="0">H6</TextBlock>
                     <TextBlock
-                        Grid.Row="2"
+                        Grid.Row="1"
                         Grid.Column="1"
                         Classes="H1"
                         Theme="{StaticResource TitleTextBlock}">
                         Header 1
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="3"
+                        Grid.Row="2"
                         Grid.Column="1"
                         Classes="H2"
                         Theme="{StaticResource TitleTextBlock}">
                         Header 2
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="4"
+                        Grid.Row="3"
                         Grid.Column="1"
                         Classes="H3"
                         Theme="{StaticResource TitleTextBlock}">
                         Header 3
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="5"
+                        Grid.Row="4"
                         Grid.Column="1"
                         Classes="H4"
                         Theme="{StaticResource TitleTextBlock}">
                         Header 4
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="6"
+                        Grid.Row="5"
                         Grid.Column="1"
                         Classes="H5"
                         Theme="{StaticResource TitleTextBlock}">
                         Header 5
                     </TextBlock>
                     <TextBlock
-                        Grid.Row="7"
+                        Grid.Row="6"
                         Grid.Column="1"
                         Classes="H6"
                         Theme="{StaticResource TitleTextBlock}">
                         Header 6
                     </TextBlock>
                 </Grid>
-
             </HeaderedContentControl>
         </StackPanel>
     </ScrollViewer>
