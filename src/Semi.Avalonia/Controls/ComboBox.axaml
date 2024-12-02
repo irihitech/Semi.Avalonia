@@ -100,9 +100,7 @@
                         <Popup
                             Name="PART_Popup"
                             Grid.Column="0"
-                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                            ClipToBounds="False"
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
@@ -111,24 +109,22 @@
                             <Border
                                 Name="PopupBorder"
                                 HorizontalAlignment="Stretch"
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                 Margin="{DynamicResource ComboBoxPopupBorderMargin}"
+                                Padding="{DynamicResource ComboBoxPopupBorderPadding}"
                                 Background="{DynamicResource ComboBoxPopupBackground}"
                                 BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
                                 BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
                                 BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
                                 CornerRadius="{DynamicResource ComboBoxPopupBoxCornerRadius}">
-                                <Border
-                                    CornerRadius="{DynamicResource ComboBoxPopupBoxCornerRadius}"
-                                    ClipToBounds="True">
-                                    <ScrollViewer
-                                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                        IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
-                                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                        <ItemsPresenter
-                                            Name="PART_ItemsPresenter"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                    </ScrollViewer>
-                                </Border>
+                                <ScrollViewer
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ItemsPresenter
+                                        Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
                             </Border>
                         </Popup>
                     </Grid>
