@@ -27,6 +27,15 @@
         <ComboBox Classes="Small" />
         <ComboBox Classes="Bordered" />
         <ComboBox Classes="Bordered" IsEnabled="False" />
+        <ComboBox>
+          <ComboBox.SelectionBoxItemTemplate>
+            <DataTemplate DataType="x:String">
+              <ContentControl BorderThickness="1"
+                              BorderBrush="Gold"
+                              Content="{Binding}" />
+            </DataTemplate>
+          </ComboBox.SelectionBoxItemTemplate>
+        </ComboBox>
 
         <StackPanel Orientation="Horizontal">
             <ComboBox Width="100" Classes="Large" PlaceholderText="Large" />
