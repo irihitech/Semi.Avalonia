@@ -3,11 +3,13 @@
                   BasedOn="{StaticResource ButtonToggleSwitch}"
                   TargetType="ToggleSwitch">
         <Setter Property="Padding" Value="8" />
+        <Setter Property="OnContent" Value="{Binding $self.Content}" />
         <Setter Property="OnContentTemplate">
             <DataTemplate>
                 <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
             </DataTemplate>
         </Setter>
+        <Setter Property="OffContent" Value="{Binding $self.Content}" />
         <Setter Property="OffContentTemplate">
             <DataTemplate>
                 <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
