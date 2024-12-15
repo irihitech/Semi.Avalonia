@@ -22,6 +22,7 @@ public class SemiTheme : Styles
         { new CultureInfo("ja-jp"), new ja_jp() },
         { new CultureInfo("uk-ua"), new uk_ua() },
         { new CultureInfo("ru-ru"), new ru_ru() },
+        { new CultureInfo("zh-tw"), new zh_tw() },
     };
 
     private readonly IServiceProvider? sp;
