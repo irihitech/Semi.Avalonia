@@ -8,13 +8,16 @@
     <Thickness x:Key="DataGridColumnHeaderPadding">12 0 0 0</Thickness>
     <x:Double x:Key="DataGridColumnHeaderMinHeight">32</x:Double>
 
-    <StreamGeometry x:Key="DataGridColumnHeaderAscendingGlyph">M6.45096 8.34102L11.247 2.86102C11.3408 2.75361 11.4566 2.66753 11.5865 2.60854C11.7163 2.54956 11.8573 2.51904 12 2.51904C12.1426 2.51904 12.2836 2.54956 12.4135 2.60854C12.5433 2.66753 12.6591 2.75361 12.753 2.86102L17.549 8.34102C18.115 8.98802 17.655 10 16.796 10H7.20396C6.34396 10 5.88496 8.98802 6.45096 8.34102Z</StreamGeometry>
-    <StreamGeometry x:Key="DataGridColumnHeaderDescendingGlyph">M17.549 15.659L12.753 21.139C12.6591 21.2464 12.5434 21.3325 12.4135 21.3915C12.2836 21.4505 12.1427 21.481 12 21.481C11.8574 21.481 11.7164 21.4505 11.5865 21.3915C11.4566 21.3325 11.3409 21.2464 11.247 21.139L6.45101 15.659C5.88501 15.011 6.34501 14 7.20401 14H16.796C17.656 14 18.115 15.012 17.549 15.659Z</StreamGeometry>
+    <StreamGeometry x:Key="DataGridColumnHeaderAscendingGlyph">m6.45 8.34 4.8-5.48a1 1 0 0 1 1.5 0l4.8 5.48A1 1 0 0 1 16.8 10H7.2a1 1 0 0 1-.75-1.66Z</StreamGeometry>
+    <StreamGeometry x:Key="DataGridColumnHeaderDescendingGlyph">m17.55 15.66-4.8 5.48a1 1 0 0 1-1.5 0l-4.8-5.48A1 1 0 0 1 7.2 14h9.6a1 1 0 0 1 .75 1.66Z</StreamGeometry>
+    <!-- <StaticResource x:Key="DataGridColumnHeaderAscendingGlyph" ResourceKey="SemiIconCaretUp" /> -->
+    <!-- <StaticResource x:Key="DataGridColumnHeaderDescendingGlyph" ResourceKey="SemiIconCaretDown" /> -->
 
     <Thickness x:Key="DataGridRowHeaderMargin">8 0</Thickness>
     <Thickness x:Key="DataGridRowMargin">2</Thickness>
 
-    <StreamGeometry x:Key="DataGridRowGroupHeaderExpandIconGlyph">M7.43934 19.7957C6.85355 19.2099 6.85355 18.2601 7.43934 17.6744L13.0962 12.0175L7.43934 6.36065C6.85355 5.77486 6.85355 4.82511 7.43934 4.23933C8.02513 3.65354 8.97487 3.65354 9.56066 4.23933L16.2782 10.9568C16.864 11.5426 16.864 12.4924 16.2782 13.0782L9.56066 19.7957C8.97487 20.3815 8.02513 20.3815 7.43934 19.7957Z</StreamGeometry>
+    <StreamGeometry x:Key="DataGridRowGroupHeaderExpandIconGlyph">M7.44 19.8a1.5 1.5 0 0 1 0-2.13l5.66-5.65-5.66-5.66a1.5 1.5 0 1 1 2.12-2.12l6.72 6.72a1.5 1.5 0 0 1 0 2.12L9.56 19.8a1.5 1.5 0 0 1-2.12 0Z</StreamGeometry>
+    <!-- <StaticResource x:Key="DataGridRowGroupHeaderExpandIconGlyph" ResourceKey="SemiIconChevronRight" /> -->
 
     <x:Double x:Key="DataGridRowGroupHeaderVisualStrokeThickness">1</x:Double>
 </ResourceDictionary>

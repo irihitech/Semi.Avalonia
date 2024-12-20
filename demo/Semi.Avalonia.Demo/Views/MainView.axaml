@@ -17,11 +17,6 @@
                 <ResourceInclude Source="../Themes/TabMenu.axaml" />
                 <ResourceInclude Source="../Themes/ToggleSwitch.axaml" />
             </ResourceDictionary.MergedDictionaries>
-            <StreamGeometry x:Key="DocIcon">M12 21.5C10.65 20.65 8.2 20 6.5 20C4.85 20 3.15 20.3 1.75 21.05C1.65 21.1 1.6 21.1 1.5 21.1C1.25 21.1 1 20.85 1 20.6V6C1.6 5.55 2.25 5.25 3 5C4.11 4.65 5.33 4.5 6.5 4.5C8.45 4.5 10.55 4.9 12 6C13.45 4.9 15.55 4.5 17.5 4.5C18.67 4.5 19.89 4.65 21 5C21.75 5.25 22.4 5.55 23 6V20.6C23 20.85 22.75 21.1 22.5 21.1C22.4 21.1 22.35 21.1 22.25 21.05C20.85 20.3 19.15 20 17.5 20C15.8 20 13.35 20.65 12 21.5M12 8V19.5C13.35 18.65 15.8 18 17.5 18C18.7 18 19.9 18.15 21 18.5V7C19.9 6.65 18.7 6.5 17.5 6.5C15.8 6.5 13.35 7.15 12 8M13 11.5C14.11 10.82 15.6 10.5 17.5 10.5C18.41 10.5 19.26 10.59 20 10.78V9.23C19.13 9.08 18.29 9 17.5 9C15.73 9 14.23 9.28 13 9.84V11.5M17.5 11.67C15.79 11.67 14.29 11.93 13 12.46V14.15C14.11 13.5 15.6 13.16 17.5 13.16C18.54 13.16 19.38 13.24 20 13.4V11.9C19.13 11.74 18.29 11.67 17.5 11.67M20 14.57C19.13 14.41 18.29 14.33 17.5 14.33C15.67 14.33 14.17 14.6 13 15.13V16.82C14.11 16.16 15.6 15.83 17.5 15.83C18.54 15.83 19.38 15.91 20 16.07V14.57Z</StreamGeometry>
-            <StreamGeometry x:Key="RepoIcon">M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z</StreamGeometry>
-            <StreamGeometry x:Key="DarkThemeIcon">M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM17 15C17.476 15 17.9408 14.9525 18.3901 14.862C17.296 17.3011 14.8464 19 12 19C8.13401 19 5 15.866 5 12C5 8.60996 7.40983 5.78277 10.6099 5.13803C10.218 6.01173 10 6.98041 10 8C10 11.866 13.134 15 17 15Z</StreamGeometry>
-            <StreamGeometry x:Key="LightThemeIcon">M3.55 19.09L4.96 20.5L6.76 18.71L5.34 17.29M12 6C8.69 6 6 8.69 6 12S8.69 18 12 18 18 15.31 18 12C18 8.68 15.31 6 12 6M20 13H23V11H20M17.24 18.71L19.04 20.5L20.45 19.09L18.66 17.29M20.45 5L19.04 3.6L17.24 5.39L18.66 6.81M13 1H11V4H13M6.76 5.39L4.96 3.6L3.55 5L5.34 6.81L6.76 5.39M1 13H4V11H1M13 20H11V23H13</StreamGeometry>
-            <StreamGeometry x:Key="MenuIcon">M2 19.5C2 18.6716 2.67157 18 3.5 18H20.5C21.3284 18 22 18.6716 22 19.5C22 20.3284 21.3284 21 20.5 21H3.5C2.67157 21 2 20.3284 2 19.5ZM2 12C2 11.1716 2.67157 10.5 3.5 10.5H20.5C21.3284 10.5 22 11.1716 22 12C22 12.8284 21.3284 13.5 20.5 13.5H3.5C2.67157 13.5 2 12.8284 2 12ZM2 4.5C2 3.67157 2.67157 3 3.5 3H20.5C21.3284 3 22 3.67157 22 4.5C22 5.32843 21.3284 6 20.5 6H3.5C2.67157 6 2 5.32843 2 4.5Z</StreamGeometry>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid RowDefinitions="Auto, *">
@@ -65,20 +60,20 @@
                     </StackPanel.Styles>
 
                     <Button Command="{Binding OpenUrlCommand}" CommandParameter="{Binding DocumentationUrl}">
-                        <PathIcon Data="{StaticResource DocIcon}" />
+                        <PathIcon Data="{StaticResource SemiIconSidebar}" />
                     </Button>
 
                     <Button Command="{Binding OpenUrlCommand}" CommandParameter="{Binding RepoUrl}">
-                        <PathIcon Data="{StaticResource RepoIcon}" />
+                        <PathIcon Data="{StaticResource SemiIconGithubLogo}" />
                     </Button>
 
                     <ToggleSwitch
                         Command="{Binding ToggleThemeCommand}"
-                        OnContent="{StaticResource DarkThemeIcon}"
-                        OffContent="{StaticResource LightThemeIcon}" />
+                        OnContent="{StaticResource SemiIconMoon}"
+                        OffContent="{StaticResource SemiIconSun}" />
 
                     <Button>
-                        <PathIcon Data="{StaticResource MenuIcon}" />
+                        <PathIcon Data="{StaticResource SemiIconMenu}" />
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom" ItemsSource="{Binding MenuItems}" />
                         </Button.Flyout>
@@ -108,6 +103,9 @@
             </TabItem>
             <TabItem Header="Palette">
                 <pages:PaletteDemo />
+            </TabItem>
+            <TabItem Header="Icon">
+                <pages:IconDemo />
             </TabItem>
             <TabItem Header="AutoCompleteBox">
                 <pages:AutoCompleteBoxDemo />
