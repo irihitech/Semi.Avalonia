@@ -1,40 +1,51 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StreamGeometry x:Key="SemiIconClear">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.04-6.14a1.5 1.5 0 0 1-2.13.04l-2.87-2.78L9.26 17A1.5 1.5 0 0 1 7.1 14.9l2.78-2.87L7 9.26A1.5 1.5 0 1 1 9.1 7.1l2.87 2.78L14.74 7A1.5 1.5 0 0 1 16.9 9.1l-2.78 2.87L17 14.74c.6.58.61 1.53.04 2.12Z</StreamGeometry>
+    <!-- Accessibility -->
+    <StreamGeometry x:Key="SemiIconInfoCircle">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm2-16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-5 3.75c0-.41.34-.75.75-.75h2.75a1 1 0 0 1 1 1v5.5h.75a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5h.75v-5h-.75a.75.75 0 0 1-.75-.75Z</StreamGeometry>
+    <!-- Alert -->
+    <StreamGeometry x:Key="SemiIconAlertTriangle">m10.23 2.4-8.7 16.67A2 2 0 0 0 3.3 22h17.4a2 2 0 0 0 1.77-2.93L13.77 2.4a2 2 0 0 0-3.54 0ZM13.14 14a1.15 1.15 0 0 1-2.28 0l-.58-4.03a1.73 1.73 0 1 1 3.44 0l-.58 4.03Zm.36 4.49a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconAlertCircle">M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-9.5 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM12 5a1.9 1.9 0 0 0-1.89 2l.3 5.5a1.59 1.59 0 0 0 3.17 0l.3-5.5c.07-1.09-.8-2-1.88-2Z</StreamGeometry>
+    <!-- Arrow -->
+    <StreamGeometry x:Key="SemiIconArrowUp">M12 23a1.5 1.5 0 0 1-1.5-1.5V6.12l-6.44 6.44a1.5 1.5 0 0 1-2.12-2.12l9-9a1.5 1.5 0 0 1 2.12 0l9 9a1.5 1.5 0 0 1-2.12 2.12L13.5 6.12V21.5c0 .83-.67 1.5-1.5 1.5Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconChevronUp">M19.64 16.44a1.5 1.5 0 0 1-2.12 0l-5.66-5.66-5.66 5.66a1.5 1.5 0 1 1-2.12-2.12L10.8 7.6a1.5 1.5 0 0 1 2.12 0l6.72 6.72a1.5 1.5 0 0 1 0 2.12Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconChevronDown">M4.08 7.6a1.5 1.5 0 0 1 2.12 0l5.66 5.65 5.66-5.65a1.5 1.5 0 1 1 2.12 2.12l-6.72 6.72a1.5 1.5 0 0 1-2.12 0L4.08 9.72a1.5 1.5 0 0 1 0-2.12Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconChevronLeft">M16.28 4.24a1.5 1.5 0 0 1 0 2.12l-5.66 5.66 5.66 5.65a1.5 1.5 0 1 1-2.12 2.13l-6.72-6.72a1.5 1.5 0 0 1 0-2.12l6.72-6.72a1.5 1.5 0 0 1 2.12 0Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconChevronRight">M7.44 19.8a1.5 1.5 0 0 1 0-2.13l5.66-5.65-5.66-5.66a1.5 1.5 0 1 1 2.12-2.12l6.72 6.72a1.5 1.5 0 0 1 0 2.12L9.56 19.8a1.5 1.5 0 0 1-2.12 0Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconCalendar">M4 20V8h16v12H4ZM2 4c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm4 6.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2Zm.5 4.5a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Zm4-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2ZM11 15a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Zm4-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2Zm.5 4.5a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Z</StreamGeometry>
-    <StreamGeometry x:Key="WindowCloseIconGlyph">M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z</StreamGeometry>
-    <StreamGeometry x:Key="WindowMaximizeGlyph">M4,4H20V20H4V4M6,8V18H18V8H6Z</StreamGeometry>
-    <StreamGeometry x:Key="WindowMinimizeGlyph">M20,14H4V10H20</StreamGeometry>
-    <StreamGeometry x:Key="WindowRestoreGlyph">M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z</StreamGeometry>
-    <StreamGeometry x:Key="WindowExpandGlyph">M10,21V19H6.41L10.91,14.5L9.5,13.09L5,17.59V14H3V21H10M14.5,10.91L19,6.41V10H21V3H14V5H17.59L13.09,9.5L14.5,10.91Z</StreamGeometry>
-    <StreamGeometry x:Key="WindowCollapseGlyph">M19.5,3.09L15,7.59V4H13V11H20V9H16.41L20.91,4.5L19.5,3.09M4,13V15H7.59L3.09,19.5L4.5,20.91L9,16.41V20H11V13H4Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconCheckBoxTick">M17.41 7.3c.66.51.78 1.45.28 2.11l-6.5 8.5a1.5 1.5 0 0 1-2.37.01l-3.5-4.5a1.5 1.5 0 1 1 2.36-1.84L10 14.54l5.32-6.95a1.5 1.5 0 0 1 2.1-.28Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconCheckBoxIndeterminate">M5 12.5c0-.83.67-1.5 1.5-1.5h11a1.5 1.5 0 0 1 0 3h-11A1.5 1.5 0 0 1 5 12.5Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconCaretUp">m6.45 8.34 4.8-5.48a1 1 0 0 1 1.5 0l4.8 5.48A1 1 0 0 1 16.8 10H7.2a1 1 0 0 1-.75-1.66Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconCaretDown">m17.55 15.66-4.8 5.48a1 1 0 0 1-1.5 0l-4.8-5.48A1 1 0 0 1 7.2 14h9.6a1 1 0 0 1 .75 1.66Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconTick">M21.35 4.27c.68.47.86 1.4.38 2.08l-10 14.5a1.5 1.5 0 0 1-2.33.17l-6.5-7a1.5 1.5 0 0 1 2.2-2.04l5.23 5.63 8.94-12.96a1.5 1.5 0 0 1 2.08-.38Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconClose">M17.66 19.78a1.5 1.5 0 0 0 2.12-2.12L14.12 12l5.66-5.66a1.5 1.5 0 0 0-2.12-2.12L12 9.88 6.34 4.22a1.5 1.5 0 1 0-2.12 2.12L9.88 12l-5.66 5.66a1.5 1.5 0 0 0 2.12 2.12L12 14.12l5.66 5.66Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconLink">M12.94 2.94a5.74 5.74 0 1 1 8.12 8.12l-2.67 2.67a7.05 7.05 0 0 0-.4-3.85l.95-.94a2.74 2.74 0 1 0-3.88-3.88l-4 4a2.74 2.74 0 0 0 .9 4.48l-2.2 2.2a5.77 5.77 0 0 1-.82-8.8l4-4Zm-10 10 2.67-2.67a7.04 7.04 0 0 0 .4 3.85l-.95.94a2.74 2.74 0 1 0 3.88 3.88l4-4a2.74 2.74 0 0 0-.57-4.31l2.16-2.16a5.74 5.74 0 0 1 .53 8.6l-4 4a5.74 5.74 0 0 1-8.12-8.13Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconArrowUp">M12 23a1.5 1.5 0 0 1-1.5-1.5V6.12l-6.44 6.44a1.5 1.5 0 0 1-2.12-2.12l9-9a1.5 1.5 0 0 1 2.12 0l9 9a1.5 1.5 0 0 1-2.12 2.12L13.5 6.12V21.5c0 .83-.67 1.5-1.5 1.5Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconInfoCircle">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm2-16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-5 3.75c0-.41.34-.75.75-.75h2.75a1 1 0 0 1 1 1v5.5h.75a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5h.75v-5h-.75a.75.75 0 0 1-.75-.75Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconTickCircle">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.88-13.18-6.2 7.6a1.5 1.5 0 0 1-2.37 0l-3.5-4a1.5 1.5 0 1 1 2.37-1.84l2.3 2.46L15.5 8a1.5 1.5 0 1 1 2.38 1.82Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconAlertTriangle">m10.23 2.4-8.7 16.67A2 2 0 0 0 3.3 22h17.4a2 2 0 0 0 1.77-2.93L13.77 2.4a2 2 0 0 0-3.54 0ZM13.14 14a1.15 1.15 0 0 1-2.28 0l-.58-4.03a1.73 1.73 0 1 1 3.44 0l-.58 4.03Zm.36 4.49a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconAlertCircle">M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-9.5 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM12 5a1.9 1.9 0 0 0-1.89 2l.3 5.5a1.59 1.59 0 0 0 3.17 0l.3-5.5c.07-1.09-.8-2-1.88-2Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiSmallTriangleTop">M17.08 16.32H6.95a.5.5 0 0 1-.41-.78l5.06-7.6c.2-.3.64-.3.83 0l5.07 7.6a.5.5 0 0 1-.42.78Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiSmallTriangleDown">M6.95 7.72h10.13c.4 0 .64.45.42.78l-5.07 7.6a.5.5 0 0 1-.83 0L6.54 8.5a.5.5 0 0 1 .41-.78Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiSmallTriangleLeft">M16.32 6.96v10.13a.5.5 0 0 1-.78.41l-7.6-5.06a.5.5 0 0 1 0-.83l7.6-5.07a.5.5 0 0 1 .78.42Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiSmallTriangleRight">M9 17.07V6.93c0-.4.45-.63.78-.41l7.6 5.06c.3.2.3.64 0 .84l-7.6 5.06a.5.5 0 0 1-.78-.41Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiTreeTriangleDown">m20.56 9.66-7.8 8.97a1 1 0 0 1-1.51 0L3.44 9.66A1 1 0 0 1 4.19 8h15.62a1 1 0 0 1 .75 1.66Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiEyeClosedSolid">M21.7 3.7a1 1 0 0 0-1.4-1.4L17.3 5.26A11.59 11.59 0 0 0 12 4C5 4 1 10 1 12c0 1.18 1.38 3.73 3.94 5.64L2.3 20.3a1 1 0 1 0 1.42 1.42l18-18ZM7.84 14.77l1.46-1.47a3 3 0 0 1 4-4l1.47-1.46a5 5 0 0 0-6.93 6.93Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiEyeOpened">M12 4C5 4 1 10 1 12s4 8 11 8 11-6 11-8-4-8-11-8Zm5 8a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm-5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z</StreamGeometry>
-    <StreamGeometry x:Key="SemiIconClock">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1.5-16.5v4.88l3.56 3.56a1.5 1.5 0 0 1-2.12 2.12l-4-4A1.5 1.5 0 0 1 10.5 12V6.5a1.5 1.5 0 0 1 3 0Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconSmallTriangleTop">M17.08 16.32H6.95a.5.5 0 0 1-.41-.78l5.06-7.6c.2-.3.64-.3.83 0l5.07 7.6a.5.5 0 0 1-.42.78Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconSmallTriangleDown">M6.95 7.72h10.13c.4 0 .64.45.42.78l-5.07 7.6a.5.5 0 0 1-.83 0L6.54 8.5a.5.5 0 0 1 .41-.78Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconSmallTriangleLeft">M16.32 6.96v10.13a.5.5 0 0 1-.78.41l-7.6-5.06a.5.5 0 0 1 0-.83l7.6-5.07a.5.5 0 0 1 .78.42Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconSmallTriangleRight">M9 17.07V6.93c0-.4.45-.63.78-.41l7.6 5.06c.3.2.3.64 0 .84l-7.6 5.06a.5.5 0 0 1-.78-.41Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconTreeTriangleDown">m20.56 9.66-7.8 8.97a1 1 0 0 1-1.51 0L3.44 9.66A1 1 0 0 1 4.19 8h15.62a1 1 0 0 1 .75 1.66Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconTreeTriangleRight">m9.66 3.44 8.97 7.8a1 1 0 0 1 0 1.51l-8.97 7.81A1 1 0 0 1 8 19.81V4.19a1 1 0 0 1 1.66-.75Z</StreamGeometry>
-
+    <!-- Basic -->
+    <!-- Brands -->
+    <!-- Building -->
+    <!-- Business -->
+    <!-- Code -->
+    <!-- Communication -->
+    <!-- Device -->
+    <!-- Files&Folder -->
     <StreamGeometry x:Key="SemiIconFolderOpen">M2 5a3 3 0 0 1 3-3h3.3a2 2 0 0 1 1.25.44l1.13.9a3 3 0 0 0 1.87.66H18c2 0 3 2 3 4H7.53A2 2 0 0 0 5.6 9.48L2.57 20.76C2.21 20.26 2 19.66 2 19V5Zm20.17 5H9.5a2 2 0 0 0-1.92 1.44l-2.7 9.28A1 1 0 0 0 5.82 22H18.5a2 2 0 0 0 1.92-1.44l2.7-9.28a1 1 0 0 0-.95-1.28Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconFolder">M5 2a3 3 0 0 0-3 3v3h20c0-2-1-4-3-4h-6.45a3 3 0 0 1-1.87-.66l-1.13-.9A2 2 0 0 0 8.3 2H5ZM22 10H2v9a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-9Z</StreamGeometry>
     <StreamGeometry x:Key="SemiIconFile">M12 2a1 1 0 0 0-1-1H6a2 2 0 0 0-2 2v18c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V10a1 1 0 0 0-1-1h-5a2 2 0 0 1-2-2V2ZM7 8a1 1 0 0 1 1-1h1a1 1 0 0 1 0 2H8a1 1 0 0 1-1-1Zm0 5a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Zm1 4a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H8Zm11.07-9.5H14.5a1 1 0 0 1-1-1V1.93a.8.8 0 0 1 1.37-.56l4.76 4.76a.8.8 0 0 1-.56 1.37Z</StreamGeometry>
-
+    <!-- Interface -->
+    <StreamGeometry x:Key="SemiIconClose">M17.66 19.78a1.5 1.5 0 0 0 2.12-2.12L14.12 12l5.66-5.66a1.5 1.5 0 0 0-2.12-2.12L12 9.88 6.34 4.22a1.5 1.5 0 1 0-2.12 2.12L9.88 12l-5.66 5.66a1.5 1.5 0 0 0 2.12 2.12L12 14.12l5.66 5.66Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconTick">M21.35 4.27c.68.47.86 1.4.38 2.08l-10 14.5a1.5 1.5 0 0 1-2.33.17l-6.5-7a1.5 1.5 0 0 1 2.2-2.04l5.23 5.63 8.94-12.96a1.5 1.5 0 0 1 2.08-.38Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconCheckBoxTick">M17.41 7.3c.66.51.78 1.45.28 2.11l-6.5 8.5a1.5 1.5 0 0 1-2.37.01l-3.5-4.5a1.5 1.5 0 1 1 2.36-1.84L10 14.54l5.32-6.95a1.5 1.5 0 0 1 2.1-.28Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconCheckBoxIndeterminate">M5 12.5c0-.83.67-1.5 1.5-1.5h11a1.5 1.5 0 0 1 0 3h-11A1.5 1.5 0 0 1 5 12.5Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconTickCircle">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.88-13.18-6.2 7.6a1.5 1.5 0 0 1-2.37 0l-3.5-4a1.5 1.5 0 1 1 2.37-1.84l2.3 2.46L15.5 8a1.5 1.5 0 1 1 2.38 1.82Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconClear">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.04-6.14a1.5 1.5 0 0 1-2.13.04l-2.87-2.78L9.26 17A1.5 1.5 0 0 1 7.1 14.9l2.78-2.87L7 9.26A1.5 1.5 0 1 1 9.1 7.1l2.87 2.78L14.74 7A1.5 1.5 0 0 1 16.9 9.1l-2.78 2.87L17 14.74c.6.58.61 1.53.04 2.12Z</StreamGeometry>
+    <!-- Layout -->
+    <!-- Music -->
+    <!-- Objects -->
+    <StreamGeometry x:Key="SemiIconEyeClosedSolid">M21.7 3.7a1 1 0 0 0-1.4-1.4L17.3 5.26A11.59 11.59 0 0 0 12 4C5 4 1 10 1 12c0 1.18 1.38 3.73 3.94 5.64L2.3 20.3a1 1 0 1 0 1.42 1.42l18-18ZM7.84 14.77l1.46-1.47a3 3 0 0 1 4-4l1.47-1.46a5 5 0 0 0-6.93 6.93ZM12 20c-1.22 0-2.35-.18-3.38-.5l2.57-2.57a5 5 0 0 0 5.75-5.75l3.56-3.56C22.13 9.27 23 11.07 23 12c0 2-4 8-11 8Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconEyeOpened">M12 4C5 4 1 10 1 12s4 8 11 8 11-6 11-8-4-8-11-8Zm5 8a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm-5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z</StreamGeometry>
+    <!-- Photo&Video -->
+    <!-- Time -->
+    <StreamGeometry x:Key="SemiIconClock">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1.5-16.5v4.88l3.56 3.56a1.5 1.5 0 0 1-2.12 2.12l-4-4A1.5 1.5 0 0 1 10.5 12V6.5a1.5 1.5 0 0 1 3 0Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconCalendar">M4 20V8h16v12H4ZM2 4c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm4 6.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2Zm.5 4.5a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Zm4-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2ZM11 15a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Zm4-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2Zm.5 4.5a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Z</StreamGeometry>
+    <!-- User -->
+    <!-- Writing -->
+    <StreamGeometry x:Key="SemiIconLink">M12.94 2.94a5.74 5.74 0 1 1 8.12 8.12l-2.67 2.67a7.05 7.05 0 0 0-.4-3.85l.95-.94a2.74 2.74 0 1 0-3.88-3.88l-4 4a2.74 2.74 0 0 0 .9 4.48l-2.2 2.2a5.77 5.77 0 0 1-.82-8.8l4-4Zm-10 10 2.67-2.67a7.04 7.04 0 0 0 .4 3.85l-.95.94a2.74 2.74 0 1 0 3.88 3.88l4-4a2.74 2.74 0 0 0-.57-4.31l2.16-2.16a5.74 5.74 0 0 1 .53 8.6l-4 4a5.74 5.74 0 0 1-8.12-8.13Z</StreamGeometry>
 </ResourceDictionary>
