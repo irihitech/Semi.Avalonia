@@ -2,9 +2,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:IconDemoViewModel"
              x:Class="Semi.Avalonia.Demo.Pages.IconDemo">
+    <Design.DataContext>
+        <vm:IconDemoViewModel />
+    </Design.DataContext>
     <ScrollViewer>
-        <StackPanel x:Name="IconsPanel" Orientation="Vertical" Spacing="10" Margin="10" />
+        <ItemsControl ItemsSource="{Binding Icons}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Theme="{DynamicResource OutlineButton}"
+                            Classes="Tertiary"
+                            Padding="0"
+                            Margin="10"
+                            Width="200"
+                            Height="120">
+                        <StackPanel>
+                            <PathIcon
+                                Theme="{DynamicResource InnerPathIcon}"
+                                HorizontalAlignment="Center"
+                                Classes="ExtraLarge"
+                                Data="{Binding Geometry}" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                FontWeight="Normal"
+                                Text="{Binding ResourceKey}" />
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </ScrollViewer>
 </UserControl>
