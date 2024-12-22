@@ -1,0 +1,108 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.Pages"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:HighContrastThemeViewModel"
+             x:Class="Semi.Avalonia.Demo.Pages.HighContrastTheme">
+    <Design.DataContext>
+        <vm:HighContrastThemeViewModel />
+    </Design.DataContext>
+    <ScrollViewer>
+        <StackPanel>
+            <ListBox
+                Theme="{StaticResource CardRadioGroupListBox}"
+                ItemsSource="{Binding ThemeVariants}"
+                SelectedItem="{Binding SelectedThemeVariant}" />
+            <ThemeVariantScope
+                MinWidth="400"
+                RequestedThemeVariant="{Binding SelectedThemeVariant}">
+                <Border Padding="10" Background="{DynamicResource WindowColor}">
+                    <StackPanel Spacing="16">
+                        <StackPanel.Styles>
+                            <Style Selector="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Left" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                            </Style>
+                            <Style Selector="Border.ColorBlock">
+                                <Setter Property="Width" Value="44" />
+                                <Setter Property="Height" Value="{Binding $self.Width}" />
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="BorderBrush" Value="{DynamicResource WindowTextColor}" />
+                                <Setter Property="CornerRadius" Value="3" />
+                            </Style>
+                        </StackPanel.Styles>
+                        <Panel>
+                            <TextBlock
+                                Foreground="{DynamicResource WindowTextColor}"
+                                Text="Background" />
+                            <Border
+                                Classes="ColorBlock"
+                                Background="{DynamicResource  WindowColor}" />
+                        </Panel>
+                        <Panel>
+                            <TextBlock
+                                Foreground="{DynamicResource WindowTextColor}"
+                                Text="Text" />
+                            <Border
+                                Classes="ColorBlock"
+                                Background="{DynamicResource  WindowTextColor}" />
+                        </Panel>
+                        <Panel>
+                            <TextBlock
+                                Foreground="{DynamicResource HotlightColor}"
+                                TextDecorations="Underline"
+                                Text="Hyperlink" />
+                            <Border
+                                Classes="ColorBlock"
+                                Background="{DynamicResource  HotlightColor}" />
+                        </Panel>
+                        <Panel>
+                            <TextBlock
+                                Foreground="{DynamicResource GrayTextColor}"
+                                Text="Inactive Text" />
+                            <Border
+                                Classes="ColorBlock"
+                                Background="{DynamicResource  GrayTextColor}" />
+                        </Panel>
+                        <Panel>
+                            <TextBlock
+                                Foreground="{DynamicResource HighlightTextColor}"
+                                Background="{DynamicResource HighlightColor}"
+                                Text="Selected text" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="4">
+                                <Border Classes="ColorBlock" Background="{DynamicResource  HighlightTextColor}" />
+                                <Border Classes="ColorBlock" Background="{DynamicResource  HighlightColor}" />
+                            </StackPanel>
+                        </Panel>
+                        <Panel>
+                            <Border
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                BorderBrush="{DynamicResource ButtonTextColor}"
+                                Background="{DynamicResource ButtonFaceColor}"
+                                BorderThickness="2"
+                                CornerRadius="3">
+                                <TextBlock
+                                    Foreground="{DynamicResource ButtonTextColor}"
+                                    Padding="16 6"
+                                    Text="Button text" />
+                            </Border>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="4">
+                                <Border
+                                    Classes="ColorBlock"
+                                    Background="{DynamicResource  ButtonTextColor}" />
+                                <Border
+                                    Classes="ColorBlock"
+                                    Background="{DynamicResource  ButtonFaceColor}" />
+                            </StackPanel>
+                        </Panel>
+                    </StackPanel>
+                </Border>
+            </ThemeVariantScope>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
