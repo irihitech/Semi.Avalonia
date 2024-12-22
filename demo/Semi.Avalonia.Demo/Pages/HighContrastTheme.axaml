@@ -3,18 +3,108 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Semi.Avalonia.Demo.Pages"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
              x:DataType="vm:HighContrastThemeViewModel"
              x:Class="Semi.Avalonia.Demo.Pages.HighContrastTheme">
     <Design.DataContext>
         <vm:HighContrastThemeViewModel />
     </Design.DataContext>
     <ScrollViewer>
-        <StackPanel>
+        <StackPanel Spacing="10">
+            <TextBlock Text="Theme Preview" FontWeight="SemiBold" />
             <ListBox
-                Theme="{StaticResource CardRadioGroupListBox}"
+                Theme="{StaticResource PureCardRadioGroupListBox}"
                 ItemsSource="{Binding ThemeVariants}"
-                SelectedItem="{Binding SelectedThemeVariant}" />
+                SelectedItem="{Binding SelectedThemeVariant}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Spacing="5">
+                            <ThemeVariantScope RequestedThemeVariant="{Binding}">
+                                <Border
+                                    Padding="5 25 5 5"
+                                    HorizontalAlignment="Left"
+                                    Background="{DynamicResource WindowColor}"
+                                    BorderBrush="{DynamicResource WindowTextColor}"
+                                    BorderThickness="1"
+                                    CornerRadius="3">
+                                    <StackPanel Spacing="10">
+                                        <StackPanel Orientation="Horizontal" Spacing="50">
+                                            <StackPanel Spacing="5">
+                                                <TextBlock
+                                                    FontSize="50"
+                                                    Text="Aa" />
+                                                <StackPanel Orientation="Horizontal" Spacing="3">
+                                                    <StackPanel.Styles>
+                                                        <Style Selector="Border">
+                                                            <Setter Property="BorderThickness" Value="1" />
+                                                            <Setter Property="BorderBrush" Value="{DynamicResource WindowTextColor}" />
+                                                            <Setter Property="CornerRadius" Value="5" />
+                                                            <Setter Property="Width" Value="10" />
+                                                            <Setter Property="Height" Value="{Binding $self.Width}" />
+                                                        </Style>
+                                                    </StackPanel.Styles>
+                                                    <Border Background="{DynamicResource WindowColor}" />
+                                                    <Border Background="{DynamicResource HotlightColor}" />
+                                                    <Border Background="{DynamicResource GrayTextColor}" />
+                                                    <Border Background="{DynamicResource HighlightTextColor}" />
+                                                    <Border Background="{DynamicResource HighlightColor}" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <Border
+                                                BorderThickness="1"
+                                                BorderBrush="{DynamicResource WindowTextColor}"
+                                                CornerRadius="3"
+                                                Padding="8">
+                                                <Panel>
+                                                    <StackPanel Spacing="5">
+                                                        <Border
+                                                            Width="50"
+                                                            Height="1"
+                                                            Background="{DynamicResource WindowTextColor}" />
+                                                        <Border
+                                                            Height="1"
+                                                            Background="{DynamicResource WindowTextColor}" />
+                                                        <Border
+                                                            Height="1"
+                                                            Background="{DynamicResource WindowTextColor}" />
+                                                    </StackPanel>
+                                                    <StackPanel
+                                                        HorizontalAlignment="Right"
+                                                        VerticalAlignment="Bottom"
+                                                        Orientation="Horizontal"
+                                                        Spacing="2">
+                                                        <Border
+                                                            Width="20"
+                                                            Height="5"
+                                                            Background="{DynamicResource HighlightColor}"
+                                                            CornerRadius="1" />
+                                                        <Border
+                                                            Width="20"
+                                                            Height="5"
+                                                            BorderThickness="1"
+                                                            BorderBrush="{DynamicResource ButtonTextColor}"
+                                                            CornerRadius="1" />
+                                                    </StackPanel>
+                                                </Panel>
+                                            </Border>
+                                        </StackPanel>
+                                        <Border
+                                            Height="1"
+                                            Background="{DynamicResource WindowTextColor}" />
+                                    </StackPanel>
+                                </Border>
+                            </ThemeVariantScope>
+                            <TextBlock Text="{Binding}" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
             <ThemeVariantScope
                 MinWidth="400"
                 RequestedThemeVariant="{Binding SelectedThemeVariant}">
