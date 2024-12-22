@@ -1,8 +1,7 @@
-using Avalonia;
+using System.Collections.Generic;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Semi.Avalonia.Demo.Pages;
 
@@ -11,10 +10,22 @@ public partial class ThemeVariantDemo : UserControl
     public ThemeVariantDemo()
     {
         InitializeComponent();
+        this.DataContext = new ThemeVariantDemoViewModel();
     }
+}
 
-    private void Switch_OnIsCheckedChanged(object sender, RoutedEventArgs e)
-    {
-        scope.RequestedThemeVariant = scope.ActualThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
-    }
+public partial class ThemeVariantDemoViewModel : ObservableObject
+{
+    [ObservableProperty] private ThemeVariant? _selectedThemeVariant;
+
+    public IEnumerable<ThemeVariant> ThemeVariants =>
+    [
+        ThemeVariant.Default,
+        ThemeVariant.Light,
+        ThemeVariant.Dark,
+        SemiTheme.Aquatic,
+        SemiTheme.Desert,
+        SemiTheme.Dust,
+        SemiTheme.NightSky,
+    ];
 }
