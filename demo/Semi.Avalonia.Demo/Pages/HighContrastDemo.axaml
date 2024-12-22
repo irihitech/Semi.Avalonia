@@ -2,12 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.Pages"
+             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
-             x:DataType="vm:HighContrastThemeViewModel"
-             x:Class="Semi.Avalonia.Demo.Pages.HighContrastTheme">
+             x:DataType="vm:HighContrastDemoViewModel"
+             x:Class="Semi.Avalonia.Demo.Pages.HighContrastDemo">
     <Design.DataContext>
-        <vm:HighContrastThemeViewModel />
+        <vm:HighContrastDemoViewModel />
     </Design.DataContext>
     <ScrollViewer>
         <StackPanel Spacing="10">
@@ -193,6 +193,59 @@
                     </StackPanel>
                 </Border>
             </ThemeVariantScope>
+
+            <DataGrid
+                HorizontalAlignment="Left"
+                CanUserSortColumns="False"
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding ColorResources}"
+                GridLinesVisibility="All"
+                BorderBrush="{DynamicResource SemiColorBorder}"
+                BorderThickness="1"
+                Padding="5">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Color">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Background="{Binding Brush}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="ResourceKey">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <SelectableTextBlock
+                                    Margin="12 0"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding ResourceKey}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Description">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <SelectableTextBlock
+                                    Margin="12 0"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding Description}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Pair With">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <SelectableTextBlock
+                                    Margin="12 0"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding PairWith}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
