@@ -1,0 +1,94 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:IconDemoViewModel"
+             x:Class="Semi.Avalonia.Demo.Pages.IconDemo">
+    <Design.DataContext>
+        <vm:IconDemoViewModel />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto, *">
+        <TextBox
+            Grid.Row="0"
+            Width="600"
+            Margin="8"
+            Classes="ClearButton"
+            Text="{Binding SearchText}"
+            Watermark="Input Icon Name" />
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Filled Icons">
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding FilteredFilledIcons}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Theme="{DynamicResource OutlineButton}"
+                                        Classes="Tertiary"
+                                        Padding="0"
+                                        Margin="10"
+                                        Width="200"
+                                        Height="120"
+                                        Click="Button_Clicked">
+                                    <StackPanel Spacing="8">
+                                        <PathIcon
+                                            Theme="{DynamicResource InnerPathIcon}"
+                                            HorizontalAlignment="Center"
+                                            Classes="ExtraLarge"
+                                            Data="{Binding Geometry}" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            FontWeight="Normal"
+                                            Text="{Binding ResourceKey}" />
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="Stroked Icons">
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding FilteredStrokedIcons}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Theme="{DynamicResource OutlineButton}"
+                                        Classes="Tertiary"
+                                        Padding="0"
+                                        Margin="10"
+                                        Width="200"
+                                        Height="120">
+                                    <StackPanel Spacing="8">
+                                        <PathIcon
+                                            Theme="{DynamicResource InnerPathIcon}"
+                                            HorizontalAlignment="Center"
+                                            Classes="ExtraLarge"
+                                            Data="{Binding Geometry}" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            FontWeight="Normal"
+                                            Text="{Binding ResourceKey}" />
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
