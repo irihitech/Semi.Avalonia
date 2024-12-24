@@ -12,9 +12,6 @@
     <Style Selector="Popup LayoutTransformControl#PART_LayoutTransform">
         <Setter Property="RenderTransformOrigin" Value="{Binding $parent[Popup].Placement, Converter={x:Static converters:PlacementToRenderTransformOriginConverter.Instance}}"></Setter>
     </Style>
-    <Style Selector="Flyout LayoutTransformControl#PART_LayoutTransform">
-        <Setter Property="RenderTransformOrigin" Value="{Binding $parent[Flyout].Placement, Converter={x:Static converters:PlacementToRenderTransformOriginConverter.Instance}}"></Setter>
-    </Style>
     
     <Style Selector="Popup[IsOpen=True] LayoutTransformControl#PART_LayoutTransform">
         <Style.Animations>
