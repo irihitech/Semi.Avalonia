@@ -1,25 +1,23 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="using:Semi.Avalonia.Demo.Controls"
-    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
-    x:CompileBindings="True"
-    x:DataType="viewModels:ColorItemViewModel">
+    xmlns:controls="using:Semi.Avalonia.Demo.Controls">
     <Design.PreviewWith>
         <controls:ColorItemControl />
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:ColorItemControl}" TargetType="controls:ColorItemControl">
-        <Setter Property="controls:ColorItemControl.Width" Value="120" />
-        <Setter Property="controls:ColorItemControl.Height" Value="60" />
-        <Setter Property="controls:ColorItemControl.Cursor" Value="Hand" />
-        <Setter Property="controls:ColorItemControl.Template">
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
             <ControlTemplate TargetType="controls:ColorItemControl">
-                <!--    -->
                 <Border
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
                     Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
                         <TextBlock
@@ -42,7 +40,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover /template/ TextBlock#PART_HexTextBlock">
-            <Setter Property="TextBlock.IsVisible" Value="True" />
+            <Setter Property="IsVisible" Value="True" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
