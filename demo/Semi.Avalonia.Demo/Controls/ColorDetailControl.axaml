@@ -2,7 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls">
-    <StreamGeometry x:Key="CopyIcon">M5 7C3.89543 7 3 7.89543 3 9V19C3 20.1046 3.89543 21 5 21H15C16.1046 21 17 20.1046 17 19V9C17 7.89543 16.1046 7 15 7H5Z,M7 4C7 2.89543 7.89543 2 9 2H20C21.1046 2 22 2.89543 22 4V15C22 16.1046 21.1046 17 20 17H19V8C19 6 18 5 16 5H7V4Z</StreamGeometry>
     <ControlTheme x:Key="{x:Type controls:ColorDetailControl}" TargetType="controls:ColorDetailControl">
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:ColorDetailControl">
@@ -35,13 +34,13 @@
                             Grid.Row="1"
                             Grid.Column="1"
                             Classes="Tertiary"
+                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ResourceKey}"
                             Theme="{DynamicResource BorderlessButton}">
                             <PathIcon
-                                Width="12"
-                                Height="12"
-                                Data="{StaticResource CopyIcon}"
+                                Theme="{DynamicResource InnerPathIcon}"
+                                Data="{StaticResource SemiIconCopy}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
                         <SelectableTextBlock
@@ -54,14 +53,14 @@
                             Grid.Row="2"
                             Grid.Column="1"
                             Classes="Tertiary"
+                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ColorResourceKey}"
                             IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
                             Theme="{DynamicResource BorderlessButton}">
                             <PathIcon
-                                Width="12"
-                                Height="12"
-                                Data="{StaticResource CopyIcon}"
+                                Theme="{DynamicResource InnerPathIcon}"
+                                Data="{StaticResource SemiIconCopy}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
 
@@ -83,13 +82,13 @@
                             Grid.Row="4"
                             Grid.Column="1"
                             Classes="Tertiary"
+                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex}"
                             Theme="{DynamicResource BorderlessButton}">
                             <PathIcon
-                                Width="12"
-                                Height="12"
-                                Data="{StaticResource CopyIcon}"
+                                Theme="{DynamicResource InnerPathIcon}"
+                                Data="{StaticResource SemiIconCopy}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
 
@@ -111,13 +110,13 @@
                             Grid.Row="6"
                             Grid.Column="1"
                             Classes="Tertiary"
+                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Opacity}"
                             Theme="{DynamicResource BorderlessButton}">
                             <PathIcon
-                                Width="12"
-                                Height="12"
-                                Data="{StaticResource CopyIcon}"
+                                Theme="{DynamicResource InnerPathIcon}"
+                                Data="{StaticResource SemiIconCopy}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
                     </Grid>
