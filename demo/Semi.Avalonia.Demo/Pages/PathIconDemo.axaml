@@ -12,7 +12,7 @@
             <StackPanel.Styles>
                 <Style Selector="PathIcon">
                     <Setter Property="Theme" Value="{DynamicResource InnerPathIcon}" />
-                    <Setter Property="Data" Value="M10.5 2C5.80558 2 2 5.80558 2 10.5C2 15.1944 5.80558 19 10.5 19C12.3054 19 13.9794 18.4371 15.356 17.4773L19.4393 21.5606C20.0251 22.1464 20.9749 22.1464 21.5606 21.5606C22.1464 20.9749 22.1464 20.0251 21.5606 19.4393L17.4773 15.356C18.4371 13.9794 19 12.3054 19 10.5C19 5.80558 15.1944 2 10.5 2ZM5 10.5C5 7.46243 7.46243 5 10.5 5C13.5376 5 16 7.46243 16 10.5C16 13.5376 13.5376 16 10.5 16C7.46243 16 5 13.5376 5 10.5Z" />
+                    <Setter Property="Data" Value="{StaticResource SemiIconSearch}" />
                 </Style>
             </StackPanel.Styles>
             <PathIcon Classes="ExtraSmall" />
@@ -31,6 +31,6 @@
             Height="{Binding #width.Value}"
             Foreground="{DynamicResource SemiBlue6}"
             BorderBrush="{DynamicResource SemiRed6}"
-            Data="M12 3L2 12H5V20H19V12H22L12 3M13 18H11V16H13V18M13 14H11V8H13V14Z" />
+            Data="{StaticResource SemiIconHome}" />
     </StackPanel>
 </UserControl>
