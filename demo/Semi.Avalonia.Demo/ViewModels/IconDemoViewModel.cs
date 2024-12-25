@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 
@@ -11,8 +9,7 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public partial class IconDemoViewModel : ObservableObject
 {
-    private readonly IResourceDictionary? _resources =
-        AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Icons/Icon.axaml")) as ResourceDictionary;
+    private readonly IResourceDictionary? _resources = new Icons();
 
     private readonly Dictionary<string, IconItem> _filledIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
@@ -26,22 +23,27 @@ public partial class IconDemoViewModel : ObservableObject
     {
         if (_resources is null) return;
 
-        foreach (var key in _resources.Keys)
+        foreach (var provider in _resources.MergedDictionaries)
         {
-            if (_resources[key] is not Geometry geometry) continue;
-            var icon = new IconItem { ResourceKey = key.ToString(), Geometry = geometry };
-
-            if (key.ToString().EndsWith("Stroked"))
+            var dic = provider as ResourceDictionary;
+            if (dic?.Keys is null) continue;
+            foreach (var key in dic.Keys)
             {
-                _strokedIcons[key.ToString()] = icon;
-            }
-            else
-            {
-                _filledIcons[key.ToString()] = icon;
-            }
+                if (dic[key] is not Geometry geometry) continue;
+                var icon = new IconItem { ResourceKey = key.ToString(), Geometry = geometry };
 
-            OnSearchTextChanged(string.Empty);
+                if (key.ToString().EndsWith("Stroked"))
+                {
+                    _strokedIcons[key.ToString()] = icon;
+                }
+                else
+                {
+                    _filledIcons[key.ToString()] = icon;
+                }
+            }
         }
+
+        OnSearchTextChanged(string.Empty);
     }
 
     partial void OnSearchTextChanged(string? value)
