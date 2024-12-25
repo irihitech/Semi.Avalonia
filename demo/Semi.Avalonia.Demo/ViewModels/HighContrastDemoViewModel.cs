@@ -24,7 +24,7 @@ public partial class HighContrastDemoViewModel : ObservableObject
         [
             SemiTheme.Aquatic,
             SemiTheme.Desert,
-            SemiTheme.Dust,
+            SemiTheme.Dusk,
             SemiTheme.NightSky,
         ];
         ColorResources =

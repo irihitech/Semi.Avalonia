@@ -49,9 +49,9 @@ public partial class MainViewModel : ObservableObject
                     },
                     new MenuItemViewModel
                     {
-                        Header = "Dust",
+                        Header = "Dusk",
                         Command = SelectThemeCommand,
-                        CommandParameter = SemiTheme.Dust
+                        CommandParameter = SemiTheme.Dusk
                     },
                     new MenuItemViewModel
                     {
