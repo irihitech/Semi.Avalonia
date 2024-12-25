@@ -11,12 +11,14 @@
                     <Panel>
                         <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
                         <VisualLayerManager IsPopup="True">
-                            <ContentPresenter
-                                Name="PART_ContentPresenter"
-                                Padding="{TemplateBinding Padding}"
-                                Background="{TemplateBinding Background}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <LayoutTransformControl Name="PART_LayoutTransform">
+                                <ContentPresenter
+                                    Name="PART_ContentPresenter"
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            </LayoutTransformControl>
                         </VisualLayerManager>
                     </Panel>
                 </LayoutTransformControl>
@@ -29,12 +31,14 @@
             <ControlTemplate>
                 <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
                     <VisualLayerManager IsPopup="True">
-                        <ContentPresenter
-                            Name="PART_ContentPresenter"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <LayoutTransformControl Name="PART_LayoutTransform">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </LayoutTransformControl>
                     </VisualLayerManager>
                 </LayoutTransformControl>
             </ControlTemplate>
