@@ -12,7 +12,7 @@ namespace Semi.Avalonia.Demo.ViewModels;
 public partial class IconDemoViewModel : ObservableObject
 {
     private readonly IResourceDictionary? _resources =
-        AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Shared/Icon.axaml")) as ResourceDictionary;
+        AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Icons/Icon.axaml")) as ResourceDictionary;
 
     private readonly Dictionary<string, IconItem> _filledIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
