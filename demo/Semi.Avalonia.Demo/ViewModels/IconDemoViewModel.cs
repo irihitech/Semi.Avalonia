@@ -25,21 +25,21 @@ public partial class IconDemoViewModel : ObservableObject
 
         foreach (var provider in _resources.MergedDictionaries)
         {
-            var dic = provider as ResourceDictionary;
-            if (dic?.Keys is null) continue;
+            if (provider is not ResourceDictionary dic) continue;
+
             foreach (var key in dic.Keys)
             {
                 if (dic[key] is not Geometry geometry) continue;
-                var icon = new IconItem { ResourceKey = key.ToString(), Geometry = geometry };
+                var icon = new IconItem
+                {
+                    ResourceKey = key.ToString(),
+                    Geometry = geometry
+                };
 
                 if (key.ToString().EndsWith("Stroked"))
-                {
-                    _strokedIcons[key.ToString()] = icon;
-                }
+                    _strokedIcons[key.ToString().ToLowerInvariant()] = icon;
                 else
-                {
-                    _filledIcons[key.ToString()] = icon;
-                }
+                    _filledIcons[key.ToString().ToLowerInvariant()] = icon;
             }
         }
 
@@ -51,16 +51,15 @@ public partial class IconDemoViewModel : ObservableObject
         var search = value?.ToLowerInvariant() ?? string.Empty;
 
         FilteredFilledIcons.Clear();
-        foreach (var icon in _filledIcons.Values.Where(i => i.ResourceKey?.ToLowerInvariant().Contains(search) == true))
+        foreach (var key in _filledIcons.Keys.Where(i => i.Contains(search)))
         {
-            FilteredFilledIcons.Add(icon);
+            FilteredFilledIcons.Add(_filledIcons[key]);
         }
 
         FilteredStrokedIcons.Clear();
-        foreach (var icon in
-                 _strokedIcons.Values.Where(i => i.ResourceKey?.ToLowerInvariant().Contains(search) == true))
+        foreach (var key in _strokedIcons.Keys.Where(i => i.Contains(search)))
         {
-            FilteredStrokedIcons.Add(icon);
+            FilteredStrokedIcons.Add(_strokedIcons[key]);
         }
     }
 }
