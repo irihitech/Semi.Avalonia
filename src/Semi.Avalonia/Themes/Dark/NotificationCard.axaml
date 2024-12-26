@@ -1,20 +1,20 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StaticResource x:Key="NotificationCardBorderBrush" ResourceKey="SemiColorBorder" />
-    <SolidColorBrush x:Key="NotificationCardBackground" Color="#43444A" />
-    <SolidColorBrush x:Key="NotificationCardInformationIconForeground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="NotificationCardSuccessIconForeground" Color="#5DC264" />
-    <SolidColorBrush x:Key="NotificationCardWarningIconForeground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="NotificationCardErrorIconForeground" Color="#FC725A" />
+    <StaticResource x:Key="NotificationCardBackground" ResourceKey="SemiColorBackground3" />
+    <StaticResource x:Key="NotificationCardInformationIconForeground" ResourceKey="SemiColorLinkVisited" />
+    <StaticResource x:Key="NotificationCardSuccessIconForeground" ResourceKey="SemiColorSuccess" />
+    <StaticResource x:Key="NotificationCardWarningIconForeground" ResourceKey="SemiColorWarning" />
+    <StaticResource x:Key="NotificationCardErrorIconForeground" ResourceKey="SemiColorDanger" />
     <BoxShadows x:Key="NotificationCardBoxShadows">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
-    <SolidColorBrush x:Key="NotificationCardTitleForeground" Color="#F9F9F9" />
+    <StaticResource x:Key="NotificationCardTitleForeground" ResourceKey="SemiColorText0" />
     <StaticResource x:Key="NotificationCardMessageForeground" ResourceKey="SemiColorText1" />
-    <SolidColorBrush x:Key="NotificationCardLightBackground" Color="#16161A" />
-    <SolidColorBrush x:Key="NotificationCardLightInformationBorderBrush" Color="#54A9FF" />
+    <StaticResource x:Key="NotificationCardLightBackground" ResourceKey="SemiColorBackground0" />
+    <StaticResource x:Key="NotificationCardLightInformationBorderBrush" ResourceKey="SemiColorLinkVisited" />
     <StaticResource x:Key="NotificationCardLightInformationBackground" ResourceKey="SemiColorInformationLight" />
-    <SolidColorBrush x:Key="NotificationCardLightSuccessBorderBrush" Color="#5DC264" />
+    <StaticResource x:Key="NotificationCardLightSuccessBorderBrush" ResourceKey="SemiColorSuccess" />
     <StaticResource x:Key="NotificationCardLightSuccessBackground" ResourceKey="SemiColorSuccessLight" />
-    <SolidColorBrush x:Key="NotificationCardLightWarningBorderBrush" Color="#FFAE43" />
+    <StaticResource x:Key="NotificationCardLightWarningBorderBrush" ResourceKey="SemiColorWarning" />
     <StaticResource x:Key="NotificationCardLightWarningBackground" ResourceKey="SemiColorWarningLight" />
-    <SolidColorBrush x:Key="NotificationCardLightErrorBorderBrush" Color="#FC725A" />
+    <StaticResource x:Key="NotificationCardLightErrorBorderBrush" ResourceKey="SemiColorDanger" />
     <StaticResource x:Key="NotificationCardLightErrorBackground" ResourceKey="SemiColorDangerLight" />
 </ResourceDictionary>

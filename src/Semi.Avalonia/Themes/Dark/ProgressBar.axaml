@@ -1,15 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ProgressBarIndicatorBrush" Color="#54A9FF" />
+    <StaticResource x:Key="ProgressBarIndicatorBrush" ResourceKey="SemiColorLinkVisited" />
     <StaticResource x:Key="ProgressBarBackground" ResourceKey="SemiColorFill0" />
-    <SolidColorBrush x:Key="ProgressBarTextForeground" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="ProgressBarOuterTextForeground" Color="#F9F9F9" />
+    <StaticResource x:Key="ProgressBarTextForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ProgressBarOuterTextForeground" ResourceKey="SemiColorText0" />
     <SolidColorBrush x:Key="ProgressBarRootBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="ProgressBarPrimaryForeground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="ProgressBarSecondaryForeground" Color="#40B4F3" />
-    <SolidColorBrush x:Key="ProgressBarTertiaryForeground" Color="#888D92" />
-    <SolidColorBrush x:Key="ProgressBarSuccessForeground" Color="#5DC264" />
-    <SolidColorBrush x:Key="ProgressBarWarningForeground" Color="#FFAE43" />
-    <SolidColorBrush x:Key="ProgressBarDangerForeground" Color="#FC725A" />
+    <StaticResource x:Key="ProgressBarPrimaryForeground" ResourceKey="SemiColorLinkVisited" />
+    <StaticResource x:Key="ProgressBarSecondaryForeground" ResourceKey="SemiColorSecondary" />
+    <StaticResource x:Key="ProgressBarTertiaryForeground" ResourceKey="SemiColorTertiary" />
+    <StaticResource x:Key="ProgressBarSuccessForeground" ResourceKey="SemiColorSuccess" />
+    <StaticResource x:Key="ProgressBarWarningForeground" ResourceKey="SemiColorWarning" />
+    <StaticResource x:Key="ProgressBarDangerForeground" ResourceKey="SemiColorDanger" />
     <!-- Error style is obsolete, use Danger instead -->
-    <SolidColorBrush x:Key="ProgressBarErrorForeground" Color="#FC725A" />
+    <StaticResource x:Key="ProgressBarErrorForeground" ResourceKey="SemiColorDanger" />
 </ResourceDictionary>
