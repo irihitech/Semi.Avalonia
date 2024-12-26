@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 
@@ -11,8 +9,7 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public partial class IconDemoViewModel : ObservableObject
 {
-    private readonly IResourceDictionary? _resources =
-        AvaloniaXamlLoader.Load(new Uri("avares://Semi.Avalonia/Themes/Shared/Icon.axaml")) as ResourceDictionary;
+    private readonly IResourceDictionary? _resources = new Icons();
 
     private readonly Dictionary<string, IconItem> _filledIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
@@ -26,22 +23,27 @@ public partial class IconDemoViewModel : ObservableObject
     {
         if (_resources is null) return;
 
-        foreach (var key in _resources.Keys)
+        foreach (var provider in _resources.MergedDictionaries)
         {
-            if (_resources[key] is not Geometry geometry) continue;
-            var icon = new IconItem { ResourceKey = key.ToString(), Geometry = geometry };
+            if (provider is not ResourceDictionary dic) continue;
 
-            if (key.ToString().EndsWith("Stroked"))
+            foreach (var key in dic.Keys)
             {
-                _strokedIcons[key.ToString()] = icon;
-            }
-            else
-            {
-                _filledIcons[key.ToString()] = icon;
-            }
+                if (dic[key] is not Geometry geometry) continue;
+                var icon = new IconItem
+                {
+                    ResourceKey = key.ToString(),
+                    Geometry = geometry
+                };
 
-            OnSearchTextChanged(string.Empty);
+                if (key.ToString().EndsWith("Stroked"))
+                    _strokedIcons[key.ToString().ToLowerInvariant()] = icon;
+                else
+                    _filledIcons[key.ToString().ToLowerInvariant()] = icon;
+            }
         }
+
+        OnSearchTextChanged(string.Empty);
     }
 
     partial void OnSearchTextChanged(string? value)
@@ -49,16 +51,15 @@ public partial class IconDemoViewModel : ObservableObject
         var search = value?.ToLowerInvariant() ?? string.Empty;
 
         FilteredFilledIcons.Clear();
-        foreach (var icon in _filledIcons.Values.Where(i => i.ResourceKey?.ToLowerInvariant().Contains(search) == true))
+        foreach (var pair in _filledIcons.Where(i => i.Key.Contains(search)))
         {
-            FilteredFilledIcons.Add(icon);
+            FilteredFilledIcons.Add(pair.Value);
         }
 
         FilteredStrokedIcons.Clear();
-        foreach (var icon in
-                 _strokedIcons.Values.Where(i => i.ResourceKey?.ToLowerInvariant().Contains(search) == true))
+        foreach (var pair in _strokedIcons.Where(i => i.Key.Contains(search)))
         {
-            FilteredStrokedIcons.Add(icon);
+            FilteredStrokedIcons.Add(pair.Value);
         }
     }
 }
