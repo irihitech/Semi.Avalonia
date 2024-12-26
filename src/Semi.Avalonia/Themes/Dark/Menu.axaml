@@ -1,26 +1,21 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="MenuFlyoutScrollViewerIconForeground" Opacity="0.6" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="MenuBackground" Color="Transparent"/>
-
+    <StaticResource x:Key="MenuFlyoutScrollViewerIconForeground" ResourceKey="SemiColorText2" />
+    <SolidColorBrush x:Key="MenuBackground" Color="Transparent" />
     <!--  MenuFlyout  -->
     <SolidColorBrush x:Key="MenuFlyoutBackground" Color="#43444A" />
-    <SolidColorBrush x:Key="MenuFlyoutBorderBrush" Opacity="0.08" Color="White" />
+    <StaticResource x:Key="MenuFlyoutBorderBrush" ResourceKey="SemiColorBorder" />
     <BoxShadows x:Key="MenuFlyoutBorderBoxShadow">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
-
     <!--  MenuItem  -->
     <SolidColorBrush x:Key="MenuItemBackground" Color="Transparent" />
     <SolidColorBrush x:Key="MenuItemForeground" Color="#F9F9F9" />
-
-    <SolidColorBrush x:Key="MenuItemSeparatorBackground" Opacity="0.08" Color="White" />
+    <StaticResource x:Key="MenuItemSeparatorBackground" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="MenuItemPointeroverForeground" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="MenuItemPointeroverBackground" Opacity="0.12" Color="White" />
-    <SolidColorBrush x:Key="MenuItemPressedBackground" Opacity="0.16" Color="White" />
-
+    <StaticResource x:Key="MenuItemPointeroverBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="MenuItemPressedBackground" ResourceKey="SemiColorFill1" />
     <SolidColorBrush x:Key="MenuItemInputGestureTextForeground" Color="Gray" />
-    <SolidColorBrush x:Key="MenuItemExpandIconForeground" Opacity="0.6" Color="#F9F9F9" />
+    <StaticResource x:Key="MenuItemExpandIconForeground" ResourceKey="SemiColorText2" />
     <SolidColorBrush x:Key="MenuItemExpandIconOpenForeground" Color="#F9F9F9" />
-
-    <SolidColorBrush x:Key="MenuItemDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
+    <StaticResource x:Key="MenuItemDisabledForeground" ResourceKey="SemiColorDisabledText" />
     <SolidColorBrush x:Key="MenuItemDisabledInputGestureTextForeground" Opacity="0.2" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="MenuItemDisabledExpandIconForeground" Opacity="0.35" Color="#F9F9F9" />
+    <StaticResource x:Key="MenuItemDisabledExpandIconForeground" ResourceKey="SemiColorDisabledText" />
 </ResourceDictionary>

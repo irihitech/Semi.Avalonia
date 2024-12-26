@@ -1,9 +1,9 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ExpanderSeparatorBorderBrush" Opacity="0.08" Color="White" />
+    <StaticResource x:Key="ExpanderSeparatorBorderBrush" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="ExpanderHeaderForeground" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="ExpanderHeaderDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
+    <StaticResource x:Key="ExpanderHeaderDisabledForeground" ResourceKey="SemiColorDisabledText" />
     <SolidColorBrush x:Key="ExpanderHeaderDefaultBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ExpanderHeaderHoverBackground" Opacity="0.12" Color="White" />
-    <SolidColorBrush x:Key="ExpanderHeaderPressedBackground" Opacity="0.16" Color="White" />
-    <SolidColorBrush x:Key="ExpanderContentForeground" Opacity="0.8" Color="#F9F9F9" />
+    <StaticResource x:Key="ExpanderHeaderHoverBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="ExpanderHeaderPressedBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="ExpanderContentForeground" ResourceKey="SemiColorText1" />
 </ResourceDictionary>
