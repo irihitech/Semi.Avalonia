@@ -25,7 +25,7 @@ public partial class ThemeVariantDemoViewModel : ObservableObject
         ThemeVariant.Dark,
         SemiTheme.Aquatic,
         SemiTheme.Desert,
-        SemiTheme.Dust,
+        SemiTheme.Dusk,
         SemiTheme.NightSky,
     ];
 }
