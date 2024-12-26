@@ -1,5 +1,7 @@
 <ResourceDictionary x:Class="Semi.Avalonia.Tokens.Palette.Dark" xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Color Resources  -->
+    <Color x:Key="SemiWhiteColor">White</Color>
+    <Color x:Key="SemiBlackColor">Black</Color>
     <Color x:Key="SemiRed0Color">#6C090B</Color>
     <Color x:Key="SemiRed1Color">#901110</Color>
     <Color x:Key="SemiRed2Color">#B42019</Color>
@@ -166,7 +168,8 @@
     <Color x:Key="SemiBackground3Color">#43444A</Color>
     <Color x:Key="SemiBackground4Color">#4F5159</Color>
 
-    <SolidColorBrush x:Key="SemiRed0" Color="{StaticResource SemiRed0Color}" />
+    <SolidColorBrush x:Key="SemiWhite" Color="{StaticResource SemiWhiteColor}" />
+    <SolidColorBrush x:Key="SemiBlack" Color="{StaticResource SemiBlackColor}" />
     <SolidColorBrush x:Key="SemiRed1" Color="{StaticResource SemiRed1Color}" />
     <SolidColorBrush x:Key="SemiRed2" Color="{StaticResource SemiRed2Color}" />
     <SolidColorBrush x:Key="SemiRed3" Color="{StaticResource SemiRed3Color}" />
@@ -327,6 +330,8 @@
     <SolidColorBrush x:Key="SemiGrey8" Color="{StaticResource SemiGrey8Color}" />
     <SolidColorBrush x:Key="SemiGrey9" Color="{StaticResource SemiGrey9Color}" />
 
+    <SolidColorBrush x:Key="SemiColorWhite" Color="{StaticResource SemiWhiteColor}" />
+    <SolidColorBrush x:Key="SemiColorBlack" Color="{StaticResource SemiBlackColor}" />
     <!--  Primary  -->
     <SolidColorBrush x:Key="SemiColorPrimary" Color="{StaticResource SemiBlue5Color}" />
     <SolidColorBrush x:Key="SemiColorPrimaryPointerover" Color="{StaticResource SemiBlue6Color}" />
@@ -408,12 +413,12 @@
     <SolidColorBrush x:Key="SemiColorBackground4" Color="{StaticResource SemiBackground4Color}" />
 
     <!--  Fill  -->
-    <SolidColorBrush x:Key="SemiColorFill0" Opacity="0.12" Color="White" />
-    <SolidColorBrush x:Key="SemiColorFill1" Opacity="0.16" Color="White" />
-    <SolidColorBrush x:Key="SemiColorFill2" Opacity="0.20" Color="White" />
+    <SolidColorBrush x:Key="SemiColorFill0" Opacity="0.12" Color="{StaticResource SemiWhiteColor}" />
+    <SolidColorBrush x:Key="SemiColorFill1" Opacity="0.16" Color="{StaticResource SemiWhiteColor}" />
+    <SolidColorBrush x:Key="SemiColorFill2" Opacity="0.20" Color="{StaticResource SemiWhiteColor}" />
 
     <!--  Border  -->
-    <SolidColorBrush x:Key="SemiColorBorder" Opacity="0.08" Color="White" />
+    <SolidColorBrush x:Key="SemiColorBorder" Opacity="0.08" Color="{StaticResource SemiWhiteColor}" />
 
     <!--  Disabled  -->
     <SolidColorBrush x:Key="SemiColorDisabledText" Opacity="0.35" Color="{StaticResource SemiGrey9Color}" />

@@ -1,5 +1,7 @@
 <ResourceDictionary x:Class="Semi.Avalonia.Tokens.Palette.Light" xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Color Resources  -->
+    <Color x:Key="SemiWhiteColor">White</Color>
+    <Color x:Key="SemiBlackColor">Black</Color>
     <Color x:Key="SemiRed0Color">#FEF2ED</Color>
     <Color x:Key="SemiRed1Color">#FEDDD2</Color>
     <Color x:Key="SemiRed2Color">#FDB7A5</Color>
@@ -166,6 +168,8 @@
     <Color x:Key="SemiBackground3Color">White</Color>
     <Color x:Key="SemiBackground4Color">White</Color>
 
+    <SolidColorBrush x:Key="SemiWhite" Color="{StaticResource SemiWhiteColor}" />
+    <SolidColorBrush x:Key="SemiBlack" Color="{StaticResource SemiBlackColor}" />
     <SolidColorBrush x:Key="SemiRed0" Color="{StaticResource SemiRed0Color}" />
     <SolidColorBrush x:Key="SemiRed1" Color="{StaticResource SemiRed1Color}" />
     <SolidColorBrush x:Key="SemiRed2" Color="{StaticResource SemiRed2Color}" />
@@ -327,6 +331,8 @@
     <SolidColorBrush x:Key="SemiGrey8" Color="{StaticResource SemiGrey8Color}" />
     <SolidColorBrush x:Key="SemiGrey9" Color="{StaticResource SemiGrey9Color}" />
 
+    <SolidColorBrush x:Key="SemiColorWhite" Color="{StaticResource SemiWhiteColor}" />
+    <SolidColorBrush x:Key="SemiColorBlack" Color="{StaticResource SemiBlackColor}" />
     <!--  Primary  -->
     <SolidColorBrush x:Key="SemiColorPrimary" Color="{StaticResource SemiBlue5Color}" />
     <SolidColorBrush x:Key="SemiColorPrimaryPointerover" Color="{StaticResource SemiBlue6Color}" />
