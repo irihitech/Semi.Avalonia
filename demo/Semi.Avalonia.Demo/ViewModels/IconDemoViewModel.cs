@@ -51,15 +51,15 @@ public partial class IconDemoViewModel : ObservableObject
         var search = value?.ToLowerInvariant() ?? string.Empty;
 
         FilteredFilledIcons.Clear();
-        foreach (var key in _filledIcons.Keys.Where(i => i.Contains(search)))
+        foreach (var pair in _filledIcons.Where(i => i.Key.Contains(search)))
         {
-            FilteredFilledIcons.Add(_filledIcons[key]);
+            FilteredFilledIcons.Add(pair.Value);
         }
 
         FilteredStrokedIcons.Clear();
-        foreach (var key in _strokedIcons.Keys.Where(i => i.Contains(search)))
+        foreach (var pair in _strokedIcons.Where(i => i.Key.Contains(search)))
         {
-            FilteredStrokedIcons.Add(_strokedIcons[key]);
+            FilteredStrokedIcons.Add(pair.Value);
         }
     }
 }
