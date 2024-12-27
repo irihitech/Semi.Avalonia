@@ -3,6 +3,11 @@ name: Pack Nightly
 on:
   workflow_dispatch:
     inputs:
+      Version_Prefix:
+        description: 'Version Prefix'
+        required: true
+        default: '11.2.999'
+        type: string
       Semi_Avalonia:
         description: 'Pack Semi.Avalonia'
         required: true
@@ -35,7 +40,7 @@ jobs:
       - name: Get Version
         run: |
           VERSION_TIMESTAMP=$(date +'%Y%m%d%H%M%S')
-          VERSION="${{ vars.VERSION_NIGHTLY_PREFIX }}-nightly-${VERSION_TIMESTAMP}"
+          VERSION="${{ github.event.inputs.Version_Prefix }}-nightly-${VERSION_TIMESTAMP}"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Pack Semi.Avalonia
