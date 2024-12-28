@@ -1,15 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ProgressBarIndicatorBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="ProgressBarBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="ProgressBarTextForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ProgressBarOuterTextForeground" Color="#1C1F23" />
+    <StaticResource x:Key="ProgressBarIndicatorBrush" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ProgressBarBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="ProgressBarTextForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ProgressBarOuterTextForeground" ResourceKey="SemiColorText0" />
     <SolidColorBrush x:Key="ProgressBarRootBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="ProgressBarPrimaryForeground" Color="#0077FA" />
-    <SolidColorBrush x:Key="ProgressBarSecondaryForeground" Color="#0095EE" />
-    <SolidColorBrush x:Key="ProgressBarTertiaryForeground" Color="#6B7075" />
-    <SolidColorBrush x:Key="ProgressBarSuccessForeground" Color="#3BB346" />
-    <SolidColorBrush x:Key="ProgressBarWarningForeground" Color="#FC8800" />
-    <SolidColorBrush x:Key="ProgressBarDangerForeground" Color="#F93920" />
+    <StaticResource x:Key="ProgressBarPrimaryForeground" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ProgressBarSecondaryForeground" ResourceKey="SemiColorSecondary" />
+    <StaticResource x:Key="ProgressBarTertiaryForeground" ResourceKey="SemiColorTertiary" />
+    <StaticResource x:Key="ProgressBarSuccessForeground" ResourceKey="SemiColorSuccess" />
+    <StaticResource x:Key="ProgressBarWarningForeground" ResourceKey="SemiColorWarning" />
+    <StaticResource x:Key="ProgressBarDangerForeground" ResourceKey="SemiColorDanger" />
     <!-- Error style is obsolete, use Danger instead -->
-    <SolidColorBrush x:Key="ProgressBarErrorForeground" Color="#F93920" />
+    <StaticResource x:Key="ProgressBarErrorForeground" ResourceKey="SemiColorDanger" />
 </ResourceDictionary>

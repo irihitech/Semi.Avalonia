@@ -1,15 +1,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- ListBox -->
-    <SolidColorBrush x:Key="ListBoxItemDisabledForeground" Opacity="0.35" Color="#1C1F23" />
-
+    <StaticResource x:Key="ListBoxItemDisabledForeground" ResourceKey="SemiColorDisabledText" />
     <SolidColorBrush x:Key="ListBoxItemDefaultBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ListBoxItemPointeroverForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ListBoxItemPointeroverBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="ListBoxItemPressedForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ListBoxItemPressedBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedBackground" Color="#EAF5FF" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedPointeroverBackground" Color="#CBE7FE" />
+    <StaticResource x:Key="ListBoxItemPointeroverForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ListBoxItemPointeroverBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="ListBoxItemPressedForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ListBoxItemPressedBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="ListBoxItemSelectedForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ListBoxItemSelectedBackground" ResourceKey="SemiColorPrimaryLight" />
+    <StaticResource x:Key="ListBoxItemSelectedPointeroverBackground" ResourceKey="SemiColorPrimaryLightPointerover" />
     <SolidColorBrush x:Key="ListBoxItemDisabledBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedDisabledBackground" Opacity="0.02" Color="#2E3238" />
+    <StaticResource x:Key="ListBoxItemSelectedDisabledBackground" ResourceKey="SemiColorDisabledFill" />
 </ResourceDictionary>
