@@ -60,7 +60,7 @@ jobs:
         run: dotnet pack ./src/Semi.Avalonia.TreeDataGrid -o ./nugets /p:Version=${{ env.VERSION }}
 
       - name: Add NuGet Source
-        run: dotnet nuget add source ${{ secrets.IRIHI_NUGET_FEED }} -n irihi.tech -u ${{ secrets.IRIHI_NUGET_USERNAME }} -p ${{ secrets.IRIHI_NUGET_PASSWORD }} --store-password-in-clear-text
+        run: dotnet nuget add source ${{ secrets.IRIHI_NUGET_NIGHTLY_FEED }} -n irihi.tech -u ${{ secrets.IRIHI_NUGET_USERNAME }} -p ${{ secrets.IRIHI_NUGET_PASSWORD }} --store-password-in-clear-text
 
       - name: Publish Nightly Package
         run: dotnet nuget push "./nugets/*.nupkg" --api-key ${{ secrets.IRIHI_NUGET_API_KEY }} --source irihi.tech --skip-duplicate
