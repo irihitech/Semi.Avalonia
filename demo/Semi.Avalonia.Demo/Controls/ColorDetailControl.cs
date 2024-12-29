@@ -1,8 +1,10 @@
 using System.Globalization;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
+using Semi.Avalonia.Demo.Converters;
 
 namespace Semi.Avalonia.Demo.Controls;
 
@@ -10,6 +12,7 @@ public class ColorDetailControl : TemplatedControl
 {
     public const string KEY_ResourceKey = "ResourceKey";
     public const string KEY_Hex = "Hex";
+    public const string KEY_Hex2 = "Hex2";
     public const string KEY_Opacity = "Opacity";
     public const string KEY_ColorResourceKey = "ColorResourceKey";
 
@@ -51,6 +54,17 @@ public class ColorDetailControl : TemplatedControl
         private set => SetAndRaise(HexProperty, ref _hex, value);
     }
 
+    private string? _hex2;
+
+    public static readonly DirectProperty<ColorDetailControl, string?> Hex2Property =
+        AvaloniaProperty.RegisterDirect<ColorDetailControl, string?>(nameof(Hex2), o => o.Hex2);
+
+    public string? Hex2
+    {
+        get => _hex2;
+        set => SetAndRaise(Hex2Property, ref _hex2, value);
+    }
+
     public static readonly DirectProperty<ColorDetailControl, string?> OpacityNumberProperty =
         AvaloniaProperty.RegisterDirect<ColorDetailControl, string?>(nameof(OpacityNumber), o => o.OpacityNumber);
 
@@ -70,34 +84,30 @@ public class ColorDetailControl : TemplatedControl
     private void OnBackgroundChanged(AvaloniaPropertyChangedEventArgs args)
     {
         var color = args.GetNewValue<IBrush>();
-        if (color is ISolidColorBrush b)
+        if (color is ISolidColorBrush brush)
         {
-            Hex = b.Color.ToString().ToUpperInvariant();
-            OpacityNumber = b.Opacity.ToString(CultureInfo.InvariantCulture);
+            var hex1 = ColorConverter.ToHex.Convert(brush.Color, typeof(string), false, CultureInfo.InvariantCulture);
+            var hex2 = ColorConverter.ToHex.Convert(brush.Color, typeof(string), true, CultureInfo.InvariantCulture);
+            Hex = hex1 as string;
+            Hex2 = hex2 as string;
+            OpacityNumber = brush.Opacity.ToString(CultureInfo.InvariantCulture);
         }
     }
 
-    public async void Copy(object o)
+    public async Task Copy(object o)
     {
         string? text = null;
         if (o is string s)
         {
-            switch (s)
+            text = s switch
             {
-                case KEY_ResourceKey:
-                    text = ResourceKey;
-                    break;
-                case KEY_Hex:
-                    text = Hex;
-                    break;
-                case KEY_Opacity:
-                    text = OpacityNumber;
-                    break;
-                case KEY_ColorResourceKey:
-                    text = ColorResourceKey;
-                    break;
-                default: text = string.Empty; break;
-            }
+                KEY_ResourceKey => ResourceKey,
+                KEY_Hex => Hex,
+                KEY_Hex2 => Hex2,
+                KEY_Opacity => OpacityNumber,
+                KEY_ColorResourceKey => ColorResourceKey,
+                _ => string.Empty
+            };
         }
 
         var toplevel = TopLevel.GetTopLevel(this);

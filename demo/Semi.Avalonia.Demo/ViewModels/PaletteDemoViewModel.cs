@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Semi.Avalonia.Tokens.Palette;
+using Semi.Avalonia.Demo.Converters;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
@@ -212,7 +214,8 @@ public class ColorItemViewModel : ObservableObject
         ColorDisplayName = colorDisplayName;
         Brush = brush;
         ResourceKey = resourceKey;
-        Hex = brush.ToString().ToUpperInvariant();
+        var hex = ColorConverter.ToHex.Convert(brush.Color, typeof(string), false, CultureInfo.InvariantCulture);
+        Hex = hex as string ?? string.Empty;
         if ((light && index < 5) || (!light && index >= 5))
         {
             TextBrush = Brushes.Black;
