@@ -50,10 +50,6 @@
                             <Setter Property="Padding" Value="8" />
                             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
                         </Style>
-                        <Style Selector="ToggleSwitch">
-                            <Setter Property="Theme" Value="{DynamicResource ThemeToggleSwitch}" />
-                            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
-                        </Style>
                         <Style Selector="PathIcon">
                             <Setter Property="Theme" Value="{DynamicResource InnerPathIcon}" />
                         </Style>
@@ -68,6 +64,8 @@
                     </Button>
 
                     <ToggleSwitch
+                        Theme="{DynamicResource ThemeToggleSwitch}"
+                        Foreground="{DynamicResource ButtonDefaultTertiaryForeground}"
                         Command="{Binding ToggleThemeCommand}"
                         OnContent="{StaticResource SemiIconMoon}"
                         OffContent="{StaticResource SemiIconSun}" />
