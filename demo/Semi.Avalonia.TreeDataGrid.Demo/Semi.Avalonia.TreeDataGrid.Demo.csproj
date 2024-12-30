@@ -12,18 +12,21 @@
         <!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->
     </PropertyGroup>
 
-    <Import Project="../Directory.Build.props" />
+    <Import Project="../Directory.Build.props"/>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="$(CommunityToolkitVersion)" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)">
+            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="$(CommunityToolkitVersion)"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj" />
-        <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj" />
+        <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj"/>
+        <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj"/>
     </ItemGroup>
 </Project>
