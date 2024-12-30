@@ -1,18 +1,17 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="CalendarDatePickerIconForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="CalendarDatePickerForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="CalendarDatePickerIconPointeroverForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="CalendarDatePickerBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="CalendarDatePickerPointeroverBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="CalendarDatePickerPointeroverBorderBrush" Color="Transparent" />
+    <StaticResource x:Key="CalendarDatePickerIconForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="CalendarDatePickerForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="CalendarDatePickerIconPointeroverForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="CalendarDatePickerBackground" ResourceKey="SemiColorFill0" />
     <SolidColorBrush x:Key="CalendarDatePickerBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="CalendarDatePickerFocusBorderBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="CalendarDatePickerDisabledBackground" Opacity="0.02" Color="#2E3238" />
-    <SolidColorBrush x:Key="CalendarDatePickerDisabledIconForeground" Opacity="0.4" Color="#2E3238" />
-    <BoxShadows x:Key="CalendarDatePickerPopupBoxShadows">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
-
+    <StaticResource x:Key="CalendarDatePickerPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <SolidColorBrush x:Key="CalendarDatePickerPointeroverBorderBrush" Color="Transparent" />
+    <StaticResource x:Key="CalendarDatePickerFocusBorderBrush" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="CalendarDatePickerDisabledBackground" ResourceKey="SemiColorDisabledFill" />
+    <StaticResource x:Key="CalendarDatePickerDisabledIconForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="CalendarDatePickerPopupBoxShadows" ResourceKey="SemiShadowElevated" />
     <SolidColorBrush x:Key="CalendarDatePickerBorderedDefaultBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="CalendarDatePickerBorderedDefaultBorderBrush" Opacity="0.08" Color="#1C1F23" />
+    <StaticResource x:Key="CalendarDatePickerBorderedDefaultBorderBrush" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="CalendarDatePickerBorderedPointeroverBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="CalendarDatePickerBorderedPointeroverBorderBrush" Color="#0062D6" />
+    <StaticResource x:Key="CalendarDatePickerBorderedPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
 </ResourceDictionary>

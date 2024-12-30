@@ -1,48 +1,42 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ComboBoxSelectorBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxSelectorFocusBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPressedBackground" Opacity="0.13" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxSelectorDisabledBackground" Opacity="0.02" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxSelectorDisabledBorderBrush" Opacity="0.02" Color="#2E3238" />
+    <StaticResource x:Key="ComboBoxSelectorBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="ComboBoxSelectorPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="ComboBoxSelectorFocusBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="ComboBoxSelectorPressedBackground" ResourceKey="SemiColorFill2" />
+    <StaticResource x:Key="ComboBoxSelectorDisabledBackground" ResourceKey="SemiColorDisabledFill" />
+    <StaticResource x:Key="ComboBoxSelectorDisabledBorderBrush" ResourceKey="SemiColorDisabledFill" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="ComboBoxSelectorPointeroverBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxSelectorFocusBorderBrush" Color="#0077FA" />
-    <SolidColorBrush x:Key="ComboBoxSelectorPressedBorderBrush" Color="#0077FA" />
+    <StaticResource x:Key="ComboBoxSelectorFocusBorderBrush" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ComboBoxSelectorPressedBorderBrush" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ComboBoxIconDefaultForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="ComboBoxIconPointeroverForeground" ResourceKey="SemiColorText0" />
 
-    <SolidColorBrush x:Key="ComboBoxIconDefaultForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxIconPointeroverForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxIconPressedForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxIconDisabledForeground" Opacity="0.35" Color="#1C1F23" />
-
-    <SolidColorBrush x:Key="ComboBoxDisabledForeground" Opacity="0.35" Color="#1C1F23" />
-
-    <BoxShadows x:Key="ComboBoxPopupBoxShadow">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
-    <SolidColorBrush x:Key="ComboBoxPopupBackground" Color="White" />
-    <SolidColorBrush x:Key="ComboBoxPopupBorderBrush" Opacity="0.08" Color="#1C1F23" />
-
-    <SolidColorBrush x:Key="ComboBoxItemForeground" Color="#1C1F23" />
-
+    <StaticResource x:Key="ComboBoxIconPressedForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ComboBoxIconDisabledForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="ComboBoxDisabledForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="ComboBoxPopupBoxShadow" ResourceKey="SemiShadowElevated" />
+    <StaticResource x:Key="ComboBoxPopupBackground" ResourceKey="SemiColorBackground3" />
+    <StaticResource x:Key="ComboBoxPopupBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="ComboBoxItemForeground" ResourceKey="SemiColorText0" />
     <SolidColorBrush x:Key="ComboBoxItemBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxItemPointeroverForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxItemPointeroverBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxItemFocusForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxItemFocusBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxItemPressedForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxItemPressedBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="ComboBoxItemSelectedForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ComboBoxItemSelectedBackground" Color="#EAF5FF" />
-    <SolidColorBrush x:Key="ComboBoxItemSelectedPointeroverBackground" Color="#CBE7FE" />
-
+    <StaticResource x:Key="ComboBoxItemPointeroverForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ComboBoxItemPointeroverBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="ComboBoxItemFocusForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ComboBoxItemFocusBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="ComboBoxItemPressedForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ComboBoxItemPressedBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="ComboBoxItemSelectedForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ComboBoxItemSelectedBackground" ResourceKey="SemiColorPrimaryLight" />
+    <StaticResource x:Key="ComboBoxItemSelectedPointeroverBackground" ResourceKey="SemiColorPrimaryLightPointerover" />
     <SolidColorBrush x:Key="ComboBoxItemDisabledBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxItemSelectedDisabledBackground" Opacity="0.02" Color="#2E3238" />
-
+    <StaticResource x:Key="ComboBoxItemSelectedDisabledBackground" ResourceKey="SemiColorDisabledFill" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxSelectorBorderedBorderBrush" Opacity="0.08" Color="#1C1F23" />
+    <StaticResource x:Key="ComboBoxSelectorBorderedBorderBrush" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedPointeroverBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" Color="#0062D6" />
+    <StaticResource x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedFocusBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxSelectorBorderedFocusBorderBrush" Color="#0062D6" />
+    <StaticResource x:Key="ComboBoxSelectorBorderedFocusBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
     <SolidColorBrush x:Key="ComboBoxSelectorBorderedPressedBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ComboBoxSelectorBorderedPressedBorderBrush" Color="#004FB3" />
+    <StaticResource x:Key="ComboBoxSelectorBorderedPressedBorderBrush" ResourceKey="SemiColorPrimaryActive" />
 </ResourceDictionary>

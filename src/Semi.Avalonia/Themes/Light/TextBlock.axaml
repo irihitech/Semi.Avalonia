@@ -1,17 +1,16 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="TextBlockDefaultForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TextBlockSecondaryForeground" Opacity="0.8" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TextBlockTertiaryForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TextBlockQuaternaryForeground" Opacity="0.35" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TextBlockSuccessForeground" Color="#3BB346" />
-    <SolidColorBrush x:Key="TextBlockWarningForeground" Color="#FC8800" />
-    <SolidColorBrush x:Key="TextBlockDangerForeground" Color="#F93920" />
-    <SolidColorBrush x:Key="TextBlockDisabledForeground" Opacity="0.35" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TextBlockMarkBackground" Color="#EAF5FF" />
-    <SolidColorBrush x:Key="TextBlockCodeForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="TextBlockCodeBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="TextBlockCodeBorderBrush" Opacity="0.08" Color="#1C1F23" />
-
+    <StaticResource x:Key="TextBlockDefaultForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="TextBlockSecondaryForeground" ResourceKey="SemiColorText1" />
+    <StaticResource x:Key="TextBlockTertiaryForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="TextBlockQuaternaryForeground" ResourceKey="SemiColorText3" />
+    <StaticResource x:Key="TextBlockSuccessForeground" ResourceKey="SemiColorSuccess" />
+    <StaticResource x:Key="TextBlockWarningForeground" ResourceKey="SemiColorWarning" />
+    <StaticResource x:Key="TextBlockDangerForeground" ResourceKey="SemiColorDanger" />
+    <StaticResource x:Key="TextBlockDisabledForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="TextBlockMarkBackground" ResourceKey="SemiColorPrimaryLight" />
+    <StaticResource x:Key="TextBlockCodeForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="TextBlockCodeBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="TextBlockCodeBorderBrush" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="TextBlockSelectionBackground" Opacity="0.8" Color="#0041C5" />
-    <SolidColorBrush x:Key="TextBlockSelectionForeground" Color="White" />
+    <StaticResource x:Key="TextBlockSelectionForeground" ResourceKey="SemiColorWhite" />
 </ResourceDictionary>

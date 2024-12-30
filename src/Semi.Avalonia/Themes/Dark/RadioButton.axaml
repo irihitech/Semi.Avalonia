@@ -1,49 +1,41 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- RadioButton -->
-    <SolidColorBrush x:Key="RadioButtonDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
-
+    <StaticResource x:Key="RadioButtonDisabledForeground" ResourceKey="SemiColorDisabledText" />
     <SolidColorBrush x:Key="RadioButtonUncheckIconDefaultBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="RadioButtonUncheckIconPointeroverBackground" Opacity="0.12" Color="White" />
-    <SolidColorBrush x:Key="RadioButtonUncheckIconPressedBackground" Opacity="0.16" Color="White" />
-    <SolidColorBrush x:Key="RadioButtonUncheckIconDisabledBackground" Opacity="0.12" Color="White" />
-
-    <SolidColorBrush x:Key="RadioButtonUncheckIconDefaultBorderBrush" Opacity="0.35" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="RadioButtonUncheckIconPointeroverBorderBrush" Color="#7FC1FF" />
-    <SolidColorBrush x:Key="RadioButtonUncheckIconPressedBorderBrush" Color="#A9D7FF" />
-    <SolidColorBrush x:Key="RadioButtonUncheckIconDisabledBorderBrush" Opacity="0.08" Color="White" />
-
-
-    <SolidColorBrush x:Key="RadioButtonCheckIconDefaultBackground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconPointeroverBackground" Color="#7FC1FF" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconPressedBackground" Color="#A9D7FF" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconDisabledBackground" Color="#135CB8" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconDefaultBorderBrush" Color="#54A9FF" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconPointeroverBorderBrush" Color="#7FC1FF" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconPressedBorderBrush" Color="#A9D7FF" />
-    <SolidColorBrush x:Key="RadioButtonCheckIconDisabledBorderBrush" Color="#135CB8" />
-    <SolidColorBrush x:Key="RadioButtonCheckGlyphFill" Color="White" />
-
-    <SolidColorBrush x:Key="RadioButtonForeground" Color="#F9F9F9" />
+    <StaticResource x:Key="RadioButtonUncheckIconPointeroverBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="RadioButtonUncheckIconPressedBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="RadioButtonUncheckIconDisabledBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="RadioButtonUncheckIconDefaultBorderBrush" ResourceKey="SemiColorText3" />
+    <StaticResource x:Key="RadioButtonUncheckIconPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
+    <StaticResource x:Key="RadioButtonUncheckIconPressedBorderBrush" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="RadioButtonUncheckIconDisabledBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="RadioButtonCheckIconDefaultBackground" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="RadioButtonCheckIconPointeroverBackground" ResourceKey="SemiColorPrimaryPointerover" />
+    <StaticResource x:Key="RadioButtonCheckIconPressedBackground" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="RadioButtonCheckIconDisabledBackground" ResourceKey="SemiColorPrimaryDisabled" />
+    <StaticResource x:Key="RadioButtonCheckIconDefaultBorderBrush" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="RadioButtonCheckIconPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
+    <StaticResource x:Key="RadioButtonCheckIconPressedBorderBrush" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="RadioButtonCheckIconDisabledBorderBrush" ResourceKey="SemiColorPrimaryDisabled" />
+    <StaticResource x:Key="RadioButtonCheckGlyphFill" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="RadioButtonForeground" ResourceKey="SemiColorText0" />
     <SolidColorBrush x:Key="RadioButtonDefaultBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="RadioButtonDefaultBorderBrush" Opacity="0.35" Color="#F9F9F9" />
-
-    <SolidColorBrush x:Key="RadioButtonGroupBackground" Opacity="0.12" Color="White" />
-
+    <StaticResource x:Key="RadioButtonDefaultBorderBrush" ResourceKey="SemiColorText3" />
+    <StaticResource x:Key="RadioButtonGroupBackground" ResourceKey="SemiColorFill0" />
     <!-- ButtonRadioButton -->
-    <SolidColorBrush x:Key="RadioButtonButtonUncheckedForeground" Opacity="0.8" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="RadioButtonButtonUncheckedPointeroverBackground" Opacity="0.16" Color="White" />
-    <SolidColorBrush x:Key="RadioButtonButtonUncheckedDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
-    <SolidColorBrush x:Key="RadioButtonButtonCheckedBackground" Color="#43444A" />
-    <SolidColorBrush x:Key="RadioButtonButtonCheckedForeground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="RadioButtonButtonCheckedDisabledForeground" Opacity="0.35" Color="#F9F9F9" />
-
+    <StaticResource x:Key="RadioButtonButtonUncheckedForeground" ResourceKey="SemiColorText1" />
+    <StaticResource x:Key="RadioButtonButtonUncheckedPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="RadioButtonButtonUncheckedDisabledForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="RadioButtonButtonCheckedBackground" ResourceKey="SemiColorBackground3" />
+    <StaticResource x:Key="RadioButtonButtonCheckedForeground" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="RadioButtonButtonCheckedDisabledForeground" ResourceKey="SemiColorDisabledText" />
     <!-- CardRadioButton -->
     <SolidColorBrush x:Key="RadioButtonCardDefaultBackground" Color="Transparent" />
     <SolidColorBrush x:Key="RadioButtonCardDefaultBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="RadioButtonCardCheckedBackground" Opacity="0.2" Color="#54A9FF" />
-    <SolidColorBrush x:Key="RadioButtonCardCheckDefaultBorderBrush" Color="#54A9FF" />
-    <SolidColorBrush x:Key="RadioButtonCardCheckPointeroverBorderBrush" Color="#7FC1FF" />
-    <SolidColorBrush x:Key="RadioButtonCardCheckPressedBorderBrush" Color="#A9D7FF" />
-    <SolidColorBrush x:Key="RadioButtonCardUncheckPointeroverBackground" Opacity="0.12" Color="White" />
-    <SolidColorBrush x:Key="RadioButtonCardUncheckPressedBackground" Opacity="0.16" Color="White" />
+    <StaticResource x:Key="RadioButtonCardCheckedBackground" ResourceKey="SemiColorPrimaryLight" />
+    <StaticResource x:Key="RadioButtonCardCheckDefaultBorderBrush" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="RadioButtonCardCheckPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
+    <StaticResource x:Key="RadioButtonCardCheckPressedBorderBrush" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="RadioButtonCardUncheckPointeroverBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="RadioButtonCardUncheckPressedBackground" ResourceKey="SemiColorFill1" />
 </ResourceDictionary>

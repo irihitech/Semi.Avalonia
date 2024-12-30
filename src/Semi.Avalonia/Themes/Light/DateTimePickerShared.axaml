@@ -1,32 +1,23 @@
-<ResourceDictionary
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="DateTimePickerListItemBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="DateTimePickerPopupBackground" Color="White" />
+    <StaticResource x:Key="DateTimePickerPopupBackground" ResourceKey="SemiColorBackground3" />
     <SolidColorBrush x:Key="DateTimePickerPopupBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverForeground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedForeground" Color="#1C1F23" />
-
+    <StaticResource x:Key="DateTimePickerFlyoutButtonForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPointeroverForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPressedForeground" ResourceKey="SemiColorText0" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedBackground" Opacity="0.13" Color="#2E3238" />
-
-    <SolidColorBrush x:Key="DateTimePickerSeparatorBackground" Opacity="0.08" Color="#1C1F23" />
-
-
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPressedBackground" ResourceKey="SemiColorFill2" />
+    <StaticResource x:Key="DateTimePickerSeparatorBackground" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="DateTimePickerButtonBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="DateTimePickerButtonBackground" Opacity="0.05" Color="#2E3238" />
-    <SolidColorBrush x:Key="DateTimePickerButtonForeground" Color="#1C1F23" />
-
-    <SolidColorBrush x:Key="DateTimePickerIconForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DateTimePickerEmptyForeground" Opacity="0.5" Color="#1C1F23" />
-
-    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBackground" Opacity="0.09" Color="#2E3238" />
+    <StaticResource x:Key="DateTimePickerButtonBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="DateTimePickerButtonForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="DateTimePickerIconForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="DateTimePickerEmptyForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="DateTimePickerButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
     <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="DateTimePickerButtonDisabledBackground" Opacity="0.02" Color="#2E3238" />
-    <SolidColorBrush x:Key="DateTimePickerButtonDisabledIconForeground" Opacity="0.4" Color="#2E3238" />
-    
-    <BoxShadows x:Key="DateTimePickerFlyoutBoxShadow">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+    <StaticResource x:Key="DateTimePickerButtonDisabledBackground" ResourceKey="SemiColorDisabledFill" />
+    <StaticResource x:Key="DateTimePickerButtonDisabledIconForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="DateTimePickerFlyoutBoxShadow" ResourceKey="SemiShadowElevated" />
 </ResourceDictionary>

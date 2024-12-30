@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using Semi.Avalonia.Tokens.Palette;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
@@ -51,8 +52,8 @@ public class PaletteDemoViewModel : ObservableObject
 
     public PaletteDemoViewModel()
     {
-        _lightResourceDictionary = new Light.Palette();
-        _darkResourceDictionary = new Dark.Palette();
+        _lightResourceDictionary = new Light();
+        _darkResourceDictionary = new Dark();
         WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
     }
 
