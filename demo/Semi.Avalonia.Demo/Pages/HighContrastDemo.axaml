@@ -6,6 +6,7 @@
              xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
              x:DataType="vm:HighContrastDemoViewModel"
+             x:CompileBindings="True"
              x:Class="Semi.Avalonia.Demo.Pages.HighContrastDemo">
     <Design.DataContext>
         <vm:HighContrastDemoViewModel />
@@ -166,6 +167,7 @@
                                     </Style>
                                 </StackPanel.Styles>
                                 <Panel>
+                                    <TextBlock ></TextBlock>
                                     <TextBlock
                                         Foreground="{DynamicResource WindowTextColor}"
                                         Text="Background" />
@@ -212,6 +214,7 @@
                                             Classes="ColorBlock"
                                             DataContext="{Binding ColorResources[4]}"
                                             Background="{DynamicResource  HighlightTextColor}" />
+                                        <TextBlock Text="{Binding ColorResources[4].ResourceKey}"></TextBlock>
                                         <controls:ColorItemControl
                                             Classes="ColorBlock"
                                             DataContext="{Binding ColorResources[5]}"
