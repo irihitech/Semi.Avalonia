@@ -2,11 +2,10 @@
     x:Class="Semi.Avalonia.TreeDataGrid.Demo.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    RequestedThemeVariant="Default">
-    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+    xmlns:semi="https://irihi.tech/semi">
 
     <Application.Styles>
-        <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+        <semi:SemiTheme Locale="zh-CN" />
         <StyleInclude Source="avares://Semi.Avalonia.TreeDataGrid/Index.axaml" />
     </Application.Styles>
 </Application>

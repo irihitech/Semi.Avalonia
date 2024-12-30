@@ -15,8 +15,8 @@ public partial class Overview : UserControl
         """
         <Application.Styles>
         <!-- You can still reference in old way.  -->
-        <!-- <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" /> -->
-            <semi:SemiTheme Locale="zh-cn" />
+        <!-- <StyleInclude Source="avares://Semi.Avalonia/Index.axaml" /> -->
+            <semi:SemiTheme Locale="zh-CN" />
         </Application.Styles>
         """;
 
