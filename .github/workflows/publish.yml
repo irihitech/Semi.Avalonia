@@ -44,17 +44,17 @@ jobs:
           Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.zip
 
       - name: Enable Native AOT in .csproj
-        if: ${{ github.event.inputs.include_aot == true }}
+        if: ${{ github.event.inputs.include_aot == 'true' }}
         run: |
           sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
           sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
 
       - name: Publish win-x64 AOT
-        if: ${{ github.event.inputs.include_aot == true }}
+        if: ${{ github.event.inputs.include_aot == 'true' }}
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o ./publish/win64-aot
 
       - name: Zip win-x64 AOT
-        if: ${{ github.event.inputs.include_aot == true }}
+        if: ${{ github.event.inputs.include_aot == 'true' }}
         run: |
           $files = Get-ChildItem -Path ./publish/win64-aot/* -Recurse -Exclude *.pdb
           Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
@@ -82,11 +82,11 @@ jobs:
         run: zip -j -r ./upload/Semi.Avalonia.Demo.Desktop.linux-x64.zip ./publish/linux64 -x "*.pdb"
 
       - name: Publish linux-x64 DRM
-        if: ${{ github.event.inputs.include_drm == true }}
+        if: ${{ github.event.inputs.include_drm == 'true' }}
         run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/drm
 
       - name: Zip linux-x64 DRM
-        if: ${{ github.event.inputs.include_drm == true }}
+        if: ${{ github.event.inputs.include_drm == 'true' }}
         run: zip -j -r ./upload/Semi.Avalonia.Demo.Drm.linux-x64.zip ./publish/drm -x "*.pdb"
 
       - name: Upload a Build Artifact
