@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
              xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
+             xmlns:cvt="clr-namespace:Semi.Avalonia.Demo.Converters"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
              x:DataType="vm:HighContrastDemoViewModel"
              x:CompileBindings="True"
@@ -11,15 +12,6 @@
     <Design.DataContext>
         <vm:HighContrastDemoViewModel />
     </Design.DataContext>
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="../Themes/ToggleSwitch.axaml" />
-                <ResourceInclude Source="../Controls/ColorItemControl.axaml" />
-                <ResourceInclude Source="../Controls/ColorDetailControl.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
     <SplitView
         Name="splitView"
         CompactPaneLength="50"
@@ -286,7 +278,8 @@
                                         <SelectableTextBlock
                                             Margin="12 0"
                                             VerticalAlignment="Center"
-                                            Text="{Binding Hex}" />
+                                            Text="{Binding Brush,
+                                                Converter={x:Static cvt:ColorConverter.ToHex},ConverterParameter={x:False}}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

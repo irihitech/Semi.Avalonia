@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls">
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
+    x:CompileBindings="True">
     <ControlTheme x:Key="{x:Type controls:ColorDetailControl}" TargetType="controls:ColorDetailControl">
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:ColorDetailControl">
@@ -16,7 +17,7 @@
                         HorizontalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
                         CornerRadius="6" />
-                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="*, *, *, *, *, *, *">
+                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="*, *, *, *, *, *, *, *">
                         <!--  Row 0-1-2 ResourceKey  -->
                         <TextBlock
                             Grid.Column="0"
@@ -47,7 +48,7 @@
                             Grid.Row="2"
                             Grid.Column="0"
                             VerticalAlignment="Center"
-                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            IsVisible="{TemplateBinding ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
                             Text="{TemplateBinding ColorResourceKey}" />
                         <Button
                             Grid.Row="2"
@@ -56,7 +57,7 @@
                             Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ColorResourceKey}"
-                            IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            IsVisible="{TemplateBinding ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
                             Theme="{DynamicResource BorderlessButton}">
                             <PathIcon
                                 Theme="{DynamicResource InnerPathIcon}"
@@ -64,7 +65,7 @@
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
 
-                        <!--  Row 3-4 HEX  -->
+                        <!--  Row 3-4-5 HEX  -->
                         <TextBlock
                             Grid.Row="3"
                             Grid.Column="0"
@@ -72,7 +73,7 @@
                             Margin="4,8,0,0"
                             VerticalAlignment="Center"
                             Classes="Tertiary"
-                            Text="ARGB" />
+                            Text="Hex" />
                         <SelectableTextBlock
                             Grid.Row="4"
                             Grid.Column="0"
@@ -91,10 +92,28 @@
                                 Data="{StaticResource SemiIconCopy}"
                                 Foreground="{Binding $parent[Button].Foreground}" />
                         </Button>
-
-                        <!--  Row 5-6 Opacity  -->
-                        <TextBlock
+                        <SelectableTextBlock
                             Grid.Row="5"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="{TemplateBinding Hex2}" />
+                        <Button
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Classes="Tertiary"
+                            Padding="8"
+                            Command="{Binding $parent[controls:ColorDetailControl].Copy}"
+                            CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex2}"
+                            Theme="{DynamicResource BorderlessButton}">
+                            <PathIcon
+                                Theme="{DynamicResource InnerPathIcon}"
+                                Data="{StaticResource SemiIconCopy}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+
+                        <!--  Row 6-7 Opacity  -->
+                        <TextBlock
+                            Grid.Row="6"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Margin="4,8,0,0"
@@ -102,12 +121,12 @@
                             Classes="Tertiary"
                             Text="Opacity" />
                         <SelectableTextBlock
-                            Grid.Row="6"
+                            Grid.Row="7"
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Text="{TemplateBinding OpacityNumber}" />
                         <Button
-                            Grid.Row="6"
+                            Grid.Row="7"
                             Grid.Column="1"
                             Classes="Tertiary"
                             Padding="8"

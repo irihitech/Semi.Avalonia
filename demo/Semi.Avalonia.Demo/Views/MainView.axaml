@@ -11,14 +11,6 @@
     x:CompileBindings="True"
     x:DataType="views:MainViewModel"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="../Themes/TabMenu.axaml" />
-                <ResourceInclude Source="../Themes/ToggleSwitch.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
     <Grid RowDefinitions="Auto, *">
         <Border
             Grid.Row="0"
@@ -50,10 +42,6 @@
                             <Setter Property="Padding" Value="8" />
                             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
                         </Style>
-                        <Style Selector="ToggleSwitch">
-                            <Setter Property="Theme" Value="{DynamicResource ThemeToggleSwitch}" />
-                            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
-                        </Style>
                         <Style Selector="PathIcon">
                             <Setter Property="Theme" Value="{DynamicResource InnerPathIcon}" />
                         </Style>
@@ -68,6 +56,8 @@
                     </Button>
 
                     <ToggleSwitch
+                        Theme="{DynamicResource ThemeToggleSwitch}"
+                        Foreground="{DynamicResource ButtonDefaultTertiaryForeground}"
                         Command="{Binding ToggleThemeCommand}"
                         OnContent="{StaticResource SemiIconMoon}"
                         OffContent="{StaticResource SemiIconSun}" />
