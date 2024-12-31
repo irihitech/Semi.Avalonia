@@ -7,8 +7,15 @@
         <!-- You can still reference in old way.  -->
         <!-- <StyleInclude Source="avares://Semi.Avalonia/Index.axaml" /> -->
         <semi:SemiTheme Locale="zh-CN" />
-        <semi:SemiPopupAnimations/>
+        <semi:SemiPopupAnimations />
         <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
         <StyleInclude Source="avares://Semi.Avalonia.ColorPicker/Index.axaml" />
     </Application.Styles>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="Themes/_index.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
