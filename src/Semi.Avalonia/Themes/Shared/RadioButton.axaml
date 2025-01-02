@@ -2,23 +2,23 @@
     <!-- RadioButton -->
     <x:Double x:Key="RadioButtonIconRadius">16</x:Double>
     <x:Double x:Key="RadioButtonGlyphRadius">6</x:Double>
-    <x:Double x:Key="RadioButtonFontSize">14</x:Double>
+    <StaticResource x:Key="RadioButtonFontSize" ResourceKey="SemiFontSizeRegular" />
     <Thickness x:Key="RadioButtonIconMargin">0 2 0 0</Thickness>
-    <x:Double x:Key="RadioButtonUncheckIconDefaultThickness">1</x:Double>
+    <StaticResource x:Key="RadioButtonUncheckIconDefaultThickness" ResourceKey="SemiBorderSpacingControl" />
     <Thickness x:Key="RadioButtonContentMargin">8 0 0 0</Thickness>
     <!-- ButtonRadioButton -->
-    <CornerRadius x:Key="RadioButtonBoxCornerRadius">3</CornerRadius>
-    <CornerRadius x:Key="RadioButtonGroupCornerRadius">3</CornerRadius>
-    <CornerRadius x:Key="RadioButtonButtonCornerRadius">3</CornerRadius>
-    <FontWeight x:Key="RadioButtonButtonFontWeight">600</FontWeight>
+    <StaticResource x:Key="RadioButtonBoxCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="RadioButtonGroupCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="RadioButtonButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="RadioButtonButtonFontWeight" ResourceKey="SemiFontWeightBold" />
     <Thickness x:Key="RadioButtonButtonSmallPadding">16 2</Thickness>
     <Thickness x:Key="RadioButtonButtonDefaultPadding">16 4</Thickness>
     <Thickness x:Key="RadioButtonButtonLargePadding">24 6</Thickness>
-    <x:Double x:Key="RadioButtonButtonSmallFontSize">12</x:Double>
-    <x:Double x:Key="RadioButtonButtonDefaultFontSize">12</x:Double>
-    <x:Double x:Key="RadioButtonButtonLargeFontSize">14</x:Double>
+    <StaticResource x:Key="RadioButtonButtonSmallFontSize" ResourceKey="SemiFontSizeSmall" />
+    <StaticResource x:Key="RadioButtonButtonDefaultFontSize" ResourceKey="SemiFontSizeSmall" />
+    <StaticResource x:Key="RadioButtonButtonLargeFontSize" ResourceKey="SemiFontSizeRegular" />
     <!-- CardRadioButton -->
-    <Thickness x:Key="RadioButtonBorderThickness">1</Thickness>
+    <StaticResource x:Key="RadioButtonBorderThickness" ResourceKey="SemiBorderThicknessControl" />
     <Thickness x:Key="RadioButtonCardPadding">16 12</Thickness>
-    <CornerRadius x:Key="RadioButtonCardCornerRadius">3</CornerRadius>
+    <StaticResource x:Key="RadioButtonCardCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
 </ResourceDictionary>

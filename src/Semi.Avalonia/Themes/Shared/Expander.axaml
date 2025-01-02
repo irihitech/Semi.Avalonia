@@ -1,10 +1,10 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <FontWeight x:Key="ExpanderHeaderFontWeight">600</FontWeight>
-    <x:Double x:Key="ExpanderIconSize">8</x:Double>
+    <StaticResource x:Key="ExpanderHeaderFontWeight" ResourceKey="SemiFontWeightBold" />
+    <StaticResource x:Key="ExpanderIconSize" ResourceKey="SemiWidthIconExtraSmall" />
     <Thickness x:Key="ExpanderIconMargin">8 0 0 0</Thickness>
     <StaticResource x:Key="ExpanderIcon" ResourceKey="SemiIconChevronDown" />
     <Thickness x:Key="ExpanderHeaderMargin">8 4</Thickness>
-    <Thickness x:Key="ExpanderHeaderPadding">8</Thickness>
+    <StaticResource x:Key="ExpanderHeaderPadding" ResourceKey="SemiThicknessTight" />
     <Thickness x:Key="ExpanderContentMargin">16 4 16 8</Thickness>
     <Thickness x:Key="ExpanderDownContentBorderThickness">0 0 0 1</Thickness>
     <Thickness x:Key="ExpanderUpContentBorderThickness">0 1 0 0</Thickness>
