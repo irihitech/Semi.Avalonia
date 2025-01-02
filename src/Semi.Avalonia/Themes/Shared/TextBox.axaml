@@ -1,18 +1,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <x:Double x:Key="TextBoxDefaultHeight">32</x:Double>
-    <x:Double x:Key="TextBoxSmallHeight">24</x:Double>
-    <x:Double x:Key="TextBoxLargeHeight">40</x:Double>
-
-    <CornerRadius x:Key="TextBoxDefaultCornerRadius">3</CornerRadius>
-
+    <StaticResource x:Key="TextBoxDefaultHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="TextBoxSmallHeight" ResourceKey="SemiHeightControlSmall" />
+    <StaticResource x:Key="TextBoxLargeHeight" ResourceKey="SemiHeightControlLarge" />
+    <StaticResource x:Key="TextBoxDefaultCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
     <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 8 0</Thickness>
     <Thickness x:Key="TextBoxInnerRightContentPadding">8 0 0 0</Thickness>
     <Thickness x:Key="TextBoxContentPadding">8 0</Thickness>
-    <Thickness x:Key="TextBoxBorderThickness">1</Thickness>
-
+    <StaticResource x:Key="TextBoxBorderThickness" ResourceKey="SemiBorderThicknessControl" />
     <Thickness x:Key="TextBoxTextAreaContentPadding">12 5</Thickness>
     <x:Double x:Key="TextBoxTextAreaHeight">90</x:Double>
-
     <StaticResource x:Key="PasswordBoxRevealButtonData" ResourceKey="SemiIconEyeClosedSolid" />
     <StaticResource x:Key="PasswordBoxHideButtonData" ResourceKey="SemiIconEyeOpened" />
 </ResourceDictionary>

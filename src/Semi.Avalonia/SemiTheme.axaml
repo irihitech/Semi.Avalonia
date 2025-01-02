@@ -1,4 +1,6 @@
-<Styles x:Class="Semi.Avalonia.SemiTheme" xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+<Styles x:Class="Semi.Avalonia.SemiTheme"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:semi="https://irihi.tech/semi">
     <Styles.Resources>
         <ResourceDictionary>
@@ -12,8 +14,8 @@
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://Semi.Avalonia/Controls/_index.axaml" />
-                <ResourceInclude Source="avares://Semi.Avalonia/Themes/Base.axaml" />
                 <ResourceInclude Source="avares://Semi.Avalonia/Themes/Shared/_index.axaml" />
+                <ResourceInclude Source="avares://Semi.Avalonia/Tokens/Variables.axaml" />
                 <ResourceInclude Source="avares://Semi.Avalonia/Locale/zh-cn.axaml" />
                 <ResourceInclude Source="avares://Semi.Avalonia/Icons/_index.axaml" />
             </ResourceDictionary.MergedDictionaries>
