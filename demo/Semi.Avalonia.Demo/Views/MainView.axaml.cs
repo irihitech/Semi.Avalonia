@@ -25,8 +25,6 @@ public partial class MainViewModel : ObservableObject
     public string DocumentationUrl => "https://docs.irihi.tech/semi";
     public string RepoUrl => "https://github.com/irihitech/Semi.Avalonia";
     public IReadOnlyList<MenuItemViewModel> MenuItems { get; }
-    
-    public IReadOnlyList<MenuItemViewModel> LocaleItems { get; }
 
     public MainViewModel()
     {
@@ -34,67 +32,78 @@ public partial class MainViewModel : ObservableObject
         [
             new MenuItemViewModel
             {
-                Header = "Aquatic",
-                Command = SelectThemeCommand,
-                CommandParameter = SemiTheme.Aquatic
+                Header = "High Contrast Theme",
+                Items =
+                [
+                    new MenuItemViewModel
+                    {
+                        Header = "Aquatic",
+                        Command = SelectThemeCommand,
+                        CommandParameter = SemiTheme.Aquatic
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Desert",
+                        Command = SelectThemeCommand,
+                        CommandParameter = SemiTheme.Desert
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Dusk",
+                        Command = SelectThemeCommand,
+                        CommandParameter = SemiTheme.Dusk
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "NightSky",
+                        Command = SelectThemeCommand,
+                        CommandParameter = SemiTheme.NightSky
+                    },
+                ]
             },
-            new MenuItemViewModel
+            new MenuItemViewModel()
             {
-                Header = "Desert",
-                Command = SelectThemeCommand,
-                CommandParameter = SemiTheme.Desert
-            },
-            new MenuItemViewModel
-            {
-                Header = "Dusk",
-                Command = SelectThemeCommand,
-                CommandParameter = SemiTheme.Dusk
-            },
-            new MenuItemViewModel
-            {
-                Header = "NightSky",
-                Command = SelectThemeCommand,
-                CommandParameter = SemiTheme.NightSky
-            },
-        ];
-        LocaleItems =
-        [
-            new MenuItemViewModel
-            {
-                Header = "简体中文",
-                Command = SelectLocaleCommand,
-                CommandParameter = new System.Globalization.CultureInfo("zh-cn")
-            },
-            new MenuItemViewModel
-            {
-                Header = "English",
-                Command = SelectLocaleCommand,
-                CommandParameter = new System.Globalization.CultureInfo("en-us")
-            },
-            new MenuItemViewModel
-            {
-                Header = "日本語",
-                Command = SelectLocaleCommand,
-                CommandParameter = new System.Globalization.CultureInfo("ja-jp")
-            },
-            new MenuItemViewModel
-            {
-                Header = "Українська",
-                Command = SelectLocaleCommand,
-                CommandParameter = new System.Globalization.CultureInfo("uk-ua")
-            },
-            new MenuItemViewModel
-            {
-                Header = "Русский",
-                Command = SelectLocaleCommand,
-                CommandParameter = new System.Globalization.CultureInfo("ru-ru")
-            },
-            new MenuItemViewModel
-            {
-                Header = "繁體中文",
-                Command = SelectLocaleCommand,
-                CommandParameter = new System.Globalization.CultureInfo("zh-tw")
-            },
+                Header = "Locale",
+                Items=
+                [
+                    new MenuItemViewModel
+                    {
+                        Header = "简体中文",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("zh-cn")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "English",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("en-us")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "日本語",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("ja-jp")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Українська",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("uk-ua")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Русский",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("ru-ru")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "繁體中文",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("zh-tw")
+                    },
+                ]
+            }
         ];
     }
 

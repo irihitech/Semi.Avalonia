@@ -46,21 +46,6 @@
                             <Setter Property="Theme" Value="{DynamicResource InnerPathIcon}" />
                         </Style>
                     </StackPanel.Styles>
-                    
-                    <Button>
-                        <PathIcon Data="{StaticResource SemiIconLanguage}" />
-                        <Button.Flyout>
-                            <MenuFlyout Placement="Bottom" ItemsSource="{Binding LocaleItems}" />
-                        </Button.Flyout>
-                        <Button.Styles>
-                            <Style Selector="MenuItem" x:DataType="views:MenuItemViewModel">
-                                <Setter Property="Header" Value="{Binding Header}" />
-                                <Setter Property="ItemsSource" Value="{Binding Items}" />
-                                <Setter Property="Command" Value="{Binding Command}" />
-                                <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
-                            </Style>
-                        </Button.Styles>
-                    </Button>
 
                     <Button Command="{Binding OpenUrlCommand}" CommandParameter="{Binding DocumentationUrl}">
                         <PathIcon Data="{StaticResource SemiIconGlobe}" />
