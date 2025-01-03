@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
@@ -59,5 +60,23 @@ public class SemiTheme : Styles
             return resource;
         }
         return _localeToResource[new CultureInfo("zh-cn")];
+    }
+
+    public static void OverrideLocaleResources(Application application, CultureInfo culture)
+    {
+        if (!_localeToResource.TryGetValue(culture, out var resources)) return;
+        foreach (var kv in resources)
+        {
+            application.Resources[kv.Key] = kv.Value;
+        }
+    }
+    
+    public static void OverrideLocaleResources(StyledElement element, CultureInfo culture)
+    {
+        if (!_localeToResource.TryGetValue(culture, out var resources)) return;
+        foreach (var kv in resources)
+        {
+            element.Resources[kv.Key] = kv.Value;
+        }
     }
 }
