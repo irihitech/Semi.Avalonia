@@ -62,8 +62,9 @@ public class SemiTheme : Styles
         return _localeToResource[new CultureInfo("zh-cn")];
     }
 
-    public static void OverrideLocaleResources(Application application, CultureInfo culture)
+    public static void OverrideLocaleResources(Application application, CultureInfo? culture)
     {
+        if (culture is null) return;
         if (!_localeToResource.TryGetValue(culture, out var resources)) return;
         foreach (var kv in resources)
         {
@@ -71,8 +72,9 @@ public class SemiTheme : Styles
         }
     }
     
-    public static void OverrideLocaleResources(StyledElement element, CultureInfo culture)
+    public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
+        if (culture is null) return;
         if (!_localeToResource.TryGetValue(culture, out var resources)) return;
         foreach (var kv in resources)
         {
