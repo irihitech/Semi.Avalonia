@@ -109,7 +109,8 @@
                                 ItemsSource="{Binding Songs}" />
                             <ToggleSwitch
                                 Grid.Row="2"
-                                Theme="{DynamicResource SplitViewToggleSwitch}"
+                                Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                                Content="{StaticResource SemiIconSidebar}"
                                 HorizontalAlignment="Left"
                                 IsChecked="{Binding #SplitView.IsPaneOpen}">
                             </ToggleSwitch>
