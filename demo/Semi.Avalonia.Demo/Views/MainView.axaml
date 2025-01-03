@@ -21,7 +21,8 @@
                 <StackPanel Orientation="Horizontal" Spacing="8">
                     <ToggleSwitch
                         Name="ExpandButton"
-                        Theme="{DynamicResource SplitViewToggleSwitch}" />
+                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                        Content="{StaticResource SemiIconSidebar}" />
                     <SelectableTextBlock
                         VerticalAlignment="Center"
                         Classes="H6"
@@ -36,34 +37,27 @@
                         Text="{ReflectionBinding #tab.SelectedItem.Header}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <StackPanel.Styles>
-                        <Style Selector="Button">
-                            <Setter Property="Theme" Value="{DynamicResource BorderlessButton}" />
-                            <Setter Property="Padding" Value="8" />
-                            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
-                        </Style>
-                        <Style Selector="PathIcon">
-                            <Setter Property="Theme" Value="{DynamicResource InnerPathIcon}" />
-                        </Style>
-                    </StackPanel.Styles>
+                    <Button
+                        Theme="{DynamicResource IconBorderlessButton}"
+                        Command="{Binding OpenUrlCommand}"
+                        CommandParameter="{Binding DocumentationUrl}"
+                        Content="{StaticResource SemiIconGlobe}" />
 
-                    <Button Command="{Binding OpenUrlCommand}" CommandParameter="{Binding DocumentationUrl}">
-                        <PathIcon Data="{StaticResource SemiIconGlobe}" />
-                    </Button>
-
-                    <Button Command="{Binding OpenUrlCommand}" CommandParameter="{Binding RepoUrl}">
-                        <PathIcon Data="{StaticResource SemiIconGithubLogo}" />
-                    </Button>
+                    <Button
+                        Theme="{DynamicResource IconBorderlessButton}"
+                        Command="{Binding OpenUrlCommand}"
+                        CommandParameter="{Binding RepoUrl}"
+                        Content="{StaticResource SemiIconGithubLogo}" />
 
                     <ToggleSwitch
-                        Theme="{DynamicResource ThemeToggleSwitch}"
-                        Foreground="{DynamicResource ButtonDefaultTertiaryForeground}"
+                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
                         Command="{Binding ToggleThemeCommand}"
                         OnContent="{StaticResource SemiIconMoon}"
-                        OffContent="{StaticResource SemiIconSun}"/>
+                        OffContent="{StaticResource SemiIconSun}" />
 
-                    <Button>
-                        <PathIcon Data="{StaticResource SemiIconMenu}" />
+                    <Button
+                        Theme="{DynamicResource IconBorderlessButton}"
+                        Content="{StaticResource SemiIconMenu}">
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom" ItemsSource="{Binding MenuItems}" />
                         </Button.Flyout>

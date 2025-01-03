@@ -27,7 +27,8 @@
                     Name="toggle"
                     HorizontalAlignment="Right"
                     IsChecked="True"
-                    Theme="{DynamicResource SplitViewToggleSwitch}" />
+                    Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                    Content="{StaticResource SemiIconSidebar}" />
                 <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
                     <Panel>
                         <TextBlock

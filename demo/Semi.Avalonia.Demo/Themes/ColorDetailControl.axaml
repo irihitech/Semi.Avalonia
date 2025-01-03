@@ -34,16 +34,10 @@
                         <Button
                             Grid.Row="1"
                             Grid.Column="1"
-                            Classes="Tertiary"
-                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ResourceKey}"
-                            Theme="{DynamicResource BorderlessButton}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{StaticResource SemiIconCopy}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
+                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Content="{StaticResource SemiIconCopy}" />
                         <SelectableTextBlock
                             Grid.Row="2"
                             Grid.Column="0"
@@ -53,17 +47,11 @@
                         <Button
                             Grid.Row="2"
                             Grid.Column="1"
-                            Classes="Tertiary"
-                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ColorResourceKey}"
                             IsVisible="{TemplateBinding ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
-                            Theme="{DynamicResource BorderlessButton}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{StaticResource SemiIconCopy}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
+                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Content="{StaticResource SemiIconCopy}" />
 
                         <!--  Row 3-4-5 HEX  -->
                         <TextBlock
@@ -82,16 +70,10 @@
                         <Button
                             Grid.Row="4"
                             Grid.Column="1"
-                            Classes="Tertiary"
-                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex}"
-                            Theme="{DynamicResource BorderlessButton}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{StaticResource SemiIconCopy}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
+                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Content="{StaticResource SemiIconCopy}" />
                         <SelectableTextBlock
                             Grid.Row="5"
                             Grid.Column="0"
@@ -100,16 +82,10 @@
                         <Button
                             Grid.Row="5"
                             Grid.Column="1"
-                            Classes="Tertiary"
-                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex2}"
-                            Theme="{DynamicResource BorderlessButton}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{StaticResource SemiIconCopy}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
+                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Content="{StaticResource SemiIconCopy}" />
 
                         <!--  Row 6-7 Opacity  -->
                         <TextBlock
@@ -128,16 +104,11 @@
                         <Button
                             Grid.Row="7"
                             Grid.Column="1"
-                            Classes="Tertiary"
-                            Padding="8"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Opacity}"
-                            Theme="{DynamicResource BorderlessButton}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{StaticResource SemiIconCopy}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
+                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Content="{StaticResource SemiIconCopy}" />
+
                     </Grid>
                 </StackPanel>
             </ControlTemplate>
