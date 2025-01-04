@@ -1,31 +1,42 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme x:Key="ThemeToggleSwitch"
+    <Design.PreviewWith>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch
+                Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                Content="{StaticResource SemiIconStar}" />
+            <Button
+                Theme="{DynamicResource IconBorderlessButton}"
+                Content="{StaticResource SemiIconStar}" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="IconBorderlessToggleSwitch"
                   BasedOn="{StaticResource ButtonToggleSwitch}"
                   TargetType="ToggleSwitch">
-        <Setter Property="Padding" Value="8" />
-        <Setter Property="OnContent" Value="{Binding $self.Content}" />
+        <Setter Property="Padding" Value="{StaticResource SemiThicknessTight}" />
+        <Setter Property="Foreground" Value="{DynamicResource SemiColorText2}" />
         <Setter Property="OnContentTemplate">
-            <DataTemplate>
-                <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
-            </DataTemplate>
+            <StaticResource ResourceKey="GeometryDataTemplate" />
         </Setter>
-        <Setter Property="OffContent" Value="{Binding $self.Content}" />
         <Setter Property="OffContentTemplate">
-            <DataTemplate>
-                <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
-            </DataTemplate>
+            <StaticResource ResourceKey="GeometryDataTemplate" />
         </Setter>
         <Setter Property="ContentTemplate">
-            <DataTemplate>
-                <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
-            </DataTemplate>
+            <StaticResource ResourceKey="GeometryDataTemplate" />
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="SplitViewToggleSwitch"
-                  BasedOn="{StaticResource ThemeToggleSwitch}"
-                  TargetType="ToggleSwitch">
-        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultTertiaryForeground}" />
-        <Setter Property="Content" Value="{StaticResource SemiIconSidebar}" />
+    <ControlTheme x:Key="IconBorderlessButton"
+                  BasedOn="{StaticResource BorderlessButton}"
+                  TargetType="Button">
+        <Setter Property="Padding" Value="{StaticResource SemiThicknessTight}" />
+        <Setter Property="Foreground" Value="{DynamicResource SemiColorText2}" />
+        <Setter Property="ContentTemplate">
+            <StaticResource ResourceKey="GeometryDataTemplate" />
+        </Setter>
     </ControlTheme>
+
+    <DataTemplate x:Key="GeometryDataTemplate" DataType="Geometry">
+        <PathIcon Theme="{StaticResource InnerPathIcon}" Data="{Binding}" />
+    </DataTemplate>
 </ResourceDictionary>
