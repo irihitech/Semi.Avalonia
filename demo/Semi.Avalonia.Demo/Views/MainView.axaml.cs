@@ -102,6 +102,12 @@ public partial class MainViewModel : ObservableObject
                         Command = SelectLocaleCommand,
                         CommandParameter = new System.Globalization.CultureInfo("zh-tw")
                     },
+                    new MenuItemViewModel
+                    {
+                        Header = "Deutsch",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new System.Globalization.CultureInfo("de-de")
+                    },
                 ]
             }
         ];
