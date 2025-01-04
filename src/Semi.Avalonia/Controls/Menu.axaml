@@ -23,21 +23,22 @@
                         BorderThickness="0"
                         Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                         CornerRadius="0"
+                        MinHeight="0"
                         DockPanel.Dock="Top"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
                             <MultiBinding
                                 Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
                                 ConverterParameter="0">
-                                <Binding Path="VerticalScrollBarVisibility"
-                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
                         <PathIcon
-                            Theme="{DynamicResource InnerPathIcon}"
+                            Width="8"
+                            Height="8"
                             Data="{DynamicResource MenuScrollViewerUpButtonGlyph}"
                             Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
                     </RepeatButton>
@@ -49,20 +50,21 @@
                         Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                         CornerRadius="0"
                         DockPanel.Dock="Bottom"
+                        MinHeight="0"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
                             <MultiBinding
                                 Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
                                 ConverterParameter="100">
-                                <Binding Path="VerticalScrollBarVisibility"
-                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
                         <PathIcon
-                            Theme="{DynamicResource InnerPathIcon}"
+                            Width="8"
+                            Height="8"
                             Data="{DynamicResource MenuScrollViewerDownButtonGlyph}"
                             Foreground="{DynamicResource MenuFlyoutScrollViewerIconForeground}" />
                     </RepeatButton>
@@ -287,7 +289,7 @@
             <Setter Property="Content">
                 <Template>
                     <Ellipse Fill="{Binding $parent[MenuItem].Foreground}"
-                             Margin="4" Width="8" Height="8" />
+                             Margin="4" Width="6" Height="6" />
                 </Template>
             </Setter>
         </Style>
@@ -297,7 +299,7 @@
         <Setter Property="Background" Value="{DynamicResource MenuItemBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MenuItemForeground}" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MenuItemCornerRadius}"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource MenuItemCornerRadius}" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
         <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
         <Setter Property="Template">
