@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia;
@@ -16,7 +17,7 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
-        this.DataContext = new MainViewModel();
+        DataContext = new MainViewModel();
     }
 }
 
@@ -70,43 +71,43 @@ public partial class MainViewModel : ObservableObject
                     {
                         Header = "简体中文",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("zh-cn")
+                        CommandParameter = new CultureInfo("zh-cn")
                     },
                     new MenuItemViewModel
                     {
                         Header = "English",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("en-us")
+                        CommandParameter = new CultureInfo("en-us")
                     },
                     new MenuItemViewModel
                     {
                         Header = "日本語",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("ja-jp")
+                        CommandParameter = new CultureInfo("ja-jp")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Українська",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("uk-ua")
+                        CommandParameter = new CultureInfo("uk-ua")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Русский",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("ru-ru")
+                        CommandParameter = new CultureInfo("ru-ru")
                     },
                     new MenuItemViewModel
                     {
                         Header = "繁體中文",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("zh-tw")
+                        CommandParameter = new CultureInfo("zh-tw")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Deutsch",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new System.Globalization.CultureInfo("de-de")
+                        CommandParameter = new CultureInfo("de-de")
                     },
                 ]
             }
@@ -138,7 +139,7 @@ public partial class MainViewModel : ObservableObject
         var app = Application.Current;
         if (app is not null)
         {
-            SemiTheme.OverrideLocaleResources(app, obj as System.Globalization.CultureInfo);
+            SemiTheme.OverrideLocaleResources(app, obj as CultureInfo);
         }
     }
 
