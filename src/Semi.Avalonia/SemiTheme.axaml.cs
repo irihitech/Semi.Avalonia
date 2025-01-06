@@ -24,6 +24,7 @@ public class SemiTheme : Styles
         { new CultureInfo("uk-ua"), new uk_ua() },
         { new CultureInfo("ru-ru"), new ru_ru() },
         { new CultureInfo("zh-tw"), new zh_tw() },
+        { new CultureInfo("de-de"), new de_de() },
     };
 
     private readonly IServiceProvider? sp;
