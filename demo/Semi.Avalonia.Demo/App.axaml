@@ -2,7 +2,10 @@
     x:Class="Semi.Avalonia.Demo.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="https://irihi.tech/semi">
+    x:CompileBindings="True"
+    x:DataType="viewModels:ApplicationViewModel"
+    xmlns:semi="https://irihi.tech/semi"
+    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels">
     <Application.Styles>
         <!-- You can still reference in old way.  -->
         <!-- <StyleInclude Source="avares://Semi.Avalonia/Index.axaml" /> -->
@@ -14,8 +17,20 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="Themes/_index.axaml" />
+                <ResourceInclude
+                    Source="Themes/_index.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="/Assets/irihi.ico" MacOSProperties.IsTemplateIcon="true" ToolTipText="Semi Avalonia Demo">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
 </Application>
