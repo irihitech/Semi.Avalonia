@@ -1,34 +1,29 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="CheckBoxForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxDisabledForeground" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="CheckBoxGlyphFill" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxGlyphDisabledFill" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="CheckBoxDefaultBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CheckBoxDefaultBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CheckBoxPressedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CheckBoxPressedBorderBrush" Color="{StaticResource HighlightColor}" />
-
-    <SolidColorBrush x:Key="CheckBoxCheckedDefaultBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedDefaultBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedPointeroverBackground" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedPointeroverBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedPressedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedPressedBorderBrush" Color="{StaticResource HighlightColor}" />
-
-    <SolidColorBrush x:Key="CheckBoxDefaultDisabledBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CheckBoxDefaultDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedDisabledBackground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCheckedDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="CheckBoxCardCheckedBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCardCheckedBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CheckBoxCardCheckedDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCardPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCardPressedBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CheckBoxCardCheckedPointeroverBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="CheckBoxCardCheckedPressedBorderBrush" Color="{StaticResource HighlightColor}" />
+    <StaticResource x:Key="CheckBoxForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="CheckBoxDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CheckBoxGlyphFill" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CheckBoxGlyphDisabledFill" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CheckBoxDefaultBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="CheckBoxDefaultBorderBrush" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="CheckBoxPointeroverBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CheckBoxPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCheckedDefaultBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCheckedDefaultBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCheckedPointeroverBackground" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="CheckBoxCheckedPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="CheckBoxCheckedPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCheckedPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxDefaultDisabledBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="CheckBoxDefaultDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CheckBoxCheckedDisabledBackground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CheckBoxCheckedDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CheckBoxCardCheckedBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CheckBoxCardCheckedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCardCheckedDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CheckBoxCardPointeroverBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CheckBoxCardPressedBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="CheckBoxCardCheckedPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="CheckBoxCardCheckedPressedBorderBrush" ResourceKey="SemiColorHighlight" />
 </ResourceDictionary>

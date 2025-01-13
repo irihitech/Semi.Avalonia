@@ -1,14 +1,12 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="SliderTrackForeground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="SliderTrackBackground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="SliderTickForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="SliderThumbBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="SliderThumbPointeroverBorderBrush" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="SliderThumbPressedBorderBrush" Color="{StaticResource HighlightColor}" />
-
-    <SolidColorBrush x:Key="SliderTrackDisabledForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="SliderThumbDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="SliderTrackDisabledBackground" Color="{StaticResource WindowColor}" />
+    <StaticResource x:Key="SliderTrackForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="SliderTrackBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="SliderTickForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="SliderThumbBackground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="SliderThumbBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="SliderThumbPointeroverBorderBrush" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="SliderThumbPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="SliderTrackDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="SliderThumbDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="SliderTrackDisabledBackground" ResourceKey="SemiColorWindow" />
 </ResourceDictionary>

@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="HyperlinkButtonPointeroverForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="HyperlinkButtonPressedForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="HyperlinkButtonDisabledForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="HyperlinkButtonVisitedForeground" Color="{StaticResource HighlightColor}" />
+    <StaticResource x:Key="HyperlinkButtonForeground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="HyperlinkButtonPointeroverForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="HyperlinkButtonPressedForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="HyperlinkButtonDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="HyperlinkButtonVisitedForeground" ResourceKey="SemiColorHighlight" />
 </ResourceDictionary>

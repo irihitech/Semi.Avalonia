@@ -1,24 +1,19 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="MenuFlyoutScrollViewerIconForeground" Color="{StaticResource WindowTextColor}" />
-
+    <StaticResource x:Key="MenuFlyoutScrollViewerIconForeground" ResourceKey="SemiColorWindowText" />
     <!--  MenuFlyout  -->
-    <SolidColorBrush x:Key="MenuFlyoutBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="MenuFlyoutBorderBrush" Color="{StaticResource WindowTextColor}" />
-
+    <StaticResource x:Key="MenuFlyoutBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="MenuFlyoutBorderBrush" ResourceKey="SemiColorWindowText" />
     <!--  MenuItem  -->
     <SolidColorBrush x:Key="MenuItemBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="MenuItemForeground" Color="{StaticResource WindowTextColor}" />
-
-    <SolidColorBrush x:Key="MenuItemSeparatorBackground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="MenuItemPointeroverForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="MenuItemPointeroverBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="MenuItemPressedBackground" Color="{StaticResource HighlightColor}" />
-
-    <SolidColorBrush x:Key="MenuItemInputGestureTextForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="MenuItemExpandIconForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="MenuItemExpandIconOpenForeground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="MenuItemDisabledForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="MenuItemDisabledInputGestureTextForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="MenuItemDisabledExpandIconForeground" Color="{StaticResource GrayTextColor}" />
+    <StaticResource x:Key="MenuItemForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="MenuItemSeparatorBackground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="MenuItemPointeroverForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="MenuItemPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="MenuItemPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="MenuItemInputGestureTextForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="MenuItemExpandIconForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="MenuItemExpandIconOpenForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="MenuItemDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="MenuItemDisabledInputGestureTextForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="MenuItemDisabledExpandIconForeground" ResourceKey="SemiColorGrayText" />
 </ResourceDictionary>
