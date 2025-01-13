@@ -1,18 +1,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ToggleSwitchDefaultBorderBrush" Color="{StaticResource WindowTextColor}" />
-
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedPressedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDisabledBackground" Color="{StaticResource WindowColor}" />
-
-    <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="ToggleSwitchContainerCheckedDefaultBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerCheckedPointeroverBackground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerCheckedPressedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ToggleSwitchContainerCheckedDisabledBackground" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="SimpleToggleSwitchContainerUnCheckedForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="SimpleToggleSwitchContainerCheckedForeground" Color="{StaticResource HighlightTextColor}" />
+    <StaticResource x:Key="ToggleSwitchDefaultBorderBrush" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDisabledBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedDefaultBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedPointeroverBackground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedDisabledBackground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="SimpleToggleSwitchContainerUnCheckedForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="SimpleToggleSwitchContainerCheckedForeground" ResourceKey="SemiColorHighlightText" />
 </ResourceDictionary>

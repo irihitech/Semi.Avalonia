@@ -1,15 +1,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="TreeViewItemDefaultForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="TreeViewItemIconDefaultForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="TreeViewItemIconHoverForeground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="TreeViewItemDisabledForeground" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="TreeViewItemDefaultBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="TreeViewItemPointeroverForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="TreeViewItemPointeroverBackground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="TreeViewItemPressedBackground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="TreeViewItemSelectedForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="TreeViewItemSelectedBackground" Color="{StaticResource HotlightColor}" />
-    <SolidColorBrush x:Key="TreeViewItemDisabledBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="TreeViewItemSelectedDisabledBackground" Color="{StaticResource WindowColor}" />
+    <StaticResource x:Key="TreeViewItemDefaultForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="TreeViewItemIconDefaultForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="TreeViewItemIconHoverForeground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="TreeViewItemDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="TreeViewItemDefaultBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="TreeViewItemPointeroverForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="TreeViewItemPointeroverBackground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="TreeViewItemPressedBackground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="TreeViewItemSelectedForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="TreeViewItemSelectedBackground" ResourceKey="SemiColorHotlight" />
+    <StaticResource x:Key="TreeViewItemDisabledBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="TreeViewItemSelectedDisabledBackground" ResourceKey="SemiColorWindow" />
 </ResourceDictionary>

@@ -1,15 +1,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- ListBox -->
-    <SolidColorBrush x:Key="ListBoxItemDisabledForeground" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="ListBoxItemDefaultBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ListBoxItemPointeroverForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="ListBoxItemPointeroverBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ListBoxItemPressedForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="ListBoxItemPressedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedPointeroverBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ListBoxItemDisabledBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="ListBoxItemSelectedDisabledBackground" Color="{StaticResource HighlightTextColor}" />
+    <StaticResource x:Key="ListBoxItemDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="ListBoxItemDefaultBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="ListBoxItemPointeroverForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ListBoxItemPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemPressedForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ListBoxItemPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemSelectedForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ListBoxItemSelectedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemSelectedPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemDisabledBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="ListBoxItemSelectedDisabledBackground" ResourceKey="SemiColorHighlightText" />
 </ResourceDictionary>

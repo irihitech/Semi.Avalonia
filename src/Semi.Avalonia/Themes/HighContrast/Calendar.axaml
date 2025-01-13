@@ -1,35 +1,29 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="CalendarBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CalendarForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="CalendarBorderBrush" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemWeekDayNameForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemIconForeground" Color="{StaticResource WindowTextColor}" />
-
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonForeground" Color="{StaticResource WindowTextColor}" />
+    <StaticResource x:Key="CalendarBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="CalendarForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="CalendarBorderBrush" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="CalendarItemWeekDayNameForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="CalendarItemIconForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="CalendarItemCalendarButtonBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="CalendarItemCalendarButtonForeground" ResourceKey="SemiColorWindowText" />
     <SolidColorBrush x:Key="CalendarItemCalendarButtonBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonPressedBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonSelectedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonSelectedForeground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonDisabledForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonBlackoutForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarButtonInactiveForeground" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBackground" Color="{StaticResource WindowColor}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonPointeroverBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarButtonPressedBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarButtonSelectedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CalendarItemCalendarButtonSelectedForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarButtonDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CalendarItemCalendarButtonBlackoutForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CalendarItemCalendarButtonInactiveForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonBackground" ResourceKey="SemiColorWindow" />
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBorderBrush" Color="Transparent" />
-
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonPressedBackground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonSelectedBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonSelectedForeground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonTodayForeground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonTodayBackground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonDisabledForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBlackoutForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="CalendarItemCalendarDayButtonInactiveForeground" Color="{StaticResource GrayTextColor}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonPointeroverBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonPressedBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonSelectedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonSelectedForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonTodayForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonTodayBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonBlackoutForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonInactiveForeground" ResourceKey="SemiColorGrayText" />
 </ResourceDictionary>

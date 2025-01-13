@@ -1,10 +1,9 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="TextBlockDefaultForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="TextBlockDisabledForeground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="TextBlockCodeForeground" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="TextBlockCodeBackground" Color="{StaticResource WindowColor}" />
-    <SolidColorBrush x:Key="TextBlockCodeBorderBrush" Color="{StaticResource WindowTextColor}" />
-
-    <SolidColorBrush x:Key="TextBlockSelectionBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="TextBlockSelectionForeground" Color="{StaticResource HighlightTextColor}" />
+    <StaticResource x:Key="TextBlockDefaultForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="TextBlockDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="TextBlockCodeForeground" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="TextBlockCodeBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="TextBlockCodeBorderBrush" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="TextBlockSelectionBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TextBlockSelectionForeground" ResourceKey="SemiColorHighlightText" />
 </ResourceDictionary>

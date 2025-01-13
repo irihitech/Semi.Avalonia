@@ -1,48 +1,39 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Light  -->
-    <SolidColorBrush x:Key="ButtonDefaultPrimaryForeground" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledForeground" Color="{StaticResource GrayTextColor}" />
-
-    <SolidColorBrush x:Key="ButtonDefaultBackground" Color="{StaticResource ButtonFaceColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPointeroverBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPressedBackground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="ButtonDefaultBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonDefaultPointeroverBorderBrush" Color="{StaticResource HighlightColor}" />
+    <StaticResource x:Key="ButtonDefaultPrimaryForeground" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ButtonDefaultDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="ButtonDefaultBackground" ResourceKey="SemiColorButtonFace" />
+    <StaticResource x:Key="ButtonDefaultPointeroverBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ButtonDefaultPressedBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ButtonDefaultBorderBrush" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ButtonDefaultPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
     <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="ButtonDefaultDisabledBorderBrush" Color="{StaticResource GrayTextColor}" />
+    <StaticResource x:Key="ButtonDefaultDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <!--  end Light  -->
-
     <!--  Solid  -->
-    <SolidColorBrush x:Key="ButtonSolidForeground" Color="{StaticResource HighlightTextColor}" />
-
-    <SolidColorBrush x:Key="ButtonSolidPrimaryBackground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBackground" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedForeground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBackground" Color="{StaticResource ButtonFaceColor}" />
-
-    <SolidColorBrush x:Key="ButtonSolidPrimaryBorderBrush" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPointeroverBorderBrush" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonSolidPrimaryPressedBorderBrush" Color="{StaticResource HighlightColor}" />
-
-    <SolidColorBrush x:Key="ButtonSolidDisabledBackground" Color="{StaticResource GrayTextColor}" />
-    <SolidColorBrush x:Key="ButtonSolidDisabledForeground" Color="{StaticResource ButtonFaceColor}" />
+    <StaticResource x:Key="ButtonSolidForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ButtonSolidPrimaryBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ButtonSolidPrimaryPointeroverBackground" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ButtonSolidPrimaryPressedForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ButtonSolidPrimaryPressedBackground" ResourceKey="SemiColorButtonFace" />
+    <StaticResource x:Key="ButtonSolidPrimaryBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ButtonSolidPrimaryPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ButtonSolidPrimaryPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ButtonSolidDisabledBackground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="ButtonSolidDisabledForeground" ResourceKey="SemiColorButtonFace" />
     <SolidColorBrush x:Key="ButtonSolidDisabledBorderBrush" Color="Transparent" />
     <!--  end Solid  -->
-
     <!--  Borderless -->
     <SolidColorBrush x:Key="ButtonBorderlessBackground" Color="Transparent" />
     <SolidColorBrush x:Key="ButtonBorderlessBorderBrush" Color="Transparent" />
     <!--  end Borderless  -->
-
     <!--  Outline -->
     <SolidColorBrush x:Key="ButtonOutlineBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="ButtonOutlineBorderBrush" Color="{StaticResource WindowTextColor}" />
-    <SolidColorBrush x:Key="ButtonOutlinePointeroverBackground" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="ButtonOutlinePressedBackground" Color="{StaticResource WindowColor}" />
+    <StaticResource x:Key="ButtonOutlineBorderBrush" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="ButtonOutlinePointeroverBackground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="ButtonOutlinePressedBackground" ResourceKey="SemiColorWindow" />
     <!--  end Outline  -->
-
-    <SolidColorBrush x:Key="ButtonInputInnerForeground" Color="{StaticResource ButtonTextColor}" />
-    <SolidColorBrush x:Key="ButtonInputInnerPointeroverForeground" Color="{StaticResource HighlightColor}" />
-    <SolidColorBrush x:Key="ButtonInputInnerPressedForeground" Color="{StaticResource HighlightColor}" />
+    <StaticResource x:Key="ButtonInputInnerForeground" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ButtonInputInnerPointeroverForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ButtonInputInnerPressedForeground" ResourceKey="SemiColorHighlight" />
 </ResourceDictionary>
