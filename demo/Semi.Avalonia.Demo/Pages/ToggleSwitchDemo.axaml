@@ -20,7 +20,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <ToggleSwitch Content="Switch" OnContent="Yes" OffContent="No" />
-            <ToggleSwitch Content="Switch" OnContent="Yes" OffContent="No" IsChecked="True"/>
+            <ToggleSwitch Content="Switch" OnContent="Yes" OffContent="No" IsChecked="True" />
             <ToggleSwitch Content="Switch" OnContent="Yes" OffContent="No" IsEnabled="False" />
             <ToggleSwitch Content="Switch" OnContent="Yes" OffContent="No" IsEnabled="False" IsChecked="True" />
         </StackPanel>
@@ -64,7 +64,9 @@
         <StackPanel Orientation="Horizontal">
             <ToggleSwitch
                 HorizontalAlignment="Left"
-                Padding="8"
+                Padding="{StaticResource SemiThicknessTight}"
+                Width="{StaticResource SemiSpacingExtraLoose}"
+                Height="{StaticResource SemiSpacingExtraLoose}"
                 Theme="{DynamicResource ButtonToggleSwitch}"
                 Foreground="{DynamicResource ButtonDefaultTertiaryForeground}">
                 <ToggleSwitch.Content>
@@ -75,7 +77,9 @@
             </ToggleSwitch>
             <ToggleSwitch
                 HorizontalAlignment="Left"
-                Padding="8"
+                Padding="{StaticResource SemiThicknessTight}"
+                Width="{StaticResource SemiSpacingExtraLoose}"
+                Height="{StaticResource SemiSpacingExtraLoose}"
                 Theme="{DynamicResource ButtonToggleSwitch}"
                 Foreground="{DynamicResource ButtonDefaultTertiaryForeground}">
                 <ToggleSwitch.OnContent>
