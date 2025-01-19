@@ -169,7 +169,6 @@
                                 <Grid
                                     Name="PART_ButtonContentGrid"
                                     Grid.Column="0"
-                                    VerticalAlignment="Center"
                                     ColumnDefinitions="78*,Auto,132*,Auto,78*">
                                     <TextBlock
                                         Name="PART_DayTextBlock"
@@ -203,16 +202,12 @@
                                         Name="PART_FirstSpacer"
                                         Grid.Column="1"
                                         Width="1"
-                                        Height="{TemplateBinding Height}"
-                                        MinHeight="{TemplateBinding MinHeight}"
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                                     <Rectangle
                                         Name="PART_SecondSpacer"
                                         Grid.Column="3"
                                         Width="1"
-                                        Height="{TemplateBinding Height}"
-                                        MinHeight="{TemplateBinding MinHeight}"
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
                                 </Grid>
