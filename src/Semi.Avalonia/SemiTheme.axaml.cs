@@ -11,11 +11,6 @@ namespace Semi.Avalonia;
 
 public class SemiTheme : Styles
 {
-    public static ThemeVariant Aquatic => new ThemeVariant(nameof(Aquatic), ThemeVariant.Dark);
-    public static ThemeVariant Desert => new ThemeVariant(nameof(Desert), ThemeVariant.Light);
-    public static ThemeVariant Dusk => new ThemeVariant(nameof(Dusk), ThemeVariant.Dark);
-    public static ThemeVariant NightSky => new ThemeVariant(nameof(NightSky), ThemeVariant.Dark);
-    
     private static readonly Dictionary<CultureInfo, ResourceDictionary> _localeToResource = new()
     {
         { new CultureInfo("zh-cn"), new zh_cn() },
@@ -27,40 +22,67 @@ public class SemiTheme : Styles
         { new CultureInfo("de-de"), new de_de() },
     };
 
-    private readonly IServiceProvider? sp;
+    private static readonly ResourceDictionary _defaultResource = new zh_cn();
+
+    private CultureInfo? _locale;
+
     public SemiTheme(IServiceProvider? provider = null)
     {
-        sp = provider;
         AvaloniaXamlLoader.Load(provider, this);
     }
 
-    private CultureInfo? _locale;
+    public static ThemeVariant Aquatic => new(nameof(Aquatic), ThemeVariant.Dark);
+    public static ThemeVariant Desert => new(nameof(Desert), ThemeVariant.Light);
+    public static ThemeVariant Dusk => new(nameof(Dusk), ThemeVariant.Dark);
+    public static ThemeVariant NightSky => new(nameof(NightSky), ThemeVariant.Dark);
+
     public CultureInfo? Locale
     {
         get => _locale;
         set
         {
-            _locale = value;
-            var resource = TryGetLocaleResource(value);
-            if (resource is null) return;
-            foreach (var kv in resource)
+            try
             {
-                this.Resources.Add(kv);
+                if (TryGetLocaleResource(value, out var resource) && resource is not null)
+                {
+                    _locale = value;
+                    foreach (var kv in resource) Resources[kv.Key] = kv.Value;
+                }
+                else
+                {
+                    _locale = new CultureInfo("zh-CN");
+                    foreach (var kv in _defaultResource) Resources[kv.Key] = kv.Value;
+                }
+            }
+            catch
+            {
+                _locale = CultureInfo.InvariantCulture;
             }
         }
     }
 
-    private static ResourceDictionary? TryGetLocaleResource(CultureInfo? locale)
+    private static bool TryGetLocaleResource(CultureInfo? locale, out ResourceDictionary? resourceDictionary)
     {
+        if (Equals(locale, CultureInfo.InvariantCulture))
+        {
+            resourceDictionary = _defaultResource;
+            return true;
+        }
+
         if (locale is null)
         {
-            return _localeToResource[new CultureInfo("zh-cn")];
+            resourceDictionary = _defaultResource;
+            return false;
         }
+
         if (_localeToResource.TryGetValue(locale, out var resource))
         {
-            return resource;
+            resourceDictionary = resource;
+            return true;
         }
-        return _localeToResource[new CultureInfo("zh-cn")];
+
+        resourceDictionary = _defaultResource;
+        return false;
     }
 
     public static void OverrideLocaleResources(Application application, CultureInfo? culture)
@@ -72,7 +94,7 @@ public class SemiTheme : Styles
             application.Resources[kv.Key] = kv.Value;
         }
     }
-    
+
     public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
         if (culture is null) return;
