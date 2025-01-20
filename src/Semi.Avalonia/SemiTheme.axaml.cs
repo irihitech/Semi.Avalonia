@@ -11,13 +11,6 @@ namespace Semi.Avalonia;
 
 public class SemiTheme : Styles
 {
-    public static ThemeVariant Aquatic => new ThemeVariant(nameof(Aquatic), ThemeVariant.Dark);
-    public static ThemeVariant Desert => new ThemeVariant(nameof(Desert), ThemeVariant.Light);
-    public static ThemeVariant Dusk => new ThemeVariant(nameof(Dusk), ThemeVariant.Dark);
-    public static ThemeVariant NightSky => new ThemeVariant(nameof(NightSky), ThemeVariant.Dark);
-    
-    private static readonly ResourceDictionary _defaultResource = new zh_cn();
-    
     private static readonly Dictionary<CultureInfo, ResourceDictionary> _localeToResource = new()
     {
         { new CultureInfo("zh-cn"), new zh_cn() },
@@ -29,14 +22,20 @@ public class SemiTheme : Styles
         { new CultureInfo("de-de"), new de_de() },
     };
 
-    private readonly IServiceProvider? sp;
+    private static readonly ResourceDictionary _defaultResource = new zh_cn();
+
+    private CultureInfo? _locale;
+
     public SemiTheme(IServiceProvider? provider = null)
     {
-        sp = provider;
         AvaloniaXamlLoader.Load(provider, this);
     }
 
-    private CultureInfo? _locale;
+    public static ThemeVariant Aquatic => new(nameof(Aquatic), ThemeVariant.Dark);
+    public static ThemeVariant Desert => new(nameof(Desert), ThemeVariant.Light);
+    public static ThemeVariant Dusk => new(nameof(Dusk), ThemeVariant.Dark);
+    public static ThemeVariant NightSky => new(nameof(NightSky), ThemeVariant.Dark);
+
     public CultureInfo? Locale
     {
         get => _locale;
@@ -95,7 +94,7 @@ public class SemiTheme : Styles
             application.Resources[kv.Key] = kv.Value;
         }
     }
-    
+
     public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
         if (culture is null) return;
