@@ -126,13 +126,8 @@ public partial class ColorResource : ObservableObject
     [ObservableProperty] private string? _description;
     [ObservableProperty] private string? _pairWith;
 
-    public string CopyText1 =>
+    public string CopyText =>
         $"""
          <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
-         """;
-
-    public string CopyText2 =>
-        $"""
-         <DynamicResource x:Key="" ResourceKey="{ResourceKey}" />
          """;
 }

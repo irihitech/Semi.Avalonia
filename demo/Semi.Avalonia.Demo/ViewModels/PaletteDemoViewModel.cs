@@ -135,14 +135,9 @@ public partial class ColorItemViewModel : ObservableObject
     [ObservableProperty] private string? _colorResourceKey;
     [ObservableProperty] private string? _hex;
 
-    public string CopyText1 =>
+    public string CopyText =>
         $"""
          <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
-         """;
-
-    public string CopyText2 =>
-        $"""
-         <DynamicResource x:Key="" ResourceKey="{ResourceKey}" />
          """;
 
     public ColorItemViewModel(string colorDisplayName, ISolidColorBrush brush, string resourceKey, bool light,
@@ -201,14 +196,9 @@ public partial class ShadowItemViewModel : ObservableObject
     [ObservableProperty] private string? _resourceKey;
     [ObservableProperty] private string? _boxShadowValue;
 
-    public string CopyText1 =>
+    public string CopyText =>
         $"""
          <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
-         """;
-
-    public string CopyText2 =>
-        $"""
-         <DynamicResource x:Key="" ResourceKey="{ResourceKey}" />
          """;
 
     public ShadowItemViewModel(string shadowDisplayName, BoxShadows boxShadows, string resourceKey)

@@ -49,20 +49,11 @@
                                     <DataGridTemplateColumn Width="100" Header="CopyText">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Button
-                                                        Command="{Binding $parent[pages:PaletteDemo].Copy}"
-                                                        CommandParameter="{Binding CopyText1}"
-                                                        Theme="{DynamicResource  IconBorderlessButton}"
-                                                        Content="{StaticResource SemiIconCopy}"
-                                                        ToolTip.Tip="StaticResource" />
-                                                    <Button
-                                                        Command="{Binding $parent[pages:PaletteDemo].Copy}"
-                                                        CommandParameter="{Binding CopyText2}"
-                                                        Theme="{DynamicResource  IconBorderlessButton}"
-                                                        Content="{StaticResource SemiIconCopy}"
-                                                        ToolTip.Tip="DynamicResource" />
-                                                </StackPanel>
+                                                <Button
+                                                    Command="{Binding $parent[pages:PaletteDemo].Copy}"
+                                                    CommandParameter="{Binding CopyText}"
+                                                    Theme="{DynamicResource  IconBorderlessButton}"
+                                                    Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -101,20 +92,11 @@
                                     <DataGridTemplateColumn Width="100" Header="CopyText">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Button
-                                                        Command="{Binding $parent[pages:PaletteDemo].Copy}"
-                                                        CommandParameter="{Binding CopyText1}"
-                                                        Theme="{DynamicResource  IconBorderlessButton}"
-                                                        Content="{StaticResource SemiIconCopy}"
-                                                        ToolTip.Tip="StaticResource" />
-                                                    <Button
-                                                        Command="{Binding $parent[pages:PaletteDemo].Copy}"
-                                                        CommandParameter="{Binding CopyText2}"
-                                                        Theme="{DynamicResource  IconBorderlessButton}"
-                                                        Content="{StaticResource SemiIconCopy}"
-                                                        ToolTip.Tip="DynamicResource" />
-                                                </StackPanel>
+                                                <Button
+                                                    Command="{Binding $parent[pages:PaletteDemo].Copy}"
+                                                    CommandParameter="{Binding CopyText}"
+                                                    Theme="{DynamicResource  IconBorderlessButton}"
+                                                    Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
