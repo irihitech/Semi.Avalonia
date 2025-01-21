@@ -11,7 +11,7 @@ using Semi.Avalonia.Demo.Converters;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
-public class PaletteDemoViewModel : ObservableObject
+public partial class PaletteDemoViewModel : ObservableObject
 {
     private readonly string[] _predefinedColorNames =
     [
@@ -24,31 +24,10 @@ public class PaletteDemoViewModel : ObservableObject
     private readonly IResourceDictionary? _lightResourceDictionary;
     private readonly IResourceDictionary? _darkResourceDictionary;
 
-    private ColorItemViewModel _selectedColor = null!;
+    [ObservableProperty] private ColorItemViewModel? _selectedColor;
 
-    public ColorItemViewModel SelectedColor
-    {
-        get => _selectedColor;
-        set => SetProperty(ref _selectedColor, value);
-    }
-
-
-    private ObservableCollection<ColorListViewModel>? _lightLists;
-
-    public ObservableCollection<ColorListViewModel>? LightLists
-    {
-        get => _lightLists;
-        set => SetProperty(ref _lightLists, value);
-    }
-
-    private ObservableCollection<ColorListViewModel>? _darkLists;
-
-    public ObservableCollection<ColorListViewModel>? DarkLists
-    {
-        get => _darkLists;
-        set => SetProperty(ref _darkLists, value);
-    }
-
+    public ObservableCollection<ColorListViewModel> LightLists { get; set; } = [];
+    public ObservableCollection<ColorListViewModel> DarkLists { get; set; } = [];
     public ObservableCollection<FunctionalColorGroupViewModel> FunctionalColors { get; set; } = [];
     public ObservableCollection<ShadowGroupViewModel> Shadows { get; set; } = [];
 
@@ -56,7 +35,7 @@ public class PaletteDemoViewModel : ObservableObject
     {
         _lightResourceDictionary = new Light();
         _darkResourceDictionary = new Dark();
-        WeakReferenceMessenger.Default.Register<PaletteDemoViewModel, ColorItemViewModel>(this, OnClickColorItem);
+        WeakReferenceMessenger.Default.Register<ColorItemViewModel>(this, (_, item) => SelectedColor = item);
     }
 
     public void InitializeResources()
@@ -68,7 +47,6 @@ public class PaletteDemoViewModel : ObservableObject
 
     private void InitializePalette()
     {
-        LightLists = [];
         foreach (var color in _predefinedColorNames)
         {
             ColorListViewModel s = new ColorListViewModel();
@@ -76,7 +54,6 @@ public class PaletteDemoViewModel : ObservableObject
             LightLists.Add(s);
         }
 
-        DarkLists = [];
         foreach (var color in _predefinedColorNames)
         {
             ColorListViewModel s = new ColorListViewModel();
@@ -87,126 +64,75 @@ public class PaletteDemoViewModel : ObservableObject
 
     private void InitializeFunctionalColors()
     {
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Primary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.PrimaryTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Secondary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.SecondaryTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Tertiary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TertiaryTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Information", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.InformationTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Success", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.SuccessTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Warning", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.WarningTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Danger", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DangerTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Text", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TextTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Link", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.LinkTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BackgroundTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Fill", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.FillTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Border", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BorderTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel("Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Primary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.PrimaryTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Secondary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.SecondaryTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Tertiary", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TertiaryTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Information", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.InformationTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Success", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.SuccessTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Warning", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.WarningTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Danger", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DangerTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Text", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TextTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Link", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.LinkTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BackgroundTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Fill", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.FillTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Border", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BorderTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
     }
 
     private void InitializeShadows()
     {
-        Shadows.Add(new ShadowGroupViewModel("Shadow", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.ShadowTokens));
-    }
-
-    private void OnClickColorItem(PaletteDemoViewModel vm, ColorItemViewModel item)
-    {
-        SelectedColor = item;
+        Shadows.Add(new ShadowGroupViewModel(
+            "Shadow", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.ShadowTokens));
     }
 }
 
-public class ColorListViewModel : ObservableObject
+public partial class ColorListViewModel : ObservableObject
 {
-    private ObservableCollection<ColorItemViewModel>? _colors;
+    public ObservableCollection<ColorItemViewModel> Color { get; set; } = [];
 
-    public ObservableCollection<ColorItemViewModel>? Color
-    {
-        get => _colors;
-        set => SetProperty(ref _colors, value);
-    }
-
-    private string? _seriesName;
-
-    public string? SeriesName
-    {
-        get => _seriesName;
-        set => SetProperty(ref _seriesName, value);
-    }
+    [ObservableProperty] private string? _seriesName;
 
     internal void Initialize(IResourceDictionary? resourceDictionary, string color, bool light)
     {
-        if (resourceDictionary is null)
-        {
-            return;
-        }
+        if (resourceDictionary is null) return;
 
         SeriesName = color;
-        Color = [];
 
         for (var i = 0; i < 10; i++)
         {
-            var key = "Semi" + color + i;
-            if (resourceDictionary.TryGetValue(key, out var value))
+            var key = $"Semi{color}{i}";
+            if (resourceDictionary.TryGetValue(key, out var value) && value is ISolidColorBrush brush)
             {
-                if (value is ISolidColorBrush brush)
-                {
-                    string name = color + " " + i;
-                    var item = new ColorItemViewModel(name, brush, key, light, i);
-                    item.ColorResourceKey = item.ResourceKey + "Color";
-                    Color.Add(item);
-                }
+                var name = $"{color} {i}";
+                var item = new ColorItemViewModel(name, brush, key, light, i);
+                item.ColorResourceKey = $"{item.ResourceKey}Color";
+                Color.Add(item);
             }
         }
     }
 }
 
-public class ColorItemViewModel : ObservableObject
+public partial class ColorItemViewModel : ObservableObject
 {
-    private IBrush _brush = null!;
-
-    public IBrush Brush
-    {
-        get => _brush;
-        set => SetProperty(ref _brush, value);
-    }
-
-    private IBrush _textBrush = null!;
-
-    public IBrush TextBrush
-    {
-        get => _textBrush;
-        set => SetProperty(ref _textBrush, value);
-    }
-
-    private string _colorDisplayName = null!;
-
-    public string ColorDisplayName
-    {
-        get => _colorDisplayName;
-        set => SetProperty(ref _colorDisplayName, value);
-    }
-
-    private string _resourceKey = null!;
-
-    public string ResourceKey
-    {
-        get => _resourceKey;
-        set => SetProperty(ref _resourceKey, value);
-    }
-
-    private string _colorResourceKey = null!;
-
-    public string ColorResourceKey
-    {
-        get => _colorResourceKey;
-        set => SetProperty(ref _colorResourceKey, value);
-    }
-
-    private string _hex = null!;
-
-    public string Hex
-    {
-        get => _hex;
-        set => SetProperty(ref _hex, value);
-    }
+    [ObservableProperty] private IBrush? _brush;
+    [ObservableProperty] private IBrush? _textBrush;
+    [ObservableProperty] private string? _colorDisplayName;
+    [ObservableProperty] private string? _resourceKey;
+    [ObservableProperty] private string? _colorResourceKey;
+    [ObservableProperty] private string? _hex;
 
     public ColorItemViewModel(string colorDisplayName, ISolidColorBrush brush, string resourceKey, bool light,
         int index)
@@ -227,16 +153,9 @@ public class ColorItemViewModel : ObservableObject
     }
 }
 
-public class FunctionalColorGroupViewModel : ObservableObject
+public partial class FunctionalColorGroupViewModel : ObservableObject
 {
-    private string _title = null!;
-
-    public string Title
-    {
-        get => _title;
-        set => SetProperty(ref _title, value);
-    }
-
+    [ObservableProperty] private string? _title;
     public ObservableCollection<ColorItemViewModel> LightColors { get; set; } = [];
     public ObservableCollection<ColorItemViewModel> DarkColors { get; set; } = [];
 
@@ -265,31 +184,11 @@ public class FunctionalColorGroupViewModel : ObservableObject
     }
 }
 
-public class ShadowItemViewModel : ObservableObject
+public partial class ShadowItemViewModel : ObservableObject
 {
-    private string _shadowDisplayName = null!;
-
-    public string ShadowDisplayName
-    {
-        get => _shadowDisplayName;
-        set => SetProperty(ref _shadowDisplayName, value);
-    }
-
-    private string _resourceKey = null!;
-
-    public string ResourceKey
-    {
-        get => _resourceKey;
-        set => SetProperty(ref _resourceKey, value);
-    }
-
-    private string _boxShadowValue = null!;
-
-    public string BoxShadowValue
-    {
-        get => _boxShadowValue;
-        set => SetProperty(ref _boxShadowValue, value);
-    }
+    [ObservableProperty] private string? _shadowDisplayName;
+    [ObservableProperty] private string? _resourceKey;
+    [ObservableProperty] private string? _boxShadowValue;
 
     public ShadowItemViewModel(string shadowDisplayName, BoxShadows boxShadows, string resourceKey)
     {
@@ -299,16 +198,9 @@ public class ShadowItemViewModel : ObservableObject
     }
 }
 
-public class ShadowGroupViewModel : ObservableObject
+public partial class ShadowGroupViewModel : ObservableObject
 {
-    private string _title = null!;
-
-    public string Title
-    {
-        get => _title;
-        set => SetProperty(ref _title, value);
-    }
-
+    [ObservableProperty] private string? _title;
     public ObservableCollection<ShadowItemViewModel> LightShadows { get; set; } = [];
     public ObservableCollection<ShadowItemViewModel> DarkShadows { get; set; } = [];
 
