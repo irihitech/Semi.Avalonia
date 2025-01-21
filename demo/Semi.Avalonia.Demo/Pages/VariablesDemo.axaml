@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+             xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Semi.Avalonia.Demo.Pages.VariablesDemo"
              x:DataType="vm:VariablesDemoViewModel">
@@ -33,10 +34,18 @@
                                             <DataGridTemplateColumn Width="*" Header="ResourceKey">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate DataType="vm:VariableItemViewModel">
-                                                        <SelectableTextBlock
-                                                            Margin="12,0,12,0"
-                                                            VerticalAlignment="Center"
-                                                            Text="{Binding ResourceKey}" />
+                                                        <Panel>
+                                                            <SelectableTextBlock
+                                                                Margin="12,0"
+                                                                VerticalAlignment="Center"
+                                                                Text="{Binding ResourceKey}" />
+                                                            <Button
+                                                                HorizontalAlignment="Right"
+                                                                Command="{Binding $parent[pages:VariablesDemo].Copy}"
+                                                                CommandParameter="{Binding ResourceKey}"
+                                                                Theme="{DynamicResource  IconBorderlessButton}"
+                                                                Content="{StaticResource SemiIconCopy}" />
+                                                        </Panel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -50,10 +59,20 @@
                                             <DataGridTemplateColumn Width="300" Header="Value">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate DataType="vm:VariableItemViewModel">
-                                                        <SelectableTextBlock
-                                                            Margin="12,0,12,0"
-                                                            VerticalAlignment="Center"
-                                                            Text="{Binding Value}" />
+                                                        <Panel>
+                                                            <SelectableTextBlock
+                                                                Margin="12,0"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                Text="{Binding Value}"
+                                                                TextWrapping="Wrap" />
+                                                            <Button
+                                                                HorizontalAlignment="Right"
+                                                                Command="{Binding $parent[pages:VariablesDemo].Copy}"
+                                                                CommandParameter="{Binding Value}"
+                                                                Theme="{DynamicResource  IconBorderlessButton}"
+                                                                Content="{StaticResource SemiIconCopy}" />
+                                                        </Panel>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>

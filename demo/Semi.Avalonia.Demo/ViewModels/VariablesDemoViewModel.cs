@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Semi.Avalonia.Demo.Constant;
 using Semi.Avalonia.Tokens;
@@ -46,9 +49,24 @@ public partial class VariableGridViewModel : ObservableObject
         {
             if (dictionary?.TryGetValue(key, out var value) ?? false)
             {
-                VariableItems.Add(new VariableItemViewModel(name, value ?? string.Empty, key));
+                VariableItems.Add(new VariableItemViewModel(name, GetValueString(value), key));
             }
         }
+    }
+
+    private static string GetValueString(object? value)
+    {
+        if (value is null) return string.Empty;
+
+        return value switch
+        {
+            double d => d.ToString(CultureInfo.InvariantCulture),
+            CornerRadius c => c.IsUniform ? $"{c.TopLeft}" : c.ToString(),
+            Thickness t => t.IsUniform ? $"{t.Left}" : t.ToString(),
+            FontWeight fontWeight => Convert.ToInt32(fontWeight).ToString(),
+            FontFamily fontFamily => fontFamily.FamilyNames.ToString(),
+            _ => value.ToString()
+        };
     }
 }
 
