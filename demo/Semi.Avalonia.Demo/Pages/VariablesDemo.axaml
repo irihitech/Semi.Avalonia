@@ -1,0 +1,70 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.VariablesDemo"
+             x:DataType="vm:VariablesDemoViewModel">
+    <Design.DataContext>
+        <vm:VariablesDemoViewModel />
+    </Design.DataContext>
+    <ScrollViewer>
+        <StackPanel>
+            <ItemsControl ItemsSource="{Binding VariableGrid}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <HeaderedContentControl
+                            Header="{Binding Title}"
+                            Content="{Binding VariableItems}">
+                            <HeaderedContentControl.HeaderTemplate>
+                                <DataTemplate DataType="x:String">
+                                    <SelectableTextBlock
+                                        Margin="0,16,0,0"
+                                        Classes="H3"
+                                        Text="{Binding}"
+                                        Theme="{DynamicResource TitleSelectableTextBlock}" />
+                                </DataTemplate>
+                            </HeaderedContentControl.HeaderTemplate>
+                            <HeaderedContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <DataGrid IsReadOnly="True" ItemsSource="{Binding}">
+                                        <DataGrid.Columns>
+                                            <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="vm:VariableItemViewModel">
+                                                        <SelectableTextBlock
+                                                            Margin="12,0,12,0"
+                                                            VerticalAlignment="Center"
+                                                            Text="{Binding ResourceKey}" />
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTextColumn
+                                                Width="*"
+                                                x:DataType="vm:VariableItemViewModel"
+                                                Binding="{Binding Description}"
+                                                IsVisible="False"
+                                                CanUserSort="False"
+                                                Header="Description" />
+                                            <DataGridTemplateColumn Width="300" Header="Value">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="vm:VariableItemViewModel">
+                                                        <SelectableTextBlock
+                                                            Margin="12,0,12,0"
+                                                            VerticalAlignment="Center"
+                                                            Text="{Binding Value}" />
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </DataTemplate>
+                            </HeaderedContentControl.ContentTemplate>
+                        </HeaderedContentControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
