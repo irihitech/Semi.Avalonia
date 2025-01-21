@@ -76,6 +76,11 @@ public partial class VariableItemViewModel : ObservableObject
     [ObservableProperty] private string? _description;
     [ObservableProperty] private string? _value;
 
+    public string CopyText =>
+        $"""
+         <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
+         """;
+
     public VariableItemViewModel(string description, object value, string resourceKey)
     {
         ResourceKey = resourceKey;
