@@ -7,8 +7,8 @@ using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Semi.Avalonia.Demo.Constant;
-using Semi.Avalonia.Tokens.Palette;
 using Semi.Avalonia.Demo.Converters;
+using Semi.Avalonia.Tokens.Palette;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
@@ -135,6 +135,11 @@ public partial class ColorItemViewModel : ObservableObject
     [ObservableProperty] private string? _colorResourceKey;
     [ObservableProperty] private string? _hex;
 
+    public string CopyText =>
+        $"""
+         <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
+         """;
+
     public ColorItemViewModel(string colorDisplayName, ISolidColorBrush brush, string resourceKey, bool light,
         int index)
     {
@@ -190,6 +195,11 @@ public partial class ShadowItemViewModel : ObservableObject
     [ObservableProperty] private string? _shadowDisplayName;
     [ObservableProperty] private string? _resourceKey;
     [ObservableProperty] private string? _boxShadowValue;
+
+    public string CopyText =>
+        $"""
+         <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
+         """;
 
     public ShadowItemViewModel(string shadowDisplayName, BoxShadows boxShadows, string resourceKey)
     {
