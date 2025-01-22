@@ -10,74 +10,73 @@
     <Design.DataContext>
         <vm:VariablesDemoViewModel />
     </Design.DataContext>
-    <ScrollViewer>
-        <StackPanel>
-            <ItemsControl ItemsSource="{Binding VariableGrid}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <HeaderedContentControl
-                            Header="{Binding Title}"
-                            Content="{Binding VariableItems}">
-                            <HeaderedContentControl.HeaderTemplate>
-                                <DataTemplate DataType="x:String">
-                                    <SelectableTextBlock
-                                        Classes="H3"
-                                        Text="{Binding}"
-                                        Theme="{DynamicResource TitleSelectableTextBlock}" />
-                                </DataTemplate>
-                            </HeaderedContentControl.HeaderTemplate>
-                            <HeaderedContentControl.ContentTemplate>
-                                <DataTemplate>
-                                    <DataGrid IsReadOnly="True" ItemsSource="{Binding}">
-                                        <DataGrid.Columns>
-                                            <DataGridTemplateColumn Width="300" Header="ResourceKey">
-                                                <DataGridTemplateColumn.CellTemplate>
-                                                    <DataTemplate DataType="vm:VariableItemViewModel">
-                                                        <SelectableTextBlock
-                                                            Margin="12,0"
-                                                            VerticalAlignment="Center"
-                                                            Text="{Binding ResourceKey}" />
-                                                    </DataTemplate>
-                                                </DataGridTemplateColumn.CellTemplate>
-                                            </DataGridTemplateColumn>
-                                            <DataGridTemplateColumn Width="200" Header="Value">
-                                                <DataGridTemplateColumn.CellTemplate>
-                                                    <DataTemplate DataType="vm:VariableItemViewModel">
-                                                        <SelectableTextBlock
-                                                            Margin="12,0"
-                                                            HorizontalAlignment="Left"
-                                                            VerticalAlignment="Center"
-                                                            Text="{Binding Value}"
-                                                            TextWrapping="Wrap" />
-                                                    </DataTemplate>
-                                                </DataGridTemplateColumn.CellTemplate>
-                                            </DataGridTemplateColumn>
-                                            <DataGridTemplateColumn Width="100" Header="CopyText">
-                                                <DataGridTemplateColumn.CellTemplate>
-                                                    <DataTemplate DataType="vm:VariableItemViewModel">
-                                                        <Button
-                                                            Command="{Binding $parent[pages:VariablesDemo].Copy}"
-                                                            CommandParameter="{Binding CopyText}"
-                                                            Theme="{DynamicResource  IconBorderlessButton}"
-                                                            Content="{StaticResource SemiIconCopy}" />
-                                                    </DataTemplate>
-                                                </DataGridTemplateColumn.CellTemplate>
-                                            </DataGridTemplateColumn>
-                                            <DataGridTextColumn
-                                                Width="*"
-                                                x:DataType="vm:VariableItemViewModel"
-                                                Binding="{Binding Description}"
-                                                IsVisible="False"
-                                                CanUserSort="False"
-                                                Header="Description" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </DataTemplate>
-                            </HeaderedContentControl.ContentTemplate>
-                        </HeaderedContentControl>
+    <DataGrid
+        Margin="8"
+        CanUserReorderColumns="True"
+        CanUserResizeColumns="True"
+        CanUserSortColumns="True"
+        HeadersVisibility="All"
+        IsReadOnly="True"
+        ItemsSource="{Binding GridData}">
+        <DataGrid.Columns>
+            <DataGridTemplateColumn
+                Width="300"
+                x:DataType="vm:VariableItem"
+                Header="ResourceKey">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate DataType="vm:VariableItem">
+                        <SelectableTextBlock
+                            Margin="12,0"
+                            VerticalAlignment="Center"
+                            Text="{Binding ResourceKey}" />
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
-    </ScrollViewer>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn
+                Width="200"
+                x:DataType="vm:VariableItem"
+                Header="Value">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate DataType="vm:VariableItem">
+                        <SelectableTextBlock
+                            Margin="12,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Text="{Binding Value}"
+                            TextWrapping="Wrap" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn
+                Width="*"
+                x:DataType="vm:VariableItem"
+                Header="Description">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate DataType="vm:VariableItem">
+                        <SelectableTextBlock
+                            Margin="12,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Text="{Binding Description}"
+                            TextWrapping="Wrap" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn
+                Width="100"
+                x:DataType="vm:VariableItem"
+                Header="CopyText"
+                SortMemberPath="Duration">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate DataType="vm:VariableItem">
+                        <Button
+                            Command="{Binding $parent[pages:VariablesDemo].Copy}"
+                            CommandParameter="{Binding CopyText}"
+                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Content="{StaticResource SemiIconCopy}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>

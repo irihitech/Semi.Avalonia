@@ -1,57 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using Avalonia;
+using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
-using Semi.Avalonia.Demo.Constant;
 using Semi.Avalonia.Tokens;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
-public partial class VariablesDemoViewModel : ObservableObject
+public class VariablesDemoViewModel : ObservableObject
 {
-    private readonly IResourceDictionary? _dictionary;
-    public ObservableCollection<VariableGridViewModel> VariableGrid { get; set; } = [];
+    public DataGridCollectionView GridData { get; set; }
 
     public VariablesDemoViewModel()
     {
-        _dictionary = new Variables();
-    }
-
-    public void InitializeResources()
-    {
-        VariableGrid.Add(new VariableGridViewModel("Height", _dictionary, ColorTokens.HeightTokens));
-        VariableGrid.Add(new VariableGridViewModel("Icon Size", _dictionary, ColorTokens.IconSizeTokens));
-        VariableGrid.Add(new VariableGridViewModel("Border CornerRadius", _dictionary, ColorTokens.CornerRadiusTokens));
-        VariableGrid.Add(new VariableGridViewModel("Border Spacing", _dictionary, ColorTokens.BorderSpacingTokens));
-        VariableGrid.Add(new VariableGridViewModel("Border Thickness", _dictionary, ColorTokens.BorderThicknessTokens));
-        VariableGrid.Add(new VariableGridViewModel("Spacing", _dictionary, ColorTokens.SpacingTokens));
-        VariableGrid.Add(new VariableGridViewModel("Thickness", _dictionary, ColorTokens.ThicknessTokens));
-        VariableGrid.Add(new VariableGridViewModel("FontSize", _dictionary, ColorTokens.FontSizeTokens));
-        VariableGrid.Add(new VariableGridViewModel("FontWeight", _dictionary, ColorTokens.FontWeightTokens));
-        VariableGrid.Add(new VariableGridViewModel("FontFamily", _dictionary, ColorTokens.FontFamilyTokens));
-    }
-}
-
-public partial class VariableGridViewModel : ObservableObject
-{
-    [ObservableProperty] private string? _title;
-    public ObservableCollection<VariableItemViewModel> VariableItems { get; set; } = [];
-
-    public VariableGridViewModel(string title, IResourceDictionary? dictionary,
-        IReadOnlyList<Tuple<string, string>> tokens)
-    {
-        Title = title;
-        foreach (var (key, name) in tokens)
+        IResourceDictionary dictionary = new Variables();
+        foreach (var token in Tokens)
         {
-            if (dictionary?.TryGetValue(key, out var value) ?? false)
+            if (token.ResourceKey is not null && dictionary.TryGetValue(token.ResourceKey, out var value))
             {
-                VariableItems.Add(new VariableItemViewModel(name, GetValueString(value), key));
+                token.Value = GetValueString(value);
             }
         }
+
+        GridData = new DataGridCollectionView(Tokens);
+        GridData.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(VariableItem.Category)));
     }
 
     private static string GetValueString(object? value)
@@ -68,23 +43,79 @@ public partial class VariableGridViewModel : ObservableObject
             _ => value.ToString()
         };
     }
+
+    private static List<VariableItem> Tokens { get; set; } =
+    [
+        new("Height", "SemiHeightControlSmall"),
+        new("Height", "SemiHeightControlDefault"),
+        new("Height", "SemiHeightControlLarge"),
+        new("Icon Size", "SemiWidthIconExtraSmall"),
+        new("Icon Size", "SemiWidthIconSmall"),
+        new("Icon Size", "SemiWidthIconMedium"),
+        new("Icon Size", "SemiWidthIconLarge"),
+        new("Icon Size", "SemiWidthIconExtraLarge"),
+        new("Border CornerRadius", "SemiBorderRadiusExtraSmall"),
+        new("Border CornerRadius", "SemiBorderRadiusSmall"),
+        new("Border CornerRadius", "SemiBorderRadiusMedium"),
+        new("Border CornerRadius", "SemiBorderRadiusLarge"),
+        new("Border CornerRadius", "SemiBorderRadiusFull"),
+        new("Border Spacing", "SemiBorderSpacing"),
+        new("Border Spacing", "SemiBorderSpacingControl"),
+        new("Border Spacing", "SemiBorderSpacingControlFocus"),
+        new("Border Thickness", "SemiBorderThickness"),
+        new("Border Thickness", "SemiBorderThicknessControl"),
+        new("Border Thickness", "SemiBorderThicknessControlFocus"),
+        new("Spacing", "SemiSpacingNone"),
+        new("Spacing", "SemiSpacingSuperTight"),
+        new("Spacing", "SemiSpacingExtraTight"),
+        new("Spacing", "SemiSpacingTight"),
+        new("Spacing", "SemiSpacingBaseTight"),
+        new("Spacing", "SemiSpacingBase"),
+        new("Spacing", "SemiSpacingBaseLoose"),
+        new("Spacing", "SemiSpacingLoose"),
+        new("Spacing", "SemiSpacingExtraLoose"),
+        new("Spacing", "SemiSpacingSuperLoose"),
+        new("Thickness", "SemiThicknessNone"),
+        new("Thickness", "SemiThicknessSuperTight"),
+        new("Thickness", "SemiThicknessExtraTight"),
+        new("Thickness", "SemiThicknessTight"),
+        new("Thickness", "SemiThicknessBaseTight"),
+        new("Thickness", "SemiThicknessBase"),
+        new("Thickness", "SemiThicknessBaseLoose"),
+        new("Thickness", "SemiThicknessLoose"),
+        new("Thickness", "SemiThicknessExtraLoose"),
+        new("Thickness", "SemiThicknessSuperLoose"),
+        new("FontSize", "SemiFontSizeSmall"),
+        new("FontSize", "SemiFontSizeRegular"),
+        new("FontSize", "SemiFontSizeHeader6"),
+        new("FontSize", "SemiFontSizeHeader5"),
+        new("FontSize", "SemiFontSizeHeader4"),
+        new("FontSize", "SemiFontSizeHeader3"),
+        new("FontSize", "SemiFontSizeHeader2"),
+        new("FontSize", "SemiFontSizeHeader1"),
+        new("FontWeight", "SemiFontWeightLight"),
+        new("FontWeight", "SemiFontWeightRegular"),
+        new("FontWeight", "SemiFontWeightBold"),
+        new("FontFamily", "SemiFontFamilyRegular"),
+    ];
 }
 
-public partial class VariableItemViewModel : ObservableObject
+public class VariableItem()
 {
-    [ObservableProperty] private string? _resourceKey;
-    [ObservableProperty] private string? _description;
-    [ObservableProperty] private string? _value;
+    public string? Category { get; set; }
+    public string? ResourceKey { get; set; }
+    public string? Description { get; set; }
+    public string? Value { get; set; }
+
+    public VariableItem(string category, string resourceKey, string description = "") : this()
+    {
+        Category = category;
+        ResourceKey = resourceKey;
+        Description = description;
+    }
 
     public string CopyText =>
         $"""
          <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
          """;
-
-    public VariableItemViewModel(string description, object value, string resourceKey)
-    {
-        ResourceKey = resourceKey;
-        Description = description;
-        Value = value.ToString();
-    }
 }
