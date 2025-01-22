@@ -35,12 +35,24 @@
             <DataGridTemplateColumn
                 Width="200"
                 x:DataType="vm:VariableItem"
+                Header="Type">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate DataType="vm:VariableItem">
+                        <SelectableTextBlock
+                            Margin="12,0"
+                            VerticalAlignment="Center"
+                            Text="{Binding Type.Name}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn
+                Width="200"
+                x:DataType="vm:VariableItem"
                 Header="Value">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate DataType="vm:VariableItem">
                         <SelectableTextBlock
                             Margin="12,0"
-                            HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Text="{Binding Value}"
                             TextWrapping="Wrap" />
@@ -55,7 +67,6 @@
                     <DataTemplate DataType="vm:VariableItem">
                         <SelectableTextBlock
                             Margin="12,0"
-                            HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Text="{Binding Description}"
                             TextWrapping="Wrap" />

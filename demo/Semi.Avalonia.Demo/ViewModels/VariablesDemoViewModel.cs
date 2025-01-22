@@ -21,6 +21,7 @@ public class VariablesDemoViewModel : ObservableObject
         {
             if (token.ResourceKey is not null && dictionary.TryGetValue(token.ResourceKey, out var value))
             {
+                token.Type = value?.GetType();
                 token.Value = GetValueString(value);
             }
         }
@@ -104,8 +105,9 @@ public class VariableItem()
 {
     public string? Category { get; set; }
     public string? ResourceKey { get; set; }
-    public string? Description { get; set; }
+    public Type? Type { get; set; }
     public string? Value { get; set; }
+    public string? Description { get; set; }
 
     public VariableItem(string category, string resourceKey, string description = "") : this()
     {
