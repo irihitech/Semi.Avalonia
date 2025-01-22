@@ -31,35 +31,35 @@ public partial class HighContrastDemoViewModel : ObservableObject
         [
             new ColorResource
             {
-                ResourceKey = "WindowColor",
+                ResourceKey = "SemiColorWindow",
                 Brush = new SolidColorBrush(Color.Parse("#202020")),
                 Description = "Background of pages, panes, popups, and windows.",
                 PairWith = "WindowTextColor"
             },
             new ColorResource
             {
-                ResourceKey = "WindowTextColor",
+                ResourceKey = "SemiColorWindowText",
                 Brush = new SolidColorBrush(Color.Parse("#FFFFFF")),
                 Description = "Headings, body copy, lists, placeholder text, app and window borders.",
                 PairWith = "WindowColor"
             },
             new ColorResource
             {
-                ResourceKey = "HotlightColor",
+                ResourceKey = "SemiColorHotlight",
                 Brush = new SolidColorBrush(Color.Parse("#75E9FC")),
                 Description = "Hyperlinks.",
                 PairWith = "WindowColor"
             },
             new ColorResource
             {
-                ResourceKey = "GrayTextColor",
+                ResourceKey = "SemiColorGrayText",
                 Brush = new SolidColorBrush(Color.Parse("#A6A6A6")),
                 Description = "Inactive (disabled) UI.",
                 PairWith = "WindowColor"
             },
             new ColorResource
             {
-                ResourceKey = "HighlightTextColor",
+                ResourceKey = "SemiColorHighlightText",
                 Brush = new SolidColorBrush(Color.Parse("#263B50")),
                 Description =
                     "Foreground color for text or UI that is in selected, interacted with (hover, pressed), or in progress.",
@@ -67,7 +67,7 @@ public partial class HighContrastDemoViewModel : ObservableObject
             },
             new ColorResource
             {
-                ResourceKey = "HighlightColor",
+                ResourceKey = "SemiColorHighlight",
                 Brush = new SolidColorBrush(Color.Parse("#8EE3F0")),
                 Description =
                     "Background or accent color for UI that is in selected, interacted with (hover, pressed), or in progress.",
@@ -75,14 +75,14 @@ public partial class HighContrastDemoViewModel : ObservableObject
             },
             new ColorResource
             {
-                ResourceKey = "ButtonTextColor",
+                ResourceKey = "SemiColorButtonText",
                 Brush = new SolidColorBrush(Color.Parse("#FFFFFF")),
                 Description = "Foreground color for buttons and any UI that can be interacted with.",
                 PairWith = "ButtonFaceColor"
             },
             new ColorResource
             {
-                ResourceKey = "ButtonFaceColor",
+                ResourceKey = "SemiColorButtonFace",
                 Brush = new SolidColorBrush(Color.Parse("#202020")),
                 Description = "Background color for buttons and any UI that can be interacted with.",
                 PairWith = "ButtonTextColor"
@@ -100,9 +100,10 @@ public partial class HighContrastDemoViewModel : ObservableObject
         foreach (var colorResource in ColorResources)
         {
             if (colorResource.ResourceKey is null) continue;
-            if (topLevel?.TryFindResource(colorResource.ResourceKey, value, out var o) == true && o is Color color)
+            if (topLevel?.TryFindResource(colorResource.ResourceKey, value, out var o) == true
+                && o is ISolidColorBrush color)
             {
-                colorResource.Brush = new SolidColorBrush(color);
+                colorResource.Brush = color;
             }
         }
     }
@@ -121,7 +122,12 @@ public partial class HighContrastDemoViewModel : ObservableObject
 public partial class ColorResource : ObservableObject
 {
     [ObservableProperty] private string? _resourceKey;
-    [ObservableProperty] private SolidColorBrush? _brush;
+    [ObservableProperty] private ISolidColorBrush? _brush;
     [ObservableProperty] private string? _description;
     [ObservableProperty] private string? _pairWith;
+
+    public string CopyText =>
+        $"""
+         <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
+         """;
 }

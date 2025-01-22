@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
     xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
     x:CompileBindings="True"
     x:DataType="viewModels:FunctionalColorGroupViewModel">
     <ControlTheme x:Key="{x:Type controls:FunctionalColorGroupControl}" TargetType="controls:FunctionalColorGroupControl">
@@ -30,27 +31,21 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                    <DataGridTemplateColumn Width="300" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn
-                                        Width="*"
-                                        x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{Binding ColorDisplayName}"
-                                        CanUserSort="False"
-                                        Header="Name" />
                                     <DataGridTemplateColumn Width="100" Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
@@ -60,10 +55,26 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
-                                                    HorizontalAlignment="Right"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Brush.Opacity}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn
+                                        Width="*"
+                                        x:DataType="viewModels:ColorItemViewModel"
+                                        Binding="{Binding ColorDisplayName}"
+                                        CanUserSort="False"
+                                        Header="Description" />
+                                    <DataGridTemplateColumn Width="100" Header="CopyText">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                                                <Button
+                                                    Command="{Binding $parent[pages:PaletteDemo].Copy}"
+                                                    CommandParameter="{Binding CopyText}"
+                                                    Theme="{DynamicResource  IconBorderlessButton}"
+                                                    Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -84,27 +95,21 @@
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                    <DataGridTemplateColumn Width="300" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTextColumn
-                                        Width="*"
-                                        x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{Binding ColorDisplayName}"
-                                        CanUserSort="False"
-                                        Header="Name" />
                                     <DataGridTemplateColumn Width="100" Header="Hex">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
@@ -114,10 +119,26 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
-                                                    HorizontalAlignment="Right"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Brush.Opacity}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn
+                                        Width="*"
+                                        x:DataType="viewModels:ColorItemViewModel"
+                                        Binding="{Binding ColorDisplayName}"
+                                        CanUserSort="False"
+                                        Header="Description" />
+                                    <DataGridTemplateColumn Width="100" Header="CopyText">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                                                <Button
+                                                    Command="{Binding $parent[pages:PaletteDemo].Copy}"
+                                                    CommandParameter="{Binding CopyText}"
+                                                    Theme="{DynamicResource  IconBorderlessButton}"
+                                                    Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

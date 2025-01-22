@@ -1,8 +1,6 @@
 using System.Threading.Tasks;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Semi.Avalonia.Demo.ViewModels;
 
@@ -16,13 +14,20 @@ public partial class PaletteDemo : UserControl
         this.DataContext = new PaletteDemoViewModel();
     }
 
-    protected override async  void OnApplyTemplate(TemplateAppliedEventArgs e)
+    protected override async void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
         PaletteDemoViewModel? vm = this.DataContext as PaletteDemoViewModel;
-        await Dispatcher.UIThread.InvokeAsync(() =>
+        await Dispatcher.UIThread.InvokeAsync(() => { vm?.InitializeResources(); });
+    }
+
+    public async Task Copy(object? o)
+    {
+        if (o is null) return;
+        var toplevel = TopLevel.GetTopLevel(this);
+        if (toplevel?.Clipboard is { } c)
         {
-            vm?.InitializeResources();
-        });
+            await c.SetTextAsync(o.ToString());
+        }
     }
 }

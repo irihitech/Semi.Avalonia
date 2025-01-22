@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
              xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
              xmlns:cvt="clr-namespace:Semi.Avalonia.Demo.Converters"
+             xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
              x:DataType="vm:HighContrastDemoViewModel"
              x:CompileBindings="True"
@@ -303,6 +304,18 @@
                                             Margin="12 0"
                                             VerticalAlignment="Center"
                                             Text="{Binding PairWith}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Width="100" Header="CopyText">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="vm:ColorResource">
+                                        <Button
+                                            Command="{Binding $parent[pages:HighContrastDemo].Copy}"
+                                            CommandParameter="{Binding CopyText}"
+                                            Theme="{DynamicResource  IconBorderlessButton}"
+                                            Content="{StaticResource SemiIconCopy}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

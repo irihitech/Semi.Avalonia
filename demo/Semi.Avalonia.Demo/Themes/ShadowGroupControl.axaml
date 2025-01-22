@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
     xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
     x:CompileBindings="True"
     x:DataType="viewModels:ShadowGroupViewModel">
     <ControlTheme x:Key="{x:Type controls:ShadowGroupControl}" TargetType="controls:ShadowGroupControl">
@@ -19,13 +20,23 @@
                         <TabItem Header="Light">
                             <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightShadows}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                    <DataGridTemplateColumn Width="300" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding ResourceKey}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="300" Header="BoxShadows">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ShadowItemViewModel">
+                                                <SelectableTextBlock
+                                                    Margin="12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding BoxShadowValue}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -34,14 +45,15 @@
                                         x:DataType="viewModels:ShadowItemViewModel"
                                         Binding="{Binding ShadowDisplayName}"
                                         CanUserSort="False"
-                                        Header="Name" />
-                                    <DataGridTemplateColumn Width="300" Header="BoxShadows">
+                                        Header="Description" />
+                                    <DataGridTemplateColumn Width="100" Header="CopyText">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
-                                                <SelectableTextBlock
-                                                    Margin="12,0,12,0"
-                                                    VerticalAlignment="Center"
-                                                    Text="{Binding BoxShadowValue}" />
+                                                <Button
+                                                    Command="{Binding $parent[pages:PaletteDemo].Copy}"
+                                                    CommandParameter="{Binding CopyText}"
+                                                    Theme="{DynamicResource  IconBorderlessButton}"
+                                                    Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -51,13 +63,23 @@
                         <TabItem Header="Dark">
                             <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding DarkShadows}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="*" Header="ResourceKey">
+                                    <DataGridTemplateColumn Width="300" Header="ResourceKey">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0,12,0"
+                                                    Margin="12,0"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding ResourceKey}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="300" Header="BoxShadows">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:ShadowItemViewModel">
+                                                <SelectableTextBlock
+                                                    Margin="12,0"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding BoxShadowValue}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -66,14 +88,15 @@
                                         x:DataType="viewModels:ShadowItemViewModel"
                                         Binding="{Binding ShadowDisplayName}"
                                         CanUserSort="False"
-                                        Header="Name" />
-                                    <DataGridTemplateColumn Width="300" Header="BoxShadows">
+                                        Header="Description" />
+                                    <DataGridTemplateColumn Width="100" Header="CopyText">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
-                                                <SelectableTextBlock
-                                                    Margin="12,0,12,0"
-                                                    VerticalAlignment="Center"
-                                                    Text="{Binding BoxShadowValue}" />
+                                                <Button
+                                                    Command="{Binding $parent[pages:PaletteDemo].Copy}"
+                                                    CommandParameter="{Binding CopyText}"
+                                                    Theme="{DynamicResource  IconBorderlessButton}"
+                                                    Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
