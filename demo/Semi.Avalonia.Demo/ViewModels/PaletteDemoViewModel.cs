@@ -91,6 +91,8 @@ public partial class PaletteDemoViewModel : ObservableObject
             "Border", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BorderTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "Others", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.OtherTokens));
     }
 
     private void InitializeShadows()
