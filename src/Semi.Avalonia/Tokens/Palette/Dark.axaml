@@ -330,7 +330,7 @@
     <SolidColorBrush x:Key="SemiGrey7" Color="{StaticResource SemiGrey7Color}" />
     <SolidColorBrush x:Key="SemiGrey8" Color="{StaticResource SemiGrey8Color}" />
     <SolidColorBrush x:Key="SemiGrey9" Color="{StaticResource SemiGrey9Color}" />
-
+    <!-- Official Color=#E4E7F5 -->
     <SolidColorBrush x:Key="SemiColorWhite" Color="{StaticResource SemiWhiteColor}" />
     <SolidColorBrush x:Key="SemiColorBlack" Color="{StaticResource SemiBlackColor}" />
     <!--  Primary  -->
@@ -414,10 +414,6 @@
     <!--  Border  -->
     <SolidColorBrush x:Key="SemiColorBorder" Opacity="0.08" Color="{StaticResource SemiWhiteColor}" />
     <SolidColorBrush x:Key="SemiColorFocusBorder" Color="{StaticResource SemiBlue5Color}" />
-    <SolidColorBrush x:Key="SemiColorNavBackground" Color="{StaticResource SemiBackground1Color}" />
-    <SolidColorBrush x:Key="SemiColorOverlayBackground" Opacity="0.6" Color="{StaticResource SemiBackground0Color}" />
-    <SolidColorBrush x:Key="SemiColorHighlightBackground" Color="{StaticResource SemiYellow4Color}" />
-    <SolidColorBrush x:Key="SemiColorHighlightText" Color="{StaticResource SemiBlackColor}" />
 
     <!--  Disabled  -->
     <SolidColorBrush x:Key="SemiColorDisabledText" Opacity="0.35" Color="{StaticResource SemiGrey9Color}" />
@@ -426,16 +422,22 @@
 
     <SolidColorBrush x:Key="SemiColorDisabledFill" Opacity="0.04" Color="{StaticResource SemiGrey8Color}" />
 
+    <!--  Others  -->
+    <SolidColorBrush x:Key="SemiColorNavBackground" Color="{StaticResource SemiBackground1Color}" />
+    <SolidColorBrush x:Key="SemiColorOverlayBackground" Opacity="0.6" Color="{StaticResource SemiBackground0Color}" />
+    <SolidColorBrush x:Key="SemiColorHighlightBackground" Color="{StaticResource SemiYellow4Color}" />
+    <SolidColorBrush x:Key="SemiColorHighlight" Color="{StaticResource SemiBlackColor}" />
+
     <!--  Shadow  -->
     <BoxShadows x:Key="SemiColorShadow">0 0 #0A000000</BoxShadows>
     <BoxShadows x:Key="SemiShadowElevated">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
 
     <!-- Obsolete -->
-    <SolidColorBrush x:Key="SemiColorPrimaryPressed" Color="{StaticResource SemiBlue7Color}" />
-    <SolidColorBrush x:Key="SemiColorSecondaryPressed" Color="{StaticResource SemiLightBlue7Color}" />
-    <SolidColorBrush x:Key="SemiColorTertiaryPressed" Color="{StaticResource SemiGrey7Color}" />
-    <SolidColorBrush x:Key="SemiColorInformationPressed" Color="{StaticResource SemiBlue7Color}" />
-    <SolidColorBrush x:Key="SemiColorSuccessPressed" Color="{StaticResource SemiGreen7Color}" />
-    <SolidColorBrush x:Key="SemiColorWarningPressed" Color="{StaticResource SemiOrange7Color}" />
-    <SolidColorBrush x:Key="SemiColorDangerPressed" Color="{StaticResource SemiRed7Color}" />
+    <StaticResource x:Key="SemiColorPrimaryPressed" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="SemiColorSecondaryPressed" ResourceKey="SemiColorSecondaryActive" />
+    <StaticResource x:Key="SemiColorTertiaryPressed" ResourceKey="SemiColorTertiaryActive" />
+    <StaticResource x:Key="SemiColorInformationPressed" ResourceKey="SemiColorInformationActive" />
+    <StaticResource x:Key="SemiColorSuccessPressed" ResourceKey="SemiColorSuccessActive" />
+    <StaticResource x:Key="SemiColorWarningPressed" ResourceKey="SemiColorWarningActive" />
+    <StaticResource x:Key="SemiColorDangerPressed" ResourceKey="SemiColorDangerActive" />
 </ResourceDictionary>

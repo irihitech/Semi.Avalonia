@@ -114,6 +114,7 @@ public static class ColorTokens
     public static IReadOnlyList<Tuple<string, string>> BorderTokens { get; } = new List<Tuple<string, string>>
     {
         new("SemiColorBorder", "Border"),
+        new("SemiColorFocusBorder", "Focus Border"),
     };
 
     public static IReadOnlyList<Tuple<string, string>> DisabledTokens { get; } = new List<Tuple<string, string>>
@@ -122,6 +123,16 @@ public static class ColorTokens
         new("SemiColorDisabledBorder", "Disabled Border"),
         new("SemiColorDisabledBackground", "Disabled Background"),
         new("SemiColorDisabledFill", "Disabled Fill"),
+    };
+
+    public static IReadOnlyList<Tuple<string, string>> OtherTokens { get; } = new List<Tuple<string, string>>
+    {
+        new("SemiColorWhite", "White"),
+        new("SemiColorBlack", "Black"),
+        new("SemiColorNavBackground", "Navigation Background"),
+        new("SemiColorOverlayBackground", "Overlay Background"),
+        new("SemiColorHighlightBackground", "Highlight Background"),
+        new("SemiColorHighlight", "Highlight Text"),
     };
 
     public static IReadOnlyList<Tuple<string, string>> ShadowTokens { get; } = new List<Tuple<string, string>>
