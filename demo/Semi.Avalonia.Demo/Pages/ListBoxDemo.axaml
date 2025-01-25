@@ -119,11 +119,11 @@
                     <StackPanel Spacing="20">
                         <TextBlock Text="Theme: CheckGroupListBox"/>
                         <ListBox
-                            SelectionMode="Multiple"
+                            SelectionMode="Multiple,Toggle"
                             Theme="{DynamicResource CheckGroupListBox}"
                             ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                         <ListBox Theme="{DynamicResource CheckGroupListBox}"
-                                 SelectionMode="Multiple"
+                                 SelectionMode="Multiple,Toggle"
                                  IsEnabled="False">
                             <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
                             <ListBoxItem>WPF</ListBoxItem>
@@ -131,11 +131,11 @@
 
                         <TextBlock Text="Theme: CardCheckGroupListBox"/>
                         <ListBox
-                            SelectionMode="Multiple"
+                            SelectionMode="Multiple,Toggle"
                             Theme="{DynamicResource CardCheckGroupListBox}"
                             ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                         <ListBox Theme="{DynamicResource CardCheckGroupListBox}"
-                                 SelectionMode="Multiple"
+                                 SelectionMode="Multiple,Toggle"
                                  IsEnabled="False">
                             <ListBoxItem>Avalonia</ListBoxItem>
                             <ListBoxItem IsSelected="True">WPF</ListBoxItem>
