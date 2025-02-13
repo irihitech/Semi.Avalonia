@@ -39,6 +39,13 @@
 
     <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
         <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Width" Duration="0:0:0.1" />
+                <DoubleTransition Property="Height" Duration="0:0:0.1" />
+                <!--<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />-->
+            </Transitions>
+        </Setter>
         <Style Selector="^:horizontal">
             <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Template">
@@ -61,11 +68,11 @@
                             </RepeatButton>
                             <Track
                                 Grid.Column="1"
+                                DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
                                 Orientation="{TemplateBinding Orientation}"
                                 ViewportSize="{TemplateBinding ViewportSize}"
-                                DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                 Value="{TemplateBinding Value,
                                                         Mode=TwoWay}">
                                 <Track.DecreaseButton>
@@ -132,12 +139,12 @@
                             </RepeatButton>
                             <Track
                                 Grid.Row="1"
+                                DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                 IsDirectionReversed="True"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
                                 Orientation="{TemplateBinding Orientation}"
                                 ViewportSize="{TemplateBinding ViewportSize}"
-                                DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                 Value="{TemplateBinding Value,
                                                         Mode=TwoWay}">
                                 <Track.DecreaseButton>
@@ -205,14 +212,26 @@
             <Setter Property="MinHeight" Value="{DynamicResource ScrollBarThickness}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
         </Style>
-        <Style Selector="^ /template/ RepeatButton > PathIcon">
+        <Style Selector="^ /template/ RepeatButton &gt; PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
         </Style>
-        <Style Selector="^ /template/ RepeatButton:pointerover > PathIcon">
+        <Style Selector="^ /template/ RepeatButton:pointerover &gt; PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonPointeroverForeground}" />
         </Style>
-        <Style Selector="^ /template/ RepeatButton:pressed > PathIcon">
+        <Style Selector="^ /template/ RepeatButton:pressed &gt; PathIcon">
             <Setter Property="RenderTransform" Value="scale(0.92)" />
+        </Style>
+
+        <Style Selector="^[IsExpanded=False]">
+            <Style Selector="^ /template/ RepeatButton">
+                <Setter Property="IsVisible" Value="False"/>
+            </Style>
+            <Style Selector="^:vertical">
+                <Setter Property="Width" Value="2" />
+            </Style>
+            <Style Selector="^:horizontal">
+                <Setter Property="Height" Value="2" />
+            </Style>
         </Style>
 
     </ControlTheme>
@@ -249,14 +268,12 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         Orientation="Vertical" />
-                    <Panel
-                        Grid.Row="1"
-                        Grid.Column="1" />
+                    <Panel Grid.Row="1" Grid.Column="1" />
                 </Grid>
             </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ ScrollBar">
-            <Setter Property="Opacity" Value="0"></Setter>
+            <Setter Property="Opacity" Value="0" />
         </Style>
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ ScrollBar#PART_HorizontalScrollBar">
@@ -299,9 +316,7 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         Orientation="Vertical" />
-                    <Panel
-                        Grid.Row="1"
-                        Grid.Column="1" />
+                    <Panel Grid.Row="1" Grid.Column="1" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -346,11 +361,11 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ RepeatButton > Path">
+        <Style Selector="^ /template/ RepeatButton &gt; Path">
             <Setter Property="Fill" Value="{DynamicResource ColorScrollBarButtonDefaultForeground}" />
         </Style>
 
-        <Style Selector="^ /template/ RepeatButton:pointerover > Path">
+        <Style Selector="^ /template/ RepeatButton:pointerover &gt; Path">
             <Setter Property="Fill" Value="{DynamicResource ColorScrollBarButtonPointeroverForeground}" />
         </Style>
     </ControlTheme>
