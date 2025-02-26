@@ -12,7 +12,7 @@
                 <ComboBoxItem>BBB</ComboBoxItem>
                 <ComboBoxItem>CCC</ComboBoxItem>
             </ComboBox>
-            <ComboBox Width="100" PlaceholderText="Select">
+            <ComboBox Width="100" PlaceholderText="Select" PlaceholderForeground="Red">
                 <ComboBoxItem>AAA</ComboBoxItem>
                 <ComboBoxItem>BBB</ComboBoxItem>
                 <ComboBoxItem>CCC</ComboBoxItem>
@@ -44,6 +44,7 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="MinHeight" Value="{DynamicResource ComboBoxDefaultHeight}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ComboBoxSelectorPlaceHolderForeground}"/>
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
@@ -65,9 +66,8 @@
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             TextTrimming="CharacterEllipsis"
-                            Foreground="{TemplateBinding Foreground}"
+                            Foreground="{TemplateBinding PlaceholderForeground}"
                             IsVisible="{TemplateBinding SelectionBoxItem,Converter={x:Static ObjectConverters.IsNull}}"
-                            Opacity="0.3"
                             Text="{TemplateBinding PlaceholderText}" />
                         <ContentPresenter
                             Name="ContentPresenter"
