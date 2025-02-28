@@ -13,17 +13,15 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ColorSliderThumbBorderBrush}" />
         <Setter Property="CornerRadius" Value="999" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border
-                        Margin="1"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        BoxShadow="{DynamicResource ColorSliderBoxShadow}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Border
+                    Margin="1"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    BoxShadow="{DynamicResource ColorSliderBoxShadow}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
         </Setter>
     </ControlTheme>
 
@@ -45,20 +43,16 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                RadiusX="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
+                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Rectangle
                                 Width="{Binding #PART_Track.Bounds.Width}"
                                 Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding Background}"
-                                RadiusX="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
+                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Track
                                 Name="PART_Track"
                                 Height="12"
@@ -68,8 +62,7 @@
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
                                 Orientation="Horizontal"
-                                Value="{TemplateBinding Value,
-                                                        Mode=TwoWay}">
+                                Value="{TemplateBinding Value,Mode=TwoWay}">
                                 <Track.DecreaseButton>
                                     <RepeatButton
                                         Name="PART_DecreaseButton"
@@ -136,20 +129,16 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                RadiusX="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
+                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Rectangle
                                 Width="{Binding #PART_Track.Bounds.Width}"
                                 Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding Background}"
-                                RadiusX="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,
-                                                          Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
+                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
                             <Track
                                 Name="PART_Track"
                                 Width="12"
@@ -159,8 +148,7 @@
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
                                 Orientation="Vertical"
-                                Value="{TemplateBinding Value,
-                                                        Mode=TwoWay}">
+                                Value="{TemplateBinding Value,Mode=TwoWay}">
                                 <Track.DecreaseButton>
                                     <RepeatButton
                                         Name="PART_DecreaseButton"
