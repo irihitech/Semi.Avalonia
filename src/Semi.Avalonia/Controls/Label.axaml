@@ -170,14 +170,13 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource LabelTagSmallPadding}" />
         <Setter Property="FontSize" Value="{DynamicResource LabelTagFontSize}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Label">
                 <ContentPresenter
                     Name="PART_ContentPresenter"
-                    MinWidth="{TemplateBinding MinWidth}"
-                    MinHeight="{TemplateBinding MinHeight}"
                     Padding="{TemplateBinding Padding}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
