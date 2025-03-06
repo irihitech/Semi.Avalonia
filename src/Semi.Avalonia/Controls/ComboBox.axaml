@@ -44,7 +44,7 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="MinHeight" Value="{DynamicResource ComboBoxDefaultHeight}" />
-        <Setter Property="PlaceholderForeground" Value="{DynamicResource ComboBoxSelectorPlaceHolderForeground}"/>
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ComboBoxSelectorPlaceHolderForeground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ComboBox">
                 <DataValidationErrors>
@@ -137,7 +137,7 @@
                 <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </Style>
             <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"/>
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
             </Style>
         </Style>
 

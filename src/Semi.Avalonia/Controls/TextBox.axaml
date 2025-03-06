@@ -75,8 +75,8 @@
                                         TextWrapping="{TemplateBinding TextWrapping}">
                                         <TextBlock.IsVisible>
                                             <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}"/>
-                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}"/>
+                                                <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
                                             </MultiBinding>
                                         </TextBlock.IsVisible>
                                     </TextBlock>
@@ -172,7 +172,7 @@
             </Style>
         </Style>
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
-            <Setter Property="PasswordChar" Value="•"/>
+            <Setter Property="PasswordChar" Value="•" />
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
@@ -219,10 +219,10 @@
                 </Style>
             </Style>
         </Style>
-        
+
         <Style Selector="^.TextArea">
-            <Setter Property="AcceptsReturn" Value="True"/>
-            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
             <Setter Property="Padding" Value="{DynamicResource TextBoxTextAreaContentPadding}" />
             <Setter Property="MinHeight" Value="{DynamicResource TextBoxTextAreaHeight}" />
         </Style>
@@ -283,8 +283,8 @@
                                         TextWrapping="{TemplateBinding TextWrapping}">
                                         <TextBlock.IsVisible>
                                             <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}"/>
-                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}"/>
+                                                <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
                                             </MultiBinding>
                                         </TextBlock.IsVisible>
                                     </TextBlock>
@@ -380,7 +380,7 @@
             </Style>
         </Style>
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
-            <Setter Property="PasswordChar" Value="•"/>
+            <Setter Property="PasswordChar" Value="•" />
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
@@ -429,8 +429,8 @@
         </Style>
 
         <Style Selector="^.TextArea">
-            <Setter Property="AcceptsReturn" Value="True"/>
-            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
             <Setter Property="Padding" Value="{DynamicResource TextBoxTextAreaContentPadding}" />
             <Setter Property="MinHeight" Value="{DynamicResource TextBoxTextAreaHeight}" />
         </Style>
@@ -512,8 +512,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
-        <Setter Property="Width" Value="16"/>
-        <Setter Property="Height" Value="16"/>
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
         <!--  Background must be transparent or hit test will fail  -->
         <Setter Property="Background" Value="Transparent" />

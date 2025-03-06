@@ -64,7 +64,7 @@
         </Style>
         -->
     </ControlTheme>
-    
+
     <ControlTheme x:Key="ScrollTabControl" TargetType="TabControl">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
@@ -86,7 +86,7 @@
                     <DockPanel>
                         <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
                             <ScrollViewer Name="PART_ScrollViewer">
-                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="0 0 12 12"/>
+                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="0 0 12 12" />
                             </ScrollViewer>
                             <Border Name="PART_BorderSeparator" Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
                         </Panel>
@@ -101,12 +101,12 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
             <Style Selector="^ /template/ ItemsPresenter">
                 <Setter Property="ItemsPanel">
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Vertical"></VirtualizingStackPanel>
+                        <VirtualizingStackPanel Orientation="Vertical" />
                     </ItemsPanelTemplate>
                 </Setter>
             </Style>
@@ -124,7 +124,7 @@
             <Setter Property="Width" Value="1" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="Margin" Value="0 0 12 0"></Setter>
+            <Setter Property="Margin" Value="0 0 12 0" />
         </Style>
         <Style Selector="^[TabStripPlacement=Right] /template/ ScrollViewer#PART_ScrollViewer">
             <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
@@ -134,7 +134,7 @@
             <Setter Property="Height" Value="1" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
-            <Setter Property="Margin" Value="0 0 0 12"></Setter>
+            <Setter Property="Margin" Value="0 0 0 12" />
         </Style>
         <Style Selector="^[TabStripPlacement=Top] /template/ ScrollViewer#PART_ScrollViewer">
             <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />

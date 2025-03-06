@@ -249,9 +249,9 @@
                                             FontFamily="{TemplateBinding FontFamily}"
                                             FontSize="{TemplateBinding FontSize}"
                                             FontWeight="{TemplateBinding FontWeight}"
-                                            Text="{DynamicResource STRING_TIMEPICKER_SECOND_TEXT}"/>
+                                            Text="{DynamicResource STRING_TIMEPICKER_SECOND_TEXT}" />
                                     </Border>
-                                    
+
                                     <Rectangle
                                         Name="PART_ThirdColumnDivider"
                                         Grid.Column="5"
@@ -308,7 +308,7 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^.clearButton:pointerover, ^.ClearButton:pointerover">
             <Style Selector="^:not(:hasnotime) /template/ Button#ClearButton">
                 <Setter Property="IsVisible" Value="True" />

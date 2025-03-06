@@ -189,14 +189,12 @@
         <Style Selector="^ /template/ Thumb#thumb">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarThumbForeground}" />
             <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Thumb">
-                        <Border
-                            Background="{TemplateBinding Foreground}"
-                            CornerRadius="24"
-                            UseLayoutRounding="False" />
-                    </ControlTemplate>
-                </Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Border
+                        Background="{TemplateBinding Foreground}"
+                        CornerRadius="24"
+                        UseLayoutRounding="False" />
+                </ControlTemplate>
             </Setter>
         </Style>
         <Style Selector="^ /template/ Thumb#thumb:pointerover">
@@ -222,7 +220,7 @@
 
         <Style Selector="^[IsExpanded=False]">
             <Style Selector="^ /template/ RepeatButton">
-                <Setter Property="IsVisible" Value="False"/>
+                <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^:vertical">
                 <Setter Property="Width" Value="2" />

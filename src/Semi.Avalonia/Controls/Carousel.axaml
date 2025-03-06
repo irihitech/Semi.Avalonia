@@ -83,7 +83,7 @@
 
     <ControlTheme x:Key="CarouselIndicatorDotListBoxItem" TargetType="ListBoxItem">
         <Setter Property="Foreground" Value="{DynamicResource CarouselIndicatorForeground}" />
-        <Setter Property="Margin" Value="4 0"/>
+        <Setter Property="Margin" Value="4 0" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
@@ -108,7 +108,7 @@
     <ControlTheme x:Key="CarouselIndicatorLineListBoxItem"
                   BasedOn="{StaticResource CarouselIndicatorDotListBoxItem}"
                   TargetType="ListBoxItem">
-        <Setter Property="Margin" Value="2 0"/>
+        <Setter Property="Margin" Value="2 0" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Rectangle
@@ -122,9 +122,9 @@
     <ControlTheme x:Key="CarouselIndicatorColumnarListBoxItem"
                   BasedOn="{StaticResource CarouselIndicatorDotListBoxItem}"
                   TargetType="ListBoxItem">
-        <Setter Property="Width" Value="{DynamicResource CarouselIndicatorColumnarWidth}"/>
-        <Setter Property="Height" Value="{DynamicResource CarouselIndicatorColumnarSelectedHeight}"/>
-        <Setter Property="Margin" Value="2 0"/>
+        <Setter Property="Width" Value="{DynamicResource CarouselIndicatorColumnarWidth}" />
+        <Setter Property="Height" Value="{DynamicResource CarouselIndicatorColumnarSelectedHeight}" />
+        <Setter Property="Margin" Value="2 0" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
                 <Rectangle
