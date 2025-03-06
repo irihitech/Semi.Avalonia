@@ -9,7 +9,7 @@
         <Setter Property="Background" Value="{DynamicResource DateTimePickerPopupBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerPopupBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerPopupCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TimePickerPresenter">
                 <Border
@@ -156,7 +156,7 @@
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerButtonCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
