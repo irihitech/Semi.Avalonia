@@ -2,6 +2,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <DatePickerPresenter />
+        </Border>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type DatePickerPresenter}" TargetType="DatePickerPresenter">
         <Setter Property="Width" Value="296" />
         <Setter Property="MinWidth" Value="296" />
@@ -91,8 +96,7 @@
                                     VerticalAlignment="Stretch"
                                     Theme="{StaticResource DateTimePickerButton}">
                                     <PathIcon
-                                        Width="12"
-                                        Height="12"
+                                        Theme="{StaticResource InnerPathIcon}"
                                         Data="{DynamicResource DateTimePickerAcceptGlyph}" />
                                 </Button>
                                 <Rectangle
@@ -106,8 +110,7 @@
                                     VerticalAlignment="Stretch"
                                     Theme="{StaticResource DateTimePickerButton}">
                                     <PathIcon
-                                        Width="12"
-                                        Height="12"
+                                        Theme="{StaticResource InnerPathIcon}"
                                         Data="{DynamicResource DateTimePickerDismissGlyph}" />
                                 </Button>
                                 <Rectangle
