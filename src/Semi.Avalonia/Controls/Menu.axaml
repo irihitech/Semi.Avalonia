@@ -24,6 +24,7 @@
                         Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                         CornerRadius="0"
                         MinHeight="0"
+                        Padding="0 4"
                         DockPanel.Dock="Top"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
@@ -49,8 +50,9 @@
                         BorderThickness="0"
                         Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                         CornerRadius="0"
-                        DockPanel.Dock="Bottom"
                         MinHeight="0"
+                        Padding="0 4"
+                        DockPanel.Dock="Bottom"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
                             <MultiBinding
