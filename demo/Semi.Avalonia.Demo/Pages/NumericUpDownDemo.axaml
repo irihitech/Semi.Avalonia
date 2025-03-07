@@ -38,6 +38,18 @@
                 Width="100"
                 Watermark="Small"
                 Classes="Small" />
+            <NumericUpDown
+                Width="100"
+                BorderThickness="0"
+                BorderBrush="Red"
+                Watermark="WholeBorder"
+                Classes="Small" >
+                <NumericUpDown.Resources>
+                    <ResourceDictionary>
+                        <Thickness x:Key="ButtonSpinnerWholeBorderThickness">1</Thickness>
+                    </ResourceDictionary>
+                </NumericUpDown.Resources>
+            </NumericUpDown>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
