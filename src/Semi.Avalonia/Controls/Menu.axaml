@@ -24,6 +24,7 @@
                         Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                         CornerRadius="0"
                         MinHeight="0"
+                        Padding="0 4"
                         DockPanel.Dock="Top"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
@@ -49,8 +50,9 @@
                         BorderThickness="0"
                         Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                         CornerRadius="0"
-                        DockPanel.Dock="Bottom"
                         MinHeight="0"
+                        Padding="0 4"
+                        DockPanel.Dock="Bottom"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
                             <MultiBinding
@@ -301,7 +303,8 @@
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="CornerRadius" Value="{DynamicResource MenuItemCornerRadius}" />
         <!--  Narrow padding should be used for mouse input, when non-narrow one should be used for touch input in future.  -->
-        <Setter Property="Padding" Value="{DynamicResource MenuItemPadding}" />
+        <Setter Property="Padding" Value="{DynamicResource TopLevelMenuItemPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TopLevelMenuItemMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -324,8 +327,7 @@
                             MinWidth="{Binding $parent[MenuItem].Bounds.Width}"
                             HorizontalOffset="-8"
                             IsLightDismissEnabled="True"
-                            IsOpen="{TemplateBinding IsSubMenuOpen,
-                                                     Mode=TwoWay}"
+                            IsOpen="{TemplateBinding IsSubMenuOpen,Mode=TwoWay}"
                             OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                             Placement="BottomEdgeAlignedLeft"
                             VerticalOffset="-4"

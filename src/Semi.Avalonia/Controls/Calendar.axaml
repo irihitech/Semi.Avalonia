@@ -2,6 +2,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <Calendar />
+        </Border>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
         <Setter Property="Foreground" Value="{DynamicResource CalendarForeground}" />
         <Setter Property="Background" Value="{DynamicResource CalendarBackground}" />
@@ -38,6 +43,7 @@
                     VerticalAlignment="Center"
                     x:DataType="x:String"
                     FontSize="12"
+                    FontWeight="{DynamicResource CalendarItemWeekDayNameFontWeight}"
                     Foreground="{DynamicResource CalendarItemWeekDayNameForeground}"
                     Text="{Binding}" />
             </Template>
@@ -58,38 +64,41 @@
                         VerticalAlignment="Stretch"
                         RowDefinitions="Auto,*">
                         <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
-                            <Button
+                            <RepeatButton
                                 Name="PART_PreviousButton"
                                 Grid.Column="0"
-                                HorizontalContentAlignment="Left"
+                                Padding="0"
+                                MinWidth="{Binding $self.MinHeight}"
                                 Foreground="{TemplateBinding Foreground}"
-                                Theme="{DynamicResource BorderlessButton}">
+                                Theme="{DynamicResource BorderlessRepeatButton}">
                                 <PathIcon
                                     Theme="{DynamicResource InnerPathIcon}"
                                     Classes="Large"
                                     Data="{DynamicResource CalendarItemPreviousIconGlyph}"
                                     Foreground="{DynamicResource CalendarItemIconForeground}" />
-                            </Button>
+                            </RepeatButton>
 
                             <Button
                                 Name="PART_HeaderButton"
                                 Grid.Column="1"
                                 HorizontalContentAlignment="Center"
+                                HorizontalAlignment="Stretch"
                                 Foreground="{TemplateBinding Foreground}"
                                 Theme="{DynamicResource BorderlessButton}" />
 
-                            <Button
+                            <RepeatButton
                                 Name="PART_NextButton"
                                 Grid.Column="2"
-                                HorizontalContentAlignment="Left"
+                                Padding="0"
+                                MinWidth="{Binding $self.MinHeight}"
                                 Foreground="{TemplateBinding Foreground}"
-                                Theme="{DynamicResource BorderlessButton}">
+                                Theme="{DynamicResource BorderlessRepeatButton}">
                                 <PathIcon
                                     Theme="{DynamicResource InnerPathIcon}"
                                     Classes="Large"
                                     Data="{DynamicResource CalendarItemNextIconGlyph}"
                                     Foreground="{DynamicResource CalendarItemIconForeground}" />
-                            </Button>
+                            </RepeatButton>
                         </Grid>
                         <Grid
                             Name="PART_MonthView"
