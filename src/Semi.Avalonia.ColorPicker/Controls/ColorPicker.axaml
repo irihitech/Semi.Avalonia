@@ -101,13 +101,10 @@
                                     <!--  Spectrum Tab  -->
                                     <TabItem IsVisible="{TemplateBinding IsColorSpectrumVisible}">
                                         <TabItem.Header>
-                                            <Border Height="{DynamicResource ColorViewTabStripHeight}">
-                                                <PathIcon
-                                                    Width="16"
-                                                    Height="16"
-                                                    Data="{DynamicResource ColorViewSpectrumIconGlyph}"
-                                                    Foreground="{Binding $parent[TabItem].Foreground}" />
-                                            </Border>
+                                            <PathIcon
+                                                Theme="{StaticResource InnerPathIcon}"
+                                                Data="{DynamicResource ColorViewSpectrumIconGlyph}"
+                                                Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
                                         <Grid Margin="12" RowDefinitions="*">
                                             <Grid.ColumnDefinitions>
@@ -166,13 +163,10 @@
                                     <!--  Palette Tab  -->
                                     <TabItem IsVisible="{TemplateBinding IsColorPaletteVisible}">
                                         <TabItem.Header>
-                                            <Border Height="{DynamicResource ColorViewTabStripHeight}">
-                                                <PathIcon
-                                                    Width="16"
-                                                    Height="16"
-                                                    Data="{DynamicResource ColorViewPaletteIconGlyph}"
-                                                    Foreground="{Binding $parent[TabItem].Foreground}" />
-                                            </Border>
+                                            <PathIcon
+                                                Theme="{StaticResource InnerPathIcon}"
+                                                Data="{DynamicResource ColorViewPaletteIconGlyph}"
+                                                Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
                                         <ListBox
                                             Margin="12"
@@ -205,13 +199,10 @@
                                     <!--  Components Tab  -->
                                     <TabItem IsVisible="{TemplateBinding IsColorComponentsVisible}">
                                         <TabItem.Header>
-                                            <Border Height="{DynamicResource ColorViewTabStripHeight}">
-                                                <PathIcon
-                                                    Width="16"
-                                                    Height="16"
-                                                    Data="{DynamicResource ColorViewComponentsIconGlyph}"
-                                                    Foreground="{Binding $parent[TabItem].Foreground}" />
-                                            </Border>
+                                            <PathIcon
+                                                Theme="{StaticResource InnerPathIcon}"
+                                                Data="{DynamicResource ColorViewComponentsIconGlyph}"
+                                                Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
                                         <Grid
                                             Margin="12"
