@@ -25,8 +25,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InnerPathIcon" TargetType="PathIcon">
-        <Setter Property="Height" Value="16" />
-        <Setter Property="Width" Value="16" />
+        <Setter Property="Width" Value="{StaticResource SemiWidthIconMedium}" />
+        <Setter Property="Height" Value="{StaticResource SemiWidthIconMedium}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="PathIcon">
@@ -48,20 +48,20 @@
             <Setter Property="Fill" Value="{TemplateBinding BorderBrush}" />
         </Style>
         <Style Selector="^.ExtraSmall">
-            <Setter Property="Height" Value="8" />
-            <Setter Property="Width" Value="8" />
+            <Setter Property="Width" Value="{StaticResource SemiWidthIconExtraSmall}" />
+            <Setter Property="Height" Value="{StaticResource SemiWidthIconExtraSmall}" />
         </Style>
         <Style Selector="^.Small">
-            <Setter Property="Height" Value="12" />
-            <Setter Property="Width" Value="12" />
+            <Setter Property="Width" Value="{StaticResource SemiWidthIconSmall}" />
+            <Setter Property="Height" Value="{StaticResource SemiWidthIconSmall}" />
         </Style>
         <Style Selector="^.Large">
-            <Setter Property="Height" Value="20" />
-            <Setter Property="Width" Value="20" />
+            <Setter Property="Width" Value="{StaticResource SemiWidthIconLarge}" />
+            <Setter Property="Height" Value="{StaticResource SemiWidthIconLarge}" />
         </Style>
         <Style Selector="^.ExtraLarge">
-            <Setter Property="Height" Value="24" />
-            <Setter Property="Width" Value="24" />
+            <Setter Property="Width" Value="{StaticResource SemiWidthIconExtraLarge}" />
+            <Setter Property="Height" Value="{StaticResource SemiWidthIconExtraLarge}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

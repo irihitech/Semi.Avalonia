@@ -96,7 +96,7 @@
     <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
         <Setter Property="Background" Value="{DynamicResource TreeViewItemDefaultBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource TreeViewItemDefaultForeground}" />
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TreeViewItemDefaultCornerRadius}" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TreeViewItem">
