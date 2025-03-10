@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:colorPicker="clr-namespace:Semi.Avalonia.ColorPicker">
+    xmlns:semi="https://irihi.tech/semi">
     <FontWeight x:Key="ColorViewRadioButtonFontWeight">600</FontWeight>
     <Thickness x:Key="ColorViewRadioButtonPadding">16 4</Thickness>
     <x:Double x:Key="ColorViewNumericUpDownWidth">70</x:Double>
@@ -23,7 +23,7 @@
     <x:Double x:Key="ColorPreviewerHeight">48</x:Double>
     <CornerRadius x:Key="ColorPreviewerCornerRadius">3</CornerRadius>
 
-    <colorPicker:SemiColorDarkPalette x:Key="SemiColorPalette" />
+    <semi:SemiColorDarkPalette x:Key="SemiColorPalette" />
 
     <PlacementMode x:Key="ColorPickerFlyoutPlacement">AnchorAndGravity</PlacementMode>
     <PlacementMode x:Key="SimpleColorPickerFlyoutPlacement">BottomEdgeAlignedLeft</PlacementMode>

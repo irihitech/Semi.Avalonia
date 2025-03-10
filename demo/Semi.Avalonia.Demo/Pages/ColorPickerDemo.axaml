@@ -2,8 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Pages.ColorPickerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:colorPicker="clr-namespace:Semi.Avalonia.ColorPicker;assembly=Semi.Avalonia.ColorPicker"
-    xmlns:controls="using:Avalonia.Controls"
+    xmlns:semi="https://irihi.tech/semi"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1450"
@@ -33,12 +32,12 @@
             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                 <ColorPicker Margin="8" ColorSpectrumShape="Ring">
                     <ColorPicker.Palette>
-                        <controls:FlatHalfColorPalette />
+                        <FlatHalfColorPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
                 <ColorPicker Margin="8" ColorSpectrumShape="Box">
                     <ColorPicker.Palette>
-                        <colorPicker:SemiColorLightPalette />
+                        <semi:SemiColorLightPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
 
@@ -47,7 +46,7 @@
                     ColorSpectrumShape="Box"
                     Theme="{DynamicResource HexColorPicker}">
                     <ColorPicker.Palette>
-                        <colorPicker:SemiColorLightPalette />
+                        <semi:SemiColorLightPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
             </StackPanel>
