@@ -11,7 +11,7 @@
         <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="BorderBrush" Value="{DynamicResource ColorSliderDefaultBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ColorSliderThumbBorderBrush}" />
-        <Setter Property="CornerRadius" Value="999" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ColorSliderThumbCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -99,10 +99,8 @@
                                 </Track.IncreaseButton>
                                 <Thumb
                                     Name="ColorSliderThumb"
-                                    Width="16"
-                                    Height="16"
-                                    Margin="0"
-                                    Padding="0"
+                                    Width="{TemplateBinding Height}"
+                                    Height="{TemplateBinding Height}"
                                     DataContext="{TemplateBinding Value}"
                                     Theme="{StaticResource ColorSliderThumbTheme}" />
                             </Track>
@@ -187,8 +185,6 @@
                                     Name="ColorSliderThumb"
                                     Width="{TemplateBinding Width}"
                                     Height="{TemplateBinding Width}"
-                                    Margin="0"
-                                    Padding="0"
                                     DataContext="{TemplateBinding Value}"
                                     Theme="{StaticResource ColorSliderThumbTheme}" />
                             </Track>
