@@ -31,5 +31,37 @@
                 VerticalAlignment="Center"
                 Text="A.S.I.A" />
         </ButtonSpinner>
+        <ButtonSpinner
+            Height="30"
+            BorderBrush="Green"
+            AllowSpin="{Binding #allowSpinCheck.IsChecked}"
+            BorderThickness="1"
+            ButtonSpinnerLocation="Right"
+            ShowButtonSpinner="{Binding #showSpinCheck.IsChecked}"
+            Spin="OnSpin">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="Border" />
+        </ButtonSpinner>
+        <ButtonSpinner
+            Height="30"
+            BorderBrush="Red"
+            AllowSpin="{Binding #allowSpinCheck.IsChecked}"
+            BorderThickness="0"
+            ButtonSpinnerLocation="Right"
+            ShowButtonSpinner="{Binding #showSpinCheck.IsChecked}"
+            Spin="OnSpin">
+            <ButtonSpinner.Resources>
+                <ResourceDictionary>
+                    <Thickness x:Key="ButtonSpinnerWholeBorderThickness">1</Thickness>
+                </ResourceDictionary>
+            </ButtonSpinner.Resources>
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="WholeBorder" />
+        </ButtonSpinner>
+
     </StackPanel>
 </UserControl>
