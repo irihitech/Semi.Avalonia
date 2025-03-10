@@ -7,25 +7,18 @@
     <converters:ToBrushConverter x:Key="ToBrushConverter" />
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="64" />
-        <Setter Property="MinWidth" Value="64" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Content">
             <Template>
                 <Panel>
                     <Border
                         Margin="1,1,0,1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
                         CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
                     <Border
                         Margin="1,1,0,1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
                         CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
                 </Panel>
@@ -39,12 +32,14 @@
                 <DropDownButton
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    HorizontalContentAlignment="Stretch"
-                    VerticalContentAlignment="Stretch"
-                    ClipToBounds="True"
+                    MinWidth="{TemplateBinding MinWidth}"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True"
                     UseLayoutRounding="False">
                     <DropDownButton.Styles>
                         <Style Selector="FlyoutPresenter.nopadding">
@@ -499,9 +494,10 @@
                 <DropDownButton
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    HorizontalContentAlignment="Stretch"
-                    VerticalContentAlignment="Stretch"
-                    ClipToBounds="True"
+                    MinWidth="{TemplateBinding MinWidth}"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
