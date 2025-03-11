@@ -116,7 +116,7 @@ public partial class MainViewModel : ObservableObject
                     },
                     new MenuItemViewModel
                     {
-                        Header = "Spanish",
+                        Header = "Español",
                         Command = SelectLocaleCommand,
                         CommandParameter = new CultureInfo("es-es")
                     },
