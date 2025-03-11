@@ -8,8 +8,8 @@
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
         <Setter Property="Width" Value="64" />
-        <Setter Property="MinHeight" Value="32" />
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="MinHeight" Value="{DynamicResource ColorPickerMinHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ColorPickerCornerRadius}" />
         <Setter Property="Content">
             <Template>
                 <Panel>
@@ -282,12 +282,11 @@
                                                 <TextBox
                                                     Name="PART_HexTextBox"
                                                     Grid.Column="2"
-                                                    Height="32"
                                                     HorizontalAlignment="Stretch"
                                                     AutomationProperties.Name="Hexadecimal Color"
                                                     InnerLeftContent="#"
                                                     IsVisible="{TemplateBinding IsHexInputVisible}"
-                                                    MaxLength="9" />
+                                                    MaxLength="8" />
                                             </Grid>
                                             <!--  Color component editing controls  -->
                                             <!--  Component 1 RGB:Red HSV:Hue  -->
