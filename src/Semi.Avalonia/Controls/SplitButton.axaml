@@ -3,8 +3,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:CompileBindings="True">
     <Design.PreviewWith>
-        <StackPanel Margin="20">
-            <SplitButton>Hello</SplitButton>
+        <StackPanel Width="500" Height="500" Margin="20" Spacing="8">
+            <SplitButton
+                Theme="{DynamicResource SolidSplitButton}"
+                Content="Hello" />
+            <ToggleSplitButton
+                IsChecked="True"
+                HorizontalAlignment="Stretch"
+                Content="Hello" />
+            <SplitButton
+                Theme="{DynamicResource SolidSplitButton}" />
+            <ToggleSplitButton
+                IsChecked="True"
+                HorizontalAlignment="Stretch" />
         </StackPanel>
     </Design.PreviewWith>
 
@@ -13,22 +24,18 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
         <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
                 <ContentPresenter
                     Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Background="{TemplateBinding Background}"
@@ -55,7 +62,7 @@
         <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
         <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -69,10 +76,27 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Button
+                            Name="PART_SecondaryButton"
+                            Padding="4,0"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0"
+                            DockPanel.Dock="Right"
+                            Theme="{DynamicResource SemiSplitButtonElement}">
+                            <PathIcon
+                                Theme="{DynamicResource InnerPathIcon}"
+                                Data="{DynamicResource SplitButtonIconGlyph}"
+                                Foreground="{Binding $parent[Button].Foreground}" />
+                        </Button>
+                        <Rectangle
+                            Name="SeparatorBorder"
+                            Width="{DynamicResource SplitButtonSeparatorWidth}"
+                            VerticalAlignment="Stretch"
+                            DockPanel.Dock="Right"
+                            Fill="Transparent"
+                            StrokeThickness="0" />
+                        <Button
                             Name="PART_PrimaryButton"
                             Padding="{TemplateBinding Padding}"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -84,29 +108,7 @@
                             FontFamily="{TemplateBinding FontFamily}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}"
-                            DockPanel.Dock="Left"
                             Theme="{DynamicResource SemiSplitButtonElement}" />
-                        <Rectangle
-                            Name="SeparatorBorder"
-                            Width="{DynamicResource SplitButtonSeparatorWidth}"
-                            VerticalAlignment="Stretch"
-                            DockPanel.Dock="Left"
-                            Fill="Transparent"
-                            StrokeThickness="0" />
-                        <Button
-                            Name="PART_SecondaryButton"
-                            Padding="4,0"
-                            VerticalAlignment="Stretch"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="0"
-                            Theme="{DynamicResource SemiSplitButtonElement}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{DynamicResource SplitButtonIconGlyph}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
                     </DockPanel>
                 </Border>
             </ControlTemplate>
