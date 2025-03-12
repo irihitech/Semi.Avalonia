@@ -7,7 +7,8 @@
     <converters:ToBrushConverter x:Key="ToBrushConverter" />
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
-        <Setter Property="Width" Value="64" />
+        <Setter Property="MinWidth" Value="64" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource ColorPickerMinHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ColorPickerCornerRadius}" />
         <Setter Property="Content">
@@ -34,6 +35,8 @@
                     Height="{TemplateBinding Height}"
                     MinWidth="{TemplateBinding MinWidth}"
                     MinHeight="{TemplateBinding MinHeight}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Content="{TemplateBinding Content}"
@@ -450,7 +453,7 @@
         x:Key="HexColorPicker"
         BasedOn="{StaticResource {x:Type ColorPicker}}"
         TargetType="ColorPicker">
-        <Setter Property="Width" Value="200" />
+        <Setter Property="MinWidth" Value="200" />
         <Setter Property="Content">
             <Template>
                 <Grid ColumnDefinitions="Auto, *">
@@ -495,6 +498,8 @@
                     Height="{TemplateBinding Height}"
                     MinWidth="{TemplateBinding MinWidth}"
                     MinHeight="{TemplateBinding MinHeight}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Content="{TemplateBinding Content}"
@@ -643,7 +648,7 @@
         x:Key="HexSimpleColorPicker"
         BasedOn="{StaticResource SimpleColorPicker}"
         TargetType="ColorPicker">
-        <Setter Property="Width" Value="200" />
+        <Setter Property="MinWidth" Value="200" />
         <Setter Property="Content">
             <Template>
                 <Grid ColumnDefinitions="Auto, *">
