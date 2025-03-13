@@ -1,29 +1,21 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="DataGridLineBrush" Opacity="0.08" Color="#1C1F23" />
-
+    <StaticResource x:Key="DataGridLineBrush" ResourceKey="SemiColorBorder" />
     <SolidColorBrush x:Key="DataGridCellBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="DataGridCellFocusBorderBrush" Color="#C6CACD" />
-    <SolidColorBrush x:Key="DataGridCellCurrentBorderBrush" Opacity="0.08" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DataGridCellErrorBrush" Color="#FEF2ED" />
-
-
-    <SolidColorBrush x:Key="DataGridColumnHeaderForeground" Opacity="0.62" Color="#1C1F23" />
+    <StaticResource x:Key="DataGridCellFocusBorderBrush" ResourceKey="SemiColorTertiaryLightActive" />
+    <StaticResource x:Key="DataGridCellCurrentBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="DataGridCellErrorBrush" ResourceKey="SemiColorDangerLight" />
+    <StaticResource x:Key="DataGridColumnHeaderForeground" ResourceKey="SemiColorText2" />
     <SolidColorBrush x:Key="DataGridColumnHeaderBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="DataGridColumnHeaderPointeroverBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="DataGridColumnHeaderPressedBackground" Opacity="0.13" Color="#2E3238" />
-
+    <StaticResource x:Key="DataGridColumnHeaderPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="DataGridColumnHeaderPressedBackground" ResourceKey="SemiColorFill2" />
     <SolidColorBrush x:Key="DataGridRowBackground" Color="Transparent" />
-
-    <SolidColorBrush x:Key="DataGridRowErrorBackground" Color="#FEF2ED" />
+    <StaticResource x:Key="DataGridRowErrorBackground" ResourceKey="SemiColorDangerLight" />
     <SolidColorBrush x:Key="DataGridDetailsPresenterBackground" Color="Transparent" />
-
-    <SolidColorBrush x:Key="DataGridRowPointeroverBackground" Opacity="0.09" Color="#2E3238" />
-    <SolidColorBrush x:Key="DataGridRowSelectedBackground" Color="#EAF5FF" />
-    <SolidColorBrush x:Key="DataGridRowSelectedPointeroverBackground" Color="#CBE7FE" />
-    <SolidColorBrush x:Key="DataGridRowGroupHeaderExpandIconForeground" Opacity="0.62" Color="#1C1F23" />
-    <SolidColorBrush x:Key="DataGridRowGroupHeaderBackground" Opacity="0.05" Color="#2E3238" />
-
-    <SolidColorBrush x:Key="DataGridRowGroupHeaderCurrentBorderBrush" Opacity="0.08" Color="#1C1F23" />
-
-    <SolidColorBrush x:Key="DataGridDisabledBackground" Color="#2E3238" Opacity="0.02" />
+    <StaticResource x:Key="DataGridRowPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="DataGridRowSelectedBackground" ResourceKey="SemiColorPrimaryLight" />
+    <StaticResource x:Key="DataGridRowSelectedPointeroverBackground" ResourceKey="SemiColorPrimaryLightPointerover" />
+    <StaticResource x:Key="DataGridRowGroupHeaderExpandIconForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="DataGridRowGroupHeaderBackground" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="DataGridRowGroupHeaderCurrentBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="DataGridDisabledBackground" ResourceKey="SemiColorDisabledFill" />
 </ResourceDictionary>
