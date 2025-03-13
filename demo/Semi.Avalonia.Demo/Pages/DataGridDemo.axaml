@@ -3,7 +3,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Semi.Avalonia.Demo.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels;assembly=Semi.Avalonia.Demo"
     d:DesignHeight="450"
@@ -17,7 +16,7 @@
                <StackPanel Grid.Row="0" Orientation="Horizontal">
                    <ToggleSwitch Content="Enable" Name="enable" IsChecked="True" />
                    <ToggleSwitch Content="Inset Content" Name="inset" />
-                   <ToggleSwitch Content="ScrollBar Auto Hide" Name="autohide"></ToggleSwitch>
+                   <ToggleSwitch Content="ScrollBar Auto Hide" Name="autohide" />
                </StackPanel>
                <DataGrid Grid.Row="1"
                          Margin="8"

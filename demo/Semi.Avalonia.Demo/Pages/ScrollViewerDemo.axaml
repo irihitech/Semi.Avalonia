@@ -9,39 +9,22 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
-            <ToggleSwitch Name="inset" Content="Inset Content"></ToggleSwitch>
-            <ToggleSwitch Name="autohide" Content="Allow AutoHide"></ToggleSwitch>
+            <ToggleSwitch Name="inset" Content="Inset Content" />
+            <ToggleSwitch Name="autohide" Content="Allow AutoHide" />
             <ScrollViewer
-                Width="200"
-                Height="200"
+                Margin="10"
+                Width="200" Height="200"
                 AllowAutoHide="{Binding #autohide.IsChecked}"
                 Classes.InsetContent="{Binding #inset.IsChecked}"
-                Margin="10"
                 HorizontalScrollBarVisibility="Auto">
-                <Grid RowDefinitions="Auto,Auto"
-                      ColumnDefinitions="Auto,Auto"
-                      Width="300" Height="300">
-                    <Rectangle
-                        Grid.Row="0" Grid.Column="0"
-                        Width="150"
-                        Height="150"
-                        Fill="{DynamicResource SemiYellow2}" />
-                    <Rectangle
-                        Grid.Row="0" Grid.Column="1"
-                        Width="150"
-                        Height="150"
-                        Fill="{DynamicResource SemiBlue2}" />
-                    <Rectangle
-                        Grid.Row="1" Grid.Column="0"
-                        Width="150"
-                        Height="150"
-                        Fill="{DynamicResource SemiPink2}" />
-                    <Rectangle
-                        Grid.Row="1" Grid.Column="1"
-                        Width="150"
-                        Height="150"
-                        Fill="{DynamicResource SemiGreen2}" />
-                </Grid>
+                <UniformGrid
+                    Rows="2" Columns="2"
+                    Width="300" Height="300">
+                    <Rectangle Fill="{DynamicResource SemiYellow2}" />
+                    <Rectangle Fill="{DynamicResource SemiBlue2}" />
+                    <Rectangle Fill="{DynamicResource SemiPink2}" />
+                    <Rectangle Fill="{DynamicResource SemiGreen2}" />
+                </UniformGrid>
             </ScrollViewer>
         </StackPanel>
     </ScrollViewer>
