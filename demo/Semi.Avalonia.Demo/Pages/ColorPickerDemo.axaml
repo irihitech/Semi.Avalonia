@@ -2,8 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Pages.ColorPickerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:colorPicker="clr-namespace:Semi.Avalonia.ColorPicker;assembly=Semi.Avalonia.ColorPicker"
-    xmlns:controls="using:Avalonia.Controls"
+    xmlns:semi="https://irihi.tech/semi"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1450"
@@ -11,18 +10,15 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Spacing="20">
-            <StackPanel
-                VerticalAlignment="Top"
-                Orientation="Horizontal"
-                Spacing="20">
+            <StackPanel Orientation="Horizontal" Spacing="20">
                 <ColorView Name="Test" ColorSpectrumShape="Ring" />
                 <ColorView ColorSpectrumShape="Box" />
                 <ColorView Palette="{DynamicResource SemiColorPalette}" />
             </StackPanel>
-            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
                 <ColorView
                     Name="SimpleColorViewTest"
-                    HsvColor="hsv(120,11%,10%)"
+                    HsvColor="hsv(180,80%,70%)"
                     IsAlphaVisible="True"
                     Theme="{StaticResource SimpleColorView}" />
                 <StackPanel>
@@ -30,63 +26,55 @@
                     <TextBlock Text="{Binding #SimpleColorViewTest.Color}" />
                 </StackPanel>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                <ColorPicker Margin="8" ColorSpectrumShape="Ring">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ColorPicker ColorSpectrumShape="Ring">
                     <ColorPicker.Palette>
-                        <controls:FlatHalfColorPalette />
+                        <FlatHalfColorPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
-                <ColorPicker Margin="8" ColorSpectrumShape="Box">
+                <ColorPicker ColorSpectrumShape="Box">
                     <ColorPicker.Palette>
-                        <colorPicker:SemiColorLightPalette />
+                        <semi:SemiColorLightPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
-
                 <ColorPicker
-                    Margin="8"
-                    ColorSpectrumShape="Box"
-                    Theme="{DynamicResource HexColorPicker}">
+                    Theme="{DynamicResource HexColorPicker}"
+                    ColorSpectrumShape="Box">
                     <ColorPicker.Palette>
-                        <colorPicker:SemiColorLightPalette />
+                        <semi:SemiColorLightPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" >
-                <TextBlock Text="Use Style to customize button"></TextBlock>
+            <StackPanel HorizontalAlignment="Left">
+                <TextBlock Text="Use Style to customize button" />
                 <ColorPicker
                     Margin="8"
-                    Width="32"
-                    HsvColor="hsv(120,11%,10%)"
-                    >
+                    MinWidth="32"
+                    HsvColor="hsv(180,80%,70%)">
                     <ColorPicker.Content>
                         <Border
                             Margin="1"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Background="{Binding $parent[ColorPicker].HsvColor, 
-                                                     Converter={StaticResource ToBrushConverter}}"
+                            Background="{Binding $parent[ColorPicker].HsvColor, Converter={StaticResource ToBrushConverter}}"
                             CornerRadius="1" />
                     </ColorPicker.Content>
                     <ColorPicker.Styles>
                         <Style Selector="DropDownButton">
-                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Padding" Value="0" />
                             <Style Selector="^ /template/ PathIcon">
-                                <Setter Property="IsVisible" Value="False"/>
+                                <Setter Property="IsVisible" Value="False" />
                             </Style>
                         </Style>
                     </ColorPicker.Styles>
                 </ColorPicker>
-
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+
+            <StackPanel Orientation="Horizontal" Spacing="8">
                 <ColorPicker
-                    Margin="8"
-                    HsvColor="hsv(120,11%,10%)"
-                    Theme="{StaticResource SimpleColorPicker}" />
+                    Theme="{StaticResource SimpleColorPicker}"
+                    HsvColor="hsv(180,80%,70%)" />
                 <ColorPicker
-                    Margin="8"
-                    HsvColor="hsv(120,11%,10%)"
-                    Theme="{StaticResource HexSimpleColorPicker}" />
+                    Theme="{StaticResource HexSimpleColorPicker}"
+                    HsvColor="hsv(180,80%,70%)" />
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

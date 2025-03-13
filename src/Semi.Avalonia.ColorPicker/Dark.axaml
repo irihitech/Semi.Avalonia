@@ -1,21 +1,17 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="ColorViewRadioButtonForeground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonBackground" Color="#1C1F23" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonPointeroverBackground" Opacity="0.16" Color="White" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonPressedBackground" Opacity="0.20" Color="White" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedForeground" Color="White" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedBackground" Color="#54A9FF" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedPointeroverBackground" Color="#7FC1FF" />
-    <SolidColorBrush x:Key="ColorViewRadioButtonCheckedPressedBackground" Color="#A9D7FF" />
-
-    <SolidColorBrush x:Key="ColorViewTabItemSelectedForeground" Color="#54A9FF" />
-
-
-    <SolidColorBrush x:Key="ColorSliderDefaultBorderBrush" Color="Black" />
-    <SolidColorBrush x:Key="ColorSliderLightBorderBrush" Color="White" />
-    <SolidColorBrush x:Key="ColorSliderDarkBorderBrush" Color="#E4000000" />
-
-    <SolidColorBrush x:Key="ColorSpectrumBorderBrush" Opacity="0.08" Color="#1C1F23" />
-
-    <BoxShadows x:Key="ColorPreviewerMainBoxShadow">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
+    <StaticResource x:Key="ColorViewRadioButtonForeground" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ColorViewRadioButtonBackground" ResourceKey="SemiColorBackground0" />
+    <StaticResource x:Key="ColorViewRadioButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="ColorViewRadioButtonPressedBackground" ResourceKey="SemiColorFill2" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedForeground" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedBackground" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedPointeroverBackground" ResourceKey="SemiColorPrimaryPointerover" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedPressedBackground" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="ColorViewTabItemSelectedForeground" ResourceKey="SemiColorPrimary" />
+    <StaticResource x:Key="ColorSliderDefaultBorderBrush" ResourceKey="SemiColorBlack" />
+    <StaticResource x:Key="ColorSliderLightBorderBrush" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="ColorSliderDarkBorderBrush" ResourceKey="SemiColorBlack" />
+    <StaticResource x:Key="ColorSpectrumBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="ColorPreviewerMainBoxShadow" ResourceKey="SemiShadowElevated" />
+    <BoxShadows x:Key="ColorSliderBoxShadow">0 0 2 1 #FFFFFF</BoxShadows>
 </ResourceDictionary>
