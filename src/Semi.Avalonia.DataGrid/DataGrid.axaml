@@ -139,8 +139,7 @@
                             <PathIcon
                                 Name="SortIcon"
                                 Grid.Column="1"
-                                Width="8"
-                                Height="8"
+                                Theme="{StaticResource InnerPathIcon}"
                                 Margin="0,0,8,0"
                                 Foreground="{TemplateBinding Foreground}" />
                         </Grid>
@@ -358,8 +357,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <PathIcon
-                    Width="12"
-                    Height="12"
+                    Theme="{StaticResource InnerPathIcon}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="Transparent"
