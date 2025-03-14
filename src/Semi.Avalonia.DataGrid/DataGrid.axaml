@@ -530,6 +530,7 @@
                             Name="PART_VerticalScrollbar"
                             Grid.Row="1"
                             Grid.Column="2"
+                            AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
                             Orientation="Vertical" />
 
                         <Grid
@@ -540,6 +541,7 @@
                             <ScrollBar
                                 Name="PART_HorizontalScrollbar"
                                 Grid.Column="1"
+                                AllowAutoHide="{Binding Path=(ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}"
                                 Height="{DynamicResource ScrollBarSize}"
                                 Orientation="Horizontal" />
                         </Grid>
@@ -572,7 +574,7 @@
             </Style>
         </Style>
 
-        <Style Selector="^[(ScrollViewer.AllowAutoHide)=False]">
+        <Style Selector="^.InsetContent">
             <Style Selector="^ /template/ DataGridRowsPresenter#PART_RowsPresenter">
                 <Setter Property="Grid.RowSpan" Value="1" />
                 <Setter Property="Grid.ColumnSpan" Value="2" />

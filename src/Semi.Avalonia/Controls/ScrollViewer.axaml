@@ -229,7 +229,6 @@
                 <Setter Property="Height" Value="2" />
             </Style>
         </Style>
-
     </ControlTheme>
     <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
@@ -278,9 +277,14 @@
                 <Setter Property="Opacity" Value="1" />
             </Style>
         </Style>
+        <Style Selector="^.InsetContent /template/ ScrollContentPresenter#PART_ContentPresenter">
+            <Setter Property="Grid.RowSpan" Value="1"/>
+            <Setter Property="Grid.ColumnSpan" Value="1"/>
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="StaticScrollViewer" TargetType="ScrollViewer">
+        <!-- This ControlTheme equivalent to default ScrollViewer with InsetContent style class. It exists for easier setting via style.  -->
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ScrollViewer">
