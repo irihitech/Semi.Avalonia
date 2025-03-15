@@ -1,23 +1,22 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Thickness x:Key="DataGridCellTextBlockDefaultMargin">12 0</Thickness>
-
-    <x:Double x:Key="DataGridCellMinHeight">32</x:Double>
-    <Thickness x:Key="DataGridCellVisualBorderThickness">1</Thickness>
-    <x:Double x:Key="DataGridCellVisualStrokeThickness">1</x:Double>
+    <StaticResource x:Key="DataGridCellMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="DataGridCellVisualBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+    <StaticResource x:Key="DataGridCellVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
 
     <Thickness x:Key="DataGridColumnHeaderPadding">12 0 0 0</Thickness>
-    <x:Double x:Key="DataGridColumnHeaderMinHeight">32</x:Double>
-
-    <StreamGeometry x:Key="DataGridColumnHeaderAscendingGlyph">m6.45 8.34 4.8-5.48a1 1 0 0 1 1.5 0l4.8 5.48A1 1 0 0 1 16.8 10H7.2a1 1 0 0 1-.75-1.66Z</StreamGeometry>
-    <StreamGeometry x:Key="DataGridColumnHeaderDescendingGlyph">m17.55 15.66-4.8 5.48a1 1 0 0 1-1.5 0l-4.8-5.48A1 1 0 0 1 7.2 14h9.6a1 1 0 0 1 .75 1.66Z</StreamGeometry>
-    <!-- <StaticResource x:Key="DataGridColumnHeaderAscendingGlyph" ResourceKey="SemiIconCaretUp" /> -->
-    <!-- <StaticResource x:Key="DataGridColumnHeaderDescendingGlyph" ResourceKey="SemiIconCaretDown" /> -->
+    <StaticResource x:Key="DataGridColumnHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="DataGridColumnHeaderCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="DataGridColumnHeaderAscendingGlyph" ResourceKey="SemiIconSmallTriangleTop" />
+    <StaticResource x:Key="DataGridColumnHeaderDescendingGlyph" ResourceKey="SemiIconSmallTriangleDown" />
 
     <Thickness x:Key="DataGridRowHeaderMargin">8 0</Thickness>
-    <Thickness x:Key="DataGridRowMargin">2</Thickness>
+    <StaticResource x:Key="DataGridRowCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="DataGridRowMargin" ResourceKey="SemiThicknessSuperTight" />
 
-    <StreamGeometry x:Key="DataGridRowGroupHeaderExpandIconGlyph">M7.44 19.8a1.5 1.5 0 0 1 0-2.13l5.66-5.65-5.66-5.66a1.5 1.5 0 1 1 2.12-2.12l6.72 6.72a1.5 1.5 0 0 1 0 2.12L9.56 19.8a1.5 1.5 0 0 1-2.12 0Z</StreamGeometry>
-    <!-- <StaticResource x:Key="DataGridRowGroupHeaderExpandIconGlyph" ResourceKey="SemiIconChevronRight" /> -->
+    <StaticResource x:Key="DataGridRowGroupHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="DataGridRowGroupHeaderExpandIconGlyph" ResourceKey="SemiIconChevronRight" />
+    <StaticResource x:Key="DataGridRowGroupHeaderVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
 
-    <x:Double x:Key="DataGridRowGroupHeaderVisualStrokeThickness">1</x:Double>
+    <StaticResource x:Key="DataGridDisabledCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
 </ResourceDictionary>

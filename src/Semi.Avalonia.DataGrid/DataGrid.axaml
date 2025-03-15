@@ -126,21 +126,19 @@
                             Name="HeaderBackground"
                             Grid.ColumnSpan="2"
                             Margin="4"
-                            CornerRadius="3" />
+                            CornerRadius="{DynamicResource DataGridColumnHeaderCornerRadius}" />
                         <Grid
+                            ColumnDefinitions="*,Auto"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <PathIcon
                                 Name="SortIcon"
                                 Grid.Column="1"
-                                Width="8"
-                                Height="8"
+                                Theme="{StaticResource InnerPathIcon}"
                                 Margin="0,0,8,0"
                                 Foreground="{TemplateBinding Foreground}" />
                         </Grid>
@@ -293,7 +291,7 @@
                             Grid.ColumnSpan="2"
                             Margin="{DynamicResource DataGridRowMargin}"
                             Background="{DynamicResource DataGridRowBackground}"
-                            CornerRadius="3" />
+                            CornerRadius="{DynamicResource DataGridRowCornerRadius}" />
                         <Rectangle
                             Name="InvalidVisualElement"
                             Grid.ColumnSpan="2"
@@ -358,8 +356,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <PathIcon
-                    Width="12"
-                    Height="12"
+                    Theme="{StaticResource InnerPathIcon}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="Transparent"
@@ -375,7 +372,7 @@
     <ControlTheme x:Key="{x:Type DataGridRowGroupHeader}" TargetType="DataGridRowGroupHeader">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Background" Value="{DynamicResource DataGridRowGroupHeaderBackground}" />
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowGroupHeaderMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup" TargetType="DataGridRowGroupHeader">
                 <DataGridFrozenGrid
@@ -400,20 +397,18 @@
                         Grid.Column="3"
                         Margin="12,0,0,0"
                         VerticalAlignment="Center"
-                        Orientation="Horizontal">
+                        Orientation="Horizontal"
+                        Spacing="4">
                         <TextBlock
                             Name="PART_PropertyNameElement"
-                            Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding IsPropertyNameVisible}" />
                         <ContentControl
                             Name="PART_GroupKeyContentControl"
-                            Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             Content="{Binding Key}" />
                         <TextBlock
                             Name="PART_ItemCountElement"
-                            Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding IsItemCountVisible}" />
                     </StackPanel>
@@ -554,7 +549,7 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{DynamicResource DataGridDisabledBackground}"
-                            CornerRadius="2"
+                            CornerRadius="{DynamicResource DataGridDisabledCornerRadius}"
                             IsHitTestVisible="False"
                             IsVisible="{Binding !$parent[DataGrid].IsEnabled}" />
                     </Grid>
