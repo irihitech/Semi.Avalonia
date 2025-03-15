@@ -5,6 +5,9 @@
     <ControlTheme x:Key="{x:Type PopupRoot}" TargetType="PopupRoot">
         <Setter Property="Background" Value="{x:Null}" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource DefaultFontWeight}" />
+        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="PopupRoot">
                 <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
