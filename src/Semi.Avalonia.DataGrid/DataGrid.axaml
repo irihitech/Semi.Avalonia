@@ -128,14 +128,13 @@
                             Margin="4"
                             CornerRadius="3" />
                         <Grid
+                            ColumnDefinitions="*,Auto"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <PathIcon
                                 Name="SortIcon"
                                 Grid.Column="1"
@@ -398,20 +397,18 @@
                         Grid.Column="3"
                         Margin="12,0,0,0"
                         VerticalAlignment="Center"
-                        Orientation="Horizontal">
+                        Orientation="Horizontal"
+                        Spacing="4">
                         <TextBlock
                             Name="PART_PropertyNameElement"
-                            Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding IsPropertyNameVisible}" />
                         <ContentControl
                             Name="PART_GroupKeyContentControl"
-                            Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             Content="{Binding Key}" />
                         <TextBlock
                             Name="PART_ItemCountElement"
-                            Margin="4,0,0,0"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding IsItemCountVisible}" />
                     </StackPanel>
