@@ -126,7 +126,7 @@
                             Name="HeaderBackground"
                             Grid.ColumnSpan="2"
                             Margin="4"
-                            CornerRadius="3" />
+                            CornerRadius="{DynamicResource DataGridColumnHeaderCornerRadius}" />
                         <Grid
                             ColumnDefinitions="*,Auto"
                             Margin="{TemplateBinding Padding}"
@@ -291,7 +291,7 @@
                             Grid.ColumnSpan="2"
                             Margin="{DynamicResource DataGridRowMargin}"
                             Background="{DynamicResource DataGridRowBackground}"
-                            CornerRadius="3" />
+                            CornerRadius="{DynamicResource DataGridRowCornerRadius}" />
                         <Rectangle
                             Name="InvalidVisualElement"
                             Grid.ColumnSpan="2"
@@ -372,7 +372,7 @@
     <ControlTheme x:Key="{x:Type DataGridRowGroupHeader}" TargetType="DataGridRowGroupHeader">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Background" Value="{DynamicResource DataGridRowGroupHeaderBackground}" />
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowGroupHeaderMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup" TargetType="DataGridRowGroupHeader">
                 <DataGridFrozenGrid
@@ -549,7 +549,7 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{DynamicResource DataGridDisabledBackground}"
-                            CornerRadius="2"
+                            CornerRadius="{DynamicResource DataGridDisabledCornerRadius}"
                             IsHitTestVisible="False"
                             IsVisible="{Binding !$parent[DataGrid].IsEnabled}" />
                     </Grid>

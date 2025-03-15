@@ -1,20 +1,22 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Thickness x:Key="DataGridCellTextBlockDefaultMargin">12 0</Thickness>
-
-    <x:Double x:Key="DataGridCellMinHeight">32</x:Double>
-    <Thickness x:Key="DataGridCellVisualBorderThickness">1</Thickness>
-    <x:Double x:Key="DataGridCellVisualStrokeThickness">1</x:Double>
+    <StaticResource x:Key="DataGridCellMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="DataGridCellVisualBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+    <StaticResource x:Key="DataGridCellVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
 
     <Thickness x:Key="DataGridColumnHeaderPadding">12 0 0 0</Thickness>
-    <x:Double x:Key="DataGridColumnHeaderMinHeight">32</x:Double>
-
+    <StaticResource x:Key="DataGridColumnHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="DataGridColumnHeaderCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
     <StaticResource x:Key="DataGridColumnHeaderAscendingGlyph" ResourceKey="SemiIconSmallTriangleTop" />
     <StaticResource x:Key="DataGridColumnHeaderDescendingGlyph" ResourceKey="SemiIconSmallTriangleDown" />
 
     <Thickness x:Key="DataGridRowHeaderMargin">8 0</Thickness>
-    <Thickness x:Key="DataGridRowMargin">2</Thickness>
+    <StaticResource x:Key="DataGridRowCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="DataGridRowMargin" ResourceKey="SemiThicknessSuperTight" />
 
+    <StaticResource x:Key="DataGridRowGroupHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
     <StaticResource x:Key="DataGridRowGroupHeaderExpandIconGlyph" ResourceKey="SemiIconChevronRight" />
+    <StaticResource x:Key="DataGridRowGroupHeaderVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
 
-    <x:Double x:Key="DataGridRowGroupHeaderVisualStrokeThickness">1</x:Double>
+    <StaticResource x:Key="DataGridDisabledCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
 </ResourceDictionary>
