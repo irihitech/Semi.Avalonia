@@ -87,11 +87,8 @@
                         </Panel>
                         <PathIcon
                             Name="SortIcon"
-                            Width="8"
-                            Height="8"
+                            Theme="{StaticResource InnerPathIcon}"
                             Margin="0,0,8,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
                             DockPanel.Dock="Right"
                             Foreground="{TemplateBinding Foreground}"
                             TabIndex="1" />
@@ -192,25 +189,17 @@
     </ControlTheme>
 
     <ControlTheme x:Key="TreeDataGridExpandCollapseChevron" TargetType="ToggleButton">
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Width" Value="8" />
-        <Setter Property="Height" Value="8" />
         <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
+                <PathIcon
+                    Name="ChevronPath"
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="Transparent">
-                    <PathIcon
-                        Name="ChevronPath"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
-                        Foreground="{TemplateBinding Foreground}" />
-                </Border>
+                    Theme="{StaticResource InnerPathIcon}"
+                    Classes="Small"
+                    Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
+                    Foreground="{TemplateBinding Foreground}" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked /template/ PathIcon#ChevronPath">
@@ -223,18 +212,15 @@
             <ControlTemplate>
                 <Border
                     Name="CellBorder"
-                    Padding="{TemplateBinding Indent,
-                                              Converter={x:Static conv:IndentConverter.Instance}}"
+                    Padding="{TemplateBinding Indent,Converter={x:Static conv:IndentConverter.Instance}}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Border
-                            Width="12"
-                            Height="12"
-                            Margin="4,0"
-                            DockPanel.Dock="Left">
+                            DockPanel.Dock="Left"
+                            Margin="4,0">
                             <ToggleButton
                                 Focusable="False"
                                 IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
