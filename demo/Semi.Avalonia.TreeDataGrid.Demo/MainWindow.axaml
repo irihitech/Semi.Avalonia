@@ -13,9 +13,9 @@
     mc:Ignorable="d">
     <Window.Resources>
         <converters:FileIconConverter x:Key="FileIconConverter">
-            <PathGeometry x:Key="file">M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z</PathGeometry>
-            <PathGeometry x:Key="folderOpen">M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z</PathGeometry>
-            <PathGeometry x:Key="folderClosed">M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z</PathGeometry>
+            <StaticResource x:Key="file" ResourceKey="SemiIconFile" />
+            <StaticResource x:Key="folderOpen" ResourceKey="SemiIconFolderOpen" />
+            <StaticResource x:Key="folderClosed" ResourceKey="SemiIconFolder" />
         </converters:FileIconConverter>
     </Window.Resources>
     <Grid RowDefinitions="Auto, *">
@@ -58,7 +58,7 @@
                     </TreeDataGrid.Resources>
                     <TreeDataGrid.Styles>
                         <Style Selector="TreeDataGrid TreeDataGridRow:nth-last-child(2n)">
-                            <Setter Property="Background" Value="#20808080" />
+                            <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
                         </Style>
                     </TreeDataGrid.Styles>
                 </TreeDataGrid>
@@ -86,10 +86,8 @@
                             <DataTemplate x:Key="FileNameCell" DataType="vm:FileNodeViewModel">
                                 <StackPanel Orientation="Horizontal">
                                     <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Margin="8,0"
-                                        VerticalAlignment="Center">
+                                        Theme="{StaticResource InnerPathIcon}"
+                                        Margin="8,0">
                                         <PathIcon.Data>
                                             <MultiBinding Converter="{StaticResource FileIconConverter}">
                                                 <Binding Path="IsDirectory" />
@@ -127,7 +125,7 @@
                         </TreeDataGrid.Resources>
                         <TreeDataGrid.Styles>
                             <Style Selector="TreeDataGrid TreeDataGridRow:nth-child(2n)">
-                                <Setter Property="Background" Value="#20808080" />
+                                <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
                             </Style>
                         </TreeDataGrid.Styles>
                     </TreeDataGrid>

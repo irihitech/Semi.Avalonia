@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Avalonia;
 using Avalonia.Data.Converters;
-using Avalonia.Media;
 using Avalonia.Metadata;
 
 namespace Semi.Avalonia.TreeDataGrid.Demo.Converters;
 
-public class FileIconConverter: IMultiValueConverter
+public class FileIconConverter : IMultiValueConverter
 {
-    [Content] 
-    public Dictionary<string, PathGeometry> Items { get; set; } = new Dictionary<string, PathGeometry>();
+    [Content] public IDictionary<string, object?> Items { get; } = new Dictionary<string, object?>();
 
     public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
     {
@@ -21,8 +19,10 @@ public class FileIconConverter: IMultiValueConverter
             {
                 return Items["file"];
             }
+
             return isOpen ? Items["folderOpen"] : Items["folderClosed"];
         }
+
         return AvaloniaProperty.UnsetValue;
     }
 }
