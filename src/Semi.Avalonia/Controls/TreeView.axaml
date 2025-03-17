@@ -71,8 +71,8 @@
                     Background="Transparent">
                     <PathIcon
                         Name="PART_ExpandIconPath"
-                        Width="{DynamicResource TreeViewItemIconSize}"
-                        Height="{DynamicResource TreeViewItemIconSize}"
+                        Theme="{StaticResource InnerPathIcon}"
+                        Classes="Small"
                         Data="{DynamicResource ExpanderIconData}"
                         Foreground="{DynamicResource TreeViewItemIconDefaultForeground}">
                         <PathIcon.Transitions>
