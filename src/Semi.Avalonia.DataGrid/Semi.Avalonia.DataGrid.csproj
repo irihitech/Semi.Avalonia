@@ -1,10 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="../Package.props"/>
-
     <PropertyGroup>
-        <Title>Semi.Avalonia.DataGrid</Title>
+        <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <Version>11.2.1.5</Version>
         <PackageReleaseNotes>Update to Semi.Avalonia.DataGrid 11.2.1.5</PackageReleaseNotes>
+        <Authors>IRIHI Technology Co., Ltd.</Authors>
+        <Description>Avalonia Theme inspired by Semi Design.</Description>
+        <RepositoryUrl>https://github.com/irihitech/Semi.Avalonia</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>irihi.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/irihitech/Semi.Avalonia</PackageProjectUrl>
+        <Title>Semi.Avalonia.DataGrid</Title>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
@@ -12,8 +20,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.1"/>
+        <None Include="irihi.png" Pack="true" PackagePath=""/>
     </ItemGroup>
 
 </Project>
