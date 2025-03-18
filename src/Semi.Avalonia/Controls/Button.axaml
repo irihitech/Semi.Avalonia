@@ -108,11 +108,9 @@
                         Classes="Solid" />
             </FocusAdornerTemplate>
         </Setter>
-        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
-        </Style>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
