@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semiConverters="clr-namespace:Semi.Avalonia.Converters"
     x:CompileBindings="True">
     <!--  Button Theme Key: Light, Solid, Outline, Borderless; Default is Light  -->
     <!--  Button Default Classes: Primary, Secondary, Tertiary, Success, Warning, Danger; Default is Primary  -->
@@ -97,6 +98,8 @@
             <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
         </Style>
     </ControlTheme>
+    
+    <semiConverters:AdaptiveColorConverter x:Key="AdaptiveColorConverter"/>
 
     <ControlTheme
         x:Key="SolidButton"
@@ -108,20 +111,22 @@
                         Classes="Solid" />
             </FocusAdornerTemplate>
         </Setter>
+        <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
+            <Setter Property="Background" Value="{TemplateBinding Background}" />
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
         </Style>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
+            <Setter Property="Background" Value="{TemplateBinding Background, Converter={StaticResource AdaptiveColorConverter}, ConverterParameter=0.2}" />
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush, Converter={StaticResource AdaptiveColorConverter}, ConverterParameter=0.2}" />
         </Style>
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidPrimaryPressedForeground}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
+            <Setter Property="Background" Value="{TemplateBinding Background, Converter={StaticResource AdaptiveColorConverter}, ConverterParameter=0.4}" />
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush, Converter={StaticResource AdaptiveColorConverter}, ConverterParameter=0.4}" />
         </Style>
 
         <Style Selector="^.Primary">
