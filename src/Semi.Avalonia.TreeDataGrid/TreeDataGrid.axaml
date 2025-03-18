@@ -49,10 +49,10 @@
 
     <ControlTheme x:Key="{x:Type TreeDataGridColumnHeader}" TargetType="TreeDataGridColumnHeader">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinHeight" Value="{DynamicResource TreeDataGridColumnHeaderMinHeight}" />
         <Setter Property="Padding" Value="8 2 0 2" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TreeDataGridColumnHeaderCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
@@ -87,11 +87,8 @@
                         </Panel>
                         <PathIcon
                             Name="SortIcon"
-                            Width="8"
-                            Height="8"
+                            Theme="{StaticResource InnerPathIcon}"
                             Margin="0,0,8,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
                             DockPanel.Dock="Right"
                             Foreground="{TemplateBinding Foreground}"
                             TabIndex="1" />
@@ -140,8 +137,8 @@
 
     <ControlTheme x:Key="{x:Type TreeDataGridRow}" TargetType="TreeDataGridRow">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TreeDataGridRowCornerRadius}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TreeDataGridRowMinHeight}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -192,25 +189,17 @@
     </ControlTheme>
 
     <ControlTheme x:Key="TreeDataGridExpandCollapseChevron" TargetType="ToggleButton">
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Width" Value="8" />
-        <Setter Property="Height" Value="8" />
         <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
+                <PathIcon
+                    Name="ChevronPath"
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="Transparent">
-                    <PathIcon
-                        Name="ChevronPath"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
-                        Foreground="{TemplateBinding Foreground}" />
-                </Border>
+                    Theme="{StaticResource InnerPathIcon}"
+                    Classes="Small"
+                    Data="{DynamicResource TreeDataGridItemCollapsedChevronPathData}"
+                    Foreground="{TemplateBinding Foreground}" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked /template/ PathIcon#ChevronPath">
@@ -223,18 +212,16 @@
             <ControlTemplate>
                 <Border
                     Name="CellBorder"
-                    Padding="{TemplateBinding Indent,
-                                              Converter={x:Static conv:IndentConverter.Instance}}"
+                    Padding="{TemplateBinding Indent,Converter={x:Static conv:IndentConverter.Instance}}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <Border
-                            Width="12"
-                            Height="12"
-                            Margin="4,0"
-                            DockPanel.Dock="Left">
+                            DockPanel.Dock="Left"
+                            Width="{DynamicResource TreeDataGridItemCollapsedChevronWidth}"
+                            Margin="4,0">
                             <ToggleButton
                                 Focusable="False"
                                 IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
