@@ -49,10 +49,10 @@
 
     <ControlTheme x:Key="{x:Type TreeDataGridColumnHeader}" TargetType="TreeDataGridColumnHeader">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinHeight" Value="{DynamicResource TreeDataGridColumnHeaderMinHeight}" />
         <Setter Property="Padding" Value="8 2 0 2" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TreeDataGridColumnHeaderCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource TreeDataGridColumnHeaderForeground}" />
         <Setter Property="Template">
@@ -137,8 +137,8 @@
 
     <ControlTheme x:Key="{x:Type TreeDataGridRow}" TargetType="TreeDataGridRow">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="CornerRadius" Value="3" />
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TreeDataGridRowCornerRadius}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TreeDataGridRowMinHeight}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate>
