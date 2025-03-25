@@ -78,10 +78,19 @@
             Grid.Row="1"
             Margin="8"
             Padding="20,0,0,0"
-            HorizontalAlignment="Stretch"
             TabStripPlacement="Left"
             Classes.Dismiss="{Binding #ExpandButton.IsChecked}"
-            Theme="{DynamicResource NavigationTab}">
+            Theme="{DynamicResource ScrollTabControl}">
+            <TabControl.Styles>
+                <Style Selector=".Dismiss /template/ ScrollViewer#PART_ScrollViewer">
+                    <Setter Property="IsVisible" Value="False" />
+                </Style>
+            </TabControl.Styles>
+            <TabControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </TabControl.ItemsPanel>
             <TabItem Header="Overview">
                 <pages:Overview />
             </TabItem>
