@@ -82,95 +82,6 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="ScrollTabControl" TargetType="TabControl">
-        <Setter Property="ItemsPanel">
-            <ItemsPanelTemplate>
-                <VirtualizingStackPanel Orientation="Horizontal" />
-            </ItemsPanelTemplate>
-        </Setter>
-        <Setter Property="Template">
-            <ControlTemplate TargetType="TabControl">
-                <Border
-                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel>
-                        <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-                            <ScrollViewer
-                                Name="PART_ScrollViewer"
-                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                <ItemsPresenter
-                                    Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    Margin="0 0 12 12" />
-                            </ScrollViewer>
-                            <Border
-                                Name="PART_BorderSeparator"
-                                Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
-                        </Panel>
-                        <ContentPresenter
-                            Name="PART_SelectedContentHost"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding SelectedContent}"
-                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
-                    </DockPanel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
-            <Setter Property="TabControl.ItemsPanel">
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel />
-                </ItemsPanelTemplate>
-            </Setter>
-        </Style>
-        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_BorderSeparator">
-            <Setter Property="Height" Value="1" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Bottom" />
-            <Setter Property="Margin" Value="0 0 0 12" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_BorderSeparator">
-            <Setter Property="Height" Value="1" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
-            <Setter Property="Width" Value="1" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
-            <Setter Property="Width" Value="1" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="Margin" Value="0 0 12 0" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Top]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        </Style>
-    </ControlTheme>
-
     <ControlTheme
         x:Key="LineTabControl"
         BasedOn="{StaticResource BaseTabControl}"
@@ -191,85 +102,6 @@
         <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
             <Setter Property="Width" Value="1" />
             <Setter Property="HorizontalAlignment" Value="Left" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="ScrollLineTabControl" TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource LineTabControlItem}" />
-        <Setter Property="ItemsPanel">
-            <ItemsPanelTemplate>
-                <VirtualizingStackPanel Orientation="Horizontal" />
-            </ItemsPanelTemplate>
-        </Setter>
-        <Setter Property="Template">
-            <ControlTemplate TargetType="TabControl">
-                <Border
-                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel>
-                        <ScrollViewer
-                            Name="PART_ScrollViewer"
-                            DockPanel.Dock="{TemplateBinding TabStripPlacement}"
-                            HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                            VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <Border
-                                Name="PART_BorderSeparator"
-                                BorderBrush="{DynamicResource TabItemLinePipePressedBorderBrush}">
-                                <ItemsPresenter
-                                    Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                            </Border>
-                        </ScrollViewer>
-                        <ContentPresenter
-                            Name="PART_SelectedContentHost"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding SelectedContent}"
-                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
-                    </DockPanel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
-            <Setter Property="TabControl.ItemsPanel">
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel />
-                </ItemsPanelTemplate>
-            </Setter>
-        </Style>
-        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_BorderSeparator">
-            <Setter Property="BorderThickness" Value="0 0 0 1" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_BorderSeparator">
-            <Setter Property="BorderThickness" Value="0 1 0 0" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
-            <Setter Property="BorderThickness" Value="0 0 1 0" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
-            <Setter Property="BorderThickness" Value="1 0 0 0" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Top]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         </Style>
     </ControlTheme>
 
@@ -334,6 +166,215 @@
     <ControlTheme
         x:Key="ButtonTabControl"
         BasedOn="{StaticResource BaseTabControl}"
+        TargetType="TabControl">
+        <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabControlItem}" />
+        <Style Selector="^ /template/ Border#PART_BorderSeparator">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="BaseScrollTabControl" TargetType="TabControl">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <VirtualizingStackPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <Border
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                            <ScrollViewer
+                                Name="PART_ScrollViewer"
+                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ItemsPresenter
+                                    Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            </ScrollViewer>
+                            <Border
+                                Name="PART_BorderSeparator"
+                                Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+                        </Panel>
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectedContent}"
+                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="ScrollTabControl"
+        BasedOn="{StaticResource BaseScrollTabControl}"
+        TargetType="TabControl">
+
+        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="ScrollLineTabControl"
+        BasedOn="{StaticResource BaseScrollTabControl}"
+        TargetType="TabControl">
+        <Setter Property="ItemContainerTheme" Value="{StaticResource LineTabControlItem}" />
+
+        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ScrollCardTabControl" TargetType="TabControl">
+        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabControlItem}" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <VirtualizingStackPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <Border
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                            <Border
+                                Name="PART_BorderSeparator"
+                                Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+                            <ScrollViewer
+                                Name="PART_ScrollViewer"
+                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ItemsPresenter
+                                    Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            </ScrollViewer>
+                        </Panel>
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectedContent}"
+                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="ScrollButtonTabControl"
+        BasedOn="{StaticResource BaseScrollTabControl}"
         TargetType="TabControl">
         <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabControlItem}" />
         <Style Selector="^ /template/ Border#PART_BorderSeparator">
