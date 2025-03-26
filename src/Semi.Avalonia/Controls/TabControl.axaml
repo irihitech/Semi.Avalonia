@@ -128,14 +128,14 @@
         x:Key="LineTabControl"
         BasedOn="{StaticResource BaseTabControl}"
         TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource LineTabControlItem}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource LineTabItem}" />
     </ControlTheme>
 
     <ControlTheme
         x:Key="CardTabControl"
         BasedOn="{StaticResource BaseTabControl}"
         TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabControlItem}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabItem}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TabControl">
                 <Border
@@ -169,7 +169,7 @@
         x:Key="ButtonTabControl"
         BasedOn="{StaticResource BaseTabControl}"
         TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabControlItem}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabItem}" />
         <Style Selector="^ /template/ Border#PART_BorderSeparator">
             <Setter Property="IsVisible" Value="False" />
         </Style>
@@ -311,14 +311,14 @@
         x:Key="ScrollLineTabControl"
         BasedOn="{StaticResource BaseScrollTabControl}"
         TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource LineTabControlItem}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource LineTabItem}" />
     </ControlTheme>
 
     <ControlTheme
         x:Key="ScrollCardTabControl"
         BasedOn="{StaticResource BaseScrollTabControl}"
         TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabControlItem}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabItem}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TabControl">
                 <Border
@@ -357,7 +357,7 @@
         x:Key="ScrollButtonTabControl"
         BasedOn="{StaticResource BaseScrollTabControl}"
         TargetType="TabControl">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabControlItem}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabItem}" />
         <Style Selector="^ /template/ Border#PART_BorderSeparator">
             <Setter Property="IsVisible" Value="False" />
         </Style>
