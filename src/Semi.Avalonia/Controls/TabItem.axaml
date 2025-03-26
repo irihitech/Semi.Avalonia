@@ -10,7 +10,7 @@
                 <TabItem Header="文档">
                     <TextBlock Text="Content1" />
                 </TabItem>
-                <TabItem Header="快速起步" IsEnabled="False">
+                <TabItem Header="快速起步">
                     <TextBlock Text="Content2" />
                 </TabItem>
                 <TabItem Header="帮助" IsSelected="True">
@@ -20,121 +20,9 @@
         </StackPanel>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
-        <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
+    <ControlTheme x:Key="BaseTabControlItem" TargetType="TabItem">
         <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
-        <Setter Property="Padding" Value="8 4" />
-        <Setter Property="MinHeight" Value="5" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="TabItem">
-                <Border
-                    Name="PART_LayoutRoot"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel>
-                        <ContentPresenter
-                            Name="PART_ContentPresenter"
-                            Padding="{TemplateBinding Padding}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding Header}"
-                            ContentTemplate="{TemplateBinding HeaderTemplate}"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            Foreground="{TemplateBinding Foreground}" />
-                        <Border
-                            Name="PART_SelectedPipe"
-                            Background="{DynamicResource TabItemLinePipeBackground}"
-                            IsVisible="True"
-                            UseLayoutRounding="False" />
-                    </Panel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <!--  Selected state  -->
-        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
-            <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
-        </Style>
-
-        <Style Selector="^:not(:selected)">
-            <Setter Property="Cursor" Value="Hand" />
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ Border#PART_SelectedPipe">
-                <Setter Property="Background" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
-            </Style>
-            <Style Selector="^:pressed /template/ Border#PART_SelectedPipe">
-                <Setter Property="Background" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
-            </Style>
-        </Style>
-
-        <Style Selector="^:selected /template/ Border#PART_SelectedPipe">
-            <Setter Property="Background" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
-        </Style>
-
-        <!--  Disabled state  -->
-        <Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
-            <Setter Property="Background" Value="{DynamicResource TabItemHeaderBackgroundDisabled}" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource TabItemHeaderForegroundDisabled}" />
-        </Style>
-
-        <!--  TabStripPlacement States Group  -->
-        <Style Selector="^[TabStripPlacement=Top]">
-            <Style Selector="^ /template/ Border#PART_SelectedPipe">
-                <Setter Property="Height" Value="2" />
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="HorizontalAlignment" Value="Stretch" />
-                <Setter Property="VerticalAlignment" Value="Bottom" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Margin" Value="0,0,0,4" />
-            </Style>
-        </Style>
-        <Style Selector="^[TabStripPlacement=Bottom]">
-            <Style Selector="^ /template/ Border#PART_SelectedPipe">
-                <Setter Property="Height" Value="2" />
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="HorizontalAlignment" Value="Stretch" />
-                <Setter Property="VerticalAlignment" Value="Top" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Margin" Value="0,4,0,0" />
-            </Style>
-        </Style>
-        <Style Selector="^[TabStripPlacement=Left]">
-            <Style Selector="^/template/ Border#PART_SelectedPipe">
-                <Setter Property="Width" Value="2" />
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="HorizontalAlignment" Value="Left" />
-                <Setter Property="VerticalAlignment" Value="Stretch" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Margin" Value="8,0,0,0" />
-            </Style>
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
-            <Style Selector="^ /template/ Border#PART_SelectedPipe">
-                <Setter Property="Width" Value="2" />
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="VerticalAlignment" Value="Stretch" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Margin" Value="0,0,8,0" />
-            </Style>
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="LineTabControlItem" TargetType="TabItem">
         <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TabItem">
                 <ContentPresenter
@@ -154,10 +42,61 @@
             </ControlTemplate>
         </Setter>
 
-        <!--  Selected state  -->
         <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
             <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
+            <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Setter Property="Cursor" Value="Hand" />
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="{x:Type TabItem}"
+        BasedOn="{StaticResource BaseTabControlItem}"
+        TargetType="TabItem">
+        <Setter Property="Padding" Value="8 4" />
+
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Setter Property="BorderThickness" Value="0 0 0 2" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Setter Property="BorderThickness" Value="0 2 0 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Setter Property="BorderThickness" Value="2 0 0 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="BorderThickness" Value="0 0 2 0" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="LineTabControlItem"
+        BasedOn="{StaticResource BaseTabControlItem}"
+        TargetType="TabItem">
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
         </Style>
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
@@ -166,11 +105,8 @@
             </Style>
         </Style>
 
-        <!-- Unselected state -->
         <Style Selector="^:not(:selected)">
-            <Setter Property="Cursor" Value="Hand" />
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
@@ -186,13 +122,6 @@
             </Style>
         </Style>
 
-        <!--  Disabled state  -->
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TabItemHeaderForegroundDisabled}" />
-            <Setter Property="Background" Value="{DynamicResource TabItemHeaderBackgroundDisabled}" />
-        </Style>
-
-        <!--  TabStripPlacement States Group  -->
         <Style Selector="^[TabStripPlacement=Top]">
             <Setter Property="Margin" Value="0 0 24 0" />
             <Setter Property="Padding" Value="4 16 4 14" />
@@ -210,45 +139,22 @@
         <Style Selector="^[TabStripPlacement=Right]">
             <Setter Property="Padding" Value="12" />
             <Setter Property="BorderThickness" Value="0 0 2 0" />
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="CardTabControlItem" TargetType="TabItem">
-        <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
-        <Setter Property="Background" Value="Transparent" />
+    <ControlTheme
+        x:Key="CardTabControlItem"
+        BasedOn="{StaticResource BaseTabControlItem}"
+        TargetType="TabItem">
+        <Setter Property="Padding" Value="12 8" />
         <Setter Property="BorderBrush" Value="{DynamicResource SemiColorBorder}" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="TabItem">
-                <ContentPresenter
-                    Name="PART_HeaderPresenter"
-                    Padding="{TemplateBinding Padding}"
-                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Content="{TemplateBinding Header}"
-                    ContentTemplate="{TemplateBinding HeaderTemplate}"
-                    FontFamily="{TemplateBinding FontFamily}"
-                    FontWeight="{TemplateBinding FontWeight}"
-                    Foreground="{TemplateBinding Foreground}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}" />
-            </ControlTemplate>
-        </Setter>
 
-        <!--  Selected state  -->
         <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
-            <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
             <Setter Property="Background" Value="{DynamicResource SemiColorBackground0}" />
         </Style>
 
-        <!-- Unselected state -->
         <Style Selector="^:not(:selected)">
-            <Setter Property="Cursor" Value="Hand" />
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorText0}" />
                 <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
@@ -256,10 +162,8 @@
             </Style>
         </Style>
 
-        <!--  TabStripPlacement States Group  -->
         <Style Selector="^[TabStripPlacement=Top]">
             <Setter Property="Margin" Value="0 0 8 0" />
-            <Setter Property="Padding" Value="12 8" />
             <Setter Property="CornerRadius" Value="3 3 0 0" />
             <Style Selector="^:selected">
                 <Setter Property="BorderThickness" Value="1 1 1 0" />
@@ -267,7 +171,6 @@
         </Style>
         <Style Selector="^[TabStripPlacement=Bottom]">
             <Setter Property="Margin" Value="0 0 8 0" />
-            <Setter Property="Padding" Value="12 8" />
             <Setter Property="CornerRadius" Value="0 0 3 3" />
             <Style Selector="^:selected">
                 <Setter Property="BorderThickness" Value="1 0 1 1" />
@@ -275,7 +178,6 @@
         </Style>
         <Style Selector="^[TabStripPlacement=Left]">
             <Setter Property="Margin" Value="0 0 0 8" />
-            <Setter Property="Padding" Value="12 8" />
             <Setter Property="CornerRadius" Value="3 0 0 3" />
             <Style Selector="^:selected">
                 <Setter Property="BorderThickness" Value="1 1 0 1" />
@@ -284,7 +186,6 @@
         <Style Selector="^[TabStripPlacement=Right]">
             <Setter Property="HorizontalContentAlignment" Value="Right" />
             <Setter Property="Margin" Value="0 0 0 8" />
-            <Setter Property="Padding" Value="12 8" />
             <Setter Property="CornerRadius" Value="0 3 3 0" />
             <Style Selector="^:selected">
                 <Setter Property="BorderThickness" Value="0 1 1 1" />
@@ -292,42 +193,20 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="ButtonTabControlItem" TargetType="TabItem">
+    <ControlTheme
+        x:Key="ButtonTabControlItem"
+        BasedOn="{StaticResource BaseTabControlItem}"
+        TargetType="TabItem">
         <Setter Property="Padding" Value="12 8" />
-        <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
-        <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
         <Setter Property="CornerRadius" Value="{DynamicResource SemiBorderRadiusSmall}" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="TabItem">
-                <ContentPresenter
-                    Name="PART_HeaderPresenter"
-                    Padding="{TemplateBinding Padding}"
-                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Content="{TemplateBinding Header}"
-                    ContentTemplate="{TemplateBinding HeaderTemplate}"
-                    FontFamily="{TemplateBinding FontFamily}"
-                    FontWeight="{TemplateBinding FontWeight}"
-                    Foreground="{TemplateBinding Foreground}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}" />
-            </ControlTemplate>
-        </Setter>
 
-        <!--  Selected state  -->
         <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
             <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimary}" />
             <Setter Property="Background" Value="{DynamicResource SemiColorPrimaryLight}" />
         </Style>
 
-        <!-- Unselected state -->
         <Style Selector="^:not(:selected)">
-            <Setter Property="Cursor" Value="Hand" />
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorText0}" />
                 <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
@@ -335,15 +214,11 @@
             </Style>
         </Style>
 
-        <!--  TabStripPlacement States Group  -->
         <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
             <Setter Property="TabControl.Margin" Value="0 0 8 0" />
         </Style>
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
             <Setter Property="TabControl.Margin" Value="0 0 0 8" />
-        </Style>
-        <Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
