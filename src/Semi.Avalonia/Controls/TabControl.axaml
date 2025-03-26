@@ -37,7 +37,7 @@
                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
                             <Border
                                 Name="PART_BorderSeparator"
-                                Background="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+                                Background="{DynamicResource SemiColorBorder}" />
                         </Panel>
                         <ContentPresenter
                             Name="PART_SelectedContentHost"
@@ -184,7 +184,7 @@
                         <Border
                             Name="PART_BorderSeparator"
                             DockPanel.Dock="{TemplateBinding TabStripPlacement}"
-                            BorderBrush="{DynamicResource TabItemLinePipePressedBorderBrush}">
+                            BorderBrush="{DynamicResource SemiColorBorder}">
                             <ItemsPresenter
                                 Name="PART_ItemsPresenter"
                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -298,6 +298,108 @@
         <Style Selector="^[TabStripPlacement=Right]">
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CardTabControl" TargetType="TabControl">
+        <Setter Property="ItemContainerTheme" Value="{StaticResource CardTabControlItem}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <Border
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Panel DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                            <Border
+                                Name="PART_BorderSeparator"
+                                Background="{DynamicResource SemiColorBorder}" />
+                            <ItemsPresenter
+                                Name="PART_ItemsPresenter"
+                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        </Panel>
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectedContent}"
+                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
+            <Setter Property="Width" Value="1" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonTabControl" TargetType="TabControl">
+        <Setter Property="ItemContainerTheme" Value="{StaticResource ButtonTabControlItem}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <Border
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel>
+                        <Border
+                            Name="PART_BorderSeparator"
+                            DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                            <ItemsPresenter
+                                Name="PART_ItemsPresenter"
+                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        </Border>
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding SelectedContent}"
+                            ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </Setter>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
