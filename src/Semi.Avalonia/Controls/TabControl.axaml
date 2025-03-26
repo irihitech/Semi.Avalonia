@@ -89,6 +89,39 @@
         <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
             <Setter Property="HorizontalAlignment" Value="Right" />
         </Style>
+
+        <Style Selector="^.ReverseSeparator">
+            <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Left]">
+                <Setter Property="ItemContainerTheme">
+                    <ControlTheme
+                        BasedOn="{StaticResource {x:Type TabItem}}"
+                        TargetType="TabItem">
+                        <Style Selector="^[TabStripPlacement=Left]">
+                            <Setter Property="HorizontalContentAlignment" Value="Right" />
+                            <Setter Property="BorderThickness" Value="0 0 2 0" />
+                        </Style>
+                    </ControlTheme>
+                </Setter>
+            </Style>
+            <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Right]">
+                <Setter Property="ItemContainerTheme">
+                    <ControlTheme
+                        BasedOn="{StaticResource {x:Type TabItem}}"
+                        TargetType="TabItem">
+                        <Style Selector="^[TabStripPlacement=Right]">
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            <Setter Property="BorderThickness" Value="2 0 0 0" />
+                        </Style>
+                    </ControlTheme>
+                </Setter>
+            </Style>
+        </Style>
     </ControlTheme>
 
     <ControlTheme
@@ -238,6 +271,39 @@
         </Style>
         <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
             <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+        <Style Selector="^.ReverseSeparator">
+            <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_BorderSeparator">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Left]">
+                <Setter Property="ItemContainerTheme">
+                    <ControlTheme
+                        BasedOn="{StaticResource {x:Type TabItem}}"
+                        TargetType="TabItem">
+                        <Style Selector="^[TabStripPlacement=Left]">
+                            <Setter Property="HorizontalContentAlignment" Value="Right" />
+                            <Setter Property="BorderThickness" Value="0 0 2 0" />
+                        </Style>
+                    </ControlTheme>
+                </Setter>
+            </Style>
+            <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_BorderSeparator">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Right]">
+                <Setter Property="ItemContainerTheme">
+                    <ControlTheme
+                        BasedOn="{StaticResource {x:Type TabItem}}"
+                        TargetType="TabItem">
+                        <Style Selector="^[TabStripPlacement=Right]">
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            <Setter Property="BorderThickness" Value="2 0 0 0" />
+                        </Style>
+                    </ControlTheme>
+                </Setter>
+            </Style>
         </Style>
     </ControlTheme>
 
