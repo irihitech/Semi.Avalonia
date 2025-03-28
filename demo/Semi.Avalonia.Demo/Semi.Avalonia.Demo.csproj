@@ -12,7 +12,7 @@
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
         <PackageReference Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(DataGridVersion)"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
@@ -22,8 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj"/>
         <ProjectReference Include="..\..\src\Semi.Avalonia.ColorPicker\Semi.Avalonia.ColorPicker.csproj"/>
         <ProjectReference Include="..\..\src\Semi.Avalonia.DataGrid\Semi.Avalonia.DataGrid.csproj"/>
-        <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj"/>
     </ItemGroup>
 </Project>

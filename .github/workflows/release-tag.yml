@@ -20,9 +20,6 @@ jobs:
       - name: Pack Semi.Avalonia.ColorPicker
         run: dotnet pack ./src/Semi.Avalonia.ColorPicker -o ./nugets
 
-      - name: Pack Semi.Avalonia.DataGrid
-        run: dotnet pack ./src/Semi.Avalonia.DataGrid -o ./nugets
-
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
