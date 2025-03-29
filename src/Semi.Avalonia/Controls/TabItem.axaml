@@ -53,10 +53,6 @@
                 <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
             </Style>
         </Style>
-
-        <Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
-        </Style>
     </ControlTheme>
 
     <ControlTheme
@@ -184,7 +180,6 @@
             </Style>
         </Style>
         <Style Selector="^[TabStripPlacement=Right]">
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
             <Setter Property="Margin" Value="0 0 0 8" />
             <Setter Property="CornerRadius" Value="0 3 3 0" />
             <Style Selector="^:selected">
