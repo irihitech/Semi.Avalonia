@@ -101,7 +101,7 @@
         </Style>
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
             <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Background" Value="{DynamicResource SemiColorPrimaryLight}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemLineHeaderSelectedBackground}" />
             </Style>
         </Style>
 
@@ -114,10 +114,10 @@
             </Style>
             <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
                 <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
-                    <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
+                    <Setter Property="Background" Value="{DynamicResource TabItemLineHeaderPointeroverBackground}" />
                 </Style>
                 <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
-                    <Setter Property="Background" Value="{DynamicResource SemiColorFill1}" />
+                    <Setter Property="Background" Value="{DynamicResource TabItemLineHeaderPressedBackground}" />
                 </Style>
             </Style>
         </Style>
@@ -147,18 +147,18 @@
         BasedOn="{StaticResource BaseTabItem}"
         TargetType="TabItem">
         <Setter Property="Padding" Value="12 8" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SemiColorBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TabControlSeparatorBorderBrush}" />
 
         <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="Background" Value="{DynamicResource SemiColorBackground0}" />
+            <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderSelectedBackground}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Background" Value="{DynamicResource SemiColorFill1}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderPressedBackground}" />
             </Style>
         </Style>
 
@@ -201,16 +201,16 @@
         <Setter Property="CornerRadius" Value="{DynamicResource SemiBorderRadiusSmall}" />
 
         <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimary}" />
-            <Setter Property="Background" Value="{DynamicResource SemiColorPrimaryLight}" />
+            <Setter Property="Foreground" Value="{DynamicResource TabItemButtonHeaderSelectedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderSelectedBackground}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
-                <Setter Property="Background" Value="{DynamicResource SemiColorFill1}" />
+                <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderPressedBackground}" />
             </Style>
         </Style>
 
