@@ -204,10 +204,12 @@
         <Style Selector="^:horizontal /template/ Thumb#thumb">
             <Setter Property="MinWidth" Value="{DynamicResource ScrollBarMinLength}" />
             <Setter Property="Height" Value="{DynamicResource ScrollBarThumbThickness}" />
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         <Style Selector="^:vertical /template/ Thumb#thumb">
             <Setter Property="MinHeight" Value="{DynamicResource ScrollBarMinLength}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
+            <Setter Property="HorizontalAlignment" Value="Right"/>
         </Style>
         <Style Selector="^ /template/ RepeatButton > PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
