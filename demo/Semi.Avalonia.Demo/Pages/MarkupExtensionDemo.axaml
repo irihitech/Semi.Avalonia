@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:semi="https://irihi.tech/semi"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.MarkupExtensionDemo">
+    <UserControl.Styles>
+        <Style Selector="Border.base">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Background" Value="{DynamicResource SemiColorFill2}" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel HorizontalAlignment="Left" Margin="20" Spacing="20">
+        <TextBlock Text="Original" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Border Classes="base"
+                    Padding="20"
+                    CornerRadius="12">
+                <TextBlock Text="〇" />
+            </Border>
+            <Border Classes="base"
+                    Padding="0 0 20 0"
+                    CornerRadius="0 12 0 0">
+                <TextBlock Text="〇" />
+            </Border>
+            <Border Classes="base"
+                    Padding="20 40"
+                    CornerRadius="12 3 12 3">
+                <TextBlock Text="〇" />
+            </Border>
+            <Border Classes="base"
+                    Padding="12 20 32 40"
+                    CornerRadius="3 6 12 9999">
+                <TextBlock Text="〇" />
+            </Border>
+        </StackPanel>
+        <TextBlock Text="ThicknessBridge, CornerRadiusBridge" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Border
+                Classes="base"
+                Padding="{StaticResource SemiThicknessBaseLoose}"
+                CornerRadius="{StaticResource SemiBorderRadiusLarge}">
+                <TextBlock Text="〇" />
+            </Border>
+            <Border
+                Classes="base"
+                Padding="{semi:ThicknessBridge Right={StaticResource SemiSpacingBaseLoose}}"
+                CornerRadius="{semi:CornerRadiusBridge TopRight={StaticResource SemiBorderRadiusSpacingLarge}}">
+                <TextBlock Text="〇" />
+            </Border>
+            <Border
+                Classes="base"
+                Padding="{semi:ThicknessBridge 
+                    Left={StaticResource SemiSpacingBaseLoose},
+                    Top={StaticResource SemiSpacingSuperLoose},
+                    Right={StaticResource SemiSpacingBaseLoose},
+                    Bottom={StaticResource SemiSpacingSuperLoose}
+                }"
+                CornerRadius="{semi:CornerRadiusBridge
+                    TopLeft={StaticResource SemiBorderRadiusSpacingLarge},
+                    TopRight={StaticResource SemiBorderRadiusSpacingSmall},
+                    BottomRight={StaticResource SemiBorderRadiusSpacingLarge},
+                    BottomLeft={StaticResource SemiBorderRadiusSpacingSmall}
+                }">
+                <TextBlock Text="〇" />
+            </Border>
+            <Border
+                Classes="base">
+                <Border.Padding>
+                    <semi:ThicknessBridge
+                        Left="{StaticResource SemiSpacingBaseTight}"
+                        Top="{StaticResource SemiSpacingBaseLoose}"
+                        Right="{StaticResource SemiSpacingExtraLoose}"
+                        Bottom="{StaticResource SemiSpacingSuperLoose}" />
+                </Border.Padding>
+                <Border.CornerRadius>
+                    <semi:CornerRadiusBridge
+                        TopLeft="{StaticResource SemiBorderRadiusSpacingSmall}"
+                        TopRight="{StaticResource SemiBorderRadiusSpacingMedium}"
+                        BottomRight="{StaticResource SemiBorderRadiusSpacingLarge}"
+                        BottomLeft="{StaticResource SemiBorderRadiusSpacingFull}" />
+                </Border.CornerRadius>
+                <TextBlock Text="〇" />
+            </Border>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
