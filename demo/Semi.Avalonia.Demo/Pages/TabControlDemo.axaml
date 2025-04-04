@@ -11,85 +11,122 @@
     x:DataType="vm:TabControlDemoViewModel"
     mc:Ignorable="d">
     <ScrollViewer>
-        <StackPanel Spacing="20">
-            <Border Theme="{StaticResource CardBorder}">
-                <TabControl TabStripPlacement="Top">
-                    <TabItem Content="Hello 1" Header="Tab 1" />
-                    <TabItem Content="Hello 2" Header="Tab 2" />
-                    <TabItem Content="Hello 3" Header="Tab 3" />
-                    <TabItem Content="中文内容" Header="中文中文" />
-                    <TabItem
-                        Content="Hello 4"
-                        Header="Tab 4"
-                        IsEnabled="False" />
-                </TabControl>
+        <StackPanel>
+            <Border
+                Margin="8"
+                HorizontalAlignment="Left"
+                Theme="{StaticResource RadioButtonGroupBorder}">
+                <ListBox Name="place" Theme="{StaticResource ButtonRadioGroupListBox}">
+                    <Dock>Left</Dock>
+                    <Dock>Bottom</Dock>
+                    <Dock>Right</Dock>
+                    <Dock>Top</Dock>
+                </ListBox>
             </Border>
-            <Border Theme="{StaticResource CardBorder}">
-                <TabControl TabStripPlacement="Left">
-                    <TabItem Content="Hello 1" Header="Tab 1" />
-                    <TabItem Content="Hello 2" Header="Tab 2" />
-                    <TabItem Content="Hello 3" Header="Tab 3" />
-                    <TabItem Content="中文内容" Header="中文中文" />
-                    <TabItem
-                        Content="Hello 4"
-                        Header="Tab 4"
-                        IsEnabled="False" />
-                </TabControl>
-            </Border>
-            <Border Theme="{StaticResource CardBorder}">
-                <TabControl TabStripPlacement="Right">
-                    <TabItem Content="Hello 1" Header="Tab 1" />
-                    <TabItem Content="Hello 2" Header="Tab 2" />
-                    <TabItem Content="Hello 3" Header="Tab 3" />
-                    <TabItem Content="中文内容" Header="中文中文" />
-                    <TabItem
-                        Content="Hello 4"
-                        Header="Tab 4"
-                        IsEnabled="False" />
-                </TabControl>
-            </Border>
-            <Border Theme="{StaticResource CardBorder}">
-                <TabControl TabStripPlacement="Bottom">
-                    <TabItem Content="Hello 1" Header="Tab 1" />
-                    <TabItem Content="Hello 2" Header="Tab 2" />
-                    <TabItem Content="Hello 3" Header="Tab 3" />
-                    <TabItem Content="中文内容" Header="中文中文" />
-                    <TabItem
-                        Content="Hello 4"
-                        Header="Tab 4"
-                        IsEnabled="False" />
-                </TabControl>
-            </Border>
-            <Border Theme="{StaticResource CardBorder}">
-                <TabStrip>
-                    <TabStripItem>Tab 1</TabStripItem>
-                    <TabStripItem>Tab 2</TabStripItem>
-                </TabStrip>
-            </Border>
-            <Border Height="300" Theme="{DynamicResource CardBorder}">
-                <TabControl
-                    ItemsSource="{Binding Items}"
-                    TabStripPlacement="Top"
-                    Theme="{DynamicResource ScrollTabControl}" />
-            </Border>
-            <Border Height="300" Theme="{DynamicResource CardBorder}">
-                <TabControl
-                    ItemsSource="{Binding Items}"
-                    TabStripPlacement="Left"
-                    Theme="{DynamicResource ScrollTabControl}" />
-            </Border>
-            <Border Height="300" Theme="{DynamicResource CardBorder}">
-                <TabControl
-                    ItemsSource="{Binding Items}"
-                    TabStripPlacement="Bottom"
-                    Theme="{DynamicResource ScrollTabControl}" />
-            </Border>
-            <Border Height="300" Theme="{DynamicResource CardBorder}">
-                <TabControl
-                    ItemsSource="{Binding Items}"
-                    TabStripPlacement="Right"
-                    Theme="{DynamicResource ScrollTabControl}" />
-            </Border>
+            <TabControl Theme="{StaticResource LineTabControl}">
+                <TabItem Header="Default">
+                    <StackPanel>
+                        <StackPanel
+                            Margin="8"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <TextBlock VerticalAlignment="Center" Text="ReverseSeparator" />
+                            <ToggleSwitch Name="reverse" Theme="{StaticResource SimpleToggleSwitch}" />
+                        </StackPanel>
+                        <Border MinHeight="150" Theme="{StaticResource CardBorder}">
+                            <TabControl Classes.ReverseSeparator="{Binding #reverse.IsChecked}" TabStripPlacement="{Binding #place.SelectedValue}">
+                                <TabItem Content="Hello 1" Header="Tab 1" />
+                                <TabItem Content="Hello 2" Header="Tab 2" />
+                                <TabItem Content="Hello 3" Header="Tab 3" />
+                                <TabItem Content="中文内容" Header="中文中文" />
+                                <TabItem
+                                    Content="Hello 4"
+                                    Header="Tab 4"
+                                    IsEnabled="False" />
+                            </TabControl>
+                        </Border>
+                        <Border Height="300" Theme="{StaticResource CardBorder}">
+                            <TabControl
+                                Classes.ReverseSeparator="{Binding #reverse.IsChecked}"
+                                ItemsSource="{Binding Items}"
+                                TabStripPlacement="{Binding #place.SelectedValue}"
+                                Theme="{StaticResource ScrollTabControl}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Line">
+                    <StackPanel>
+                        <Border MinHeight="150" Theme="{StaticResource CardBorder}">
+                            <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource LineTabControl}">
+                                <TabItem Content="Hello 1" Header="Tab 1" />
+                                <TabItem Content="Hello 2" Header="Tab 2" />
+                                <TabItem Content="Hello 3" Header="Tab 3" />
+                                <TabItem Content="中文内容" Header="中文中文" />
+                                <TabItem
+                                    Content="Hello 4"
+                                    Header="Tab 4"
+                                    IsEnabled="False" />
+                            </TabControl>
+                        </Border>
+                        <Border Height="300" Theme="{StaticResource CardBorder}">
+                            <TabControl
+                                ItemsSource="{Binding Items}"
+                                TabStripPlacement="{Binding #place.SelectedValue}"
+                                Theme="{StaticResource ScrollLineTabControl}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Card">
+                    <StackPanel>
+                        <Border
+                            MinHeight="150"
+                            Background="Transparent"
+                            Theme="{StaticResource CardBorder}">
+                            <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource CardTabControl}">
+                                <TabItem Content="Hello 1" Header="Tab 1" />
+                                <TabItem Content="Hello 2" Header="Tab 2" />
+                                <TabItem Content="Hello 3" Header="Tab 3" />
+                                <TabItem Content="中文内容" Header="中文中文" />
+                                <TabItem
+                                    Content="Hello 4"
+                                    Header="Tab 4"
+                                    IsEnabled="False" />
+                            </TabControl>
+                        </Border>
+                        <Border
+                            Height="300"
+                            Background="Transparent"
+                            Theme="{StaticResource CardBorder}">
+                            <TabControl
+                                ItemsSource="{Binding Items}"
+                                TabStripPlacement="{Binding #place.SelectedValue}"
+                                Theme="{StaticResource ScrollCardTabControl}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Button">
+                    <StackPanel>
+                        <Border MinHeight="150" Theme="{StaticResource CardBorder}">
+                            <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource ButtonTabControl}">
+                                <TabItem Content="Hello 1" Header="Tab 1" />
+                                <TabItem Content="Hello 2" Header="Tab 2" />
+                                <TabItem Content="Hello 3" Header="Tab 3" />
+                                <TabItem Content="中文内容" Header="中文中文" />
+                                <TabItem
+                                    Content="Hello 4"
+                                    Header="Tab 4"
+                                    IsEnabled="False" />
+                            </TabControl>
+                        </Border>
+                        <Border Height="300" Theme="{StaticResource CardBorder}">
+                            <TabControl
+                                ItemsSource="{Binding Items}"
+                                TabStripPlacement="{Binding #place.SelectedValue}"
+                                Theme="{StaticResource ScrollButtonTabControl}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
