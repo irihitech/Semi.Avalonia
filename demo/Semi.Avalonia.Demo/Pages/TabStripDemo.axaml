@@ -1,0 +1,93 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.TabStripDemo"
+             x:DataType="vm:TabStripDemoViewModel">
+    <Design.DataContext>
+        <vm:TabStripDemoViewModel />
+    </Design.DataContext>
+    <ScrollViewer>
+        <StackPanel>
+            <TabControl Theme="{StaticResource LineTabControl}">
+                <TabItem Header="Default">
+                    <StackPanel>
+                        <Border Theme="{StaticResource CardBorder}">
+                            <TabStrip>
+                                <TabStripItem Content="Tab 1" />
+                                <TabStripItem Content="Tab 2" />
+                                <TabStripItem Content="Tab 3" />
+                                <TabStripItem Content="中文中文" />
+                                <TabStripItem Content="Tab 4" IsEnabled="False" />
+                            </TabStrip>
+                        </Border>
+                        <Border Theme="{StaticResource CardBorder}">
+                            <TabStrip
+                                ItemsSource="{Binding Items}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Line">
+                    <StackPanel>
+                        <Border Theme="{StaticResource CardBorder}">
+                            <TabStrip Theme="{StaticResource LineTabStrip}">
+                                <TabStripItem Content="Tab 1" />
+                                <TabStripItem Content="Tab 2" />
+                                <TabStripItem Content="Tab 3" />
+                                <TabStripItem Content="中文中文" />
+                                <TabStripItem Content="Tab 4" IsEnabled="False" />
+                            </TabStrip>
+                        </Border>
+                        <Border Theme="{StaticResource CardBorder}">
+                            <TabStrip
+                                ItemsSource="{Binding Items}"
+                                Theme="{StaticResource LineTabStrip}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Card">
+                    <StackPanel>
+                        <Border
+                            Background="Transparent"
+                            Theme="{StaticResource CardBorder}">
+                            <TabStrip Theme="{StaticResource CardTabStrip}">
+                                <TabStripItem Content="Tab 1" />
+                                <TabStripItem Content="Tab 2" />
+                                <TabStripItem Content="Tab 3" />
+                                <TabStripItem Content="中文中文" />
+                                <TabStripItem Content="Tab 4" IsEnabled="False" />
+                            </TabStrip>
+                        </Border>
+                        <Border
+                            Background="Transparent"
+                            Theme="{StaticResource CardBorder}">
+                            <TabStrip
+                                ItemsSource="{Binding Items}"
+                                Theme="{StaticResource CardTabStrip}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Button">
+                    <StackPanel>
+                        <Border Theme="{StaticResource CardBorder}">
+                            <TabStrip Theme="{StaticResource ButtonTabStrip}">
+                                <TabStripItem Content="Tab 1" />
+                                <TabStripItem Content="Tab 2" />
+                                <TabStripItem Content="Tab 3" />
+                                <TabStripItem Content="中文中文" />
+                                <TabStripItem Content="Tab 4" IsEnabled="False" />
+                            </TabStrip>
+                        </Border>
+                        <Border Theme="{StaticResource CardBorder}">
+                            <TabStrip
+                                ItemsSource="{Binding Items}"
+                                Theme="{StaticResource ButtonTabStrip}" />
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
