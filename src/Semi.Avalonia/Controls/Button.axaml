@@ -45,10 +45,6 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pressed">
-            <Setter Property="RenderTransform" Value="scale(0.98)" />
-        </Style>
-
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
             <Setter Property="Background" Value="{TemplateBinding Background}" />
