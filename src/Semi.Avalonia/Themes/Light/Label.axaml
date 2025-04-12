@@ -33,11 +33,6 @@
     <StaticResource x:Key="LabelTagLightGreyForeground" ResourceKey="SemiGrey8" />
     <SolidColorBrush x:Key="LabelTagLightGreyBackground" Opacity="0.15" Color="{StaticResource SemiGrey5Color}" />
 
-    <StaticResource x:Key="LabelTagLightWhiteForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="LabelTagLightWhiteBackground" ResourceKey="SemiColorBackground4" />
-    <SolidColorBrush x:Key="LabelTagLightWhiteBorderBrush" Opacity="0.7" Color="{StaticResource SemiGrey2Color}" />
-
-
     <StaticResource x:Key="LabelTagGhostRedBorderBrush" ResourceKey="SemiRed4" />
     <StaticResource x:Key="LabelTagGhostRedForeground" ResourceKey="SemiRed5" />
     <StaticResource x:Key="LabelTagGhostPinkBorderBrush" ResourceKey="SemiPink4" />
@@ -71,11 +66,6 @@
     <StaticResource x:Key="LabelTagGhostGreyBorderBrush" ResourceKey="SemiGrey4" />
     <StaticResource x:Key="LabelTagGhostGreyForeground" ResourceKey="SemiGrey5" />
 
-    <StaticResource x:Key="LabelTagGhostWhiteForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="LabelTagGhostWhiteBackground" ResourceKey="SemiColorBackground4" />
-    <SolidColorBrush x:Key="LabelTagGhostWhiteBorderBrush" Opacity="0.7" Color="{StaticResource SemiGrey2Color}" />
-
-
     <StaticResource x:Key="LabelTagSolidForeground" ResourceKey="SemiWhite" />
     <StaticResource x:Key="LabelTagSolidRedBackground" ResourceKey="SemiRed5" />
     <StaticResource x:Key="LabelTagSolidPinkBackground" ResourceKey="SemiPink5" />
@@ -97,4 +87,12 @@
     <StaticResource x:Key="LabelTagSolidWhiteForeground" ResourceKey="SemiColorText0" />
     <StaticResource x:Key="LabelTagSolidWhiteBackground" ResourceKey="SemiColorBackground4" />
     <SolidColorBrush x:Key="LabelTagSolidWhiteBorderBrush" Opacity="0.7" Color="{StaticResource SemiGrey2Color}" />
+
+    <!-- Obsolete -->
+    <StaticResource x:Key="LabelTagLightWhiteForeground" ResourceKey="LabelTagSolidWhiteForeground" />
+    <StaticResource x:Key="LabelTagLightWhiteBackground" ResourceKey="LabelTagSolidWhiteBackground" />
+    <StaticResource x:Key="LabelTagLightWhiteBorderBrush" ResourceKey="LabelTagSolidWhiteBorderBrush" />
+    <StaticResource x:Key="LabelTagGhostWhiteForeground" ResourceKey="LabelTagSolidWhiteForeground" />
+    <StaticResource x:Key="LabelTagGhostWhiteBackground" ResourceKey="LabelTagSolidWhiteBackground" />
+    <StaticResource x:Key="LabelTagGhostWhiteBorderBrush" ResourceKey="LabelTagSolidWhiteBorderBrush" />
 </ResourceDictionary>
