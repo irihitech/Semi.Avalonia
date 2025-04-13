@@ -8,11 +8,11 @@ namespace Semi.Avalonia.Converters;
 
 public class TreeViewItemIndentConverter: IMultiValueConverter
 {
-    public static TreeViewItemIndentConverter Instance = new();
+    public static readonly TreeViewItemIndentConverter Instance = new();
     
     public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (values[0] is int level && values[1] is double indent)
+        if (values.Count>1 && values[0] is int level && values[1] is double indent)
         {
             return new Thickness( 
                 indent * level,
