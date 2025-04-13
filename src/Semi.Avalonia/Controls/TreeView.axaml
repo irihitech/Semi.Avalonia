@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:converters="clr-namespace:Semi.Avalonia.Converters"
     x:CompileBindings="True">
 
     <Design.PreviewWith>
@@ -40,8 +40,8 @@
                         AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                         Background="{TemplateBinding Background}"
                         HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                        IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                         IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                        IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                         VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
@@ -52,11 +52,7 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-
-    <converters:MarginMultiplierConverter
-        x:Key="TreeViewItemLeftMarginConverter"
-        Indent="{StaticResource TreeViewItemIndent}"
-        Left="True" />
+    
     <ControlTheme x:Key="ToggleButtonTreeViewItemIconButton" TargetType="ToggleButton">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
@@ -71,10 +67,10 @@
                     Background="Transparent">
                     <PathIcon
                         Name="PART_ExpandIconPath"
-                        Theme="{StaticResource InnerPathIcon}"
                         Classes="Small"
                         Data="{DynamicResource ExpanderIconData}"
-                        Foreground="{DynamicResource TreeViewItemIconDefaultForeground}">
+                        Foreground="{DynamicResource TreeViewItemIconDefaultForeground}"
+                        Theme="{StaticResource InnerPathIcon}">
                         <PathIcon.Transitions>
                             <Transitions>
                                 <TransformOperationsTransition Property="RenderTransform" Duration="0.1" />
@@ -110,16 +106,20 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Focusable="True"
                         TemplatedControl.IsTemplateFocusTarget="True">
-                        <Grid
-                            Name="PART_Header"
-                            Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource TreeViewItemLeftMarginConverter}}"
-                            ColumnDefinitions="Auto, *">
+                        <Grid Name="PART_Header" ColumnDefinitions="Auto, *">
+                            <Grid.Margin>
+                                <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
+                                    <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <DynamicResource ResourceKey="TreeViewItemIndent" />
+                                </MultiBinding>
+                            </Grid.Margin>
                             <ToggleButton
                                 Name="PART_ExpandCollapseChevron"
                                 Grid.Column="0"
                                 Padding="{DynamicResource TreeViewItemIconMargin}"
                                 Focusable="False"
-                                IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                                IsChecked="{TemplateBinding IsExpanded,
+                                                            Mode=TwoWay}"
                                 Theme="{StaticResource ToggleButtonTreeViewItemIconButton}" />
                             <ContentPresenter
                                 Name="PART_HeaderPresenter"
