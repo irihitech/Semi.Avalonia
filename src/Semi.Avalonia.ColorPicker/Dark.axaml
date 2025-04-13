@@ -1,4 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="https://irihi.tech/semi">
     <StaticResource x:Key="ColorViewRadioButtonForeground" ResourceKey="SemiColorPrimary" />
     <StaticResource x:Key="ColorViewRadioButtonBackground" ResourceKey="SemiColorBackground0" />
     <StaticResource x:Key="ColorViewRadioButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
@@ -14,4 +17,5 @@
     <StaticResource x:Key="ColorSpectrumBorderBrush" ResourceKey="SemiColorBorder" />
     <StaticResource x:Key="ColorPreviewerMainBoxShadow" ResourceKey="SemiShadowElevated" />
     <BoxShadows x:Key="ColorSliderBoxShadow">0 0 2 1 #FFFFFF</BoxShadows>
+    <semi:SemiColorDarkPalette x:Key="SemiColorPalette" />
 </ResourceDictionary>

@@ -266,11 +266,6 @@
                 <Setter Property="Background" Value="{DynamicResource LabelTagLightGreyBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGreyForeground}" />
             </Style>
-            <Style Selector="^.White">
-                <Setter Property="Background" Value="{DynamicResource LabelTagLightWhiteBackground}" />
-                <Setter Property="Foreground" Value="{DynamicResource LabelTagLightWhiteForeground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource LabelTagLightWhiteBorderBrush}" />
-            </Style>
         </Style>
         <Style Selector="^.Ghost">
             <Setter Property="Background" Value="Transparent" />
@@ -340,11 +335,6 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource LabelTagGhostGreyBorderBrush}" />
                 <Setter Property="Foreground" Value="{DynamicResource LabelTagGhostGreyForeground}" />
             </Style>
-            <Style Selector="^.White">
-                <Setter Property="Background" Value="{DynamicResource LabelTagGhostWhiteBackground}" />
-                <Setter Property="Foreground" Value="{DynamicResource LabelTagGhostWhiteForeground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource LabelTagGhostWhiteBorderBrush}" />
-            </Style>
         </Style>
         <Style Selector="^.Solid">
             <Setter Property="BorderBrush" Value="Transparent" />
@@ -398,11 +388,12 @@
             <Style Selector="^.Grey">
                 <Setter Property="Background" Value="{DynamicResource LabelTagSolidGreyBackground}" />
             </Style>
-            <Style Selector="^.White">
-                <Setter Property="Foreground" Value="{DynamicResource LabelTagSolidWhiteForeground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource LabelTagSolidWhiteBorderBrush}" />
-                <Setter Property="Background" Value="{DynamicResource LabelTagSolidWhiteBackground}" />
-            </Style>
+        </Style>
+
+        <Style Selector="^.White">
+            <Setter Property="Foreground" Value="{DynamicResource LabelTagSolidWhiteForeground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource LabelTagSolidWhiteBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource LabelTagSolidWhiteBackground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

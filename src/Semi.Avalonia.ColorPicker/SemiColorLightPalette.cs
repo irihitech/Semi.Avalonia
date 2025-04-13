@@ -80,7 +80,7 @@ public class SemiColorLightPalette: IColorPalette
             Color.FromUInt32(0xFF98CDFD),
             Color.FromUInt32(0xFF65B2FC),
             Color.FromUInt32(0xFF3295FB),
-            Color.FromUInt32(0xFF0077FA),
+            Color.FromUInt32(0xFF0064FA),
             Color.FromUInt32(0xFF0062D6),
             Color.FromUInt32(0xFF004FB3),
             Color.FromUInt32(0xFF003D8F),
