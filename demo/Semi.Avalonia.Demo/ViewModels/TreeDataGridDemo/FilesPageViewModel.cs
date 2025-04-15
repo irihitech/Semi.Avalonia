@@ -30,6 +30,11 @@ public partial class FilesPageViewModel : ObservableObject
             Source.Items = [Root];
         }
     }
+    
+    partial void OnSelectedPathChanged(string? value)
+    {
+        SetSelectedPath(value);
+    }
 
     public FilesPageViewModel()
     {
@@ -157,6 +162,7 @@ public partial class FilesPageViewModel : ObservableObject
             }
         }
 
+        Source.Items = [Root];
         Source.RowSelection!.SelectedIndex = index;
     }
 }
