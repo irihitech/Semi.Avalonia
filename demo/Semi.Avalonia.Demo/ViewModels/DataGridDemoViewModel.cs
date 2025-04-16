@@ -59,6 +59,25 @@ public class Song
         Url = $"https://music.163.com/song?id={netEaseId}";
     }
 
+    public static List<string> Albums =>
+    [
+        "A.S.I.A",
+        "饕餮人间",
+        "七步咙咚呛",
+        "大惊小怪",
+        "The ONE",
+        "以梦为马 (壮志骄阳版)",
+        "emo了",
+        "一眼万年",
+        "冲刺吧",
+        "爱的赏味期限",
+        "COSMIC ANTHEM / 手紙",
+        "世界晚安",
+        "明年也要好好长大",
+        "320万年前",
+        "W.O.R.L.D."
+    ];
+
     public static List<Song> Songs =>
     [
         new("好肚有肚(feat.李玲玉)", "熊猫堂ProducePandas", 2, 50, "A.S.I.A", 730, 1487039339),

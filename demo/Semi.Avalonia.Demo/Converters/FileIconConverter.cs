@@ -5,7 +5,7 @@ using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Metadata;
 
-namespace Semi.Avalonia.TreeDataGrid.Demo.Converters;
+namespace Semi.Avalonia.Demo.Converters;
 
 public class FileIconConverter : IMultiValueConverter
 {

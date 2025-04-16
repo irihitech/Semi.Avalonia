@@ -1,8 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Semi.Avalonia.TreeDataGrid.Demo.ViewModels;
+namespace Semi.Avalonia.Demo.ViewModels;
 
-public class MainViewModel: ObservableObject
+public class TreeDataGridDemoViewModel: ObservableObject
 {
     public SongsPageViewModel SongsContext { get; } = new();
     public FilesPageViewModel FilesContext { get; } = new();

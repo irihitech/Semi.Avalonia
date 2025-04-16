@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,43 +12,40 @@ using Avalonia.Controls.Selection;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Semi.Avalonia.TreeDataGrid.Demo.ViewModels;
+namespace Semi.Avalonia.Demo.ViewModels;
 
-public class FilesPageViewModel: ObservableObject
+public partial class FilesPageViewModel : ObservableObject
 {
     public IList<string> Drives { get; }
-    private string _selectedDrive;
-    private string? _selectedPath;
-    private FileNodeViewModel? _root;
-    public string SelectedDrive
+    public HierarchicalTreeDataGridSource<FileNodeViewModel> Source { get; }
+    [ObservableProperty] private string _selectedDrive;
+    [ObservableProperty] private string? _selectedPath;
+    [ObservableProperty] private FileNodeViewModel? _root;
+
+    partial void OnSelectedDriveChanged(string value)
     {
-        get => _selectedDrive;
-        set
+        Root = new FileNodeViewModel(value, true, true);
+        if (Source is not null)
         {
-            SetProperty(ref _selectedDrive, value);
-            _root = new FileNodeViewModel(_selectedDrive, isDirectory: true, isRoot: true);
-            Source.Items = new[] { _root };
+            Source.Items = [Root];
         }
     }
     
-    public string? SelectedPath
+    partial void OnSelectedPathChanged(string? value)
     {
-        get => _selectedPath;
-        set => SetSelectedPath(value);
+        SetSelectedPath(value);
     }
-    
-    public HierarchicalTreeDataGridSource<FileNodeViewModel> Source { get; }
 
     public FilesPageViewModel()
     {
-        Drives= DriveInfo.GetDrives().Select(x => x.Name).ToList();
+        Drives = DriveInfo.GetDrives().Select(x => x.Name).ToList();
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            _selectedDrive = "C:\\";
+            SelectedDrive = @"C:\";
         }
         else
         {
-            _selectedDrive = Drives.FirstOrDefault() ?? "/";
+            SelectedDrive = Drives.FirstOrDefault() ?? "/";
         }
 
         Source = new HierarchicalTreeDataGridSource<FileNodeViewModel>(Array.Empty<FileNodeViewModel>())
@@ -58,7 +56,7 @@ public class FilesPageViewModel: ObservableObject
                     null,
                     x => x.IsChecked,
                     (o, v) => o.IsChecked = v,
-                    options: new()
+                    options: new CheckBoxColumnOptions<FileNodeViewModel>
                     {
                         CanUserResizeColumn = false,
                     }),
@@ -68,20 +66,20 @@ public class FilesPageViewModel: ObservableObject
                         "FileNameCell",
                         "FileNameEditCell",
                         new GridLength(1, GridUnitType.Star),
-                        new()
+                        new TemplateColumnOptions<FileNodeViewModel>
                         {
-                            CompareAscending = FileNodeViewModel.SortAscending(x => x.Name),
-                            CompareDescending = FileNodeViewModel.SortDescending(x => x.Name),
+                            CompareAscending = FileNodeViewModel.SortAscending(vm => vm.Name),
+                            CompareDescending = FileNodeViewModel.SortDescending(vm => vm.Name),
                             IsTextSearchEnabled = true,
-                            TextSearchValueSelector = x => x.Name
+                            TextSearchValueSelector = vm => vm.Name
                         }),
-                    x => x.Children,
-                    x => x.HasChildren,
-                    x => x.IsExpanded),
+                    vm => vm.Children,
+                    vm => vm.HasChildren,
+                    vm => vm.IsExpanded),
                 new TextColumn<FileNodeViewModel, long?>(
                     "Size",
-                    x => x.Size,
-                    options: new()
+                    vm => vm.Size,
+                    options: new TextColumnOptions<FileNodeViewModel>
                     {
                         CompareAscending = FileNodeViewModel.SortAscending(x => x.Size),
                         CompareDescending = FileNodeViewModel.SortDescending(x => x.Size),
@@ -89,7 +87,7 @@ public class FilesPageViewModel: ObservableObject
                 new TextColumn<FileNodeViewModel, DateTimeOffset?>(
                     "Modified",
                     x => x.Modified,
-                    options: new()
+                    options: new TextColumnOptions<FileNodeViewModel>
                     {
                         CompareAscending = FileNodeViewModel.SortAscending(x => x.Modified),
                         CompareDescending = FileNodeViewModel.SortDescending(x => x.Modified),
@@ -99,18 +97,18 @@ public class FilesPageViewModel: ObservableObject
         Source.RowSelection!.SingleSelect = false;
         Source.RowSelection.SelectionChanged += SelectionChanged;
     }
-    
+
     private void SelectionChanged(object? sender, TreeSelectionModelSelectionChangedEventArgs<FileNodeViewModel> e)
     {
         var selectedPath = Source.RowSelection?.SelectedItem?.Path;
         this.SetProperty(ref _selectedPath, selectedPath, nameof(SelectedPath));
 
         foreach (var i in e.DeselectedItems)
-            System.Diagnostics.Trace.WriteLine($"Deselected '{i?.Path}'");
+            Trace.WriteLine($"Deselected '{i?.Path}'");
         foreach (var i in e.SelectedItems)
-            System.Diagnostics.Trace.WriteLine($"Selected '{i?.Path}'");
+            Trace.WriteLine($"Selected '{i?.Path}'");
     }
-    
+
     private void SetSelectedPath(string? value)
     {
         if (string.IsNullOrEmpty(value))
@@ -164,27 +162,28 @@ public class FilesPageViewModel: ObservableObject
             }
         }
 
+        Source.Items = [Root];
         Source.RowSelection!.SelectedIndex = index;
     }
 }
 
-public class FileNodeViewModel: ObservableObject, IEditableObject
+public partial class FileNodeViewModel : ObservableObject, IEditableObject
 {
-    private string _path;
-    private string _name;
+    [ObservableProperty] private string _path;
+    [ObservableProperty] private string _name;
     private string? _undoName;
-    private long? _size;
-    private DateTimeOffset? _modified;
+    [ObservableProperty] private long? _size;
+    [ObservableProperty] private DateTimeOffset? _modified;
     private FileSystemWatcher? _watcher;
     private ObservableCollection<FileNodeViewModel>? _children;
-    private bool _hasChildren = true;
-    private bool _isExpanded;
+    [ObservableProperty] private bool _hasChildren = true;
+    [ObservableProperty] private bool _isExpanded;
 
-    public FileNodeViewModel( string path, bool isDirectory, bool isRoot = false)
+    public FileNodeViewModel(string path, bool isDirectory, bool isRoot = false)
     {
-        _path = path;
-        _name = isRoot ? path : System.IO.Path.GetFileName(Path);
-        _isExpanded = isRoot;
+        Path = path;
+        Name = isRoot ? path : System.IO.Path.GetFileName(Path);
+        IsExpanded = isRoot;
         IsDirectory = isDirectory;
         HasChildren = isDirectory;
 
@@ -194,42 +193,6 @@ public class FileNodeViewModel: ObservableObject, IEditableObject
             Size = info.Length;
             Modified = info.LastWriteTimeUtc;
         }
-    }
-
-    public string Path 
-    {
-        get => _path;
-        private set => SetProperty(ref _path, value);
-    }
-
-    public string Name 
-    {
-        get => _name;
-        private set => SetProperty(ref _name, value);
-    }
-
-    public long? Size 
-    {
-        get => _size;
-        private set => SetProperty(ref _size, value);
-    }
-
-    public DateTimeOffset? Modified 
-    {
-        get => _modified;
-        private set => SetProperty(ref _modified, value);
-    }
-
-    public bool HasChildren
-    {
-        get => _hasChildren;
-        private set => SetProperty(ref _hasChildren, value);
-    }
-
-    public bool IsExpanded
-    {
-        get => _isExpanded;
-        set => SetProperty(ref _isExpanded, value);
     }
 
     public bool IsChecked { get; set; }
@@ -332,6 +295,7 @@ public class FileNodeViewModel: ObservableObject, IEditableObject
                             child.Size = info.Length;
                             child.Modified = info.LastWriteTimeUtc;
                         }
+
                         break;
                     }
                 }
@@ -359,7 +323,7 @@ public class FileNodeViewModel: ObservableObject, IEditableObject
                 if (_children[i].Path == e.FullPath)
                 {
                     _children.RemoveAt(i);
-                    System.Diagnostics.Debug.WriteLine($"Removed {e.FullPath}");
+                    Debug.WriteLine($"Removed {e.FullPath}");
                     break;
                 }
             }
@@ -394,6 +358,7 @@ internal static class ListExtensions
                 return i;
             i++;
         }
+
         return -1;
     }
 }
