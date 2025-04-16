@@ -52,7 +52,7 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-    
+
     <ControlTheme x:Key="ToggleButtonTreeViewItemIconButton" TargetType="ToggleButton">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
@@ -118,8 +118,7 @@
                                 Grid.Column="0"
                                 Padding="{DynamicResource TreeViewItemIconMargin}"
                                 Focusable="False"
-                                IsChecked="{TemplateBinding IsExpanded,
-                                                            Mode=TwoWay}"
+                                IsChecked="{TemplateBinding IsExpanded,Mode=TwoWay}"
                                 Theme="{StaticResource ToggleButtonTreeViewItemIconButton}" />
                             <ContentPresenter
                                 Name="PART_HeaderPresenter"
