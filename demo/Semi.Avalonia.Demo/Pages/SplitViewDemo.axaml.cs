@@ -34,7 +34,7 @@ public class SplitViewDemoViewModel : ObservableObject
         "世界所有的烂漫",
     ];
 
-    public ObservableCollection<SplitViewDisplayMode> DisplayModes { get; set; } =
+    public static ObservableCollection<SplitViewDisplayMode> DisplayModes { get; set; } =
     [
         SplitViewDisplayMode.Inline,
         SplitViewDisplayMode.CompactInline,
