@@ -202,28 +202,23 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid ColumnDefinitions="Auto,*">
-                        <Panel
-                            Grid.Column="0"
-                            TemplatedControl.IsTemplateFocusTarget="True"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Border
-                                Name="NormalRectangle"
-                                Width="{DynamicResource CheckBoxBoxWidth}"
-                                Height="{DynamicResource CheckBoxBoxHeight}"
-                                Background="{DynamicResource CheckBoxDefaultBackground}"
-                                BorderBrush="{DynamicResource CheckBoxDefaultBorderBrush}"
-                                BorderThickness="{DynamicResource CheckBoxBoxBorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                UseLayoutRounding="False" />
-                            <PathIcon
-                                Name="CheckGlyph"
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Width="{DynamicResource CheckBoxBoxGlyphWidth}"
-                                Height="{DynamicResource CheckBoxBoxGlyphHeight}"
-                                Foreground="{DynamicResource CheckBoxGlyphFill}" />
-                        </Panel>
-                    </Grid>
+                    <Panel VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <Border
+                            Name="NormalRectangle"
+                            Width="{DynamicResource CheckBoxBoxWidth}"
+                            Height="{DynamicResource CheckBoxBoxHeight}"
+                            Background="{DynamicResource CheckBoxDefaultBackground}"
+                            BorderBrush="{DynamicResource CheckBoxDefaultBorderBrush}"
+                            BorderThickness="{DynamicResource CheckBoxBoxBorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            UseLayoutRounding="False" />
+                        <PathIcon
+                            Name="CheckGlyph"
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Width="{DynamicResource CheckBoxBoxGlyphWidth}"
+                            Height="{DynamicResource CheckBoxBoxGlyphHeight}"
+                            Foreground="{DynamicResource CheckBoxGlyphFill}" />
+                    </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
