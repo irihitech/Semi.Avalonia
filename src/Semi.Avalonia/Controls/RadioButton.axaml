@@ -72,33 +72,23 @@
             </ControlTemplate>
         </Setter>
 
-        <!--  Unchecked State  -->
         <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}" />
                 <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDefaultBackground}" />
             </Style>
-            <Style Selector="^ /template/ Ellipse#CheckGlyph">
-                <Setter Property="Opacity" Value="0" />
+            <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPointeroverBackground}" />
             </Style>
-
-            <!--  Unchecked Pointerover State  -->
-            <Style Selector="^:pointerover">
-                <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPointeroverBackground}" />
-                </Style>
+            <Style Selector="^:pressed /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPressedBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPressedBackground}" />
             </Style>
-
-            <!--  Unchecked Pressed State  -->
-            <Style Selector="^:pressed">
-                <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPressedBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPressedBackground}" />
-                </Style>
-            </Style>
-
-            <!--  Unchecked Disabled state  -->
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDisabledBorderBrush}" />
@@ -110,37 +100,28 @@
             </Style>
         </Style>
 
-        <!--  Checked State  -->
         <Style Selector="^:checked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDefaultBorderBrush}" />
                 <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDefaultBackground}" />
             </Style>
-            <Style Selector="^ /template/ Ellipse#CheckGlyph">
-                <Setter Property="Opacity" Value="1" />
+            <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
             </Style>
-
-            <!--  Checked Pointerover State  -->
-            <Style Selector="^:pointerover">
-                <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
-                </Style>
+            <Style Selector="^:pressed /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPressedBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPressedBackground}" />
             </Style>
-
-            <!--  Checked Pressed State  -->
-            <Style Selector="^:pressed">
-                <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPressedBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPressedBackground}" />
-                </Style>
-            </Style>
-
-            <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
                     <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                    <Setter Property="Opacity" Value="0.75" />
                 </Style>
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
@@ -271,33 +252,31 @@
             </ControlTemplate>
         </Setter>
 
-        <!--  Unchecked State  -->
         <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}" />
                 <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDefaultBackground}" />
             </Style>
-            <Style Selector="^ /template/ Ellipse#CheckGlyph">
-                <Setter Property="Opacity" Value="0" />
-            </Style>
-
-            <!--  Unchecked Pointerover State  -->
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
                 </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
+                </Style>
             </Style>
-
-            <!--  Unchecked Pressed State  -->
             <Style Selector="^:pressed">
-                <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPressedBorderBrush}" />
                 </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
+                </Style>
             </Style>
-
-            <!--  Unchecked Disabled state  -->
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDisabledBorderBrush}" />
@@ -309,45 +288,42 @@
             </Style>
         </Style>
 
-        <!--  Checked State  -->
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+
             <Style Selector="^ /template/ Ellipse#OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDefaultBorderBrush}" />
                 <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDefaultBackground}" />
             </Style>
-            <Style Selector="^ /template/ Ellipse#CheckGlyph">
-                <Setter Property="Opacity" Value="1" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
             </Style>
-
-            <!--  Checked Pointerover State  -->
             <Style Selector="^:pointerover">
-                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
                     <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
                 </Style>
-                <Style Selector="^ /template/ Ellipse#OuterEllipse">
-                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
-                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
                 </Style>
             </Style>
-
-            <!--  Checked Pressed State  -->
             <Style Selector="^:pressed">
-                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPressedBorderBrush}" />
                     <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPressedBackground}" />
                 </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
+                </Style>
             </Style>
-
-            <!--  Checked Disabled State  -->
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
                     <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                    <Setter Property="Opacity" Value="0.75" />
                 </Style>
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
@@ -389,36 +365,35 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:unchecked">
-            <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardDefaultBorderBrush}" />
-            <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardDefaultBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
             </Style>
-            <Style Selector="^:pressed">
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
             </Style>
-            <Style Selector="^:disabled">
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
-                </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
             </Style>
         </Style>
         <Style Selector="^:checked">
-            <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
-            <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed">
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
             </Style>
-            <Style Selector="^:disabled">
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
                 <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
-                </Style>
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
             </Style>
         </Style>
-
     </ControlTheme>
 </ResourceDictionary>
