@@ -48,9 +48,9 @@ dotnet add package Semi.Avalonia.TreeDataGrid
 
 ```xaml
 <Application.Styles>
-    <StyleInclude Source="avares://Semi.Avalonia.ColorPicker/Index.axaml" />
-    <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
-    <StyleInclude Source="avares://Semi.Avalonia.TreeDataGrid/Index.axaml" />
+    <semi:ColorPickerSemiTheme />
+    <semi:DataGridSemiTheme />
+    <semi:TreeDataGridSemiTheme />
 </Application.Styles>
 ```
 

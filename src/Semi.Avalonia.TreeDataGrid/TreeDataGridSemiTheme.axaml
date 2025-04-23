@@ -1,0 +1,17 @@
+<Styles
+    x:Class="Semi.Avalonia.TreeDataGrid.TreeDataGridSemiTheme"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceInclude x:Key="Default" Source="Light.axaml" />
+                <ResourceInclude x:Key="Dark" Source="Dark.axaml" />
+            </ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="TreeDataGrid.axaml" />
+                <ResourceInclude Source="Shared.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles>

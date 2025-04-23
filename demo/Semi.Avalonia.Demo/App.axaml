@@ -7,19 +7,16 @@
     xmlns:semi="https://irihi.tech/semi"
     xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels">
     <Application.Styles>
-        <!-- You can still reference in old way.  -->
-        <!-- <StyleInclude Source="avares://Semi.Avalonia/Index.axaml" /> -->
         <semi:SemiTheme Locale="zh-CN" />
         <semi:SemiPopupAnimations />
-        <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
-        <StyleInclude Source="avares://Semi.Avalonia.ColorPicker/Index.axaml" />
-        <StyleInclude Source="avares://Semi.Avalonia.TreeDataGrid/Index.axaml" />
+        <semi:ColorPickerSemiTheme />
+        <semi:DataGridSemiTheme />
+        <semi:TreeDataGridSemiTheme />
     </Application.Styles>
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude
-                    Source="Themes/_index.axaml" />
+                <ResourceInclude Source="Themes/_index.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
