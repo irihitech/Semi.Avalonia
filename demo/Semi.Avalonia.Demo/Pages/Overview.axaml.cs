@@ -14,8 +14,6 @@ public partial class Overview : UserControl
     public string MainStyle { get; set; } =
         """
         <Application.Styles>
-        <!-- You can still reference in old way.  -->
-        <!-- <StyleInclude Source="avares://Semi.Avalonia/Index.axaml" /> -->
             <semi:SemiTheme Locale="zh-CN" />
         </Application.Styles>
         """;
@@ -25,7 +23,7 @@ public partial class Overview : UserControl
     public string ColorPickerStyle { get; set; } =
         """
         <Application.Styles>
-            <StyleInclude Source="avares://Semi.Avalonia.ColorPicker/Index.axaml" />
+            <semi:ColorPickerSemiTheme />
         </Application.Styles>
         """;
 
@@ -34,7 +32,7 @@ public partial class Overview : UserControl
     public string DataGridStyle { get; set; } =
         """
         <Application.Styles>
-            <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
+            <semi:DataGridSemiTheme />
         </Application.Styles>
         """;
 
@@ -43,7 +41,7 @@ public partial class Overview : UserControl
     public string TreeDataGridStyle { get; set; } =
         """
         <Application.Styles>
-            <StyleInclude Source="avares://Semi.Avalonia.TreeDataGrid/Index.axaml" />
+            <semi:TreeDataGridSemiTheme />
         </Application.Styles>
         """;
 }
