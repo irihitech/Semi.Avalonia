@@ -86,7 +86,7 @@
                         BorderThickness="1">
                         <SplitView
                             Name="SplitView"
-                            IsPaneOpen="{Binding #PaneOpenButton.IsChecked}"
+                            IsPaneOpen="{Binding #PaneOpenButton.IsChecked,Mode=TwoWay}"
                             UseLightDismissOverlayMode="{Binding #UseLightDismissOverlayModeButton.IsChecked}"
                             PanePlacement="{Binding #PanePlacementButton.IsChecked}"
                             DisplayMode="{Binding #DisplayModeSelector.SelectedItem}"
@@ -184,8 +184,9 @@
                         BorderBrush="{DynamicResource SemiGrey1}"
                         BorderThickness="1">
                         <SplitView
+                            Name="SplitView2"
                             Theme="{DynamicResource VerticalSplitView}"
-                            IsPaneOpen="{Binding #PaneOpenButton.IsChecked}"
+                            IsPaneOpen="{Binding #PaneOpenButton.IsChecked,Mode=TwoWay}"
                             UseLightDismissOverlayMode="{Binding #UseLightDismissOverlayModeButton.IsChecked}"
                             PanePlacement="{Binding #PanePlacementButton.IsChecked}"
                             DisplayMode="{Binding #DisplayModeSelector.SelectedItem}"
@@ -198,28 +199,28 @@
                                 </LinearGradientBrush>
                             </SplitView.Background>
                             <SplitView.Pane>
-                                <Grid RowDefinitions="Auto,*,Auto">
-                                    <TextBlock
+                                <Grid RowDefinitions="Auto,Auto,*">
+                                    <ToggleSwitch
                                         Grid.Row="0"
+                                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                                        Content="{StaticResource SemiIconSidebar}"
+                                        HorizontalAlignment="Left"
+                                        IsChecked="{Binding #SplitView2.IsPaneOpen}">
+                                    </ToggleSwitch>
+                                    <TextBlock
+                                        Grid.Row="1"
                                         Margin="8,12"
                                         FontWeight="Bold"
                                         Text="Playlist" />
                                     <ListBox
-                                        Grid.Row="1"
-                                        ItemsSource="{Binding Songs}" />
-                                    <ToggleSwitch
                                         Grid.Row="2"
-                                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
-                                        Content="{StaticResource SemiIconSidebar}"
-                                        HorizontalAlignment="Left"
-                                        IsChecked="{Binding #SplitView.IsPaneOpen}">
-                                    </ToggleSwitch>
+                                        ItemsSource="{Binding Songs}" />
                                 </Grid>
                             </SplitView.Pane>
 
                             <Panel>
                                 <Panel.Styles>
-                                    <Style Selector="Image#AlbumCover">
+                                    <Style Selector="Image#AlbumCover2">
                                         <Style.Animations>
                                             <Animation IterationCount="Infinite" Duration="0:0:40">
                                                 <KeyFrame Cue="0%">
@@ -234,6 +235,7 @@
                                 </Panel.Styles>
                                 <Image
                                     Source="/Assets/WORLD.png"
+                                    Name="AlbumCover2"
                                     Width="200"
                                     Height="200" />
                                 <Arc
