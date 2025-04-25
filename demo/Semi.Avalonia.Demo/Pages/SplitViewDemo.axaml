@@ -21,8 +21,7 @@
                         Content="IsPaneOpen" />
                     <ToggleSwitch
                         Grid.Row="0" Grid.Column="1"
-                        Name="PaneOpenButton"
-                        IsChecked="{Binding #SplitView.IsPaneOpen}" />
+                        Name="PaneOpenButton" />
 
                     <Label
                         Grid.Row="1" Grid.Column="0"
@@ -30,8 +29,7 @@
                         Content="UseLightDismissOverlayMode" />
                     <ToggleSwitch
                         Grid.Row="1" Grid.Column="1"
-                        Name="UseLightDismissOverlayModeButton"
-                        IsChecked="{Binding #SplitView.UseLightDismissOverlayMode}" />
+                        Name="UseLightDismissOverlayModeButton" />
 
                     <Label
                         Grid.Row="2" Grid.Column="0"
@@ -39,9 +37,9 @@
                         Content="Placement" />
                     <ToggleSwitch
                         Grid.Row="2" Grid.Column="1"
+                        Name="PanePlacementButton"
                         OffContent="Left"
-                        OnContent="Right"
-                        IsChecked="{Binding #SplitView.PanePlacement}" />
+                        OnContent="Right" />
 
                     <Label
                         Grid.Row="3" Grid.Column="0"
@@ -51,8 +49,8 @@
                         Grid.Row="3" Grid.Column="1"
                         Name="DisplayModeSelector"
                         HorizontalAlignment="Stretch"
-                        ItemsSource="{Binding DisplayModes}"
-                        SelectedIndex="{Binding #SplitView.DisplayMode}" />
+                        ItemsSource="{x:Static pages:SplitViewDemoViewModel.DisplayModes}"
+                        SelectedItem="{x:Static SplitViewDisplayMode.CompactInline}" />
 
                     <Label
                         Grid.Row="4" Grid.Column="0"
@@ -65,7 +63,7 @@
                         Minimum="0"
                         TickFrequency="1"
                         IsSnapToTickEnabled="True"
-                        Value="{Binding #SplitView.CompactPaneLength}" />
+                        Value="48" />
 
                     <Label
                         Grid.Row="5" Grid.Column="0"
@@ -78,105 +76,209 @@
                         Minimum="128"
                         TickFrequency="1"
                         IsSnapToTickEnabled="True"
-                        Value="{Binding #SplitView.OpenPaneLength}" />
+                        Value="256" />
                 </Grid>
             </Border>
-            <Border
-                Grid.Column="0"
-                BorderBrush="{DynamicResource SemiGrey1}"
-                BorderThickness="1">
-                <SplitView
-                    Name="SplitView"
-                    DisplayMode="CompactOverlay"
-                    CompactPaneLength="48"
-                    OpenPaneLength="256">
-                    <SplitView.Background>
-                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-                            <GradientStop Color="#6b4c1b" Offset="0" />
-                            <GradientStop Color="#291e10" Offset="1" />
-                        </LinearGradientBrush>
-                    </SplitView.Background>
-                    <SplitView.Pane>
-                        <Grid RowDefinitions="Auto,*,Auto">
-                            <TextBlock
-                                Grid.Row="0"
-                                Name="PaneHeader"
-                                Margin="8,12"
-                                FontWeight="Bold"
-                                Text="Playlist" />
-                            <ListBox
-                                Grid.Row="1"
-                                ItemsSource="{Binding Songs}" />
-                            <ToggleSwitch
-                                Grid.Row="2"
-                                Theme="{DynamicResource IconBorderlessToggleSwitch}"
-                                Content="{StaticResource SemiIconSidebar}"
-                                HorizontalAlignment="Left"
-                                IsChecked="{Binding #SplitView.IsPaneOpen}">
-                            </ToggleSwitch>
-                        </Grid>
-                    </SplitView.Pane>
-
-                    <Panel>
-                        <Panel.Styles>
-                            <Style Selector="Image#AlbumCover">
-                                <Style.Animations>
-                                    <Animation IterationCount="Infinite" Duration="0:0:40">
-                                        <KeyFrame Cue="0%">
-                                            <Setter Property="RotateTransform.Angle" Value="0" />
-                                        </KeyFrame>
-                                        <KeyFrame Cue="100%">
-                                            <Setter Property="RotateTransform.Angle" Value="360" />
-                                        </KeyFrame>
-                                    </Animation>
-                                </Style.Animations>
-                            </Style>
-                        </Panel.Styles>
-                        <Image
-                            Source="/Assets/WORLD.png"
-                            Name="AlbumCover"
-                            Width="200"
-                            Height="200" />
-                        <Arc
-                            Width="290"
-                            Height="290"
-                            StartAngle="0"
-                            SweepAngle="360"
-                            StrokeJoin="Round"
-                            StrokeLineCap="Round"
-                            StrokeThickness="45">
-                            <Arc.Stroke>
-                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
-                                    <GradientStop Color="#010101" Offset="0" />
-                                    <GradientStop Color="#363636" Offset="0.5" />
-                                    <GradientStop Color="#010101" Offset="1" />
+            <TabControl Grid.Column="0">
+                <TabItem Header="Default">
+                    <Border
+                        BorderBrush="{DynamicResource SemiGrey1}"
+                        BorderThickness="1">
+                        <SplitView
+                            Name="SplitView"
+                            IsPaneOpen="{Binding #PaneOpenButton.IsChecked,Mode=TwoWay}"
+                            UseLightDismissOverlayMode="{Binding #UseLightDismissOverlayModeButton.IsChecked}"
+                            PanePlacement="{Binding #PanePlacementButton.IsChecked}"
+                            DisplayMode="{Binding #DisplayModeSelector.SelectedItem}"
+                            CompactPaneLength="{Binding #CompactPaneLengthSlider.Value}"
+                            OpenPaneLength="{Binding #OpenPaneLengthSlider.Value}">
+                            <SplitView.Background>
+                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                                    <GradientStop Color="#6b4c1b" Offset="0" />
+                                    <GradientStop Color="#291e10" Offset="1" />
                                 </LinearGradientBrush>
-                            </Arc.Stroke>
-                        </Arc>
-                        <Arc
-                            Width="294"
-                            Height="294"
-                            StartAngle="0"
-                            SweepAngle="360"
-                            StrokeJoin="Round"
-                            StrokeLineCap="Round"
-                            StrokeThickness="4"
-                            Stroke="Black" />
-                        <Arc
-                            Width="310"
-                            Height="310"
-                            StartAngle="0"
-                            SweepAngle="360"
-                            StrokeJoin="Round"
-                            StrokeLineCap="Round"
-                            StrokeThickness="10"
-                            Stroke="#C6CACD"
-                            Opacity="0.1" />
-                    </Panel>
+                            </SplitView.Background>
+                            <SplitView.Pane>
+                                <Grid RowDefinitions="Auto,*,Auto">
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Name="PaneHeader"
+                                        Margin="8,12"
+                                        FontWeight="Bold"
+                                        Text="Playlist" />
+                                    <ListBox
+                                        Grid.Row="1"
+                                        ItemsSource="{Binding Songs}" />
+                                    <ToggleSwitch
+                                        Grid.Row="2"
+                                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                                        Content="{StaticResource SemiIconSidebar}"
+                                        HorizontalAlignment="Left"
+                                        IsChecked="{Binding #SplitView.IsPaneOpen}">
+                                    </ToggleSwitch>
+                                </Grid>
+                            </SplitView.Pane>
 
-                </SplitView>
-            </Border>
+                            <Panel>
+                                <Panel.Styles>
+                                    <Style Selector="Image#AlbumCover">
+                                        <Style.Animations>
+                                            <Animation IterationCount="Infinite" Duration="0:0:40">
+                                                <KeyFrame Cue="0%">
+                                                    <Setter Property="RotateTransform.Angle" Value="0" />
+                                                </KeyFrame>
+                                                <KeyFrame Cue="100%">
+                                                    <Setter Property="RotateTransform.Angle" Value="360" />
+                                                </KeyFrame>
+                                            </Animation>
+                                        </Style.Animations>
+                                    </Style>
+                                </Panel.Styles>
+                                <Image
+                                    Source="/Assets/WORLD.png"
+                                    Name="AlbumCover"
+                                    Width="200"
+                                    Height="200" />
+                                <Arc
+                                    Width="290"
+                                    Height="290"
+                                    StartAngle="0"
+                                    SweepAngle="360"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="45">
+                                    <Arc.Stroke>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                            <GradientStop Color="#010101" Offset="0" />
+                                            <GradientStop Color="#363636" Offset="0.5" />
+                                            <GradientStop Color="#010101" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Arc.Stroke>
+                                </Arc>
+                                <Arc
+                                    Width="294"
+                                    Height="294"
+                                    StartAngle="0"
+                                    SweepAngle="360"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="4"
+                                    Stroke="Black" />
+                                <Arc
+                                    Width="310"
+                                    Height="310"
+                                    StartAngle="0"
+                                    SweepAngle="360"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="10"
+                                    Stroke="#C6CACD"
+                                    Opacity="0.1" />
+                            </Panel>
 
+                        </SplitView>
+                    </Border>
+                </TabItem>
+                <TabItem Header="VerticalSplitView">
+                    <Border
+                        BorderBrush="{DynamicResource SemiGrey1}"
+                        BorderThickness="1">
+                        <SplitView
+                            Name="SplitView2"
+                            Theme="{DynamicResource VerticalSplitView}"
+                            IsPaneOpen="{Binding #PaneOpenButton.IsChecked,Mode=TwoWay}"
+                            UseLightDismissOverlayMode="{Binding #UseLightDismissOverlayModeButton.IsChecked}"
+                            PanePlacement="{Binding #PanePlacementButton.IsChecked}"
+                            DisplayMode="{Binding #DisplayModeSelector.SelectedItem}"
+                            CompactPaneLength="{Binding #CompactPaneLengthSlider.Value}"
+                            OpenPaneLength="{Binding #OpenPaneLengthSlider.Value}">
+                            <SplitView.Background>
+                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                                    <GradientStop Color="#6b4c1b" Offset="0" />
+                                    <GradientStop Color="#291e10" Offset="1" />
+                                </LinearGradientBrush>
+                            </SplitView.Background>
+                            <SplitView.Pane>
+                                <Grid RowDefinitions="Auto,Auto,*">
+                                    <ToggleSwitch
+                                        Grid.Row="0"
+                                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                                        Content="{StaticResource SemiIconSidebar}"
+                                        HorizontalAlignment="Left"
+                                        IsChecked="{Binding #SplitView2.IsPaneOpen}">
+                                    </ToggleSwitch>
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Margin="8,12"
+                                        FontWeight="Bold"
+                                        Text="Playlist" />
+                                    <ListBox
+                                        Grid.Row="2"
+                                        ItemsSource="{Binding Songs}" />
+                                </Grid>
+                            </SplitView.Pane>
+
+                            <Panel>
+                                <Panel.Styles>
+                                    <Style Selector="Image#AlbumCover2">
+                                        <Style.Animations>
+                                            <Animation IterationCount="Infinite" Duration="0:0:40">
+                                                <KeyFrame Cue="0%">
+                                                    <Setter Property="RotateTransform.Angle" Value="0" />
+                                                </KeyFrame>
+                                                <KeyFrame Cue="100%">
+                                                    <Setter Property="RotateTransform.Angle" Value="360" />
+                                                </KeyFrame>
+                                            </Animation>
+                                        </Style.Animations>
+                                    </Style>
+                                </Panel.Styles>
+                                <Image
+                                    Source="/Assets/WORLD.png"
+                                    Name="AlbumCover2"
+                                    Width="200"
+                                    Height="200" />
+                                <Arc
+                                    Width="290"
+                                    Height="290"
+                                    StartAngle="0"
+                                    SweepAngle="360"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="45">
+                                    <Arc.Stroke>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                            <GradientStop Color="#010101" Offset="0" />
+                                            <GradientStop Color="#363636" Offset="0.5" />
+                                            <GradientStop Color="#010101" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Arc.Stroke>
+                                </Arc>
+                                <Arc
+                                    Width="294"
+                                    Height="294"
+                                    StartAngle="0"
+                                    SweepAngle="360"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="4"
+                                    Stroke="Black" />
+                                <Arc
+                                    Width="310"
+                                    Height="310"
+                                    StartAngle="0"
+                                    SweepAngle="360"
+                                    StrokeJoin="Round"
+                                    StrokeLineCap="Round"
+                                    StrokeThickness="10"
+                                    Stroke="#C6CACD"
+                                    Opacity="0.1" />
+                            </Panel>
+
+                        </SplitView>
+                    </Border>
+                </TabItem>
+            </TabControl>
         </Grid>
     </Border>
 </UserControl>
