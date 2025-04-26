@@ -34,6 +34,7 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid ColumnDefinitions="Auto,*">
                         <Panel
+                            Name="PART_GlyphPanel"
                             Grid.Column="0"
                             TemplatedControl.IsTemplateFocusTarget="True"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
@@ -45,7 +46,6 @@
                                 Stroke="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}"
                                 StrokeThickness="{DynamicResource RadioButtonUncheckIconDefaultThickness}"
                                 UseLayoutRounding="False" />
-
                             <Ellipse
                                 Name="CheckGlyph"
                                 Width="{DynamicResource RadioButtonGlyphRadius}"
@@ -121,11 +121,16 @@
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
                     <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
-                    <Setter Property="Opacity" Value="0.75" />
                 </Style>
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
                 </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Panel#PART_GlyphPanel">
+                <Setter Property="Opacity" Value="0.75" />
             </Style>
         </Style>
     </ControlTheme>
@@ -213,6 +218,7 @@
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         ColumnDefinitions="Auto,*">
                         <Panel
+                            Name="PART_GlyphPanel"
                             Grid.Column="0"
                             VerticalAlignment="Top"
                             Margin="{DynamicResource RadioButtonIconMargin}">
@@ -323,7 +329,6 @@
                 <Style Selector="^ /template/ Ellipse#OuterEllipse">
                     <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
                     <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
-                    <Setter Property="Opacity" Value="0.75" />
                 </Style>
                 <Style Selector="^ /template/ Border#RootBorder">
                     <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
@@ -332,6 +337,12 @@
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
                 </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Panel#PART_GlyphPanel">
+                <Setter Property="Opacity" Value="0.75" />
             </Style>
         </Style>
     </ControlTheme>
