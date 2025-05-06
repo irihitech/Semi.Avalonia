@@ -130,6 +130,7 @@
                     HorizontalAlignment="Center"
                     Classes="Tertiary"
                     FontSize="20"
+                    FontWeight="700"
                     Text="聚焦生产力的美学进化" />
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -137,7 +138,7 @@
                     FontSize="20"
                     Text="Aesthetic Evolution of Productivity" />
                 <UniformGrid
-                    MaxWidth="800"
+                    MaxWidth="810"
                     Margin="24"
                     HorizontalAlignment="Center"
                     Columns="2">
@@ -194,7 +195,7 @@
                                 <Label Theme="{DynamicResource TagLabel}" Classes="Purple Ghost">Commercial</Label>
                             </StackPanel>
                             <TextBlock Text="手绘风格主题库" />
-                            <TextBlock Text="Hand-drawing theme utilities" />
+                            <TextBlock Text="Hand-drawing theme library" />
                         </StackPanel>
                     </Button>
                 </UniformGrid>
@@ -203,16 +204,33 @@
         <StackPanel
             Grid.Row="1"
             Margin="0,16"
+            Spacing="32"
             HorizontalAlignment="Center"
             Orientation="Horizontal">
-            <StackPanel Margin="16,0" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
                 <HyperlinkButton
+                    Classes="WithIcon"
                     VerticalAlignment="Center"
-                    Content="公司官网"
-                    NavigateUri="https://irihi.tech/" />
+                    Content="Homepage"
+                    NavigateUri="https://irihi.tech">
+                    <HyperlinkButton.Styles>
+                        <Style Selector=".WithIcon /template/ PathIcon">
+                            <Setter Property="Data" Value="{StaticResource SemiIconHome}" />
+                        </Style>
+                    </HyperlinkButton.Styles>
+                </HyperlinkButton>
             </StackPanel>
-            <StackPanel Margin="16,0" Orientation="Horizontal">
-                <HyperlinkButton Content="GitHub" NavigateUri="https://github.com/irihitech" />
+            <StackPanel Orientation="Horizontal">
+                <HyperlinkButton
+                    Classes="WithIcon"
+                    Content="GitHub"
+                    NavigateUri="https://github.com/irihitech">
+                    <HyperlinkButton.Styles>
+                        <Style Selector=".WithIcon /template/ PathIcon">
+                            <Setter Property="Data" Value="{StaticResource SemiIconGithubLogo}" />
+                        </Style>
+                    </HyperlinkButton.Styles>
+                </HyperlinkButton>
             </StackPanel>
         </StackPanel>
     </Grid>
