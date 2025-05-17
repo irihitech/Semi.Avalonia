@@ -120,6 +120,12 @@ public partial class MainViewModel : ObservableObject
                         Command = SelectLocaleCommand,
                         CommandParameter = new CultureInfo("es-es")
                     },
+                    new MenuItemViewModel
+                    {
+                        Header = "Polski",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("pl-pl")
+                    },
                 ]
             }
         ];
