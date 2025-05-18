@@ -114,20 +114,6 @@
                                             </GradientStops>
                                         </ConicGradientBrush>
                                     </Arc.Stroke>
-                                    <Arc.Styles>
-                                        <Style Selector="Arc[IsVisible=True]">
-                                            <Style.Animations>
-                                                <Animation IterationCount="Infinite" Duration="0:0:0.6">
-                                                    <KeyFrame Cue="0%">
-                                                        <Setter Property="RotateTransform.Angle" Value="0.0" />
-                                                    </KeyFrame>
-                                                    <KeyFrame Cue="100%">
-                                                        <Setter Property="RotateTransform.Angle" Value="360.0" />
-                                                    </KeyFrame>
-                                                </Animation>
-                                            </Style.Animations>
-                                        </Style>
-                                    </Arc.Styles>
                                 </Arc>
                             </Panel>
                         </Canvas>
@@ -208,6 +194,16 @@
             </Style>
             <Style Selector="^ /template/ Arc#SwitchKnobLoadingIndicator">
                 <Setter Property="IsVisible" Value="True" />
+                <Style.Animations>
+                    <Animation IterationCount="Infinite" Duration="0:0:0.6">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="RotateTransform.Angle" Value="0.0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="RotateTransform.Angle" Value="360.0" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
             </Style>
             <Style Selector="^:unchecked /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedPointeroverBackground}" />
@@ -269,10 +265,10 @@
             <ControlTemplate TargetType="ToggleSwitch">
                 <Border
                     Name="SwitchBackgroundBorder"
-                    Background="{TemplateBinding Background}"
                     Width="{DynamicResource ToggleSwitchDefaultWidth}"
                     Height="{DynamicResource ToggleSwitchDefaultHeight}"
                     BackgroundSizing="OuterBorderEdge"
+                    Background="{TemplateBinding Background}"
                     BorderBrush="{DynamicResource ToggleSwitchDefaultBorderBrush}"
                     BorderThickness="{DynamicResource ToggleSwitchDefaultBorderThickness}"
                     CornerRadius="{DynamicResource ToggleSwitchDefaultCornerRadius}">
@@ -316,20 +312,6 @@
                                             </GradientStops>
                                         </ConicGradientBrush>
                                     </Arc.Stroke>
-                                    <Arc.Styles>
-                                        <Style Selector="Arc[IsVisible=True]">
-                                            <Style.Animations>
-                                                <Animation IterationCount="Infinite" Duration="0:0:0.6">
-                                                    <KeyFrame Cue="0%">
-                                                        <Setter Property="RotateTransform.Angle" Value="0.0" />
-                                                    </KeyFrame>
-                                                    <KeyFrame Cue="100%">
-                                                        <Setter Property="RotateTransform.Angle" Value="360.0" />
-                                                    </KeyFrame>
-                                                </Animation>
-                                            </Style.Animations>
-                                        </Style>
-                                    </Arc.Styles>
                                 </Arc>
                             </Panel>
                         </Canvas>
@@ -372,24 +354,26 @@
     </ControlTheme>
 
     <ControlTheme x:Key="ButtonToggleSwitch" TargetType="ToggleSwitch">
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="RenderTransform" Value="none" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="Cursor" Value="Hand" />
+
         <Setter Property="OnContent" Value="{x:Null}" />
         <Setter Property="OffContent" Value="{x:Null}" />
         <Setter Property="Content" Value="{x:Null}" />
-        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
-        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
                 <Border
