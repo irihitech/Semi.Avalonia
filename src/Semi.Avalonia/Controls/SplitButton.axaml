@@ -20,10 +20,10 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="SemiSplitButtonElement" TargetType="Button">
-        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
         <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
@@ -38,13 +38,13 @@
                     VerticalAlignment="{TemplateBinding VerticalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Background="{TemplateBinding Background}"
                     BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                    Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
                     RecognizesAccessKey="True"
                     TextElement.FontSize="{TemplateBinding FontSize}"
                     TextElement.FontWeight="{TemplateBinding FontWeight}"
@@ -54,20 +54,22 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
-        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="SplitButton">
                 <Border
@@ -116,8 +118,8 @@
 
         <Style Selector="^ /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
             <Style Selector="^:pointerover">
                 <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPointeroverBorderBrush}" />
@@ -129,6 +131,9 @@
         </Style>
 
 
+        <Style Selector="^.Primary /template/ Button">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        </Style>
         <Style Selector="^.Secondary /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultSecondaryForeground}" />
         </Style>
@@ -152,8 +157,8 @@
                                 Classes="Solid" />
                     </FocusAdornerTemplate>
                 </Setter>
-                <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+                <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
                 <Style Selector="^:pointerover">
                     <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
                 </Style>
@@ -162,6 +167,15 @@
                 </Style>
             </Style>
 
+            <Style Selector="^.Primary /template/ Button">
+                <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
+                <Style Selector="^:pointerover">
+                    <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
+                </Style>
+                <Style Selector="^:pressed">
+                    <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
+                </Style>
+            </Style>
             <Style Selector="^.Secondary /template/ Button">
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidSecondaryBackground}" />
                 <Style Selector="^:pointerover">
@@ -221,13 +235,13 @@
             <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
         </Style>
         <Style Selector="^:disabled /template/ Button">
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
         </Style>
         <!-- only for ToggleSplitButton -->
         <Style Selector="^:checked:disabled /template/ Button">
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
         </Style>
     </ControlTheme>
 
@@ -315,8 +329,8 @@
         </Style>
 
         <Style Selector="^:disabled /template/ Button">
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
         </Style>
     </ControlTheme>
 
@@ -344,9 +358,9 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Button">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
         </Style>
     </ControlTheme>
 
@@ -359,9 +373,9 @@
             <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
         <Style Selector="^:disabled /template/ Button">
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
