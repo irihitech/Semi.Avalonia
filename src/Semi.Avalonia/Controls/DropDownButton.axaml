@@ -37,7 +37,17 @@
                     Padding="{TemplateBinding Padding}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
+                    <DockPanel>
+                        <PathIcon
+                            Name="DropDownGlyph"
+                            DockPanel.Dock="Right"
+                            Theme="{DynamicResource InnerPathIcon}"
+                            HorizontalAlignment="Right"
+                            Margin="8,0,0,0"
+                            Data="{DynamicResource DropDownButtonIconGlyph}"
+                            Foreground="{Binding #PART_ContentPresenter.Foreground}"
+                            IsHitTestVisible="False"
+                            UseLayoutRounding="False" />
                         <ContentPresenter
                             Name="PART_ContentPresenter"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -46,14 +56,7 @@
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             Foreground="{TemplateBinding Foreground}"
                             RecognizesAccessKey="True" />
-                        <PathIcon
-                            Name="DropDownGlyph"
-                            Theme="{DynamicResource InnerPathIcon}"
-                            Data="{DynamicResource DropDownButtonIconGlyph}"
-                            Foreground="{Binding #PART_ContentPresenter.Foreground}"
-                            IsHitTestVisible="False"
-                            UseLayoutRounding="False" />
-                    </StackPanel>
+                    </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
