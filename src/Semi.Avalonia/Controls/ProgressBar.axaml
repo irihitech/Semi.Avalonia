@@ -344,6 +344,7 @@
     <ControlTheme x:Key="ProgressRing" TargetType="ProgressBar">
         <Setter Property="Foreground" Value="{DynamicResource ProgressBarIndicatorBrush}" />
         <Setter Property="Background" Value="{DynamicResource ProgressBarBackground}" />
+        <Setter Property="BorderThickness" Value="6" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ProgressBar">
                 <Panel>
@@ -355,7 +356,7 @@
                         Stroke="{TemplateBinding Background}"
                         StrokeJoin="Round"
                         StrokeLineCap="Round"
-                        StrokeThickness="6"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
                         SweepAngle="360" />
                     <Arc
                         Name="Indicator"
@@ -364,7 +365,7 @@
                         Stroke="{TemplateBinding Foreground}"
                         StrokeJoin="Round"
                         StrokeLineCap="Round"
-                        StrokeThickness="6"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
                         SweepAngle="{TemplateBinding Percentage,
                                                      Converter={StaticResource AngleConverter}}" />
                     <Arc
@@ -375,7 +376,7 @@
                         Stroke="{TemplateBinding Foreground}"
                         StrokeJoin="Round"
                         StrokeLineCap="Round"
-                        StrokeThickness="6"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
                         SweepAngle="{TemplateBinding Percentage,
                                                      Converter={StaticResource AngleConverter}}" />
                     <TextBlock
