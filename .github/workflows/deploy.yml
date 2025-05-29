@@ -24,9 +24,6 @@ jobs:
       - name: Publish .NET Project
         run: dotnet publish $PROJECT_PATH -c Release --nologo
 
-      - name: Change base-tag in index.html
-        run: sed -i 's#<base href="/" />#<base href="/Semi.Avalonia/" />#g' $OUTPUT_PATH/index.html
-
       - name: copy index.html to 404.html
         run: cp $OUTPUT_PATH/index.html $OUTPUT_PATH/404.html
 

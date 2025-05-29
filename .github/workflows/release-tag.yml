@@ -15,16 +15,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Pack Semi.Avalonia
-        run: dotnet pack ./src/Semi.Avalonia -o ./nugets
+        run: dotnet pack src/Semi.Avalonia -o nugets
 
       - name: Pack Semi.Avalonia.ColorPicker
-        run: dotnet pack ./src/Semi.Avalonia.ColorPicker -o ./nugets
+        run: dotnet pack src/Semi.Avalonia.ColorPicker -o nugets
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: nugets
-          path: ./nugets
+          path: nugets
 
   publish-windows:
     runs-on: windows-latest
@@ -36,12 +36,12 @@ jobs:
         run: mkdir upload
 
       - name: Publish win-x64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/win64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish/win64 --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
       - name: Zip win-x64
         run: |
-          $files = Get-ChildItem -Path ./publish/win64/* -Recurse -Exclude *.pdb
-          Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.zip
+          $files = Get-ChildItem -Path publish/win64/* -Recurse -Exclude *.pdb
+          Compress-Archive -Path $files.FullName -DestinationPath upload/Semi.Avalonia.Demo.Desktop.win-x64.zip
 
       - name: Enable Native AOT in .csproj
         run: |
@@ -49,18 +49,18 @@ jobs:
           sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
 
       - name: Publish win-x64 AOT
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o ./publish/win64-aot
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish/win64-aot
 
       - name: Zip win-x64 AOT
         run: |
-          $files = Get-ChildItem -Path ./publish/win64-aot/* -Recurse -Exclude *.pdb
-          Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
+          $files = Get-ChildItem -Path publish/win64-aot/* -Recurse -Exclude *.pdb
+          Compress-Archive -Path $files.FullName -DestinationPath upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: ./upload
+          path: upload
 
   publish-linux:
     runs-on: ubuntu-latest
@@ -72,22 +72,22 @@ jobs:
         run: mkdir upload
 
       - name: Publish linux-x64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/linux64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish/linux64 --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
       - name: Zip linux-x64
-        run: zip -j -r ./upload/Semi.Avalonia.Demo.Desktop.linux-x64.zip ./publish/linux64 -x "*.pdb"
+        run: zip -j -r upload/Semi.Avalonia.Demo.Desktop.linux-x64.zip publish/linux64 -x "*.pdb"
 
       - name: Publish linux-x64 DRM
-        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/drm
+        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish/drm --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
       - name: Zip linux-x64 DRM
-        run: zip -j -r ./upload/Semi.Avalonia.Demo.Drm.linux-x64.zip ./publish/drm -x "*.pdb"
+        run: zip -j -r upload/Semi.Avalonia.Demo.Drm.linux-x64.zip publish/drm -x "*.pdb"
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: linux
-          path: ./upload
+          path: upload
 
   publish-android:
     runs-on: windows-latest
@@ -96,19 +96,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: CD Android
-        run: cd ./demo/Semi.Avalonia.Demo.Android
+        run: cd demo/Semi.Avalonia.Demo.Android
 
       - name: Restore Dependencies
         run: dotnet restore
 
       - name: Publish Android
-        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o ./publish -p:RuntimeIdentifier=android-arm64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o publish -p:RuntimeIdentifier=android-arm64
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: android
-          path: ./publish/*Signed.apk
+          path: publish/*Signed.apk
 
   draft-release:
     needs: [ pack, publish-windows, publish-linux, publish-android ]
