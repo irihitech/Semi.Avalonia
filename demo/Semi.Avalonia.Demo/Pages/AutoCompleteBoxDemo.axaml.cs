@@ -1,8 +1,6 @@
-using System.Collections.ObjectModel;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Semi.Avalonia.Demo.Pages;
@@ -16,14 +14,13 @@ public partial class AutoCompleteBoxDemo : UserControl
     }
 }
 
-public class AutoCompleteBoxDemoViewModel: ObservableObject
+public class AutoCompleteBoxDemoViewModel : ObservableObject
 {
     public ObservableCollection<StateData> States { get; set; }
 
     public AutoCompleteBoxDemoViewModel()
     {
         States = new ObservableCollection<StateData>(GetStates());
-        
     }
 
     private static List<StateData> GetStates()

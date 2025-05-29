@@ -12,54 +12,54 @@
     mc:Ignorable="d">
     <TabControl>
         <TabItem Header="DataGrid">
-           <Grid RowDefinitions="Auto, *">
-               <StackPanel Grid.Row="0" Orientation="Horizontal">
-                   <ToggleSwitch Content="Enable" Name="enable" IsChecked="True" />
-                   <ToggleSwitch Content="Inset Content" Name="inset" />
-                   <ToggleSwitch Content="ScrollBar Auto Hide" Name="autohide" />
-               </StackPanel>
-               <DataGrid Grid.Row="1"
-                         Margin="8"
-                         CanUserReorderColumns="True"
-                         CanUserResizeColumns="True"
-                         CanUserSortColumns="True"
-                         HeadersVisibility="All"
-                         IsReadOnly="True"
-                         Classes.InsetContent="{Binding #inset.IsChecked}"
-                         ScrollViewer.AllowAutoHide="{Binding #autohide.IsChecked}"
-                         IsEnabled="{Binding #enable.IsChecked}"
-                         ItemsSource="{Binding GridData1}">
-                   <DataGrid.Columns>
-                       <DataGridTextColumn
-                           Width="6*"
-                           x:DataType="vm:Song"
-                           Binding="{Binding Title}"
-                           Header="Title" />
-                       <DataGridTextColumn
-                           Width="6*"
-                           x:DataType="vm:Song"
-                           Binding="{Binding Artist}"
-                           Header="Artist" />
-                       <DataGridTextColumn
-                           Width="6*"
-                           x:DataType="vm:Song"
-                           Binding="{Binding Album}"
-                           Header="Album" />
-                       <DataGridTemplateColumn Header="Duration" SortMemberPath="Duration">
-                           <DataGridTemplateColumn.CellTemplate>
-                               <DataTemplate>
-                                   <TextBlock
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Text="{Binding Duration}" />
-                               </DataTemplate>
-                           </DataGridTemplateColumn.CellTemplate>
-                       </DataGridTemplateColumn>
-                   </DataGrid.Columns>
+            <Grid RowDefinitions="Auto, *">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <ToggleSwitch Content="Enable" Name="enable" IsChecked="True" />
+                    <ToggleSwitch Content="Inset Content" Name="inset" />
+                    <ToggleSwitch Content="ScrollBar Auto Hide" Name="autohide" />
+                </StackPanel>
+                <DataGrid Grid.Row="1"
+                          Margin="8"
+                          CanUserReorderColumns="True"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          HeadersVisibility="All"
+                          IsReadOnly="True"
+                          Classes.InsetContent="{Binding #inset.IsChecked}"
+                          ScrollViewer.AllowAutoHide="{Binding #autohide.IsChecked}"
+                          IsEnabled="{Binding #enable.IsChecked}"
+                          ItemsSource="{Binding GridData1}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="6*"
+                            x:DataType="vm:Song"
+                            Binding="{Binding Title}"
+                            Header="Title" />
+                        <DataGridTextColumn
+                            Width="6*"
+                            x:DataType="vm:Song"
+                            Binding="{Binding Artist}"
+                            Header="Artist" />
+                        <DataGridTextColumn
+                            Width="6*"
+                            x:DataType="vm:Song"
+                            Binding="{Binding Album}"
+                            Header="Album" />
+                        <DataGridTemplateColumn Header="Duration" SortMemberPath="Duration">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Duration}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
 
-               </DataGrid>
-               
-           </Grid>
+                </DataGrid>
+
+            </Grid>
         </TabItem>
         <TabItem Header="Grouping">
             <DataGrid

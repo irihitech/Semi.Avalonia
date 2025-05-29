@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Semi.Avalonia.Demo.Pages;
@@ -11,11 +10,6 @@ public partial class SplitViewDemo : UserControl
     {
         InitializeComponent();
         this.DataContext = new SplitViewDemoViewModel();
-    }
-
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
     }
 }
 

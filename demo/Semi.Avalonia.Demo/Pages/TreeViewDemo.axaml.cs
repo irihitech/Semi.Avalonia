@@ -1,7 +1,5 @@
 using System.Collections.ObjectModel;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Semi.Avalonia.Demo.Pages;
@@ -25,14 +23,16 @@ public class TreeViewVm : ObservableObject
     {
         Items = new ObservableCollection<TreeViewItemVm>()
         {
-            new TreeViewItemVm() {Name = "Item 1", Id = "1"},
-            new TreeViewItemVm() {Name = "Item 2", Id = "2"},
-            new TreeViewItemVm() {Name = "Item 3", Id = "3", Items = new ObservableCollection<TreeViewItemVm>()
+            new TreeViewItemVm() { Name = "Item 1", Id = "1" },
+            new TreeViewItemVm() { Name = "Item 2", Id = "2" },
+            new TreeViewItemVm()
             {
-                new TreeViewItemVm() {Name = "Item 3.1", Id = "3.1"},
-                new TreeViewItemVm() {Name = "Item 3.2", Id = "3.2"},
-                new TreeViewItemVm() {Name = "Item 3.3", Id = "3.3"},
-            },
+                Name = "Item 3", Id = "3", Items = new ObservableCollection<TreeViewItemVm>()
+                {
+                    new TreeViewItemVm() { Name = "Item 3.1", Id = "3.1" },
+                    new TreeViewItemVm() { Name = "Item 3.2", Id = "3.2" },
+                    new TreeViewItemVm() { Name = "Item 3.3", Id = "3.3" },
+                },
             },
         };
 
@@ -50,8 +50,10 @@ public class TreeViewVm : ObservableObject
                     ThirdItem thirdItem = new ThirdItem { Id = k, Name = $"ThirdItem {k}" };
                     secondItem.ThirdItemItems.Add(thirdItem);
                 }
+
                 firstItem.SecondItems.Add(secondItem);
             }
+
             MultipleLevelItems.Add(firstItem);
         }
     }
@@ -69,18 +71,17 @@ public class ItemBase
     public int Id { get; set; }
     public string? Name { get; set; }
 }
+
 public class FirstItem : ItemBase
 {
     public ObservableCollection<SecondItem>? SecondItems { get; set; }
 }
+
 public class SecondItem : ItemBase
 {
     public ObservableCollection<ThirdItem>? ThirdItemItems { get; set; }
-
 }
+
 public class ThirdItem : ItemBase
 {
 }
-
-
-

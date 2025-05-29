@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -31,10 +29,10 @@ public partial class AboutUs : UserControl
     }
 }
 
-public partial class AboutUsViewModel: ObservableObject
+public partial class AboutUsViewModel : ObservableObject
 {
     public ICommand NavigateCommand { get; set; }
-    
+
     internal ILauncher? Launcher { get; set; }
 
     public AboutUsViewModel()
@@ -55,6 +53,5 @@ public partial class AboutUsViewModel: ObservableObject
         {
             await Launcher.LaunchUriAsync(new Uri(uri));
         }
-        
     }
 }

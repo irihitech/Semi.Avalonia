@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using Avalonia.Controls.Notifications;
 
 namespace Semi.Avalonia.Demo.Views;
 
