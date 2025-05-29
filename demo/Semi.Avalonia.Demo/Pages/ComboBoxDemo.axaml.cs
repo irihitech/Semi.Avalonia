@@ -1,6 +1,5 @@
-using System.Collections.ObjectModel;
 using Avalonia.Controls;
-using CommunityToolkit.Mvvm.ComponentModel;
+using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
@@ -11,9 +10,4 @@ public partial class ComboBoxDemo : UserControl
         InitializeComponent();
         this.DataContext = new ComboBoxDemoViewModel();
     }
-}
-
-public class ComboBoxDemoViewModel : ObservableObject
-{
-    public ObservableCollection<string> Items { get; set; } = ["Ding", "Otter", "Husky", "Mr.17", "Cass"];
 }
