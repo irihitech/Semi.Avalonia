@@ -4,12 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     d:DesignHeight="1000"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Design.DataContext>
-        <pages:SplitViewDemoViewModel />
+        <vm:SplitViewDemoViewModel />
     </Design.DataContext>
     <Border>
         <Grid ColumnDefinitions="*,400">
@@ -49,7 +49,7 @@
                         Grid.Row="3" Grid.Column="1"
                         Name="DisplayModeSelector"
                         HorizontalAlignment="Stretch"
-                        ItemsSource="{x:Static pages:SplitViewDemoViewModel.DisplayModes}"
+                        ItemsSource="{x:Static vm:SplitViewDemoViewModel.DisplayModes}"
                         SelectedItem="{x:Static SplitViewDisplayMode.CompactInline}" />
 
                     <Label
@@ -114,8 +114,7 @@
                                         Theme="{DynamicResource IconBorderlessToggleSwitch}"
                                         Content="{StaticResource SemiIconSidebar}"
                                         HorizontalAlignment="Left"
-                                        IsChecked="{Binding #SplitView.IsPaneOpen}">
-                                    </ToggleSwitch>
+                                        IsChecked="{Binding #SplitView.IsPaneOpen}" />
                                 </Grid>
                             </SplitView.Pane>
 
@@ -205,8 +204,7 @@
                                         Theme="{DynamicResource IconBorderlessToggleSwitch}"
                                         Content="{StaticResource SemiIconSidebar}"
                                         HorizontalAlignment="Left"
-                                        IsChecked="{Binding #SplitView2.IsPaneOpen}">
-                                    </ToggleSwitch>
+                                        IsChecked="{Binding #SplitView2.IsPaneOpen}" />
                                     <TextBlock
                                         Grid.Row="1"
                                         Margin="8,12"

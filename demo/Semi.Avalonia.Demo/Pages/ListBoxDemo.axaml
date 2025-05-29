@@ -16,7 +16,7 @@
                 Header="Default">
                 <ScrollViewer>
                     <StackPanel Spacing="20">
-                        <TextBlock Text="Theme: Default"/>
+                        <TextBlock Text="Theme: Default" />
                         <ListBox ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                         <ListBox IsEnabled="False">
                             <ListBoxItem IsSelected="True">Avalonia</ListBoxItem>
@@ -31,7 +31,7 @@
                 Theme="{DynamicResource GroupBox}"
                 Header="RadioGroupListBox">
                 <StackPanel Spacing="20">
-                    <TextBlock Text="Theme: RadioGroupListBox"/>
+                    <TextBlock Text="Theme: RadioGroupListBox" />
                     <ListBox
                         Theme="{DynamicResource RadioGroupListBox}"
                         ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
@@ -40,7 +40,7 @@
                         <ListBoxItem IsSelected="True">WPF</ListBoxItem>
                     </ListBox>
 
-                    <TextBlock Text="Theme: ButtonRadioGroupListBox"/>
+                    <TextBlock Text="Theme: ButtonRadioGroupListBox" />
                     <StackPanel Orientation="Horizontal">
                         <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
                             <ListBox Theme="{DynamicResource ButtonRadioGroupListBox}">
@@ -93,7 +93,7 @@
                         </Border>
                     </StackPanel>
 
-                    <TextBlock Text="Theme: CardRadioGroupListBox"/>
+                    <TextBlock Text="Theme: CardRadioGroupListBox" />
                     <ListBox Theme="{DynamicResource CardRadioGroupListBox}"
                              ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                     <ListBox Theme="{DynamicResource CardRadioGroupListBox}" IsEnabled="False">
@@ -101,7 +101,7 @@
                         <ListBoxItem>WPF</ListBoxItem>
                     </ListBox>
 
-                    <TextBlock Text="Theme: PureCardRadioGroupListBox"/>
+                    <TextBlock Text="Theme: PureCardRadioGroupListBox" />
                     <ListBox Theme="{DynamicResource PureCardRadioGroupListBox}"
                              ItemsSource="{Binding $parent[local:ListBoxDemo].Items}" />
                     <ListBox Theme="{DynamicResource PureCardRadioGroupListBox}" IsEnabled="False">
@@ -117,7 +117,7 @@
                 Header="CheckGroupListBox">
                 <ScrollViewer>
                     <StackPanel Spacing="20">
-                        <TextBlock Text="Theme: CheckGroupListBox"/>
+                        <TextBlock Text="Theme: CheckGroupListBox" />
                         <ListBox
                             SelectionMode="Multiple,Toggle"
                             Theme="{DynamicResource CheckGroupListBox}"
@@ -129,7 +129,7 @@
                             <ListBoxItem>WPF</ListBoxItem>
                         </ListBox>
 
-                        <TextBlock Text="Theme: CardCheckGroupListBox"/>
+                        <TextBlock Text="Theme: CardCheckGroupListBox" />
                         <ListBox
                             SelectionMode="Multiple,Toggle"
                             Theme="{DynamicResource CardCheckGroupListBox}"

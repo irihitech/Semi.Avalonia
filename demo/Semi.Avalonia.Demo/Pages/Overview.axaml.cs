@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using Avalonia.Media;
 
 namespace Semi.Avalonia.Demo.Pages;
 
