@@ -13,13 +13,23 @@ on:
           - 'linux'
           - 'android'
           - 'all'
-      include_aot:
-        description: 'Include Windows AOT packaging'
+      win64:
+        description: 'Windows x64'
         required: true
         default: true
         type: boolean
-      include_drm:
-        description: 'Include Linux DRM packaging'
+      win64_aot:
+        description: 'Windows x64 AOT'
+        required: true
+        default: true
+        type: boolean
+      linux64:
+        description: 'Linux x64 AOT'
+        required: true
+        default: true
+        type: boolean
+      linux64_drm:
+        description: 'Linux x64 DRM'
         required: true
         default: true
         type: boolean
@@ -36,34 +46,36 @@ jobs:
         run: mkdir upload
 
       - name: Publish win-x64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/win64
+        if: ${{ github.event.inputs.win64 == 'true' }}
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish/win64 --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
       - name: Zip win-x64
+        if: ${{ github.event.inputs.win64 == 'true' }}
         run: |
-          $files = Get-ChildItem -Path ./publish/win64/* -Recurse -Exclude *.pdb
-          Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.zip
+          $files = Get-ChildItem -Path publish/win64/* -Recurse -Exclude *.pdb
+          Compress-Archive -Path $files.FullName -DestinationPath upload/Semi.Avalonia.Demo.Desktop.win-x64.zip
 
       - name: Enable Native AOT in .csproj
-        if: ${{ github.event.inputs.include_aot == 'true' }}
+        if: ${{ github.event.inputs.win64_aot == 'true' }}
         run: |
           sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
           sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
 
       - name: Publish win-x64 AOT
-        if: ${{ github.event.inputs.include_aot == 'true' }}
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o ./publish/win64-aot
+        if: ${{ github.event.inputs.win64_aot == 'true' }}
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish/win64-aot
 
       - name: Zip win-x64 AOT
-        if: ${{ github.event.inputs.include_aot == 'true' }}
+        if: ${{ github.event.inputs.win64_aot == 'true' }}
         run: |
-          $files = Get-ChildItem -Path ./publish/win64-aot/* -Recurse -Exclude *.pdb
-          Compress-Archive -Path $files.FullName -DestinationPath ./upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
+          $files = Get-ChildItem -Path publish/win64-aot/* -Recurse -Exclude *.pdb
+          Compress-Archive -Path $files.FullName -DestinationPath upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: windows
-          path: ./upload
+          path: upload
 
   linux:
     if: ${{ github.event.inputs.platform == 'linux' || github.event.inputs.platform == 'all' }}
@@ -76,24 +88,26 @@ jobs:
         run: mkdir upload
 
       - name: Publish linux-x64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/linux64
+        if: ${{ github.event.inputs.linux64 == 'true' }}
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish/linux64 --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
       - name: Zip linux-x64
-        run: zip -j -r ./upload/Semi.Avalonia.Demo.Desktop.linux-x64.zip ./publish/linux64 -x "*.pdb"
+        if: ${{ github.event.inputs.linux64 == 'true' }}
+        run: zip -j -r upload/Semi.Avalonia.Demo.Desktop.linux-x64.zip publish/linux64 -x "*.pdb"
 
       - name: Publish linux-x64 DRM
-        if: ${{ github.event.inputs.include_drm == 'true' }}
-        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true -o ./publish/drm
+        if: ${{ github.event.inputs.linux64_drm == 'true' }}
+        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish/drm --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
       - name: Zip linux-x64 DRM
-        if: ${{ github.event.inputs.include_drm == 'true' }}
-        run: zip -j -r ./upload/Semi.Avalonia.Demo.Drm.linux-x64.zip ./publish/drm -x "*.pdb"
+        if: ${{ github.event.inputs.linux64_drm == 'true' }}
+        run: zip -j -r upload/Semi.Avalonia.Demo.Drm.linux-x64.zip publish/drm -x "*.pdb"
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: linux
-          path: ./upload
+          path: upload
 
   android:
     if: ${{ github.event.inputs.platform == 'android' || github.event.inputs.platform == 'all' }}
@@ -103,16 +117,16 @@ jobs:
         uses: actions/checkout@v4.1.1
 
       - name: CD Android
-        run: cd ./demo/Semi.Avalonia.Demo.Android
+        run: cd demo/Semi.Avalonia.Demo.Android
 
       - name: Restore Dependencies
         run: dotnet restore
 
       - name: Publish Android
-        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o ./publish -p:RuntimeIdentifier=android-arm64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o publish -p:RuntimeIdentifier=android-arm64
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: android
-          path: ./publish/*Signed.apk
+          path: publish/*Signed.apk
