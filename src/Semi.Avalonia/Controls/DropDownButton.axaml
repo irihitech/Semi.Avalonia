@@ -259,24 +259,15 @@
         TargetType="DropDownButton">
         <Style Selector="^ /template/ Border#PART_Background">
             <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlinePrimaryBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_Background">
             <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlinePrimaryBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_Background">
             <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlinePrimaryBorderBrush}" />
-        </Style>
-        <Style Selector="^.Primary /template/ Border#PART_Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlinePrimaryBorderBrush}" />
-        </Style>
-        <Style Selector="^.Secondary /template/ Border#PART_Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineSecondaryBorderBrush}" />
-        </Style>
-        <Style Selector="^.Tertiary /template/ Border#PART_Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineTertiaryBorderBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
         </Style>
         <Style Selector="^.Success /template/ Border#PART_Background">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineSuccessBorderBrush}" />
