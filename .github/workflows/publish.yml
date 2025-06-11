@@ -3,130 +3,211 @@ name: Publish Demo
 on:
   workflow_dispatch:
     inputs:
-      platform:
-        description: 'Platform to publish'
-        required: true
-        default: 'all'
-        type: choice
-        options:
-          - 'windows'
-          - 'linux'
-          - 'android'
-          - 'all'
-      win64:
+      win-x64:
         description: 'Windows x64'
         required: true
-        default: true
+        default: false
         type: boolean
-      win64_aot:
+      win-x64-aot:
         description: 'Windows x64 AOT'
         required: true
-        default: true
+        default: false
         type: boolean
-      linux64:
+      linux-x64:
         description: 'Linux x64'
         required: true
-        default: true
+        default: false
         type: boolean
-      linux64_drm:
-        description: 'Linux x64 DRM'
+      linux-x64-aot:
+        description: 'Linux x64 AOT'
         required: true
-        default: true
+        default: false
+        type: boolean
+      drm-linux-x64:
+        description: 'DRM Linux x64'
+        required: true
+        default: false
+        type: boolean
+      drm-linux-x64-aot:
+        description: 'DRM Linux x64 AOT'
+        required: true
+        default: false
+        type: boolean
+      osx-arm64:
+        description: 'macOS arm64'
+        required: true
+        default: false
+        type: boolean
+      osx-arm64-aot:
+        description: 'macOS arm64 AOT'
+        required: true
+        default: false
+        type: boolean
+      android-arm64:
+        description: 'Android arm64'
+        required: true
+        default: false
         type: boolean
 
 jobs:
-  windows:
-    if: ${{ github.event.inputs.platform == 'windows' || github.event.inputs.platform == 'all' }}
+  win-x64:
+    if: ${{ github.event.inputs.win-x64 == 'true' }}
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
-
-      - name: Make upload directory
-        run: mkdir upload
-
+        uses: actions/checkout@v4.2.2
       - name: Publish win-x64
-        if: ${{ github.event.inputs.win64 == 'true' }}
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish/win64 --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.win-x64
+          path: |
+            publish
+            !publish/*.pdb
 
-      - name: Zip win-x64
-        if: ${{ github.event.inputs.win64 == 'true' }}
-        run: |
-          $files = Get-ChildItem -Path publish/win64/* -Recurse -Exclude *.pdb
-          Compress-Archive -Path $files.FullName -DestinationPath upload/Semi.Avalonia.Demo.Desktop.win-x64.zip
-
+  win-x64-aot:
+    if: ${{ github.event.inputs.win-x64-aot == 'true' }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
       - name: Enable Native AOT in .csproj
-        if: ${{ github.event.inputs.win64_aot == 'true' }}
         run: |
           sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
           sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
-
       - name: Publish win-x64 AOT
-        if: ${{ github.event.inputs.win64_aot == 'true' }}
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish/win64-aot
-
-      - name: Zip win-x64 AOT
-        if: ${{ github.event.inputs.win64_aot == 'true' }}
-        run: |
-          $files = Get-ChildItem -Path publish/win64-aot/* -Recurse -Exclude *.pdb
-          Compress-Archive -Path $files.FullName -DestinationPath upload/Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip
-
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.6.2
         with:
-          name: windows
-          path: upload
+          name: Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT
+          path: |
+            publish
+            !publish/*.pdb
 
-  linux:
-    if: ${{ github.event.inputs.platform == 'linux' || github.event.inputs.platform == 'all' }}
+  linux-x64:
+    if: ${{ github.event.inputs.linux-x64 == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
-
-      - name: Make upload directory
-        run: mkdir upload
-
+        uses: actions/checkout@v4.2.2
       - name: Publish linux-x64
-        if: ${{ github.event.inputs.linux64 == 'true' }}
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish/linux64 --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
-
-      - name: Zip linux-x64
-        if: ${{ github.event.inputs.linux64 == 'true' }}
-        run: zip -j -r upload/Semi.Avalonia.Demo.Desktop.linux-x64.zip publish/linux64 -x "*.pdb"
-
-      - name: Publish linux-x64 DRM
-        if: ${{ github.event.inputs.linux64_drm == 'true' }}
-        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish/drm --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
-
-      - name: Zip linux-x64 DRM
-        if: ${{ github.event.inputs.linux64_drm == 'true' }}
-        run: zip -j -r upload/Semi.Avalonia.Demo.Drm.linux-x64.zip publish/drm -x "*.pdb"
-
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.6.2
         with:
-          name: linux
-          path: upload
+          name: Semi.Avalonia.Demo.Desktop.linux-x64
+          path: |
+            publish
+            !publish/*.pdb
 
-  android:
-    if: ${{ github.event.inputs.platform == 'android' || github.event.inputs.platform == 'all' }}
+  linux-x64-aot:
+    if: ${{ github.event.inputs.linux-x64-aot == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Enable Native AOT in .csproj
+        run: |
+          sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+          sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+      - name: Publish linux-x64 AOT
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.linux-x64.NativeAOT
+          path: |
+            publish
+            !publish/*.pdb
+
+  drm-linux-x64:
+    if: ${{ github.event.inputs.drm-linux-x64 == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Publish linux-x64 DRM
+        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Drm.linux-x64
+          path: |
+            publish
+            !publish/*.pdb
+
+  drm-linux-x64-aot:
+    if: ${{ github.event.inputs.drm-linux-x64-aot == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Enable Native AOT in .csproj
+        run: |
+          sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj
+          sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+      - name: Publish linux-x64 AOT
+        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Drm.linux-x64.NativeAOT
+          path: |
+            publish
+            !publish/*.pdb
+
+  osx-arm64:
+    if: ${{ github.event.inputs.osx-arm64 == 'true' }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Publish osx-arm64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.osx-arm64
+          path: |
+            publish
+            !publish/*.pdb
+
+  osx-arm64-aot:
+    if: ${{ github.event.inputs.osx-arm64-aot == 'true' }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Enable Native AOT in .csproj
+        run: |
+          sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+          sed -i '' 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+      - name: Publish osx-arm64 AOT
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT
+          path: |
+            publish
+            !publish/*.pdb
+
+  android-arm64:
+    if: ${{ github.event.inputs.android-arm64 == 'true' }}
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
-
+        uses: actions/checkout@v4.2.2
       - name: CD Android
         run: cd demo/Semi.Avalonia.Demo.Android
-
       - name: Restore Dependencies
         run: dotnet restore
-
       - name: Publish Android
         run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o publish -p:RuntimeIdentifier=android-arm64
-
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.6.2
         with:
-          name: android
+          name: android-arm64
           path: publish/*Signed.apk
