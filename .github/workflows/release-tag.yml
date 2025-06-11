@@ -198,14 +198,15 @@ jobs:
 
       - name: Zip artifacts
         run: |
-          zip -r Semi.Avalonia.Demo.Desktop.win-x64.zip Semi.Avalonia.Demo.Desktop.win-x64
-          zip -r Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT
-          zip -r Semi.Avalonia.Demo.Desktop.linux-x64.zip Semi.Avalonia.Demo.Desktop.linux-x64
-          zip -r Semi.Avalonia.Demo.Desktop.linux-x64.NativeAOT.zip Semi.Avalonia.Demo.Desktop.linux-x64.NativeAOT
-          zip -r Semi.Avalonia.Demo.Drm.linux-x64.zip Semi.Avalonia.Demo.Drm.linux-x64
-          zip -r Semi.Avalonia.Demo.Drm.linux-x64.NativeAOT.zip Semi.Avalonia.Demo.Drm.linux-x64.NativeAOT
-          zip -r Semi.Avalonia.Demo.Desktop.osx-arm64.zip Semi.Avalonia.Demo.Desktop.osx-arm64
-          zip -r Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT.zip Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT
+          zip -rj Semi.Avalonia.Demo.Desktop.win-x64.zip Semi.Avalonia.Demo.Desktop.win-x64
+          zip -rj Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT.zip Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT
+          zip -rj Semi.Avalonia.Demo.Desktop.linux-x64.zip Semi.Avalonia.Demo.Desktop.linux-x64
+          zip -rj Semi.Avalonia.Demo.Desktop.linux-x64.NativeAOT.zip Semi.Avalonia.Demo.Desktop.linux-x64.NativeAOT
+          zip -rj Semi.Avalonia.Demo.Drm.linux-x64.zip Semi.Avalonia.Demo.Drm.linux-x64
+          zip -rj Semi.Avalonia.Demo.Drm.linux-x64.NativeAOT.zip Semi.Avalonia.Demo.Drm.linux-x64.NativeAOT
+          zip -rj Semi.Avalonia.Demo.Desktop.osx-arm64.zip Semi.Avalonia.Demo.Desktop.osx-arm64
+          cd Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT
+          zip -r ../Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT.zip .
 
       - name: Display structure of zipped files
         run: ls -R
