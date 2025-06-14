@@ -8,6 +8,8 @@ public class en_us : ResourceDictionary;
 
 public class es_es : ResourceDictionary;
 
+public class fr_fr : ResourceDictionary;
+
 public class ja_jp : ResourceDictionary;
 
 public class pl_pl : ResourceDictionary;
