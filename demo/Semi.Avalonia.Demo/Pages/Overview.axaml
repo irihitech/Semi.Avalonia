@@ -348,7 +348,7 @@
                     Classes="H5"
                     Text="Start to install"
                     Theme="{DynamicResource TitleTextBlock}" />
-                <TabControl Padding="8">
+                <TabControl Theme="{StaticResource LineTabControl}">
                     <TabItem Header="Main">
                         <StackPanel>
                             <TextBlock Text="Install via nuget: " />
@@ -405,6 +405,51 @@
                                 <SelectableTextBlock
                                     FontFamily="Consolas"
                                     Text="{Binding $parent[local:Overview].TreeDataGridStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Dock">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].DockInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].DockStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Tabalonia">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].TabaloniaInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].TabaloniaStyle}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="AvaloniaEdit">
+                        <StackPanel>
+                            <TextBlock Text="Install via nuget: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock FontFamily="Consolas" Text="{Binding $parent[local:Overview].AvaloniaEditInstall}" />
+                            </Border>
+                            <TextBlock Text="Reference styles: " />
+                            <Border Margin="0,16" Classes="CodeBlock">
+                                <SelectableTextBlock
+                                    FontFamily="Consolas"
+                                    Text="{Binding $parent[local:Overview].AvaloniaEditStyle}"
                                     TextWrapping="Wrap" />
                             </Border>
                         </StackPanel>
