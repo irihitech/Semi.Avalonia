@@ -44,6 +44,9 @@ ColorPicker、DataGrid、TreeDataGrid、Dock、Tabalonia 和 AvaloniaEdit 的样
 dotnet add package Semi.Avalonia.ColorPicker
 dotnet add package Semi.Avalonia.DataGrid
 dotnet add package Semi.Avalonia.TreeDataGrid
+dotnet add package Semi.Avalonia.Dock
+dotnet add package Semi.Avalonia.Tabalonia
+dotnet add package Semi.Avalonia.AvaloniaEdit
 ```
 
 ```xaml
@@ -51,6 +54,9 @@ dotnet add package Semi.Avalonia.TreeDataGrid
     <semi:ColorPickerSemiTheme />
     <semi:DataGridSemiTheme />
     <semi:TreeDataGridSemiTheme />
+    <semi:DockSemiTheme />
+    <semi:TabaloniaSemiTheme />
+    <semi:AvaloniaEditSemiTheme />
 </Application.Styles>
 ```
 
