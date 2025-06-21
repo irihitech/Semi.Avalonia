@@ -38,7 +38,7 @@ dotnet add package Semi.Avalonia
 
 这样就可以了。
 
-ColorPicker、DataGrid 和 TreeDataGrid 的样式单独分发，如果需要请安装并引用。
+ColorPicker、DataGrid、TreeDataGrid、Dock、Tabalonia 和 AvaloniaEdit 的样式单独分发，如果需要请安装并引用。
 
 ```bash
 dotnet add package Semi.Avalonia.ColorPicker
@@ -53,6 +53,8 @@ dotnet add package Semi.Avalonia.TreeDataGrid
     <semi:TreeDataGridSemiTheme />
 </Application.Styles>
 ```
+
+注意：Dock、Tabalonia 和 AvaloniaEdit 是通过 NuGet 免费分发的，但不是开源的。请阅读许可协议并同意后继续使用这些包。如果您需要源代码，请通过电子邮件联系我们：[contact@irihi.tech](contact@irihi.tech)
 
 ## 示例
 
