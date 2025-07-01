@@ -50,6 +50,22 @@
                     <MenuItem Header="Radio 5" ToggleType="Radio" />
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="_Icon">
+                <MenuItem Header="Nothing" Icon="🐼" />
+                <MenuItem Header="TextBlock">
+                    <MenuItem.Icon>
+                        <TextBlock Text="🐼" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Geometry" Icon="{StaticResource SemiIconSemiLogo}" />
+                <MenuItem Header="PathIcon">
+                    <MenuItem.Icon>
+                        <PathIcon
+                            Theme="{StaticResource InnerPathIcon}"
+                            Data="{DynamicResource SemiIconSemiLogo}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="Parent">
                 <MenuItem Header="Child 1" />
                 <MenuItem Header="Child 2" />
