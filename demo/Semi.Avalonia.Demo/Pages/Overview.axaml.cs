@@ -44,4 +44,31 @@ public partial class Overview : UserControl
             <semi:TreeDataGridSemiTheme />
         </Application.Styles>
         """;
+
+    public string DockInstall { get; set; } = "dotnet add package Semi.Avalonia.Dock --version 11.3.0";
+
+    public string DockStyle { get; set; } =
+        """
+        <Application.Styles>
+            <semi:DockSemiTheme />
+        </Application.Styles>
+        """;
+
+    public string TabaloniaInstall { get; set; } = "dotnet add package Semi.Avalonia.Tabalonia --version 11.0.0-beta1";
+
+    public string TabaloniaStyle { get; set; } =
+        """
+        <Application.Styles>
+            <semi:TabaloniaSemiTheme />
+        </Application.Styles>
+        """;
+
+    public string AvaloniaEditInstall { get; set; } = "dotnet add package Semi.Avalonia.AvaloniaEdit --version 11.2.0";
+
+    public string AvaloniaEditStyle { get; set; } =
+        """
+        <Application.Styles>
+            <semi:AvaloniaEditSemiTheme />
+        </Application.Styles>
+        """;
 }

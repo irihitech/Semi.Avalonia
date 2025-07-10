@@ -38,12 +38,15 @@ Include Semi Design Styles in application:
 
 That's all.
 
-ColorPicker, DataGrid and TreeDataGrid are distributed in separated packages. Please install if you need.
+ColorPicker, DataGrid, TreeDataGrid, Dock, Tabalonia and AvaloniaEdit are distributed in separated packages. Please install if you need.
 
 ```bash
 dotnet add package Semi.Avalonia.ColorPicker
 dotnet add package Semi.Avalonia.DataGrid
 dotnet add package Semi.Avalonia.TreeDataGrid
+dotnet add package Semi.Avalonia.Dock
+dotnet add package Semi.Avalonia.Tabalonia
+dotnet add package Semi.Avalonia.AvaloniaEdit
 ```
 
 ```xaml
@@ -51,8 +54,13 @@ dotnet add package Semi.Avalonia.TreeDataGrid
     <semi:ColorPickerSemiTheme />
     <semi:DataGridSemiTheme />
     <semi:TreeDataGridSemiTheme />
+    <semi:DockSemiTheme />
+    <semi:TabaloniaSemiTheme />
+    <semi:AvaloniaEditSemiTheme />
 </Application.Styles>
 ```
+
+Notice: Dock, Tabalonia and AvaloniaEdit are delivered via nuget for free, but not open source. Please read the license and agree to continue use these packages. If you need source code, please contact us via email: [contact@irihi.tech](contact@irihi.tech)
 
 ## Demo
 
@@ -63,7 +71,7 @@ You can always download demo executable to play around with Semi Avalonia Themes
 
 We offer limited free community support for Semi Avalonia and Ursa. If you have any question or suggestion, feel free to raise issues and discussions via GitHub, and you are welcomed to join our group via FeiShu(Lark)
 
-![FeiShu](./docs/community-support.png) 
+![FeiShu](./docs/community-support.png)
 
 ## Version compatibility
 
