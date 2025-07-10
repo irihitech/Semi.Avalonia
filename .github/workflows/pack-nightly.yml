@@ -10,23 +10,19 @@ on:
         type: string
       Semi_Avalonia:
         description: 'Pack Semi.Avalonia'
-        required: true
-        default: 'true'
+        default: true
         type: boolean
       Semi_Avalonia_ColorPicker:
         description: 'Pack Semi.Avalonia.ColorPicker'
-        required: true
-        default: 'true'
+        default: true
         type: boolean
       Semi_Avalonia_DataGrid:
         description: 'Pack Semi.Avalonia.DataGrid'
-        required: true
-        default: 'false'
+        default: false
         type: boolean
       Semi_Avalonia_TreeDataGrid:
         description: 'Pack Semi.Avalonia.TreeDataGrid'
-        required: true
-        default: 'false'
+        default: false
         type: boolean
 
 jobs:
@@ -35,28 +31,28 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
 
       - name: Get Version
         run: |
           VERSION_TIMESTAMP=$(date +'%Y%m%d%H%M%S')
-          VERSION="${{ github.event.inputs.Version_Prefix }}-nightly-${VERSION_TIMESTAMP}"
+          VERSION="${{ inputs.Version_Prefix }}-nightly-${VERSION_TIMESTAMP}"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Pack Semi.Avalonia
-        if: ${{ github.event.inputs.Semi_Avalonia == 'true' }}
+        if: ${{ inputs.Semi_Avalonia == true }}
         run: dotnet pack src/Semi.Avalonia -o nugets /p:Version=${{ env.VERSION }}
 
       - name: Pack Semi.Avalonia.ColorPicker
-        if: ${{ github.event.inputs.Semi_Avalonia_ColorPicker == 'true' }}
+        if: ${{ inputs.Semi_Avalonia_ColorPicker == true }}
         run: dotnet pack src/Semi.Avalonia.ColorPicker -o nugets /p:Version=${{ env.VERSION }}
 
       - name: Pack Semi.Avalonia.DataGrid
-        if: ${{ github.event.inputs.Semi_Avalonia_DataGrid == 'true' }}
+        if: ${{ inputs.Semi_Avalonia_DataGrid == true }}
         run: dotnet pack src/Semi.Avalonia.DataGrid -o nugets /p:Version=${{ env.VERSION }}
 
       - name: Pack Semi.Avalonia.TreeDataGrid
-        if: ${{ github.event.inputs.Semi_Avalonia_TreeDataGrid == 'true' }}
+        if: ${{ inputs.Semi_Avalonia_TreeDataGrid == true }}
         run: dotnet pack src/Semi.Avalonia.TreeDataGrid -o nugets /p:Version=${{ env.VERSION }}
 
       - name: Add NuGet Source
@@ -66,7 +62,7 @@ jobs:
         run: dotnet nuget push "nugets/*.nupkg" --api-key ${{ secrets.IRIHI_NUGET_API_KEY }} --source irihi.tech --skip-duplicate
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: nugets
           path: nugets

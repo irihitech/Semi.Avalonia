@@ -3,26 +3,43 @@ name: Pack to NuGet
 on:
   workflow_dispatch:
     inputs:
+      Upload_to_NuGet:
+        description: 'Upload to NuGet'
+        default: true
+        type: boolean
       Semi_Avalonia:
         description: 'Pack Semi.Avalonia'
-        required: true
-        default: 'true'
+        default: true
         type: boolean
       Semi_Avalonia_ColorPicker:
         description: 'Pack Semi.Avalonia.ColorPicker'
-        required: true
-        default: 'true'
+        default: true
         type: boolean
       Semi_Avalonia_DataGrid:
         description: 'Pack Semi.Avalonia.DataGrid'
-        required: true
-        default: 'false'
+        default: false
         type: boolean
       Semi_Avalonia_TreeDataGrid:
         description: 'Pack Semi.Avalonia.TreeDataGrid'
-        required: true
-        default: 'false'
+        default: false
         type: boolean
+  workflow_call:
+    inputs:
+      Upload_to_NuGet:
+        type: boolean
+        default: false
+      Semi_Avalonia:
+        type: boolean
+        default: true
+      Semi_Avalonia_ColorPicker:
+        type: boolean
+        default: true
+      Semi_Avalonia_DataGrid:
+        type: boolean
+        default: true
+      Semi_Avalonia_TreeDataGrid:
+        type: boolean
+        default: true
 
 jobs:
   Pack_to_NuGet:
@@ -30,29 +47,30 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
 
       - name: Pack Semi.Avalonia
-        if: ${{ github.event.inputs.Semi_Avalonia == 'true' }}
+        if: ${{ inputs.Semi_Avalonia == true }}
         run: dotnet pack src/Semi.Avalonia -o nugets
 
       - name: Pack Semi.Avalonia.ColorPicker
-        if: ${{ github.event.inputs.Semi_Avalonia_ColorPicker == 'true' }}
+        if: ${{ inputs.Semi_Avalonia_ColorPicker == true }}
         run: dotnet pack src/Semi.Avalonia.ColorPicker -o nugets
 
       - name: Pack Semi.Avalonia.DataGrid
-        if: ${{ github.event.inputs.Semi_Avalonia_DataGrid == 'true' }}
+        if: ${{ inputs.Semi_Avalonia_DataGrid == true }}
         run: dotnet pack src/Semi.Avalonia.DataGrid -o nugets
 
       - name: Pack Semi.Avalonia.TreeDataGrid
-        if: ${{ github.event.inputs.Semi_Avalonia_TreeDataGrid == 'true' }}
+        if: ${{ inputs.Semi_Avalonia_TreeDataGrid == true }}
         run: dotnet pack src/Semi.Avalonia.TreeDataGrid -o nugets
 
-      - name: Publish NuGet package
+      - name: Upload to NuGet
+        if: ${{ inputs.Upload_to_NuGet == true }}
         run: dotnet nuget push "nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: nugets
           path: nugets
