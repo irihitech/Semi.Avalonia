@@ -50,23 +50,23 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Pack Semi.Avalonia
-        if: ${{ inputs.Semi_Avalonia == true }}
+        if: ${{ inputs.Semi_Avalonia }}
         run: dotnet pack src/Semi.Avalonia -o nugets
 
       - name: Pack Semi.Avalonia.ColorPicker
-        if: ${{ inputs.Semi_Avalonia_ColorPicker == true }}
+        if: ${{ inputs.Semi_Avalonia_ColorPicker }}
         run: dotnet pack src/Semi.Avalonia.ColorPicker -o nugets
 
       - name: Pack Semi.Avalonia.DataGrid
-        if: ${{ inputs.Semi_Avalonia_DataGrid == true }}
+        if: ${{ inputs.Semi_Avalonia_DataGrid }}
         run: dotnet pack src/Semi.Avalonia.DataGrid -o nugets
 
       - name: Pack Semi.Avalonia.TreeDataGrid
-        if: ${{ inputs.Semi_Avalonia_TreeDataGrid == true }}
+        if: ${{ inputs.Semi_Avalonia_TreeDataGrid }}
         run: dotnet pack src/Semi.Avalonia.TreeDataGrid -o nugets
 
       - name: Upload to NuGet
-        if: ${{ inputs.Upload_to_NuGet == true }}
+        if: ${{ inputs.Upload_to_NuGet }}
         run: dotnet nuget push "nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Upload a Build Artifact

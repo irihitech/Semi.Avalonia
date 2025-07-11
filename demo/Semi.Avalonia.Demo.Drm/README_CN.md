@@ -63,7 +63,7 @@ private static void SilenceConsole()
 6. 发布程序到Linux
 
 ```bash
-dotnet publish demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj -c Release -r linux-x64 --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+dotnet publish demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj -c Release -r linux-x64 --sc /p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
 AOT发布需要在csproj文件中添加以下代码

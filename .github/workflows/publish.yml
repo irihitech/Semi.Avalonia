@@ -71,13 +71,13 @@ on:
 
 jobs:
   win-x64:
-    if: ${{inputs.win-x64 == true}}
+    if: ${{inputs.win-x64}}
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Publish win-x64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
@@ -87,15 +87,13 @@ jobs:
             !publish/*.pdb
 
   win-x64-aot:
-    if: ${{inputs.win-x64-aot == true}}
+    if: ${{inputs.win-x64-aot}}
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Enable Native AOT in .csproj
-        run: |
-          sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
-          sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+        run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish win-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish
       - name: Upload a Build Artifact
@@ -107,13 +105,13 @@ jobs:
             !publish/*.pdb
 
   linux-x64:
-    if: ${{inputs.linux-x64 == true}}
+    if: ${{inputs.linux-x64}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Publish linux-x64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
@@ -123,15 +121,13 @@ jobs:
             !publish/*.pdb
 
   linux-x64-aot:
-    if: ${{inputs.linux-x64-aot == true}}
+    if: ${{inputs.linux-x64-aot}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Enable Native AOT in .csproj
-        run: |
-          sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
-          sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+        run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish linux-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish
       - name: Upload a Build Artifact
@@ -143,13 +139,13 @@ jobs:
             !publish/*.pdb
 
   drm-linux-x64:
-    if: ${{inputs.drm-linux-x64 == true}}
+    if: ${{inputs.drm-linux-x64}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Publish linux-x64 DRM
-        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+        run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
@@ -159,15 +155,13 @@ jobs:
             !publish/*.pdb
 
   drm-linux-x64-aot:
-    if: ${{inputs.drm-linux-x64-aot == true}}
+    if: ${{inputs.drm-linux-x64-aot}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Enable Native AOT in .csproj
-        run: |
-          sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj
-          sed -i 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+        run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj
       - name: Publish linux-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish
       - name: Upload a Build Artifact
@@ -179,13 +173,13 @@ jobs:
             !publish/*.pdb
 
   osx-arm64:
-    if: ${{inputs.osx-arm64 == true}}
+    if: ${{inputs.osx-arm64}}
     runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Publish osx-arm64
-        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
@@ -195,15 +189,13 @@ jobs:
             !publish/*.pdb
 
   osx-arm64-aot:
-    if: ${{inputs.osx-arm64-aot == true}}
+    if: ${{inputs.osx-arm64-aot}}
     runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Enable Native AOT in .csproj
-        run: |
-          sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
-          sed -i '' 's#<!--<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>-->#<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+        run: sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish osx-arm64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish
       - name: Upload a Build Artifact
@@ -215,7 +207,7 @@ jobs:
             !publish/*.pdb
 
   android-arm64:
-    if: ${{inputs.android-arm64 == true}}
+    if: ${{inputs.android-arm64 }}
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -225,7 +217,7 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore
       - name: Publish Android
-        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o publish -p:RuntimeIdentifier=android-arm64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net8.0-android --no-restore -o publish /p:RuntimeIdentifier=android-arm64
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:

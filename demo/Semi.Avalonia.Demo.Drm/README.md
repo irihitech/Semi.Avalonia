@@ -63,7 +63,7 @@ private static void SilenceConsole()
 6. Publish the app to Linux
 
 ```bash
-dotnet publish demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj -c Release -r linux-x64 --sc -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+dotnet publish demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj -c Release -r linux-x64 --sc /p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
 Add the following code to the csproj file for AOT publishing
