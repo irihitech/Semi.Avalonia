@@ -1,9 +1,6 @@
 name: Release Tag
 
 on:
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+.[0-9]+"
   workflow_dispatch:
     inputs:
       Upload_to_NuGet:
