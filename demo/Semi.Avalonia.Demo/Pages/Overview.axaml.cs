@@ -9,7 +9,7 @@ public partial class Overview : UserControl
         InitializeComponent();
     }
 
-    public string MainInstall { get; set; } = "dotnet add package Semi.Avalonia --version 11.2.1.8";
+    public string MainInstall { get; set; } = "dotnet add package Semi.Avalonia --version 11.2.1.9";
 
     public string MainStyle { get; set; } =
         """
@@ -18,7 +18,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string ColorPickerInstall { get; set; } = "dotnet add package Semi.Avalonia.ColorPicker --version 11.2.1.8";
+    public string ColorPickerInstall { get; set; } = "dotnet add package Semi.Avalonia.ColorPicker --version 11.2.1.9";
 
     public string ColorPickerStyle { get; set; } =
         """
@@ -27,7 +27,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string DataGridInstall { get; set; } = "dotnet add package Semi.Avalonia.DataGrid --version 11.2.1.8";
+    public string DataGridInstall { get; set; } = "dotnet add package Semi.Avalonia.DataGrid --version 11.2.1.9";
 
     public string DataGridStyle { get; set; } =
         """
