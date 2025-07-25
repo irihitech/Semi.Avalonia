@@ -163,16 +163,15 @@
         </Style>
 
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^[IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-            <Style Selector="^[IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
+            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:not(:empty)">
+                <Style Selector="^:pointerover,^:focus">
+                    <Style Selector="^ /template/ Button#PART_ClearButton">
+                        <Setter Property="IsVisible" Value="True" />
+                    </Style>
+                </Style>
             </Style>
         </Style>
-        <Style Selector="^.TextArea.clearButton /template/ Button#PART_ClearButton, ^.TextArea.ClearButton /template/ Button#PART_ClearButton">
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
+
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="•" />
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
@@ -225,9 +224,27 @@
         <Style Selector="^.TextArea">
             <Setter Property="AcceptsReturn" Value="True" />
             <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="Padding" Value="{DynamicResource TextBoxTextAreaContentPadding}" />
             <Setter Property="MinHeight" Value="{DynamicResource TextBoxTextAreaHeight}" />
             <Setter Property="TextInputOptions.ReturnKeyType" Value="Return" />
+            <Style Selector="^.clearButton, ^.ClearButton">
+                <Style Selector="^ /template/ Button#PART_ClearButton">
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="IsVisible" Value="True" />
+                    <Setter Property="IsTabStop" Value="False" />
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Setter Property="Opacity" Value="0" />
+                </Style>
+                <Style Selector="^[IsReadOnly=False]:not(:empty)">
+                    <Style Selector="^:pointerover,^:focus">
+                        <Style Selector="^ /template/ Button#PART_ClearButton">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Setter Property="Opacity" Value="1" />
+                        </Style>
+                    </Style>
+                </Style>
+            </Style>
         </Style>
     </ControlTheme>
 
@@ -374,16 +391,15 @@
         </Style>
 
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^[IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-            <Style Selector="^[IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
+            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:not(:empty)">
+                <Style Selector="^:pointerover,^:focus">
+                    <Style Selector="^ /template/ Button#PART_ClearButton">
+                        <Setter Property="IsVisible" Value="True" />
+                    </Style>
+                </Style>
             </Style>
         </Style>
-        <Style Selector="^.TextArea.clearButton /template/ Button#PART_ClearButton, ^.TextArea.ClearButton /template/ Button#PART_ClearButton">
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
+
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="•" />
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
@@ -436,9 +452,27 @@
         <Style Selector="^.TextArea">
             <Setter Property="AcceptsReturn" Value="True" />
             <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="Padding" Value="{DynamicResource TextBoxTextAreaContentPadding}" />
             <Setter Property="MinHeight" Value="{DynamicResource TextBoxTextAreaHeight}" />
             <Setter Property="TextInputOptions.ReturnKeyType" Value="Return" />
+            <Style Selector="^.clearButton, ^.ClearButton">
+                <Style Selector="^ /template/ Button#PART_ClearButton">
+                    <Setter Property="VerticalAlignment" Value="Top" />
+                    <Setter Property="IsVisible" Value="True" />
+                    <Setter Property="IsTabStop" Value="False" />
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Setter Property="Opacity" Value="0" />
+                </Style>
+                <Style Selector="^[IsReadOnly=False]:not(:empty)">
+                    <Style Selector="^:pointerover,^:focus">
+                        <Style Selector="^ /template/ Button#PART_ClearButton">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Setter Property="Opacity" Value="1" />
+                        </Style>
+                    </Style>
+                </Style>
+            </Style>
         </Style>
     </ControlTheme>
 
