@@ -191,6 +191,7 @@
                     <Popup
                         Name="PART_Popup"
                         HorizontalOffset="-8"
+                        InheritsTransform="True"
                         IsLightDismissEnabled="False"
                         IsOpen="{TemplateBinding IsSubMenuOpen,
                                                  Mode=TwoWay}"
@@ -326,6 +327,7 @@
                             Name="PART_Popup"
                             MinWidth="{Binding $parent[MenuItem].Bounds.Width}"
                             HorizontalOffset="-8"
+                            InheritsTransform="True"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsSubMenuOpen,Mode=TwoWay}"
                             OverlayInputPassThroughElement="{Binding $parent[Menu]}"
