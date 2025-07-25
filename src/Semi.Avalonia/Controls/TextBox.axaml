@@ -163,20 +163,15 @@
         </Style>
 
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-        </Style>
-        <Style Selector="^.TextArea.clearButton, ^.TextArea.ClearButton">
             <Style Selector="^[IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^[IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
+        </Style>
+        <Style Selector="^.TextArea.clearButton /template/ Button#PART_ClearButton, ^.TextArea.ClearButton /template/ Button#PART_ClearButton">
+            <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="•" />
@@ -379,20 +374,15 @@
         </Style>
 
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-        </Style>
-        <Style Selector="^.TextArea.clearButton, ^.TextArea.ClearButton">
             <Style Selector="^[IsReadOnly=False]:focus:not(:empty) /template/ Button#PART_ClearButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^[IsReadOnly=False]:pointerover:not(:empty) /template/ Button#PART_ClearButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
+        </Style>
+        <Style Selector="^.TextArea.clearButton /template/ Button#PART_ClearButton, ^.TextArea.ClearButton /template/ Button#PART_ClearButton">
+            <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="•" />
