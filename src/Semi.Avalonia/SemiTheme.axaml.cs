@@ -46,7 +46,7 @@ public class SemiTheme : Styles
         {
             try
             {
-                if (TryGetLocaleResource(value, out var resource) && resource is not null)
+                if (TryGetLocaleResource(value, false, out var resource) && resource is not null)
                 {
                     _locale = value;
                     foreach (var kv in resource) Resources[kv.Key] = kv.Value;
@@ -66,6 +66,11 @@ public class SemiTheme : Styles
 
     private static bool TryGetLocaleResource(CultureInfo? locale, out ResourceDictionary? resourceDictionary)
     {
+        return TryGetLocaleResource(locale, false, out resourceDictionary);
+    }
+
+    private static bool TryGetLocaleResource(CultureInfo? locale, bool enableParentCultureFallback, out ResourceDictionary? resourceDictionary)
+    {
         if (Equals(locale, CultureInfo.InvariantCulture))
         {
             resourceDictionary = _defaultResource;
@@ -78,10 +83,40 @@ public class SemiTheme : Styles
             return false;
         }
 
+        // Try exact match first
         if (_localeToResource.TryGetValue(locale, out var resource))
         {
             resourceDictionary = resource;
             return true;
+        }
+
+        // If enabled, try to find a culture that has this locale as parent or that shares the same parent
+        if (enableParentCultureFallback)
+        {
+            // Look for any supported culture that has this locale as its parent
+            foreach (var supportedCulture in _localeToResource.Keys)
+            {
+                if (Equals(supportedCulture.Parent, locale))
+                {
+                    resourceDictionary = _localeToResource[supportedCulture];
+                    return true;
+                }
+            }
+            
+            // If this locale has a parent (and it's not invariant), try to find 
+            // a supported culture that shares the same parent
+            var targetParent = locale.Parent;
+            if (!Equals(targetParent, CultureInfo.InvariantCulture))
+            {
+                foreach (var supportedCulture in _localeToResource.Keys)
+                {
+                    if (Equals(supportedCulture.Parent, targetParent))
+                    {
+                        resourceDictionary = _localeToResource[supportedCulture];
+                        return true;
+                    }
+                }
+            }
         }
 
         resourceDictionary = _defaultResource;
@@ -90,8 +125,14 @@ public class SemiTheme : Styles
 
     public static void OverrideLocaleResources(Application application, CultureInfo? culture)
     {
+        OverrideLocaleResources(application, culture, false);
+    }
+
+    public static void OverrideLocaleResources(Application application, CultureInfo? culture, bool enableParentCultureFallback)
+    {
         if (culture is null) return;
-        if (!_localeToResource.TryGetValue(culture, out var resources)) return;
+        if (!TryGetLocaleResource(culture, enableParentCultureFallback, out var resources)) return;
+        if (resources is null) return;
         foreach (var kv in resources)
         {
             application.Resources[kv.Key] = kv.Value;
@@ -100,8 +141,14 @@ public class SemiTheme : Styles
 
     public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
+        OverrideLocaleResources(element, culture, false);
+    }
+
+    public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture, bool enableParentCultureFallback)
+    {
         if (culture is null) return;
-        if (!_localeToResource.TryGetValue(culture, out var resources)) return;
+        if (!TryGetLocaleResource(culture, enableParentCultureFallback, out var resources)) return;
+        if (resources is null) return;
         foreach (var kv in resources)
         {
             element.Resources[kv.Key] = kv.Value;
