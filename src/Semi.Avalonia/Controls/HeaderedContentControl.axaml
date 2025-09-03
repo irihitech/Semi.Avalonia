@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:iri="https://irihi.tech/shared"
     x:CompileBindings="True">
     <Design.PreviewWith>
         <StackPanel Spacing="20">
@@ -24,7 +24,6 @@
             </HeaderedContentControl>
         </StackPanel>
     </Design.PreviewWith>
-    <converters:MarginMultiplierConverter x:Key="SeparatorBorderMultiplier" Top="True" Indent="1" />
 
     <ControlTheme x:Key="{x:Type HeaderedContentControl}" TargetType="HeaderedContentControl">
         <Setter Property="Padding" Value="3" />
@@ -92,7 +91,7 @@
                             Name="SeparatorBorder"
                             Grid.Row="1"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource SeparatorBorderMultiplier}}">
+                            BorderThickness="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter Top}}">
                             <Border.IsVisible>
                                 <MultiBinding Converter="{x:Static BoolConverters.And}">
                                     <TemplateBinding Property="Header" Converter="{x:Static ObjectConverters.IsNotNull}" />
