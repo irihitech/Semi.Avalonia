@@ -3,31 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
-             x:Class="Semi.Avalonia.Demo.Pages.HeaderedContentControlDemo">
+             x:Class="Semi.Avalonia.Demo.Pages.GroupBoxDemo">
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Left" Spacing="20">
-            <TextBlock>Default Theme</TextBlock>
-            <WrapPanel ItemWidth="400">
-                <HeaderedContentControl
-                    Header="This is the text header!"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    CornerRadius="4">
-                    <TextBlock Text="Some content" />
-                </HeaderedContentControl>
-                <HeaderedContentControl Header="This is the image header!">
-                    <Image Source="/Assets/WORLD.png" />
-                </HeaderedContentControl>
-                <HeaderedContentControl>
-                    <HeaderedContentControl.Header>
-                        <Image Source="/Assets/WORLD.png" />
-                    </HeaderedContentControl.Header>
-                    <TextBlock Text="This is the content. But the header can also be non textual" />
-                </HeaderedContentControl>
-            </WrapPanel>
-            <TextBlock>GroupBox Theme</TextBlock>
-            <HeaderedContentControl
-                Theme="{DynamicResource GroupBox}"
+            <GroupBox
                 HorizontalAlignment="Left"
                 MaxWidth="360">
                 <HeaderedContentControl.Header>
@@ -37,7 +16,7 @@
                     </Panel>
                 </HeaderedContentControl.Header>
                 <SelectableTextBlock Text="Semi Design 是由互娱社区前端团队与 UED 团队共同设计开发并维护的设计系统。设计系统包含设计语言以及一整套可复用的前端组件，帮助设计师与开发者更容易地打造高质量的、用户体验一致的、符合设计规范的 Web 应用。" />
-            </HeaderedContentControl>
+            </GroupBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
