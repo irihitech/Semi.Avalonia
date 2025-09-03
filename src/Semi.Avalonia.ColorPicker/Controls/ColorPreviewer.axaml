@@ -1,11 +1,10 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Avalonia.Controls.Converters"
-    xmlns:pc="using:Avalonia.Controls.Primitives.Converters">
+    xmlns:iri="https://irihi.tech/shared"
+    xmlns:pc="using:Avalonia.Controls.Primitives.Converters"
+    x:CompileBindings="True">
     <pc:AccentColorConverter x:Key="AccentColorConverter" />
-    <converters:CornerRadiusFilterConverter x:Key="LeftCornerRadiusFilterConverter" Filter="TopLeft, BottomLeft" />
-    <converters:CornerRadiusFilterConverter x:Key="RightCornerRadiusFilterConverter" Filter="TopRight, BottomRight" />
 
     <ControlTheme x:Key="{x:Type ColorPreviewer}" TargetType="ColorPreviewer">
         <Setter Property="Height" Value="{DynamicResource ColorPreviewerHeight}" />
@@ -34,7 +33,7 @@
                                 Background="{TemplateBinding HsvColor,
                                 Converter={StaticResource AccentColorConverter},
                                 ConverterParameter='-2'}"
-                                CornerRadius="{TemplateBinding CornerRadius,Converter={StaticResource LeftCornerRadiusFilterConverter}}"
+                                CornerRadius="{TemplateBinding CornerRadius,Converter={iri:CornerRadiusMixerConverter Left}}"
                                 Tag="-2" />
                             <Border
                                 Name="PART_AccentDecrement1Border"
@@ -70,7 +69,7 @@
                                 Background="{TemplateBinding HsvColor,
                                 Converter={StaticResource AccentColorConverter},
                                 ConverterParameter='2'}"
-                                CornerRadius="{TemplateBinding CornerRadius,Converter={StaticResource RightCornerRadiusFilterConverter}}"
+                                CornerRadius="{TemplateBinding CornerRadius,Converter={iri:CornerRadiusMixerConverter Right}}"
                                 Tag="2" />
                         </Grid>
                         <!--  Preview color: Must be last for drop shadow Z-index  -->
