@@ -67,8 +67,14 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             TextTrimming="CharacterEllipsis"
                             Foreground="{TemplateBinding PlaceholderForeground}"
-                            IsVisible="{TemplateBinding SelectionBoxItem,Converter={x:Static ObjectConverters.IsNull}}"
-                            Text="{TemplateBinding PlaceholderText}" />
+                            Text="{TemplateBinding PlaceholderText}">
+                            <TextBlock.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <TemplateBinding Property="SelectionBoxItem" Converter="{x:Static ObjectConverters.IsNull}" />
+                                    <TemplateBinding Property="IsEditable" Converter="{x:Static BoolConverters.Not}" />
+                                </MultiBinding>
+                            </TextBlock.IsVisible>
+                        </TextBlock>
                         <ContentPresenter
                             Name="ContentPresenter"
                             Grid.Column="0"
@@ -76,7 +82,20 @@
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding SelectionBoxItem}"
-                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" />
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            IsVisible="{TemplateBinding IsEditable, Converter={x:Static BoolConverters.Not}}" />
+                        <TextBox
+                            Name="PART_EditableTextBox"
+                            Grid.Column="0"
+                            Theme="{StaticResource LooklessTextBox}"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Text="{TemplateBinding Text, Mode=TwoWay}"
+                            Watermark="{TemplateBinding PlaceholderText}"
+                            IsVisible="{TemplateBinding IsEditable}" />
+
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
@@ -210,6 +229,11 @@
                 <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
             </Style>
+        </Style>
+
+        <Style Selector="^[IsEditable=true]">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
         </Style>
 
         <Style Selector="^.Bordered">

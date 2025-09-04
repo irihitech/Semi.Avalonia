@@ -488,6 +488,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TextBox">
                 <Border Name="PART_ContentPresenterBorder" MinHeight="{TemplateBinding MinHeight}">

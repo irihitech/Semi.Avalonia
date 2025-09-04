@@ -11,42 +11,46 @@
     <Design.DataContext>
         <vm:ComboBoxDemoViewModel />
     </Design.DataContext>
-    <StackPanel Spacing="20">
-        <StackPanel.Styles>
-            <Style Selector="ComboBox">
-                <Setter Property="Width" Value="300" />
-                <Setter Property="ItemsSource" Value="{Binding Items}" />
-            </Style>
-        </StackPanel.Styles>
+    <ScrollViewer>
+        <StackPanel Spacing="20">
+            <StackPanel.Styles>
+                <Style Selector="ComboBox">
+                    <Setter Property="Width" Value="300" />
+                    <Setter Property="ItemsSource" Value="{Binding Items}" />
+                </Style>
+            </StackPanel.Styles>
 
-        <ComboBox />
-        <ComboBox Classes="ClearButton" />
-        <ComboBox PlaceholderText="Please Select" />
-        <ComboBox IsEnabled="False" />
-        <ComboBox Classes="Large" IsEnabled="False" />
-        <ComboBox Classes="Small" />
-        <ComboBox Classes="Bordered" />
-        <ComboBox Classes="Bordered" IsEnabled="False" />
-        <ComboBox>
-            <ComboBox.SelectionBoxItemTemplate>
-                <DataTemplate DataType="x:String">
-                    <ContentControl BorderThickness="1"
-                                    BorderBrush="Gold"
-                                    Content="{Binding}" />
-                </DataTemplate>
-            </ComboBox.SelectionBoxItemTemplate>
-        </ComboBox>
+            <ComboBox />
+            <ComboBox Classes="ClearButton" />
+            <ComboBox PlaceholderText="Please Select" />
+            <ComboBox IsEnabled="False" />
+            <ComboBox Classes="Large" IsEnabled="False" />
+            <ComboBox Classes="Small" />
+            <ComboBox Classes="Bordered" />
+            <ComboBox Classes="Bordered" IsEnabled="False" />
+            <ComboBox>
+                <ComboBox.SelectionBoxItemTemplate>
+                    <DataTemplate DataType="x:String">
+                        <ContentControl BorderThickness="1"
+                                        BorderBrush="Gold"
+                                        Content="{Binding}" />
+                    </DataTemplate>
+                </ComboBox.SelectionBoxItemTemplate>
+            </ComboBox>
 
-        <StackPanel Orientation="Horizontal">
-            <ComboBox Width="100" Classes="Large" PlaceholderText="Large" />
-            <ComboBox Width="100" PlaceholderText="Default" />
-            <ComboBox Width="100" Classes="Small" PlaceholderText="Small" />
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="100" Classes="Large" PlaceholderText="Large" />
+                <ComboBox Width="100" PlaceholderText="Default" />
+                <ComboBox Width="100" Classes="Small" PlaceholderText="Small" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="100" IsEnabled="False" PlaceholderText="Disabled" />
+                <ComboBox Width="100" Classes="Bordered" PlaceholderText="Bordered" />
+                <ComboBox Width="100" Classes="Bordered" IsEnabled="False" />
+            </StackPanel>
+            <ToggleSwitch Name="toggle" IsChecked="True" Content="IsEditable" />
+            <ComboBox IsEditable="{Binding #toggle.IsChecked}" />
         </StackPanel>
-
-        <StackPanel Orientation="Horizontal">
-            <ComboBox Width="100" IsEnabled="False" PlaceholderText="Disabled" />
-            <ComboBox Width="100" Classes="Bordered" PlaceholderText="Bordered" />
-            <ComboBox Width="100" Classes="Bordered" IsEnabled="False" />
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>
