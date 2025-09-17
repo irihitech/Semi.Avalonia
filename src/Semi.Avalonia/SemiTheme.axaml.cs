@@ -15,6 +15,11 @@ public class SemiTheme : Styles
     {
         { new CultureInfo("zh-cn"), new zh_cn() },
         { new CultureInfo("en-us"), new en_us() },
+        { new CultureInfo("en-gb"), new en_gb() },
+        { new CultureInfo("it-it"), new it_it() },
+        { new CultureInfo("it-ch"), new it_ch() },
+        { new CultureInfo("nl-be"), new nl_be() },
+        { new CultureInfo("nl-nl"), new nl_nl() },
         { new CultureInfo("ja-jp"), new ja_jp() },
         { new CultureInfo("uk-ua"), new uk_ua() },
         { new CultureInfo("ru-ru"), new ru_ru() },
