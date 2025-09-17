@@ -1,9 +1,8 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Avalonia.Controls.Converters"
-    x:CompileBindings="True">
-    <converters:CornerRadiusFilterConverter x:Key="LeftCornerRadiusFilterConverter" Filter="TopLeft, BottomLeft" />
+    xmlns:iri="https://irihi.tech/shared"
+    xmlns:converters="using:Avalonia.Controls.Converters">
     <converters:ToBrushConverter x:Key="ToBrushConverter" />
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
@@ -17,11 +16,11 @@
                     <Border
                         Margin="1,1,0,1"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
+                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
                     <Border
                         Margin="1,1,0,1"
                         Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource LeftCornerRadiusFilterConverter}}" />
+                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
                 </Panel>
             </Template>
         </Setter>
