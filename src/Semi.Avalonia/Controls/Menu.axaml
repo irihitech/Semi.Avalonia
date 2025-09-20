@@ -3,6 +3,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:Avalonia.Controls.Converters"
     x:CompileBindings="True">
+    <Design.PreviewWith>
+        <StackPanel Width="300" Height="300" Margin="10">
+            <Menu>
+                <MenuItem Header="_Icon">
+                    <MenuItem Header="Nothing" Icon="🐼" />
+                    <MenuItem Header="TextBlock">
+                        <MenuItem.Icon>
+                            <TextBlock Text="🐼" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Geometry" Icon="{StaticResource SemiIconSemiLogo}" />
+                    <MenuItem Header="PathIcon">
+                        <MenuItem.Icon>
+                            <PathIcon
+                                Theme="{StaticResource InnerPathIcon}"
+                                Data="{DynamicResource SemiIconSemiLogo}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+    </Design.PreviewWith>
 
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
@@ -138,28 +160,23 @@
                             <ContentControl
                                 Name="PART_ToggleIconPresenter"
                                 Grid.Column="0"
-                                Width="16"
-                                Height="16"
                                 Margin="{DynamicResource MenuItemIconMargin}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
                                 IsVisible="False" />
 
-                            <Viewbox
+                            <ContentControl
                                 Name="PART_IconPresenter"
                                 Grid.Column="1"
-                                Width="16"
-                                Height="16"
                                 Margin="{DynamicResource MenuItemIconMargin}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                IsVisible="False"
-                                Stretch="Uniform">
-                                <ContentPresenter
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding Icon}" />
-                            </Viewbox>
+                                Content="{TemplateBinding Icon}"
+                                IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentControl.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon
+                                            Theme="{StaticResource InnerPathIcon}"
+                                            Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentControl.DataTemplates>
+                            </ContentControl>
 
                             <ContentPresenter
                                 Name="PART_HeaderPresenter"
@@ -223,9 +240,6 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:icon /template/ Viewbox#PART_IconPresenter">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
 
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_LayoutRoot">
