@@ -92,6 +92,42 @@ public partial class MainViewModel : ObservableObject
                     },
                     new MenuItemViewModel
                     {
+                        Header = "한국어",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("ko-kr")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "English (UK)",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("en-gb")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Italiano",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("it-it")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Italiano (Switzerland)",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("it-ch")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Nederlands",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("nl-nl")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Nederlands (Belgium)",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("nl-be")
+                    },
+                    new MenuItemViewModel
+                    {
                         Header = "Українська",
                         Command = SelectLocaleCommand,
                         CommandParameter = new CultureInfo("uk-ua")
