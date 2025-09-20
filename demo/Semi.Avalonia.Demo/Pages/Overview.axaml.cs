@@ -9,7 +9,7 @@ public partial class Overview : UserControl
         InitializeComponent();
     }
 
-    public string MainInstall { get; set; } = "dotnet add package Semi.Avalonia --version 11.2.1.9";
+    public string MainInstall { get; set; } = "dotnet add package Semi.Avalonia";
 
     public string MainStyle { get; set; } =
         """
@@ -18,7 +18,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string ColorPickerInstall { get; set; } = "dotnet add package Semi.Avalonia.ColorPicker --version 11.2.1.9";
+    public string ColorPickerInstall { get; set; } = "dotnet add package Semi.Avalonia.ColorPicker";
 
     public string ColorPickerStyle { get; set; } =
         """
@@ -27,7 +27,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string DataGridInstall { get; set; } = "dotnet add package Semi.Avalonia.DataGrid --version 11.2.1.9";
+    public string DataGridInstall { get; set; } = "dotnet add package Semi.Avalonia.DataGrid";
 
     public string DataGridStyle { get; set; } =
         """
@@ -36,7 +36,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string TreeDataGridInstall { get; set; } = "dotnet add package Semi.Avalonia.TreeDataGrid --version 11.0.10.4";
+    public string TreeDataGridInstall { get; set; } = "dotnet add package Semi.Avalonia.TreeDataGrid";
 
     public string TreeDataGridStyle { get; set; } =
         """
@@ -45,7 +45,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string DockInstall { get; set; } = "dotnet add package Semi.Avalonia.Dock --version 11.3.0";
+    public string DockInstall { get; set; } = "dotnet add package Semi.Avalonia.Dock";
 
     public string DockStyle { get; set; } =
         """
@@ -54,7 +54,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string TabaloniaInstall { get; set; } = "dotnet add package Semi.Avalonia.Tabalonia --version 11.0.0-beta1";
+    public string TabaloniaInstall { get; set; } = "dotnet add package Semi.Avalonia.Tabalonia";
 
     public string TabaloniaStyle { get; set; } =
         """
@@ -63,7 +63,7 @@ public partial class Overview : UserControl
         </Application.Styles>
         """;
 
-    public string AvaloniaEditInstall { get; set; } = "dotnet add package Semi.Avalonia.AvaloniaEdit --version 11.2.0";
+    public string AvaloniaEditInstall { get; set; } = "dotnet add package Semi.Avalonia.AvaloniaEdit";
 
     public string AvaloniaEditStyle { get; set; } =
         """
