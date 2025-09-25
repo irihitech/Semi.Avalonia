@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Controls;
@@ -37,9 +38,9 @@ public partial class IconDemoViewModel : ObservableObject
                 };
 
                 if (key.ToString().EndsWith("Stroked"))
-                    _strokedIcons[key.ToString().ToLowerInvariant()] = icon;
+                    _strokedIcons[key.ToString()] = icon;
                 else
-                    _filledIcons[key.ToString().ToLowerInvariant()] = icon;
+                    _filledIcons[key.ToString()] = icon;
             }
         }
 
@@ -48,16 +49,16 @@ public partial class IconDemoViewModel : ObservableObject
 
     partial void OnSearchTextChanged(string? value)
     {
-        var search = value?.ToLowerInvariant() ?? string.Empty;
+        var search = string.IsNullOrWhiteSpace(value) ? string.Empty : value.Trim();
 
         FilteredFilledIcons.Clear();
-        foreach (var pair in _filledIcons.Where(i => i.Key.Contains(search)))
+        foreach (var pair in _filledIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
             FilteredFilledIcons.Add(pair.Value);
         }
 
         FilteredStrokedIcons.Clear();
-        foreach (var pair in _strokedIcons.Where(i => i.Key.Contains(search)))
+        foreach (var pair in _strokedIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
             FilteredStrokedIcons.Add(pair.Value);
         }
