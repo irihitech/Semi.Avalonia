@@ -8,6 +8,10 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Name="showSpinCheck" IsChecked="True" Content="Show Button Spinner" />
+            <ToggleSwitch Name="allowSpinCheck" IsChecked="True" Content="Allow Spin" />
+        </StackPanel>
         <ButtonSpinner
             Height="30"
             AllowSpin="{Binding #allowSpinCheck.IsChecked}"

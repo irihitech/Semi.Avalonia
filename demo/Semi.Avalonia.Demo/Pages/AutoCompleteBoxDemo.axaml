@@ -7,7 +7,6 @@
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    x:CompileBindings="False"
     x:DataType="vm:AutoCompleteBoxDemoViewModel"
     mc:Ignorable="d">
     <Design.DataContext>
@@ -30,7 +29,7 @@
 
         <AutoCompleteBox
             Watermark="Please select a State"
-            ValueMemberBinding="{Binding Name}" />
+            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
         <AutoCompleteBox
             Classes="Large"
             ValueMemberBinding="{ReflectionBinding Name}" />
