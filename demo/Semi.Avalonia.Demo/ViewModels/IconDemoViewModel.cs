@@ -10,7 +10,7 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public partial class IconDemoViewModel : ObservableObject
 {
-    private readonly IResourceDictionary? _resources = new Icons();
+    private readonly Icons _resources = new();
 
     private readonly Dictionary<string, IconItem> _filledIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
@@ -22,8 +22,6 @@ public partial class IconDemoViewModel : ObservableObject
 
     public void InitializeResources()
     {
-        if (_resources is null) return;
-
         foreach (var provider in _resources.MergedDictionaries)
         {
             if (provider is not ResourceDictionary dic) continue;
@@ -31,16 +29,17 @@ public partial class IconDemoViewModel : ObservableObject
             foreach (var key in dic.Keys)
             {
                 if (dic[key] is not Geometry geometry) continue;
+                var resourceKey = key.ToString() ?? string.Empty;
                 var icon = new IconItem
                 {
-                    ResourceKey = key.ToString(),
+                    ResourceKey = resourceKey,
                     Geometry = geometry
                 };
 
-                if (key.ToString().EndsWith("Stroked"))
-                    _strokedIcons[key.ToString()] = icon;
+                if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
+                    _strokedIcons[resourceKey] = icon;
                 else
-                    _filledIcons[key.ToString()] = icon;
+                    _filledIcons[resourceKey] = icon;
             }
         }
 

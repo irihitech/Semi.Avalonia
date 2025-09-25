@@ -27,7 +27,8 @@ public partial class NotificationDemo : UserControl
         if (sender is RadioButton b && b.Content is string s)
         {
             Enum.TryParse<NotificationPosition>(s, out var t);
-            _manager.Position = t;
+            if (_manager is not null)
+                _manager.Position = t;
         }
     }
 
