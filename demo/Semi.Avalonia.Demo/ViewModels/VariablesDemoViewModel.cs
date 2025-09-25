@@ -10,9 +10,10 @@ using Semi.Avalonia.Tokens;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
-public class VariablesDemoViewModel : ObservableObject
+public partial class VariablesDemoViewModel : ObservableObject
 {
     public DataGridCollectionView GridData { get; set; }
+    [ObservableProperty] private string _searchText = string.Empty;
 
     public VariablesDemoViewModel()
     {
@@ -30,7 +31,7 @@ public class VariablesDemoViewModel : ObservableObject
         GridData.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(VariableItem.Category)));
     }
 
-    private static string GetValueString(object? value)
+    private static string? GetValueString(object? value)
     {
         if (value is null) return string.Empty;
 
@@ -45,6 +46,28 @@ public class VariablesDemoViewModel : ObservableObject
         };
     }
 
+    partial void OnSearchTextChanged(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            GridData.Filter = _ => true;
+            GridData.Refresh();
+            return;
+        }
+
+        var search = value.Trim();
+        GridData.Filter = item =>
+        {
+            if (item is not VariableItem variableItem) return false;
+            return (variableItem.Category?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
+                   (variableItem.ResourceKey?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
+                   (variableItem.Value?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
+                   (variableItem.Type?.Name.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
+                   (variableItem.Description?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false);
+        };
+        GridData.Refresh();
+    }
+
     private static List<VariableItem> Tokens { get; set; } =
     [
         new("Height", "SemiHeightControlSmall"),
@@ -55,6 +78,11 @@ public class VariablesDemoViewModel : ObservableObject
         new("Icon Size", "SemiWidthIconMedium"),
         new("Icon Size", "SemiWidthIconLarge"),
         new("Icon Size", "SemiWidthIconExtraLarge"),
+        new("Border CornerRadius Spacing", "SemiBorderRadiusSpacingExtraSmall"),
+        new("Border CornerRadius Spacing", "SemiBorderRadiusSpacingSmall"),
+        new("Border CornerRadius Spacing", "SemiBorderRadiusSpacingMedium"),
+        new("Border CornerRadius Spacing", "SemiBorderRadiusSpacingLarge"),
+        new("Border CornerRadius Spacing", "SemiBorderRadiusSpacingFull"),
         new("Border CornerRadius", "SemiBorderRadiusExtraSmall"),
         new("Border CornerRadius", "SemiBorderRadiusSmall"),
         new("Border CornerRadius", "SemiBorderRadiusMedium"),
