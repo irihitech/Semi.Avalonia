@@ -14,10 +14,9 @@ public partial class TreeDataGridDemo : UserControl
 
     private void SelectedPath_KeyDown(object? sender, KeyEventArgs e)
     {
-        if (e.Key == Key.Enter)
+        if (e.Key == Key.Enter && DataContext is TreeDataGridDemoViewModel vm)
         {
-            var vm = DataContext as TreeDataGridDemoViewModel;
-            vm.FilesContext.SelectedPath = (sender as TextBox)!.Text;
+            vm.FilesContext.SelectedPath = (sender as TextBox)?.Text;
         }
     }
 }

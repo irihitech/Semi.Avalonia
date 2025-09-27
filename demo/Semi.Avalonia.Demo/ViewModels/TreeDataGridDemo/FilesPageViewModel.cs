@@ -19,8 +19,14 @@ public partial class FilesPageViewModel : ObservableObject
     public IList<string> Drives { get; }
     public HierarchicalTreeDataGridSource<FileNodeViewModel> Source { get; }
     [ObservableProperty] private string _selectedDrive;
-    [ObservableProperty] private string? _selectedPath;
+    private string? _selectedPath;
     [ObservableProperty] private FileNodeViewModel? _root;
+
+    public string? SelectedPath
+    {
+        get => _selectedPath;
+        set => SetSelectedPath(value);
+    }
 
     partial void OnSelectedDriveChanged(string value)
     {
@@ -29,11 +35,6 @@ public partial class FilesPageViewModel : ObservableObject
         {
             Source.Items = [Root];
         }
-    }
-
-    partial void OnSelectedPathChanged(string? value)
-    {
-        SetSelectedPath(value);
     }
 
     public FilesPageViewModel()
@@ -48,7 +49,7 @@ public partial class FilesPageViewModel : ObservableObject
             SelectedDrive = Drives.FirstOrDefault() ?? "/";
         }
 
-        Source = new HierarchicalTreeDataGridSource<FileNodeViewModel>(Array.Empty<FileNodeViewModel>())
+        Source = new HierarchicalTreeDataGridSource<FileNodeViewModel>([])
         {
             Columns =
             {
@@ -108,16 +109,14 @@ public partial class FilesPageViewModel : ObservableObject
         foreach (var i in e.SelectedItems)
             Trace.WriteLine($"Selected '{i?.Path}'");
     }
-
-    private void SetSelectedPath(string? value)
+    private void SetSelectedPath(string? path)
     {
-        if (string.IsNullOrEmpty(value))
+        if (string.IsNullOrEmpty(path))
         {
             Source.RowSelection!.Clear();
             return;
         }
 
-        var path = value;
         var components = new Stack<string>();
         DirectoryInfo? d = null;
 
@@ -148,7 +147,7 @@ public partial class FilesPageViewModel : ObservableObject
             if (driveIndex >= 0)
                 SelectedDrive = Drives[driveIndex];
 
-            FileNodeViewModel? node = _root;
+            var node = Root;
             index = new IndexPath(0);
 
             while (node is not null && components.Count > 0)
@@ -162,7 +161,7 @@ public partial class FilesPageViewModel : ObservableObject
             }
         }
 
-        Source.Items = [Root];
+        Source.Items = [Root!];
         Source.RowSelection!.SelectedIndex = index;
     }
 }
@@ -275,8 +274,8 @@ public partial class FileNodeViewModel : ObservableObject, IEditableObject
         };
     }
 
-    void IEditableObject.BeginEdit() => _undoName = _name;
-    void IEditableObject.CancelEdit() => _name = _undoName!;
+    void IEditableObject.BeginEdit() => _undoName = Name;
+    void IEditableObject.CancelEdit() => Name = _undoName ?? string.Empty;
     void IEditableObject.EndEdit() => _undoName = null;
 
     private void OnChanged(object sender, FileSystemEventArgs e)
