@@ -20,6 +20,14 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem
+                Header="About Us"
+                Command="{Binding JumpToCommand}"
+                CommandParameter="{Binding $self.Header}" />
+        </NativeMenu>
+    </NativeMenu.Menu>
     <TrayIcon.Icons>
         <TrayIcons>
             <TrayIcon
@@ -28,7 +36,13 @@
                 ToolTipText="Semi Avalonia Demo">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
+                        <NativeMenuItem
+                            Header="About Us"
+                            Command="{Binding JumpToCommand}"
+                            CommandParameter="{Binding $self.Header}" />
+                        <NativeMenuItem
+                            Header="Exit"
+                            Command="{Binding ExitCommand}" />
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>
