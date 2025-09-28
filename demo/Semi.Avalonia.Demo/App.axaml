@@ -1,4 +1,5 @@
 <Application
+    Name="Semi Avalonia Demo"
     x:Class="Semi.Avalonia.Demo.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -21,7 +22,10 @@
     </Application.Resources>
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon Icon="/Assets/irihi.ico" MacOSProperties.IsTemplateIcon="true" ToolTipText="Semi Avalonia Demo">
+            <TrayIcon
+                Icon="{OnPlatform Default=/Assets/irihi.ico, macOS=/Assets/irihi2.ico}"
+                MacOSProperties.IsTemplateIcon="true"
+                ToolTipText="Semi Avalonia Demo">
                 <TrayIcon.Menu>
                     <NativeMenu>
                         <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
