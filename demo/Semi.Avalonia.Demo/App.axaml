@@ -33,6 +33,7 @@
             <TrayIcon
                 Icon="{OnPlatform Default=/Assets/irihi.ico, macOS=/Assets/irihi2.ico}"
                 MacOSProperties.IsTemplateIcon="true"
+                Command="{Binding ActivateCommand}"
                 ToolTipText="Semi Avalonia Demo">
                 <TrayIcon.Menu>
                     <NativeMenu>
