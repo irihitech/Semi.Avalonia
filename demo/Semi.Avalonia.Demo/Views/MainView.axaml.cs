@@ -9,6 +9,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace Semi.Avalonia.Demo.Views;
 
@@ -18,6 +19,19 @@ public partial class MainView : UserControl
     {
         InitializeComponent();
         this.DataContext = new MainViewModel();
+        WeakReferenceMessenger.Default.Register<string, string>(this, "JumpTo", MessageHandler);
+    }
+
+    private void MessageHandler(object _, string message)
+    {
+        foreach (var item in tab.ItemsView)
+        {
+            if (item is TabItem tabItem && tabItem.Header is not null && tabItem.Header.Equals(message))
+            {
+                tab.SelectedItem = tabItem;
+                break;
+            }
+        }
     }
 }
 
