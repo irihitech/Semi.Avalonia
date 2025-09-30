@@ -204,7 +204,7 @@ public class SemiColorLightPalette: IColorPalette
             Color.FromUInt32(0xFF541D00),
         },
         {
-            //Grey
+            //Gray
             Color.FromUInt32(0xFFF9F9F9),
             Color.FromUInt32(0xFFE6E8EA),
             Color.FromUInt32(0xFFC6CACD),

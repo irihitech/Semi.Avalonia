@@ -34,7 +34,7 @@
                 <Label Classes="Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
                 <Label Classes="Amber" Theme="{StaticResource TagLabel}">Amber</Label>
                 <Label Classes="Orange" Theme="{StaticResource TagLabel}">Orange</Label>
-                <Label Classes="Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                <Label Classes="Gray" Theme="{StaticResource TagLabel}">Gray</Label>
                 <Label Classes="White" Theme="{StaticResource TagLabel}">White</Label>
             </WrapPanel>
             <WrapPanel>
@@ -53,7 +53,7 @@
                 <Label Classes="Ghost Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
                 <Label Classes="Ghost Amber" Theme="{StaticResource TagLabel}">Amber</Label>
                 <Label Classes="Ghost Orange" Theme="{StaticResource TagLabel}">Orange</Label>
-                <Label Classes="Ghost Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                <Label Classes="Ghost Gray" Theme="{StaticResource TagLabel}">Gray</Label>
                 <Label Classes="Ghost White" Theme="{StaticResource TagLabel}">White</Label>
             </WrapPanel>
             <WrapPanel>
@@ -72,7 +72,7 @@
                 <Label Classes="Solid Yellow" Theme="{StaticResource TagLabel}">Yellow</Label>
                 <Label Classes="Solid Amber" Theme="{StaticResource TagLabel}">Amber</Label>
                 <Label Classes="Solid Orange" Theme="{StaticResource TagLabel}">Orange</Label>
-                <Label Classes="Solid Grey" Theme="{StaticResource TagLabel}">Grey</Label>
+                <Label Classes="Solid Gray" Theme="{StaticResource TagLabel}">Gray</Label>
                 <Label Classes="Solid White" Theme="{StaticResource TagLabel}">White</Label>
             </WrapPanel>
 
@@ -161,7 +161,7 @@
     <!--  Light, Ghost, Solid.  -->
     <!--  Shape: Square,Circle. Default is Square  -->
     <!--  Size: Small, Large. Default is Small  -->
-    <!--  Color: Red, Pink, Purple, Violet, Indigo, Blue, LightBlue, Cyan, Teal, Green, LightGreen, Lime, Yellow, Amber, Orange, Grey, White. Default is Grey  -->
+    <!--  Color: Red, Pink, Purple, Violet, Indigo, Blue, LightBlue, Cyan, Teal, Green, LightGreen, Lime, Yellow, Amber, Orange, Gray, White. Default is Gray  -->
     <ControlTheme x:Key="TagLabel" TargetType="Label">
         <Setter Property="BorderThickness" Value="{DynamicResource LabelTagBorderThickness}" />
         <Setter Property="MinHeight" Value="{DynamicResource LabelTagSmallHeight}" />
@@ -200,8 +200,8 @@
         </Style>
         <Style Selector="^">
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Background" Value="{DynamicResource LabelTagLightGreyBackground}" />
-            <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGreyForeground}" />
+            <Setter Property="Background" Value="{DynamicResource LabelTagLightGrayBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGrayForeground}" />
             <Style Selector="^.Red">
                 <Setter Property="Background" Value="{DynamicResource LabelTagLightRedBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource LabelTagLightRedForeground}" />
@@ -262,15 +262,15 @@
                 <Setter Property="Background" Value="{DynamicResource LabelTagLightOrangeBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource LabelTagLightOrangeForeground}" />
             </Style>
-            <Style Selector="^.Grey">
-                <Setter Property="Background" Value="{DynamicResource LabelTagLightGreyBackground}" />
-                <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGreyForeground}" />
+            <Style Selector="^.Gray">
+                <Setter Property="Background" Value="{DynamicResource LabelTagLightGrayBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGrayForeground}" />
             </Style>
         </Style>
         <Style Selector="^.Ghost">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="{DynamicResource LabelTagLightGreyBackground}" />
-            <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGreyForeground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource LabelTagLightGrayBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource LabelTagLightGrayForeground}" />
             <Style Selector="^.Red">
                 <Setter Property="BorderBrush" Value="{DynamicResource LabelTagGhostRedBorderBrush}" />
                 <Setter Property="Foreground" Value="{DynamicResource LabelTagGhostRedForeground}" />
@@ -331,15 +331,15 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource LabelTagGhostOrangeBorderBrush}" />
                 <Setter Property="Foreground" Value="{DynamicResource LabelTagGhostOrangeForeground}" />
             </Style>
-            <Style Selector="^.Grey">
-                <Setter Property="BorderBrush" Value="{DynamicResource LabelTagGhostGreyBorderBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource LabelTagGhostGreyForeground}" />
+            <Style Selector="^.Gray">
+                <Setter Property="BorderBrush" Value="{DynamicResource LabelTagGhostGrayBorderBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource LabelTagGhostGrayForeground}" />
             </Style>
         </Style>
         <Style Selector="^.Solid">
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Foreground" Value="{DynamicResource LabelTagSolidForeground}" />
-            <Setter Property="Background" Value="{DynamicResource LabelTagSolidGreyBackground}" />
+            <Setter Property="Background" Value="{DynamicResource LabelTagSolidGrayBackground}" />
             <Style Selector="^.Red">
                 <Setter Property="Background" Value="{DynamicResource LabelTagSolidRedBackground}" />
             </Style>
@@ -385,8 +385,8 @@
             <Style Selector="^.Orange">
                 <Setter Property="Background" Value="{DynamicResource LabelTagSolidOrangeBackground}" />
             </Style>
-            <Style Selector="^.Grey">
-                <Setter Property="Background" Value="{DynamicResource LabelTagSolidGreyBackground}" />
+            <Style Selector="^.Gray">
+                <Setter Property="Background" Value="{DynamicResource LabelTagSolidGrayBackground}" />
             </Style>
         </Style>
 
