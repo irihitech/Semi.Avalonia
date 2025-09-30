@@ -19,7 +19,7 @@ public partial class PaletteDemoViewModel : ObservableObject
         "Red", "Pink", "Purple", "Violet", "Indigo",
         "Blue", "LightBlue", "Cyan", "Teal", "Green",
         "LightGreen", "Lime", "Yellow", "Amber", "Orange",
-        "Grey"
+        "Gray"
     ];
 
     private readonly IResourceDictionary? _lightResourceDictionary;
