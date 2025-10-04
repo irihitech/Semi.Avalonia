@@ -35,11 +35,6 @@ public class SemiTheme : Styles
 
     private CultureInfo? _locale;
 
-    public SemiTheme(IServiceProvider? provider = null)
-    {
-        AvaloniaXamlLoader.Load(provider, this);
-    }
-
     public static ThemeVariant Aquatic => new(nameof(Aquatic), ThemeVariant.Dark);
     public static ThemeVariant Desert => new(nameof(Desert), ThemeVariant.Light);
     public static ThemeVariant Dusk => new(nameof(Dusk), ThemeVariant.Dark);

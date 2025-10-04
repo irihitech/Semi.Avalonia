@@ -26,4 +26,12 @@ public class SplitViewDemoViewModel : ObservableObject
         SplitViewDisplayMode.Overlay,
         SplitViewDisplayMode.CompactOverlay,
     ];
+
+    public static ObservableCollection<SplitViewPanePlacement> Placements { get; set; } =
+    [
+        SplitViewPanePlacement.Left,
+        SplitViewPanePlacement.Right,
+        SplitViewPanePlacement.Top,
+        SplitViewPanePlacement.Bottom
+    ];
 }
