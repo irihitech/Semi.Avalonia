@@ -47,7 +47,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
 
       - name: Pack Semi.Avalonia
         if: ${{ inputs.Semi_Avalonia }}

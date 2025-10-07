@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 env:
   PROJECT_PATH: demo/Semi.Avalonia.Demo.Web/Semi.Avalonia.Demo.Web.csproj
-  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net8.0-browser/publish/wwwroot
+  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net9.0-browser/publish/wwwroot
 on:
   workflow_dispatch:
 
@@ -11,12 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v5
 
-      - name: Setup .NET 8
-        uses: actions/setup-dotnet@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: |
+            8.0.x
+            9.0.x
 
       - name: Install wasm-tools
         run: dotnet workload install wasm-tools

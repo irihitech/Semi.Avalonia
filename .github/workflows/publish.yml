@@ -75,7 +75,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Publish win-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -91,7 +91,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Enable Native AOT in .csproj
         run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish win-x64 AOT
@@ -109,7 +109,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Publish linux-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -125,7 +125,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Enable Native AOT in .csproj
         run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish linux-x64 AOT
@@ -143,7 +143,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Publish linux-x64 DRM
         run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -159,7 +159,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Enable Native AOT in .csproj
         run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj
       - name: Publish linux-x64 AOT
@@ -177,7 +177,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Publish osx-arm64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -193,7 +193,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: Enable Native AOT in .csproj
         run: sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish osx-arm64 AOT
@@ -211,7 +211,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
       - name: CD Android
         run: cd demo/Semi.Avalonia.Demo.Android
       - name: Restore Dependencies
