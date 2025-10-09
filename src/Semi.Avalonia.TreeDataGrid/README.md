@@ -1,6 +1,7 @@
 # Semi.Avalonia.TreeDataGrid
 
-[![Semi Avalonia](https://img.shields.io/nuget/v/Semi.Avalonia.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
+[![Semi Avalonia TreeDataGrid](https://img.shields.io/nuget/v/Semi.Avalonia.TreeDataGrid.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia.TreeDataGrid/)
+[![Semi Avalonia TreeDataGrid](https://img.shields.io/nuget/dt/Semi.Avalonia.TreeDataGrid.svg?style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia.TreeDataGrid/)
 
 Avalonia TreeDataGrid Theme inspired by Semi Design
 

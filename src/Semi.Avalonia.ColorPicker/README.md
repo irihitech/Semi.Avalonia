@@ -1,6 +1,7 @@
 # Semi.Avalonia.ColorPicker
 
-[![Semi Avalonia](https://img.shields.io/nuget/v/Semi.Avalonia.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
+[![Semi Avalonia ColorPicker](https://img.shields.io/nuget/v/Semi.Avalonia.ColorPicker.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia.ColorPicker/)
+[![Semi Avalonia ColorPicker](https://img.shields.io/nuget/dt/Semi.Avalonia.ColorPicker.svg?style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia.ColorPicker/)
 
 Avalonia ColorPicker Theme inspired by Semi Design
 

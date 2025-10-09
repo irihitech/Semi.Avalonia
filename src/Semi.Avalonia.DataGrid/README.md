@@ -1,6 +1,7 @@
 # Semi.Avalonia.DataGrid
 
-[![Semi Avalonia](https://img.shields.io/nuget/v/Semi.Avalonia.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
+[![Semi Avalonia DataGrid](https://img.shields.io/nuget/v/Semi.Avalonia.DataGrid.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia.DataGrid/)
+[![Semi Avalonia DataGrid](https://img.shields.io/nuget/dt/Semi.Avalonia.DataGrid.svg?style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia.DataGrid/)
 
 Avalonia DataGrid Theme inspired by Semi Design
 
