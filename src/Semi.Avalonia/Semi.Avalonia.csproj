@@ -1,19 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="../Package.props"/>
+
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
-        <Nullable>enable</Nullable>
-        <LangVersion>latest</LangVersion>
-        <Version>11.3.7</Version>
-        <Authors>IRIHI Technology Co., Ltd.</Authors>
-        <Description>Avalonia Theme inspired by Semi Design.</Description>
-        <RepositoryUrl>https://github.com/irihitech/Semi.Avalonia</RepositoryUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageIcon>irihi.png</PackageIcon>
-        <PackageProjectUrl>https://github.com/irihitech/Semi.Avalonia</PackageProjectUrl>
-        <AvaloniaVersion>11.3.7</AvaloniaVersion>
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
         <Title>Semi.Avalonia</Title>
         <PackageReleaseNotes>Update to Semi.Avalonia 11.3.7</PackageReleaseNotes>
     </PropertyGroup>
@@ -24,8 +13,6 @@
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
-        <None Include="..\..\irihi.png" Pack="true" PackagePath="\" Link="Properties\irihi.png"/>
-        <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Link="Properties\LICENSE"/>
         <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
