@@ -13,6 +13,7 @@
         <PackageIcon>irihi.png</PackageIcon>
         <PackageProjectUrl>https://github.com/irihitech/Semi.Avalonia</PackageProjectUrl>
         <Title>Semi.Avalonia.DataGrid</Title>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
@@ -23,6 +24,7 @@
         <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.7"/>
         <None Include="..\..\irihi.png" Pack="true" PackagePath="\" Link="Properties\irihi.png"/>
         <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Link="Properties\LICENSE"/>
+        <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
