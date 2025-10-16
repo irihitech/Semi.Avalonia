@@ -48,12 +48,26 @@ public class SemiTheme : Styles
                 if (TryGetLocaleResource(value, out var resource) && resource is not null)
                 {
                     _locale = value;
-                    (Resources as ResourceDictionary)?.SetItems(resource);
+                    if (Resources is ResourceDictionary rd)
+                    {
+                        rd.SetItems(resource);
+                    }
+                    else
+                    {
+                        foreach (var kv in resource) Resources[kv.Key] = kv.Value;
+                    }
                 }
                 else
                 {
                     _locale = new CultureInfo("zh-CN");
-                    (Resources as ResourceDictionary)?.SetItems(DefaultResource);
+                    if (Resources is ResourceDictionary rd)
+                    {
+                        rd.SetItems(DefaultResource);
+                    }
+                    else
+                    {
+                        foreach (var kv in DefaultResource) Resources[kv.Key] = kv.Value;
+                    }
                 }
             }
             catch
@@ -91,13 +105,28 @@ public class SemiTheme : Styles
     {
         if (culture is null) return;
         if (!LocaleToResource.TryGetValue(culture, out var resources)) return;
-        (application.Resources as ResourceDictionary)?.SetItems(resources);
+
+        if (application.Resources is ResourceDictionary rd)
+        {
+            rd.SetItems(resources);
+        }
+        else
+        {
+            foreach (var kv in resources) application.Resources[kv.Key] = kv.Value;
+        }
     }
 
     public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
         if (culture is null) return;
         if (!LocaleToResource.TryGetValue(culture, out var resources)) return;
-        (element.Resources as ResourceDictionary)?.SetItems(resources);
+        if (element.Resources is ResourceDictionary rd)
+        {
+            rd.SetItems(resources);
+        }
+        else
+        {
+            foreach (var kv in resources) element.Resources[kv.Key] = kv.Value;
+        }
     }
 }
