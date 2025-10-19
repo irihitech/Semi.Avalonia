@@ -77,6 +77,7 @@ dotnet add package Semi.Avalonia.AvaloniaEdit
 
 | Semi Design Version | Avalonia Version |
 |:--------------------|:-----------------|
+| 11.3.7              | 11.3.7           |
 | 11.2.1              | >=11.2.1         |
 | 11.2.0              | 11.2.0           |
 | 11.1.0              | >=11.1.0         |
