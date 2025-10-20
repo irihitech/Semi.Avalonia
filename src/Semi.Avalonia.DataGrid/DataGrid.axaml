@@ -86,7 +86,7 @@
                         <Rectangle
                             Name="PART_RightGridLine"
                             Grid.Column="1"
-                            Width="1"
+                            Width="{DynamicResource DataGridGridLineThickness}"
                             VerticalAlignment="Stretch"
                             Fill="{DynamicResource DataGridLineBrush}" />
                     </Grid>
@@ -145,7 +145,7 @@
                         <Rectangle
                             Name="VerticalSeparator"
                             Grid.Column="1"
-                            Width="1"
+                            Width="{DynamicResource DataGridGridLineThickness}"
                             VerticalAlignment="Stretch"
                             Fill="{TemplateBinding SeparatorBrush}"
                             IsVisible="{TemplateBinding AreSeparatorsVisible}" />
@@ -209,7 +209,7 @@
                     <Rectangle
                         Grid.Row="0"
                         Grid.RowSpan="2"
-                        Height="1"
+                        Height="{DynamicResource DataGridGridLineThickness}"
                         VerticalAlignment="Bottom"
                         Fill="{DynamicResource DataGridLineBrush}"
                         StrokeThickness="1" />
@@ -250,7 +250,7 @@
                         Grid.Row="2"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        Height="1"
+                        Height="{DynamicResource DataGridGridLineThickness}"
                         Margin="1,0,1,0"
                         HorizontalAlignment="Stretch"
                         Fill="{TemplateBinding SeparatorBrush}"
@@ -315,7 +315,7 @@
                             Name="PART_BottomGridLine"
                             Grid.Row="2"
                             Grid.Column="1"
-                            Height="1"
+                            Height="{DynamicResource DataGridGridLineThickness}"
                             HorizontalAlignment="Stretch" />
                     </DataGridFrozenGrid>
                 </Border>
@@ -452,7 +452,7 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="5"
-                        Height="1"
+                        Height="{DynamicResource DataGridGridLineThickness}"
                         Fill="{DynamicResource DataGridLineBrush}" />
                 </DataGridFrozenGrid>
             </ControlTemplate>
@@ -498,7 +498,7 @@
                             Grid.Row="0"
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
-                            Height="1"
+                            Height="{DynamicResource DataGridGridLineThickness}"
                             VerticalAlignment="Bottom"
                             Fill="{DynamicResource DataGridLineBrush}" />
 
