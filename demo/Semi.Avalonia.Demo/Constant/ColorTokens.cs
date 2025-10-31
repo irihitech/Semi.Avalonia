@@ -134,6 +134,32 @@ public static class ColorTokens
         new("SemiColorHighlightBackground", "Highlight Background"),
         new("SemiColorHighlight", "Highlight Text")
     ];
+    
+    public static IReadOnlyList<Tuple<string, string>> AiGeneralTokens { get; } =
+    [
+        new("SemiColorAiGeneral", "AI General"),
+        new("SemiColorAiGeneralPointerOver", "AI General PointerOver"),
+        new("SemiColorAiGeneralPointerPressed", "AI General PointerPressed"),
+        new("SemiColorAiGeneralDisabled", "AI General Disabled")
+    ];
+
+    public static IReadOnlyList<Tuple<string, string>> AiPurpleTokens { get; } =
+    [
+        new("SemiColorAiPurple", "AI Purple"),
+        new("SemiColorAiPurplePointerOver", "AI Purple PointerOver"),
+        new("SemiColorAiPurplePressed", "AI Purple PointerPressed"),
+        new("SemiColorAiPurpleDisabled", "AI Purple Disabled")
+    ];
+    
+    public static IReadOnlyList<Tuple<string, string>> AiBackgroundTokens { get; } =
+    [
+        new("SemiColorAiBackgroundBottom", "AI Bottom Background"),
+        new("SemiColorAiBackgroundBottomPointerOver", "AI Bottom Background PointerOver"),
+        new("SemiColorAiBackgroundBottomPointerPressed", "AI Bottom Background PointerPressed"),
+        new("SemiColorAiBackgroundTop", "AI Top Background"),
+        new("SemiColorAiBackgroundTopPointerOver", "AI Top Background PointerOver"),
+        new("SemiColorAiBackgroundTopActive", "AI Top Background Active"),
+    ];
 
     public static IReadOnlyList<Tuple<string, string>> ShadowTokens { get; } =
     [

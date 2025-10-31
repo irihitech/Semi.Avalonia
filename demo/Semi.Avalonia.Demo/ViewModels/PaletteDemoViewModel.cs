@@ -124,6 +124,12 @@ public partial class PaletteDemoViewModel : ObservableObject
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI General", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AiGeneralTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI Purple", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AiPurpleTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AiBackgroundTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Others", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.OtherTokens));
     }
 
@@ -217,7 +223,7 @@ public partial class FunctionalColorGroupViewModel : ObservableObject
         {
             if (lightDictionary?.TryGetValue(key, out var lightValue) ?? false)
             {
-                if (lightValue is ISolidColorBrush lightBrush)
+                if (lightValue is IBrush lightBrush)
                 {
                     LightColors.Add(new ColorItemViewModel(name, lightBrush, key, true, 0));
                 }
@@ -225,7 +231,7 @@ public partial class FunctionalColorGroupViewModel : ObservableObject
 
             if (darkDictionary?.TryGetValue(key, out var darkValue) ?? false)
             {
-                if (darkValue is ISolidColorBrush darkBrush)
+                if (darkValue is IBrush darkBrush)
                 {
                     DarkColors.Add(new ColorItemViewModel(name, darkBrush, key, true, 0));
                 }
