@@ -170,6 +170,16 @@
     <Color x:Key="SemiBackground2Color">White</Color>
     <Color x:Key="SemiBackground3Color">White</Color>
     <Color x:Key="SemiBackground4Color">White</Color>
+    <Color x:Key="SemiAiPurple0Color">#F8EDFF</Color>
+    <Color x:Key="SemiAiPurple1Color">#F2DAFF</Color>
+    <Color x:Key="SemiAiPurple2Color">#E3B5FF</Color>
+    <Color x:Key="SemiAiPurple3Color">#D191FF</Color>
+    <Color x:Key="SemiAiPurple4Color">#BD6CFF</Color>
+    <Color x:Key="SemiAiPurple5Color">#A647FF</Color>
+    <Color x:Key="SemiAiPurple6Color">#8636DB</Color>
+    <Color x:Key="SemiAiPurple7Color">#6928B8</Color>
+    <Color x:Key="SemiAiPurple8Color">#4E1C94</Color>
+    <Color x:Key="SemiAiPurple9Color">#361270</Color>
 
     <SolidColorBrush x:Key="SemiWhite" Color="{StaticResource SemiWhiteColor}" />
     <SolidColorBrush x:Key="SemiBlack" Color="{StaticResource SemiBlackColor}" />
@@ -333,6 +343,16 @@
     <SolidColorBrush x:Key="SemiGrey7" Color="{StaticResource SemiGrey7Color}" />
     <SolidColorBrush x:Key="SemiGrey8" Color="{StaticResource SemiGrey8Color}" />
     <SolidColorBrush x:Key="SemiGrey9" Color="{StaticResource SemiGrey9Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple0" Color="{StaticResource SemiAiPurple0Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple1" Color="{StaticResource SemiAiPurple1Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple2" Color="{StaticResource SemiAiPurple2Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple3" Color="{StaticResource SemiAiPurple3Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple4" Color="{StaticResource SemiAiPurple4Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple5" Color="{StaticResource SemiAiPurple5Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple6" Color="{StaticResource SemiAiPurple6Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple7" Color="{StaticResource SemiAiPurple7Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple8" Color="{StaticResource SemiAiPurple8Color}" />
+    <SolidColorBrush x:Key="SemiAiPurple9" Color="{StaticResource SemiAiPurple9Color}" />
 
     <SolidColorBrush x:Key="SemiColorWhite" Color="{StaticResource SemiWhiteColor}" />
     <SolidColorBrush x:Key="SemiColorBlack" Color="{StaticResource SemiBlackColor}" />
@@ -434,6 +454,68 @@
     <!--  Shadow  -->
     <BoxShadows x:Key="SemiColorShadow">0 0 #0A000000</BoxShadows>
     <BoxShadows x:Key="SemiShadowElevated">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+
+    <!--  AI General Gradients  -->
+    <LinearGradientBrush x:Key="SemiAiGeneral0" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#FFF2FF" />
+        <GradientStop Offset="0.3" Color="#F8EDFF" />
+        <GradientStop Offset="0.6" Color="#F4F4FF" />
+        <GradientStop Offset="1.0" Color="#EFF7FF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral1" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#FFDAFE" />
+        <GradientStop Offset="0.3" Color="#F2DAFF" />
+        <GradientStop Offset="0.6" Color="#DFE0FF" />
+        <GradientStop Offset="1.0" Color="#D5EBFF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral2" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#FEB5FF" />
+        <GradientStop Offset="0.3" Color="#E3B5FF" />
+        <GradientStop Offset="0.6" Color="#C1C0FF" />
+        <GradientStop Offset="1.0" Color="#ABD5FF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral3" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#F98FFF" />
+        <GradientStop Offset="0.3" Color="#D191FF" />
+        <GradientStop Offset="0.6" Color="#A3A0FF" />
+        <GradientStop Offset="1.0" Color="#82BEFF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral4" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#F26AFF" />
+        <GradientStop Offset="0.3" Color="#BD6CFF" />
+        <GradientStop Offset="0.6" Color="#8681FF" />
+        <GradientStop Offset="1.0" Color="#58A6FF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral5" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#E945FF" />
+        <GradientStop Offset="0.3" Color="#A647FF" />
+        <GradientStop Offset="0.6" Color="#6B61FF" />
+        <GradientStop Offset="1.0" Color="#2E8CFF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral6" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#C235DB" />
+        <GradientStop Offset="0.3" Color="#8636DB" />
+        <GradientStop Offset="0.6" Color="#584DDB" />
+        <GradientStop Offset="1.0" Color="#2172DB" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral7" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#9D27B8" />
+        <GradientStop Offset="0.3" Color="#6928B8" />
+        <GradientStop Offset="0.6" Color="#473BB8" />
+        <GradientStop Offset="1.0" Color="#1659B8" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral8" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#791B94" />
+        <GradientStop Offset="0.3" Color="#4E1C94" />
+        <GradientStop Offset="0.6" Color="#372B94" />
+        <GradientStop Offset="1.0" Color="#0D4394" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SemiAiGeneral9" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Offset="0.0" Color="#581170" />
+        <GradientStop Offset="0.3" Color="#361270" />
+        <GradientStop Offset="0.6" Color="#281D70" />
+        <GradientStop Offset="1.0" Color="#072F70" />
+    </LinearGradientBrush>
 
     <!-- Obsolete -->
     <StaticResource x:Key="SemiColorPrimaryPressed" ResourceKey="SemiColorPrimaryActive" />
