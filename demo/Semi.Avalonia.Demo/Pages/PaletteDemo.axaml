@@ -102,61 +102,6 @@
                         </TabItem>
                     </TabControl>
 
-                    <TextBlock
-                        Classes="H3"
-                        Text="AI General Gradients"
-                        Theme="{DynamicResource TitleTextBlock}" />
-                    <TabControl>
-                        <TabItem Header="Light">
-                            <ItemsControl Margin="16" ItemsSource="{Binding LightAiGeneralGradients}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate x:DataType="viewModels:ColorListViewModel">
-                                        <ItemsControl Margin="4,0" ItemsSource="{Binding Color}">
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate x:DataType="viewModels:ColorItemViewModel">
-                                                    <controls:ColorItemControl
-                                                        Background="{Binding Brush}"
-                                                        ColorName="{Binding ColorDisplayName}"
-                                                        Foreground="{Binding TextBrush}"
-                                                        Hex="{Binding Hex}" />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </TabItem>
-                        <TabItem Header="Dark">
-                            <ItemsControl Margin="16" ItemsSource="{Binding DarkAiGeneralGradients}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate x:DataType="viewModels:ColorListViewModel">
-                                        <ItemsControl Margin="4,0" ItemsSource="{Binding Color}">
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate x:DataType="viewModels:ColorItemViewModel">
-                                                    <controls:ColorItemControl
-                                                        Background="{Binding Brush}"
-                                                        ColorName="{Binding ColorDisplayName}"
-                                                        Foreground="{Binding TextBrush}"
-                                                        Hex="{Binding Hex}" />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </TabItem>
-                    </TabControl>
-
                     <ItemsControl ItemsSource="{Binding FunctionalColors}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>

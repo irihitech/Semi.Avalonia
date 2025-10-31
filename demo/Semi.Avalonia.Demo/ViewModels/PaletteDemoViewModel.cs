@@ -29,8 +29,6 @@ public partial class PaletteDemoViewModel : ObservableObject
 
     public ObservableCollection<ColorListViewModel> LightLists { get; set; } = [];
     public ObservableCollection<ColorListViewModel> DarkLists { get; set; } = [];
-    public ObservableCollection<ColorListViewModel> LightAiGeneralGradients { get; set; } = [];
-    public ObservableCollection<ColorListViewModel> DarkAiGeneralGradients { get; set; } = [];
     public ObservableCollection<FunctionalColorGroupViewModel> FunctionalColors { get; set; } = [];
     public ObservableCollection<ShadowGroupViewModel> Shadows { get; set; } = [];
 
@@ -44,7 +42,6 @@ public partial class PaletteDemoViewModel : ObservableObject
     public void InitializeResources()
     {
         InitializePalette();
-        InitializeAiGeneralGradients();
         InitializeFunctionalColors();
         InitializeShadows();
     }
@@ -64,6 +61,8 @@ public partial class PaletteDemoViewModel : ObservableObject
             s.Initialize(_darkResourceDictionary, color, false);
             DarkLists.Add(s);
         }
+        
+        InitializeAiGeneralGradients();
     }
 
     private void InitializeAiGeneralGradients()
@@ -91,9 +90,9 @@ public partial class PaletteDemoViewModel : ObservableObject
                 darkGradients.Color.Add(item);
             }
         }
-
-        LightAiGeneralGradients.Add(lightGradients);
-        DarkAiGeneralGradients.Add(darkGradients);
+        
+        LightLists.Add(lightGradients);
+        DarkLists.Add(darkGradients);
     }
 
     private void InitializeFunctionalColors()
