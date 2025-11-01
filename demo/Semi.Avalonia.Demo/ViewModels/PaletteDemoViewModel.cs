@@ -19,7 +19,7 @@ public partial class PaletteDemoViewModel : ObservableObject
         "Red", "Pink", "Purple", "Violet", "Indigo",
         "Blue", "LightBlue", "Cyan", "Teal", "Green",
         "LightGreen", "Lime", "Yellow", "Amber", "Orange",
-        "Grey", "AiPurple"
+        "Grey", "AIPurple"
     ];
 
     private readonly IResourceDictionary? _lightResourceDictionary;
@@ -62,10 +62,10 @@ public partial class PaletteDemoViewModel : ObservableObject
             DarkLists.Add(s);
         }
         
-        InitializeAiGeneralGradients();
+        InitializeAIGeneralGradients();
     }
 
-    private void InitializeAiGeneralGradients()
+    private void InitializeAIGeneralGradients()
     {
         if (_lightResourceDictionary is null || _darkResourceDictionary is null) return;
 
@@ -74,7 +74,7 @@ public partial class PaletteDemoViewModel : ObservableObject
 
         for (var i = 0; i < 10; i++)
         {
-            var key = $"SemiAiGeneral{i}";
+            var key = $"SemiAIGeneral{i}";
             
             if (_lightResourceDictionary.TryGetValue(key, out var lightValue) && lightValue is IBrush lightBrush)
             {
@@ -124,11 +124,11 @@ public partial class PaletteDemoViewModel : ObservableObject
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
-            "AI General", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AiGeneralTokens));
+            "AI General", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIGeneralTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
-            "AI Purple", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AiPurpleTokens));
+            "AI Purple", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIPurpleTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
-            "AI Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AiBackgroundTokens));
+            "AI Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIBackgroundTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Others", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.OtherTokens));
     }
