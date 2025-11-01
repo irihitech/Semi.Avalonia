@@ -92,6 +92,12 @@ public class ColorDetailControl : TemplatedControl
             Hex2 = hex2 as string;
             OpacityNumber = brush.Opacity.ToString(CultureInfo.InvariantCulture);
         }
+        else
+        {
+            Hex = null;
+            Hex2 = null;
+            OpacityNumber = null;
+        }
     }
 
     public async Task Copy(object o)
