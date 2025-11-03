@@ -19,7 +19,7 @@ public partial class PaletteDemoViewModel : ObservableObject
         "Red", "Pink", "Purple", "Violet", "Indigo",
         "Blue", "LightBlue", "Cyan", "Teal", "Green",
         "LightGreen", "Lime", "Yellow", "Amber", "Orange",
-        "Grey"
+        "Grey", "AIPurple"
     ];
 
     private readonly IResourceDictionary? _lightResourceDictionary;
@@ -61,6 +61,38 @@ public partial class PaletteDemoViewModel : ObservableObject
             s.Initialize(_darkResourceDictionary, color, false);
             DarkLists.Add(s);
         }
+        
+        InitializeAIGeneralGradients();
+    }
+
+    private void InitializeAIGeneralGradients()
+    {
+        if (_lightResourceDictionary is null || _darkResourceDictionary is null) return;
+
+        ColorListViewModel lightGradients = new ColorListViewModel { SeriesName = "AI General" };
+        ColorListViewModel darkGradients = new ColorListViewModel { SeriesName = "AI General" };
+
+        for (var i = 0; i < 10; i++)
+        {
+            var key = $"SemiAIGeneral{i}";
+            
+            if (_lightResourceDictionary.TryGetValue(key, out var lightValue) && lightValue is IBrush lightBrush)
+            {
+                var name = $"AI General {i}";
+                var item = new ColorItemViewModel(name, lightBrush, key, true, i);
+                lightGradients.Color.Add(item);
+            }
+
+            if (_darkResourceDictionary.TryGetValue(key, out var darkValue) && darkValue is IBrush darkBrush)
+            {
+                var name = $"AI General {i}";
+                var item = new ColorItemViewModel(name, darkBrush, key, false, i);
+                darkGradients.Color.Add(item);
+            }
+        }
+        
+        LightLists.Add(lightGradients);
+        DarkLists.Add(darkGradients);
     }
 
     private void InitializeFunctionalColors()
@@ -79,6 +111,12 @@ public partial class PaletteDemoViewModel : ObservableObject
             "Warning", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.WarningTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Danger", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DangerTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI General", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIGeneralTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI Purple", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIPurpleTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIBackgroundTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Text", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TextTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
@@ -142,14 +180,24 @@ public partial class ColorItemViewModel : ObservableObject
          <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
          """;
 
-    public ColorItemViewModel(string colorDisplayName, ISolidColorBrush brush, string resourceKey, bool light,
+    public ColorItemViewModel(string colorDisplayName, IBrush brush, string resourceKey, bool light,
         int index)
     {
         ColorDisplayName = colorDisplayName;
         Brush = brush;
         ResourceKey = resourceKey;
-        var hex = ColorConverter.ToHex.Convert(brush.Color, typeof(string), false, CultureInfo.InvariantCulture);
-        Hex = hex as string ?? string.Empty;
+        
+        // Only calculate hex for solid color brushes
+        if (brush is ISolidColorBrush solidBrush)
+        {
+            var hex = ColorConverter.ToHex.Convert(solidBrush.Color, typeof(string), false, CultureInfo.InvariantCulture);
+            Hex = hex as string ?? string.Empty;
+        }
+        else
+        {
+            Hex = string.Empty;
+        }
+        
         if ((light && index < 5) || (!light && index >= 5))
         {
             TextBrush = Brushes.Black;
@@ -175,7 +223,7 @@ public partial class FunctionalColorGroupViewModel : ObservableObject
         {
             if (lightDictionary?.TryGetValue(key, out var lightValue) ?? false)
             {
-                if (lightValue is ISolidColorBrush lightBrush)
+                if (lightValue is IBrush lightBrush)
                 {
                     LightColors.Add(new ColorItemViewModel(name, lightBrush, key, true, 0));
                 }
@@ -183,7 +231,7 @@ public partial class FunctionalColorGroupViewModel : ObservableObject
 
             if (darkDictionary?.TryGetValue(key, out var darkValue) ?? false)
             {
-                if (darkValue is ISolidColorBrush darkBrush)
+                if (darkValue is IBrush darkBrush)
                 {
                     DarkColors.Add(new ColorItemViewModel(name, darkBrush, key, true, 0));
                 }
