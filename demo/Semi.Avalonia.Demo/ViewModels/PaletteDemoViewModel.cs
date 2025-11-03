@@ -112,6 +112,12 @@ public partial class PaletteDemoViewModel : ObservableObject
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Danger", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DangerTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI General", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIGeneralTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI Purple", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIPurpleTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
+            "AI Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIBackgroundTokens));
+        FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Text", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.TextTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Link", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.LinkTokens));
@@ -123,12 +129,6 @@ public partial class PaletteDemoViewModel : ObservableObject
             "Border", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.BorderTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Disabled", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.DisabledTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel(
-            "AI General", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIGeneralTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel(
-            "AI Purple", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIPurpleTokens));
-        FunctionalColors.Add(new FunctionalColorGroupViewModel(
-            "AI Background", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.AIBackgroundTokens));
         FunctionalColors.Add(new FunctionalColorGroupViewModel(
             "Others", _lightResourceDictionary, _darkResourceDictionary, ColorTokens.OtherTokens));
     }
