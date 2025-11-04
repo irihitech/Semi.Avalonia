@@ -12,14 +12,14 @@ public partial class IconDemoViewModel : ObservableObject
 {
     private readonly Icons _resources = new();
 
-    private readonly Dictionary<string, IconItem> _filledIcons = new();
+    private readonly Dictionary<string, IconItem> _fillIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
     private readonly Dictionary<string, IconItem> _aiIcons = new();
 
     [ObservableProperty] private string? _searchText;
 
     public ObservableCollection<IconTab> IconTabs { get; } = [];
-    public ObservableCollection<IconItem> FilteredFilledIcons { get; set; } = [];
+    public ObservableCollection<IconItem> FilteredFillIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredStrokedIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredAIIcons { get; set; } = [];
 
@@ -44,14 +44,14 @@ public partial class IconDemoViewModel : ObservableObject
                 else if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
                     _strokedIcons[resourceKey] = icon;
                 else
-                    _filledIcons[resourceKey] = icon;
+                    _fillIcons[resourceKey] = icon;
             }
         }
 
         OnSearchTextChanged(string.Empty);
 
         IconTabs.Clear();
-        IconTabs.Add(new IconTab("Filled Icons", FilteredFilledIcons));
+        IconTabs.Add(new IconTab("Fill Icons", FilteredFillIcons));
         IconTabs.Add(new IconTab("Stroked Icons", FilteredStrokedIcons));
         IconTabs.Add(new IconTab("AI Icons", FilteredAIIcons));
     }
@@ -60,10 +60,10 @@ public partial class IconDemoViewModel : ObservableObject
     {
         var search = string.IsNullOrWhiteSpace(value) ? string.Empty : value.Trim();
 
-        FilteredFilledIcons.Clear();
-        foreach (var pair in _filledIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
+        FilteredFillIcons.Clear();
+        foreach (var pair in _fillIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
-            FilteredFilledIcons.Add(pair.Value);
+            FilteredFillIcons.Add(pair.Value);
         }
 
         FilteredStrokedIcons.Clear();
