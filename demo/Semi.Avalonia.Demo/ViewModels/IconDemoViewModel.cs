@@ -18,6 +18,7 @@ public partial class IconDemoViewModel : ObservableObject
 
     [ObservableProperty] private string? _searchText;
 
+    public ObservableCollection<IconTab> IconTabs { get; } = [];
     public ObservableCollection<IconItem> FilteredFilledIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredStrokedIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredAIIcons { get; set; } = [];
@@ -48,6 +49,11 @@ public partial class IconDemoViewModel : ObservableObject
         }
 
         OnSearchTextChanged(string.Empty);
+
+        IconTabs.Clear();
+        IconTabs.Add(new IconTab("Filled Icons", FilteredFilledIcons));
+        IconTabs.Add(new IconTab("Stroked Icons", FilteredStrokedIcons));
+        IconTabs.Add(new IconTab("AI Icons", FilteredAIIcons));
     }
 
     partial void OnSearchTextChanged(string? value)
@@ -72,6 +78,12 @@ public partial class IconDemoViewModel : ObservableObject
             FilteredAIIcons.Add(pair.Value);
         }
     }
+}
+
+public class IconTab(string header, ObservableCollection<IconItem> iconItems)
+{
+    public string Header { get; set; } = header;
+    public ObservableCollection<IconItem> IconItems { get; set; } = iconItems;
 }
 
 public class IconItem

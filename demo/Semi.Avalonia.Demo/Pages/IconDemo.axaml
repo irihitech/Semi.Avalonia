@@ -18,129 +18,61 @@
             Text="{Binding SearchText}"
             Watermark="Input Icon Name" />
 
-        <TabControl Theme="{StaticResource LineTabControl}" Grid.Row="1">
-            <TabItem Header="Filled Icons">
-                <ScrollViewer>
-                    <ItemsControl
-                        ItemsSource="{Binding FilteredFilledIcons}"
-                        Margin="0 10">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel
-                                    ItemWidth="200"
-                                    ItemHeight="120"
-                                    ItemSpacing="10"
-                                    LineSpacing="10" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Theme="{DynamicResource OutlineButton}"
-                                        Classes="Tertiary"
-                                        Padding="0"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Click="Button_Clicked">
-                                    <StackPanel Spacing="8">
-                                        <PathIcon
-                                            Theme="{DynamicResource InnerPathIcon}"
-                                            HorizontalAlignment="Center"
-                                            Classes="ExtraLarge"
-                                            Data="{Binding Geometry}" />
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            FontSize="12"
-                                            FontWeight="Normal"
-                                            Text="{Binding ResourceKey}" />
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </TabItem>
+        <TabControl
+            Grid.Row="1"
+            Theme="{StaticResource LineTabControl}"
+            ItemsSource="{Binding IconTabs}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock
+                        Margin="8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding Header}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
 
-            <TabItem Header="Stroked Icons">
-                <ScrollViewer>
-                    <ItemsControl
-                        ItemsSource="{Binding FilteredStrokedIcons}"
-                        Margin="0 10">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel
-                                    ItemWidth="200"
-                                    ItemHeight="120"
-                                    ItemSpacing="10"
-                                    LineSpacing="10" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Theme="{DynamicResource OutlineButton}"
-                                        Classes="Tertiary"
-                                        Padding="0"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Click="Button_Clicked">
-                                    <StackPanel Spacing="8">
-                                        <PathIcon
-                                            Theme="{DynamicResource InnerPathIcon}"
-                                            HorizontalAlignment="Center"
-                                            Classes="ExtraLarge"
-                                            Data="{Binding Geometry}" />
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            FontSize="12"
-                                            FontWeight="Normal"
-                                            Text="{Binding ResourceKey}" />
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </TabItem>
-
-            <TabItem Header="AI Icons">
-                <ScrollViewer>
-                    <ItemsControl
-                        ItemsSource="{Binding FilteredAIIcons}"
-                        Margin="0 10">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel
-                                    ItemWidth="200"
-                                    ItemHeight="120"
-                                    ItemSpacing="10"
-                                    LineSpacing="10" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Theme="{DynamicResource OutlineButton}"
-                                        Classes="Tertiary"
-                                        Padding="0"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Click="Button_Clicked">
-                                    <StackPanel Spacing="8">
-                                        <PathIcon
-                                            Theme="{DynamicResource InnerPathIcon}"
-                                            HorizontalAlignment="Center"
-                                            Classes="ExtraLarge"
-                                            Data="{Binding Geometry}" />
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            FontSize="12"
-                                            FontWeight="Normal"
-                                            Text="{Binding ResourceKey}" />
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </TabItem>
+            <TabControl.ContentTemplate>
+                <DataTemplate DataType="vm:IconTab">
+                    <ScrollViewer>
+                        <ItemsControl
+                            Margin="0 10"
+                            ItemsSource="{Binding IconItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel
+                                        ItemWidth="200"
+                                        ItemHeight="120"
+                                        ItemSpacing="10"
+                                        LineSpacing="10" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Theme="{DynamicResource OutlineButton}"
+                                            Classes="Tertiary"
+                                            Padding="0"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Click="Button_Clicked">
+                                        <StackPanel Spacing="8">
+                                            <PathIcon
+                                                Theme="{DynamicResource InnerPathIcon}"
+                                                HorizontalAlignment="Center"
+                                                Classes="ExtraLarge"
+                                                Data="{Binding Geometry}" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                FontSize="12"
+                                                FontWeight="Normal"
+                                                Text="{Binding ResourceKey}" />
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
         </TabControl>
     </Grid>
 </UserControl>
