@@ -14,11 +14,13 @@ public partial class IconDemoViewModel : ObservableObject
 
     private readonly Dictionary<string, IconItem> _filledIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
+    private readonly Dictionary<string, IconItem> _aiIcons = new();
 
     [ObservableProperty] private string? _searchText;
 
     public ObservableCollection<IconItem> FilteredFilledIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredStrokedIcons { get; set; } = [];
+    public ObservableCollection<IconItem> FilteredAIIcons { get; set; } = [];
 
     public void InitializeResources()
     {
@@ -36,7 +38,9 @@ public partial class IconDemoViewModel : ObservableObject
                     Geometry = geometry
                 };
 
-                if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
+                if (resourceKey.StartsWith("SemiIconAI"))
+                    _aiIcons[resourceKey] = icon;
+                else if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
                     _strokedIcons[resourceKey] = icon;
                 else
                     _filledIcons[resourceKey] = icon;
@@ -60,6 +64,12 @@ public partial class IconDemoViewModel : ObservableObject
         foreach (var pair in _strokedIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
             FilteredStrokedIcons.Add(pair.Value);
+        }
+
+        FilteredAIIcons.Clear();
+        foreach (var pair in _aiIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
+        {
+            FilteredAIIcons.Add(pair.Value);
         }
     }
 }
