@@ -24,10 +24,16 @@
             ItemsSource="{Binding IconTabs}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock
-                        Margin="8,0"
-                        VerticalAlignment="Center"
-                        Text="{Binding Header}" />
+                    <WrapPanel ItemSpacing="5">
+                        <TextBlock Text="{Binding Header}" />
+                        <Label 
+                            Theme="{StaticResource TagLabel}"
+                            Classes="Purple"
+                            IsVisible="{Binding Header, 
+                                Converter={x:Static ObjectConverters.Equal},
+                                ConverterParameter='AI Icons'}"
+                            Content="NEW" />
+                    </WrapPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>
 
