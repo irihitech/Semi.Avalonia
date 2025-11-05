@@ -12,13 +12,16 @@ public partial class IconDemoViewModel : ObservableObject
 {
     private readonly Icons _resources = new();
 
-    private readonly Dictionary<string, IconItem> _filledIcons = new();
+    private readonly Dictionary<string, IconItem> _fillIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
+    private readonly Dictionary<string, IconItem> _aiIcons = new();
 
     [ObservableProperty] private string? _searchText;
 
-    public ObservableCollection<IconItem> FilteredFilledIcons { get; set; } = [];
+    public ObservableCollection<IconTab> IconTabs { get; } = [];
+    public ObservableCollection<IconItem> FilteredFillIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredStrokedIcons { get; set; } = [];
+    public ObservableCollection<IconItem> FilteredAIIcons { get; set; } = [];
 
     public void InitializeResources()
     {
@@ -36,24 +39,31 @@ public partial class IconDemoViewModel : ObservableObject
                     Geometry = geometry
                 };
 
-                if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
+                if (resourceKey.StartsWith("SemiIconAI"))
+                    _aiIcons[resourceKey] = icon;
+                else if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
                     _strokedIcons[resourceKey] = icon;
                 else
-                    _filledIcons[resourceKey] = icon;
+                    _fillIcons[resourceKey] = icon;
             }
         }
 
         OnSearchTextChanged(string.Empty);
+
+        IconTabs.Clear();
+        IconTabs.Add(new IconTab("Fill Icons", FilteredFillIcons));
+        IconTabs.Add(new IconTab("Stroked Icons", FilteredStrokedIcons));
+        IconTabs.Add(new IconTab("AI Icons", FilteredAIIcons));
     }
 
     partial void OnSearchTextChanged(string? value)
     {
         var search = string.IsNullOrWhiteSpace(value) ? string.Empty : value.Trim();
 
-        FilteredFilledIcons.Clear();
-        foreach (var pair in _filledIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
+        FilteredFillIcons.Clear();
+        foreach (var pair in _fillIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
-            FilteredFilledIcons.Add(pair.Value);
+            FilteredFillIcons.Add(pair.Value);
         }
 
         FilteredStrokedIcons.Clear();
@@ -61,7 +71,19 @@ public partial class IconDemoViewModel : ObservableObject
         {
             FilteredStrokedIcons.Add(pair.Value);
         }
+
+        FilteredAIIcons.Clear();
+        foreach (var pair in _aiIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
+        {
+            FilteredAIIcons.Add(pair.Value);
+        }
     }
+}
+
+public class IconTab(string header, ObservableCollection<IconItem> iconItems)
+{
+    public string Header { get; set; } = header;
+    public ObservableCollection<IconItem> IconItems { get; set; } = iconItems;
 }
 
 public class IconItem
