@@ -6,174 +6,399 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <StackPanel HorizontalAlignment="Left" Spacing="8">
             <StackPanel.Styles>
-                <Style Selector="SplitButton">
-                    <Setter Property="Flyout">
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </Setter>
-                </Style>
-                <Style Selector="DropDownButton">
-                    <Setter Property="Flyout">
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuItem Header="Submit All" />
-                            <MenuItem Header="Submit Updated" />
-                        </MenuFlyout>
-                    </Setter>
-                </Style>
-                <Style Selector="ToggleSplitButton">
-                    <Setter Property="Flyout">
-                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                <Style Selector="SplitButton,DropDownButton,ToggleSplitButton">
+                    <Setter Property="Button.Flyout">
+                        <MenuFlyout>
                             <MenuItem Header="Submit All" />
                             <MenuItem Header="Submit Updated" />
                         </MenuFlyout>
                     </Setter>
                 </Style>
             </StackPanel.Styles>
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}">
+                <HeaderedContentControl.Header>
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Button/RepeatButton Theme" />
+                        <WrapPanel ItemSpacing="4">
+                            <TextBlock Text="Theme:" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue Solid" Content="Light" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue Solid" Content="Solid" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue Solid" Content="Outline" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue Solid" Content="Borderless" />
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="4">
+                            <TextBlock Text="Classes:" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Primary" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Secondary" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Tertiary" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Success" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Warning" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Danger" />
+                        </WrapPanel>
+                    </StackPanel>
+                </HeaderedContentControl.Header>
+                <StackPanel HorizontalAlignment="Left" Spacing="16">
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Default" />
+                        <Button Content="Primary" Classes="Primary" />
+                        <Button Content="Secondary" Classes="Secondary" />
+                        <Button Content="Tertiary" Classes="Tertiary" />
+                        <Button Content="Success" Classes="Success" />
+                        <Button Content="Warning" Classes="Warning" />
+                        <Button Content="Danger" Classes="Danger" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Default" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Primary" Classes="Primary" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Secondary" Classes="Secondary" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Tertiary" Classes="Tertiary" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Success" Classes="Success" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Warning" Classes="Warning" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Danger" Classes="Danger" Theme="{StaticResource SolidButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Default" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Primary" Classes="Primary" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Secondary" Classes="Secondary" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Tertiary" Classes="Tertiary" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Success" Classes="Success" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Warning" Classes="Warning" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Danger" Classes="Danger" Theme="{StaticResource OutlineButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Default" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Primary" Classes="Primary" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Secondary" Classes="Secondary" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Tertiary" Classes="Tertiary" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Success" Classes="Success" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Warning" Classes="Warning" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Danger" Classes="Danger" Theme="{StaticResource BorderlessButton}" />
+                    </WrapPanel>
+                </StackPanel>
+            </HeaderedContentControl>
 
-            <TextBlock>Light (Default)</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary">Primary</Button>
-                <Button Classes="Secondary">Secondary</Button>
-                <Button Classes="Tertiary">Tertiary</Button>
-                <Button Classes="Success">Success</Button>
-                <Button Classes="Warning">Warning</Button>
-                <Button Classes="Danger">Danger</Button>
-                <Button Classes="Danger" IsEnabled="False">Disabled</Button>
-            </StackPanel>
-            <TextBlock>Solid</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary" Theme="{DynamicResource SolidButton}">Primary</Button>
-                <Button Classes="Secondary" Theme="{DynamicResource SolidButton}">Secondary</Button>
-                <Button Classes="Tertiary" Theme="{DynamicResource SolidButton}">Tertiary</Button>
-                <Button Classes="Success" Theme="{DynamicResource SolidButton}">Success</Button>
-                <Button Classes="Warning" Theme="{DynamicResource SolidButton}">Warning</Button>
-                <Button Classes="Danger" Theme="{DynamicResource SolidButton}">Danger</Button>
-                <Button
-                    Classes="Danger"
-                    IsEnabled="False"
-                    Theme="{DynamicResource SolidButton}">
-                    Disabled
-                </Button>
-            </StackPanel>
-            <TextBlock>Outline</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary" Theme="{DynamicResource OutlineButton}">Primary</Button>
-                <Button Classes="Secondary" Theme="{DynamicResource OutlineButton}">Secondary</Button>
-                <Button Classes="Tertiary" Theme="{DynamicResource OutlineButton}">Tertiary</Button>
-                <Button Classes="Success" Theme="{DynamicResource OutlineButton}">Success</Button>
-                <Button Classes="Warning" Theme="{DynamicResource OutlineButton}">Warning</Button>
-                <Button Classes="Danger" Theme="{DynamicResource OutlineButton}">Danger</Button>
-                <Button Classes="Danger" Theme="{DynamicResource OutlineButton}" IsEnabled="False">Disabled</Button>
-            </StackPanel>
-            <TextBlock>Borderless</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary" Theme="{DynamicResource BorderlessButton}">Primary</Button>
-                <Button Classes="Secondary" Theme="{DynamicResource BorderlessButton}">Secondary</Button>
-                <Button Classes="Tertiary" Theme="{DynamicResource BorderlessButton}">Tertiary</Button>
-                <Button Classes="Success" Theme="{DynamicResource BorderlessButton}">Success</Button>
-                <Button Classes="Warning" Theme="{DynamicResource BorderlessButton}">Warning</Button>
-                <Button Classes="Danger" Theme="{DynamicResource BorderlessButton}">Danger</Button>
-                <Button
-                    Classes="Danger"
-                    IsEnabled="False"
-                    Theme="{DynamicResource BorderlessButton}">
-                    Disabled
-                </Button>
-            </StackPanel>
-            <TextBlock>Disabled</TextBlock>
-            <StackPanel Background="{DynamicResource SemiColorBackground1}" Orientation="Horizontal" Spacing="20">
-                <Button IsEnabled="False">Light</Button>
-                <Button IsEnabled="False" Theme="{DynamicResource SolidButton}">Solid</Button>
-                <Button IsEnabled="False" Theme="{DynamicResource OutlineButton}">Outline</Button>
-                <Button IsEnabled="False" Theme="{DynamicResource BorderlessButton}">Borderless</Button>
-            </StackPanel>
-            <TextBlock>Size Classes</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <Button Classes="Primary Small">Small</Button>
-                <Button Classes="Primary">Default</Button>
-                <Button Classes="Primary Large">Large</Button>
-            </StackPanel>
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}"
+                Header="Prohibited Status">
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <Button Content="Light" IsEnabled="False" />
+                    <Button Content="Solid" IsEnabled="False" Theme="{StaticResource SolidButton}" />
+                    <Button Content="Outline" IsEnabled="False" Theme="{StaticResource OutlineButton}" />
+                    <Button Content="Borderless" IsEnabled="False" Theme="{StaticResource BorderlessButton}" />
+                </WrapPanel>
+            </HeaderedContentControl>
 
-            <TextBlock>DropDownButton</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <DropDownButton Content="Primary" />
-                <DropDownButton Classes="Secondary" Content="Secondary" />
-                <DropDownButton Classes="Tertiary" Content="Tertiary" />
-                <DropDownButton Classes="Success" Content="Success" />
-                <DropDownButton Classes="Warning" Content="Warning" />
-                <DropDownButton Classes="Danger" Content="Danger" />
-                <DropDownButton
-                    Classes="Danger"
-                    Content="Disabled"
-                    IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <DropDownButton Content="Default" Classes="Success" />
-                <DropDownButton Content="Solid" Theme="{DynamicResource SolidDropDownButton}" Classes="Success" />
-                <DropDownButton Content="Outline" Theme="{DynamicResource OutlineDropDownButton}" Classes="Success" />
-                <DropDownButton Content="Borderless" Theme="{DynamicResource BorderlessDropDownButton}" Classes="Success" />
-                <DropDownButton Content="Default" Classes="Success" IsEnabled="False" />
-                <DropDownButton Content="Solid" Theme="{DynamicResource SolidDropDownButton}" Classes="Success" IsEnabled="False" />
-                <DropDownButton Content="Outline" Theme="{DynamicResource OutlineDropDownButton}" Classes="Success" IsEnabled="False" />
-                <DropDownButton Content="Borderless" Theme="{DynamicResource BorderlessDropDownButton}" Classes="Success" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <DropDownButton Classes="Small" Content="Small" />
-                <DropDownButton Content="Default" />
-                <DropDownButton Classes="Large" Content="Large" />
-            </StackPanel>
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}">
+                <HeaderedContentControl.Header>
+                    <StackPanel Spacing="8">
+                        <WrapPanel ItemSpacing="4">
+                            <TextBlock Text="Size Classes:" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Large" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Blue" Content="Small" />
+                        </WrapPanel>
+                    </StackPanel>
+                </HeaderedContentControl.Header>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <Button Content="Large" Classes="Large" />
+                    <Button Content="Default" />
+                    <Button Content="Small" Classes="Small" />
+                </WrapPanel>
+            </HeaderedContentControl>
 
-            <TextBlock>SplitButton</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <SplitButton Content="Primary" />
-                <SplitButton Classes="Secondary" Content="Secondary" />
-                <SplitButton Classes="Tertiary" Content="Tertiary" />
-                <SplitButton Classes="Success" Content="Success" />
-                <SplitButton Classes="Warning" Content="Warning" />
-                <SplitButton Classes="Danger" Content="Danger" />
-                <SplitButton Classes="Danger" Content="Disabled" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <SplitButton Content="Default" Classes="Success" />
-                <SplitButton Content="Solid" Theme="{DynamicResource SolidSplitButton}" Classes="Success" />
-                <SplitButton Content="Outline" Theme="{DynamicResource OutlineSplitButton}" Classes="Success" />
-                <SplitButton Content="Borderless" Theme="{DynamicResource BorderlessSplitButton}" Classes="Success" />
-                <SplitButton Content="Default" Classes="Success" IsEnabled="False" />
-                <SplitButton Content="Solid" Theme="{DynamicResource SolidSplitButton}" Classes="Success" IsEnabled="False" />
-                <SplitButton Content="Outline" Theme="{DynamicResource OutlineSplitButton}" Classes="Success" IsEnabled="False" />
-                <SplitButton Content="Borderless" Theme="{DynamicResource BorderlessSplitButton}" Classes="Success" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <SplitButton Classes="Small" Content="Small" />
-                <SplitButton Content="Default" />
-                <SplitButton Classes="Large" Content="Large" />
-            </StackPanel>
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}">
+                <HeaderedContentControl.Header>
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="AI style - Colorful buttons" />
+                        <WrapPanel ItemSpacing="4">
+                            <TextBlock Text="Theme:" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Colorful Solid" Content="Light" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Colorful Solid" Content="Solid" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Colorful Solid" Content="Outline" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Colorful Solid" Content="Borderless" />
+                        </WrapPanel>
+                        <WrapPanel ItemSpacing="4">
+                            <TextBlock Text="Classes:" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Colorful" Content="Colorful Primary" />
+                            <Label Theme="{StaticResource TagLabel}" Classes="Colorful" Content="Colorful Tertiary" />
+                        </WrapPanel>
+                    </StackPanel>
+                </HeaderedContentControl.Header>
+                <StackPanel HorizontalAlignment="Left" Spacing="16">
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Primary" Classes="Colorful Primary" />
+                        <Button Content="Tertiary" Classes="Colorful Tertiary" />
+                        <Button Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Primary" Classes="Colorful Primary" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource SolidButton}" />
+                        <Button Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource SolidButton}" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Primary" Classes="Colorful Primary" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource OutlineButton}" />
+                        <Button Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource OutlineButton}" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <Button Content="Primary" Classes="Colorful Primary" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource BorderlessButton}" />
+                        <Button Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource BorderlessButton}" IsEnabled="False" />
+                    </WrapPanel>
+                </StackPanel>
+            </HeaderedContentControl>
 
-            <TextBlock>ToggleSplitButton</TextBlock>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSplitButton Content="Primary" />
-                <ToggleSplitButton Classes="Secondary" Content="Secondary" />
-                <ToggleSplitButton Classes="Tertiary" Content="Tertiary" />
-                <ToggleSplitButton Classes="Success" Content="Success" />
-                <ToggleSplitButton Classes="Warning" Content="Warning" />
-                <ToggleSplitButton Classes="Danger" Content="Danger" />
-                <ToggleSplitButton Classes="Danger" Content="Disabled" IsEnabled="False" />
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}" Header="DropDownButton">
+                <StackPanel HorizontalAlignment="Left" Spacing="16">
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Default" />
+                        <DropDownButton Content="Primary" Classes="Primary" />
+                        <DropDownButton Content="Secondary" Classes="Secondary" />
+                        <DropDownButton Content="Tertiary" Classes="Tertiary" />
+                        <DropDownButton Content="Success" Classes="Success" />
+                        <DropDownButton Content="Warning" Classes="Warning" />
+                        <DropDownButton Content="Danger" Classes="Danger" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Default" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Primary" Classes="Primary" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Secondary" Classes="Secondary" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Tertiary" Classes="Tertiary" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Success" Classes="Success" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Warning" Classes="Warning" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Danger" Classes="Danger" Theme="{StaticResource SolidDropDownButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Default" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Primary" Classes="Primary" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Secondary" Classes="Secondary" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Tertiary" Classes="Tertiary" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Success" Classes="Success" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Warning" Classes="Warning" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Danger" Classes="Danger" Theme="{StaticResource OutlineDropDownButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Default" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Primary" Classes="Primary" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Secondary" Classes="Secondary" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Tertiary" Classes="Tertiary" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Success" Classes="Success" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Warning" Classes="Warning" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Danger" Classes="Danger" Theme="{StaticResource BorderlessDropDownButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Light" IsEnabled="False" />
+                        <DropDownButton Content="Solid" IsEnabled="False" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Outline" IsEnabled="False" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Borderless" IsEnabled="False" Theme="{StaticResource BorderlessDropDownButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Large" Classes="Large" />
+                        <DropDownButton Content="Default" />
+                        <DropDownButton Content="Small" Classes="Small" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Primary" Classes="Colorful Primary" />
+                        <DropDownButton Content="Tertiary" Classes="Colorful Tertiary" />
+                        <DropDownButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource SolidDropDownButton}" />
+                        <DropDownButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource SolidDropDownButton}" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource OutlineDropDownButton}" />
+                        <DropDownButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource OutlineDropDownButton}" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <DropDownButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource BorderlessDropDownButton}" />
+                        <DropDownButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource BorderlessDropDownButton}" IsEnabled="False" />
+                    </WrapPanel>
+                </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}" Header="SplitButton">
+                <StackPanel HorizontalAlignment="Left" Spacing="16">
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Default" />
+                        <SplitButton Content="Primary" Classes="Primary" />
+                        <SplitButton Content="Secondary" Classes="Secondary" />
+                        <SplitButton Content="Tertiary" Classes="Tertiary" />
+                        <SplitButton Content="Success" Classes="Success" />
+                        <SplitButton Content="Warning" Classes="Warning" />
+                        <SplitButton Content="Danger" Classes="Danger" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Default" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Primary" Classes="Primary" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Secondary" Classes="Secondary" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Tertiary" Classes="Tertiary" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Success" Classes="Success" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Warning" Classes="Warning" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Danger" Classes="Danger" Theme="{StaticResource SolidSplitButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Default" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Primary" Classes="Primary" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Secondary" Classes="Secondary" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Tertiary" Classes="Tertiary" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Success" Classes="Success" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Warning" Classes="Warning" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Danger" Classes="Danger" Theme="{StaticResource OutlineSplitButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Default" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Primary" Classes="Primary" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Secondary" Classes="Secondary" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Tertiary" Classes="Tertiary" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Success" Classes="Success" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Warning" Classes="Warning" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Danger" Classes="Danger" Theme="{StaticResource BorderlessSplitButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Light" IsEnabled="False" />
+                        <SplitButton Content="Solid" IsEnabled="False" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Outline" IsEnabled="False" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Borderless" IsEnabled="False" Theme="{StaticResource BorderlessSplitButton}" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Large" Classes="Large" />
+                        <SplitButton Content="Default" />
+                        <SplitButton Content="Small" Classes="Small" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Primary" Classes="Colorful Primary" />
+                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" />
+                        <SplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource SolidSplitButton}" />
+                        <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource SolidSplitButton}" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource OutlineSplitButton}" />
+                        <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource OutlineSplitButton}" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource BorderlessSplitButton}" />
+                        <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource BorderlessSplitButton}" IsEnabled="False" />
+                    </WrapPanel>
+                </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}"
+                Header="ToggleSplitButton">
+                <StackPanel HorizontalAlignment="Left" Spacing="24">
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleSplitButton Content="Default" />
+                        <ToggleSplitButton Classes="Primary" Content="Primary" />
+                        <ToggleSplitButton Classes="Secondary" Content="Secondary" />
+                        <ToggleSplitButton Classes="Tertiary" Content="Tertiary" />
+                        <ToggleSplitButton Classes="Success" Content="Success" />
+                        <ToggleSplitButton Classes="Warning" Content="Warning" />
+                        <ToggleSplitButton Classes="Danger" Content="Danger" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleSplitButton Content="Default" IsChecked="True" />
+                        <ToggleSplitButton Classes="Primary" Content="Primary" IsChecked="True" />
+                        <ToggleSplitButton Classes="Secondary" Content="Secondary" IsChecked="True" />
+                        <ToggleSplitButton Classes="Tertiary" Content="Tertiary" IsChecked="True" />
+                        <ToggleSplitButton Classes="Success" Content="Success" IsChecked="True" />
+                        <ToggleSplitButton Classes="Warning" Content="Warning" IsChecked="True" />
+                        <ToggleSplitButton Classes="Danger" Content="Danger" IsChecked="True" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleSplitButton Content="Unchecked" Classes="Success" IsEnabled="False" />
+                        <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleSplitButton Content="Large" Classes="Large" />
+                        <ToggleSplitButton Content="Default" />
+                        <ToggleSplitButton Content="Small" Classes="Small" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleSplitButton Content="Primary" Classes="Colorful Primary" />
+                        <ToggleSplitButton Content="Tertiary" Classes="Colorful Tertiary" />
+                        <ToggleSplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleSplitButton Content="Primary" Classes="Colorful Primary" IsChecked="True" />
+                        <ToggleSplitButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="True" />
+                        <ToggleSplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" IsChecked="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </HeaderedContentControl>
+            
+            <HeaderedContentControl
+            Theme="{StaticResource GroupBox}" Header="ToggleButton">
+            <StackPanel HorizontalAlignment="Left" Spacing="16">
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Default" />
+                    <ToggleButton Content="Primary" Classes="Primary" />
+                    <ToggleButton Content="Secondary" Classes="Secondary" />
+                    <ToggleButton Content="Tertiary" Classes="Tertiary" />
+                    <ToggleButton Content="Success" Classes="Success" />
+                    <ToggleButton Content="Warning" Classes="Warning" />
+                    <ToggleButton Content="Danger" Classes="Danger" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Default" IsChecked="True"/>
+                    <ToggleButton Content="Primary" Classes="Primary" IsChecked="True"/>
+                    <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="True"/>
+                    <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="True"/>
+                    <ToggleButton Content="Success" Classes="Success" IsChecked="True"/>
+                    <ToggleButton Content="Warning" Classes="Warning" IsChecked="True"/>
+                    <ToggleButton Content="Danger" Classes="Danger" IsChecked="True"/>
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Default" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Primary" Classes="Primary" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Success" Classes="Success" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Warning" Classes="Warning" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Danger" Classes="Danger" IsChecked="{x:Null}" IsThreeState="True" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Unchecked" IsEnabled="False" />
+                    <ToggleButton Content="Checked" IsEnabled="False" IsChecked="True" />
+                    <ToggleButton Content="Indeterminate" IsEnabled="False" IsChecked="{x:Null}" IsThreeState="True" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Large" Classes="Large" />
+                    <ToggleButton Content="Default" />
+                    <ToggleButton Content="Small" Classes="Small" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Primary" Classes="Colorful Primary" />
+                    <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" />
+                    <ToggleButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="True" />
+                    <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="True" />
+                    <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="True" IsEnabled="False" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="16" LineSpacing="16">
+                    <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
+                    <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" IsEnabled="False" />
+                </WrapPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSplitButton Content="Default" Classes="Success" />
-                <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True" />
-                <ToggleSplitButton Content="Default" Classes="Success" IsEnabled="False" />
-                <ToggleSplitButton Content="Checked" Classes="Success" IsChecked="True" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSplitButton Classes="Small" Content="Small" />
-                <ToggleSplitButton Content="Default" />
-                <ToggleSplitButton Classes="Large" Content="Large" />
-            </StackPanel>
+        </HeaderedContentControl>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
