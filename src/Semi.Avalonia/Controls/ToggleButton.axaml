@@ -2,20 +2,67 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Margin="20">
-            <ToggleButton Classes="Primary">Toggle</ToggleButton>
-            <ToggleButton Classes="Secondary">Toggle</ToggleButton>
-            <ToggleButton Classes="Tertiary">Toggle</ToggleButton>
-            <ToggleButton Classes="Success">Toggle</ToggleButton>
-            <ToggleButton Classes="Warning">Toggle</ToggleButton>
-            <ToggleButton Classes="Danger">Toggle</ToggleButton>
-
-            <ToggleButton Classes="Primary" IsThreeState="True">Toggle 3</ToggleButton>
-            <ToggleButton Classes="Secondary" IsThreeState="True">Toggle 3</ToggleButton>
-            <ToggleButton Classes="Tertiary" IsThreeState="True">Toggle 3</ToggleButton>
-            <ToggleButton Classes="Success" IsThreeState="True">Toggle 3</ToggleButton>
-            <ToggleButton Classes="Warning" IsThreeState="True">Toggle 3</ToggleButton>
-            <ToggleButton Classes="Danger" IsThreeState="True">Toggle 3</ToggleButton>
+        <StackPanel HorizontalAlignment="Left" Spacing="16">
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <ToggleButton Content="Default" />
+                <ToggleButton Content="Primary" Classes="Primary" />
+                <ToggleButton Content="Secondary" Classes="Secondary" />
+                <ToggleButton Content="Tertiary" Classes="Tertiary" />
+                <ToggleButton Content="Success" Classes="Success" />
+                <ToggleButton Content="Warning" Classes="Warning" />
+                <ToggleButton Content="Danger" Classes="Danger" />
+                <ToggleButton Content="Disabled" Classes="Danger" IsEnabled="False" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <ToggleButton Content="Default" IsChecked="True" />
+                <ToggleButton Content="Primary" Classes="Primary" IsChecked="True" />
+                <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="True" />
+                <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="True" />
+                <ToggleButton Content="Success" Classes="Success" IsChecked="True" />
+                <ToggleButton Content="Warning" Classes="Warning" IsChecked="True" />
+                <ToggleButton Content="Danger" Classes="Danger" IsChecked="True" />
+                <ToggleButton Content="Disabled" Classes="Danger" IsChecked="True" IsEnabled="False" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <ToggleButton Content="Default" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Primary" Classes="Primary" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Success" Classes="Success" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Warning" Classes="Warning" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Danger" Classes="Danger" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Disabled" Classes="Danger" IsChecked="{x:Null}" IsThreeState="True" IsEnabled="False" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <ToggleButton Content="Default" Classes="Colorful" />
+                <ToggleButton Content="Primary" Classes="Colorful Primary" />
+                <ToggleButton Content="Secondary" Classes="Colorful Secondary" />
+                <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" />
+                <ToggleButton Content="Success" Classes="Colorful Success" />
+                <ToggleButton Content="Warning" Classes="Colorful Warning" />
+                <ToggleButton Content="Danger" Classes="Colorful Danger" />
+                <ToggleButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <ToggleButton Content="Default" Classes="Colorful" IsChecked="True" />
+                <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="True" />
+                <ToggleButton Content="Secondary" Classes="Colorful Secondary" IsChecked="True" />
+                <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="True" />
+                <ToggleButton Content="Success" Classes="Colorful Success" IsChecked="True" />
+                <ToggleButton Content="Warning" Classes="Colorful Warning" IsChecked="True" />
+                <ToggleButton Content="Danger" Classes="Colorful Danger" IsChecked="True" />
+                <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="True" IsEnabled="False" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16" LineSpacing="16">
+                <ToggleButton Content="Default" Classes="Colorful" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Secondary" Classes="Colorful Secondary" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Success" Classes="Colorful Success" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Warning" Classes="Colorful Warning" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Danger" Classes="Colorful Danger" IsChecked="{x:Null}" IsThreeState="True" />
+                <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" IsEnabled="False" />
+            </WrapPanel>
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme
@@ -136,6 +183,39 @@
                 </Style>
             </Style>
 
+            <Style Selector="^.Colorful">
+                <Style Selector="^.Primary">
+                    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
+                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryBackground}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryBackground}" />
+                    </Style>
+                    <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryPointeroverBackground}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryPointeroverBackground}" />
+                    </Style>
+                    <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryPressedBackground}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryPressedBackground}" />
+                    </Style>
+                </Style>
+                <Style Selector="^.Tertiary">
+                    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidColorfulTertiaryForeground}" />
+                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryBackground}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryBackground}" />
+                    </Style>
+                    <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryPointeroverBackground}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryPointeroverBackground}" />
+                    </Style>
+                    <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryPressedBackground}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryPressedBackground}" />
+                    </Style>
+                </Style>
+            </Style>
+
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonSolidDisabledForeground}" />
                 <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
@@ -174,6 +254,14 @@
             <Style Selector="^.Danger /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
             </Style>
+
+            <Style Selector="^.Colorful">
+                <Style Selector="^.Primary /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource ButtonOutlineColorfulPrimaryForeground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineColorfulPrimaryBorderBrush}" />
+                </Style>
+            </Style>
+
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
                 <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
