@@ -75,7 +75,16 @@
                 <Label Classes="Solid Grey" Theme="{StaticResource TagLabel}">Grey</Label>
                 <Label Classes="Solid White" Theme="{StaticResource TagLabel}">White</Label>
             </WrapPanel>
-
+            <WrapPanel>
+                <Label Classes="Colorful Gradient" Theme="{DynamicResource TagLabel}">AI</Label>
+                <Label Classes="Colorful Gradient Ghost" Theme="{DynamicResource TagLabel}">AI</Label>
+                <Label Classes="Colorful Gradient Solid" Theme="{DynamicResource TagLabel}">AI</Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Classes="Colorful" Theme="{DynamicResource TagLabel}">AI</Label>
+                <Label Classes="Colorful Ghost" Theme="{DynamicResource TagLabel}">AI</Label>
+                <Label Classes="Colorful Solid" Theme="{DynamicResource TagLabel}">AI</Label>
+            </WrapPanel>
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Label}" TargetType="Label">
@@ -162,6 +171,7 @@
     <!--  Shape: Square,Circle. Default is Square  -->
     <!--  Size: Small, Large. Default is Small  -->
     <!--  Color: Red, Pink, Purple, Violet, Indigo, Blue, LightBlue, Cyan, Teal, Green, LightGreen, Lime, Yellow, Amber, Orange, Grey, White. Default is Grey  -->
+    <!--  AI style: Colorful, Gradient  -->
     <ControlTheme x:Key="TagLabel" TargetType="Label">
         <Setter Property="BorderThickness" Value="{DynamicResource LabelTagBorderThickness}" />
         <Setter Property="MinHeight" Value="{DynamicResource LabelTagSmallHeight}" />
@@ -394,6 +404,35 @@
             <Setter Property="Foreground" Value="{DynamicResource LabelTagSolidWhiteForeground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource LabelTagSolidWhiteBorderBrush}" />
             <Setter Property="Background" Value="{DynamicResource LabelTagSolidWhiteBackground}" />
+        </Style>
+
+        <Style Selector="^.Colorful">
+            <Setter Property="FontWeight" Value="{StaticResource LabelTagColorfulFontWeight}" />
+
+            <Setter Property="Foreground" Value="{DynamicResource LabelTagColorfulLightForeground}" />
+            <Setter Property="Background" Value="{DynamicResource LabelTagColorfulLightBackground}" />
+            <Style Selector="^.Ghost">
+                <Setter Property="Foreground" Value="{DynamicResource LabelTagColorfulGhostForeground}" />
+                <Setter Property="Background" Value="{DynamicResource LabelTagColorfulGhostBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource LabelTagColorfulGhostBorderBrush}" />
+            </Style>
+            <Style Selector="^.Solid">
+                <Setter Property="Foreground" Value="{DynamicResource LabelTagColorfulSolidForeground}" />
+                <Setter Property="Background" Value="{DynamicResource LabelTagColorfulSolidBackground}" />
+            </Style>
+            <Style Selector="^.Gradient">
+                <Setter Property="Foreground" Value="{DynamicResource LabelTagColorfulGradientLightForeground}" />
+                <Setter Property="Background" Value="{DynamicResource LabelTagColorfulGradientLightBackground}" />
+                <Style Selector="^.Ghost">
+                    <Setter Property="Foreground" Value="{DynamicResource LabelTagColorfulGradientGhostForeground}" />
+                    <Setter Property="Background" Value="{DynamicResource LabelTagColorfulGradientGhostBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource LabelTagColorfulGradientGhostBorderBrush}" />
+                </Style>
+                <Style Selector="^.Solid">
+                    <Setter Property="Foreground" Value="{DynamicResource LabelTagColorfulGradientSolidForeground}" />
+                    <Setter Property="Background" Value="{DynamicResource LabelTagColorfulGradientSolidBackground}" />
+                </Style>
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
