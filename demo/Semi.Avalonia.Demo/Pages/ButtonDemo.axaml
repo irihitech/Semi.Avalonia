@@ -275,26 +275,6 @@
                         <SplitButton Content="Default" />
                         <SplitButton Content="Small" Classes="Small" />
                     </WrapPanel>
-                    <WrapPanel ItemSpacing="16" LineSpacing="16">
-                        <SplitButton Content="Primary" Classes="Colorful Primary" />
-                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" />
-                        <SplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
-                    </WrapPanel>
-                    <WrapPanel ItemSpacing="16" LineSpacing="16">
-                        <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource SolidSplitButton}" />
-                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource SolidSplitButton}" />
-                        <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource SolidSplitButton}" IsEnabled="False" />
-                    </WrapPanel>
-                    <WrapPanel ItemSpacing="16" LineSpacing="16">
-                        <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource OutlineSplitButton}" />
-                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource OutlineSplitButton}" />
-                        <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource OutlineSplitButton}" IsEnabled="False" />
-                    </WrapPanel>
-                    <WrapPanel ItemSpacing="16" LineSpacing="16">
-                        <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{StaticResource BorderlessSplitButton}" />
-                        <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{StaticResource BorderlessSplitButton}" />
-                        <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{StaticResource BorderlessSplitButton}" IsEnabled="False" />
-                    </WrapPanel>
                 </StackPanel>
             </HeaderedContentControl>
 
@@ -329,76 +309,66 @@
                         <ToggleSplitButton Content="Default" />
                         <ToggleSplitButton Content="Small" Classes="Small" />
                     </WrapPanel>
+                </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl
+                Theme="{StaticResource GroupBox}" Header="ToggleButton">
+                <StackPanel HorizontalAlignment="Left" Spacing="16">
                     <WrapPanel ItemSpacing="16" LineSpacing="16">
-                        <ToggleSplitButton Content="Primary" Classes="Colorful Primary" />
-                        <ToggleSplitButton Content="Tertiary" Classes="Colorful Tertiary" />
-                        <ToggleSplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                        <ToggleButton Content="Default" />
+                        <ToggleButton Content="Primary" Classes="Primary" />
+                        <ToggleButton Content="Secondary" Classes="Secondary" />
+                        <ToggleButton Content="Tertiary" Classes="Tertiary" />
+                        <ToggleButton Content="Success" Classes="Success" />
+                        <ToggleButton Content="Warning" Classes="Warning" />
+                        <ToggleButton Content="Danger" Classes="Danger" />
                     </WrapPanel>
                     <WrapPanel ItemSpacing="16" LineSpacing="16">
-                        <ToggleSplitButton Content="Primary" Classes="Colorful Primary" IsChecked="True" />
-                        <ToggleSplitButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="True" />
-                        <ToggleSplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" IsChecked="True" />
+                        <ToggleButton Content="Default" IsChecked="True" />
+                        <ToggleButton Content="Primary" Classes="Primary" IsChecked="True" />
+                        <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="True" />
+                        <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="True" />
+                        <ToggleButton Content="Success" Classes="Success" IsChecked="True" />
+                        <ToggleButton Content="Warning" Classes="Warning" IsChecked="True" />
+                        <ToggleButton Content="Danger" Classes="Danger" IsChecked="True" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleButton Content="Default" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Primary" Classes="Primary" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Success" Classes="Success" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Warning" Classes="Warning" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Danger" Classes="Danger" IsChecked="{x:Null}" IsThreeState="True" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleButton Content="Unchecked" IsEnabled="False" />
+                        <ToggleButton Content="Checked" IsEnabled="False" IsChecked="True" />
+                        <ToggleButton Content="Indeterminate" IsEnabled="False" IsChecked="{x:Null}" IsThreeState="True" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleButton Content="Large" Classes="Large" />
+                        <ToggleButton Content="Default" />
+                        <ToggleButton Content="Small" Classes="Small" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleButton Content="Primary" Classes="Colorful Primary" />
+                        <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" />
+                        <ToggleButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="True" />
+                        <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="True" />
+                        <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="True" IsEnabled="False" />
+                    </WrapPanel>
+                    <WrapPanel ItemSpacing="16" LineSpacing="16">
+                        <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
+                        <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" IsEnabled="False" />
                     </WrapPanel>
                 </StackPanel>
             </HeaderedContentControl>
-            
-            <HeaderedContentControl
-            Theme="{StaticResource GroupBox}" Header="ToggleButton">
-            <StackPanel HorizontalAlignment="Left" Spacing="16">
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Default" />
-                    <ToggleButton Content="Primary" Classes="Primary" />
-                    <ToggleButton Content="Secondary" Classes="Secondary" />
-                    <ToggleButton Content="Tertiary" Classes="Tertiary" />
-                    <ToggleButton Content="Success" Classes="Success" />
-                    <ToggleButton Content="Warning" Classes="Warning" />
-                    <ToggleButton Content="Danger" Classes="Danger" />
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Default" IsChecked="True"/>
-                    <ToggleButton Content="Primary" Classes="Primary" IsChecked="True"/>
-                    <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="True"/>
-                    <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="True"/>
-                    <ToggleButton Content="Success" Classes="Success" IsChecked="True"/>
-                    <ToggleButton Content="Warning" Classes="Warning" IsChecked="True"/>
-                    <ToggleButton Content="Danger" Classes="Danger" IsChecked="True"/>
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Default" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Primary" Classes="Primary" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Secondary" Classes="Secondary" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Tertiary" Classes="Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Success" Classes="Success" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Warning" Classes="Warning" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Danger" Classes="Danger" IsChecked="{x:Null}" IsThreeState="True" />
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Unchecked" IsEnabled="False" />
-                    <ToggleButton Content="Checked" IsEnabled="False" IsChecked="True" />
-                    <ToggleButton Content="Indeterminate" IsEnabled="False" IsChecked="{x:Null}" IsThreeState="True" />
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Large" Classes="Large" />
-                    <ToggleButton Content="Default" />
-                    <ToggleButton Content="Small" Classes="Small" />
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Primary" Classes="Colorful Primary" />
-                    <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" />
-                    <ToggleButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="True" />
-                    <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="True" />
-                    <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="True" IsEnabled="False" />
-                </WrapPanel>
-                <WrapPanel ItemSpacing="16" LineSpacing="16">
-                    <ToggleButton Content="Primary" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Tertiary" Classes="Colorful Tertiary" IsChecked="{x:Null}" IsThreeState="True" />
-                    <ToggleButton Content="Disabled" Classes="Colorful Primary" IsChecked="{x:Null}" IsThreeState="True" IsEnabled="False" />
-                </WrapPanel>
-            </StackPanel>
-        </HeaderedContentControl>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

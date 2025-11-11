@@ -2,89 +2,22 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Margin="16" Spacing="16">
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" />
-                <SplitButton Content="Primary" Classes="Primary" />
-                <SplitButton Content="Secondary" Classes="Secondary" />
-                <SplitButton Content="Tertiary" Classes="Tertiary" />
-                <SplitButton Content="Success" Classes="Success" />
-                <SplitButton Content="Warning" Classes="Warning" />
-                <SplitButton Content="Danger" Classes="Danger" />
-                <SplitButton Content="Disabled" Classes="Danger" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Primary" Classes="Primary" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Secondary" Classes="Secondary" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Tertiary" Classes="Tertiary" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Success" Classes="Success" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Warning" Classes="Warning" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Danger" Classes="Danger" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Disabled" Classes="Danger" Theme="{DynamicResource SolidSplitButton}" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Primary" Classes="Primary" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Secondary" Classes="Secondary" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Tertiary" Classes="Tertiary" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Success" Classes="Success" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Warning" Classes="Warning" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Danger" Classes="Danger" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Disabled" Classes="Danger" Theme="{DynamicResource OutlineSplitButton}" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Primary" Classes="Primary" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Secondary" Classes="Secondary" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Tertiary" Classes="Tertiary" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Success" Classes="Success" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Warning" Classes="Warning" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Danger" Classes="Danger" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Disabled" Classes="Danger" Theme="{DynamicResource BorderlessSplitButton}" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Classes="Colorful" />
-                <SplitButton Content="Primary" Classes="Colorful Primary" />
-                <SplitButton Content="Secondary" Classes="Colorful Secondary" />
-                <SplitButton Content="Tertiary" Classes="Colorful Tertiary" />
-                <SplitButton Content="Success" Classes="Colorful Success" />
-                <SplitButton Content="Warning" Classes="Colorful Warning" />
-                <SplitButton Content="Danger" Classes="Colorful Danger" />
-                <SplitButton Content="Disabled" Classes="Colorful Primary" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Classes="Colorful" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Secondary" Classes="Colorful Secondary" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Success" Classes="Colorful Success" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Warning" Classes="Colorful Warning" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Danger" Classes="Colorful Danger" Theme="{DynamicResource SolidSplitButton}" />
-                <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{DynamicResource SolidSplitButton}" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Classes="Colorful" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Secondary" Classes="Colorful Secondary" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Success" Classes="Colorful Success" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Warning" Classes="Colorful Warning" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Danger" Classes="Colorful Danger" Theme="{DynamicResource OutlineSplitButton}" />
-                <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{DynamicResource OutlineSplitButton}" IsEnabled="False" />
-            </WrapPanel>
-            <WrapPanel ItemSpacing="16">
-                <SplitButton Content="Default" Classes="Colorful" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Primary" Classes="Colorful Primary" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Secondary" Classes="Colorful Secondary" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Tertiary" Classes="Colorful Tertiary" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Success" Classes="Colorful Success" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Warning" Classes="Colorful Warning" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Danger" Classes="Colorful Danger" Theme="{DynamicResource BorderlessSplitButton}" />
-                <SplitButton Content="Disabled" Classes="Colorful Primary" Theme="{DynamicResource BorderlessSplitButton}" IsEnabled="False" />
-            </WrapPanel>
+        <StackPanel Width="500" Height="500" Margin="20" Spacing="8">
+            <SplitButton
+                Theme="{DynamicResource SolidSplitButton}"
+                Content="Hello" />
+            <ToggleSplitButton
+                IsChecked="True"
+                HorizontalAlignment="Stretch"
+                Content="Hello" />
+            <SplitButton
+                Theme="{DynamicResource SolidSplitButton}" />
+            <ToggleSplitButton
+                IsChecked="True"
+                HorizontalAlignment="Stretch" />
         </StackPanel>
     </Design.PreviewWith>
+
     <ControlTheme x:Key="SemiSplitButtonElement" TargetType="Button">
         <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
@@ -215,12 +148,6 @@
         <Style Selector="^.Danger /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDangerForeground}" />
         </Style>
-        <Style Selector="^.Colorful">
-            <Style Selector="^.Primary /template/ Button">
-                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultColorfulPrimaryForeground}" />
-            </Style>
-        </Style>
-
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Button">
                 <Setter Property="FocusAdorner">
@@ -293,39 +220,6 @@
                     <Setter Property="Background" Value="{DynamicResource ButtonSolidDangerPressedBackground}" />
                 </Style>
             </Style>
-
-            <Style Selector="^.Colorful">
-                <Style Selector="^.Primary">
-                    <Style Selector="^ /template/ Button">
-                        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
-                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryBackground}" />
-                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryBackground}" />
-                        <Style Selector="^:pointerover">
-                            <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryPointeroverBackground}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryPointeroverBackground}" />
-                        </Style>
-                        <Style Selector="^:pressed">
-                            <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryPressedBackground}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryPressedBackground}" />
-                        </Style>
-                    </Style>
-                </Style>
-                <Style Selector="^.Tertiary">
-                    <Style Selector="^ /template/ Button">
-                        <Setter Property="Foreground" Value="{DynamicResource ButtonSolidColorfulTertiaryForeground}" />
-                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryBackground}" />
-                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryBackground}" />
-                        <Style Selector="^:pointerover">
-                            <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryPointeroverBackground}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryPointeroverBackground}" />
-                        </Style>
-                        <Style Selector="^:pressed">
-                            <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryPressedBackground}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryPressedBackground}" />
-                        </Style>
-                    </Style>
-                </Style>
-            </Style>
         </Style>
         <Style Selector="^.Large /template/ Button#PART_PrimaryButton">
             <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
@@ -342,7 +236,6 @@
         <Style Selector="^:disabled /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
         </Style>
         <!-- only for ToggleSplitButton -->
         <Style Selector="^:checked:disabled /template/ Button">
@@ -434,43 +327,9 @@
             </Style>
         </Style>
 
-        <Style Selector="^.Colorful">
-            <Style Selector="^.Primary">
-                <Style Selector="^ /template/ Button">
-                    <Setter Property="Foreground" Value="{DynamicResource ButtonSolidForeground}" />
-                    <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryBackground}" />
-                    <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryBackground}" />
-                    <Style Selector="^:pointerover">
-                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryPointeroverBackground}" />
-                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryPointeroverBackground}" />
-                    </Style>
-                    <Style Selector="^:pressed">
-                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulPrimaryPressedBackground}" />
-                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulPrimaryPressedBackground}" />
-                    </Style>
-                </Style>
-            </Style>
-            <Style Selector="^.Tertiary">
-                <Style Selector="^ /template/ Button">
-                    <Setter Property="Foreground" Value="{DynamicResource ButtonSolidColorfulTertiaryForeground}" />
-                    <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryBackground}" />
-                    <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryBackground}" />
-                    <Style Selector="^:pointerover">
-                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryPointeroverBackground}" />
-                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryPointeroverBackground}" />
-                    </Style>
-                    <Style Selector="^:pressed">
-                        <Setter Property="Background" Value="{DynamicResource ButtonSolidColorfulTertiaryPressedBackground}" />
-                        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidColorfulTertiaryPressedBackground}" />
-                    </Style>
-                </Style>
-            </Style>
-        </Style>
-
         <Style Selector="^:disabled /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonSolidDisabledForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonSolidDisabledBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidDisabledBorderBrush}" />
         </Style>
     </ControlTheme>
 
@@ -497,14 +356,6 @@
         <Style Selector="^.Danger /template/ Button">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
         </Style>
-
-        <Style Selector="^.Colorful">
-            <Style Selector="^.Primary /template/ Button">
-                <Setter Property="Foreground" Value="{DynamicResource ButtonOutlineColorfulPrimaryForeground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineColorfulPrimaryBorderBrush}" />
-            </Style>
-        </Style>
-
         <Style Selector="^:disabled /template/ Button">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
