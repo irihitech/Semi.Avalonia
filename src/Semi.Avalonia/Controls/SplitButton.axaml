@@ -44,12 +44,14 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                    RecognizesAccessKey="True"
                     TextElement.FontSize="{TemplateBinding FontSize}"
                     TextElement.FontWeight="{TemplateBinding FontWeight}"
                     UseLayoutRounding="False" />
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">

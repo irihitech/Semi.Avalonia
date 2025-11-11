@@ -41,7 +41,6 @@
                             Grid.Row="0"
                             Content="{TemplateBinding Header}"
                             ContentTemplate="{TemplateBinding HeaderTemplate}"
-                            RecognizesAccessKey="True"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             FontSize="{TemplateBinding FontSize}"
@@ -53,7 +52,6 @@
                             Grid.Row="1"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             Content="{TemplateBinding Content}"
-                            RecognizesAccessKey="True"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             FontSize="{TemplateBinding FontSize}"
@@ -64,6 +62,14 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="GroupBox" TargetType="HeaderedContentControl">
