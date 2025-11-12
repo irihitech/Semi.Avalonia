@@ -64,8 +64,7 @@
                         VerticalAlignment="Top"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                        IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}"
-                        RecognizesAccessKey="True" />
+                        IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
 
                     <Border
                         Name="SwitchBackgroundBorder"
@@ -139,6 +138,10 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter:empty">
             <Setter Property="Margin" Value="0" />

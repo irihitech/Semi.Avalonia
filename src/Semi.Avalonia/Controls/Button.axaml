@@ -123,7 +123,6 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                    RecognizesAccessKey="True"
                     TextElement.FontSize="{TemplateBinding FontSize}"
                     TextElement.FontWeight="{TemplateBinding FontWeight}"
                     UseLayoutRounding="False" />
@@ -133,6 +132,7 @@
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{TemplateBinding Background}" />
             <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
 
         <Style Selector="^.Primary /template/ ContentPresenter#PART_ContentPresenter">

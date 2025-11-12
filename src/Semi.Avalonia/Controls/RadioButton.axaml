@@ -64,12 +64,15 @@
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
                             FontSize="{TemplateBinding FontSize}"
-                            RecognizesAccessKey="True"
                             TextWrapping="Wrap" />
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^:unchecked">
             <Style Selector="^ /template/ Ellipse#CheckGlyph">
@@ -162,12 +165,14 @@
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
-                    RecognizesAccessKey="True"
                     TextElement.FontSize="{TemplateBinding FontSize}"
                     TextElement.FontWeight="{TemplateBinding FontWeight}"
                     UseLayoutRounding="False" />
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
         <Style Selector="^:unchecked">
             <Setter Property="Background" Value="Transparent" />
             <Style Selector="^:pointerover">
@@ -249,13 +254,16 @@
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             Foreground="{TemplateBinding Foreground}"
                             IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
-                            RecognizesAccessKey="True"
                             FontSize="{TemplateBinding FontSize}"
                             TextWrapping="Wrap" />
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
 
         <Style Selector="^:unchecked">
             <Style Selector="^ /template/ Ellipse#CheckGlyph">
@@ -369,11 +377,13 @@
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
-                    RecognizesAccessKey="True"
                     UseLayoutRounding="False"
                     TextWrapping="Wrap" />
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
         <Style Selector="^:unchecked">
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardDefaultBorderBrush}" />

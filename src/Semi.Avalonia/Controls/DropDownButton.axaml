@@ -126,8 +126,7 @@
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Foreground="{TemplateBinding Foreground}"
-                            RecognizesAccessKey="True" />
+                            Foreground="{TemplateBinding Foreground}" />
                     </DockPanel>
                 </Border>
             </ControlTemplate>
@@ -136,6 +135,10 @@
         <Style Selector="^ /template/ Border#PART_Background">
             <Setter Property="Background" Value="{TemplateBinding Background}" />
             <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
 
         <Style Selector="^.Primary /template/ ContentPresenter#PART_ContentPresenter">

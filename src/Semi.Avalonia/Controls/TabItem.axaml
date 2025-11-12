@@ -42,6 +42,10 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
         <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
             <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
