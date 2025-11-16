@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 env:
   PROJECT_PATH: demo/Semi.Avalonia.Demo.Web/Semi.Avalonia.Demo.Web.csproj
-  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net9.0-browser/publish/wwwroot
+  OUTPUT_PATH: demo/Semi.Avalonia.Demo.Web/bin/Release/net10.0-browser/publish/wwwroot
 on:
   workflow_dispatch:
 
@@ -17,8 +17,7 @@ jobs:
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
-            8.0.x
-            9.0.x
+            10.0.x
 
       - name: Install wasm-tools
         run: dotnet workload install wasm-tools
