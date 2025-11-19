@@ -1,19 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="../Package.props"/>
-
     <PropertyGroup>
-        <Title>Semi.Avalonia.ColorPicker</Title>
+        <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
+        <Version>11.3.7.1</Version>
         <PackageReleaseNotes>Update to Semi.Avalonia.ColorPicker 11.3.7.1</PackageReleaseNotes>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
-        <IsAotCompatible>true</IsAotCompatible>
+        <Title>Semi.Avalonia.ColorPicker</Title>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)"/>
-        <None Include="README.md" Pack="true" PackagePath="\" />
+        <PackageReference Include="Avalonia.Controls.ColorPicker"/>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>

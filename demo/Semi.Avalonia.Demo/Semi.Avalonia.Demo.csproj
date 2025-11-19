@@ -11,16 +11,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(DataGridVersion)"/>
+        <PackageReference Include="Avalonia"/>
+        <PackageReference Include="Avalonia.Controls.ColorPicker"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)">
+        <PackageReference Include="Avalonia.Diagnostics">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="$(CommunityToolkitVersion)"/>
-        <PackageReference Include="Irihi.Avalonia.Shared" Version="0.3.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm"/>
+        <PackageReference Include="Irihi.Avalonia.Shared"/>
     </ItemGroup>
 
     <ItemGroup>
