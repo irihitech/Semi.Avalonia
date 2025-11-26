@@ -1,10 +1,11 @@
 ﻿<ResourceDictionary
     x:Class="Semi.Avalonia.Icons"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="https://irihi.tech/semi">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="FillIcons.axaml" />
-        <ResourceInclude Source="StrokedIcons.axaml" />
-        <ResourceInclude Source="AIIcons.axaml" />
+        <semi:FillIcons />
+        <semi:StrokedIcons />
+        <semi:AIIcons />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
