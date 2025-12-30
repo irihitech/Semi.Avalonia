@@ -212,10 +212,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Install Android workload
+        run: dotnet workload install android
       - name: Restore Dependencies
         run: dotnet restore demo/Semi.Avalonia.Demo.Android
       - name: Publish Android
-        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net9.0-android --no-restore -o publish /p:RuntimeIdentifier=android-arm64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net10.0-android --no-restore -o publish /p:RuntimeIdentifier=android-arm64
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
