@@ -75,14 +75,12 @@ dotnet add package Semi.Avalonia.AvaloniaEdit
 
 ## 版本兼容性
 
-| Semi Design Version | Avalonia Version |
-|:--------------------|:-----------------|
-| 11.3.7              | 11.3.7           |
-| 11.2.1              | >=11.2.1         |
-| 11.2.0              | 11.2.0           |
-| 11.1.0              | >=11.1.0         |
-| 11.0.7              | >=11.0.7         |
-| 11.0.1              | <=11.0.6         |
+| Semi Avalonia Version | Avalonia Version |
+|:----------------------|:-----------------|
+| 11.3.7                | >=11.3.7         |
+| 11.2.1                | >=11.2.1         |
+| 11.2.0                | End of Life      |
+| 11.1.x                | End of Life      |
 
 ## 致谢
 
