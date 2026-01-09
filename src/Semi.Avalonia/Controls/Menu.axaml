@@ -7,6 +7,7 @@
 
     <ControlTheme x:Key="MenuScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="False" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ScrollViewer">
                 <DockPanel>
@@ -349,7 +350,7 @@
                                 BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
                                 BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                                 CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
-                                <ScrollViewer Theme="{StaticResource MenuScrollViewer}" CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
+                                <ScrollViewer Theme="{StaticResource MenuScrollViewer}" IsScrollChainingEnabled="False" CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
                                     <ItemsPresenter
                                         Name="PART_ItemsPresenter"
                                         Grid.IsSharedSizeScope="True"
