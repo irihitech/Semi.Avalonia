@@ -28,6 +28,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
         <Setter Property="Padding" Value="{DynamicResource ComboBoxSelectorDefaultPadding}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="MaxDropDownHeight" Value="{DynamicResource ComboBoxPopupMaxDropDownHeight}" />
         <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBackground}" />
@@ -92,7 +93,7 @@
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Foreground="{TemplateBinding Foreground}"
                             Text="{TemplateBinding Text, Mode=TwoWay}"
-                            Watermark="{TemplateBinding PlaceholderText}"
+                            PlaceholderText="{TemplateBinding PlaceholderText}"
                             IsVisible="{TemplateBinding IsEditable}" />
 
                         <Button
