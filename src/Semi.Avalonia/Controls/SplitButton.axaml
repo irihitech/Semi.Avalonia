@@ -76,23 +76,12 @@
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="SplitButton">
-                <DockPanel HorizontalSpacing="{DynamicResource SplitButtonSeparatorWidth}">
-                    <Button
-                        Name="PART_SecondaryButton"
-                        Padding="0"
-                        MinHeight="{TemplateBinding MinHeight}"
-                        MinWidth="{Binding $self.MinHeight}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}"
-                        DockPanel.Dock="Right"
-                        Theme="{DynamicResource SemiSplitButtonElement}">
-                        <PathIcon
-                            Theme="{DynamicResource InnerPathIcon}"
-                            Data="{DynamicResource SplitButtonIconGlyph}"
-                            Foreground="{Binding $parent[Button].Foreground}" />
-                    </Button>
+                <Grid 
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="{DynamicResource SplitButtonSeparatorWidth}">
                     <Button
                         Name="PART_PrimaryButton"
+                        Grid.Column="0"
                         Padding="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -106,7 +95,21 @@
                         FontSize="{TemplateBinding FontSize}"
                         FontWeight="{TemplateBinding FontWeight}"
                         Theme="{DynamicResource SemiSplitButtonElement}" />
-                </DockPanel>
+                    <Button
+                        Name="PART_SecondaryButton"
+                        Grid.Column="1"
+                        Padding="0"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        MinWidth="{Binding $self.MinHeight}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}"
+                        Theme="{DynamicResource SemiSplitButtonElement}">
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Data="{DynamicResource SplitButtonIconGlyph}"
+                            Foreground="{Binding $parent[Button].Foreground}" />
+                    </Button>
+                </Grid>
             </ControlTemplate>
         </Setter>
 
