@@ -1,8 +1,8 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Avalonia.Controls.Converters"
-    xmlns:semiConverters="clr-namespace:Semi.Avalonia.Converters">
+    xmlns:semi="https://irihi.tech/semi"
+    xmlns:converters="using:Avalonia.Controls.Converters">
     <Design.PreviewWith>
         <StackPanel Margin="20" Spacing="20">
             <ProgressBar
@@ -338,8 +338,6 @@
         </Style>
     </ControlTheme>
 
-    <semiConverters:PositionToAngleConverter x:Key="AngleConverter" />
-
     <ControlTheme x:Key="ProgressRing" TargetType="ProgressBar">
         <Setter Property="Foreground" Value="{DynamicResource ProgressBarIndicatorBrush}" />
         <Setter Property="Background" Value="{DynamicResource ProgressBarBackground}" />
@@ -365,8 +363,7 @@
                         StrokeJoin="Round"
                         StrokeLineCap="Round"
                         StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
-                        SweepAngle="{TemplateBinding Percentage,
-                                                     Converter={StaticResource AngleConverter}}" />
+                        SweepAngle="{TemplateBinding Percentage,Converter={semi:PositionToAngleConverter}}" />
                     <Arc
                         Name="IndeterminateIndicator"
                         Opacity="0"
@@ -376,8 +373,7 @@
                         StrokeJoin="Round"
                         StrokeLineCap="Round"
                         StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
-                        SweepAngle="{TemplateBinding Percentage,
-                                                     Converter={StaticResource AngleConverter}}" />
+                        SweepAngle="{TemplateBinding Percentage,Converter={semi:PositionToAngleConverter}}" />
                     <TextBlock
                         Name="PART_ProgressText"
                         HorizontalAlignment="Center"

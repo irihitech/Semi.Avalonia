@@ -2,9 +2,9 @@
     x:Class="Semi.Avalonia.SemiPopupAnimations"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:Semi.Avalonia.Converters">
+    xmlns:semi="https://irihi.tech/semi">
     <Style Selector="Popup LayoutTransformControl#PART_LayoutTransform">
-        <Setter Property="RenderTransformOrigin" Value="{Binding $parent[Popup].Placement, Converter={x:Static converters:PlacementToRenderTransformOriginConverter.Instance}}" />
+        <Setter Property="RenderTransformOrigin" Value="{Binding $parent[Popup].Placement, Converter={semi:PlacementToRenderTransformOriginConverter}}" />
     </Style>
 
     <Style Selector="Popup[IsOpen=True] LayoutTransformControl#PART_LayoutTransform">

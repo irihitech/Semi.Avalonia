@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converter="clr-namespace:Semi.Avalonia.Converters">
+    xmlns:semi="https://irihi.tech/semi">
     <Design.PreviewWith>
         <StackPanel Spacing="20" Width="800" Height="800">
             <StackPanel.Styles>
@@ -197,8 +197,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         ItemContainerTheme="{DynamicResource CarouselIndicatorDotListBoxItem}"
-                        ItemsSource="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemToObjectConverter}}"
-                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
+                        ItemsSource="{TemplateBinding ItemCount, Converter={x:Static semi:ItemConverter.ItemToObjectConverter}}"
+                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static semi:ItemConverter.ItemVisibleConverter}}"
                         SelectedIndex="{TemplateBinding SelectedIndex, Mode=TwoWay}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -213,7 +213,7 @@
                         Theme="{DynamicResource CarouselButton}"
                         Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource CarouselButtonForeground}"
-                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
+                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static semi:ItemConverter.ItemVisibleConverter}}"
                         Command="{Binding $parent[Carousel].Previous}" />
                     <Button
                         Grid.Row="0"
@@ -222,7 +222,7 @@
                         Theme="{DynamicResource CarouselButton}"
                         Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource CarouselButtonForeground}"
-                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static converter:ItemConverter.ItemVisibleConverter}}"
+                        IsVisible="{TemplateBinding ItemCount, Converter={x:Static semi:ItemConverter.ItemVisibleConverter}}"
                         Command="{Binding $parent[Carousel].Next}"
                         RenderTransform="rotate(180deg)" />
                 </Grid>

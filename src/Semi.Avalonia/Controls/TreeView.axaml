@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:Semi.Avalonia.Converters">
+    xmlns:semi="https://irihi.tech/semi">
 
     <Design.PreviewWith>
         <StackPanel
@@ -107,7 +107,7 @@
                         TemplatedControl.IsTemplateFocusTarget="True">
                         <Grid Name="PART_Header" ColumnDefinitions="Auto, *">
                             <Grid.Margin>
-                                <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
+                                <MultiBinding Converter="{semi:TreeViewItemIndentConverter}">
                                     <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
                                     <DynamicResource ResourceKey="TreeViewItemIndent" />
                                 </MultiBinding>
