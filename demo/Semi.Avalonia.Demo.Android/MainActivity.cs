@@ -12,7 +12,7 @@ namespace Semi.Avalonia.Demo.Android;
     MainLauncher = true,
     LaunchMode = LaunchMode.SingleTop,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
-public class MainActivity : AvaloniaMainActivity<App>
+public class MainActivity : AvaloniaMainActivity
 {
     protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
     {
