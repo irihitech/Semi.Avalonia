@@ -13,20 +13,23 @@
     <ItemGroup>
         <PackageReference Include="Avalonia"/>
         <PackageReference Include="Avalonia.Controls.ColorPicker"/>
-        <PackageReference Include="Avalonia.Controls.DataGrid"/>
+<!--        <PackageReference Include="Avalonia.Controls.DataGrid"/>-->
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Include="Avalonia.Diagnostics">
-            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
-            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
-        </PackageReference>
+<!--        <PackageReference Include="Avalonia.Diagnostics">-->
+<!--            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>-->
+<!--            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>-->
+<!--        </PackageReference>-->
         <PackageReference Include="CommunityToolkit.Mvvm"/>
-        <PackageReference Include="Irihi.Avalonia.Shared"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Semi.Avalonia\Semi.Avalonia.csproj"/>
         <ProjectReference Include="..\..\src\Semi.Avalonia.ColorPicker\Semi.Avalonia.ColorPicker.csproj"/>
-        <ProjectReference Include="..\..\src\Semi.Avalonia.DataGrid\Semi.Avalonia.DataGrid.csproj"/>
-        <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj"/>
+<!--        <ProjectReference Include="..\..\src\Semi.Avalonia.DataGrid\Semi.Avalonia.DataGrid.csproj"/>-->
+<!--        <ProjectReference Include="..\..\src\Semi.Avalonia.TreeDataGrid\Semi.Avalonia.TreeDataGrid.csproj"/>-->
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaXaml Remove="Pages\VariablesDemo.axaml" />
     </ItemGroup>
 </Project>
