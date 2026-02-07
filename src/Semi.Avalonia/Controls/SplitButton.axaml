@@ -1,10 +1,13 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iri="https://irihi.tech/shared">
     <Design.PreviewWith>
         <StackPanel Width="500" Height="500" Margin="20" Spacing="8">
             <SplitButton
-                Theme="{DynamicResource SolidSplitButton}"
+                Theme="{DynamicResource OutlineSplitButton}"
+                Classes="Danger"
+                CornerRadius="12"
                 Content="Hello" />
             <ToggleSplitButton
                 IsChecked="True"
@@ -73,47 +76,40 @@
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="SplitButton">
-                <Border
-                    BackgroundSizing="OuterBorderEdge"
-                    ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel>
-                        <Button
-                            Name="PART_SecondaryButton"
-                            Padding="4,0"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="0"
-                            DockPanel.Dock="Right"
-                            Theme="{DynamicResource SemiSplitButtonElement}">
-                            <PathIcon
-                                Theme="{DynamicResource InnerPathIcon}"
-                                Data="{DynamicResource SplitButtonIconGlyph}"
-                                Foreground="{Binding $parent[Button].Foreground}" />
-                        </Button>
-                        <Rectangle
-                            Name="SeparatorBorder"
-                            Width="{DynamicResource SplitButtonSeparatorWidth}"
-                            VerticalAlignment="Stretch"
-                            DockPanel.Dock="Right"
-                            Fill="Transparent"
-                            StrokeThickness="0" />
-                        <Button
-                            Name="PART_PrimaryButton"
-                            Padding="{TemplateBinding Padding}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Command="{TemplateBinding Command}"
-                            CommandParameter="{TemplateBinding CommandParameter}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            CornerRadius="0"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            Theme="{DynamicResource SemiSplitButtonElement}" />
-                    </DockPanel>
-                </Border>
+                <Grid 
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="{DynamicResource SplitButtonSeparatorWidth}">
+                    <Button
+                        Name="PART_PrimaryButton"
+                        Grid.Column="0"
+                        Padding="{TemplateBinding Padding}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Command="{TemplateBinding Command}"
+                        CommandParameter="{TemplateBinding CommandParameter}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}"
+                        FontFamily="{TemplateBinding FontFamily}"
+                        FontSize="{TemplateBinding FontSize}"
+                        FontWeight="{TemplateBinding FontWeight}"
+                        Theme="{DynamicResource SemiSplitButtonElement}" />
+                    <Button
+                        Name="PART_SecondaryButton"
+                        Grid.Column="1"
+                        Padding="0"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        MinWidth="{Binding $self.MinHeight}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}"
+                        Theme="{DynamicResource SemiSplitButtonElement}">
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Data="{DynamicResource SplitButtonIconGlyph}"
+                            Foreground="{Binding $parent[Button].Foreground}" />
+                    </Button>
+                </Grid>
             </ControlTemplate>
         </Setter>
 
