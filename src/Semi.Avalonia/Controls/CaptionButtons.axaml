@@ -50,21 +50,33 @@
                             Data="{StaticResource WindowExpandGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
-                    <Button Name="PART_MinimizeButton" Theme="{StaticResource CaptionButton}">
+                    <Button
+                        Name="PART_MinimizeButton"
+                        Theme="{StaticResource CaptionButton}"
+                        AutomationProperties.Name="Minimize"
+                        Win32Properties.NonClientHitTestResult="MinButton">
                         <PathIcon
                             Name="PART_MinimizeButtonIcon"
                             Theme="{StaticResource InnerPathIcon}"
                             Data="{StaticResource WindowMinimizeGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
-                    <Button Name="PART_RestoreButton" Theme="{StaticResource CaptionButton}">
+                    <Button
+                        Name="PART_RestoreButton"
+                        Theme="{StaticResource CaptionButton}"
+                        AutomationProperties.Name="Maximize"
+                        Win32Properties.NonClientHitTestResult="MaxButton">
                         <PathIcon
                             Name="PART_RestoreButtonIcon"
                             Theme="{StaticResource InnerPathIcon}"
                             Data="{StaticResource WindowMaximizeGlyph}"
                             Foreground="{Binding $parent[Button].Foreground}" />
                     </Button>
-                    <Button Name="PART_CloseButton" Theme="{StaticResource CaptionButton}">
+                    <Button
+                        Name="PART_CloseButton"
+                        Theme="{StaticResource CaptionButton}"
+                        AutomationProperties.Name="Close"
+                        Win32Properties.NonClientHitTestResult="Close">
                         <PathIcon
                             Name="PART_CloseButtonIcon"
                             Theme="{StaticResource InnerPathIcon}"
