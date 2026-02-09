@@ -53,6 +53,7 @@
                                 MinWidth="{StaticResource ScrollBarThickness}"
                                 VerticalAlignment="Center"
                                 Focusable="False"
+                                AutomationProperties.Name="Column left"
                                 Theme="{StaticResource ScrollBarRepeatButton}">
                                 <PathIcon
                                     Theme="{StaticResource InnerPathIcon}"
@@ -75,6 +76,7 @@
                                         VerticalAlignment="Stretch"
                                         CornerRadius="0"
                                         Focusable="False"
+                                        AutomationProperties.Name="Page left"
                                         Theme="{StaticResource ScrollBarRepeatButton}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
@@ -85,9 +87,10 @@
                                         VerticalAlignment="Stretch"
                                         CornerRadius="0"
                                         Focusable="False"
+                                        AutomationProperties.Name="Page right"
                                         Theme="{StaticResource ScrollBarRepeatButton}" />
                                 </Track.IncreaseButton>
-                                <Thumb Name="thumb" />
+                                <Thumb Name="thumb" AutomationProperties.Name="Position" />
                             </Track>
                             <RepeatButton
                                 Name="PART_LineDownButton"
@@ -96,6 +99,7 @@
                                 VerticalAlignment="Center"
                                 VerticalContentAlignment="Center"
                                 Focusable="False"
+                                AutomationProperties.Name="Column right"
                                 Theme="{DynamicResource ScrollBarRepeatButton}">
                                 <PathIcon
                                     Theme="{DynamicResource InnerPathIcon}"
@@ -123,6 +127,7 @@
                                 HorizontalContentAlignment="Center"
                                 VerticalContentAlignment="Center"
                                 Focusable="False"
+                                AutomationProperties.Name="Line up"
                                 Theme="{StaticResource ScrollBarRepeatButton}">
                                 <PathIcon
                                     Theme="{StaticResource InnerPathIcon}"
@@ -146,6 +151,7 @@
                                         VerticalAlignment="Stretch"
                                         CornerRadius="0"
                                         Focusable="False"
+                                        AutomationProperties.Name="Page up"
                                         Theme="{StaticResource ScrollBarRepeatButton}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
@@ -156,9 +162,10 @@
                                         VerticalAlignment="Stretch"
                                         CornerRadius="0"
                                         Focusable="False"
+                                        AutomationProperties.Name="Page down"
                                         Theme="{StaticResource ScrollBarRepeatButton}" />
                                 </Track.IncreaseButton>
-                                <Thumb Name="thumb" />
+                                <Thumb Name="thumb" AutomationProperties.Name="Position" />
                             </Track>
                             <RepeatButton
                                 Name="PART_LineDownButton"
@@ -167,6 +174,7 @@
                                 HorizontalContentAlignment="Center"
                                 VerticalContentAlignment="Center"
                                 Focusable="False"
+                                AutomationProperties.Name="Line down"
                                 Theme="{StaticResource ScrollBarRepeatButton}">
                                 <PathIcon
                                     Theme="{StaticResource InnerPathIcon}"
