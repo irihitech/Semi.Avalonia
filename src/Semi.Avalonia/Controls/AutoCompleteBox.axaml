@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iri="https://irihi.tech/shared">
     <Design.PreviewWith>
         <StackPanel Margin="20" Spacing="20">
             <TextBox Text="Hello" />
@@ -56,46 +57,8 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^.Bordered">
-            <Setter Property="Template">
-                <ControlTemplate TargetType="AutoCompleteBox">
-                    <Panel>
-                        <TextBox
-                            Name="PART_TextBox"
-                            VerticalAlignment="Stretch"
-                            MinHeight="0"
-                            Classes="Bordered"
-                            DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                            PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
-                            PlaceholderText="{TemplateBinding PlaceholderText}" />
-                        <Popup
-                            Name="PART_Popup"
-                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                            InheritsTransform="True"
-                            IsLightDismissEnabled="True"
-                            PlacementTarget="{TemplateBinding}">
-                            <Border
-                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
-                                Padding="{DynamicResource AutoCompleteBoxPopupPadding}"
-                                HorizontalAlignment="Stretch"
-                                Background="{DynamicResource AutoCompleteBoxPopupBackground}"
-                                BorderBrush="{DynamicResource AutoCompleteBoxPopupBorderBrush}"
-                                BorderThickness="{DynamicResource AutoCompleteBoxPopupBorderThickness}"
-                                BoxShadow="{DynamicResource AutoCompleteBoxPopupBoxShadow}"
-                                CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}">
-                                <ListBox
-                                    Name="PART_SelectingItemsControl"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                                    ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                                    ScrollViewer.IsScrollChainingEnabled="False" />
-                            </Border>
-                        </Popup>
-                    </Panel>
-                </ControlTemplate>
-            </Setter>
+        <Style Selector="^.Bordered /template/ TextBox#PART_TextBox">
+            <Setter Property="iri:ClassHelper.Classes" Value="Bordered" />
         </Style>
         <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource AutoCompleteBoxLargeHeight}" />
