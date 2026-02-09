@@ -4,11 +4,12 @@
     <Design.PreviewWith>
         <StackPanel Margin="20" Spacing="20">
             <TextBox Text="Hello" />
-            <AutoCompleteBox Width="100" />
+            <AutoCompleteBox Width="100" PlaceholderText="Hello" />
         </StackPanel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="MinHeight" Value="{DynamicResource AutoCompleteBoxDefaultHeight}" />
         <Setter Property="MaxDropDownHeight" Value="{DynamicResource AutoCompleteMaxDropdownHeight}" />
         <Setter Property="Template">
@@ -23,7 +24,8 @@
                             Theme="{DynamicResource NonErrorTextBox}"
                             InnerLeftContent="{TemplateBinding InnerLeftContent}"
                             InnerRightContent="{TemplateBinding InnerRightContent}"
-                            Watermark="{TemplateBinding Watermark}" />
+                            PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                            PlaceholderText="{TemplateBinding PlaceholderText}" />
                         <Popup
                             Name="PART_Popup"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
@@ -63,7 +65,8 @@
                             MinHeight="0"
                             Classes="Bordered"
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                            Watermark="{TemplateBinding Watermark}" />
+                            PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                            PlaceholderText="{TemplateBinding PlaceholderText}" />
                         <Popup
                             Name="PART_Popup"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
