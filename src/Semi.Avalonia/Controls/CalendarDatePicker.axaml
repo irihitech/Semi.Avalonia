@@ -9,6 +9,7 @@
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="Background" Value="{DynamicResource CalendarDatePickerBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarDatePickerBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CalendarDatePickerCornerRadius}" />
@@ -52,8 +53,9 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Foreground="{TemplateBinding Foreground}"
                                 Theme="{DynamicResource NonErrorTextBox}"
-                                UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
-                                Watermark="{TemplateBinding Watermark}">
+                                UseFloatingPlaceholder="{TemplateBinding UseFloatingPlaceholder}"
+                                PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                                PlaceholderText="{TemplateBinding PlaceholderText}">
                                 <TextBox.Styles>
                                     <Style Selector="TextBox#PART_TextBox:pointerover /template/ Border#PART_ContentPresenterBorder">
                                         <!--  By default the TextBox has its own focused state, override this to disable it here  -->

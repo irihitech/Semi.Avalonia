@@ -28,7 +28,7 @@
         </StackPanel.Styles>
 
         <AutoCompleteBox
-            Watermark="Please select a State"
+            PlaceholderText="Please select a State"
             ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
         <AutoCompleteBox
             Classes="Large"
@@ -41,7 +41,7 @@
             ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
         <AutoCompleteBox
             IsEnabled="False"
-            Watermark="Disabled"
+            PlaceholderText="Disabled"
             ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
         <AutoCompleteBox
             InnerLeftContent="https://"
@@ -52,16 +52,16 @@
             <AutoCompleteBox
                 Width="100"
                 Classes="Large"
-                Watermark="Large"
+                PlaceholderText="Large"
                 ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
-                Watermark="Default"
+                PlaceholderText="Default"
                 ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
                 Classes="Small"
-                Watermark="Small"
+                PlaceholderText="Small"
                 ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
         </StackPanel>
 
@@ -69,12 +69,12 @@
             <AutoCompleteBox
                 Width="100"
                 IsEnabled="False"
-                Watermark="Disabled"
+                PlaceholderText="Disabled"
                 ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
                 Classes="Bordered"
-                Watermark="Bordered"
+                PlaceholderText="Bordered"
                 ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"

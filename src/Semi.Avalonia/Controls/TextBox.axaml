@@ -24,6 +24,7 @@
 
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
@@ -69,8 +70,8 @@
                                         Name="PART_Watermark"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
+                                        Foreground="{TemplateBinding PlaceholderForeground}"
+                                        Text="{TemplateBinding PlaceholderText}"
                                         TextAlignment="{TemplateBinding TextAlignment}"
                                         TextWrapping="{TemplateBinding TextWrapping}">
                                         <TextBlock.IsVisible>
@@ -257,6 +258,7 @@
 
     <ControlTheme x:Key="NonErrorTextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
@@ -303,7 +305,8 @@
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                         Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
+                                        Foreground="{TemplateBinding PlaceholderForeground}"
+                                        Text="{TemplateBinding PlaceholderText}"
                                         TextAlignment="{TemplateBinding TextAlignment}"
                                         TextWrapping="{TemplateBinding TextWrapping}">
                                         <TextBlock.IsVisible>
@@ -490,6 +493,7 @@
 
     <ControlTheme x:Key="LooklessTextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
         <Setter Property="CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
@@ -523,7 +527,8 @@
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Opacity="0.5"
-                                    Text="{TemplateBinding Watermark}"
+                                    Foreground="{TemplateBinding PlaceholderForeground}"
+                                    Text="{TemplateBinding PlaceholderText}"
                                     TextAlignment="{TemplateBinding TextAlignment}"
                                     TextWrapping="{TemplateBinding TextWrapping}">
                                     <TextBlock.IsVisible>
