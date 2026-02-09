@@ -57,7 +57,11 @@
         </Setter>
 
         <Style Selector="^.Bordered /template/ TextBox#PART_TextBox">
+            <Setter Property="MinHeight" Value="0" />
             <Setter Property="iri:ClassHelper.Classes" Value="Bordered" />
+        </Style>
+        <Style Selector="^.Bordered /template/ ListBox#PART_SelectingItemsControl">
+            <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="False" />
         </Style>
         <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource AutoCompleteBoxLargeHeight}" />
