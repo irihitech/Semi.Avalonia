@@ -1,7 +1,10 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <MenuFlyout x:Key="DefaultTextBoxContextFlyout" Placement="Bottom">
+    <MenuFlyout
+        x:Key="DefaultTextBoxContextFlyout"
+        ShowMode="{OnFormFactor Desktop=Standard, Mobile=Transient}"
+        Placement="Bottom">
         <MenuItem
             Command="{Binding $parent[TextBox].Cut}"
             Header="{DynamicResource STRING_MENU_CUT}"
