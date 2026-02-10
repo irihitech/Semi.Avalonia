@@ -16,12 +16,14 @@
                         <Border
                             Name="PART_Background"
                             Background="{TemplateBinding Background}"
-                            IsHitTestVisible="False" />
+                            IsHitTestVisible="False"
+                            Win32Properties.NonClientHitTestResult="Caption" />
                         <CaptionButtons
                             Name="PART_CaptionButtons"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            Foreground="{TemplateBinding Foreground}" />
+                            Foreground="{TemplateBinding Foreground}"
+                            Win32Properties.NonClientHitTestResult="Client" />
                     </Panel>
                 </Panel>
             </ControlTemplate>

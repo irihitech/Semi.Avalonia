@@ -2,7 +2,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <MenuFlyout x:Key="SelectableTextBlockContextFlyout" Placement="Bottom">
+    <MenuFlyout
+        x:Key="SelectableTextBlockContextFlyout"
+        ShowMode="{OnFormFactor Desktop=Standard, Mobile=Transient}"
+        Placement="Bottom">
         <MenuItem
             Command="{Binding $parent[SelectableTextBlock].Copy}"
             Header="{DynamicResource STRING_MENU_COPY}"
