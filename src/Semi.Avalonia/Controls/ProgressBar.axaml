@@ -4,19 +4,54 @@
     xmlns:semi="https://irihi.tech/semi"
     xmlns:converters="using:Avalonia.Controls.Converters">
     <Design.PreviewWith>
-        <StackPanel Width="200" Margin="20" Spacing="20">
-            <ProgressBar ShowProgressText="True" Value="20" />
-            <ProgressBar IsIndeterminate="True" ShowProgressText="True" Value="20" />
-            <ProgressBar Classes="Left" IsIndeterminate="True" ShowProgressText="True" Value="20" />
-            <ProgressBar Classes="Left" ShowProgressText="True" Value="20" />
-            <ProgressBar Classes="Right" ShowProgressText="True" Value="20" />
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <ProgressBar Classes="Top" Orientation="Vertical" ShowProgressText="True" Value="20" />
-                <ProgressBar Classes="Bottom" Orientation="Vertical" ShowProgressText="True" Value="20" />
-                <ProgressBar Orientation="Vertical" ShowProgressText="True" Value="20" />
-                <ProgressBar Classes="Top" Orientation="Vertical" ShowProgressText="False" Value="20" />
-                <ProgressBar IsIndeterminate="True" Orientation="Vertical" ShowProgressText="True" Value="20" />
-                <ProgressBar IsIndeterminate="True" Orientation="Vertical" ShowProgressText="False" Value="20" />
+        <StackPanel Width="400" Margin="20">
+            <ProgressBar />
+            <ProgressBar Value="20" />
+            <ProgressBar Value="50" Classes="Success" />
+            <ProgressBar Value="80" Classes="Warning" />
+            <ProgressBar Value="100" Classes="Error" />
+            <ProgressBar ShowProgressText="True" />
+            <ProgressBar Value="20" ShowProgressText="True" />
+            <ProgressBar Value="50" Classes="Success" ShowProgressText="True" />
+            <ProgressBar Value="80" Classes="Warning" ShowProgressText="True" />
+            <ProgressBar Value="100" Classes="Error" ShowProgressText="True" />
+            <ProgressBar Classes="Left" ShowProgressText="True" />
+            <ProgressBar Value="20" Classes="Left" ShowProgressText="True" />
+            <ProgressBar Value="50" Classes="Left Success" ShowProgressText="True" />
+            <ProgressBar Value="80" Classes="Left Warning" ShowProgressText="True" />
+            <ProgressBar Value="100" Classes="Left Error" ShowProgressText="True" />
+            <ProgressBar Classes="Right" ShowProgressText="True" />
+            <ProgressBar Value="20" Classes="Right" ShowProgressText="True" />
+            <ProgressBar Value="50" Classes="Right Success" ShowProgressText="True" />
+            <ProgressBar Value="80" Classes="Right Warning" ShowProgressText="True" />
+            <ProgressBar Value="100" Classes="Right Error" ShowProgressText="True" />
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="ProgressBar">
+                        <Setter Property="Orientation" Value="Vertical" />
+                    </Style>
+                </StackPanel.Styles>
+                <ProgressBar />
+                <ProgressBar Value="20" />
+                <ProgressBar Value="50" Classes="Success" />
+                <ProgressBar Value="80" Classes="Warning" />
+                <ProgressBar Value="100" Classes="Error" />
+                <ProgressBar ShowProgressText="True" />
+                <ProgressBar Value="20" ShowProgressText="True" />
+                <ProgressBar Value="50" Classes="Success" ShowProgressText="True" />
+                <ProgressBar Value="80" Classes="Warning" ShowProgressText="True" />
+                <ProgressBar Value="100" Classes="Error" ShowProgressText="True" />
+                <ProgressBar Classes="Top" ShowProgressText="True" />
+                <ProgressBar Value="20" Classes="Top" ShowProgressText="True" />
+                <ProgressBar Value="50" Classes="Top Success" ShowProgressText="True" />
+                <ProgressBar Value="80" Classes="Top Warning" ShowProgressText="True" />
+                <ProgressBar Value="100" Classes="Top Error" ShowProgressText="True" />
+                <ProgressBar Classes="Bottom" ShowProgressText="True" />
+                <ProgressBar Value="20" Classes="Bottom" ShowProgressText="True" />
+                <ProgressBar Value="50" Classes="Bottom Success" ShowProgressText="True" />
+                <ProgressBar Value="80" Classes="Bottom Warning" ShowProgressText="True" />
+                <ProgressBar Value="100" Classes="Bottom Error" ShowProgressText="True" />
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>
@@ -185,6 +220,7 @@
                     <Setter Property="Grid.Column" Value="1" />
                     <Setter Property="Grid.Row" Value="0" />
                     <Setter Property="Margin" Value="0 0 0 16" />
+                    <Setter Property="MinHeight" Value="45" />
                 </Style>
                 <Style Selector="^ /template/ Border#ProgressBarRoot">
                     <Setter Property="MinWidth" Value="4" />
