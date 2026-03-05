@@ -51,6 +51,11 @@
             <TextBox Width="300" Classes="TextArea ClearButton" Text="TextArea with ClearButton - text should be clearable" />
             <TextBox
                 Width="300"
+                AcceptsReturn="True"
+                MaxLines="3"
+                Watermark="MaxLines=3 (scrollbar appears after 3 lines)" />
+            <TextBox
+                Width="300"
                 Theme="{StaticResource LooklessTextBox}"
                 Watermark="Lookless TextBox"
                 InnerLeftContent="https://"
