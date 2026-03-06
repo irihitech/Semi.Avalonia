@@ -1,0 +1,67 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type WindowDrawnDecorations}" TargetType="WindowDrawnDecorations">
+        <Setter Property="DefaultTitleBarHeight" Value="32" />
+        <Setter Property="DefaultFrameThickness" Value="0,0,0,0" />
+        <Setter Property="DefaultShadowThickness" Value="16" />
+        <Setter Property="Template">
+            <WindowDrawnDecorationsTemplate>
+                <WindowDrawnDecorationsContent>
+
+                    <WindowDrawnDecorationsContent.Underlay>
+                        <!-- Full-size: covers shadow area + frame + behind client area -->
+                        <Panel>
+                            <Border Margin="{TemplateBinding ShadowThickness}"
+                                    Background="{DynamicResource WindowBackground}"
+                                    BorderThickness="1"
+                                    BorderBrush="{DynamicResource WindowBorderBrush}"
+                                    BoxShadow="0 8 32 0 #40000000" />
+                        </Panel>
+                    </WindowDrawnDecorationsContent.Underlay>
+
+                    <WindowDrawnDecorationsContent.Overlay>
+                        <!-- Positioned over the titlebar area -->
+                        <DockPanel Height="{TemplateBinding TitleBarHeight}"
+                                   VerticalAlignment="Top"
+                                   Margin="{TemplateBinding ShadowThickness}">
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                <Button x:Name="PART_MinimizeButton" Content="─" />
+                                <Button x:Name="PART_MaximizeButton" Content="□" />
+                                <Button x:Name="PART_CloseButton" Content="✕" />
+                            </StackPanel>
+                            <TextBlock Text="{TemplateBinding Title}"
+                                       VerticalAlignment="Center"
+                                       Margin="12,0"
+                                       WindowDecorationProperties.ElementRole="TitleBar" />
+                        </DockPanel>
+                    </WindowDrawnDecorationsContent.Overlay>
+
+                    <WindowDrawnDecorationsContent.FullscreenPopover>
+                        <!-- Shown on hover at top edge in fullscreen -->
+                        <DockPanel Height="{TemplateBinding TitleBarHeight}"
+                                   Background="#E0000000">
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                <Button x:Name="PART_MinimizeButton" Content="─" />
+                                <Button x:Name="PART_MaximizeButton" Content="□" />
+                                <Button x:Name="PART_CloseButton" Content="✕" />
+                            </StackPanel>
+                            <TextBlock Text="{TemplateBinding Title}"
+                                       Foreground="White"
+                                       VerticalAlignment="Center"
+                                       Margin="12,0" />
+                        </DockPanel>
+                    </WindowDrawnDecorationsContent.FullscreenPopover>
+
+                </WindowDrawnDecorationsContent>
+            </WindowDrawnDecorationsTemplate>
+        </Setter>
+
+        <!-- Pseudoclass styling -->
+        <Style Selector="^:maximized /template/ Border">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="^:fullscreen /template/ DockPanel">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
