@@ -6,27 +6,11 @@
         <Border Padding="16" Width="600" Background="{DynamicResource SemiColorBackground0}">
             <StackPanel Spacing="16">
                 <CommandBar>
-                    <AppBarButton Label="New">
-                        <AppBarButton.Icon>
-                            <PathIcon Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton Label="Save">
-                        <AppBarButton.Icon>
-                            <PathIcon Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
+                    <AppBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
                     <AppBarSeparator />
-                    <AppBarToggleButton Label="Bold">
-                        <AppBarToggleButton.Icon>
-                            <PathIcon Data="M15.6,10.79C17.04,10.07 18,8.64 18,7C18,4.79 16.21,3 14,3H7V21H14.73C16.78,21 18.5,19.37 18.5,17.32C18.5,15.82 17.72,14.53 16.5,13.77C16.2,13.59 15.9,13.44 15.6,13.32V10.79M10,6.5H13C13.83,6.5 14.5,7.17 14.5,8C14.5,8.83 13.83,9.5 13,9.5H10V6.5M13.5,17.5H10V14H13.5C14.33,14 15,14.67 15,15.5C15,16.33 14.33,17.5 13.5,17.5Z" />
-                        </AppBarToggleButton.Icon>
-                    </AppBarToggleButton>
-                    <AppBarButton Label="Disabled" IsEnabled="False">
-                        <AppBarButton.Icon>
-                            <PathIcon Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
+                    <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
+                    <AppBarButton Label="Copy" IsEnabled="False" Icon="{DynamicResource SemiIconCopy}" />
                 </CommandBar>
             </StackPanel>
         </Border>
@@ -48,27 +32,35 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="AppBarButton">
                 <Border
-                    x:Name="PART_Border"
+                    Name="PART_Border"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
                     <StackPanel
-                        x:Name="PART_LayoutRoot"
+                        Name="PART_LayoutRoot"
                         Spacing="4"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
                         <ContentPresenter
-                            x:Name="PART_IconPresenter"
+                            Name="PART_IconPresenter"
                             Content="{TemplateBinding Icon}"
                             Foreground="{TemplateBinding Foreground}"
                             Width="{DynamicResource AppBarButtonIconSize}"
                             Height="{DynamicResource AppBarButtonIconSize}"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
+                            VerticalAlignment="Center">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
                         <TextBlock
-                            x:Name="PART_Label"
+                            Name="PART_Label"
                             Text="{TemplateBinding Label}"
                             Foreground="{TemplateBinding Foreground}"
                             FontSize="{DynamicResource AppBarButtonLabelFontSize}"
@@ -115,7 +107,7 @@
 
         <!--  LabelPosition=Right: horizontal layout, auto-width  -->
         <Style Selector="^[LabelPosition=Right]">
-            <Setter Property="Width" Value="NaN" />
+            <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
             <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
         </Style>
         <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
@@ -132,7 +124,7 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="Width" Value="NaN" />
+            <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
             <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonOverflowMinHeight}" />
             <Setter Property="Padding" Value="{DynamicResource AppBarButtonOverflowPadding}" />
         </Style>
@@ -163,27 +155,35 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="AppBarToggleButton">
                 <Border
-                    x:Name="PART_Border"
+                    Name="PART_Border"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
                     <StackPanel
-                        x:Name="PART_LayoutRoot"
+                        Name="PART_LayoutRoot"
                         Spacing="4"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
                         <ContentPresenter
-                            x:Name="PART_IconPresenter"
+                            Name="PART_IconPresenter"
                             Content="{TemplateBinding Icon}"
                             Foreground="{TemplateBinding Foreground}"
                             Width="{DynamicResource AppBarButtonIconSize}"
                             Height="{DynamicResource AppBarButtonIconSize}"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
+                            VerticalAlignment="Center">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
                         <TextBlock
-                            x:Name="PART_Label"
+                            Name="PART_Label"
                             Text="{TemplateBinding Label}"
                             Foreground="{TemplateBinding Foreground}"
                             FontSize="{DynamicResource AppBarButtonLabelFontSize}"
@@ -246,7 +246,7 @@
 
         <!--  LabelPosition=Right: horizontal layout, auto-width  -->
         <Style Selector="^[LabelPosition=Right]">
-            <Setter Property="Width" Value="NaN" />
+            <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
             <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
         </Style>
         <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
@@ -263,7 +263,7 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="Width" Value="NaN" />
+            <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
             <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonOverflowMinHeight}" />
             <Setter Property="Padding" Value="{DynamicResource AppBarButtonOverflowPadding}" />
         </Style>
@@ -296,7 +296,7 @@
         <!--  IsInOverflow: horizontal line separator  -->
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Width" Value="NaN" />
+            <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
             <Setter Property="Height" Value="{DynamicResource AppBarSeparatorOverflowHeight}" />
             <Setter Property="MinHeight" Value="0" />
             <Setter Property="Margin" Value="{DynamicResource AppBarSeparatorOverflowMargin}" />
@@ -326,7 +326,7 @@
                         <DockPanel>
                             <!--  Overflow button (docked right)  -->
                             <Button
-                                x:Name="PART_OverflowButton"
+                                Name="PART_OverflowButton"
                                 DockPanel.Dock="Right"
                                 Theme="{DynamicResource AppBarOverflowButton}"
                                 IsVisible="{TemplateBinding IsOverflowButtonVisible}"
@@ -340,14 +340,14 @@
 
                             <!--  Custom content (docked left)  -->
                             <ContentPresenter
-                                x:Name="PART_ContentPresenter"
+                                Name="PART_ContentPresenter"
                                 DockPanel.Dock="Left"
                                 Content="{TemplateBinding Content}"
                                 VerticalAlignment="Center" />
 
                             <!--  Primary commands (fills remaining space, right-aligned)  -->
                             <ItemsControl
-                                x:Name="PART_PrimaryCommands"
+                                Name="PART_PrimaryCommands"
                                 ItemsSource="{Binding VisiblePrimaryCommands, RelativeSource={RelativeSource TemplatedParent}}"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Stretch"
@@ -362,7 +362,7 @@
 
                         <!--  Overflow popup  -->
                         <Popup
-                            x:Name="PART_OverflowPopup"
+                            Name="PART_OverflowPopup"
                             IsOpen="{TemplateBinding IsOpen, Mode=TwoWay}"
                             PlacementTarget="{Binding #PART_OverflowButton}"
                             Placement="Bottom"
