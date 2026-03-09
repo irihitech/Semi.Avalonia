@@ -6,6 +6,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="CornerRadius" Value="{DynamicResource NumericUpDownCornerRadius}" />
         <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownDefaultHeight}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="NumericUpDown">
                 <DataValidationErrors>
@@ -38,7 +39,8 @@
                             Theme="{DynamicResource NonErrorTextBox}"
                             InnerLeftContent="{TemplateBinding InnerLeftContent}"
                             InnerRightContent="{TemplateBinding InnerRightContent}"
-                            Watermark="{TemplateBinding Watermark}" />
+                            PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                            PlaceholderText="{TemplateBinding PlaceholderText}" />
                     </ButtonSpinner>
                 </DataValidationErrors>
             </ControlTemplate>

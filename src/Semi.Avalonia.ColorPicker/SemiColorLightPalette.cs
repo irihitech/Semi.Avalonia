@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Utilities;
+using Irihi.Avalonia.Shared.Helpers;
 
 namespace Semi.Avalonia.ColorPicker;
 
@@ -220,8 +221,8 @@ public class SemiColorLightPalette: IColorPalette
     public Color GetColor(int colorIndex, int shadeIndex)
     {
         return Colors[
-            MathUtilities.Clamp(colorIndex, 0, ColorCount - 1),
-            MathUtilities.Clamp(shadeIndex, 0, ShadeCount - 1)
+            MathHelpers.SafeClamp(colorIndex, 0, ColorCount - 1),
+            MathHelpers.SafeClamp(shadeIndex, 0, ShadeCount - 1)
         ];
     }
 

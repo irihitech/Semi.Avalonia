@@ -23,36 +23,36 @@
                 <TextBox
                     Width="100"
                     Classes="Large"
-                    Watermark="Large" />
+                    PlaceholderText="Large" />
                 <TextBox
                     Width="100"
-                    Watermark="Default" />
+                    PlaceholderText="Default" />
                 <TextBox
                     Width="100"
                     Classes="Small"
-                    Watermark="Small" />
+                    PlaceholderText="Small" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBox
                     Width="100"
                     IsEnabled="False"
-                    Watermark="Disabled" />
+                    PlaceholderText="Disabled" />
                 <TextBox
                     Width="100"
                     Classes="Bordered"
-                    Watermark="Bordered" />
+                    PlaceholderText="Bordered" />
                 <TextBox
                     Width="100"
                     Classes="Bordered"
                     IsEnabled="False" />
             </StackPanel>
-            <TextBox Width="300" Classes="TextArea" Watermark="TextArea TextBox" />
+            <TextBox Width="300" Classes="TextArea" PlaceholderText="TextArea TextBox" />
             <TextBox Width="300" Classes="TextArea ClearButton" Text="TextArea with ClearButton - text should be clearable" />
             <TextBox
                 Width="300"
                 Theme="{StaticResource LooklessTextBox}"
-                Watermark="Lookless TextBox"
+                PlaceholderText="Lookless TextBox"
                 InnerLeftContent="https://"
                 InnerRightContent=".com" />
         </StackPanel>
