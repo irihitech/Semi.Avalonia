@@ -1,0 +1,406 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Design.PreviewWith>
+        <Border Padding="16" Width="600" Background="{DynamicResource SemiColorBackground0}">
+            <StackPanel Spacing="16">
+                <CommandBar>
+                    <AppBarButton Label="New">
+                        <AppBarButton.Icon>
+                            <PathIcon Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Label="Save">
+                        <AppBarButton.Icon>
+                            <PathIcon Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarSeparator />
+                    <AppBarToggleButton Label="Bold">
+                        <AppBarToggleButton.Icon>
+                            <PathIcon Data="M15.6,10.79C17.04,10.07 18,8.64 18,7C18,4.79 16.21,3 14,3H7V21H14.73C16.78,21 18.5,19.37 18.5,17.32C18.5,15.82 17.72,14.53 16.5,13.77C16.2,13.59 15.9,13.44 15.6,13.32V10.79M10,6.5H13C13.83,6.5 14.5,7.17 14.5,8C14.5,8.83 13.83,9.5 13,9.5H10V6.5M13.5,17.5H10V14H13.5C14.33,14 15,14.67 15,15.5C15,16.33 14.33,17.5 13.5,17.5Z" />
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
+                    <AppBarButton Label="Disabled" IsEnabled="False">
+                        <AppBarButton.Icon>
+                            <PathIcon Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </CommandBar>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  AppBarButton  -->
+    <ControlTheme x:Key="{x:Type AppBarButton}" TargetType="AppBarButton">
+        <Setter Property="Background" Value="{DynamicResource AppBarButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource AppBarButtonForeground}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="{DynamicResource AppBarButtonPadding}" />
+        <Setter Property="Width" Value="{DynamicResource AppBarButtonWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonMinHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource AppBarButtonCornerRadius}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="AppBarButton">
+                <Border
+                    x:Name="PART_Border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <StackPanel
+                        x:Name="PART_LayoutRoot"
+                        Spacing="4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <ContentPresenter
+                            x:Name="PART_IconPresenter"
+                            Content="{TemplateBinding Icon}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Width="{DynamicResource AppBarButtonIconSize}"
+                            Height="{DynamicResource AppBarButtonIconSize}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            x:Name="PART_Label"
+                            Text="{TemplateBinding Label}"
+                            Foreground="{TemplateBinding Foreground}"
+                            FontSize="{DynamicResource AppBarButtonLabelFontSize}"
+                            HorizontalAlignment="Center"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Pointer over  -->
+        <Style Selector="^:pointerover /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource AppBarButtonPointeroverBackground}" />
+        </Style>
+
+        <!--  Pressed  -->
+        <Style Selector="^:pressed /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource AppBarButtonPressedBackground}" />
+        </Style>
+
+        <!--  Disabled  -->
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource AppBarButtonDisabledForeground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ TextBlock#PART_Label">
+            <Setter Property="Foreground" Value="{DynamicResource AppBarButtonDisabledForeground}" />
+        </Style>
+
+        <!--  IsCompact: hide label, use compact width  -->
+        <Style Selector="^[IsCompact=True]">
+            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        </Style>
+        <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  LabelPosition=Collapsed: hide label, use compact width  -->
+        <Style Selector="^[LabelPosition=Collapsed]">
+            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        </Style>
+        <Style Selector="^[LabelPosition=Collapsed] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  LabelPosition=Right: horizontal layout, auto-width  -->
+        <Style Selector="^[LabelPosition=Right]">
+            <Setter Property="Width" Value="NaN" />
+            <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        </Style>
+        <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+        <Style Selector="^[LabelPosition=Right] /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^[LabelPosition=Right] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <!--  IsInOverflow: full-width horizontal layout for use inside overflow popup  -->
+        <Style Selector="^[IsInOverflow=True]">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Width" Value="NaN" />
+            <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonOverflowMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource AppBarButtonOverflowPadding}" />
+        </Style>
+        <Style Selector="^[IsInOverflow=True] /template/ StackPanel#PART_LayoutRoot">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+        <Style Selector="^[IsInOverflow=True] /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^[IsInOverflow=True] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </ControlTheme>
+
+    <!--  AppBarToggleButton  -->
+    <ControlTheme x:Key="{x:Type AppBarToggleButton}" TargetType="AppBarToggleButton">
+        <Setter Property="Background" Value="{DynamicResource AppBarButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource AppBarButtonForeground}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="{DynamicResource AppBarButtonPadding}" />
+        <Setter Property="Width" Value="{DynamicResource AppBarButtonWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonMinHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource AppBarButtonCornerRadius}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="AppBarToggleButton">
+                <Border
+                    x:Name="PART_Border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <StackPanel
+                        x:Name="PART_LayoutRoot"
+                        Spacing="4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <ContentPresenter
+                            x:Name="PART_IconPresenter"
+                            Content="{TemplateBinding Icon}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Width="{DynamicResource AppBarButtonIconSize}"
+                            Height="{DynamicResource AppBarButtonIconSize}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            x:Name="PART_Label"
+                            Text="{TemplateBinding Label}"
+                            Foreground="{TemplateBinding Foreground}"
+                            FontSize="{DynamicResource AppBarButtonLabelFontSize}"
+                            HorizontalAlignment="Center"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Pointer over  -->
+        <Style Selector="^:pointerover /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource AppBarButtonPointeroverBackground}" />
+        </Style>
+
+        <!--  Pressed  -->
+        <Style Selector="^:pressed /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource AppBarButtonPressedBackground}" />
+        </Style>
+
+        <!--  Checked  -->
+        <Style Selector="^:checked /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedBackground}" />
+        </Style>
+        <Style Selector="^:checked /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource AppBarToggleButtonCheckedForeground}" />
+        </Style>
+        <Style Selector="^:checked /template/ TextBlock#PART_Label">
+            <Setter Property="Foreground" Value="{DynamicResource AppBarToggleButtonCheckedForeground}" />
+        </Style>
+
+        <!--  Checked + Pointer over  -->
+        <Style Selector="^:checked:pointerover /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedPointeroverBackground}" />
+        </Style>
+
+        <!--  Disabled  -->
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource AppBarButtonDisabledForeground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ TextBlock#PART_Label">
+            <Setter Property="Foreground" Value="{DynamicResource AppBarButtonDisabledForeground}" />
+        </Style>
+
+        <!--  IsCompact: hide label, use compact width  -->
+        <Style Selector="^[IsCompact=True]">
+            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        </Style>
+        <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  LabelPosition=Collapsed: hide label, use compact width  -->
+        <Style Selector="^[LabelPosition=Collapsed]">
+            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        </Style>
+        <Style Selector="^[LabelPosition=Collapsed] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  LabelPosition=Right: horizontal layout, auto-width  -->
+        <Style Selector="^[LabelPosition=Right]">
+            <Setter Property="Width" Value="NaN" />
+            <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        </Style>
+        <Style Selector="^[LabelPosition=Right] /template/ StackPanel#PART_LayoutRoot">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+        <Style Selector="^[LabelPosition=Right] /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^[LabelPosition=Right] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <!--  IsInOverflow: full-width horizontal layout  -->
+        <Style Selector="^[IsInOverflow=True]">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Width" Value="NaN" />
+            <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonOverflowMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource AppBarButtonOverflowPadding}" />
+        </Style>
+        <Style Selector="^[IsInOverflow=True] /template/ StackPanel#PART_LayoutRoot">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+        <Style Selector="^[IsInOverflow=True] /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^[IsInOverflow=True] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </ControlTheme>
+
+    <!--  AppBarSeparator  -->
+    <ControlTheme x:Key="{x:Type AppBarSeparator}" TargetType="AppBarSeparator">
+        <Setter Property="Background" Value="{DynamicResource AppBarSeparatorBackground}" />
+        <Setter Property="Width" Value="{DynamicResource AppBarSeparatorWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource AppBarSeparatorMinHeight}" />
+        <Setter Property="Margin" Value="{DynamicResource AppBarSeparatorMargin}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="AppBarSeparator">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    Width="{TemplateBinding Width}"
+                    MinHeight="{TemplateBinding MinHeight}" />
+            </ControlTemplate>
+        </Setter>
+
+        <!--  IsInOverflow: horizontal line separator  -->
+        <Style Selector="^[IsInOverflow=True]">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Width" Value="NaN" />
+            <Setter Property="Height" Value="{DynamicResource AppBarSeparatorOverflowHeight}" />
+            <Setter Property="MinHeight" Value="0" />
+            <Setter Property="Margin" Value="{DynamicResource AppBarSeparatorOverflowMargin}" />
+        </Style>
+    </ControlTheme>
+
+    <!--  CommandBar  -->
+    <ControlTheme x:Key="{x:Type CommandBar}" TargetType="CommandBar">
+        <Setter Property="Background" Value="{DynamicResource CommandBarBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommandBarForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CommandBarBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource CommandBarBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CommandBarCornerRadius}" />
+        <Setter Property="MinHeight" Value="{DynamicResource CommandBarMinHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource CommandBarPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CommandBar">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    Padding="{TemplateBinding Padding}">
+                    <Panel>
+                        <DockPanel>
+                            <!--  Overflow button (docked right)  -->
+                            <Button
+                                x:Name="PART_OverflowButton"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource AppBarOverflowButton}"
+                                IsVisible="{TemplateBinding IsOverflowButtonVisible}"
+                                VerticalAlignment="Stretch">
+                                <PathIcon
+                                    Width="{DynamicResource AppBarButtonIconSize}"
+                                    Height="{DynamicResource AppBarButtonIconSize}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Data="{DynamicResource CommandBarOverflowButtonGlyph}" />
+                            </Button>
+
+                            <!--  Custom content (docked left)  -->
+                            <ContentPresenter
+                                x:Name="PART_ContentPresenter"
+                                DockPanel.Dock="Left"
+                                Content="{TemplateBinding Content}"
+                                VerticalAlignment="Center" />
+
+                            <!--  Primary commands (fills remaining space, right-aligned)  -->
+                            <ItemsControl
+                                x:Name="PART_PrimaryCommands"
+                                ItemsSource="{Binding VisiblePrimaryCommands, RelativeSource={RelativeSource TemplatedParent}}"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Stretch"
+                                ClipToBounds="True">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="2" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </DockPanel>
+
+                        <!--  Overflow popup  -->
+                        <Popup
+                            x:Name="PART_OverflowPopup"
+                            IsOpen="{TemplateBinding IsOpen, Mode=TwoWay}"
+                            PlacementTarget="{Binding #PART_OverflowButton}"
+                            Placement="Bottom"
+                            IsLightDismissEnabled="True"
+                            WindowManagerAddShadowHint="False">
+                            <Border
+                                Background="{DynamicResource CommandBarOverflowBackground}"
+                                BorderBrush="{DynamicResource CommandBarOverflowBorderBrush}"
+                                BorderThickness="{DynamicResource CommandBarBorderThickness}"
+                                BoxShadow="{DynamicResource CommandBarOverflowBoxShadow}"
+                                CornerRadius="{DynamicResource CommandBarOverflowCornerRadius}"
+                                Padding="{DynamicResource CommandBarOverflowPadding}"
+                                MinWidth="{DynamicResource CommandBarOverflowMinWidth}">
+                                <ItemsControl
+                                    ItemsSource="{Binding OverflowItems, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Spacing="2" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!--  Overflow button inner theme (borderless, transparent)  -->
+    <ControlTheme x:Key="AppBarOverflowButton" TargetType="Button"
+                  BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="{DynamicResource AppBarButtonPadding}" />
+        <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource AppBarButtonCornerRadius}" />
+    </ControlTheme>
+
+</ResourceDictionary>
