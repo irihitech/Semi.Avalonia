@@ -4,23 +4,31 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base"
     d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <StreamGeometry x:Key="SemiIconShare">
-            M17.5 2A3.5 3.5 0 1 1 15 7.95l-5.13 3.11a3.5 3.5 0 0 1 .03 1.78l5.22 3.1A3.49 3.49 0 0 1 21 18.5a3.5 3.5 0 1 1-6.9-.85l-5.22-3.08A3.49 3.49 0 0 1 3 12a3.5 3.5 0 0 1 5.8-2.63l5.27-3.19A3.5 3.5 0 0 1 17.5 2Z
-        </StreamGeometry>
-    </UserControl.Resources>
     <ScrollViewer>
-        <StackPanel Spacing="16" Margin="0,0,0,16">
-
-            <!--  Default: label below icon (Bottom)  -->
+        <StackPanel Spacing="16">
             <HeaderedContentControl Theme="{StaticResource GroupBox}">
                 <HeaderedContentControl.Header>
-                    <TextBlock Text="CommandBar — Label Position: Bottom (default)" />
+                    <StackPanel>
+                        <TextBlock Text="CommandBar — Label Position" />
+                        <ComboBox
+                            Name="lc"
+                            ItemsSource="{DynamicResource LabelPositionList}"
+                            SelectedValue="{x:Static CommandBarDefaultLabelPosition.Bottom}">
+                            <ComboBox.Resources>
+                                <collections:AvaloniaList x:TypeArguments="CommandBarDefaultLabelPosition" x:Key="LabelPositionList">
+                                    <CommandBarDefaultLabelPosition>Bottom</CommandBarDefaultLabelPosition>
+                                    <CommandBarDefaultLabelPosition>Collapsed</CommandBarDefaultLabelPosition>
+                                    <CommandBarDefaultLabelPosition>Right</CommandBarDefaultLabelPosition>
+                                </collections:AvaloniaList>
+                            </ComboBox.Resources>
+                        </ComboBox>
+                    </StackPanel>
                 </HeaderedContentControl.Header>
-                <CommandBar>
+                <CommandBar DefaultLabelPosition="{Binding #lc.SelectedValue}">
                     <AppBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
                     <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
                     <AppBarSeparator />
@@ -32,30 +40,6 @@
                     <AppBarButton Label="Print" Icon="{DynamicResource SemiIconPrint}" />
                     <AppBarSeparator />
                     <AppBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
-                </CommandBar>
-            </HeaderedContentControl>
-
-            <!--  LabelPosition=Right  -->
-            <HeaderedContentControl Theme="{StaticResource GroupBox}">
-                <HeaderedContentControl.Header>
-                    <TextBlock Text="CommandBar — Label Position: Right" />
-                </HeaderedContentControl.Header>
-                <CommandBar DefaultLabelPosition="Right">
-                    <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
-                    <AppBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
-                    <AppBarToggleButton Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
-                </CommandBar>
-            </HeaderedContentControl>
-
-            <!--  Compact (icons only)  -->
-            <HeaderedContentControl Theme="{StaticResource GroupBox}">
-                <HeaderedContentControl.Header>
-                    <TextBlock Text="CommandBar — Compact (icons only)" />
-                </HeaderedContentControl.Header>
-                <CommandBar DefaultLabelPosition="Collapsed">
-                    <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
-                    <AppBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
-                    <AppBarToggleButton Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
                 </CommandBar>
             </HeaderedContentControl>
 
