@@ -1,0 +1,83 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.CommandBarDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Spacing="16">
+            <HeaderedContentControl Theme="{StaticResource GroupBox}">
+                <HeaderedContentControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="CommandBar — Label Position" />
+                        <ComboBox
+                            Name="lc"
+                            ItemsSource="{DynamicResource LabelPositionList}"
+                            SelectedValue="{x:Static CommandBarDefaultLabelPosition.Bottom}">
+                            <ComboBox.Resources>
+                                <collections:AvaloniaList x:TypeArguments="CommandBarDefaultLabelPosition" x:Key="LabelPositionList">
+                                    <CommandBarDefaultLabelPosition>Bottom</CommandBarDefaultLabelPosition>
+                                    <CommandBarDefaultLabelPosition>Collapsed</CommandBarDefaultLabelPosition>
+                                    <CommandBarDefaultLabelPosition>Right</CommandBarDefaultLabelPosition>
+                                </collections:AvaloniaList>
+                            </ComboBox.Resources>
+                        </ComboBox>
+                    </StackPanel>
+                </HeaderedContentControl.Header>
+                <CommandBar DefaultLabelPosition="{Binding #lc.SelectedValue}">
+                    <AppBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
+                    <AppBarSeparator />
+                    <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
+                    <AppBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
+                    <AppBarSeparator />
+                    <AppBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
+                    <AppBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
+                    <AppBarButton Label="Print" Icon="{DynamicResource SemiIconPrint}" />
+                    <AppBarSeparator />
+                    <AppBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
+                </CommandBar>
+            </HeaderedContentControl>
+
+            <!--  With secondary commands (overflow)  -->
+            <HeaderedContentControl Theme="{StaticResource GroupBox}">
+                <HeaderedContentControl.Header>
+                    <TextBlock Text="CommandBar — With Secondary Commands (overflow)" />
+                </HeaderedContentControl.Header>
+                <CommandBar>
+                    <AppBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
+                    <AppBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
+                    <CommandBar.SecondaryCommands>
+                        <AppBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
+                        <AppBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
+                    </CommandBar.SecondaryCommands>
+                </CommandBar>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Theme="{StaticResource GroupBox}">
+                <HeaderedContentControl.Header>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock Text="CommandBar — Dynamic Overflow" />
+                        <ToggleSwitch Name="idfe" IsChecked="True" />
+                        <Slider Name="ws" Width="500" Minimum="0" Maximum="500" Value="100" />
+                    </StackPanel>
+                </HeaderedContentControl.Header>
+                <CommandBar
+                    IsDynamicOverflowEnabled="{Binding #idfe.IsChecked}"
+                    Width="{Binding #ws.Value}">
+                    <AppBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
+                    <AppBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
+                    <AppBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
+                    <AppBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
+                </CommandBar>
+            </HeaderedContentControl>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
