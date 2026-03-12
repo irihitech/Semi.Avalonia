@@ -20,17 +20,10 @@
                         </ComboBox.Resources>
                     </ComboBox>
                     <ToggleSwitch Name="idfe" IsChecked="True" />
-                    <Slider Name="ws" Width="500" Minimum="0" Maximum="500" Value="100" />
+                    <Slider Name="ws" Width="500" Minimum="0" Maximum="500" Value="200" />
                 </StackPanel>
             </HeaderedContentControl.Header>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                <AppBarButton Label="New" IsCompact="True" Icon="{DynamicResource SemiIconPlus}" />
-                <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
-                <!-- <AppBarSeparator /> -->
-                <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
-                <AppBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
-                <AppBarToggleButton Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
-
                 <CommandBar
                     DefaultLabelPosition="{Binding #lc.SelectedValue}"
                     IsDynamicOverflowEnabled="{Binding #idfe.IsChecked}"
@@ -63,8 +56,8 @@
             <StackPanel
                 Name="PART_LayoutRoot"
                 Spacing="4"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                 <ContentPresenter
                     Name="PART_IconPresenter"
                     Foreground="{TemplateBinding Foreground}">
@@ -78,15 +71,17 @@
                 </ContentPresenter>
                 <TextBlock
                     Name="PART_Label"
+                    MaxHeight="14"
                     Foreground="{TemplateBinding Foreground}"
                     FontSize="{DynamicResource AppBarButtonLabelFontSize}"
-                    HorizontalAlignment="Center"
                     TextTrimming="CharacterEllipsis" />
             </StackPanel>
         </Border>
     </ControlTemplate>
 
     <ControlTheme x:Key="CommandBarButtonBaseTheme" TargetType="Button">
+        <Setter Property="Template" Value="{DynamicResource CommandBarButtonTemplate}" />
+
         <Setter Property="Background" Value="{DynamicResource AppBarButtonBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource AppBarButtonForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -123,7 +118,6 @@
         x:Key="{x:Type AppBarButton}"
         BasedOn="{StaticResource CommandBarButtonBaseTheme}"
         TargetType="AppBarButton">
-        <Setter Property="Template" Value="{DynamicResource CommandBarButtonTemplate}" />
 
         <Style Selector="^ /template/ TextBlock#PART_Label">
             <Setter Property="Text" Value="{TemplateBinding Label}" />
@@ -188,7 +182,6 @@
         x:Key="{x:Type AppBarToggleButton}"
         BasedOn="{StaticResource CommandBarButtonBaseTheme}"
         TargetType="AppBarToggleButton">
-        <Setter Property="Template" Value="{DynamicResource CommandBarButtonTemplate}" />
 
         <Style Selector="^ /template/ TextBlock#PART_Label">
             <Setter Property="Text" Value="{TemplateBinding Label}" />
@@ -344,18 +337,16 @@
                             IsLightDismissEnabled="True"
                             WindowManagerAddShadowHint="False">
                             <Border
-                                MinWidth="{DynamicResource MenuFlyoutMinWidth}"
-                                MinHeight="{DynamicResource MenuFlyoutMinHeight}"
-                                MaxWidth="{DynamicResource MenuFlyoutMaxWidth}"
-                                MaxHeight="{DynamicResource MenuFlyoutMaxHeight}"
-                                Margin="8"
-                                Padding="{DynamicResource MenuFlyoutPadding}"
-                                HorizontalAlignment="Stretch"
-                                Background="{DynamicResource MenuFlyoutBackground}"
-                                BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
-                                BorderThickness="{DynamicResource MenuFlyoutBorderThickness}"
-                                BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
-                                CornerRadius="{DynamicResource MenuFlyoutCornerRadius}">
+                                MinHeight="{DynamicResource CommandBarOverflowMinHeight}"
+                                MaxWidth="{DynamicResource CommandBarOverflowMaxWidth}"
+                                MaxHeight="{DynamicResource CommandBarOverflowMaxHeight}"
+                                Margin="{DynamicResource CommandBarOverflowMargin}"
+                                Padding="{DynamicResource CommandBarOverflowPadding}"
+                                Background="{DynamicResource CommandBarOverflowBackground}"
+                                BorderBrush="{DynamicResource CommandBarOverflowBorderBrush}"
+                                BorderThickness="{DynamicResource CommandBarBorderThickness}"
+                                BoxShadow="{DynamicResource CommandBarOverflowBoxShadow}"
+                                CornerRadius="{DynamicResource CommandBarOverflowCornerRadius}">
 
                                 <ItemsControl
                                     ItemsSource="{Binding OverflowItems, RelativeSource={RelativeSource TemplatedParent}}">
