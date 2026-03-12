@@ -1,0 +1,49 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.ContentPageDemo">
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Classes="H5" Text="ContentPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A basic page container with optional top/bottom command bars."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <ContentPage>
+                    <ContentPage.TopCommandBar>
+                        <Border
+                            Padding="12,8"
+                            Background="{DynamicResource SemiColorBackground2}"
+                            BorderBrush="{DynamicResource SemiColorBorder}"
+                            BorderThickness="0 0 0 1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Text="Top Command Bar" />
+                        </Border>
+                    </ContentPage.TopCommandBar>
+                    <ContentPage.BottomCommandBar>
+                        <Border
+                            Padding="12,8"
+                            Background="{DynamicResource SemiColorBackground2}"
+                            BorderBrush="{DynamicResource SemiColorBorder}"
+                            BorderThickness="0 1 0 0">
+                            <TextBlock
+                                FontSize="12"
+                                Opacity="0.7"
+                                Text="Bottom Command Bar" />
+                        </Border>
+                    </ContentPage.BottomCommandBar>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="Page Content" />
+                </ContentPage>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

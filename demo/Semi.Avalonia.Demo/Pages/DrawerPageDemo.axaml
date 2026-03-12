@@ -1,0 +1,56 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.DrawerPageDemo">
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Classes="H5" Text="DrawerPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A page with a slide-in navigation drawer (SplitView-based)."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <DrawerPage>
+                    <DrawerPage.Drawer>
+                        <StackPanel Margin="8" Spacing="4">
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Navigation Item 1"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Navigation Item 2"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Navigation Item 3"
+                                Theme="{StaticResource BorderlessButton}" />
+                        </StackPanel>
+                    </DrawerPage.Drawer>
+                    <DrawerPage.DrawerHeader>
+                        <Border
+                            Padding="16"
+                            Background="{DynamicResource SemiColorPrimaryLight}"
+                            BorderBrush="{DynamicResource SemiColorBorder}"
+                            BorderThickness="0 0 0 1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource SemiColorPrimary}"
+                                Text="Navigation" />
+                        </Border>
+                    </DrawerPage.DrawerHeader>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Main Content Area" />
+                </DrawerPage>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

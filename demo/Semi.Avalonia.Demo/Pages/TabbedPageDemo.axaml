@@ -1,0 +1,40 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.TabbedPageDemo">
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Classes="H5" Text="TabbedPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A page container using Semi's LineTabControl for tab navigation."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <TabbedPage>
+                    <TabbedPage.Pages>
+                        <ContentPage Header="Tab 1">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="Content of Tab 1" />
+                        </ContentPage>
+                        <ContentPage Header="Tab 2">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="Content of Tab 2" />
+                        </ContentPage>
+                        <ContentPage Header="Tab 3">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="Content of Tab 3" />
+                        </ContentPage>
+                    </TabbedPage.Pages>
+                </TabbedPage>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
