@@ -1,37 +1,93 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Semi.Avalonia.Demo.Pages.DrawerPageDemo">
+﻿<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.DrawerPageDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="700"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <collections:AvaloniaList x:Key="DisplayModeList" x:TypeArguments="SplitViewDisplayMode">
+            <SplitViewDisplayMode>Overlay</SplitViewDisplayMode>
+            <SplitViewDisplayMode>Inline</SplitViewDisplayMode>
+            <SplitViewDisplayMode>CompactOverlay</SplitViewDisplayMode>
+            <SplitViewDisplayMode>CompactInline</SplitViewDisplayMode>
+        </collections:AvaloniaList>
+        <collections:AvaloniaList x:Key="PlacementList" x:TypeArguments="DrawerPlacement">
+            <DrawerPlacement>Left</DrawerPlacement>
+            <DrawerPlacement>Right</DrawerPlacement>
+            <DrawerPlacement>Top</DrawerPlacement>
+            <DrawerPlacement>Bottom</DrawerPlacement>
+        </collections:AvaloniaList>
+    </UserControl.Resources>
     <ScrollViewer>
-        <StackPanel>
-            <TextBlock Classes="H5" Text="DrawerPage" />
-            <TextBlock
-                Opacity="0.7"
-                Text="A page with a slide-in navigation drawer (SplitView-based)."
-                TextWrapping="Wrap" />
-            <Border Height="300" Theme="{StaticResource CardBorder}">
-                <DrawerPage>
-                    <DrawerPage.Drawer>
-                        <StackPanel Margin="8" Spacing="4">
-                            <Button
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                Content="Navigation Item 1"
-                                Theme="{StaticResource BorderlessButton}" />
-                            <Button
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                Content="Navigation Item 2"
-                                Theme="{StaticResource BorderlessButton}" />
-                            <Button
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left"
-                                Content="Navigation Item 3"
-                                Theme="{StaticResource BorderlessButton}" />
-                        </StackPanel>
-                    </DrawerPage.Drawer>
+        <StackPanel Margin="8" Spacing="16">
+            <GroupBox>
+                <GroupBox.Header>
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto">
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="IsOpen" />
+                        <ToggleSwitch
+                            Name="openSwitch"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            IsChecked="True"
+                            Theme="{StaticResource SimpleToggleSwitch}" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="DisplayMode" />
+                        <ComboBox
+                            Name="displayModeCombo"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{DynamicResource DisplayModeList}"
+                            SelectedValue="{x:Static SplitViewDisplayMode.Overlay}" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="DrawerPlacement" />
+                        <ComboBox
+                            Name="placementCombo"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{DynamicResource PlacementList}"
+                            SelectedValue="{x:Static DrawerPlacement.Left}" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="{Binding #drawerLengthSlider.Value, StringFormat='{}DrawerLength: {0:F0}'}" />
+                        <Slider
+                            Name="drawerLengthSlider"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            IsSnapToTickEnabled="True"
+                            Maximum="400"
+                            Minimum="160"
+                            TickFrequency="8"
+                            Value="240" />
+                    </Grid>
+                </GroupBox.Header>
+
+                <DrawerPage
+                    Height="400"
+                    DisplayMode="{Binding #displayModeCombo.SelectedValue}"
+                    DrawerLength="{Binding #drawerLengthSlider.Value}"
+                    DrawerPlacement="{Binding #placementCombo.SelectedValue}"
+                    IsOpen="{Binding #openSwitch.IsChecked, Mode=TwoWay}">
                     <DrawerPage.DrawerHeader>
                         <Border
                             Padding="16"
@@ -45,12 +101,47 @@
                                 Text="Navigation" />
                         </Border>
                     </DrawerPage.DrawerHeader>
-                    <TextBlock
+                    <DrawerPage.Drawer>
+                        <StackPanel Margin="4" Spacing="2">
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Home"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Dashboard"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Settings"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Profile"
+                                Theme="{StaticResource BorderlessButton}" />
+                        </StackPanel>
+                    </DrawerPage.Drawer>
+
+                    <StackPanel
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Text="Main Content Area" />
+                        Spacing="8">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Classes="H5"
+                            Text="Main Content" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Opacity="0.6"
+                            Text="Use the hamburger button or the controls above to toggle the drawer."
+                            TextWrapping="Wrap" />
+                    </StackPanel>
                 </DrawerPage>
-            </Border>
+            </GroupBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

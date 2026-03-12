@@ -4,24 +4,77 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="1200"
+    d:DesignHeight="700"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer>
-        <StackPanel>
-            <TextBlock Classes="H5" Text="NavigationPage" />
-            <TextBlock
-                Opacity="0.7"
-                Text="A page stack navigator with a navigation bar and back button."
-                TextWrapping="Wrap" />
-            <Border Height="300" Theme="{StaticResource CardBorder}">
-                <NavigationPage>
-                    <TextBlock
+        <StackPanel Margin="8" Spacing="16">
+            <GroupBox>
+                <GroupBox.Header>
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="IsBackButtonVisible" />
+                        <ToggleSwitch
+                            Name="backButtonVisible"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            IsChecked="True"
+                            Theme="{StaticResource SimpleToggleSwitch}" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="HasShadow" />
+                        <ToggleSwitch
+                            Name="hasShadow"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            IsChecked="False"
+                            Theme="{StaticResource SimpleToggleSwitch}" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="{Binding #barHeightSlider.Value, StringFormat='{}BarHeight: {0:F0}'}" />
+                        <Slider
+                            Name="barHeightSlider"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            IsSnapToTickEnabled="True"
+                            Maximum="80"
+                            Minimum="32"
+                            TickFrequency="4"
+                            Value="48" />
+                    </Grid>
+                </GroupBox.Header>
+
+                <NavigationPage
+                    Height="400"
+                    BarHeight="{Binding #barHeightSlider.Value}"
+                    HasShadow="{Binding #hasShadow.IsChecked}"
+                    IsBackButtonVisible="{Binding #backButtonVisible.IsChecked}">
+                    <StackPanel
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Text="NavigationPage Content" />
+                        Spacing="8">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Classes="H5"
+                            Text="Page Content" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Opacity="0.6"
+                            Text="The navigation bar is shown at the top of the page."
+                            TextWrapping="Wrap" />
+                    </StackPanel>
                 </NavigationPage>
-            </Border>
+            </GroupBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
+

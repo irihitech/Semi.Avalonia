@@ -1,40 +1,97 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Semi.Avalonia.Demo.Pages.TabbedPageDemo">
+﻿<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.TabbedPageDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <collections:AvaloniaList x:Key="TabPlacementList" x:TypeArguments="TabPlacement">
+            <TabPlacement>Top</TabPlacement>
+            <TabPlacement>Bottom</TabPlacement>
+            <TabPlacement>Left</TabPlacement>
+            <TabPlacement>Right</TabPlacement>
+        </collections:AvaloniaList>
+    </UserControl.Resources>
     <ScrollViewer>
-        <StackPanel>
-            <TextBlock Classes="H5" Text="TabbedPage" />
-            <TextBlock
-                Opacity="0.7"
-                Text="A page container using Semi's LineTabControl for tab navigation."
-                TextWrapping="Wrap" />
-            <Border Height="300" Theme="{StaticResource CardBorder}">
-                <TabbedPage>
+        <StackPanel Margin="8" Spacing="16">
+            <GroupBox>
+                <GroupBox.Header>
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto">
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="TabPlacement" />
+                        <ComboBox
+                            Name="tabPlacementCombo"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{DynamicResource TabPlacementList}"
+                            SelectedValue="{x:Static TabPlacement.Top}" />
+                    </Grid>
+                </GroupBox.Header>
+
+                <TabbedPage Height="350" TabPlacement="{Binding #tabPlacementCombo.SelectedValue}">
                     <TabbedPage.Pages>
-                        <ContentPage Header="Tab 1">
-                            <TextBlock
+                        <ContentPage Header="Overview">
+                            <StackPanel
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Content of Tab 1" />
+                                Spacing="8">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Classes="H5"
+                                    Text="Overview" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Opacity="0.6"
+                                    Text="Summary and key metrics." />
+                            </StackPanel>
                         </ContentPage>
-                        <ContentPage Header="Tab 2">
-                            <TextBlock
+                        <ContentPage Header="Analytics">
+                            <StackPanel
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Content of Tab 2" />
+                                Spacing="8">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Classes="H5"
+                                    Text="Analytics" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Opacity="0.6"
+                                    Text="Charts and detailed reports." />
+                            </StackPanel>
                         </ContentPage>
-                        <ContentPage Header="Tab 3">
+                        <ContentPage Header="Settings">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="8">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Classes="H5"
+                                    Text="Settings" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Opacity="0.6"
+                                    Text="Configuration options." />
+                            </StackPanel>
+                        </ContentPage>
+                        <ContentPage Header="Profile" IsEnabled="False">
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Content of Tab 3" />
+                                Text="Profile (disabled)" />
                         </ContentPage>
                     </TabbedPage.Pages>
                 </TabbedPage>
-            </Border>
+            </GroupBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

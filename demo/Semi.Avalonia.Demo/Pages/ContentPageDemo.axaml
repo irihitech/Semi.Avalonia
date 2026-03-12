@@ -1,49 +1,108 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Semi.Avalonia.Demo.Pages.ContentPageDemo">
+﻿<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.ContentPageDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <ScrollViewer>
-        <StackPanel>
-            <TextBlock Classes="H5" Text="ContentPage" />
-            <TextBlock
-                Opacity="0.7"
-                Text="A basic page container with optional top/bottom command bars."
-                TextWrapping="Wrap" />
-            <Border Height="300" Theme="{StaticResource CardBorder}">
-                <ContentPage>
+        <StackPanel Margin="8" Spacing="16">
+            <GroupBox>
+                <GroupBox.Header>
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Show TopCommandBar" />
+                        <ToggleSwitch
+                            Name="showTop"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            IsChecked="True"
+                            Theme="{StaticResource SimpleToggleSwitch}" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Show BottomCommandBar" />
+                        <ToggleSwitch
+                            Name="showBottom"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            IsChecked="True"
+                            Theme="{StaticResource SimpleToggleSwitch}" />
+                    </Grid>
+                </GroupBox.Header>
+
+                <ContentPage Height="350">
                     <ContentPage.TopCommandBar>
                         <Border
-                            Padding="12,8"
+                            Padding="12 8"
+                            IsVisible="{Binding #showTop.IsChecked}"
                             Background="{DynamicResource SemiColorBackground2}"
                             BorderBrush="{DynamicResource SemiColorBorder}"
                             BorderThickness="0 0 0 1">
-                            <TextBlock
-                                FontSize="14"
-                                FontWeight="SemiBold"
-                                Text="Top Command Bar" />
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <PathIcon
+                                    Width="16"
+                                    Height="16"
+                                    Data="{DynamicResource SemiIconMenu}"
+                                    Foreground="{DynamicResource SemiColorText0}" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontWeight="SemiBold"
+                                    Foreground="{DynamicResource SemiColorText0}"
+                                    Text="App Title" />
+                            </StackPanel>
                         </Border>
                     </ContentPage.TopCommandBar>
                     <ContentPage.BottomCommandBar>
                         <Border
-                            Padding="12,8"
+                            Padding="8"
+                            IsVisible="{Binding #showBottom.IsChecked}"
                             Background="{DynamicResource SemiColorBackground2}"
                             BorderBrush="{DynamicResource SemiColorBorder}"
                             BorderThickness="0 1 0 0">
-                            <TextBlock
-                                FontSize="12"
-                                Opacity="0.7"
-                                Text="Bottom Command Bar" />
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="16">
+                                <Button
+                                    HorizontalContentAlignment="Center"
+                                    Content="Home"
+                                    Theme="{StaticResource BorderlessButton}" />
+                                <Button
+                                    HorizontalContentAlignment="Center"
+                                    Content="Search"
+                                    Theme="{StaticResource BorderlessButton}" />
+                                <Button
+                                    HorizontalContentAlignment="Center"
+                                    Content="Profile"
+                                    Theme="{StaticResource BorderlessButton}" />
+                            </StackPanel>
                         </Border>
                     </ContentPage.BottomCommandBar>
-                    <TextBlock
+
+                    <StackPanel
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="Page Content" />
+                        Spacing="8">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Classes="H5"
+                            Text="Main Content Area" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Opacity="0.6"
+                            Text="Toggle the command bars using the controls above."
+                            TextWrapping="Wrap" />
+                    </StackPanel>
                 </ContentPage>
-            </Border>
+            </GroupBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

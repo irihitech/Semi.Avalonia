@@ -15,8 +15,7 @@
                     <!--  Top command bar  -->
                     <ContentPresenter
                         Name="PART_TopCommandBar"
-                        Grid.Row="0"
-                        Content="{TemplateBinding Content}" />
+                        Grid.Row="0" />
 
                     <!--  Content host (pages + navigation bar)  -->
                     <Panel Name="PART_ContentHost" Grid.Row="1">
@@ -35,7 +34,7 @@
                         <!--  Navigation bar (overlaid on content by default)  -->
                         <Border
                             Name="PART_NavigationBar"
-                            MinHeight="{DynamicResource NavigationPageBarMinHeight}"
+                            MinHeight="{TemplateBinding BarHeight}"
                             Padding="{DynamicResource NavigationPageBarPadding}"
                             VerticalAlignment="Top"
                             Background="{DynamicResource NavigationPageBarBackground}"
