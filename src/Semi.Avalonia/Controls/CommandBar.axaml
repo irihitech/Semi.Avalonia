@@ -4,8 +4,8 @@
     xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base">
 
     <Design.PreviewWith>
-        <HeaderedContentControl Height="500" Theme="{StaticResource GroupBox}">
-            <HeaderedContentControl.Header>
+        <GroupBox Height="500">
+            <GroupBox.Header>
                 <StackPanel>
                     <ComboBox
                         Name="lc"
@@ -22,7 +22,7 @@
                     <ToggleSwitch Name="idfe" IsChecked="True" />
                     <Slider Name="ws" Width="500" Minimum="0" Maximum="500" Value="200" />
                 </StackPanel>
-            </HeaderedContentControl.Header>
+            </GroupBox.Header>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
                 <CommandBar
                     DefaultLabelPosition="{Binding #lc.SelectedValue}"
@@ -33,7 +33,7 @@
                     <AppBarSeparator />
                     <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
                     <AppBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
-                    <AppBarToggleButton Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
+                    <AppBarToggleButton IsEnabled="False" IsChecked="True" Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
                     <AppBarSeparator />
                     <AppBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
                     <AppBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
@@ -42,7 +42,7 @@
                     <AppBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
                 </CommandBar>
             </StackPanel>
-        </HeaderedContentControl>
+        </GroupBox>
     </Design.PreviewWith>
 
     <ControlTheme x:Key="AppBarButtonBaseTheme" TargetType="Button">
@@ -196,6 +196,12 @@
             </Style>
             <Style Selector="^:pointerover /template/ Border#PART_Border">
                 <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#PART_Border">
+                <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedPressedBackground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource AppBarToggleButtonCheckedDisabledForeground}" />
             </Style>
         </Style>
 
