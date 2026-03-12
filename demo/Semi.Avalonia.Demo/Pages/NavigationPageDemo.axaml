@@ -8,72 +8,57 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer>
-        <StackPanel Margin="8" Spacing="16">
-            <GroupBox>
-                <GroupBox.Header>
-                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
-                        <TextBlock
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Text="IsBackButtonVisible" />
-                        <ToggleSwitch
-                            Name="backButtonVisible"
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            IsChecked="True"
-                            Theme="{StaticResource SimpleToggleSwitch}" />
+        <DockPanel>
+            <ScrollViewer DockPanel.Dock="Right" Width="260">
+                <StackPanel Margin="12" Spacing="8">
+                    <TextBlock Text="Configuration" FontWeight="SemiBold" FontSize="16" />
+                    <TextBlock Text="Navigation" FontWeight="SemiBold" FontSize="13" />
 
-                        <TextBlock
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Text="HasShadow" />
-                        <ToggleSwitch
-                            Name="hasShadow"
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            IsChecked="False"
-                            Theme="{StaticResource SimpleToggleSwitch}" />
+                    <Button Content="Push Page"
+                            HorizontalAlignment="Stretch"
+                            Click="OnPush" />
+                    <Button Content="Pop"
+                            HorizontalAlignment="Stretch"
+                            Click="OnPop" />
+                    <Button Content="Pop to Root"
+                            HorizontalAlignment="Stretch"
+                            Click="OnPopToRoot" />
 
-                        <TextBlock
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Text="{Binding #barHeightSlider.Value, StringFormat='{}BarHeight: {0:F0}'}" />
-                        <Slider
-                            Name="barHeightSlider"
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            IsSnapToTickEnabled="True"
-                            Maximum="80"
-                            Minimum="32"
-                            TickFrequency="4"
-                            Value="48" />
-                    </Grid>
-                </GroupBox.Header>
+                    <Separator />
 
-                <NavigationPage
-                    Height="400"
-                    BarHeight="{Binding #barHeightSlider.Value}"
-                    HasShadow="{Binding #hasShadow.IsChecked}"
-                    IsBackButtonVisible="{Binding #backButtonVisible.IsChecked}">
-                    <StackPanel
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Spacing="8">
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            Classes="H5"
-                            Text="Page Content" />
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            Opacity="0.6"
-                            Text="The navigation bar is shown at the top of the page."
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-                </NavigationPage>
-            </GroupBox>
-        </StackPanel>
+                    <TextBlock Text="Options" FontWeight="SemiBold" FontSize="14" />
+
+                    <CheckBox Name="HasNavBarCheck"
+                              Content="Has Navigation Bar"
+                              IsChecked="True"
+                              IsCheckedChanged="OnHasNavBarChanged" />
+                    <CheckBox Name="HasBackButtonCheck"
+                              Content="Has Back Button"
+                              IsChecked="True" />
+
+                    <Separator />
+
+                    <TextBlock Text="Status" FontWeight="SemiBold" FontSize="14" />
+                    <TextBlock Name="StatusText"
+                               Text="Depth: 1"
+                               Opacity="0.7"
+                               TextWrapping="Wrap" />
+                    <TextBlock Name="HeaderText"
+                               Text="Current: Home"
+                               Opacity="0.7"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </ScrollViewer>
+
+            <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource SemiColorBackground0}" />
+
+            <Border Margin="12"
+                    BorderBrush="{DynamicResource SemiColorBorder}"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    ClipToBounds="True">
+                <NavigationPage Name="DemoNav" />
+            </Border>
+        </DockPanel>
     </ScrollViewer>
 </UserControl>

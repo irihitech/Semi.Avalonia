@@ -7,102 +7,48 @@
     d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ScrollViewer>
-        <StackPanel Margin="8" Spacing="16">
-            <GroupBox>
-                <GroupBox.Header>
-                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
-                        <TextBlock
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Text="Show TopCommandBar" />
-                        <ToggleSwitch
-                            Name="showTop"
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            IsChecked="True"
-                            Theme="{StaticResource SimpleToggleSwitch}" />
+    <DockPanel>
+        <ScrollViewer DockPanel.Dock="Right" Width="260">
+            <StackPanel Margin="12" Spacing="8">
+                <TextBlock Text="Configuration" FontWeight="SemiBold" FontSize="16"
+                           Foreground="{DynamicResource SemiColorText0}" />
+                <TextBlock Text="ContentPage is the fundamental page type. It hosts a single piece of content and integrates with NavigationPage, TabbedPage, and CarouselPage. The Header property sets the navigation bar title."
+                           FontSize="12" Opacity="0.7" TextWrapping="Wrap" />
 
-                        <TextBlock
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Text="Show BottomCommandBar" />
-                        <ToggleSwitch
-                            Name="showBottom"
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            IsChecked="True"
-                            Theme="{StaticResource SimpleToggleSwitch}" />
-                    </Grid>
-                </GroupBox.Header>
+                <Separator />
 
-                <ContentPage Height="350">
-                    <ContentPage.TopCommandBar>
-                        <Border
-                            Padding="12,8"
-                            IsVisible="{Binding #showTop.IsChecked}"
-                            Background="{DynamicResource SemiColorBackground2}"
-                            BorderBrush="{DynamicResource SemiColorBorder}"
-                            BorderThickness="0 0 0 1">
-                            <StackPanel Orientation="Horizontal" Spacing="8">
-                                <PathIcon
-                                    Width="16"
-                                    Height="16"
-                                    Data="{DynamicResource SemiIconMenu}"
-                                    Foreground="{DynamicResource SemiColorText0}" />
-                                <TextBlock
-                                    VerticalAlignment="Center"
-                                    FontWeight="SemiBold"
-                                    Foreground="{DynamicResource SemiColorText0}"
-                                    Text="App Title" />
-                            </StackPanel>
-                        </Border>
-                    </ContentPage.TopCommandBar>
-                    <ContentPage.BottomCommandBar>
-                        <Border
-                            Padding="8"
-                            IsVisible="{Binding #showBottom.IsChecked}"
-                            Background="{DynamicResource SemiColorBackground2}"
-                            BorderBrush="{DynamicResource SemiColorBorder}"
-                            BorderThickness="0 1 0 0">
-                            <StackPanel
-                                HorizontalAlignment="Center"
-                                Orientation="Horizontal"
-                                Spacing="16">
-                                <Button
-                                    HorizontalContentAlignment="Center"
-                                    Content="Home"
-                                    Theme="{StaticResource BorderlessButton}" />
-                                <Button
-                                    HorizontalContentAlignment="Center"
-                                    Content="Search"
-                                    Theme="{StaticResource BorderlessButton}" />
-                                <Button
-                                    HorizontalContentAlignment="Center"
-                                    Content="Profile"
-                                    Theme="{StaticResource BorderlessButton}" />
-                            </StackPanel>
-                        </Border>
-                    </ContentPage.BottomCommandBar>
+                <TextBlock Text="Navigation" FontWeight="SemiBold" />
+                <Button Content="Push Page" HorizontalAlignment="Stretch" Click="OnPush" />
+                <Button Content="Pop Page" HorizontalAlignment="Stretch" Click="OnPop" />
+                <Button Content="Pop to Root" HorizontalAlignment="Stretch" Click="OnPopToRoot" />
 
-                    <StackPanel
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Spacing="8">
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            Classes="H5"
-                            Text="Main Content Area" />
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            Opacity="0.6"
-                            Text="Toggle the command bars using the controls above."
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-                </ContentPage>
-            </GroupBox>
-        </StackPanel>
-    </ScrollViewer>
+                <Separator />
+
+                <TextBlock Text="Key Properties" FontWeight="SemiBold" />
+                <TextBlock Text="• Header: nav bar title (string or Control)" FontSize="12" Opacity="0.8" TextWrapping="Wrap" />
+                <TextBlock Text="• Content: any Avalonia control" FontSize="12" Opacity="0.8" TextWrapping="Wrap" />
+                <TextBlock Text="• Background: page background brush" FontSize="12" Opacity="0.8" TextWrapping="Wrap" />
+                <TextBlock Text="• HorizontalContentAlignment" FontSize="12" Opacity="0.8" />
+                <TextBlock Text="• VerticalContentAlignment" FontSize="12" Opacity="0.8" />
+                <TextBlock Text="• AutomaticallyApplySafeAreaPadding" FontSize="12" Opacity="0.8" />
+
+                <Separator />
+
+                <TextBlock Name="StatusText"
+                           Text="Depth: 1 | Current: Root Page"
+                           FontSize="11"
+                           Opacity="0.7" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource SemiColorBackground0}" />
+
+        <Border Margin="12"
+                BorderBrush="{DynamicResource SemiColorBorder}"
+                BorderThickness="1"
+                CornerRadius="6"
+                ClipToBounds="True">
+            <NavigationPage Name="DemoNav" />
+        </Border>
+    </DockPanel>
 </UserControl>

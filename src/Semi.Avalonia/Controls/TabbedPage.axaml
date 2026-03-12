@@ -16,19 +16,5 @@
                     ItemsSource="{TemplateBinding Pages}" />
             </ControlTemplate>
         </Setter>
-
-        <!--  Forward TabPlacement to inner TabControl.TabStripPlacement  -->
-        <Style Selector="^[TabPlacement=Top] /template/ TabControl#PART_TabControl">
-            <Setter Property="TabStripPlacement" Value="Top" />
-        </Style>
-        <Style Selector="^[TabPlacement=Bottom] /template/ TabControl#PART_TabControl">
-            <Setter Property="TabStripPlacement" Value="Bottom" />
-        </Style>
-        <Style Selector="^[TabPlacement=Left] /template/ TabControl#PART_TabControl">
-            <Setter Property="TabStripPlacement" Value="Left" />
-        </Style>
-        <Style Selector="^[TabPlacement=Right] /template/ TabControl#PART_TabControl">
-            <Setter Property="TabStripPlacement" Value="Right" />
-        </Style>
     </ControlTheme>
 </ResourceDictionary>
