@@ -1,0 +1,148 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.NavigationPageDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1200"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="8" Spacing="16">
+
+            <!--  ContentPage  -->
+            <TextBlock Classes="H5" Text="ContentPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A basic page container with optional top/bottom command bars."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <ContentPage>
+                    <ContentPage.TopCommandBar>
+                        <Border
+                            Padding="12,8"
+                            Background="{DynamicResource SemiColorBackground2}"
+                            BorderBrush="{DynamicResource SemiColorBorder}"
+                            BorderThickness="0 0 0 1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Text="Top Command Bar" />
+                        </Border>
+                    </ContentPage.TopCommandBar>
+                    <ContentPage.BottomCommandBar>
+                        <Border
+                            Padding="12,8"
+                            Background="{DynamicResource SemiColorBackground2}"
+                            BorderBrush="{DynamicResource SemiColorBorder}"
+                            BorderThickness="0 1 0 0">
+                            <TextBlock
+                                FontSize="12"
+                                Opacity="0.7"
+                                Text="Bottom Command Bar" />
+                        </Border>
+                    </ContentPage.BottomCommandBar>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="Page Content" />
+                </ContentPage>
+            </Border>
+
+            <!--  TabbedPage  -->
+            <TextBlock Classes="H5" Text="TabbedPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A page container using Semi's LineTabControl for tab navigation."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <TabbedPage>
+                    <TabbedPage.Pages>
+                        <ContentPage Header="Tab 1">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="Content of Tab 1" />
+                        </ContentPage>
+                        <ContentPage Header="Tab 2">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="Content of Tab 2" />
+                        </ContentPage>
+                        <ContentPage Header="Tab 3">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="Content of Tab 3" />
+                        </ContentPage>
+                    </TabbedPage.Pages>
+                </TabbedPage>
+            </Border>
+
+            <!--  DrawerPage  -->
+            <TextBlock Classes="H5" Text="DrawerPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A page with a slide-in navigation drawer (SplitView-based)."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <DrawerPage>
+                    <DrawerPage.Drawer>
+                        <StackPanel Margin="8" Spacing="4">
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Navigation Item 1"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Navigation Item 2"
+                                Theme="{StaticResource BorderlessButton}" />
+                            <Button
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Content="Navigation Item 3"
+                                Theme="{StaticResource BorderlessButton}" />
+                        </StackPanel>
+                    </DrawerPage.Drawer>
+                    <DrawerPage.DrawerHeader>
+                        <Border
+                            Padding="16"
+                            Background="{DynamicResource SemiColorPrimaryLight}"
+                            BorderBrush="{DynamicResource SemiColorBorder}"
+                            BorderThickness="0 0 0 1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource SemiColorPrimary}"
+                                Text="Navigation" />
+                        </Border>
+                    </DrawerPage.DrawerHeader>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Main Content Area" />
+                </DrawerPage>
+            </Border>
+
+            <!--  NavigationPage  -->
+            <TextBlock Classes="H5" Text="NavigationPage" />
+            <TextBlock
+                Opacity="0.7"
+                Text="A page stack navigator with a navigation bar and back button."
+                TextWrapping="Wrap" />
+            <Border Height="300" Theme="{StaticResource CardBorder}">
+                <NavigationPage>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="NavigationPage Content" />
+                </NavigationPage>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

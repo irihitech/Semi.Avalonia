@@ -1,0 +1,91 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <NavigationPage Width="400" Height="300" />
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
+        <Setter Property="Background" Value="{DynamicResource NavigationPageBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource NavigationPageForeground}" />
+        <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarMinHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="NavigationPage">
+                <Grid RowDefinitions="Auto,*,Auto" Background="{TemplateBinding Background}">
+                    <!--  Top command bar  -->
+                    <ContentPresenter
+                        Name="PART_TopCommandBar"
+                        Grid.Row="0"
+                        Content="{TemplateBinding Content}" />
+
+                    <!--  Content host (pages + navigation bar)  -->
+                    <Panel Name="PART_ContentHost" Grid.Row="1">
+                        <!--  Previous page (back animation target)  -->
+                        <ContentPresenter Name="PART_PageBackPresenter" />
+
+                        <!--  Current page  -->
+                        <ContentPresenter Name="PART_PagePresenter" />
+
+                        <!--  Modal back page  -->
+                        <ContentPresenter Name="PART_ModalBackPresenter" />
+
+                        <!--  Modal page  -->
+                        <ContentPresenter Name="PART_ModalPresenter" />
+
+                        <!--  Navigation bar (overlaid on content by default)  -->
+                        <Border
+                            Name="PART_NavigationBar"
+                            MinHeight="{DynamicResource NavigationPageBarMinHeight}"
+                            Padding="{DynamicResource NavigationPageBarPadding}"
+                            VerticalAlignment="Top"
+                            Background="{DynamicResource NavigationPageBarBackground}"
+                            BorderBrush="{DynamicResource NavigationPageBarBorderBrush}"
+                            BorderThickness="{DynamicResource NavigationPageBarBorderThickness}">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <Button
+                                    Name="PART_BackButton"
+                                    Grid.Column="0"
+                                    MinHeight="{DynamicResource NavigationPageBarMinHeight}"
+                                    MinWidth="{DynamicResource NavigationPageBarMinHeight}"
+                                    Padding="8"
+                                    VerticalAlignment="Center"
+                                    Background="{DynamicResource NavigationPageBackButtonBackground}"
+                                    Theme="{StaticResource BorderlessButton}">
+                                    <PathIcon
+                                        Width="16"
+                                        Height="16"
+                                        Data="{DynamicResource NavigationPageBackButtonGlyph}"
+                                        Foreground="{DynamicResource NavigationPageBackButtonForeground}" />
+                                </Button>
+                                <ContentPresenter
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                    </Panel>
+
+                    <!--  Bottom command bar  -->
+                    <ContentPresenter
+                        Name="PART_BottomCommandBar"
+                        Grid.Row="2" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Navigation bar is inset (content flows under the bar)  -->
+        <Style Selector="^:nav-bar-inset /template/ Border#PART_NavigationBar">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <!--  Compact navigation bar  -->
+        <Style Selector="^:nav-bar-compact /template/ Border#PART_NavigationBar">
+            <Setter Property="MinHeight" Value="0" />
+        </Style>
+
+        <!--  Hide back button when cannot go back  -->
+        <Style Selector="^ /template/ Button#PART_BackButton">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
