@@ -12,7 +12,8 @@
                 <TabControl
                     Name="PART_TabControl"
                     Background="{TemplateBinding Background}"
-                    Theme="{StaticResource LineTabControl}" />
+                    Theme="{StaticResource LineTabControl}"
+                    ItemsSource="{TemplateBinding Pages}" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>
