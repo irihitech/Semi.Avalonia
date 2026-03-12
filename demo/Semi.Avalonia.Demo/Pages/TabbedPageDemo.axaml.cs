@@ -31,13 +31,13 @@ public partial class TabbedPageDemo : UserControl
                     {
                         Text = $"Tab {idx}",
                         FontSize = 24,
-                        FontWeight = FontWeight.Bold
+                        FontWeight = FontWeight.Bold,
                     },
                     new TextBlock
                     {
                         Text = $"This tab was added dynamically (tab #{idx}).",
                         Opacity = 0.7,
-                        TextWrapping = TextWrapping.Wrap
+                        TextWrapping = TextWrapping.Wrap,
                     }
                 }
             }

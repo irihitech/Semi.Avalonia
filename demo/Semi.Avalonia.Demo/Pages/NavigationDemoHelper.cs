@@ -45,7 +45,8 @@ internal static class NavigationDemoHelper
                         Text = header,
                         FontSize = 20,
                         FontWeight = FontWeight.SemiBold,
-                        HorizontalAlignment = HorizontalAlignment.Center
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Foreground = Brushes.Black,
                     },
                     new TextBlock
                     {
@@ -54,7 +55,8 @@ internal static class NavigationDemoHelper
                         Opacity = 0.7,
                         TextWrapping = TextWrapping.Wrap,
                         TextAlignment = TextAlignment.Center,
-                        MaxWidth = 260
+                        MaxWidth = 260,
+                        Foreground = Brushes.Black,
                     }
                 }
             },

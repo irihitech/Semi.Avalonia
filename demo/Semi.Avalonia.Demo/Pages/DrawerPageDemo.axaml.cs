@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
+using Avalonia.Media;
 
 namespace Semi.Avalonia.Demo.Pages;
 
@@ -50,7 +51,8 @@ public partial class DrawerPageDemo : UserControl
                     Text = $"{item.Content} page content",
                     FontSize = 16,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Foreground = Brushes.Black,
                 },
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
                 VerticalContentAlignment = VerticalAlignment.Stretch

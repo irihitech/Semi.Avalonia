@@ -72,7 +72,8 @@ public partial class ContentPageDemo : UserControl
                         Text = header,
                         FontSize = 20,
                         FontWeight = FontWeight.SemiBold,
-                        HorizontalAlignment = HorizontalAlignment.Center
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Foreground = Brushes.Black,
                     },
                     new TextBlock
                     {
@@ -81,7 +82,8 @@ public partial class ContentPageDemo : UserControl
                         Opacity = 0.7,
                         TextWrapping = TextWrapping.Wrap,
                         TextAlignment = TextAlignment.Center,
-                        MaxWidth = 260
+                        MaxWidth = 260,
+                        Foreground = Brushes.Black,
                     }
                 }
             },
