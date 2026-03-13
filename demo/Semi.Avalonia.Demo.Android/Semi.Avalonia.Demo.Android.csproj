@@ -13,6 +13,11 @@
         <RootNamespace>Semi.Avalonia.Demo.Android</RootNamespace>
     </PropertyGroup>
 
+    <!-- Use CoreCLR on Android -->
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+        <UseMonoRuntime>false</UseMonoRuntime>
+    </PropertyGroup>
+
     <ItemGroup>
         <AndroidResource Include="Icon.png" Link="Resources\drawable\Icon.png"/>
         <AvaloniaResource Include="..\Fonts\*" Link="Assets\Fonts\%(Filename)%(Extension)" />
