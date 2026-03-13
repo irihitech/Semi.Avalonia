@@ -50,6 +50,14 @@ public partial class NavigationPageDemo : UserControl
             NavigationPage.SetHasNavigationBar(DemoNav.CurrentPage, HasNavBarCheck.IsChecked == true);
     }
 
+    private void OnHasBackButonChanged(object? sender, RoutedEventArgs e)
+    {
+        if (DemoNav == null)
+            return;
+        if (DemoNav.CurrentPage != null)
+            NavigationPage.SetHasBackButton(DemoNav.CurrentPage, HasBackButtonCheck.IsChecked == true);
+    }
+
     private void UpdateStatus()
     {
         StatusText.Text = $"Depth: {DemoNav.StackDepth}";

@@ -48,13 +48,22 @@
                                     MinWidth="{DynamicResource NavigationPageBarMinHeight}"
                                     Padding="8"
                                     VerticalAlignment="Center"
+                                    IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                                     Background="{DynamicResource NavigationPageBackButtonBackground}"
                                     Theme="{StaticResource BorderlessButton}">
-                                    <PathIcon
-                                        Theme="{StaticResource InnerPathIcon}"
-                                        Classes="Large"
-                                        Data="{DynamicResource NavigationPageBackButtonGlyph}"
-                                        Foreground="{DynamicResource NavigationPageBackButtonForeground}" />
+                                    <Panel Background="Transparent">
+                                        <PathIcon
+                                            Theme="{StaticResource InnerPathIcon}"
+                                            Classes="Large"
+                                            Data="{DynamicResource NavigationPageBackButtonGlyph}"
+                                            Foreground="{DynamicResource NavigationPageBackButtonForeground}"
+                                            IsVisible="{Binding CurrentPage?.(NavigationPage.BackButtonContent), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=False}" />
+                                        <ContentPresenter
+                                            Content="{Binding CurrentPage?.(NavigationPage.BackButtonContent), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
+                                            IsVisible="{Binding CurrentPage?.(NavigationPage.BackButtonContent), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}, FallbackValue=False}"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center" />
+                                    </Panel>
                                 </Button>
                                 <ContentPresenter
                                     Grid.Column="1"
@@ -80,11 +89,6 @@
         <!--  Compact navigation bar  -->
         <Style Selector="^:nav-bar-compact /template/ Border#PART_NavigationBar">
             <Setter Property="MinHeight" Value="0" />
-        </Style>
-
-        <!--  Hide back button when cannot go back  -->
-        <Style Selector="^ /template/ Button#PART_BackButton">
-            <Setter Property="IsVisible" Value="True" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
