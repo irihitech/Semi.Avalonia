@@ -6,13 +6,34 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage">
-        <Setter Property="Background" Value="{DynamicResource TabbedPageBackground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TabbedPage">
                 <TabControl
                     Name="PART_TabControl"
                     Background="{TemplateBinding Background}"
                     Theme="{StaticResource LineTabControl}"
+                    ItemsSource="{TemplateBinding Pages}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="CardTabbedPage" TargetType="TabbedPage">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabbedPage">
+                <TabControl
+                    Name="PART_TabControl"
+                    Background="{TemplateBinding Background}"
+                    Theme="{StaticResource CardTabControl}"
+                    ItemsSource="{TemplateBinding Pages}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="ButtonTabbedPage" TargetType="TabbedPage">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabbedPage">
+                <TabControl
+                    Name="PART_TabControl"
+                    Background="{TemplateBinding Background}"
+                    Theme="{StaticResource ButtonTabControl}"
                     ItemsSource="{TemplateBinding Pages}" />
             </ControlTemplate>
         </Setter>
