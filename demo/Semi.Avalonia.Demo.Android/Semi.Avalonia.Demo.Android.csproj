@@ -2,7 +2,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net10.0-android</TargetFramework>
-        <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion>23</SupportedOSPlatformVersion>
         <Nullable>enable</Nullable>
         <ApplicationId>com.irihitech.Semi.Avalonia</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
@@ -11,6 +11,12 @@
         <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <RootNamespace>Semi.Avalonia.Demo.Android</RootNamespace>
+    </PropertyGroup>
+
+    <!-- Use CoreCLR on Android -->
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+        <UseMonoRuntime>false</UseMonoRuntime>
+        <PublishReadyToRun>true</PublishReadyToRun>
     </PropertyGroup>
 
     <ItemGroup>
