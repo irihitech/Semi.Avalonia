@@ -36,43 +36,27 @@ public class SemiTheme : Styles
 
     private static readonly ResourceDictionary DefaultResource = new zh_cn();
 
-    private CultureInfo? _locale;
-
     public CultureInfo? Locale
     {
-        get => _locale;
+        get;
         set
         {
             try
             {
                 if (TryGetLocaleResource(value, out var resource) && resource is not null)
                 {
-                    _locale = value;
-                    if (Resources is ResourceDictionary rd)
-                    {
-                        rd.SetItems(resource);
-                    }
-                    else
-                    {
-                        foreach (var kv in resource) Resources[kv.Key] = kv.Value;
-                    }
+                    field = value;
+                    SetResources(this.Resources, resource);
                 }
                 else
                 {
-                    _locale = new CultureInfo("zh-CN");
-                    if (Resources is ResourceDictionary rd)
-                    {
-                        rd.SetItems(DefaultResource);
-                    }
-                    else
-                    {
-                        foreach (var kv in DefaultResource) Resources[kv.Key] = kv.Value;
-                    }
+                    field = new CultureInfo("zh-CN");
+                    SetResources(Resources, DefaultResource);
                 }
             }
             catch
             {
-                _locale = CultureInfo.InvariantCulture;
+                field = CultureInfo.InvariantCulture;
             }
         }
     }
@@ -105,28 +89,25 @@ public class SemiTheme : Styles
     {
         if (culture is null) return;
         if (!LocaleToResource.TryGetValue(culture, out var resources)) return;
-
-        if (application.Resources is ResourceDictionary rd)
-        {
-            rd.SetItems(resources);
-        }
-        else
-        {
-            foreach (var kv in resources) application.Resources[kv.Key] = kv.Value;
-        }
+        SetResources(application.Resources, resources);
     }
 
     public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
         if (culture is null) return;
         if (!LocaleToResource.TryGetValue(culture, out var resources)) return;
-        if (element.Resources is ResourceDictionary rd)
+        SetResources(element.Resources, resources);
+    }
+
+    private static void SetResources(IResourceDictionary source, IResourceDictionary content)
+    {
+        if (source is ResourceDictionary resourceDictionary)
         {
-            rd.SetItems(resources);
+             resourceDictionary.SetItems(content);
         }
         else
         {
-            foreach (var kv in resources) element.Resources[kv.Key] = kv.Value;
+            foreach (var kv in content) source[kv.Key] = kv.Value;
         }
     }
 }
