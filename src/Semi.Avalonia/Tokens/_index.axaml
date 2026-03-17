@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:semi="https://irihi.tech/semi">
+    <ResourceDictionary.ThemeDictionaries>
+        <semi:Light x:Key="Default" />
+        <semi:Light x:Key="Light" />
+        <semi:Dark x:Key="Dark" />
+        <ResourceInclude x:Key="{x:Static semi:SemiTheme.Aquatic}" Source="HighContrast/Aquatic.axaml" />
+        <ResourceInclude x:Key="{x:Static semi:SemiTheme.Desert}" Source="HighContrast/Desert.axaml" />
+        <ResourceInclude x:Key="{x:Static semi:SemiTheme.Dusk}" Source="HighContrast/Dusk.axaml" />
+        <ResourceInclude x:Key="{x:Static semi:SemiTheme.NightSky}" Source="HighContrast/NightSky.axaml" />
+    </ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary.MergedDictionaries>
+        <semi:Variables />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
