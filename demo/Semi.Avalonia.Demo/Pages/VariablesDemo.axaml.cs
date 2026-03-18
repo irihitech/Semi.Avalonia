@@ -9,7 +9,7 @@ public partial class VariablesDemo : UserControl
 {
     public VariablesDemo()
     {
-        //InitializeComponent();
+        InitializeComponent();
         this.DataContext = new VariablesDemoViewModel();
     }
 
