@@ -156,7 +156,7 @@
                     Theme="{DynamicResource InnerPathIcon}"
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
-                    Data="{DynamicResource CarouselButtonGlyph}"
+                    Data="{TemplateBinding Content}"
                     Foreground="{TemplateBinding Foreground}" />
             </ControlTemplate>
         </Setter>
@@ -213,6 +213,7 @@
                         Theme="{DynamicResource CarouselButton}"
                         Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource CarouselButtonForeground}"
+                        Content="{StaticResource SemiIconChevronLeft}"
                         IsVisible="{TemplateBinding ItemCount, Converter={x:Static semi:ItemConverter.ItemVisibleConverter}}"
                         Command="{Binding $parent[Carousel].Previous}" />
                     <Button
@@ -222,9 +223,9 @@
                         Theme="{DynamicResource CarouselButton}"
                         Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource CarouselButtonForeground}"
+                        Content="{StaticResource SemiIconChevronRight}"
                         IsVisible="{TemplateBinding ItemCount, Converter={x:Static semi:ItemConverter.ItemVisibleConverter}}"
-                        Command="{Binding $parent[Carousel].Next}"
-                        RenderTransform="rotate(180deg)" />
+                        Command="{Binding $parent[Carousel].Next}" />
                 </Grid>
             </ControlTemplate>
         </Setter>

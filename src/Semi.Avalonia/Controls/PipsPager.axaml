@@ -1,0 +1,82 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="PreviousButtonStyle" Value="{StaticResource CarouselButton}" />
+        <Setter Property="NextButtonStyle" Value="{StaticResource CarouselButton}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel
+                    Name="PART_RootPanel"
+                    Orientation="{TemplateBinding Orientation}"
+                    Background="{TemplateBinding Background}"
+                    ClipToBounds="False">
+                    <Button
+                        Name="PART_PreviousButton"
+                        Theme="{DynamicResource CarouselButton}"
+                        Margin="{DynamicResource CarouselButtonMargin}"
+                        IsVisible="{TemplateBinding IsPreviousButtonVisible}"
+                        Foreground="{DynamicResource CarouselButtonForeground}"
+                        Content="{StaticResource SemiIconChevronLeft}" />
+
+                    <ListBox
+                        Name="PART_PipsPagerList"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                        ItemsSource="{Binding TemplateSettings.Pips, RelativeSource={RelativeSource TemplatedParent}}"
+                        SelectedIndex="{TemplateBinding SelectedPageIndex, Mode=TwoWay}"
+                        AutoScrollToSelectedItem="False"
+                        ItemContainerTheme="{StaticResource CarouselIndicatorDotListBoxItem}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="{Binding $parent[PipsPager].Orientation}" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+
+                    <Button
+                        Name="PART_NextButton"
+                        Theme="{DynamicResource CarouselButton}"
+                        Margin="{DynamicResource CarouselButtonMargin}"
+                        Foreground="{DynamicResource CarouselButtonForeground}"
+                        Content="{StaticResource SemiIconChevronRight}"
+                        IsVisible="{TemplateBinding IsNextButtonVisible}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal /template/ StackPanel#PART_RootPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+
+        <Style Selector="^:vertical">
+
+            <Style Selector="^ /template/ StackPanel#PART_RootPanel">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+
+            <Style Selector="^ /template/ Button#PART_PreviousButton">
+                <Setter Property="Content" Value="{StaticResource SemiIconChevronUp}" />
+            </Style>
+            <Style Selector="^ /template/ Button#PART_NextButton">
+                <Setter Property="Content" Value="{StaticResource SemiIconChevronDown}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:first-page /template/ Button#PART_PreviousButton">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^:last-page /template/ Button#PART_NextButton">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
