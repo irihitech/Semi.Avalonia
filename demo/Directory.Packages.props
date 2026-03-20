@@ -1,13 +1,12 @@
 ﻿<Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <AvaloniaVersion>12.0.0-preview2</AvaloniaVersion>
-        <DataGridVersion>12.0.0-preview2-2</DataGridVersion>
+        <AvaloniaVersion>12.0.0-rc1</AvaloniaVersion>
+        <DataGridVersion>12.0.0-rc1</DataGridVersion>
         <SkiaSharpVersion>3.119.1</SkiaSharpVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0-beta3"/>
         <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
         <PackageVersion Include="Avalonia.LinuxFramebuffer" Version="$(AvaloniaVersion)"/>
         <PackageVersion Include="Avalonia.iOS" Version="$(AvaloniaVersion)" />
@@ -15,6 +14,7 @@
         <PackageVersion Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
         <PackageVersion Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)"/>
         <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(DataGridVersion)"/>
+        <PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0-beta3"/>
 
         <PackageVersion Include="SkiaSharp" Version="$(SkiaSharpVersion)"/>
         <PackageVersion Include="SkiaSharp.NativeAssets.WebAssembly" Version="$(SkiaSharpVersion)"/>
@@ -22,6 +22,5 @@
         <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0"/>
 
         <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
-        <PackageVersion Include="Irihi.Avalonia.Shared" Version="0.3.1"/>
     </ItemGroup>
 </Project>

@@ -50,7 +50,8 @@
                                 Name="PART_PaneIconPresenter"
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
-                                Content="{TemplateBinding DrawerIcon}" />
+                                Content="{TemplateBinding DrawerIcon}"
+                                ContentTemplate="{TemplateBinding DrawerIconTemplate}" />
                         </Grid>
                     </Border>
 
@@ -84,13 +85,16 @@
                                         Name="PART_CompactPaneIconPresenter"
                                         DockPanel.Dock="Top"
                                         IsVisible="False"
-                                        Content="{TemplateBinding DrawerIcon}" />
+                                        Content="{TemplateBinding DrawerIcon}"
+                                        ContentTemplate="{TemplateBinding DrawerIconTemplate}" />
 
                                     <!--  Bottom pane icon  -->
                                     <ContentPresenter
                                         Name="PART_BottomPaneIconPresenter"
                                         DockPanel.Dock="Bottom"
-                                        IsVisible="False" />
+                                        IsVisible="False" 
+                                        Content="{TemplateBinding DrawerIcon}"
+                                        ContentTemplate="{TemplateBinding DrawerIconTemplate}" />
 
                                     <!--  Drawer main content  -->
                                     <ContentPresenter
