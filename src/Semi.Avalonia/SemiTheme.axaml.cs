@@ -3,6 +3,7 @@ using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
+using Irihi.Avalonia.Shared.Helpers;
 using Semi.Avalonia.Locale;
 
 namespace Semi.Avalonia;
@@ -36,43 +37,27 @@ public class SemiTheme : Styles
 
     private static readonly ResourceDictionary DefaultResource = new zh_cn();
 
-    private CultureInfo? _locale;
-
     public CultureInfo? Locale
     {
-        get => _locale;
+        get;
         set
         {
             try
             {
                 if (TryGetLocaleResource(value, out var resource) && resource is not null)
                 {
-                    _locale = value;
-                    if (Resources is ResourceDictionary rd)
-                    {
-                        rd.SetItems(resource);
-                    }
-                    else
-                    {
-                        foreach (var kv in resource) Resources[kv.Key] = kv.Value;
-                    }
+                    field = value;
+                    Resources.BulkSetResources(resource);
                 }
                 else
                 {
-                    _locale = new CultureInfo("zh-CN");
-                    if (Resources is ResourceDictionary rd)
-                    {
-                        rd.SetItems(DefaultResource);
-                    }
-                    else
-                    {
-                        foreach (var kv in DefaultResource) Resources[kv.Key] = kv.Value;
-                    }
+                    field = new CultureInfo("zh-CN");
+                    Resources.BulkSetResources(DefaultResource);
                 }
             }
             catch
             {
-                _locale = CultureInfo.InvariantCulture;
+                field = CultureInfo.InvariantCulture;
             }
         }
     }
@@ -105,28 +90,13 @@ public class SemiTheme : Styles
     {
         if (culture is null) return;
         if (!LocaleToResource.TryGetValue(culture, out var resources)) return;
-
-        if (application.Resources is ResourceDictionary rd)
-        {
-            rd.SetItems(resources);
-        }
-        else
-        {
-            foreach (var kv in resources) application.Resources[kv.Key] = kv.Value;
-        }
+        application.Resources.BulkSetResources(resources);
     }
 
     public static void OverrideLocaleResources(StyledElement element, CultureInfo? culture)
     {
         if (culture is null) return;
         if (!LocaleToResource.TryGetValue(culture, out var resources)) return;
-        if (element.Resources is ResourceDictionary rd)
-        {
-            rd.SetItems(resources);
-        }
-        else
-        {
-            foreach (var kv in resources) element.Resources[kv.Key] = kv.Value;
-        }
+        element.Resources.BulkSetResources(resources);
     }
 }
