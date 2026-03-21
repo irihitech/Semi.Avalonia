@@ -30,7 +30,7 @@
     
     <ControlTheme x:Key="PipsPagerIndicatorDotListBoxItem" TargetType="ListBoxItem">
         <Setter Property="Foreground" Value="{DynamicResource PipsPagerIndicatorForeground}" />
-        <Setter Property="Margin" Value="4 0" />
+        <Setter Property="Margin" Value="4" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
@@ -66,7 +66,6 @@
                     <Button
                         Name="PART_PreviousButton"
                         Theme="{TemplateBinding PreviousButtonStyle}"
-                        Margin="{DynamicResource CarouselButtonMargin}"
                         IsVisible="{TemplateBinding IsPreviousButtonVisible}"
                         Foreground="{DynamicResource PipsPagerButtonForeground}"
                         Content="{StaticResource SemiIconSmallTriangleLeft}" />
@@ -91,7 +90,6 @@
                     <Button
                         Name="PART_NextButton"
                         Theme="{TemplateBinding NextButtonStyle}"
-                        Margin="{DynamicResource CarouselButtonMargin}"
                         Foreground="{DynamicResource PipsPagerButtonForeground}"
                         Content="{StaticResource SemiIconSmallTriangleRight}"
                         IsVisible="{TemplateBinding IsNextButtonVisible}" />
