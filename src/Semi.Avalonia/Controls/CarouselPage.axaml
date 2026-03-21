@@ -1,0 +1,19 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type CarouselPage}" TargetType="CarouselPage">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Carousel
+                    Name="PART_Carousel"
+                    Background="{TemplateBinding Background}"
+                    ItemTemplate="{TemplateBinding PageTemplate}"
+                    PageTransition="{TemplateBinding PageTransition}"
+                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
