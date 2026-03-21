@@ -120,8 +120,9 @@
                     <WindowDrawnDecorationsContent.FullscreenPopover>
                         <!--  Shown on hover at top edge in fullscreen  -->
                         <DockPanel
-                            Height="{TemplateBinding TitleBarHeight}"
+                            Height="{TemplateBinding DefaultTitleBarHeight}"
                             Background="{DynamicResource TitleBarBackground}"
+                            VerticalAlignment="Top"
                             WindowDecorationProperties.ElementRole="TitleBar">
                             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
                                 <Button
