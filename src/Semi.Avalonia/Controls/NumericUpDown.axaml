@@ -52,6 +52,15 @@
         <Style Selector="^.Small">
             <Setter Property="MinHeight" Value="{DynamicResource NumericUpDownSmallHeight}" />
         </Style>
+        
+        <Style Selector="^.Split">
+            <Style Selector="^ /template/ ButtonSpinner#PART_Spinner">
+                <Setter Property="Theme" Value="{DynamicResource SplitButtonSpinner}" />
+            </Style>
+            <Style Selector="^ /template/ TextBox#PART_TextBox">
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+        </Style>
 
         <Style Selector="^:error">
             <Style Selector="^ /template/ TextBox#PART_TextBox">
