@@ -100,4 +100,98 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonPointeroverBorderBrush}" />
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonSpinnerRepeatButton" TargetType="RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonBackground}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonDisabledBackground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonSpinner" TargetType="ButtonSpinner">
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="MinWidth" Value="200" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ButtonSpinner">
+                <Grid ColumnDefinitions="Auto, *, Auto">
+                    <RepeatButton
+                        Name="PART_DecreaseButton"
+                        Grid.Column="0"
+                        Padding="{DynamicResource SplitButtonSpinnerButtonPadding}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{DynamicResource ButtonSpinnerButtonGroupBorderThickness}"
+                        CornerRadius="{DynamicResource SplitButtonSpinnerLeftButtonCornerRadius}"
+                        IsVisible="{TemplateBinding ShowButtonSpinner}"
+                        Theme="{StaticResource SplitButtonSpinnerRepeatButton}">
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Classes="ExtraSmall"
+                            Data="{DynamicResource SplitButtonSpinnerDecreaseButtonGlyph}"
+                            Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
+                    </RepeatButton>
+                    <Border
+                        Grid.Column="1"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                    <RepeatButton
+                        Name="PART_IncreaseButton"
+                        Grid.Column="2"
+                        Padding="{DynamicResource SplitButtonSpinnerButtonPadding}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{DynamicResource ButtonSpinnerButtonGroupBorderThickness}"
+                        CornerRadius="{DynamicResource SplitButtonSpinnerRightButtonCornerRadius}"
+                        IsVisible="{TemplateBinding ShowButtonSpinner}"
+                        Theme="{StaticResource SplitButtonSpinnerRepeatButton}">
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Classes="ExtraSmall"
+                            Data="{DynamicResource SplitButtonSpinnerIncreaseButtonGlyph}"
+                            Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
+                    </RepeatButton>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ RepeatButton#PART_DecreaseButton">
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="CornerRadius" Value="{DynamicResource SplitButtonSpinnerRightButtonCornerRadius}" />
+        </Style>
+        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ RepeatButton#PART_IncreaseButton">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="CornerRadius" Value="{DynamicResource SplitButtonSpinnerLeftButtonCornerRadius}" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>
