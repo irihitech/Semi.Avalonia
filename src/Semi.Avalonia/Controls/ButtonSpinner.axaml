@@ -93,7 +93,7 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ Border#ButtonGroup">
+        <Style Selector="^:left /template/ Border#ButtonGroup">
             <Setter Property="Grid.Column" Value="0" />
             <Setter Property="Margin" Value="0 0 4 0" />
         </Style>
@@ -121,7 +121,7 @@
                         Theme="{StaticResource ButtonSpinnerRepeatButton}">
                         <PathIcon
                             Theme="{DynamicResource InnerPathIcon}"
-                            Classes="ExtraSmall"
+                            Classes="Small"
                             Data="{DynamicResource SplitButtonSpinnerDecreaseButtonGlyph}"
                             Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
                     </RepeatButton>
@@ -151,18 +151,18 @@
                         Theme="{StaticResource ButtonSpinnerRepeatButton}">
                         <PathIcon
                             Theme="{DynamicResource InnerPathIcon}"
-                            Classes="ExtraSmall"
+                            Classes="Small"
                             Data="{DynamicResource SplitButtonSpinnerIncreaseButtonGlyph}"
                             Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
                     </RepeatButton>
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ RepeatButton#PART_DecreaseButton">
+        <Style Selector="^:left /template/ RepeatButton#PART_DecreaseButton">
             <Setter Property="Grid.Column" Value="2" />
             <Setter Property="CornerRadius" Value="{DynamicResource SplitButtonSpinnerRightButtonCornerRadius}" />
         </Style>
-        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ RepeatButton#PART_IncreaseButton">
+        <Style Selector="^:left /template/ RepeatButton#PART_IncreaseButton">
             <Setter Property="Grid.Column" Value="0" />
             <Setter Property="CornerRadius" Value="{DynamicResource SplitButtonSpinnerLeftButtonCornerRadius}" />
         </Style>
