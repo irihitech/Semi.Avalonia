@@ -38,6 +38,10 @@
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource CaptionButtonPressedBackground}" />
         </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource CaptionButtonDisabledForeground}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type WindowDrawnDecorations}" TargetType="WindowDrawnDecorations">
