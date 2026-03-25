@@ -49,14 +49,13 @@
                 <WindowDrawnDecorationsContent>
                     <WindowDrawnDecorationsContent.Underlay>
                         <!--  Full-size: covers shadow area + frame + behind client area  -->
-                        <Panel>
+                        <Panel Name="PART_UnderlayWrapper">
                             <Border
                                 Name="PART_WindowBorder"
-                                Margin="{TemplateBinding ShadowThickness}"
                                 Background="{DynamicResource WindowBackground}"
                                 BorderBrush="{DynamicResource WindowBorderBrush}"
-                                BorderThickness="1"
-                                BoxShadow="{DynamicResource WindowBorderShadow}" />
+                                BorderThickness="{TemplateBinding FrameThickness}"
+                                IsHitTestVisible="False" />
                             <!-- Titlebar: background, title text, and drag area live in underlay -->
                             <Panel Name="PART_TitleBar"
                                    VerticalAlignment="Top"
@@ -133,7 +132,7 @@
                                     WindowDecorationProperties.ElementRole="CloseButton" />
                             </StackPanel>
                             <TextBlock
-                                Margin="12,0"
+                                Margin="12,0,0,0"
                                 VerticalAlignment="Center"
                                 Text="{TemplateBinding Title}" />
                         </DockPanel>
