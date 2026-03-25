@@ -34,14 +34,10 @@
                         </StackPanel>
                         <Border MinHeight="150" Theme="{StaticResource CardBorder}">
                             <TabControl Classes.ReverseSeparator="{Binding #reverse.IsChecked}" TabStripPlacement="{Binding #place.SelectedValue}">
-                                <TabItem Content="Hello 1" Header="Tab 1" />
-                                <TabItem Content="Hello 2" Header="Tab 2" />
-                                <TabItem Content="Hello 3" Header="Tab 3" />
-                                <TabItem Content="中文内容" Header="中文中文" />
-                                <TabItem
-                                    Content="Hello 4"
-                                    Header="Tab 4"
-                                    IsEnabled="False" />
+                                <TabItem Content="Hello 1" Header="文档" Icon="{StaticResource SemiIconFile}" />
+                                <TabItem Content="Hello 2" Header="快速起步" Icon="{StaticResource SemiIconGlobe}" />
+                                <TabItem Content="Hello 4" Header="无效" Icon="{StaticResource SemiIconClear}" IsEnabled="False" />
+                                <TabItem Content="Hello 3" Header="帮助" Icon="{StaticResource SemiIconHelpCircle}" />
                             </TabControl>
                         </Border>
                         <Border Height="300" Theme="{StaticResource CardBorder}">
@@ -57,14 +53,10 @@
                     <StackPanel>
                         <Border MinHeight="150" Theme="{StaticResource CardBorder}">
                             <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource LineTabControl}">
-                                <TabItem Content="Hello 1" Header="Tab 1" />
-                                <TabItem Content="Hello 2" Header="Tab 2" />
-                                <TabItem Content="Hello 3" Header="Tab 3" />
-                                <TabItem Content="中文内容" Header="中文中文" />
-                                <TabItem
-                                    Content="Hello 4"
-                                    Header="Tab 4"
-                                    IsEnabled="False" />
+                                <TabItem Content="Hello 1" Header="文档" Icon="{StaticResource SemiIconFile}" />
+                                <TabItem Content="Hello 2" Header="快速起步" Icon="{StaticResource SemiIconGlobe}" />
+                                <TabItem Content="Hello 4" Header="无效" Icon="{StaticResource SemiIconClear}" IsEnabled="False" />
+                                <TabItem Content="Hello 3" Header="帮助" Icon="{StaticResource SemiIconHelpCircle}" />
                             </TabControl>
                         </Border>
                         <Border Height="300" Theme="{StaticResource CardBorder}">
@@ -82,14 +74,10 @@
                             Background="Transparent"
                             Theme="{StaticResource CardBorder}">
                             <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource CardTabControl}">
-                                <TabItem Content="Hello 1" Header="Tab 1" />
-                                <TabItem Content="Hello 2" Header="Tab 2" />
-                                <TabItem Content="Hello 3" Header="Tab 3" />
-                                <TabItem Content="中文内容" Header="中文中文" />
-                                <TabItem
-                                    Content="Hello 4"
-                                    Header="Tab 4"
-                                    IsEnabled="False" />
+                                <TabItem Content="Hello 1" Header="文档" Icon="{StaticResource SemiIconFile}" />
+                                <TabItem Content="Hello 2" Header="快速起步" Icon="{StaticResource SemiIconGlobe}" />
+                                <TabItem Content="Hello 4" Header="无效" Icon="{StaticResource SemiIconClear}" IsEnabled="False" />
+                                <TabItem Content="Hello 3" Header="帮助" Icon="{StaticResource SemiIconHelpCircle}" />
                             </TabControl>
                         </Border>
                         <Border
@@ -107,14 +95,10 @@
                     <StackPanel>
                         <Border MinHeight="150" Theme="{StaticResource CardBorder}">
                             <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource ButtonTabControl}">
-                                <TabItem Content="Hello 1" Header="Tab 1" />
-                                <TabItem Content="Hello 2" Header="Tab 2" />
-                                <TabItem Content="Hello 3" Header="Tab 3" />
-                                <TabItem Content="中文内容" Header="中文中文" />
-                                <TabItem
-                                    Content="Hello 4"
-                                    Header="Tab 4"
-                                    IsEnabled="False" />
+                                <TabItem Content="Hello 1" Header="文档" Icon="{StaticResource SemiIconFile}" />
+                                <TabItem Content="Hello 2" Header="快速起步" Icon="{StaticResource SemiIconGlobe}" />
+                                <TabItem Content="Hello 4" Header="无效" Icon="{StaticResource SemiIconClear}" IsEnabled="False" />
+                                <TabItem Content="Hello 3" Header="帮助" Icon="{StaticResource SemiIconHelpCircle}" />
                             </TabControl>
                         </Border>
                         <Border Height="300" Theme="{StaticResource CardBorder}">
