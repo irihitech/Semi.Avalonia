@@ -1,0 +1,32 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Semi.Avalonia.Demo.Pages.WindowCustomizationsPage"
+             x:CompileBindings="True">
+
+    <StackPanel
+        Spacing="10"
+        IsEnabled="{OnFormFactor False, Desktop=True}">
+        <TextBlock Classes="H2" Text="Desktop properties" />
+
+        <CheckBox Content="Extend Client Area to Decorations"
+                  IsChecked="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}" />
+
+        <Slider IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                HorizontalAlignment="Left"
+                Width="201" Minimum="-1" Maximum="200"
+                Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint}" />
+
+        <CheckBox Content="Can Resize"
+                  IsChecked="{Binding $parent[Window].CanResize}" />
+
+        <CheckBox Content="Can Minimize"
+                  IsChecked="{Binding $parent[Window].CanMinimize}" />
+
+        <CheckBox Content="Can Maximize"
+                  IsChecked="{Binding $parent[Window].CanMaximize}"
+                  IsEnabled="{Binding $parent[Window].CanResize}" />
+    </StackPanel>
+</UserControl>
