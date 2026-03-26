@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
+                    xmlns:pc="using:Avalonia.Controls.Primitives.Converters"
+                    xmlns:globalization="using:System.Globalization">
+    <pc:ContrastBrushConverter x:Key="ContrastBrushConverter" />
+    <pc:AccentColorConverter x:Key="AccentColorConverter" />
+
+    <converters:ColorToHexConverter x:Key="ColorToHexConverter" />
+    <converters:ColorToDisplayNameConverter x:Key="ColorToDisplayNameConverter" />
+    <converters:DoNothingForNullConverter x:Key="DoNothingForNullConverter" />
+    <converters:ToBrushConverter x:Key="ToBrushConverter" />
+
+    <converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
+    <converters:CornerRadiusToDoubleConverter x:Key="TopLeftCornerRadiusConverter" Corner="TopLeft" />
+    <converters:CornerRadiusToDoubleConverter x:Key="BottomRightCornerRadiusConverter" Corner="BottomRight" />
+
+    <globalization:NumberFormatInfo x:Key="ColorViewComponentNumberFormat" NumberDecimalDigits="0" />
+</ResourceDictionary>

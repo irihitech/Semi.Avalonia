@@ -3,19 +3,19 @@ using System.Globalization;
 using System.Linq;
 using Avalonia;
 using Avalonia.Data;
-using Avalonia.Data.Converters;
 using Avalonia.Media;
+using Irihi.Avalonia.Shared.Converters;
 
 namespace Semi.Avalonia.ColorPicker.Converters;
 
-public class ColorToTextConverter : IValueConverter
+public class ColorToTextConverter : MarkupValueConverter
 {
-    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         return value is Color color ? $"{color.R},{color.G},{color.B},{color.A}" : AvaloniaProperty.UnsetValue;
     }
 
-    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not string str) return BindingOperations.DoNothing;
         var parts = str.Split(',');

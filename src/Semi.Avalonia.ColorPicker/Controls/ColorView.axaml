@@ -1,20 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Avalonia.Controls.Converters"
-    xmlns:globalization="using:System.Globalization"
-    xmlns:pc="using:Avalonia.Controls.Primitives.Converters"
-    xmlns:cvts="clr-namespace:Semi.Avalonia.ColorPicker.Converters">
-    <pc:ContrastBrushConverter x:Key="ContrastBrushConverter" />
-    <converters:ColorToDisplayNameConverter x:Key="ColorToDisplayNameConverter" />
-    <converters:ColorToHexConverter x:Key="ColorToHexConverter" />
-    <converters:DoNothingForNullConverter x:Key="DoNothingForNullConverter" />
-    <converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
-    <converters:ToBrushConverter x:Key="ToBrushConverter" />
-    <cvts:HsvColorToTextConverter x:Key="HsvColorToTextConverter" />
-    <cvts:ColorToTextConverter x:Key="ColorToTextConverter" />
-    <cvts:ToColorModel x:Key="ToColorModel" />
-    <globalization:NumberFormatInfo x:Key="ColorViewComponentNumberFormat" NumberDecimalDigits="0" />
+    xmlns:semi="https://irihi.tech/semi">
 
     <Design.PreviewWith>
         <ColorView
@@ -637,19 +624,19 @@
                                 Name="PART_HexTextBox"
                                 Classes="Small"
                                 InnerLeftContent="#"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hex}"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={semi:ToColorModel}, ConverterParameter=Hex}"
                                 Text="{TemplateBinding Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
                                 MaxLength="8" />
                             <TextBox
                                 Name="PART_RgbaTextBox"
                                 Classes="Small"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Rgba}"
-                                Text="{TemplateBinding Color, Converter={StaticResource ColorToTextConverter}, Mode=TwoWay}" />
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={semi:ToColorModel}, ConverterParameter=Rgba}"
+                                Text="{TemplateBinding Color, Converter={semi:ColorToTextConverter}, Mode=TwoWay}" />
                             <TextBox
                                 Name="PART_HsvaTextBox"
                                 Classes="Small"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={StaticResource ToColorModel}, ConverterParameter=Hsva}"
-                                Text="{TemplateBinding HsvColor, Converter={StaticResource HsvColorToTextConverter}, Mode=TwoWay}" />
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={semi:ToColorModel}, ConverterParameter=Hsva}"
+                                Text="{TemplateBinding HsvColor, Converter={semi:HsvColorToTextConverter}, Mode=TwoWay}" />
                         </Panel>
 
                         <NumericUpDown

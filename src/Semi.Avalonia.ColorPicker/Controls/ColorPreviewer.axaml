@@ -1,9 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:iri="https://irihi.tech/shared"
-    xmlns:pc="using:Avalonia.Controls.Primitives.Converters">
-    <pc:AccentColorConverter x:Key="AccentColorConverter" />
+    xmlns:iri="https://irihi.tech/shared">
 
     <ControlTheme x:Key="{x:Type ColorPreviewer}" TargetType="ColorPreviewer">
         <Setter Property="Height" Value="{DynamicResource ColorPreviewerHeight}" />
