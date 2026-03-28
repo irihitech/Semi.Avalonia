@@ -155,6 +155,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ColorView}" TargetType="ColorView">
+        <Setter Property="HexInputAlphaPosition" Value="Trailing" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Width" Value="300" />
         <Setter Property="Height" Value="300" />
@@ -545,6 +546,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="SimpleColorView" TargetType="ColorView">
+        <Setter Property="HexInputAlphaPosition" Value="Trailing" />
         <Setter Property="Width" Value="280" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
