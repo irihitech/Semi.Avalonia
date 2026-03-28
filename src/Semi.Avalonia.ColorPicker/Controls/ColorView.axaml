@@ -622,20 +622,20 @@
                             VerticalAlignment="Center">
                             <TextBox
                                 Name="PART_HexTextBox"
+                                AutomationProperties.Name="Hexadecimal Color"
                                 Classes="Small"
                                 InnerLeftContent="#"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={semi:ToColorModel}, ConverterParameter=Hex}"
-                                Text="{TemplateBinding Color, Converter={StaticResource ColorToHexConverter}, Mode=TwoWay}"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter=Hex}"
                                 MaxLength="8" />
                             <TextBox
                                 Name="PART_RgbaTextBox"
                                 Classes="Small"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={semi:ToColorModel}, ConverterParameter=Rgba}"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
                                 Text="{TemplateBinding Color, Converter={semi:ColorToTextConverter}, Mode=TwoWay}" />
                             <TextBox
                                 Name="PART_HsvaTextBox"
                                 Classes="Small"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={semi:ToColorModel}, ConverterParameter=Hsva}"
+                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
                                 Text="{TemplateBinding HsvColor, Converter={semi:HsvColorToTextConverter}, Mode=TwoWay}" />
                         </Panel>
 
@@ -660,7 +660,8 @@
                             VerticalAlignment="Center"
                             Classes="Small"
                             SelectedValue="Hex">
-                            Hex<ColorModel>Rgba</ColorModel>
+                            <x:String>Hex</x:String>
+                            <ColorModel>Rgba</ColorModel>
                             <ColorModel>Hsva</ColorModel>
                         </ComboBox>
                     </StackPanel>
