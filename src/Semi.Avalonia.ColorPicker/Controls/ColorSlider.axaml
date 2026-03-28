@@ -39,16 +39,16 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                             <Rectangle
                                 Width="{Binding #PART_Track.Bounds.Width}"
                                 Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding Background}"
-                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                             <Track
                                 Name="PART_Track"
                                 Height="12"
@@ -123,16 +123,16 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                             <Rectangle
                                 Width="{Binding #PART_Track.Bounds.Width}"
                                 Height="{Binding #PART_Track.Bounds.Height}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding Background}"
-                                RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                                RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                             <Track
                                 Name="PART_Track"
                                 Width="12"

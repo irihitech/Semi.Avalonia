@@ -23,8 +23,8 @@
                             IsVisible="{TemplateBinding Shape,
                             Converter={StaticResource EnumToBoolConverter},
                             ConverterParameter={x:Static ColorSpectrumShape.Box}}"
-                            RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                            RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                            RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                            RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                         <Rectangle
                             Name="PART_SpectrumOverlayRectangle"
                             HorizontalAlignment="Stretch"
@@ -33,8 +33,8 @@
                             IsVisible="{TemplateBinding Shape,
                             Converter={StaticResource EnumToBoolConverter},
                             ConverterParameter={x:Static ColorSpectrumShape.Box}}"
-                            RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                            RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                            RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                            RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                         <Ellipse
                             Name="PART_SpectrumEllipse"
                             HorizontalAlignment="Stretch"
@@ -87,8 +87,8 @@
                             IsVisible="{TemplateBinding Shape,
                             Converter={StaticResource EnumToBoolConverter},
                             ConverterParameter={x:Static ColorSpectrumShape.Box}}"
-                            RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                            RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                            RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                            RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                         <Ellipse
                             Name="BorderEllipse"
                             HorizontalAlignment="Stretch"
