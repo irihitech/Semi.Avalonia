@@ -389,13 +389,13 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
-                                    Increment="1"
+                                    Increment="{Binding #Component1Slider.TickFrequency}"
                                     IsVisible="{TemplateBinding IsComponentTextInputVisible}"
-                                    Maximum="{Binding Maximum, ElementName=Component1Slider}"
-                                    Minimum="{Binding Minimum, ElementName=Component1Slider}"
+                                    Maximum="{Binding #Component1Slider.Maximum}"
+                                    Minimum="{Binding #Component1Slider.Minimum}"
                                     NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                                     ShowButtonSpinner="False"
-                                    Value="{Binding Value, ElementName=Component1Slider}" />
+                                    Value="{Binding #Component1Slider.Value}" />
                                 <ColorSlider
                                     Name="Component1Slider"
                                     Grid.Row="2"
@@ -420,13 +420,13 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
-                                    Increment="1"
+                                    Increment="{Binding #Component2Slider.TickFrequency}"
                                     IsVisible="{TemplateBinding IsComponentTextInputVisible}"
-                                    Maximum="{Binding Maximum, ElementName=Component2Slider}"
-                                    Minimum="{Binding Minimum, ElementName=Component2Slider}"
+                                    Maximum="{Binding #Component2Slider.Maximum}"
+                                    Minimum="{Binding #Component2Slider.Minimum}"
                                     NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                                     ShowButtonSpinner="False"
-                                    Value="{Binding Value, ElementName=Component2Slider}" />
+                                    Value="{Binding #Component2Slider.Value}" />
                                 <ColorSlider
                                     Name="Component2Slider"
                                     Grid.Row="3"
@@ -451,13 +451,13 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
-                                    Increment="1"
+                                    Increment="{Binding #Component3Slider.TickFrequency}"
                                     IsVisible="{TemplateBinding IsComponentTextInputVisible}"
-                                    Maximum="{Binding Maximum, ElementName=Component3Slider}"
-                                    Minimum="{Binding Minimum, ElementName=Component3Slider}"
+                                    Maximum="{Binding #Component3Slider.Maximum}"
+                                    Minimum="{Binding #Component3Slider.Minimum}"
                                     NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                                     ShowButtonSpinner="False"
-                                    Value="{Binding Value, ElementName=Component3Slider}" />
+                                    Value="{Binding #Component3Slider.Value}" />
                                 <ColorSlider
                                     Name="Component3Slider"
                                     Grid.Row="4"
@@ -482,13 +482,13 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
-                                    Increment="1"
+                                    Increment="{Binding #AlphaComponentSlider.TickFrequency}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                    Maximum="{Binding Maximum, ElementName=AlphaComponentSlider}"
-                                    Minimum="{Binding Minimum, ElementName=AlphaComponentSlider}"
+                                    Maximum="{Binding #AlphaComponentSlider.Maximum}"
+                                    Minimum="{Binding #AlphaComponentSlider.Minimum}"
                                     NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
                                     ShowButtonSpinner="False"
-                                    Value="{Binding Value, ElementName=AlphaComponentSlider}">
+                                    Value="{Binding #AlphaComponentSlider.Value}">
                                     <NumericUpDown.IsVisible>
                                         <MultiBinding Converter="{x:Static BoolConverters.And}">
                                             <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -671,7 +671,7 @@
                             VerticalAlignment="Center"
                             AllowSpin="True"
                             CornerRadius="0"
-                            Increment="1"
+                            Increment="{Binding #ColorSpectrumAlphaSlider.TickFrequency}"
                             Classes="Small"
                             IsEnabled="{TemplateBinding IsAlphaEnabled}"
                             Maximum="{Binding #ColorSpectrumAlphaSlider.Maximum}"
