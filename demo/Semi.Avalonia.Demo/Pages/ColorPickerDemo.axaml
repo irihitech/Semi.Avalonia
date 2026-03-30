@@ -2,7 +2,6 @@
     x:Class="Semi.Avalonia.Demo.Pages.ColorPickerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="https://irihi.tech/semi"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1450"
@@ -34,16 +33,14 @@
                 </ColorPicker>
                 <ColorPicker ColorSpectrumShape="Box">
                     <ColorPicker.Palette>
-                        <semi:SemiColorLightPalette />
+                        <MaterialColorPalette />
                     </ColorPicker.Palette>
                 </ColorPicker>
                 <ColorPicker
                     Theme="{DynamicResource HexColorPicker}"
-                    ColorSpectrumShape="Box">
-                    <ColorPicker.Palette>
-                        <semi:SemiColorLightPalette />
-                    </ColorPicker.Palette>
-                </ColorPicker>
+                    ColorSpectrumShape="Box"
+                    SelectedIndex="2"
+                    Palette="{DynamicResource SemiColorPalette}" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Left">
                 <TextBlock Text="Use Style to customize button" />
