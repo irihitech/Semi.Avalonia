@@ -25,9 +25,10 @@
                         Padding="{DynamicResource DrawerPageTopBarPadding}"
                         Background="{DynamicResource DrawerPageTopBarBackground}"
                         BorderBrush="{DynamicResource DrawerPageTopBarBorderBrush}"
-                        BorderThickness="{DynamicResource DrawerPageTopBarBorderThickness}">
+                        BorderThickness="{DynamicResource DrawerPageTopBarBorderThickness}"
+                        CornerRadius="{DynamicResource DrawerPageTopBarCornerRadius}">
                         <Grid ColumnDefinitions="Auto,Auto,*">
-                            <!--  Pane toggle button (hamburger)  -->
+                            <!--  Pane toggle button (hamburger/close)  -->
                             <ToggleButton
                                 Name="PART_PaneButton"
                                 Grid.Column="0"
@@ -38,11 +39,21 @@
                                 Background="{DynamicResource DrawerPagePaneButtonBackground}"
                                 Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
                                 IsChecked="{TemplateBinding IsOpen, Mode=TwoWay}">
-                                <PathIcon
-                                    Width="16"
-                                    Height="16"
-                                    Data="{DynamicResource DrawerPageMenuGlyph}"
-                                    Foreground="{DynamicResource DrawerPagePaneButtonForeground}" />
+                                <Panel>
+                                    <PathIcon
+                                        Name="PART_MenuIcon"
+                                        Width="16"
+                                        Height="16"
+                                        Data="{DynamicResource DrawerPageMenuGlyph}"
+                                        Foreground="{DynamicResource DrawerPagePaneButtonForeground}" />
+                                    <PathIcon
+                                        Name="PART_CloseIcon"
+                                        Width="16"
+                                        Height="16"
+                                        Data="{DynamicResource DrawerPageCloseGlyph}"
+                                        Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
+                                        IsVisible="False" />
+                                </Panel>
                             </ToggleButton>
 
                             <!--  Drawer icon (shown in top bar)  -->
@@ -142,6 +153,32 @@
         <!--  Pseudo-class: bottom drawer  -->
         <Style Selector="^:placement-bottom /template/ SplitView#PART_SplitView">
             <Setter Property="PanePlacement" Value="Bottom" />
+        </Style>
+
+        <!--  Show close icon and hide menu icon when pane is open  -->
+        <Style Selector="^/template/ ToggleButton#PART_PaneButton:checked PathIcon#PART_MenuIcon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^/template/ ToggleButton#PART_PaneButton:checked PathIcon#PART_CloseIcon">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!--  Large top bar  -->
+        <Style Selector="^.Large /template/ Border#PART_TopBar">
+            <Setter Property="MinHeight" Value="{DynamicResource DrawerPageTopBarLargeHeight}" />
+        </Style>
+        <Style Selector="^.Large /template/ ToggleButton#PART_PaneButton">
+            <Setter Property="Width" Value="{DynamicResource DrawerPagePaneButtonLargeSize}" />
+            <Setter Property="Height" Value="{DynamicResource DrawerPagePaneButtonLargeSize}" />
+        </Style>
+
+        <!--  Small top bar  -->
+        <Style Selector="^.Small /template/ Border#PART_TopBar">
+            <Setter Property="MinHeight" Value="{DynamicResource DrawerPageTopBarSmallHeight}" />
+        </Style>
+        <Style Selector="^.Small /template/ ToggleButton#PART_PaneButton">
+            <Setter Property="Width" Value="{DynamicResource DrawerPagePaneButtonSmallSize}" />
+            <Setter Property="Height" Value="{DynamicResource DrawerPagePaneButtonSmallSize}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

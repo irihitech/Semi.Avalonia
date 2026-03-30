@@ -39,13 +39,14 @@
                             VerticalAlignment="Top"
                             Background="{DynamicResource NavigationPageBarBackground}"
                             BorderBrush="{DynamicResource NavigationPageBarBorderBrush}"
-                            BorderThickness="{DynamicResource NavigationPageBarBorderThickness}">
+                            BorderThickness="{DynamicResource NavigationPageBarBorderThickness}"
+                            CornerRadius="{DynamicResource NavigationPageBarCornerRadius}">
                             <Grid ColumnDefinitions="Auto,*,Auto">
                                 <Button
                                     Name="PART_BackButton"
                                     Grid.Column="0"
-                                    MinHeight="{DynamicResource NavigationPageBarMinHeight}"
-                                    MinWidth="{DynamicResource NavigationPageBarMinHeight}"
+                                    MinHeight="{TemplateBinding BarHeight}"
+                                    MinWidth="{TemplateBinding BarHeight}"
                                     Padding="8"
                                     VerticalAlignment="Center"
                                     IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
@@ -89,6 +90,16 @@
         <!--  Compact navigation bar  -->
         <Style Selector="^:nav-bar-compact /template/ Border#PART_NavigationBar">
             <Setter Property="MinHeight" Value="0" />
+        </Style>
+
+        <!--  Large navigation bar  -->
+        <Style Selector="^.Large">
+            <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarLargeHeight}" />
+        </Style>
+
+        <!--  Small navigation bar  -->
+        <Style Selector="^.Small">
+            <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarSmallHeight}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
