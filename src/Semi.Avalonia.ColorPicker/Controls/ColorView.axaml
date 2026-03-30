@@ -228,9 +228,9 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Stretch"
                                     AutomationProperties.Name="Third Component"
-                                    ColorComponent="{Binding ThirdComponent, ElementName=ColorSpectrum}"
+                                    ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
                                     ColorModel="Hsva"
-                                    HsvColor="{Binding HsvColor, ElementName=ColorSpectrum}"
+                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                     IsAlphaVisible="True"
                                     IsPerceptive="False"
                                     IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
@@ -258,7 +258,7 @@
                                     AutomationProperties.Name="Alpha Component"
                                     ColorComponent="Alpha"
                                     ColorModel="Hsva"
-                                    HsvColor="{Binding HsvColor, ElementName=ColorSpectrum}"
+                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                     Orientation="Vertical">
                                     <ColorSlider.IsVisible>
@@ -584,6 +584,7 @@
                             Name="ColorSpectrum"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
+                            CornerRadius="8 8 0 0"
                             Components="{TemplateBinding ColorSpectrumComponents}"
                             HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                             MaxHue="{TemplateBinding MaxHue}"
