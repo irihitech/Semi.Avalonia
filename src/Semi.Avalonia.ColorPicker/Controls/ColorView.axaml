@@ -4,12 +4,20 @@
     xmlns:semi="https://irihi.tech/semi">
 
     <Design.PreviewWith>
-        <ColorView
-            Theme="{StaticResource SimpleColorView}"
-            IsAlphaVisible="True"
-            IsAlphaEnabled="True"
-            ColorModel="Hsva"
-            HsvColor="hsv(120,7%,90%)" />
+        <StackPanel>
+            <ColorView
+                SelectedIndex="2"
+                IsAlphaVisible="True"
+                IsAlphaEnabled="True"
+                ColorModel="Hsva"
+                HsvColor="hsv(120,7%,90%)" />
+            <ColorView
+                Theme="{DynamicResource SimpleColorView}"
+                IsAlphaVisible="True"
+                IsAlphaEnabled="True"
+                ColorModel="Hsva"
+                HsvColor="hsv(120,7%,90%)" />
+        </StackPanel>
     </Design.PreviewWith>
 
     <VisualBrush
@@ -310,6 +318,10 @@
                                 ColumnDefinitions="Auto,*"
                                 RowDefinitions="Auto,24,*,*,*,*,12"
                                 UseLayoutRounding="False">
+                                <Grid.Resources>
+                                    <Thickness x:Key="TextBoxContentPadding">8 0</Thickness>
+                                    <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 8 0</Thickness>
+                                </Grid.Resources>
                                 <Grid.Styles>
                                     <Style Selector="NumericUpDown">
                                         <Setter Property="InnerLeftContent">
@@ -377,6 +389,7 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
+                                    Increment="1"
                                     IsVisible="{TemplateBinding IsComponentTextInputVisible}"
                                     Maximum="{Binding Maximum, ElementName=Component1Slider}"
                                     Minimum="{Binding Minimum, ElementName=Component1Slider}"
@@ -407,6 +420,7 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
+                                    Increment="1"
                                     IsVisible="{TemplateBinding IsComponentTextInputVisible}"
                                     Maximum="{Binding Maximum, ElementName=Component2Slider}"
                                     Minimum="{Binding Minimum, ElementName=Component2Slider}"
@@ -437,6 +451,7 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
+                                    Increment="1"
                                     IsVisible="{TemplateBinding IsComponentTextInputVisible}"
                                     Maximum="{Binding Maximum, ElementName=Component3Slider}"
                                     Minimum="{Binding Minimum, ElementName=Component3Slider}"
@@ -467,6 +482,7 @@
                                     VerticalAlignment="Center"
                                     AllowSpin="True"
                                     Classes="Small"
+                                    Increment="1"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                     Maximum="{Binding Maximum, ElementName=AlphaComponentSlider}"
                                     Minimum="{Binding Minimum, ElementName=AlphaComponentSlider}"
@@ -591,7 +607,7 @@
                         Orientation="Horizontal" />
 
                     <ColorSlider
-                        x:Name="ColorSpectrumAlphaSlider"
+                        Name="ColorSpectrumAlphaSlider"
                         Grid.Row="2"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
@@ -618,7 +634,7 @@
                             CornerRadius="4" />
                         <Panel
                             Name="PART_TextBoxPanel"
-                            Width="106"
+                            Width="116"
                             Margin="4 0 0 0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center">
@@ -626,27 +642,36 @@
                                 Name="PART_HexTextBox"
                                 AutomationProperties.Name="Hexadecimal Color"
                                 Classes="Small"
+                                CornerRadius="3 0 0 3"
                                 InnerLeftContent="#"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter=Hex}"
-                                MaxLength="8" />
+                                MaxLength="8">
+                                <TextBox.Resources>
+                                    <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 4 0</Thickness>
+                                </TextBox.Resources>
+                            </TextBox>
                             <TextBox
                                 Name="PART_RgbaTextBox"
                                 Classes="Small"
+                                CornerRadius="3 0 0 3"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
                                 Text="{TemplateBinding Color, Converter={semi:ColorToTextConverter}, Mode=TwoWay}" />
                             <TextBox
                                 Name="PART_HsvaTextBox"
                                 Classes="Small"
+                                CornerRadius="3 0 0 3"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
                                 Text="{TemplateBinding HsvColor, Converter={semi:HsvColorToTextConverter}, Mode=TwoWay}" />
                         </Panel>
 
                         <NumericUpDown
                             Name="AlphaComponentNumericUpDown"
-                            Width="70"
+                            Width="60"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             AllowSpin="True"
+                            CornerRadius="0"
+                            Increment="1"
                             Classes="Small"
                             IsEnabled="{TemplateBinding IsAlphaEnabled}"
                             Maximum="{Binding #ColorSpectrumAlphaSlider.Maximum}"
@@ -655,10 +680,16 @@
                             ShowButtonSpinner="False"
                             InnerRightContent="%"
                             IsVisible="{TemplateBinding IsAlphaVisible}"
-                            Value="{Binding #ColorSpectrumAlphaSlider.Value}" />
+                            Value="{Binding #ColorSpectrumAlphaSlider.Value}">
+                            <NumericUpDown.Resources>
+                                <Thickness x:Key="TextBoxContentPadding">12 0 4 0</Thickness>
+                                <Thickness x:Key="TextBoxInnerRightContentPadding">4 0 0 0</Thickness>
+                            </NumericUpDown.Resources>
+                        </NumericUpDown>
                         <ComboBox
                             Name="ColorModelComboBox"
                             Width="80"
+                            CornerRadius="0 3 3 0"
                             VerticalAlignment="Center"
                             Classes="Small"
                             SelectedValue="Hex">
