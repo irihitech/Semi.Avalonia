@@ -1,13 +1,12 @@
 using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Utilities;
 using Irihi.Avalonia.Shared.Helpers;
 
 namespace Semi.Avalonia.ColorPicker;
 
-public class SemiColorLightPalette: IColorPalette
+public class SemiColorLightPalette : IColorPalette
 {
-    private static readonly Color[,] Colors = new Color[,]
+    private static readonly Color[,] Colors = new[,]
     {
         {
             //Red
@@ -217,7 +216,21 @@ public class SemiColorLightPalette: IColorPalette
             Color.FromUInt32(0xFF2E3238),
             Color.FromUInt32(0xFF1C1F23),
         },
+        {
+            //AIPurple
+            Color.FromUInt32(0xFFF8EDFF),
+            Color.FromUInt32(0xFFF2DAFF),
+            Color.FromUInt32(0xFFE3B5FF),
+            Color.FromUInt32(0xFFD191FF),
+            Color.FromUInt32(0xFFBD6CFF),
+            Color.FromUInt32(0xFFA647FF),
+            Color.FromUInt32(0xFF8636DB),
+            Color.FromUInt32(0xFF6928B8),
+            Color.FromUInt32(0xFF4E1C94),
+            Color.FromUInt32(0xFF361270),
+        },
     };
+
     public Color GetColor(int colorIndex, int shadeIndex)
     {
         return Colors[
