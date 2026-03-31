@@ -2,12 +2,20 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:iri="https://irihi.tech/shared">
+    <Design.PreviewWith>
+        <StackPanel Width="500" Height="500">
+            <ColorPicker Name="cp" Color="#AAAAAAAA" IsAlphaVisible="True" IsAlphaEnabled="True" />
+            <ColorPicker Theme="{DynamicResource SimpleColorPicker}" Color="{Binding #cp.Color}" IsAlphaEnabled="{Binding #cp.IsAlphaEnabled}" IsAlphaVisible="{Binding #cp.IsAlphaVisible}" />
+            <ColorPicker Theme="{DynamicResource HexSimpleColorPicker}" Color="{Binding #cp.Color}" IsAlphaEnabled="{Binding #cp.IsAlphaEnabled}" IsAlphaVisible="{Binding #cp.IsAlphaVisible}" />
+            <ColorView Color="{Binding #cp.Color}" IsAlphaEnabled="{Binding #cp.IsAlphaEnabled}" IsAlphaVisible="{Binding #cp.IsAlphaVisible}" />
+        </StackPanel>
+    </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
         <!-- Alpha position should match CSS (and default slider order) instead of XAML/WinUI -->
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
-        <Setter Property="MinWidth" Value="64" />
         <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0 0 10 0" />
         <Setter Property="MinHeight" Value="{DynamicResource ColorPickerMinHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ColorPickerCornerRadius}" />
         <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
@@ -16,10 +24,12 @@
                 <Panel>
                     <Border
                         Margin="1,1,0,1"
+                        Width="{Binding $self.Bounds.Height}"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
                         CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
                     <Border
                         Margin="1,1,0,1"
+                        Width="{Binding $self.Bounds.Height}"
                         Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
                         CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
                 </Panel>
@@ -32,6 +42,7 @@
                     Height="{TemplateBinding Height}"
                     MinWidth="{TemplateBinding MinWidth}"
                     MinHeight="{TemplateBinding MinHeight}"
+                    Padding="{TemplateBinding Padding}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     VerticalAlignment="{TemplateBinding VerticalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -47,7 +58,9 @@
                         </Style>
                     </DropDownButton.Styles>
                     <DropDownButton.Flyout>
-                        <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource ColorPickerFlyoutPlacement}">
+                        <Flyout
+                            FlyoutPresenterClasses="nopadding"
+                            Placement="{DynamicResource ColorPickerFlyoutPlacement}">
                             <ColorView
                                 Name="PART_ColorView"
                                 Color="{TemplateBinding Color,Mode=TwoWay}"
@@ -83,48 +96,40 @@
                 </DropDownButton>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^ /template/ DropDownButton">
-            <Setter Property="Padding" Value="0 0 10 0" />
-        </Style>
     </ControlTheme>
 
     <ControlTheme
         x:Key="HexColorPicker"
         BasedOn="{StaticResource {x:Type ColorPicker}}"
         TargetType="ColorPicker">
-        <Setter Property="MinWidth" Value="200" />
-        <Setter Property="Content">
-            <Template>
-                <Grid ColumnDefinitions="Auto, *">
-                    <Border
-                        Grid.Column="0"
-                        Width="{Binding $self.Bounds.Height}"
-                        Margin="1,1,0,1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-                    <Border
-                        Grid.Column="0"
-                        Width="{Binding $self.Bounds.Height}"
-                        Margin="1,1,0,1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{TemplateBinding HsvColor,Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="8,0,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontWeight="Regular"
-                        Foreground="{DynamicResource TextBlockDefaultForeground}"
-                        Text="{Binding $parent[ColorPicker].Color}" />
-                </Grid>
-            </Template>
-        </Setter>
+        <Setter Property="MinWidth" Value="180" />
+        <Setter Property="Content" Value="{StaticResource HexColorPickerTemplate}" />
     </ControlTheme>
+    <Template x:Key="HexColorPickerTemplate">
+        <Grid ColumnDefinitions="Auto, *">
+            <Border
+                Grid.Column="0"
+                Width="{Binding $self.Bounds.Height}"
+                Margin="1,1,0,1"
+                Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
+                CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
+            <Border
+                Grid.Column="0"
+                Width="{Binding $self.Bounds.Height}"
+                Margin="1,1,0,1"
+                Background="{Binding $parent[ColorPicker].HsvColor,Converter={StaticResource ToBrushConverter}}"
+                CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
+            <TextBlock
+                Grid.Column="1"
+                Margin="8,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource TextBlockDefaultForeground}">
+                <Run Text="#" />
+                <Run Text="{Binding $parent[ColorPicker].Color, Converter={StaticResource ColorToHexConverter}}" />
+            </TextBlock>
+        </Grid>
+    </Template>
 
     <ControlTheme
         x:Key="SimpleColorPicker"
@@ -138,6 +143,7 @@
                     Height="{TemplateBinding Height}"
                     MinWidth="{TemplateBinding MinWidth}"
                     MinHeight="{TemplateBinding MinHeight}"
+                    Padding="{TemplateBinding Padding}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     VerticalAlignment="{TemplateBinding VerticalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -152,7 +158,9 @@
                         </Style>
                     </DropDownButton.Styles>
                     <DropDownButton.Flyout>
-                        <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
+                        <Flyout
+                            FlyoutPresenterClasses="nopadding"
+                            Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
                             <ColorView
                                 Name="PART_ColorView"
                                 Theme="{DynamicResource SimpleColorView}"
@@ -189,46 +197,14 @@
                 </DropDownButton>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[IsAlphaVisible=False] /template/ Panel#PART_TextBoxPanel">
-            <Setter Property="Width" Value="176" />
-        </Style>
     </ControlTheme>
 
     <ControlTheme
         x:Key="HexSimpleColorPicker"
         BasedOn="{StaticResource SimpleColorPicker}"
         TargetType="ColorPicker">
-        <Setter Property="MinWidth" Value="200" />
-        <Setter Property="Content">
-            <Template>
-                <Grid ColumnDefinitions="Auto, *">
-                    <Border
-                        Grid.Column="0"
-                        Width="{Binding $self.Bounds.Height}"
-                        Margin="1,1,0,1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-                    <Border
-                        Grid.Column="0"
-                        Width="{Binding $self.Bounds.Height}"
-                        Margin="1,1,0,1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="{TemplateBinding HsvColor,Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="8,0,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontWeight="Regular"
-                        Foreground="{DynamicResource TextBlockDefaultForeground}"
-                        Text="{Binding $parent[ColorPicker].Color}" />
-                </Grid>
-            </Template>
-        </Setter>
+        <Setter Property="MinWidth" Value="180" />
+        <Setter Property="Content" Value="{StaticResource HexColorPickerTemplate}" />
     </ControlTheme>
 
 </ResourceDictionary>
