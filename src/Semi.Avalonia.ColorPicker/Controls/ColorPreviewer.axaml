@@ -7,7 +7,7 @@
         <Setter Property="Height" Value="{DynamicResource ColorPreviewerHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ColorPreviewerCornerRadius}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="{x:Type ColorPreviewer}">
+            <ControlTemplate TargetType="ColorPreviewer">
                 <Panel>
                     <!--  Preview color with accents to the left and right  -->
                     <Grid ColumnDefinitions="Auto,*,Auto" IsVisible="{TemplateBinding IsAccentColorsVisible}">

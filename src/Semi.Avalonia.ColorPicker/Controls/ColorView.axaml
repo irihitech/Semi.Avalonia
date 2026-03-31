@@ -27,16 +27,12 @@
         TileMode="Tile">
         <VisualBrush.Visual>
             <Image Width="8" Height="8">
-                <Image.Source>
-                    <DrawingImage>
-                        <DrawingImage.Drawing>
-                            <DrawingGroup>
-                                <GeometryDrawing Brush="Transparent" Geometry="M0,0 L2,0 2,2, 0,2Z" />
-                                <GeometryDrawing Brush="#19808080" Geometry="M0,1 L2,1 2,2, 1,2 1,0 0,0Z" />
-                            </DrawingGroup>
-                        </DrawingImage.Drawing>
-                    </DrawingImage>
-                </Image.Source>
+                <DrawingImage>
+                    <DrawingGroup>
+                        <GeometryDrawing Brush="Transparent" Geometry="M0 0H2V2H0Z" />
+                        <GeometryDrawing Brush="#19808080" Geometry="M0 1H2V2H1V0H0Z" />
+                    </DrawingGroup>
+                </DrawingImage>
             </Image>
         </VisualBrush.Visual>
     </VisualBrush>
@@ -56,11 +52,11 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer
                         Name="PART_ScrollViewer"
-                        AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                        IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                        IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                        AllowAutoHide="{TemplateBinding ScrollViewer.AllowAutoHide}"
+                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                        IsScrollChainingEnabled="{TemplateBinding ScrollViewer.IsScrollChainingEnabled}"
+                        IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
                             Margin="{TemplateBinding Padding}"
@@ -77,8 +73,8 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                <Grid UseLayoutRounding="False">
+            <ControlTemplate TargetType="ListBoxItem">
+                <Panel UseLayoutRounding="False">
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Padding="{TemplateBinding Padding}"
@@ -96,7 +92,7 @@
                         VerticalAlignment="Stretch"
                         IsHitTestVisible="False"
                         StrokeThickness="1" />
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
 
@@ -172,7 +168,7 @@
         <Setter Property="Height" Value="300" />
         <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="{x:Type ColorView}">
+            <ControlTemplate TargetType="ColorView">
                 <Grid RowDefinitions="*,Auto">
                     <!--  Backgrounds  -->
                     <!--  TODO: Background="{DynamicResource ColorViewTabBackgroundBrush}"  -->
@@ -287,7 +283,7 @@
                                 Theme="{StaticResource ColorViewPaletteListBoxTheme}"
                                 UseLayoutRounding="False">
                                 <ListBox.ItemTemplate>
-                                    <DataTemplate DataType="{x:Type Color}">
+                                    <DataTemplate DataType="Color">
                                         <Border
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Stretch"
@@ -568,7 +564,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="{x:Type ColorView}">
+            <ControlTemplate TargetType="ColorView">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" MinHeight="280" />

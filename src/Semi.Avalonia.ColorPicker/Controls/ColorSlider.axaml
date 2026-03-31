@@ -9,7 +9,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource ColorSliderThumbBorderBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ColorSliderThumbCornerRadius}" />
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="Thumb">
                 <Border
                     Margin="1"
                     Background="{TemplateBinding Background}"
@@ -27,7 +27,7 @@
             <Setter Property="CornerRadius" Value="{DynamicResource ColorSliderCornerRadius}" />
             <Setter Property="Height" Value="{DynamicResource ColorSliderWidth}" />
             <Setter Property="Template">
-                <ControlTemplate TargetType="{x:Type ColorSlider}">
+                <ControlTemplate TargetType="ColorSlider">
                     <Border
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -108,7 +108,7 @@
             <Setter Property="CornerRadius" Value="{DynamicResource ColorSliderCornerRadius}" />
             <Setter Property="Width" Value="{DynamicResource ColorSliderWidth}" />
             <Setter Property="Template">
-                <ControlTemplate TargetType="{x:Type ColorSlider}">
+                <ControlTemplate TargetType="ColorSlider">
                     <Border
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
