@@ -10,6 +10,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource ColorPickerMinHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ColorPickerCornerRadius}" />
+        <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
         <Setter Property="Content">
             <Template>
                 <Panel>
@@ -23,9 +24,6 @@
                         CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
                 </Panel>
             </Template>
-        </Setter>
-        <Setter Property="Palette">
-            <FluentColorPalette />
         </Setter>
         <Setter Property="Template">
             <ControlTemplate TargetType="{x:Type ColorPicker}">

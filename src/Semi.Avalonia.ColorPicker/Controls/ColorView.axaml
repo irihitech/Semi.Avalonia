@@ -170,9 +170,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Width" Value="300" />
         <Setter Property="Height" Value="300" />
-        <Setter Property="Palette">
-            <FluentColorPalette />
-        </Setter>
+        <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="{x:Type ColorView}">
                 <Grid RowDefinitions="*,Auto">
