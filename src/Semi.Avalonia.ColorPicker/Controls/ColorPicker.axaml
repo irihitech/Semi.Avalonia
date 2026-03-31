@@ -4,6 +4,7 @@
     xmlns:iri="https://irihi.tech/shared">
 
     <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
+        <!-- Alpha position should match CSS (and default slider order) instead of XAML/WinUI -->
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
         <Setter Property="MinWidth" Value="64" />
         <Setter Property="HorizontalAlignment" Value="Center" />

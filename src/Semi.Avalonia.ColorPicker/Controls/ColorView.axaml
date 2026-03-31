@@ -136,12 +136,14 @@
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{TemplateBinding CornerRadius}"
-                    RecognizesAccessKey="True"
                     TextElement.FontSize="{TemplateBinding FontSize}"
                     TextElement.FontWeight="{TemplateBinding FontWeight}"
                     UseLayoutRounding="False" />
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
         <Style Selector="^:checked">
             <Setter Property="Background" Value="{DynamicResource ColorViewRadioButtonCheckedBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ColorViewRadioButtonCheckedForeground}" />
@@ -163,6 +165,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type ColorView}" TargetType="ColorView">
+        <!-- Alpha position should match CSS (and default slider order) instead of XAML/WinUI -->
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Width" Value="300" />
@@ -231,8 +234,8 @@
                                     ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
                                     ColorModel="Hsva"
                                     HsvColor="{Binding #ColorSpectrum.HsvColor}"
-                                    IsAlphaVisible="True"
-                                    IsPerceptive="False"
+                                    IsAlphaVisible="False"
+                                    IsPerceptive="True"
                                     IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
                                     Orientation="Vertical" />
                                 <ColorSpectrum
@@ -521,10 +524,10 @@
                         </TabItem>
                     </TabControl>
                     <!--  Previewer  -->
-                    <!--  Note that top/bottom margins have -5 to remove for drop shadow padding  -->
+                    <!-- Note that the drop shadow is allowed to extend past the control bounds -->
                     <ColorPreviewer
                         Grid.Row="1"
-                        Margin="12,-5,12,7"
+                        Margin="12,0,12,12"
                         HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
                         IsVisible="{TemplateBinding IsColorPreviewVisible}" />

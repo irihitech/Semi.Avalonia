@@ -33,27 +33,24 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Margin="{TemplateBinding Padding}">
-                            <Rectangle
-                                Width="{Binding #PART_Track.Bounds.Width}"
-                                Height="{Binding #PART_Track.Bounds.Height}"
+                            <Border
                                 HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
-                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Rectangle
-                                Width="{Binding #PART_Track.Bounds.Width}"
+                                VerticalAlignment="Center"
                                 Height="{Binding #PART_Track.Bounds.Height}"
+                                Background="{StaticResource ColorControlCheckeredBackgroundBrush}"
+                                CornerRadius="{DynamicResource ColorSliderCornerRadius}" />
+                            <Border
                                 HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Fill="{TemplateBinding Background}"
-                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
-                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
+                                VerticalAlignment="Center"
+                                Height="{Binding #PART_Track.Bounds.Height}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{DynamicResource ColorSliderCornerRadius}" />
+
                             <Track
                                 Name="PART_Track"
                                 Height="12"
                                 HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
+                                VerticalAlignment="Center"
                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
@@ -98,7 +95,7 @@
                                     Width="{TemplateBinding Height}"
                                     Height="{TemplateBinding Height}"
                                     DataContext="{TemplateBinding Value}"
-                                    Theme="{StaticResource ColorSliderThumbTheme}" />
+                                    Theme="{DynamicResource ColorSliderThumbTheme}" />
                             </Track>
                         </Grid>
                     </Border>
@@ -117,26 +114,22 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Margin="{TemplateBinding Padding}">
-                            <Rectangle
-                                Width="{Binding #PART_Track.Bounds.Width}"
-                                Height="{Binding #PART_Track.Bounds.Height}"
-                                HorizontalAlignment="Stretch"
+                            <Border
+                                HorizontalAlignment="Center"
                                 VerticalAlignment="Stretch"
-                                Fill="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
-                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Rectangle
                                 Width="{Binding #PART_Track.Bounds.Width}"
-                                Height="{Binding #PART_Track.Bounds.Height}"
-                                HorizontalAlignment="Stretch"
+                                Background="{StaticResource ColorControlCheckeredBackgroundBrush}"
+                                CornerRadius="{DynamicResource ColorSliderCornerRadius}" />
+                            <Border
+                                HorizontalAlignment="Center"
                                 VerticalAlignment="Stretch"
-                                Fill="{TemplateBinding Background}"
-                                RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
-                                RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
+                                Width="{Binding #PART_Track.Bounds.Width}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{DynamicResource ColorSliderCornerRadius}" />
                             <Track
                                 Name="PART_Track"
                                 Width="12"
-                                HorizontalAlignment="Stretch"
+                                HorizontalAlignment="Center"
                                 VerticalAlignment="Stretch"
                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                 Maximum="{TemplateBinding Maximum}"
@@ -182,7 +175,7 @@
                                     Width="{TemplateBinding Width}"
                                     Height="{TemplateBinding Width}"
                                     DataContext="{TemplateBinding Value}"
-                                    Theme="{StaticResource ColorSliderThumbTheme}" />
+                                    Theme="{DynamicResource ColorSliderThumbTheme}" />
                             </Track>
                         </Grid>
                     </Border>
