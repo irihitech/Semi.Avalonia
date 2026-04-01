@@ -54,8 +54,8 @@
 
     <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager">
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="PreviousButtonStyle" Value="{StaticResource PipsPagerButton}" />
-        <Setter Property="NextButtonStyle" Value="{StaticResource PipsPagerButton}" />
+        <Setter Property="PreviousButtonTheme" Value="{StaticResource PipsPagerButton}" />
+        <Setter Property="NextButtonTheme" Value="{StaticResource PipsPagerButton}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel
@@ -65,7 +65,7 @@
                     ClipToBounds="False">
                     <Button
                         Name="PART_PreviousButton"
-                        Theme="{TemplateBinding PreviousButtonStyle}"
+                        Theme="{TemplateBinding PreviousButtonTheme}"
                         IsVisible="{TemplateBinding IsPreviousButtonVisible}"
                         Foreground="{DynamicResource PipsPagerButtonForeground}"
                         Content="{StaticResource SemiIconSmallTriangleLeft}" />
@@ -89,7 +89,7 @@
 
                     <Button
                         Name="PART_NextButton"
-                        Theme="{TemplateBinding NextButtonStyle}"
+                        Theme="{TemplateBinding NextButtonTheme}"
                         Foreground="{DynamicResource PipsPagerButtonForeground}"
                         Content="{StaticResource SemiIconSmallTriangleRight}"
                         IsVisible="{TemplateBinding IsNextButtonVisible}" />

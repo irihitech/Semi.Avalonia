@@ -71,14 +71,16 @@
                                         Name="PART_DrawerHeader"
                                         DockPanel.Dock="Top"
                                         Background="{TemplateBinding DrawerHeaderBackground}"
-                                        Content="{TemplateBinding DrawerHeader}" />
+                                        Content="{TemplateBinding DrawerHeader}"
+                                        ContentTemplate="{TemplateBinding DrawerHeaderTemplate}" />
 
                                     <!--  Drawer footer  -->
                                     <ContentPresenter
                                         Name="PART_DrawerFooter"
                                         DockPanel.Dock="Bottom"
                                         Background="{TemplateBinding DrawerFooterBackground}"
-                                        Content="{TemplateBinding DrawerFooter}" />
+                                        Content="{TemplateBinding DrawerFooter}"
+                                        ContentTemplate="{TemplateBinding DrawerFooterTemplate}" />
 
                                     <!--  Compact pane icon (compact mode)  -->
                                     <ContentPresenter
