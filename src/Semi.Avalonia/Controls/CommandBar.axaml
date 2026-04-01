@@ -28,24 +28,24 @@
                     DefaultLabelPosition="{Binding #lc.SelectedValue}"
                     IsDynamicOverflowEnabled="{Binding #idfe.IsChecked}"
                     Width="{Binding #ws.Value}">
-                    <AppBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
-                    <AppBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
-                    <AppBarSeparator />
-                    <AppBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
-                    <AppBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
-                    <AppBarToggleButton IsEnabled="False" IsChecked="True" Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
-                    <AppBarSeparator />
-                    <AppBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
-                    <AppBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
-                    <AppBarButton Label="Print" Icon="{DynamicResource SemiIconPrint}" />
-                    <AppBarSeparator />
-                    <AppBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
+                    <CommandBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <CommandBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
+                    <CommandBarSeparator />
+                    <CommandBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
+                    <CommandBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
+                    <CommandBarToggleButton IsEnabled="False" IsChecked="True" Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
+                    <CommandBarSeparator />
+                    <CommandBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
+                    <CommandBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
+                    <CommandBarButton Label="Print" Icon="{DynamicResource SemiIconPrint}" />
+                    <CommandBarSeparator />
+                    <CommandBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
                 </CommandBar>
             </StackPanel>
         </GroupBox>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="AppBarButtonBaseTheme" TargetType="Button">
+    <ControlTheme x:Key="CommandBarButtonBaseTheme" TargetType="Button">
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
                 <Border
@@ -57,7 +57,7 @@
                     Padding="{TemplateBinding Padding}">
                     <StackPanel
                         Name="PART_LayoutRoot"
-                        Spacing="{DynamicResource AppBarButtonPanelSpacing}"
+                        Spacing="{DynamicResource CommandBarButtonPanelSpacing}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                         <ContentPresenter
@@ -74,49 +74,49 @@
                         <TextBlock
                             Name="PART_Label"
                             Foreground="{TemplateBinding Foreground}"
-                            FontSize="{DynamicResource AppBarButtonLabelFontSize}"
+                            FontSize="{DynamicResource CommandBarButtonLabelFontSize}"
                             TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
 
-        <Setter Property="Background" Value="{DynamicResource AppBarButtonBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource AppBarButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource CommandBarButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommandBarButtonForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="{DynamicResource AppBarButtonPadding}" />
-        <Setter Property="Width" Value="{DynamicResource AppBarButtonWidth}" />
-        <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonMinHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource CommandBarButtonPadding}" />
+        <Setter Property="Width" Value="{DynamicResource CommandBarButtonWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource CommandBarButtonMinHeight}" />
 
-        <Setter Property="CornerRadius" Value="{DynamicResource AppBarButtonCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CommandBarButtonCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Cursor" Value="Hand" />
 
         <Style Selector="^:pointerover /template/ Border#PART_Border">
-            <Setter Property="Background" Value="{DynamicResource AppBarButtonPointeroverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource CommandBarButtonPointeroverBackground}" />
         </Style>
 
         <Style Selector="^:pressed /template/ Border#PART_Border">
-            <Setter Property="Background" Value="{DynamicResource AppBarButtonPressedBackground}" />
+            <Setter Property="Background" Value="{DynamicResource CommandBarButtonPressedBackground}" />
         </Style>
 
         <Style Selector="^:disabled">
             <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource AppBarButtonDisabledForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CommandBarButtonDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ TextBlock#PART_Label">
-                <Setter Property="Foreground" Value="{DynamicResource AppBarButtonDisabledForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CommandBarButtonDisabledForeground}" />
             </Style>
         </Style>
     </ControlTheme>
 
-    <!--  AppBarButton  -->
+    <!--  CommandBarButton  -->
     <ControlTheme
-        x:Key="{x:Type AppBarButton}"
-        BasedOn="{StaticResource AppBarButtonBaseTheme}"
-        TargetType="AppBarButton">
+        x:Key="{x:Type CommandBarButton}"
+        BasedOn="{StaticResource CommandBarButtonBaseTheme}"
+        TargetType="CommandBarButton">
 
         <Style Selector="^ /template/ TextBlock#PART_Label">
             <Setter Property="Text" Value="{TemplateBinding Label}" />
@@ -127,7 +127,7 @@
 
         <!--  IsCompact: hide label, use compact width  -->
         <Style Selector="^[IsCompact=True]">
-            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonCompactWidth}" />
             <Style Selector="^ /template/ TextBlock#PART_Label">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -135,7 +135,7 @@
 
         <!--  LabelPosition=Collapsed: hide label, use compact width  -->
         <Style Selector="^[LabelPosition=Collapsed]">
-            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonCompactWidth}" />
             <Style Selector="^ /template/ TextBlock#PART_Label">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -144,7 +144,7 @@
         <!--  LabelPosition=Right: horizontal layout, auto-width  -->
         <Style Selector="^[LabelPosition=Right]">
             <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
-            <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
+            <Setter Property="MinWidth" Value="{DynamicResource CommandBarButtonCompactWidth}" />
             <Style Selector="^ /template/ StackPanel#PART_LayoutRoot">
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
@@ -160,8 +160,8 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
-            <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonOverflowMinHeight}" />
-            <Setter Property="Padding" Value="{DynamicResource AppBarButtonOverflowPadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource CommandBarButtonOverflowMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource CommandBarButtonOverflowPadding}" />
             <Style Selector="^ /template/ StackPanel#PART_LayoutRoot">
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
@@ -174,11 +174,11 @@
         </Style>
     </ControlTheme>
 
-    <!--  AppBarToggleButton  -->
+    <!--  CommandBarToggleButton  -->
     <ControlTheme
-        x:Key="{x:Type AppBarToggleButton}"
-        BasedOn="{StaticResource AppBarButtonBaseTheme}"
-        TargetType="AppBarToggleButton">
+        x:Key="{x:Type CommandBarToggleButton}"
+        BasedOn="{StaticResource CommandBarButtonBaseTheme}"
+        TargetType="CommandBarToggleButton">
 
         <Style Selector="^ /template/ TextBlock#PART_Label">
             <Setter Property="Text" Value="{TemplateBinding Label}" />
@@ -189,25 +189,25 @@
 
         <Style Selector="^:checked">
             <Style Selector="^ /template/ Border#PART_Border">
-                <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedBackground}" />
+                <Setter Property="Background" Value="{DynamicResource CommandBarToggleButtonCheckedBackground}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource AppBarToggleButtonCheckedForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CommandBarToggleButtonCheckedForeground}" />
             </Style>
             <Style Selector="^:pointerover /template/ Border#PART_Border">
-                <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedPointeroverBackground}" />
+                <Setter Property="Background" Value="{DynamicResource CommandBarToggleButtonCheckedPointeroverBackground}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#PART_Border">
-                <Setter Property="Background" Value="{DynamicResource AppBarToggleButtonCheckedPressedBackground}" />
+                <Setter Property="Background" Value="{DynamicResource CommandBarToggleButtonCheckedPressedBackground}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_IconPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource AppBarToggleButtonCheckedDisabledForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CommandBarToggleButtonCheckedDisabledForeground}" />
             </Style>
         </Style>
 
         <!--  IsCompact: hide label, use compact width  -->
         <Style Selector="^[IsCompact=True]">
-            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonCompactWidth}" />
             <Style Selector="^ /template/ TextBlock#PART_Label">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -215,7 +215,7 @@
 
         <!--  LabelPosition=Collapsed: hide label, use compact width  -->
         <Style Selector="^[LabelPosition=Collapsed]">
-            <Setter Property="Width" Value="{DynamicResource AppBarButtonCompactWidth}" />
+            <Setter Property="Width" Value="{DynamicResource CommandBarButtonCompactWidth}" />
             <Style Selector="^ /template/ TextBlock#PART_Label">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
@@ -224,7 +224,7 @@
         <!--  LabelPosition=Right: horizontal layout, auto-width  -->
         <Style Selector="^[LabelPosition=Right]">
             <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
-            <Setter Property="MinWidth" Value="{DynamicResource AppBarButtonCompactWidth}" />
+            <Setter Property="MinWidth" Value="{DynamicResource CommandBarButtonCompactWidth}" />
             <Style Selector="^ /template/ StackPanel#PART_LayoutRoot">
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
@@ -240,8 +240,8 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
-            <Setter Property="MinHeight" Value="{DynamicResource AppBarButtonOverflowMinHeight}" />
-            <Setter Property="Padding" Value="{DynamicResource AppBarButtonOverflowPadding}" />
+            <Setter Property="MinHeight" Value="{DynamicResource CommandBarButtonOverflowMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource CommandBarButtonOverflowPadding}" />
             <Style Selector="^ /template/ StackPanel#PART_LayoutRoot">
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
@@ -254,14 +254,14 @@
         </Style>
     </ControlTheme>
 
-    <!--  AppBarSeparator  -->
-    <ControlTheme x:Key="{x:Type AppBarSeparator}" TargetType="AppBarSeparator">
-        <Setter Property="Background" Value="{DynamicResource AppBarSeparatorBackground}" />
-        <Setter Property="Width" Value="{DynamicResource AppBarSeparatorWidth}" />
-        <Setter Property="MinHeight" Value="{DynamicResource AppBarSeparatorMinHeight}" />
-        <Setter Property="Margin" Value="{DynamicResource AppBarSeparatorMargin}" />
+    <!--  CommandBarSeparator  -->
+    <ControlTheme x:Key="{x:Type CommandBarSeparator}" TargetType="CommandBarSeparator">
+        <Setter Property="Background" Value="{DynamicResource CommandBarSeparatorBackground}" />
+        <Setter Property="Width" Value="{DynamicResource CommandBarSeparatorWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource CommandBarSeparatorMinHeight}" />
+        <Setter Property="Margin" Value="{DynamicResource CommandBarSeparatorMargin}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="AppBarSeparator">
+            <ControlTemplate TargetType="CommandBarSeparator">
                 <Border
                     Background="{TemplateBinding Background}"
                     Width="{TemplateBinding Width}"
@@ -273,9 +273,9 @@
         <Style Selector="^[IsInOverflow=True]">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Width" Value="{x:Static x:Double.NaN}" />
-            <Setter Property="Height" Value="{DynamicResource AppBarSeparatorOverflowHeight}" />
+            <Setter Property="Height" Value="{DynamicResource CommandBarSeparatorOverflowHeight}" />
             <Setter Property="MinHeight" Value="0" />
-            <Setter Property="Margin" Value="{DynamicResource AppBarSeparatorOverflowMargin}" />
+            <Setter Property="Margin" Value="{DynamicResource CommandBarSeparatorOverflowMargin}" />
         </Style>
     </ControlTheme>
 
@@ -301,7 +301,7 @@
                     <Panel>
                         <DockPanel>
                             <!--  Overflow button (docked right)  -->
-                            <AppBarButton
+                            <CommandBarButton
                                 Name="PART_OverflowButton"
                                 DockPanel.Dock="Right"
                                 Icon="{DynamicResource CommandBarOverflowButtonGlyph}"
