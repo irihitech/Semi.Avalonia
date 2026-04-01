@@ -299,7 +299,7 @@
                     MinHeight="{TemplateBinding MinHeight}"
                     Padding="{TemplateBinding Padding}">
                     <Panel>
-                        <DockPanel>
+                        <DockPanel KeyboardNavigation.TabNavigation="Cycle">
                             <!--  Overflow button (docked right)  -->
                             <CommandBarButton
                                 Name="PART_OverflowButton"
@@ -351,6 +351,7 @@
                                 CornerRadius="{DynamicResource CommandBarOverflowCornerRadius}">
 
                                 <ItemsControl
+                                    Name="PART_OverflowPresenter"
                                     ItemsSource="{Binding OverflowItems, RelativeSource={RelativeSource TemplatedParent}}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
