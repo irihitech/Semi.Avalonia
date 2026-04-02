@@ -190,7 +190,7 @@
                         Padding="0"
                         VerticalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                        SelectedIndex="{TemplateBinding SelectedIndex, Mode=TwoWay}">
                         <TabControl.Styles>
                             <Style Selector="TabItem">
                                 <Setter Property="MinHeight" Value="32" />
@@ -238,7 +238,7 @@
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     Components="{TemplateBinding ColorSpectrumComponents}"
-                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     MaxHue="{TemplateBinding MaxHue}"
                                     MaxSaturation="{TemplateBinding MaxSaturation}"
                                     MaxValue="{TemplateBinding MaxValue}"
@@ -256,13 +256,9 @@
                                     ColorComponent="Alpha"
                                     ColorModel="Hsva"
                                     HsvColor="{Binding #ColorSpectrum.HsvColor}"
+                                    IsVisible="{TemplateBinding IsAlphaVisible}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                     Orientation="Vertical">
-                                    <ColorSlider.IsVisible>
-                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                            <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                        </MultiBinding>
-                                    </ColorSlider.IsVisible>
                                 </ColorSlider>
                             </Grid>
                         </TabItem>
@@ -279,7 +275,7 @@
                                 VerticalAlignment="Stretch"
                                 ItemContainerTheme="{StaticResource ColorViewPaletteListBoxItemTheme}"
                                 ItemsSource="{TemplateBinding PaletteColors}"
-                                SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DoNothingForNullConverter}, Mode=TwoWay}"
+                                SelectedItem="{TemplateBinding Color, Mode=TwoWay, Converter={StaticResource DoNothingForNullConverter}}"
                                 Theme="{StaticResource ColorViewPaletteListBoxTheme}"
                                 UseLayoutRounding="False">
                                 <ListBox.ItemTemplate>
@@ -348,9 +344,9 @@
                                                 Content="RGB"
                                                 CornerRadius="3,0,0,3"
                                                 IsChecked="{TemplateBinding ColorModel,
-                                                Converter={StaticResource EnumToBoolConverter},
-                                                ConverterParameter={x:Static ColorModel.Rgba},
-                                                Mode=TwoWay}"
+                                                    Converter={StaticResource EnumToBoolConverter},
+                                                    ConverterParameter={x:Static ColorModel.Rgba},
+                                                    Mode=TwoWay}"
                                                 Theme="{DynamicResource ColorViewRadioButton}" />
                                             <RadioButton
                                                 Name="HsvRadioButton"
@@ -360,9 +356,9 @@
                                                 Content="HSV"
                                                 CornerRadius="0,3,3,0"
                                                 IsChecked="{TemplateBinding ColorModel,
-                                                Converter={StaticResource EnumToBoolConverter},
-                                                ConverterParameter={x:Static ColorModel.Hsva},
-                                                Mode=TwoWay}"
+                                                    Converter={StaticResource EnumToBoolConverter},
+                                                    ConverterParameter={x:Static ColorModel.Hsva},
+                                                    Mode=TwoWay}"
                                                 Theme="{DynamicResource ColorViewRadioButton}" />
                                         </Grid>
                                     </Border>
@@ -400,7 +396,7 @@
                                     VerticalAlignment="Center"
                                     ColorComponent="Component1"
                                     ColorModel="{TemplateBinding ColorModel,Mode=OneWay}"
-                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsRoundingEnabled="True"
                                     IsSnapToTickEnabled="True"
                                     IsVisible="{TemplateBinding IsComponentSliderVisible}"
@@ -430,7 +426,7 @@
                                     VerticalAlignment="Center"
                                     ColorComponent="Component2"
                                     ColorModel="{TemplateBinding ColorModel,Mode=OneWay}"
-                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsRoundingEnabled="True"
                                     IsSnapToTickEnabled="True"
                                     IsVisible="{TemplateBinding IsComponentSliderVisible}"
@@ -460,7 +456,7 @@
                                     VerticalAlignment="Center"
                                     ColorComponent="Component3"
                                     ColorModel="{TemplateBinding ColorModel,Mode=OneWay}"
-                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsRoundingEnabled="True"
                                     IsSnapToTickEnabled="True"
                                     IsVisible="{TemplateBinding IsComponentSliderVisible}"
@@ -484,8 +480,8 @@
                                     Value="{Binding #AlphaComponentSlider.Value,Converter={StaticResource DoNothingForNullConverter}}">
                                     <NumericUpDown.IsVisible>
                                         <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                            <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                            <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <TemplateBinding Property="IsAlphaVisible" />
+                                            <TemplateBinding Property="IsComponentTextInputVisible" />
                                         </MultiBinding>
                                     </NumericUpDown.IsVisible>
                                 </NumericUpDown>
@@ -497,7 +493,7 @@
                                     VerticalAlignment="Center"
                                     ColorComponent="Alpha"
                                     ColorModel="{TemplateBinding ColorModel,Mode=OneWay}"
-                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                     IsRoundingEnabled="True"
                                     IsSnapToTickEnabled="True"
@@ -505,8 +501,8 @@
                                     TickFrequency="1">
                                     <ColorSlider.IsVisible>
                                         <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                            <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                            <Binding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <TemplateBinding Property="IsAlphaVisible" />
+                                            <TemplateBinding Property="IsComponentSliderVisible" />
                                         </MultiBinding>
                                     </ColorSlider.IsVisible>
                                 </ColorSlider>
@@ -518,7 +514,7 @@
                     <ColorPreviewer
                         Grid.Row="1"
                         Margin="12,0,12,12"
-                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                        HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                         IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
                         IsVisible="{TemplateBinding IsColorPreviewVisible}" />
                 </Grid>
