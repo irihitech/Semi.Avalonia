@@ -16,27 +16,26 @@
     <ControlTheme x:Key="{x:Type ContentPage}" TargetType="ContentPage">
         <Setter Property="Background" Value="{DynamicResource ContentPageBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource ContentPageForeground}" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ContentPage">
-                <Grid RowDefinitions="Auto,*,Auto" Background="{TemplateBinding Background}">
+                <DockPanel>
                     <ContentPresenter
                         Name="PART_TopCommandBar"
-                        Grid.Row="0"
-                        Content="{TemplateBinding TopCommandBar}" />
-                    <ContentPresenter
-                        Name="PART_ContentPresenter"
-                        Grid.Row="1"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        DockPanel.Dock="Top" />
                     <ContentPresenter
                         Name="PART_BottomCommandBar"
-                        Grid.Row="2"
-                        Content="{TemplateBinding BottomCommandBar}" />
-                </Grid>
+                        DockPanel.Dock="Bottom" />
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </DockPanel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
