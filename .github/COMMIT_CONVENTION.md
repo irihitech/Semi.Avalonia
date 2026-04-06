@@ -30,10 +30,10 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 ## Rules
 
-1. **Limit the subject line to 72 characters**
+1. **Limit the subject line to 50 characters** (72 character hard limit)
 2. **Use the imperative mood** in the subject line (e.g., "add feature" not "added feature")
 3. **Do not end the subject line with a period**
-4. **Capitalize the first letter** of the description
+4. **Use lowercase** for the description (e.g., "add feature" not "Add feature")
 5. **Separate subject from body with a blank line**
 6. **Wrap the body at 72 characters**
 7. **Use the body to explain what and why**, not how
