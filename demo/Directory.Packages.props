@@ -1,9 +1,9 @@
 ﻿<Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <AvaloniaVersion>12.0.0-rc1</AvaloniaVersion>
-        <DataGridVersion>12.0.0-rc1</DataGridVersion>
-        <SkiaSharpVersion>3.119.1</SkiaSharpVersion>
+        <AvaloniaVersion>12.0.0</AvaloniaVersion>
+        <DataGridVersion>12.0.0</DataGridVersion>
+        <SkiaSharpVersion>3.119.3-preview.1.1</SkiaSharpVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
@@ -19,8 +19,8 @@
         <PackageVersion Include="SkiaSharp" Version="$(SkiaSharpVersion)"/>
         <PackageVersion Include="SkiaSharp.NativeAssets.WebAssembly" Version="$(SkiaSharpVersion)"/>
 
-        <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0"/>
+        <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.2"/>
 
-        <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
+        <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2"/>
     </ItemGroup>
 </Project>
