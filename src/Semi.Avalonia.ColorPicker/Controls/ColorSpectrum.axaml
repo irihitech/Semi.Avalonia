@@ -1,15 +1,11 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Avalonia.Controls.Converters">
-    <converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
-    <converters:CornerRadiusToDoubleConverter x:Key="TopLeftCornerRadiusConverter" Corner="TopLeft" />
-    <converters:CornerRadiusToDoubleConverter x:Key="BottomRightCornerRadiusConverter" Corner="BottomRight" />
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ControlTheme x:Key="{x:Type ColorSpectrum}" TargetType="ColorSpectrum">
         <Setter Property="CornerRadius" Value="{DynamicResource ColorSpectrumCornerRadius}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="{x:Type ColorSpectrum}">
+            <ControlTemplate TargetType="ColorSpectrum">
                 <Panel
                     Name="PART_LayoutRoot"
                     HorizontalAlignment="Stretch"
@@ -25,27 +21,27 @@
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="{TemplateBinding Shape,
-                            Converter={StaticResource EnumToBoolConverter},
+                            Converter={x:Static ObjectConverters.Equal},
                             ConverterParameter={x:Static ColorSpectrumShape.Box}}"
-                            RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                            RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                            RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                            RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                         <Rectangle
                             Name="PART_SpectrumOverlayRectangle"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="{TemplateBinding Shape,
-                            Converter={StaticResource EnumToBoolConverter},
+                            Converter={x:Static ObjectConverters.Equal},
                             ConverterParameter={x:Static ColorSpectrumShape.Box}}"
-                            RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                            RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                            RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                            RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                         <Ellipse
                             Name="PART_SpectrumEllipse"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="{TemplateBinding Shape,
-                            Converter={StaticResource EnumToBoolConverter},
+                            Converter={x:Static ObjectConverters.Equal},
                             ConverterParameter={x:Static ColorSpectrumShape.Ring}}" />
                         <Ellipse
                             Name="PART_SpectrumOverlayEllipse"
@@ -53,7 +49,7 @@
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="{TemplateBinding Shape,
-                            Converter={StaticResource EnumToBoolConverter},
+                            Converter={x:Static ObjectConverters.Equal},
                             ConverterParameter={x:Static ColorSpectrumShape.Ring}}" />
                         <Canvas
                             Name="PART_InputTarget"
@@ -89,17 +85,17 @@
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="{TemplateBinding Shape,
-                            Converter={StaticResource EnumToBoolConverter},
+                            Converter={x:Static ObjectConverters.Equal},
                             ConverterParameter={x:Static ColorSpectrumShape.Box}}"
-                            RadiusX="{TemplateBinding CornerRadius,Converter={StaticResource TopLeftCornerRadiusConverter}}"
-                            RadiusY="{TemplateBinding CornerRadius,Converter={StaticResource BottomRightCornerRadiusConverter}}" />
+                            RadiusX="{Binding CornerRadius.TopLeft,RelativeSource={RelativeSource TemplatedParent}}"
+                            RadiusY="{Binding CornerRadius.BottomRight,RelativeSource={RelativeSource TemplatedParent}}" />
                         <Ellipse
                             Name="BorderEllipse"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="{TemplateBinding Shape,
-                            Converter={StaticResource EnumToBoolConverter},
+                            Converter={x:Static ObjectConverters.Equal},
                             ConverterParameter={x:Static ColorSpectrumShape.Ring}}" />
                     </Panel>
                 </Panel>

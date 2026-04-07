@@ -2,80 +2,90 @@
     x:Class="Semi.Avalonia.Demo.Pages.ColorPickerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="https://irihi.tech/semi"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ScrollViewer>
-        <StackPanel Spacing="20">
-            <StackPanel Orientation="Horizontal" Spacing="20">
-                <ColorView Name="Test" ColorSpectrumShape="Ring" />
-                <ColorView ColorSpectrumShape="Box" />
-                <ColorView Palette="{DynamicResource SemiColorPalette}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ColorView
-                    Name="SimpleColorViewTest"
-                    HsvColor="hsv(180,80%,70%)"
-                    IsAlphaVisible="True"
-                    Theme="{StaticResource SimpleColorView}" />
-                <StackPanel>
-                    <TextBlock Text="{Binding #SimpleColorViewTest.HsvColor}" />
-                    <TextBlock Text="{Binding #SimpleColorViewTest.Color}" />
+    <DockPanel>
+        <ScrollViewer DockPanel.Dock="Right" Width="260">
+            <StackPanel Margin="12" Spacing="8">
+                <StackPanel.Styles>
+                    <Style Selector="ToggleSwitch">
+                        <Setter Property="OffContent" Value="{Binding $self.OnContent}" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Spacing="8">
+                    <ToggleSwitch Name="AccentColors" OnContent="IsAccentColorsVisible" IsChecked="True" />
+                    <ToggleSwitch Name="AlphaEnabled" OnContent="IsAlphaEnabled" IsChecked="True" />
+                    <ToggleSwitch Name="Alpha" OnContent="IsAlphaVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ColorComponents" OnContent="IsColorComponentsVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ColorModel" OnContent="IsColorModelVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ColorPalette" OnContent="IsColorPaletteVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ColorPreview" OnContent="IsColorPreviewVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ColorSpectrum" OnContent="IsColorSpectrumVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ColorSpectrumSlider" OnContent="IsColorSpectrumSliderVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ComponentSlider" OnContent="IsComponentSliderVisible" IsChecked="True" />
+                    <ToggleSwitch Name="ComponentTextInput" OnContent="IsComponentTextInputVisible" IsChecked="True" />
+                    <ToggleSwitch Name="HexInput" OnContent="IsHexInputVisible" IsChecked="True" />
+                </StackPanel>
+
+                <Separator />
+
+                <StackPanel Spacing="8">
+                    <TextBlock>
+                        <Run Text="Color: " />
+                        <Run Text="{Binding #cv.Color,Mode=OneWay}" />
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="HsvColor:" />
+                        <Run Text="{Binding #cv.HsvColor,Mode=OneWay}" />
+                    </TextBlock>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <ColorPicker ColorSpectrumShape="Ring">
-                    <ColorPicker.Palette>
-                        <FlatHalfColorPalette />
-                    </ColorPicker.Palette>
-                </ColorPicker>
-                <ColorPicker ColorSpectrumShape="Box">
-                    <ColorPicker.Palette>
-                        <semi:SemiColorLightPalette />
-                    </ColorPicker.Palette>
-                </ColorPicker>
-                <ColorPicker
-                    Theme="{DynamicResource HexColorPicker}"
-                    ColorSpectrumShape="Box">
-                    <ColorPicker.Palette>
-                        <semi:SemiColorLightPalette />
-                    </ColorPicker.Palette>
-                </ColorPicker>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left">
-                <TextBlock Text="Use Style to customize button" />
-                <ColorPicker
-                    Margin="8"
-                    MinWidth="32"
-                    HsvColor="hsv(180,80%,70%)">
-                    <ColorPicker.Content>
-                        <Border
-                            Margin="1"
-                            Background="{Binding $parent[ColorPicker].HsvColor, Converter={StaticResource ToBrushConverter}}"
-                            CornerRadius="1" />
-                    </ColorPicker.Content>
-                    <ColorPicker.Styles>
-                        <Style Selector="DropDownButton">
-                            <Setter Property="Padding" Value="0" />
-                            <Style Selector="^ /template/ PathIcon">
-                                <Setter Property="IsVisible" Value="False" />
-                            </Style>
-                        </Style>
-                    </ColorPicker.Styles>
-                </ColorPicker>
-            </StackPanel>
+        </ScrollViewer>
 
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <ColorPicker
-                    Theme="{StaticResource SimpleColorPicker}"
-                    HsvColor="hsv(180,80%,70%)" />
-                <ColorPicker
-                    Theme="{StaticResource HexSimpleColorPicker}"
-                    HsvColor="hsv(180,80%,70%)" />
+        <Border Margin="12"
+                BorderBrush="{DynamicResource SemiColorBorder}"
+                BorderThickness="1"
+                CornerRadius="6"
+                ClipToBounds="True">
+            <Border.Styles>
+                <Style Selector=":is(ColorView)">
+                    <Setter Property="IsAccentColorsVisible" Value="{Binding #AccentColors.IsChecked}" />
+                    <Setter Property="IsAlphaEnabled" Value="{Binding #AlphaEnabled.IsChecked}" />
+                    <Setter Property="IsAlphaVisible" Value="{Binding #Alpha.IsChecked}" />
+                    <Setter Property="IsColorComponentsVisible" Value="{Binding #ColorComponents.IsChecked}" />
+                    <Setter Property="IsColorModelVisible" Value="{Binding #ColorModel.IsChecked}" />
+                    <Setter Property="IsColorPaletteVisible" Value="{Binding #ColorPalette.IsChecked}" />
+                    <Setter Property="IsColorPreviewVisible" Value="{Binding #ColorPreview.IsChecked}" />
+                    <Setter Property="IsColorSpectrumVisible" Value="{Binding #ColorSpectrum.IsChecked}" />
+                    <Setter Property="IsColorSpectrumSliderVisible" Value="{Binding #ColorSpectrumSlider.IsChecked}" />
+                    <Setter Property="IsComponentSliderVisible" Value="{Binding #ComponentSlider.IsChecked}" />
+                    <Setter Property="IsComponentTextInputVisible" Value="{Binding #ComponentTextInput.IsChecked}" />
+                    <Setter Property="IsHexInputVisible" Value="{Binding #HexInput.IsChecked}" />
+
+                    <Setter Property="Color" Value="#39C5BB" />
+                </Style>
+            </Border.Styles>
+            <StackPanel Margin="12" Spacing="12" Orientation="Horizontal">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Default Theme" FontWeight="Bold" FontSize="16" />
+                    <ColorView Name="cv" />
+                    <StackPanel Spacing="12" Orientation="Horizontal">
+                        <ColorPicker />
+                        <ColorPicker Theme="{DynamicResource HexColorPicker}" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Spacing="12">
+                    <TextBlock Text="SimpleColorPicker" FontWeight="Bold" FontSize="16" />
+                    <ColorView Theme="{DynamicResource SimpleColorView}" />
+                    <StackPanel Spacing="12" Orientation="Horizontal">
+                        <ColorPicker Theme="{DynamicResource SimpleColorPicker}" />
+                        <ColorPicker Theme="{DynamicResource HexSimpleColorPicker}" />
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
+        </Border>
+    </DockPanel>
 </UserControl>
