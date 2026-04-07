@@ -7,6 +7,7 @@
 
     <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarMinHeight}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="NavigationPage">
                 <Panel ClipToBounds="True">
@@ -43,8 +44,8 @@
                                 Name="PART_BackButton"
                                 Grid.Column="0"
                                 Classes="Tertiary"
-                                MinHeight="{DynamicResource NavigationPageBarMinHeight}"
-                                MinWidth="{DynamicResource NavigationPageBarMinHeight}"
+                                Height="{TemplateBinding BarHeight}"
+                                Width="{TemplateBinding BarHeight}"
                                 Padding="8"
                                 IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                                 Theme="{StaticResource BorderlessButton}">
@@ -52,7 +53,6 @@
                                     <PathIcon
                                         Name="PART_BackButtonDefaultIcon"
                                         Theme="{StaticResource InnerPathIcon}"
-                                        Classes="Large"
                                         Data="{DynamicResource NavigationPageBackButtonGlyph}" />
                                     <ContentPresenter
                                         Name="PART_BackButtonContentPresenter"
@@ -63,7 +63,7 @@
                             <ContentPresenter
                                 Name="PART_Header"
                                 Grid.Column="1"
-                                FontSize="20"
+                                FontWeight="SemiBold"
                                 Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 VerticalAlignment="Center"
@@ -114,6 +114,10 @@
 
         <Style Selector="^:nav-bar-compact /template/ ContentPresenter#PART_TopCommandBar CommandBar">
             <Setter Property="DefaultLabelPosition" Value="Collapsed" />
+        </Style>
+        
+        <Style Selector="^.Large">
+            <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarLargeMinHeight}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
