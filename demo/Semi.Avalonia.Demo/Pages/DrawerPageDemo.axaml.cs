@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
 using Avalonia.Controls;
+using Avalonia.Input.GestureRecognizers;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
-using Avalonia.Media;
 
 namespace Semi.Avalonia.Demo.Pages;
 
@@ -11,6 +12,7 @@ public partial class DrawerPageDemo : UserControl
     public DrawerPageDemo()
     {
         InitializeComponent();
+        EnableMouseSwipeGesture(DemoDrawer);
     }
 
     protected override void OnLoaded(RoutedEventArgs e)
@@ -52,7 +54,6 @@ public partial class DrawerPageDemo : UserControl
                     FontSize = 16,
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Foreground = Brushes.Black,
                 },
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
                 VerticalContentAlignment = VerticalAlignment.Stretch
@@ -64,5 +65,26 @@ public partial class DrawerPageDemo : UserControl
     private void UpdateStatus()
     {
         StatusText.Text = $"Drawer: {(DemoDrawer.IsOpen ? "Open" : "Closed")}";
+    }
+
+    private static void EnableMouseSwipeGesture(Control control)
+    {
+        var recognizer = control.GestureRecognizers
+            .OfType<SwipeGestureRecognizer>()
+            .FirstOrDefault();
+
+        recognizer?.IsMouseEnabled = true;
+    }
+
+    private void OnLayoutChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        DemoDrawer.DrawerLayoutBehavior = (sender as ComboBox)?.SelectedIndex switch
+        {
+            0 => DrawerLayoutBehavior.CompactOverlay,
+            1 => DrawerLayoutBehavior.CompactInline,
+            2 => DrawerLayoutBehavior.Split,
+            3 => DrawerLayoutBehavior.Overlay,
+            _ => DrawerLayoutBehavior.CompactOverlay
+        };
     }
 }
