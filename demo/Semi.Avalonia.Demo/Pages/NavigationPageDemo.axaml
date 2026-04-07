@@ -48,6 +48,7 @@
                                Text="Current: Home"
                                Opacity="0.7"
                                TextWrapping="Wrap" />
+                    <ToggleSwitch Content="Large" Name="large" />
                 </StackPanel>
             </ScrollViewer>
 
@@ -58,7 +59,9 @@
                     BorderThickness="1"
                     CornerRadius="6"
                     ClipToBounds="True">
-                <NavigationPage Name="DemoNav" Classes="Large" />
+                <NavigationPage 
+                    Name="DemoNav" 
+                    Classes.Large="{Binding #large.IsChecked}" />
             </Border>
         </DockPanel>
     </ScrollViewer>
