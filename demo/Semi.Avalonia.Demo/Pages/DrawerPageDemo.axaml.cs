@@ -52,7 +52,6 @@ public partial class DrawerPageDemo : UserControl
                     FontSize = 16,
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Foreground = Brushes.Black,
                 },
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
                 VerticalContentAlignment = VerticalAlignment.Stretch
@@ -64,5 +63,17 @@ public partial class DrawerPageDemo : UserControl
     private void UpdateStatus()
     {
         StatusText.Text = $"Drawer: {(DemoDrawer.IsOpen ? "Open" : "Closed")}";
+    }
+
+    private void OnLayoutChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        DemoDrawer.DrawerLayoutBehavior = (sender as ComboBox)?.SelectedIndex switch
+        {
+            0 => DrawerLayoutBehavior.CompactOverlay,
+            1 => DrawerLayoutBehavior.CompactInline,
+            2 => DrawerLayoutBehavior.Split,
+            3 => DrawerLayoutBehavior.Overlay,
+            _ => DrawerLayoutBehavior.CompactOverlay
+        };
     }
 }
