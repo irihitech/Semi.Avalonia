@@ -2,56 +2,36 @@ using System;
 using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data.Converters;
+using Irihi.Avalonia.Shared.Converters;
 
 namespace Semi.Avalonia.Converters;
 
-public class PlacementToRenderTransformOriginConverter: IValueConverter
+public class PlacementToRenderTransformOriginConverter : MarkupValueConverter
 {
-    public static PlacementToRenderTransformOriginConverter Instance { get; } = new PlacementToRenderTransformOriginConverter();
-    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not PlacementMode p)
         {
             return new RelativePoint(0.5, 0.5, RelativeUnit.Relative);
         }
-        switch (p)
-        {
-            case  PlacementMode.Bottom:
-                return new RelativePoint(0.5, 0.0, RelativeUnit.Relative);
-            case PlacementMode.Left:
-                return new RelativePoint(1.0, 0.5, RelativeUnit.Relative);
-            case PlacementMode.Right:
-                return new RelativePoint(0.0, 0.5, RelativeUnit.Relative);
-            case PlacementMode.Top:
-                return new RelativePoint(0.5, 1.0, RelativeUnit.Relative);
-            case PlacementMode.Pointer:
-                return new RelativePoint(0.0, 0.0, RelativeUnit.Relative);
-            case PlacementMode.Center:
-            case PlacementMode.AnchorAndGravity:
-                return new RelativePoint(0.5, 0.5, RelativeUnit.Relative);
-            case PlacementMode.BottomEdgeAlignedLeft:
-                return new RelativePoint(0.0, 0.0, RelativeUnit.Relative);
-            case PlacementMode.BottomEdgeAlignedRight:
-                return new RelativePoint(1.0, 0.0, RelativeUnit.Relative);
-            case PlacementMode.LeftEdgeAlignedTop:
-                return new RelativePoint(1.0, 1.0, RelativeUnit.Relative);
-            case PlacementMode.LeftEdgeAlignedBottom:
-                return new RelativePoint(1.0, 0.0, RelativeUnit.Relative);
-            case PlacementMode.RightEdgeAlignedTop:
-                return new RelativePoint(0.0, 1.0, RelativeUnit.Relative);
-            case PlacementMode.RightEdgeAlignedBottom:
-                return new RelativePoint(0.0, 0.0, RelativeUnit.Relative);
-            case PlacementMode.TopEdgeAlignedLeft:
-                return new RelativePoint(0.0, 1.0, RelativeUnit.Relative);
-            case PlacementMode.TopEdgeAlignedRight:
-                return new RelativePoint(1.0, 1.0, RelativeUnit.Relative);
-        }
-        return new RelativePoint(0.5, 0.5, RelativeUnit.Relative);
-    }
 
-    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
+        return p switch
+        {
+            PlacementMode.Bottom => new RelativePoint(0.5, 0.0, RelativeUnit.Relative),
+            PlacementMode.Left => new RelativePoint(1.0, 0.5, RelativeUnit.Relative),
+            PlacementMode.Right => new RelativePoint(0.0, 0.5, RelativeUnit.Relative),
+            PlacementMode.Top => new RelativePoint(0.5, 1.0, RelativeUnit.Relative),
+            PlacementMode.Pointer => new RelativePoint(0.0, 0.0, RelativeUnit.Relative),
+            PlacementMode.Center or PlacementMode.AnchorAndGravity => new RelativePoint(0.5, 0.5, RelativeUnit.Relative),
+            PlacementMode.BottomEdgeAlignedLeft => new RelativePoint(0.0, 0.0, RelativeUnit.Relative),
+            PlacementMode.BottomEdgeAlignedRight => new RelativePoint(1.0, 0.0, RelativeUnit.Relative),
+            PlacementMode.LeftEdgeAlignedTop => new RelativePoint(1.0, 1.0, RelativeUnit.Relative),
+            PlacementMode.LeftEdgeAlignedBottom => new RelativePoint(1.0, 0.0, RelativeUnit.Relative),
+            PlacementMode.RightEdgeAlignedTop => new RelativePoint(0.0, 1.0, RelativeUnit.Relative),
+            PlacementMode.RightEdgeAlignedBottom => new RelativePoint(0.0, 0.0, RelativeUnit.Relative),
+            PlacementMode.TopEdgeAlignedLeft => new RelativePoint(0.0, 1.0, RelativeUnit.Relative),
+            PlacementMode.TopEdgeAlignedRight => new RelativePoint(1.0, 1.0, RelativeUnit.Relative),
+            _ => new RelativePoint(0.5, 0.5, RelativeUnit.Relative)
+        };
     }
 }

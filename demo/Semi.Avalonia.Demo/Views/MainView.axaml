@@ -16,9 +16,9 @@
             <Setter Property="Template">
                 <ControlTemplate TargetType="TabItem">
                     <TextBlock
-                        FontWeight="Bold"
-                        FontSize="12"
                         Margin="4"
+                        FontSize="12"
+                        FontWeight="Bold"
                         Text="{TemplateBinding Header}" />
                 </ControlTemplate>
             </Setter>
@@ -37,48 +37,44 @@
                 <StackPanel Orientation="Horizontal" Spacing="8">
                     <ToggleSwitch
                         Name="ExpandButton"
-                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
-                        Content="{StaticResource SemiIconSidebar}" />
+                        Content="{StaticResource SemiIconSidebar}"
+                        Theme="{DynamicResource IconBorderlessToggleSwitch}" />
                     <SelectableTextBlock
                         VerticalAlignment="Center"
                         Classes="H6"
                         Text="Semi Avalonia"
                         Theme="{DynamicResource TitleSelectableTextBlock}" />
-                    <SelectableTextBlock
-                        VerticalAlignment="Center"
-                        Text="/" />
+                    <SelectableTextBlock VerticalAlignment="Center" Text="/" />
                     <SelectableTextBlock
                         VerticalAlignment="Center"
                         Classes="Secondary"
                         Text="{ReflectionBinding #tab.SelectedItem.Header}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button
-                        Theme="{DynamicResource IconBorderlessButton}"
                         Command="{Binding OpenUrlCommand}"
                         CommandParameter="{Binding DocumentationUrl}"
-                        Content="{StaticResource SemiIconGlobe}" />
+                        Content="{StaticResource SemiIconGlobe}"
+                        Theme="{DynamicResource IconBorderlessButton}" />
 
                     <Button
-                        Theme="{DynamicResource IconBorderlessButton}"
                         Command="{Binding OpenUrlCommand}"
                         CommandParameter="{Binding RepoUrl}"
-                        Content="{StaticResource SemiIconGithubLogo}" />
+                        Content="{StaticResource SemiIconGithubLogo}"
+                        Theme="{DynamicResource IconBorderlessButton}" />
 
                     <ToggleSwitch
-                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
                         Command="{Binding ToggleThemeCommand}"
+                        OffContent="{StaticResource SemiIconSun}"
                         OnContent="{StaticResource SemiIconMoon}"
-                        OffContent="{StaticResource SemiIconSun}" />
+                        Theme="{DynamicResource IconBorderlessToggleSwitch}" />
 
-                    <Button
-                        Theme="{DynamicResource IconBorderlessButton}"
-                        Content="{StaticResource SemiIconMenu}">
+                    <Button Content="{StaticResource SemiIconMenu}" Theme="{DynamicResource IconBorderlessButton}">
                         <Button.Flyout>
-                            <MenuFlyout Placement="Bottom" ItemsSource="{Binding MenuItems}" />
+                            <MenuFlyout ItemsSource="{Binding MenuItems}" Placement="Bottom" />
                         </Button.Flyout>
                         <Button.Styles>
-                            <Style Selector="MenuItem" x:DataType="views:MenuItemViewModel">
+                            <Style x:DataType="views:MenuItemViewModel" Selector="MenuItem">
                                 <Setter Property="Header" Value="{Binding Header}" />
                                 <Setter Property="ItemsSource" Value="{Binding Items}" />
                                 <Setter Property="Command" Value="{Binding Command}" />
@@ -94,8 +90,8 @@
             Grid.Row="1"
             Margin="8"
             Padding="20,0,0,0"
-            TabStripPlacement="Left"
             Classes.Dismiss="{Binding #ExpandButton.IsChecked}"
+            TabStripPlacement="Left"
             Theme="{DynamicResource ScrollLineTabControl}">
             <TabControl.Styles>
                 <Style Selector=".Dismiss /template/ ScrollViewer#PART_ScrollViewer">
@@ -113,9 +109,7 @@
             <TabItem Header="About Us">
                 <pages:AboutUs />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Resource Browser" />
+            <TabItem Header="Resource Browser" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="Palette">
                 <pages:PaletteDemo />
             </TabItem>
@@ -128,21 +122,17 @@
             <TabItem Header="Icon">
                 <pages:IconDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Separate Pack" />
+            <TabItem Header="Separate Pack" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="ColorPicker">
                 <pages:ColorPickerDemo />
             </TabItem>
             <TabItem Header="DataGrid">
                 <pages:DataGridDemo />
             </TabItem>
-            <TabItem Header="TreeDataGrid">
-                <pages:TreeDataGridDemo />
-            </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Basic" />
+            <!-- <TabItem Header="TreeDataGrid"> -->
+            <!--     <pages:TreeDataGridDemo /> -->
+            <!-- </TabItem> -->
+            <TabItem Header="Basic" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="TextBlock">
                 <pages:TextBlockDemo />
             </TabItem>
@@ -155,9 +145,7 @@
             <TabItem Header="PathIcon">
                 <pages:PathIconDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Button" />
+            <TabItem Header="Button" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="Button">
                 <pages:ButtonDemo />
             </TabItem>
@@ -173,9 +161,7 @@
             <TabItem Header="ToggleSwitch">
                 <pages:ToggleSwitchDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Input" />
+            <TabItem Header="Input" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="TextBox">
                 <pages:TextBoxDemo />
             </TabItem>
@@ -197,9 +183,7 @@
             <TabItem Header="ManagedFileChooser">
                 <pages:ManagedFileChooserDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Date/Time" />
+            <TabItem Header="Date/Time" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="Calendar">
                 <pages:CalendarDemo />
             </TabItem>
@@ -212,9 +196,22 @@
             <TabItem Header="TimePicker">
                 <pages:TimePickerDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Navigation" />
+            <TabItem Header="Navigation" Theme="{DynamicResource CategoryTabItem}" />
+            <TabItem Header="ContentPage">
+                <pages:ContentPageDemo />
+            </TabItem>
+            <TabItem Header="CarouselPage">
+                <pages:CarouselPageDemo />
+            </TabItem>
+            <TabItem Header="DrawerPage">
+                <pages:DrawerPageDemo />
+            </TabItem>
+            <TabItem Header="NavigationPage">
+                <pages:NavigationPageDemo />
+            </TabItem>
+            <TabItem Header="TabbedPage">
+                <pages:TabbedPageDemo />
+            </TabItem>
             <TabItem Header="TabControl">
                 <pages:TabControlDemo />
             </TabItem>
@@ -224,11 +221,12 @@
             <TabItem Header="TreeView">
                 <pages:TreeViewDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Show" />
+            <TabItem Header="Show" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="Carousel">
                 <pages:CarouselDemo />
+            </TabItem>
+            <TabItem Header="PipsPager">
+                <pages:PipsPagerDemo />
             </TabItem>
             <TabItem Header="Expander">
                 <pages:ExpanderDemo />
@@ -251,9 +249,7 @@
             <TabItem Header="ToolTip">
                 <pages:ToolTipDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Feedback" />
+            <TabItem Header="Feedback" Theme="{DynamicResource CategoryTabItem}" />
             <TabItem Header="DataValidationErrors">
                 <pages:DataValidationErrorsDemo />
             </TabItem>
@@ -266,9 +262,10 @@
             <TabItem Header="RefreshContainer">
                 <pages:RefreshContainerDemo />
             </TabItem>
-            <TabItem
-                Theme="{DynamicResource CategoryTabItem}"
-                Header="Other" />
+            <TabItem Header="Other" Theme="{DynamicResource CategoryTabItem}" />
+            <TabItem Header="CommandBar">
+                <pages:CommandBarDemo />
+            </TabItem>
             <TabItem Header="GridSplitter">
                 <pages:GridSplitterDemo />
             </TabItem>
@@ -280,6 +277,9 @@
             </TabItem>
             <TabItem Header="ThemeVariantScope">
                 <pages:ThemeVariantDemo />
+            </TabItem>
+            <TabItem Header="WindowCustomizationsPage">
+                <pages:WindowCustomizationsPage />
             </TabItem>
         </TabControl>
     </Grid>

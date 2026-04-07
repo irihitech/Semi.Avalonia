@@ -1,0 +1,130 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Design.PreviewWith>
+        <StackPanel Margin="20" >
+            <PipsPager NumberOfPages="10" />
+        </StackPanel>
+    </Design.PreviewWith>
+    
+    <ControlTheme x:Key="PipsPagerButton" TargetType="Button">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Foreground" Value="{DynamicResource PipsPagerButtonForeground}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <PathIcon
+                    Theme="{DynamicResource InnerPathIcon}"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Data="{TemplateBinding Content}"
+                    Foreground="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ PathIcon">
+            <Setter Property="Foreground" Value="{DynamicResource PipsPagerButtonPointeroverForeground}" />
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="PipsPagerIndicatorDotListBoxItem" TargetType="ListBoxItem">
+        <Setter Property="Foreground" Value="{DynamicResource PipsPagerIndicatorForeground}" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ListBoxItem">
+                <Ellipse
+                    Name="Container"
+                    Width="{DynamicResource CarouselIndicatorDotWidth}"
+                    Height="{DynamicResource CarouselIndicatorDotHeight}"
+                    Fill="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource PipsPagerIndicatorPointeroverForeground}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource PipsPagerIndicatorPressedForeground}" />
+        </Style>
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource PipsPagerIndicatorSelectedForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="PreviousButtonTheme" Value="{StaticResource PipsPagerButton}" />
+        <Setter Property="NextButtonTheme" Value="{StaticResource PipsPagerButton}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel
+                    Name="PART_RootPanel"
+                    Orientation="{TemplateBinding Orientation}"
+                    Background="{TemplateBinding Background}"
+                    ClipToBounds="False">
+                    <Button
+                        Name="PART_PreviousButton"
+                        Theme="{TemplateBinding PreviousButtonTheme}"
+                        IsVisible="{TemplateBinding IsPreviousButtonVisible}"
+                        Foreground="{DynamicResource PipsPagerButtonForeground}"
+                        Content="{StaticResource SemiIconSmallTriangleLeft}" />
+
+                    <ListBox
+                        Name="PART_PipsPagerList"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                        ItemsSource="{Binding TemplateSettings.Pips, RelativeSource={RelativeSource TemplatedParent}}"
+                        SelectedIndex="{TemplateBinding SelectedPageIndex, Mode=TwoWay}"
+                        AutoScrollToSelectedItem="False"
+                        ItemContainerTheme="{StaticResource PipsPagerIndicatorDotListBoxItem}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="{Binding $parent[PipsPager].Orientation}" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+
+                    <Button
+                        Name="PART_NextButton"
+                        Theme="{TemplateBinding NextButtonTheme}"
+                        Foreground="{DynamicResource PipsPagerButtonForeground}"
+                        Content="{StaticResource SemiIconSmallTriangleRight}"
+                        IsVisible="{TemplateBinding IsNextButtonVisible}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal /template/ StackPanel#PART_RootPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+
+        <Style Selector="^:vertical">
+
+            <Style Selector="^ /template/ StackPanel#PART_RootPanel">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+
+            <Style Selector="^ /template/ Button#PART_PreviousButton">
+                <Setter Property="Content" Value="{DynamicResource SemiIconSmallTriangleTop}" />
+            </Style>
+            <Style Selector="^ /template/ Button#PART_NextButton">
+                <Setter Property="Content" Value="{DynamicResource SemiIconSmallTriangleDown}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:first-page /template/ Button#PART_PreviousButton">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^:last-page /template/ Button#PART_NextButton">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

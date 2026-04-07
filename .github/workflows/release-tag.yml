@@ -41,7 +41,7 @@ jobs:
     needs: [ nuget,publish ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4.3.0
+      - uses: actions/download-artifact@v8
 
       - name: Display structure of downloaded files
         run: ls -R
@@ -62,7 +62,7 @@ jobs:
         run: ls -R
 
       - name: Release
-        uses: softprops/action-gh-release@v2.3.2
+        uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
         with:
           generate_release_notes: true

@@ -22,8 +22,30 @@
             IsEnabled="{Binding $parent[TextBox].CanPaste}" />
     </MenuFlyout>
 
+    <MenuFlyout
+        x:Key="HorizontalTextBoxContextFlyout"
+        ShowMode="{OnFormFactor Desktop=Standard, Mobile=Transient}"
+        FlyoutPresenterTheme="{StaticResource HorizontalMenuFlyoutPresenter}"
+        ItemContainerTheme="{StaticResource TopLevelMenuItem}">
+        <MenuItem
+            Command="{Binding $parent[TextBox].Cut}"
+            Header="{DynamicResource STRING_MENU_CUT}"
+            IsEnabled="{Binding $parent[TextBox].CanCut}"
+            IsVisible="{Binding $parent[TextBox].CanCut}" />
+        <MenuItem
+            Command="{Binding $parent[TextBox].Copy}"
+            Header="{DynamicResource STRING_MENU_COPY}"
+            IsEnabled="{Binding $parent[TextBox].CanCopy}"
+            IsVisible="{Binding $parent[TextBox].CanCopy}" />
+        <MenuItem
+            Command="{Binding $parent[TextBox].Paste}"
+            Header="{DynamicResource STRING_MENU_PASTE}"
+            IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+    </MenuFlyout>
+
     <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
@@ -67,11 +89,11 @@
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                 <Panel>
                                     <TextBlock
-                                        Name="PART_Watermark"
+                                        Name="PART_Placeholder"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
+                                        Foreground="{TemplateBinding PlaceholderForeground}"
+                                        Text="{TemplateBinding PlaceholderText}"
                                         TextAlignment="{TemplateBinding TextAlignment}"
                                         TextWrapping="{TemplateBinding TextWrapping}">
                                         <TextBlock.IsVisible>
@@ -132,6 +154,10 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:touch-mode">
+            <Setter Property="ContextFlyout" Value="{StaticResource HorizontalTextBoxContextFlyout}" />
+        </Style>
 
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
@@ -258,6 +284,7 @@
 
     <ControlTheme x:Key="NonErrorTextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
@@ -301,11 +328,11 @@
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                 <Panel>
                                     <TextBlock
-                                        Name="PART_Watermark"
+                                        Name="PART_Placeholder"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
+                                        Foreground="{TemplateBinding PlaceholderForeground}"
+                                        Text="{TemplateBinding PlaceholderText}"
                                         TextAlignment="{TemplateBinding TextAlignment}"
                                         TextWrapping="{TemplateBinding TextWrapping}">
                                         <TextBlock.IsVisible>
@@ -366,6 +393,10 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:touch-mode">
+            <Setter Property="ContextFlyout" Value="{StaticResource HorizontalTextBoxContextFlyout}" />
+        </Style>
 
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
@@ -492,6 +523,7 @@
 
     <ControlTheme x:Key="LooklessTextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TextBoxPlaceholderForeground}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelectionBackground}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextBoxSelectionForeground}" />
         <Setter Property="CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
@@ -522,11 +554,11 @@
                             VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                             <Panel>
                                 <TextBlock
-                                    Name="PART_Watermark"
+                                    Name="PART_Placeholder"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Opacity="0.5"
-                                    Text="{TemplateBinding Watermark}"
+                                    Foreground="{TemplateBinding PlaceholderForeground}"
+                                    Text="{TemplateBinding PlaceholderText}"
                                     TextAlignment="{TemplateBinding TextAlignment}"
                                     TextWrapping="{TemplateBinding TextWrapping}">
                                     <TextBlock.IsVisible>
@@ -570,6 +602,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:touch-mode">
+            <Setter Property="ContextFlyout" Value="{StaticResource HorizontalTextBoxContextFlyout}" />
+        </Style>
 
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />

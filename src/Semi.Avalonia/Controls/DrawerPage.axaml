@@ -1,0 +1,149 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <DrawerPage Width="400" Height="300" />
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage">
+        <Setter Property="Background" Value="{DynamicResource DrawerPageBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource DrawerPageForeground}" />
+        <Setter Property="DrawerBackground" Value="{DynamicResource DrawerPageDrawerBackground}" />
+        <Setter Property="DrawerLength" Value="{DynamicResource DrawerPageDrawerLength}" />
+        <Setter Property="CompactDrawerLength" Value="{DynamicResource DrawerPageCompactDrawerLength}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="DrawerPage">
+                <Grid RowDefinitions="Auto,*" Background="{TemplateBinding Background}">
+
+                    <!--  Top bar with pane toggle button  -->
+                    <Border
+                        Name="PART_TopBar"
+                        Grid.Row="0"
+                        MinHeight="{DynamicResource DrawerPageTopBarMinHeight}"
+                        Padding="{DynamicResource DrawerPageTopBarPadding}"
+                        Background="{DynamicResource DrawerPageTopBarBackground}"
+                        BorderBrush="{DynamicResource DrawerPageTopBarBorderBrush}"
+                        BorderThickness="{DynamicResource DrawerPageTopBarBorderThickness}">
+                        <Grid ColumnDefinitions="Auto,Auto,*">
+                            <!--  Pane toggle button (hamburger)  -->
+                            <ToggleButton
+                                Name="PART_PaneButton"
+                                Grid.Column="0"
+                                Width="{DynamicResource DrawerPagePaneButtonSize}"
+                                Height="{DynamicResource DrawerPagePaneButtonSize}"
+                                Margin="{DynamicResource DrawerPagePaneButtonMargin}"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource DrawerPagePaneButtonBackground}"
+                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
+                                IsChecked="{TemplateBinding IsOpen, Mode=TwoWay}">
+                                <PathIcon
+                                    Width="16"
+                                    Height="16"
+                                    Data="{DynamicResource DrawerPageMenuGlyph}"
+                                    Foreground="{DynamicResource DrawerPagePaneButtonForeground}" />
+                            </ToggleButton>
+
+                            <!--  Drawer icon (shown in top bar)  -->
+                            <ContentPresenter
+                                Name="PART_PaneIconPresenter"
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding DrawerIcon}"
+                                ContentTemplate="{TemplateBinding DrawerIconTemplate}" />
+                        </Grid>
+                    </Border>
+
+                    <!--  Main area: SplitView + Backdrop  -->
+                    <Panel Grid.Row="1">
+                        <SplitView
+                            Name="PART_SplitView"
+                            CompactPaneLength="{TemplateBinding CompactDrawerLength}"
+                            DisplayMode="{TemplateBinding DisplayMode}"
+                            IsPaneOpen="{TemplateBinding IsOpen, Mode=TwoWay}"
+                            OpenPaneLength="{TemplateBinding DrawerLength}"
+                            PaneBackground="{TemplateBinding DrawerBackground}">
+                            <SplitView.Pane>
+                                <DockPanel>
+                                    <!--  Drawer header  -->
+                                    <ContentPresenter
+                                        Name="PART_DrawerHeader"
+                                        DockPanel.Dock="Top"
+                                        Background="{TemplateBinding DrawerHeaderBackground}"
+                                        Content="{TemplateBinding DrawerHeader}"
+                                        ContentTemplate="{TemplateBinding DrawerHeaderTemplate}" />
+
+                                    <!--  Drawer footer  -->
+                                    <ContentPresenter
+                                        Name="PART_DrawerFooter"
+                                        DockPanel.Dock="Bottom"
+                                        Background="{TemplateBinding DrawerFooterBackground}"
+                                        Content="{TemplateBinding DrawerFooter}"
+                                        ContentTemplate="{TemplateBinding DrawerFooterTemplate}" />
+
+                                    <!--  Compact pane icon (compact mode)  -->
+                                    <ContentPresenter
+                                        Name="PART_CompactPaneIconPresenter"
+                                        DockPanel.Dock="Top"
+                                        IsVisible="False"
+                                        Content="{TemplateBinding DrawerIcon}"
+                                        ContentTemplate="{TemplateBinding DrawerIconTemplate}" />
+
+                                    <!--  Bottom pane icon  -->
+                                    <ContentPresenter
+                                        Name="PART_BottomPaneIconPresenter"
+                                        DockPanel.Dock="Bottom"
+                                        IsVisible="False" 
+                                        Content="{TemplateBinding DrawerIcon}"
+                                        ContentTemplate="{TemplateBinding DrawerIconTemplate}" />
+
+                                    <!--  Drawer main content  -->
+                                    <ContentPresenter
+                                        Name="PART_DrawerPresenter"
+                                        Content="{TemplateBinding Drawer}"
+                                        ContentTemplate="{TemplateBinding DrawerTemplate}" />
+                                </DockPanel>
+                            </SplitView.Pane>
+
+                            <!--  Main page content  -->
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </SplitView>
+
+                        <!--  Backdrop overlay (shown in overlay/flyout modes)  -->
+                        <Border
+                            Name="PART_Backdrop"
+                            Background="{TemplateBinding BackdropBrush}"
+                            IsHitTestVisible="False"
+                            IsVisible="False" />
+
+                        <!--  Compact pane toggle  -->
+                        <ToggleButton
+                            Name="PART_CompactPaneToggle"
+                            IsVisible="False" />
+                    </Panel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  Pseudo-class: right-side drawer  -->
+        <Style Selector="^:placement-right /template/ SplitView#PART_SplitView">
+            <Setter Property="PanePlacement" Value="Right" />
+        </Style>
+
+        <!--  Pseudo-class: top drawer  -->
+        <Style Selector="^:placement-top /template/ SplitView#PART_SplitView">
+            <Setter Property="PanePlacement" Value="Top" />
+        </Style>
+
+        <!--  Pseudo-class: bottom drawer  -->
+        <Style Selector="^:placement-bottom /template/ SplitView#PART_SplitView">
+            <Setter Property="PanePlacement" Value="Bottom" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

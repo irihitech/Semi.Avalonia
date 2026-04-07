@@ -1,0 +1,43 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <ContentPage
+            Width="400"
+            Height="300"
+            Background="White">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="ContentPage" />
+        </ContentPage>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type ContentPage}" TargetType="ContentPage">
+        <Setter Property="Background" Value="{DynamicResource ContentPageBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ContentPageForeground}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ContentPage">
+                <Grid RowDefinitions="Auto,*,Auto" Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        Name="PART_TopCommandBar"
+                        Grid.Row="0"
+                        Content="{TemplateBinding TopCommandBar}" />
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Grid.Row="1"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <ContentPresenter
+                        Name="PART_BottomCommandBar"
+                        Grid.Row="2"
+                        Content="{TemplateBinding BottomCommandBar}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

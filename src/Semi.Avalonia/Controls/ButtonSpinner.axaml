@@ -20,6 +20,7 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Content="{TemplateBinding Content}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     ContentTemplate="{TemplateBinding ContentTemplate}" />
             </ControlTemplate>
         </Setter>
@@ -92,12 +93,78 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ Border#ButtonGroup">
+        <Style Selector="^:left /template/ Border#ButtonGroup">
             <Setter Property="Grid.Column" Value="0" />
             <Setter Property="Margin" Value="0 0 4 0" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#ButtonGroup">
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonPointeroverBorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonSpinner" TargetType="ButtonSpinner">
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="MinWidth" Value="200" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ButtonSpinner">
+                <Grid ColumnDefinitions="Auto, *, Auto">
+                    <RepeatButton
+                        Name="PART_DecreaseButton"
+                        Grid.Column="0"
+                        VerticalAlignment="Stretch"
+                        Padding="{DynamicResource SplitButtonSpinnerButtonPadding}"
+                        BorderBrush="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}"
+                        BorderThickness="{DynamicResource ButtonSpinnerButtonGroupBorderThickness}"
+                        CornerRadius="{DynamicResource SplitButtonSpinnerLeftButtonCornerRadius}"
+                        IsVisible="{TemplateBinding ShowButtonSpinner}"
+                        Theme="{StaticResource ButtonSpinnerRepeatButton}">
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Classes="Small"
+                            Data="{DynamicResource SplitButtonSpinnerDecreaseButtonGlyph}"
+                            Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
+                    </RepeatButton>
+                    <Border
+                        Grid.Column="1"
+                        Margin="2 0"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                    <RepeatButton
+                        Name="PART_IncreaseButton"
+                        Grid.Column="2"
+                        VerticalAlignment="Stretch"
+                        Padding="{DynamicResource SplitButtonSpinnerButtonPadding}"
+                        BorderBrush="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}"
+                        BorderThickness="{DynamicResource ButtonSpinnerButtonGroupBorderThickness}"
+                        CornerRadius="{DynamicResource SplitButtonSpinnerRightButtonCornerRadius}"
+                        IsVisible="{TemplateBinding ShowButtonSpinner}"
+                        Theme="{StaticResource ButtonSpinnerRepeatButton}">
+                        <PathIcon
+                            Theme="{DynamicResource InnerPathIcon}"
+                            Classes="Small"
+                            Data="{DynamicResource SplitButtonSpinnerIncreaseButtonGlyph}"
+                            Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}" />
+                    </RepeatButton>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:left /template/ RepeatButton#PART_DecreaseButton">
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="CornerRadius" Value="{DynamicResource SplitButtonSpinnerRightButtonCornerRadius}" />
+        </Style>
+        <Style Selector="^:left /template/ RepeatButton#PART_IncreaseButton">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="CornerRadius" Value="{DynamicResource SplitButtonSpinnerLeftButtonCornerRadius}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

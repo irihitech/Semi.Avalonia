@@ -1,0 +1,94 @@
+<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.CommandBarDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <collections:AvaloniaList x:TypeArguments="CommandBarDefaultLabelPosition" x:Key="LabelPositionList">
+            <CommandBarDefaultLabelPosition>Bottom</CommandBarDefaultLabelPosition>
+            <CommandBarDefaultLabelPosition>Collapsed</CommandBarDefaultLabelPosition>
+            <CommandBarDefaultLabelPosition>Right</CommandBarDefaultLabelPosition>
+        </collections:AvaloniaList>
+        <collections:AvaloniaList x:TypeArguments="CommandBarOverflowButtonVisibility" x:Key="VisibilityList">
+            <CommandBarOverflowButtonVisibility>Auto</CommandBarOverflowButtonVisibility>
+            <CommandBarOverflowButtonVisibility>Collapsed</CommandBarOverflowButtonVisibility>
+            <CommandBarOverflowButtonVisibility>Visible</CommandBarOverflowButtonVisibility>
+        </collections:AvaloniaList>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <StackPanel Spacing="16">
+            <GroupBox>
+                <GroupBox.Header>
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="DefaultLabelPosition" VerticalAlignment="Center" />
+                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                  Name="lc"
+                                  ItemsSource="{DynamicResource LabelPositionList}"
+                                  SelectedValue="{x:Static CommandBarDefaultLabelPosition.Bottom}" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="OverflowButtonVisibility" VerticalAlignment="Center" />
+                        <ComboBox Grid.Row="1" Grid.Column="1"
+                                  Name="btvb"
+                                  ItemsSource="{DynamicResource VisibilityList}"
+                                  SelectedValue="{x:Static CommandBarOverflowButtonVisibility.Auto}" />
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="IsDynamicOverflowEnabled" VerticalAlignment="Center" />
+                        <ToggleSwitch Grid.Row="2" Grid.Column="1" Name="idfe" IsChecked="True" />
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="IsOpen" VerticalAlignment="Center" />
+                        <ToggleSwitch Grid.Row="3" Grid.Column="1" Name="isop" />
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="IsSticky" VerticalAlignment="Center" />
+                        <ToggleSwitch Grid.Row="4" Grid.Column="1" Name="isst" />
+
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Width" VerticalAlignment="Center" />
+                        <Slider Grid.Row="5" Grid.Column="1" Name="ws" HorizontalAlignment="Left" Width="500" Minimum="0" Maximum="1000" Value="200" />
+                    </Grid>
+                </GroupBox.Header>
+                <CommandBar
+                    DefaultLabelPosition="{Binding #lc.SelectedValue}"
+                    OverflowButtonVisibility="{Binding #btvb.SelectedValue}"
+                    IsDynamicOverflowEnabled="{Binding #idfe.IsChecked}"
+                    IsOpen="{Binding #isop.IsChecked}"
+                    IsSticky="{Binding #isst.IsChecked}"
+                    Width="{Binding #ws.Value}">
+                    <CommandBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <CommandBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
+                    <CommandBarSeparator />
+                    <CommandBarToggleButton Label="Bold" Icon="{DynamicResource SemiIconBold}" />
+                    <CommandBarToggleButton Label="Italic" Icon="{DynamicResource SemiIconItalic}" />
+                    <CommandBarToggleButton IsChecked="True" IsEnabled="False" Label="Underline" Icon="{DynamicResource SemiIconUnderline}" />
+                    <CommandBarSeparator />
+                    <CommandBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
+                    <CommandBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
+                    <CommandBarButton Label="Print" Icon="{DynamicResource SemiIconPrint}" />
+                    <CommandBarSeparator />
+                    <CommandBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
+                </CommandBar>
+            </GroupBox>
+
+            <!--  With secondary commands (overflow)  -->
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Text="CommandBar — With Secondary Commands (overflow)" />
+                </GroupBox.Header>
+                <CommandBar>
+                    <CommandBarButton Label="New" Icon="{DynamicResource SemiIconPlus}" />
+                    <CommandBarButton Label="Save" Icon="{DynamicResource SemiIconSave}" />
+                    <CommandBarButton Label="Share" Icon="{DynamicResource SemiIconShare}" />
+                    <CommandBar.SecondaryCommands>
+                        <CommandBarButton Label="Export" Icon="{DynamicResource SemiIconExport}" />
+                        <CommandBarButton Label="Delete" Icon="{DynamicResource SemiIconDelete}" />
+                    </CommandBar.SecondaryCommands>
+                </CommandBar>
+            </GroupBox>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

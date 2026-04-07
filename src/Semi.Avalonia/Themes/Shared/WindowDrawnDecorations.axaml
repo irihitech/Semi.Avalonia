@@ -1,0 +1,18 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="WindowCloseIconGlyph" ResourceKey="SemiIconClose" />
+    <StaticResource x:Key="WindowMinimizeGlyph" ResourceKey="SemiIconMinus" />
+    <StaticResource x:Key="WindowExpandGlyph" ResourceKey="SemiIconExpand" />
+    <StaticResource x:Key="WindowCollapseGlyph" ResourceKey="SemiIconShrink" />
+
+    <StreamGeometry x:Key="WindowMaximizeGlyph">
+        M5 5.5A.5.5 0 015.5 5h13a.5.5 0 01.5.5v13a.5.5 0 01-.5.5H5.5A.5.5 0 015 18.5V5.5Zm-3 0v13A3.5 3.5 0 005.5 22h13A3.5 3.5 0 0022 18.5V5A3.5 3.5 0 0018.5 2H5.5A3.5 3.5 0 002 5.5Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="WindowRestoreGlyph">
+        M3 9A2 2 0 015 7H15a2 2 0 012 2V19a2 2 0 01-2 2H5A2 2 0 013 19V9Zm3 1v8h8V10H6ZM7 4c0-1.1.9-2 2-2h11a2 2 0 012 2v11a2 2 0 01-2 2h-1V5H7V4Z
+    </StreamGeometry>
+
+    <StaticResource x:Key="CaptionButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="CaptionButtonWidth" ResourceKey="SemiSpacingExtraLoose" />
+    <StaticResource x:Key="CaptionButtonHeight" ResourceKey="SemiSpacingExtraLoose" />
+    <StaticResource x:Key="CaptionButtonPadding" ResourceKey="SemiThicknessTight" />
+</ResourceDictionary>

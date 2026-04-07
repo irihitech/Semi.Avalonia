@@ -1,4 +1,4 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -17,7 +17,7 @@
             Margin="8"
             Classes="ClearButton"
             Text="{Binding SearchText}"
-            Watermark="Input Variable Category/ResourceKey/Type/Value/Description" />
+            PlaceholderText="Input Variable Category/ResourceKey/Type/Value/Description" />
 
         <DataGrid
             Grid.Row="1"
@@ -86,8 +86,7 @@
                 <DataGridTemplateColumn
                     Width="100"
                     x:DataType="vm:VariableItem"
-                    Header="CopyText"
-                    SortMemberPath="Duration">
+                    Header="CopyText">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="vm:VariableItem">
                             <Button
