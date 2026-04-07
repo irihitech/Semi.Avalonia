@@ -12,9 +12,9 @@
                     Name="PART_SplitView"
                     CompactPaneLength="{TemplateBinding CompactDrawerLength}"
                     DisplayMode="{TemplateBinding DisplayMode}"
-                    IsPaneOpen="{Binding IsOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                    IsPaneOpen="{TemplateBinding IsOpen, Mode=TwoWay}"
                     OpenPaneLength="{TemplateBinding DrawerLength}"
-                    PaneBackground="{Binding DrawerBackground, RelativeSource={RelativeSource TemplatedParent}}">
+                    PaneBackground="{TemplateBinding DrawerBackground}">
                     <SplitView.Pane>
                         <DockPanel Background="{TemplateBinding DrawerBackground}">
                             <!--  Compact-mode toggle: visible only in CompactOverlay/CompactInline.  -->
@@ -35,7 +35,7 @@
                                         VerticalAlignment="Center"
                                         Data="{DynamicResource DrawerPageMenuGlyph}"
                                         Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                        IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}"
+                                        IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
                                         Theme="{DynamicResource InnerPathIcon}" />
                                     <ContentPresenter
                                         Name="PART_CompactPaneIconPresenter"
@@ -44,7 +44,7 @@
                                         Content="{TemplateBinding DrawerIcon}"
                                         ContentTemplate="{TemplateBinding DrawerIconTemplate}"
                                         Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                        IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </Panel>
                             </ToggleButton>
                             <ContentPresenter
@@ -95,7 +95,7 @@
                                                 VerticalAlignment="Center"
                                                 Data="{DynamicResource DrawerPageMenuGlyph}"
                                                 Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                                IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}"
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
                                                 Theme="{DynamicResource InnerPathIcon}" />
                                             <ContentPresenter
                                                 Name="PART_PaneIconPresenter"
@@ -104,7 +104,7 @@
                                                 Content="{TemplateBinding DrawerIcon}"
                                                 ContentTemplate="{TemplateBinding DrawerIconTemplate}"
                                                 Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                                IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
                                     <ContentControl
@@ -139,14 +139,14 @@
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Data="{DynamicResource DrawerPaneButtonIcon}"
-                                                IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}" />
                                             <ContentPresenter
                                                 Name="PART_BottomPaneIconPresenter"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Content="{TemplateBinding DrawerIcon}"
                                                 ContentTemplate="{TemplateBinding DrawerIconTemplate}"
-                                                IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
                                     <ContentControl
