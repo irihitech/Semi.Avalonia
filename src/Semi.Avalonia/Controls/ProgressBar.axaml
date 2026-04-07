@@ -154,10 +154,6 @@
         <Style Selector="^.Danger">
             <Setter Property="Foreground" Value="{DynamicResource ProgressBarDangerForeground}" />
         </Style>
-        <!-- Error style is obsolete, use Danger instead -->
-        <Style Selector="^.Error">
-            <Setter Property="Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
-        </Style>
 
         <Style Selector="^:horizontal">
             <Setter Property="MinWidth" Value="200" />
@@ -384,10 +380,6 @@
         </Style>
         <Style Selector="^.Danger">
             <Setter Property="Foreground" Value="{DynamicResource ProgressBarDangerForeground}" />
-        </Style>
-        <!-- Error style is obsolete, use Danger instead -->
-        <Style Selector="^.Error">
-            <Setter Property="Foreground" Value="{DynamicResource ProgressBarErrorForeground}" />
         </Style>
         <Style Selector="^:indeterminate /template/ Arc#Indicator">
             <Setter Property="Opacity" Value="0" />
