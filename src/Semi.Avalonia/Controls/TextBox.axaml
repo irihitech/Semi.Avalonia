@@ -81,6 +81,7 @@
                                 Foreground="{DynamicResource TextBoxInnerForeground}"
                                 IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                             <ScrollViewer
+                                Name="PART_ScrollViewer"
                                 Grid.Column="1"
                                 AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
@@ -319,6 +320,7 @@
                                 Foreground="{DynamicResource TextBoxInnerForeground}"
                                 IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                             <ScrollViewer
+                                Name="PART_ScrollViewer"
                                 Grid.Column="1"
                                 AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
@@ -544,6 +546,7 @@
                             Foreground="{DynamicResource TextBoxInnerForeground}"
                             IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                         <ScrollViewer
+                            Name="PART_ScrollViewer"
                             Grid.Column="1"
                             AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                             HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
