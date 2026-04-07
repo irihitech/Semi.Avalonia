@@ -4,7 +4,7 @@
     <ControlTheme x:Key="{x:Type CarouselPage}" TargetType="CarouselPage">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="CarouselPage">
                 <Carousel
                     Name="PART_Carousel"
                     Background="{TemplateBinding Background}"
