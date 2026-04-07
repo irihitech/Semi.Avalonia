@@ -7,7 +7,7 @@
         <Setter Property="Background" Value="{DynamicResource DrawerPageBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource DrawerPageForeground}" />
         <Setter Property="Template">
-            <ControlTemplate>
+            <ControlTemplate TargetType="DrawerPage">
                 <SplitView
                     Name="PART_SplitView"
                     CompactPaneLength="{TemplateBinding CompactDrawerLength}"
@@ -88,7 +88,7 @@
                                         </Styles>
                                     </DockPanel.Styles>
                                     <ToggleButton
-                                        x:Name="PART_PaneButton"
+                                        Name="PART_PaneButton"
                                         Width="{DynamicResource ButtonDefaultHeight}"
                                         Height="{DynamicResource ButtonDefaultHeight}"
                                         AutomationProperties.Name="Toggle navigation drawer"
@@ -115,7 +115,7 @@
                                         </Panel>
                                     </ToggleButton>
                                     <ContentControl
-                                        x:Name="PART_TitlePresenter"
+                                        Name="PART_TitlePresenter"
                                         Margin="8,0,0,0"
                                         VerticalAlignment="Center"
                                         VerticalContentAlignment="Center"
@@ -142,7 +142,7 @@
                                         </Styles>
                                     </DockPanel.Styles>
                                     <ToggleButton
-                                        x:Name="PART_BottomPaneButton"
+                                        Name="PART_BottomPaneButton"
                                         AutomationProperties.Name="Toggle navigation drawer"
                                         Background="Transparent"
                                         DockPanel.Dock="Left"
@@ -164,7 +164,7 @@
                                         </Panel>
                                     </ToggleButton>
                                     <ContentControl
-                                        x:Name="PART_BottomTitlePresenter"
+                                        Name="PART_BottomTitlePresenter"
                                         Margin="8,0,0,0"
                                         VerticalAlignment="Center"
                                         VerticalContentAlignment="Center"
