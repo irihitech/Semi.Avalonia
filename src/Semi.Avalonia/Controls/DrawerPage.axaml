@@ -12,9 +12,9 @@
                     Name="PART_SplitView"
                     CompactPaneLength="{TemplateBinding CompactDrawerLength}"
                     DisplayMode="{TemplateBinding DisplayMode}"
-                    IsPaneOpen="{TemplateBinding IsOpen, Mode=TwoWay}"
+                    IsPaneOpen="{Binding IsOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                     OpenPaneLength="{TemplateBinding DrawerLength}"
-                    PaneBackground="{TemplateBinding DrawerBackground}">
+                    PaneBackground="{Binding DrawerBackground, RelativeSource={RelativeSource TemplatedParent}}">
                     <SplitView.Pane>
                         <DockPanel Background="{TemplateBinding DrawerBackground}">
                             <!--  Compact-mode toggle: visible only in CompactOverlay/CompactInline.  -->
