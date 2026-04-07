@@ -80,13 +80,6 @@
                                 Background="{DynamicResource DrawerPageTopBarBackground}"
                                 DockPanel.Dock="Top">
                                 <DockPanel HorizontalAlignment="Stretch">
-                                    <DockPanel.Styles>
-                                        <Styles>
-                                            <Style Selector="Button:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                                                <Setter Property="Background" Value="Transparent" />
-                                            </Style>
-                                        </Styles>
-                                    </DockPanel.Styles>
                                     <ToggleButton
                                         Name="PART_PaneButton"
                                         Width="{DynamicResource ButtonDefaultHeight}"
@@ -134,13 +127,6 @@
                                 DockPanel.Dock="Bottom"
                                 IsVisible="False">
                                 <DockPanel HorizontalAlignment="Stretch">
-                                    <DockPanel.Styles>
-                                        <Styles>
-                                            <Style Selector="Button:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                                                <Setter Property="Background" Value="Transparent" />
-                                            </Style>
-                                        </Styles>
-                                    </DockPanel.Styles>
                                     <ToggleButton
                                         Name="PART_BottomPaneButton"
                                         AutomationProperties.Name="Toggle navigation drawer"
