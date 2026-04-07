@@ -139,7 +139,8 @@
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 Data="{DynamicResource DrawerPaneButtonIcon}"
-                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}" />
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
+                                                Theme="{DynamicResource InnerPathIcon}" />
                                             <ContentPresenter
                                                 Name="PART_BottomPaneIconPresenter"
                                                 HorizontalAlignment="Center"
