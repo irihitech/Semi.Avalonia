@@ -33,6 +33,7 @@ jobs:
       Semi_Avalonia_ColorPicker: ${{ inputs.Semi_Avalonia_ColorPicker }}
       Semi_Avalonia_DataGrid: ${{ inputs.Semi_Avalonia_DataGrid }}
       Semi_Avalonia_TreeDataGrid: ${{ inputs.Semi_Avalonia_TreeDataGrid }}
+    secrets: inherit
 
   publish:
     uses: ./.github/workflows/publish.yml
