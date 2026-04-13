@@ -20,13 +20,13 @@
                         <ControlTheme
                             BasedOn="{StaticResource LineTabItem}"
                             TargetType="TabItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
-                            <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
-                                <Setter Property="DockPanel.Dock" Value="Top" />
-                            </Style>
                             <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
                                 <Setter Property="TabItem.Margin" Value="0" />
+                                <Setter Property="TabItem.HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
+                                <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+                                    <Setter Property="DockPanel.Dock" Value="Top" />
+                                </Style>
                             </Style>
                         </ControlTheme>
                     </TabControl.ItemContainerTheme>
@@ -51,14 +51,14 @@
                         <ControlTheme
                             BasedOn="{StaticResource CardTabItem}"
                             TargetType="TabItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
-                            <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
-                                <Setter Property="DockPanel.Dock" Value="Top" />
-                            </Style>
                             <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
                                 <Setter Property="TabItem.Padding" Value="8" />
                                 <Setter Property="TabItem.Margin" Value="0" />
+                                <Setter Property="TabItem.HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
+                                <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+                                    <Setter Property="DockPanel.Dock" Value="Top" />
+                                </Style>
                             </Style>
                         </ControlTheme>
                     </TabControl.ItemContainerTheme>
@@ -83,15 +83,14 @@
                         <ControlTheme
                             BasedOn="{StaticResource ButtonTabItem}"
                             TargetType="TabItem">
-                            <Setter Property="Padding" Value="8 0" />
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
-                            <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
-                                <Setter Property="DockPanel.Dock" Value="Top" />
-                            </Style>
                             <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
                                 <Setter Property="TabItem.Padding" Value="12" />
                                 <Setter Property="TabItem.Margin" Value="0" />
+                                <Setter Property="TabItem.HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
+                                <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+                                    <Setter Property="DockPanel.Dock" Value="Top" />
+                                </Style>
                             </Style>
                         </ControlTheme>
                     </TabControl.ItemContainerTheme>
