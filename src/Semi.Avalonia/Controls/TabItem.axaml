@@ -31,7 +31,6 @@
                     <DockPanel HorizontalSpacing="{DynamicResource TabItemIconHeaderSpacing}">
                         <ContentPresenter
                             Name="PART_IconPresenter"
-                            DockPanel.Dock="Left"
                             Content="{TemplateBinding Icon}"
                             ContentTemplate="{TemplateBinding IconTemplate}"
                             IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}">
@@ -59,6 +58,10 @@
 
         <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="DockPanel.Dock" Value="Left" />
         </Style>
 
         <Style Selector="^:selected">

@@ -50,7 +50,7 @@
             <TabbedPage Name="DemoTabs"
                         TabPlacement="Top"
                         SelectionChanged="OnSelectionChanged">
-                <ContentPage Header="Home">
+                <ContentPage Icon="{DynamicResource SemiIconHome}" Header="Home">
                     <StackPanel Margin="16" Spacing="8">
                         <TextBlock Text="Home Tab" FontSize="24" FontWeight="Bold" />
                         <TextBlock Text="Welcome to the Home tab. This is a TabbedPage sample."
@@ -59,14 +59,14 @@
                                    TextWrapping="Wrap" Opacity="0.7" />
                     </StackPanel>
                 </ContentPage>
-                <ContentPage Header="Search">
+                <ContentPage Icon="{DynamicResource SemiIconSearch}" Header="Search">
                     <StackPanel Margin="16" Spacing="8">
                         <TextBlock Text="Search Tab" FontSize="24" FontWeight="Bold" />
                         <TextBox PlaceholderText="Type to search..." />
                         <TextBlock Text="Search results will appear here." Opacity="0.7" />
                     </StackPanel>
                 </ContentPage>
-                <ContentPage Header="Settings">
+                <ContentPage Icon="{DynamicResource SemiIconSetting}" Header="Settings">
                     <StackPanel Margin="16" Spacing="8">
                         <TextBlock Text="Settings Tab" FontSize="24" FontWeight="Bold" />
                         <CheckBox Content="Enable notifications" />
