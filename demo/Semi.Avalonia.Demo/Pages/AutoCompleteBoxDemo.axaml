@@ -29,40 +29,40 @@
 
         <AutoCompleteBox
             PlaceholderText="Please select a State"
-            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+            ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         <AutoCompleteBox
             Classes="Large"
-            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+            ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         <AutoCompleteBox
             Classes="Small"
-            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+            ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         <AutoCompleteBox
             Classes="Bordered"
-            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+            ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         <AutoCompleteBox
             IsEnabled="False"
             PlaceholderText="Disabled"
-            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+            ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         <AutoCompleteBox
             InnerLeftContent="https://"
             InnerRightContent=".com"
-            ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+            ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
 
         <StackPanel Orientation="Horizontal">
             <AutoCompleteBox
                 Width="100"
                 Classes="Large"
                 PlaceholderText="Large"
-                ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+                ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
                 PlaceholderText="Default"
-                ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+                ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
                 Classes="Small"
                 PlaceholderText="Small"
-                ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+                ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
@@ -70,17 +70,17 @@
                 Width="100"
                 IsEnabled="False"
                 PlaceholderText="Disabled"
-                ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+                ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
                 Classes="Bordered"
                 PlaceholderText="Bordered"
-                ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+                ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
             <AutoCompleteBox
                 Width="100"
                 Classes="Bordered"
                 IsEnabled="False"
-                ValueMemberBinding="{Binding Name,DataType=vm:StateData}" />
+                ValueMemberBinding="{Binding Name,x:DataType=vm:StateData}" />
         </StackPanel>
 
     </StackPanel>
