@@ -22,7 +22,7 @@
                                 Name="PART_CompactPaneToggle"
                                 DockPanel.Dock="Top"
                                 AutomationProperties.Name="Toggle navigation drawer"
-                                ToolTip.Tip="Toggle navigation drawer"
+                                ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
                                 Width="{DynamicResource ButtonDefaultHeight}"
                                 Height="{DynamicResource ButtonDefaultHeight}"
                                 HorizontalAlignment="Left"
@@ -75,7 +75,7 @@
                                         Name="PART_PaneButton"
                                         DockPanel.Dock="Left"
                                         AutomationProperties.Name="Toggle navigation drawer"
-                                        ToolTip.Tip="Toggle navigation drawer"
+                                        ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
                                         Width="{DynamicResource ButtonDefaultHeight}"
                                         Height="{DynamicResource ButtonDefaultHeight}"
                                         Background="Transparent"
@@ -115,9 +115,9 @@
                                         Name="PART_BottomPaneButton"
                                         DockPanel.Dock="Left"
                                         AutomationProperties.Name="Toggle navigation drawer"
+                                        ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
                                         Background="Transparent"
-                                        IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
-                                        ToolTip.Tip="Toggle navigation drawer">
+                                        IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}">
                                         <Panel>
                                             <PathIcon
                                                 Data="{DynamicResource DrawerPaneButtonIcon}"
