@@ -14,6 +14,8 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public partial class PaletteDemoViewModel : ObservableObject
 {
+    public static Lazy<PaletteDemoViewModel> Instance { get; } = new(() => new PaletteDemoViewModel());
+    public bool IsInitialized { get; private set; }
     private readonly string[] _predefinedColorNames =
     [
         "Red", "Pink", "Purple", "Violet", "Indigo",
@@ -44,6 +46,7 @@ public partial class PaletteDemoViewModel : ObservableObject
         InitializePalette();
         InitializeFunctionalColors();
         InitializeShadows();
+        IsInitialized = true;
     }
 
     private void InitializePalette()
