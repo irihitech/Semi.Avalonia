@@ -22,7 +22,10 @@ public partial class DrawerPageDemo : UserControl
                 Header = item.Content?.ToString(),
                 Content = new TextBlock
                 {
-                    Text = $"{item.Content} page content", FontSize = 16, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center,
+                    Text = $"{item.Content} page content",
+                    FontSize = 16,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
                 },
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
                 VerticalContentAlignment = VerticalAlignment.Stretch
