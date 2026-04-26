@@ -96,7 +96,8 @@
                                     </ToggleButton>
                                     <ContentPresenter
                                         Name="PART_TitlePresenter"
-                                        Margin="8,0,0,0"
+                                        Margin="{DynamicResource DrawerPageTitleMargin}"
+                                        VerticalContentAlignment="Center"
                                         Content="{TemplateBinding Header}"
                                         ContentTemplate="{TemplateBinding HeaderTemplate}"
                                         FontSize="{DynamicResource DrawerPageTitleFontSize}"
@@ -132,7 +133,8 @@
                                     </ToggleButton>
                                     <ContentPresenter
                                         Name="PART_BottomTitlePresenter"
-                                        Margin="8,0,0,0"
+                                        Margin="{DynamicResource DrawerPageTitleMargin}"
+                                        VerticalContentAlignment="Center"
                                         Content="{TemplateBinding Header}"
                                         ContentTemplate="{TemplateBinding HeaderTemplate}"
                                         FontSize="{DynamicResource DrawerPageTitleFontSize}"
