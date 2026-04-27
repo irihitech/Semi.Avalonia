@@ -117,17 +117,21 @@
                                         DockPanel.Dock="Left"
                                         AutomationProperties.Name="Toggle navigation drawer"
                                         ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
+                                        Width="{DynamicResource ButtonDefaultHeight}"
+                                        Height="{DynamicResource ButtonDefaultHeight}"
                                         Background="Transparent"
                                         IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}">
                                         <Panel>
                                             <PathIcon
-                                                Data="{DynamicResource DrawerPaneButtonIcon}"
+                                                Data="{DynamicResource DrawerPageMenuGlyph}"
+                                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
                                                 IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
                                                 Theme="{DynamicResource InnerPathIcon}" />
                                             <ContentPresenter
                                                 Name="PART_BottomPaneIconPresenter"
                                                 Content="{TemplateBinding DrawerIcon}"
                                                 ContentTemplate="{TemplateBinding DrawerIconTemplate}"
+                                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
                                                 IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
