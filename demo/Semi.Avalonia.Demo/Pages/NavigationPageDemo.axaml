@@ -12,7 +12,7 @@
             <ScrollViewer DockPanel.Dock="Right" Width="260">
                 <StackPanel Margin="12" Spacing="8">
                     <TextBlock Text="Configuration" FontWeight="SemiBold" FontSize="16" />
-                    <TextBlock Text="Navigation" FontWeight="SemiBold" FontSize="13" />
+                    <TextBlock Text="Navigation" FontWeight="SemiBold" FontSize="14" />
 
                     <Button Content="Push Page"
                             HorizontalAlignment="Stretch"
@@ -26,6 +26,20 @@
 
                     <Separator />
 
+                    <TextBlock Text="Modal Actions" FontWeight="SemiBold" FontSize="14" />
+                    <Button Name="PushModalButton"
+                            Content="Push Modal"
+                            HorizontalAlignment="Stretch"
+                            Click="OnPushModal" />
+                    <Button Name="PopModalButton"
+                            Content="Pop Modal"
+                            HorizontalAlignment="Stretch"
+                            Click="OnPopModal" />
+                    <Button Name="PopAllModalsButton"
+                            Content="Pop All Modals"
+                            HorizontalAlignment="Stretch"
+                            Click="OnPopAllModals" />
+
                     <TextBlock Text="Options" FontWeight="SemiBold" FontSize="14" />
 
                     <CheckBox Name="HasNavBarCheck"
@@ -34,21 +48,39 @@
                               IsCheckedChanged="OnHasNavBarChanged" />
                     <CheckBox Name="HasBackButtonCheck"
                               Content="Has Back Button"
-                              IsChecked="True" 
-                              IsCheckedChanged="OnHasBackButonChanged" />
+                              IsChecked="True"
+                              IsCheckedChanged="OnHasBackButtonChanged" />
+                    <CheckBox Name="HasShadowCheck"
+                              Content="Has Shadow"
+                              IsChecked="True"
+                              IsCheckedChanged="OnHasShadowChanged" />
+                    <CheckBox Name="large" Content="Large" />
+
+                    <Separator />
+
+                    <TextBlock Text="Modal Transition" FontWeight="SemiBold" FontSize="14" />
+                    <ComboBox Name="TransitionCombo"
+                              SelectedIndex="0"
+                              HorizontalAlignment="Stretch"
+                              SelectionChanged="OnTransitionChanged">
+                        <ComboBoxItem Content="Slide from Bottom" />
+                        <ComboBoxItem Content="CrossFade" />
+                        <ComboBoxItem Content="None" />
+                    </ComboBox>
 
                     <Separator />
 
                     <TextBlock Text="Status" FontWeight="SemiBold" FontSize="14" />
                     <TextBlock Name="StatusText"
                                Text="Depth: 1"
-                               Opacity="0.7"
                                TextWrapping="Wrap" />
                     <TextBlock Name="HeaderText"
                                Text="Current: Home"
-                               Opacity="0.7"
                                TextWrapping="Wrap" />
-                    <ToggleSwitch Content="Large" Name="large" />
+                    <TextBlock Name="ModalText"
+                               Text="Modals: 0"
+                               TextWrapping="Wrap" />
+
                 </StackPanel>
             </ScrollViewer>
 
@@ -59,8 +91,8 @@
                     BorderThickness="1"
                     CornerRadius="6"
                     ClipToBounds="True">
-                <NavigationPage 
-                    Name="DemoNav" 
+                <NavigationPage
+                    Name="DemoNav"
                     Classes.Large="{Binding #large.IsChecked}" />
             </Border>
         </DockPanel>
