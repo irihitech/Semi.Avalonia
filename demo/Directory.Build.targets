@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <AvaloniaVersion>12.0.2</AvaloniaVersion>
+    <DataGridVersion>12.0.0</DataGridVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Avalonia" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.Android" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.Browser" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.Desktop" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.iOS" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.LinuxFramebuffer" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.Controls.ColorPicker" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.Controls.DataGrid" VersionOverride="$(DataGridVersion)"/>
+  </ItemGroup>
+</Project>
