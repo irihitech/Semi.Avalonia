@@ -10,45 +10,84 @@
     <DockPanel>
         <ScrollViewer DockPanel.Dock="Right" Width="260">
             <StackPanel Margin="12" Spacing="8">
-                <TextBlock Text="Configuration" FontWeight="SemiBold" FontSize="16"
-                           Foreground="{DynamicResource SemiColorText0}" />
+                <TextBlock
+                    Theme="{DynamicResource TitleTextBlock}"
+                    Classes="H4"
+                    Text="Configuration" />
 
-                <Button Content="Toggle Drawer"
-                        HorizontalAlignment="Stretch"
-                        Click="OnToggleDrawer" />
-
-                <Separator />
+                <CheckBox Name="ToggleDrawerCheck"
+                          Content="Toggle Drawer" />
 
                 <CheckBox Name="GestureCheck"
                           Content="Gesture Enabled"
-                          IsChecked="True"
-                          IsCheckedChanged="OnGestureChanged" />
-                
-                <ComboBox SelectionChanged="OnLayoutChanged" >
-                    <ComboBoxItem Content="CompactOverlay" />
-                    <ComboBoxItem Content="CompactInline" />
-                    <ComboBoxItem Content="Split" />
-                    <ComboBoxItem Content="Overlay" />
+                          IsChecked="True" />
+
+                <TextBlock Text="Behavior" FontSize="12" />
+                <ComboBox
+                    Name="BehaviorComboBox"
+                    HorizontalAlignment="Stretch"
+                    SelectedIndex="0">
+                    <DrawerBehavior>Auto</DrawerBehavior>
+                    <DrawerBehavior>Flyout</DrawerBehavior>
+                    <DrawerBehavior>Locked</DrawerBehavior>
+                    <DrawerBehavior>Disabled</DrawerBehavior>
                 </ComboBox>
 
-                <Separator />
+                <TextBlock Text="Layout" FontSize="12" />
+                <ComboBox
+                    Name="LayoutComboBox"
+                    HorizontalAlignment="Stretch"
+                    SelectedIndex="0">
+                    <DrawerLayoutBehavior>Overlay</DrawerLayoutBehavior>
+                    <DrawerLayoutBehavior>Split</DrawerLayoutBehavior>
+                    <DrawerLayoutBehavior>CompactOverlay</DrawerLayoutBehavior>
+                    <DrawerLayoutBehavior>CompactInline</DrawerLayoutBehavior>
+                </ComboBox>
 
-                <TextBlock Text="Status" FontWeight="SemiBold" FontSize="14" />
-                <TextBlock Name="StatusText"
-                           Text="Drawer: Closed"
-                           Opacity="0.7"
-                           TextWrapping="Wrap" />
+                <TextBlock Text="Placement" FontSize="12" />
+                <ComboBox
+                    Name="PlacementComboBox"
+                    HorizontalAlignment="Stretch"
+                    SelectedIndex="0">
+                    <DrawerPlacement>Left</DrawerPlacement>
+                    <DrawerPlacement>Right</DrawerPlacement>
+                    <DrawerPlacement>Top</DrawerPlacement>
+                    <DrawerPlacement>Bottom</DrawerPlacement>
+                </ComboBox>
+
+                <TextBlock Text="Compact Drawer Length" FontSize="12" />
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Slider Name="CompactDrawerLengthSlider"
+                            Minimum="0" Maximum="250" Value="80"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            Width="150" />
+                    <TextBlock Text="{Binding #CompactDrawerLengthSlider.Value}" />
+                </StackPanel>
+                <TextBlock Text="Drawer Length" FontSize="12" />
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Slider Name="DrawerLengthSlider"
+                            Minimum="150" Maximum="400" Value="260"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            Width="150" />
+                    <TextBlock Text="{Binding #DrawerLengthSlider.Value}" />
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 
-        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource SemiColorBackground0}" />
-        
+        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource SemiColorBorder}" />
+
         <DrawerPage Name="DemoDrawer"
                     Margin="12"
                     Header="First Look"
-                    DrawerLayoutBehavior="Overlay"
-                    CompactDrawerLength="80"
-                    DrawerLength="250">
+                    IsOpen="{Binding #ToggleDrawerCheck.IsChecked}"
+                    IsGestureEnabled="{Binding #GestureCheck.IsChecked}"
+                    DrawerBehavior="{Binding #BehaviorComboBox.SelectedItem}"
+                    DrawerLayoutBehavior="{Binding #LayoutComboBox.SelectedItem}"
+                    DrawerPlacement="{Binding #PlacementComboBox.SelectedItem}"
+                    CompactDrawerLength="{Binding #CompactDrawerLengthSlider.Value}"
+                    DrawerLength="{Binding #DrawerLengthSlider.Value}">
             <DrawerPage.DrawerHeader>
                 <TextBlock Text="Menu" Margin="16" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource SemiColorPrimary}" />
             </DrawerPage.DrawerHeader>
