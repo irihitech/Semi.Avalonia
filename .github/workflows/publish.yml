@@ -35,6 +35,14 @@ on:
         description: 'macOS arm64 AOT'
         default: false
         type: boolean
+      osx-x64:
+        description: 'macOS Intel x64'
+        default: false
+        type: boolean
+      osx-x64-aot:
+        description: 'macOS Intel x64 AOT'
+        default: false
+        type: boolean
       android-arm64:
         description: 'Android arm64'
         default: false
@@ -63,6 +71,12 @@ on:
         type: boolean
         default: true
       osx-arm64-aot:
+        type: boolean
+        default: true
+      osx-x64:
+        type: boolean
+        default: true
+      osx-x64-aot:
         type: boolean
         default: true
       android-arm64:
@@ -178,8 +192,42 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: |
+            8.0.x
+
       - name: Publish osx-arm64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
+
+      - name: Create .app bundle and DMG (create-dmg)
+        run: |
+          set -euo pipefail
+          APP_DIR="bundle/Semi.Avalonia.Demo.app"
+          MACOS_DIR="${APP_DIR}/Contents/MacOS"
+          mkdir -p "${MACOS_DIR}"
+          cp -R publish/. "${MACOS_DIR}/"
+          chmod +x "${MACOS_DIR}/Semi.Avalonia.Demo.Desktop"
+          cp demo/Semi.Avalonia.Demo.Desktop/Info-macOS.plist "${APP_DIR}/Contents/Info.plist"
+          codesign --force --deep --sign - "${APP_DIR}"
+          mkdir -p dmg_stage
+          ditto "${APP_DIR}" "dmg_stage/Semi.Avalonia.Demo.app"
+          brew install create-dmg
+          rm -f Semi.Avalonia.Demo.Desktop.osx-arm64.dmg
+          create-dmg \
+            --volname "Semi Avalonia Demo" \
+            --window-pos 200 120 \
+            --window-size 640 400 \
+            --icon-size 100 \
+            --icon "Semi.Avalonia.Demo.app" 175 185 \
+            --hide-extension "Semi.Avalonia.Demo.app" \
+            --app-drop-link 455 185 \
+            --skip-jenkins \
+            "Semi.Avalonia.Demo.Desktop.osx-arm64.dmg" \
+            "dmg_stage"
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
@@ -187,6 +235,68 @@ jobs:
           path: |
             publish
             !publish/*.pdb
+
+      - name: Upload macOS DMG
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.osx-arm64.dmg
+          path: Semi.Avalonia.Demo.Desktop.osx-arm64.dmg
+
+  osx-x64:
+    if: ${{inputs.osx-x64}}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: |
+            8.0.x
+
+      - name: Publish osx-x64
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
+
+      - name: Create .app bundle and DMG (create-dmg)
+        run: |
+          set -euo pipefail
+          APP_DIR="bundle/Semi.Avalonia.Demo.app"
+          MACOS_DIR="${APP_DIR}/Contents/MacOS"
+          mkdir -p "${MACOS_DIR}"
+          cp -R publish/. "${MACOS_DIR}/"
+          chmod +x "${MACOS_DIR}/Semi.Avalonia.Demo.Desktop"
+          cp demo/Semi.Avalonia.Demo.Desktop/Info-macOS.plist "${APP_DIR}/Contents/Info.plist"
+          codesign --force --deep --sign - "${APP_DIR}"
+          mkdir -p dmg_stage
+          ditto "${APP_DIR}" "dmg_stage/Semi.Avalonia.Demo.app"
+          brew install create-dmg
+          rm -f Semi.Avalonia.Demo.Desktop.osx-x64.dmg
+          create-dmg \
+            --volname "Semi Avalonia Demo" \
+            --window-pos 200 120 \
+            --window-size 640 400 \
+            --icon-size 100 \
+            --icon "Semi.Avalonia.Demo.app" 175 185 \
+            --hide-extension "Semi.Avalonia.Demo.app" \
+            --app-drop-link 455 185 \
+            --skip-jenkins \
+            "Semi.Avalonia.Demo.Desktop.osx-x64.dmg" \
+            "dmg_stage"
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.osx-x64
+          path: |
+            publish
+            !publish/*.pdb
+
+      - name: Upload macOS DMG (Intel)
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.osx-x64.dmg
+          path: Semi.Avalonia.Demo.Desktop.osx-x64.dmg
 
   osx-arm64-aot:
     if: ${{inputs.osx-arm64-aot}}
@@ -202,6 +312,24 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT
+          path: |
+            publish
+            !publish/*.pdb
+
+  osx-x64-aot:
+    if: ${{inputs.osx-x64-aot}}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Enable Native AOT in .csproj
+        run: sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
+      - name: Publish osx-x64 AOT
+        run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-x64 -c Release -o publish
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Semi.Avalonia.Demo.Desktop.osx-x64.NativeAOT
           path: |
             publish
             !publish/*.pdb
