@@ -2,6 +2,7 @@
 using Avalonia;
 using Avalonia.Dialogs;
 using Avalonia.Media;
+// using Semi.Avalonia.Demo.Fonts;
 
 namespace Semi.Avalonia.Demo.Desktop;
 
@@ -30,5 +31,6 @@ sealed class Program
             .UseManagedSystemDialogs()
             .UsePlatformDetect()
             .With(new Win32PlatformOptions())
+            // .WithSourceHanSansCNFont()
             .LogToTrace();
 }

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
+using Semi.Avalonia.Demo.Fonts;
 
 [assembly: SupportedOSPlatform("browser")]
 
