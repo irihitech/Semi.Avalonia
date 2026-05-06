@@ -1,7 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+    <UsingTask TaskName="ExpandMacOSPlistVersion" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+        <ParameterGroup>
+            <InputFile ParameterType="System.String" Required="true"/>
+            <OutputFile ParameterType="System.String" Required="true"/>
+            <AppVersion ParameterType="System.String" Required="true"/>
+        </ParameterGroup>
+        <Task>
+            <Code Type="Fragment" Language="cs"><![CDATA[
+var token = "$" + "(Version)";
+System.IO.File.WriteAllText(
+    OutputFile,
+    System.IO.File.ReadAllText(InputFile).Replace(token, AppVersion));
+]]></Code>
+        </Task>
+    </UsingTask>
+
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
+        <Version>1.0.0</Version>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationIcon>..\Semi.Avalonia.Demo\Assets\irihi.ico</ApplicationIcon>
@@ -29,4 +46,11 @@
     <ItemGroup>
         <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj"/>
     </ItemGroup>
+
+    <Target Name="ExpandMacOSInfoPlist" AfterTargets="Publish">
+        <ExpandMacOSPlistVersion
+            InputFile="$(MSBuildProjectDirectory)\Info-macOS.plist"
+            OutputFile="$(PublishDir)Info-macOS.plist"
+            AppVersion="$(Version)"/>
+    </Target>
 </Project>

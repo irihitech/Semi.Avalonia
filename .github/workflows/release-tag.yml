@@ -58,6 +58,10 @@ jobs:
           zip -rj Semi.Avalonia.Demo.Desktop.osx-arm64.zip Semi.Avalonia.Demo.Desktop.osx-arm64
           cd Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT
           zip -r ../Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT.zip .
+          cd "${GITHUB_WORKSPACE}"
+          zip -rj Semi.Avalonia.Demo.Desktop.osx-x64.zip Semi.Avalonia.Demo.Desktop.osx-x64
+          cd Semi.Avalonia.Demo.Desktop.osx-x64.NativeAOT
+          zip -r ../Semi.Avalonia.Demo.Desktop.osx-x64.NativeAOT.zip .
 
       - name: Display structure of zipped files
         run: ls -R
@@ -72,3 +76,5 @@ jobs:
             nugets/*.nupkg
             android-arm64/*.apk
             *.zip
+            Semi.Avalonia.Demo.Desktop.osx-arm64.dmg/Semi.Avalonia.Demo.Desktop.osx-arm64.dmg
+            Semi.Avalonia.Demo.Desktop.osx-x64.dmg/Semi.Avalonia.Demo.Desktop.osx-x64.dmg
