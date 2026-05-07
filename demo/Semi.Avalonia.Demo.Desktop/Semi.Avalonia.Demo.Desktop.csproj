@@ -49,7 +49,7 @@ System.IO.File.WriteAllText(
 
     <Target Name="ExpandMacOSInfoPlist" AfterTargets="Publish">
         <ExpandMacOSPlistVersion
-            InputFile="$(MSBuildProjectDirectory)\Info-macOS.plist"
+            InputFile="$(MSBuildProjectDirectory)/Info-macOS.plist"
             OutputFile="$(PublishDir)Info-macOS.plist"
             AppVersion="$(Version)"/>
     </Target>
