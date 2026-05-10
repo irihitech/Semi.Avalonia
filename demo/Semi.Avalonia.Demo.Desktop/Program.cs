@@ -2,9 +2,10 @@
 using Avalonia;
 using Avalonia.Dialogs;
 using Avalonia.Media;
-// using Semi.Avalonia.Demo.Fonts;
+using Semi.Avalonia.Demo.Fonts;
 
 namespace Semi.Avalonia.Demo.Desktop;
+#pragma warning disable AVALONIA_X11_CSD, AVALONIA_X11_FORCE_CSD
 
 sealed class Program
 {
@@ -13,16 +14,6 @@ sealed class Program
     // yet and stuff might break.
     [STAThread]
     public static void Main(string[] args) => BuildAvaloniaApp()
-        .With(new FontManagerOptions
-        {
-            FontFallbacks =
-            [
-                new FontFallback
-                {
-                    FontFamily = new FontFamily("Microsoft YaHei")
-                }
-            ]
-        })
         .StartWithClassicDesktopLifetime(args);
 
     // Avalonia configuration, don't remove; also used by visual designer.
@@ -31,6 +22,7 @@ sealed class Program
             .UseManagedSystemDialogs()
             .UsePlatformDetect()
             .With(new Win32PlatformOptions())
-            // .WithSourceHanSansCNFont()
+            .With(new X11PlatformOptions { EnableDrawnDecorations = true, ForceDrawnDecorations = true })
+            .WithSourceHanSansCNFont()
             .LogToTrace();
 }
