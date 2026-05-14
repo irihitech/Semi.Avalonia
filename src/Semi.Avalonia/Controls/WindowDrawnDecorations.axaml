@@ -46,8 +46,8 @@
 
     <ControlTheme x:Key="{x:Type WindowDrawnDecorations}" TargetType="WindowDrawnDecorations">
         <Setter Property="DefaultTitleBarHeight" Value="32" />
-        <Setter Property="DefaultFrameThickness" Value="1" />
-        <Setter Property="DefaultShadowThickness" Value="8" />
+        <Setter Property="DefaultFrameThickness" Value="4" />
+        <!-- <Setter Property="DefaultShadowThickness" Value="8" /> -->
         <Setter Property="Template">
             <WindowDrawnDecorationsTemplate>
                 <WindowDrawnDecorationsContent>
@@ -189,16 +189,16 @@
 
         <!-- Hide caption buttons when the platform does not support the action -->
         <Style Selector="^:not(:has-minimize) /template/ Button#PART_MinimizeButton">
-            <Setter Property="IsVisible" Value="False"/>
+            <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:not(:has-maximize) /template/ Button#PART_MaximizeButton">
-            <Setter Property="IsVisible" Value="False"/>
+            <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:not(:has-fullscreen) /template/ Button#PART_FullScreenButton">
-            <Setter Property="IsVisible" Value="False"/>
+            <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:not(:has-fullscreen) /template/ Button#PART_PopoverFullScreenButton">
-            <Setter Property="IsVisible" Value="False"/>
+            <Setter Property="IsVisible" Value="False" />
         </Style>
 
         <!--  Fullscreen: hide overlay and titlebar (popover takes over)  -->
