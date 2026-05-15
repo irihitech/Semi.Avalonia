@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading;
 using Avalonia;
 using Avalonia.Dialogs;
+using Semi.Avalonia.Demo.Fonts;
 
 namespace Semi.Avalonia.Demo.Drm;
+#pragma warning disable CA1416, AVALONIA_X11_CSD, AVALONIA_X11_FORCE_CSD
 
 sealed class Program
 {
@@ -40,17 +42,17 @@ sealed class Program
         => AppBuilder.Configure<App>()
             .UseManagedSystemDialogs()
             .UsePlatformDetect()
-            .With(new Win32PlatformOptions())
+            .With(new X11PlatformOptions { EnableDrawnDecorations = true })
+            .WithSourceHanSansCNFont()
             .LogToTrace();
 
     private static void SilenceConsole()
     {
         new Thread(() =>
-            {
-                Console.CursorVisible = false;
-                while (true)
-                    Console.ReadKey(true);
-            })
-            { IsBackground = true }.Start();
+        {
+            Console.CursorVisible = false;
+            while (true)
+                Console.ReadKey(true);
+        }) { IsBackground = true }.Start();
     }
 }
