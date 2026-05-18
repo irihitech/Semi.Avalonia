@@ -21,7 +21,6 @@
 
     <ItemGroup>
         <AndroidResource Include="Icon.png" Link="Resources\drawable\Icon.png"/>
-        <AvaloniaResource Include="..\Fonts\*" Link="Assets\Fonts\%(Filename)%(Extension)" />
     </ItemGroup>
 
     <ItemGroup>
@@ -31,5 +30,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Semi.Avalonia.Demo\Semi.Avalonia.Demo.csproj"/>
+        <ProjectReference Include="..\Semi.Avalonia.Demo.Fonts\Semi.Avalonia.Demo.Fonts.csproj"/>
     </ItemGroup>
 </Project>

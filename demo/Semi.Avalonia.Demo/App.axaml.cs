@@ -1,6 +1,6 @@
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Semi.Avalonia.Demo.ViewModels;
 using Semi.Avalonia.Demo.Views;
@@ -15,22 +15,26 @@ public partial class App : Application
 #if DEBUG
         this.AttachDeveloperTools();
 #endif
-        this.DataContext = new ApplicationViewModel();
+        DataContext = new ApplicationViewModel();
+        if (OperatingSystem.IsLinux())
+        {
+            Resources.Add("DefaultFontFamily", null);
+        }
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        switch (ApplicationLifetime)
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            case IClassicDesktopStyleApplicationLifetime desktop:
-                // Line below is needed to remove Avalonia data validation.
-                // Without this line you will get duplicate validations from both Avalonia and CT
-                // BindingPlugins.DataValidators.RemoveAt(0);
-                desktop.MainWindow = new MainWindow();
-                break;
-            case ISingleViewApplicationLifetime singleView:
-                singleView.MainView = new MainView();
-                break;
+            desktop.MainWindow = new MainWindow { DataContext = new MainViewModel() };
+        }
+        else if (ApplicationLifetime is IActivityApplicationLifetime applicationLifetime)
+        {
+            applicationLifetime.MainViewFactory = () => new MainView { DataContext = new MainViewModel() };
+        }
+        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
+        {
+            singleViewPlatform.MainView = new MainView { DataContext = new MainViewModel() };
         }
 
         this.RegisterFollowSystemTheme();

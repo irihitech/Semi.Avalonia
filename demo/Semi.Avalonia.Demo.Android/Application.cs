@@ -2,6 +2,7 @@
 using Android.Runtime;
 using Avalonia;
 using Avalonia.Android;
+using Semi.Avalonia.Demo.Fonts;
 
 namespace Semi.Avalonia.Demo.Android;
 
