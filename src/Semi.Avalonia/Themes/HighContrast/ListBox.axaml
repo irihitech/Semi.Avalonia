@@ -1,14 +1,15 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!-- ListBox -->
     <StaticResource x:Key="ListBoxItemDisabledForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="ListBoxItemDefaultBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ListBoxItemPointeroverForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ListBoxItemPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ListBoxItemPressedForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ListBoxItemPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ListBoxItemSelectedForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ListBoxItemSelectedBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="ListBoxItemSelectedPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ListBoxItemSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="ListBoxItemSelectedPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ListBoxItemDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ListBoxItemSelectedDisabledBackground" ResourceKey="SemiColorHighlightText" />
 </ResourceDictionary>

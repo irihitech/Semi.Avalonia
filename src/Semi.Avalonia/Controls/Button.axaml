@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!--  Theme: Light, Solid, Outline, Borderless; Default is Light  -->
     <!--  Color Classes: Primary, Secondary, Tertiary, Success, Warning, Danger; Default is Primary  -->
     <!--  Size Classes: Large, Small  -->
@@ -397,8 +398,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InnerIconButton" TargetType="Button">
-        <Setter Property="Width" Value="{DynamicResource SemiWidthIconMedium}" />
-        <Setter Property="Height" Value="{DynamicResource SemiWidthIconMedium}" />
+        <Setter Property="Width" Value="{DynamicResource {x:Static semi:SemiTokens.WidthIconMedium}}" />
+        <Setter Property="Height" Value="{DynamicResource {x:Static semi:SemiTokens.WidthIconMedium}}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />

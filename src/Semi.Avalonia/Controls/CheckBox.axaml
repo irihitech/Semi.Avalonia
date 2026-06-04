@@ -1,9 +1,10 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <Design.PreviewWith>
         <ThemeVariantScope RequestedThemeVariant="Dark">
-            <StackPanel Background="{DynamicResource SemiBackground0Color}">
+            <StackPanel Background="{DynamicResource {x:Static semi:SemiTokens.Background0Color}}">
                 <CheckBox>Hello</CheckBox>
                 <CheckBox>Hello</CheckBox>
                 <CheckBox Theme="{DynamicResource CardCheckBox}">Hello</CheckBox>

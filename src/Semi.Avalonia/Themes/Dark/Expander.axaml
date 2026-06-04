@@ -1,9 +1,10 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ExpanderSeparatorBorderBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="ExpanderHeaderForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="ExpanderHeaderDisabledForeground" ResourceKey="SemiColorDisabledText" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ExpanderSeparatorBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="ExpanderHeaderForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="ExpanderHeaderDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
     <SolidColorBrush x:Key="ExpanderHeaderDefaultBackground" Color="Transparent" />
-    <StaticResource x:Key="ExpanderHeaderHoverBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="ExpanderHeaderPressedBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="ExpanderContentForeground" ResourceKey="SemiColorText1" />
+    <StaticResource x:Key="ExpanderHeaderHoverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="ExpanderHeaderPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="ExpanderContentForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText1}" />
 </ResourceDictionary>

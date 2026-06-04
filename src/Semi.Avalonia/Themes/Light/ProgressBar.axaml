@@ -1,12 +1,13 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ProgressBarIndicatorBrush" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="ProgressBarBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="ProgressBarTextForeground" ResourceKey="SemiColorText0" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ProgressBarIndicatorBrush" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="ProgressBarBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="ProgressBarTextForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
     <SolidColorBrush x:Key="ProgressBarRootBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="ProgressBarPrimaryForeground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="ProgressBarSecondaryForeground" ResourceKey="SemiColorSecondary" />
-    <StaticResource x:Key="ProgressBarTertiaryForeground" ResourceKey="SemiColorTertiary" />
-    <StaticResource x:Key="ProgressBarSuccessForeground" ResourceKey="SemiColorSuccess" />
-    <StaticResource x:Key="ProgressBarWarningForeground" ResourceKey="SemiColorWarning" />
-    <StaticResource x:Key="ProgressBarDangerForeground" ResourceKey="SemiColorDanger" />
+    <StaticResource x:Key="ProgressBarPrimaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="ProgressBarSecondaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorSecondary}" />
+    <StaticResource x:Key="ProgressBarTertiaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorTertiary}" />
+    <StaticResource x:Key="ProgressBarSuccessForeground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccess}" />
+    <StaticResource x:Key="ProgressBarWarningForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWarning}" />
+    <StaticResource x:Key="ProgressBarDangerForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDanger}" />
 </ResourceDictionary>

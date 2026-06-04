@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TreeViewItemDefaultCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TreeViewItemDefaultCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
     <x:Double x:Key="TreeViewItemIndent">20</x:Double>
     <StaticResource x:Key="ExpanderIconData" ResourceKey="SemiIconTreeTriangleRight" />
     <Thickness x:Key="TreeViewItemIconMargin">8 0</Thickness>

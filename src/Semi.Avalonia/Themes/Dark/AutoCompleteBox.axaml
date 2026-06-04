@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="AutoCompleteBoxPopupBoxShadow" ResourceKey="SemiShadowElevated"/>
-    <StaticResource x:Key="AutoCompleteBoxPopupBackground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="AutoCompleteBoxPopupBorderBrush" ResourceKey="SemiColorBorder" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="AutoCompleteBoxPopupBoxShadow" ResourceKey="{x:Static semi:SemiTokens.ShadowElevated}"/>
+    <StaticResource x:Key="AutoCompleteBoxPopupBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="AutoCompleteBoxPopupBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
 </ResourceDictionary>

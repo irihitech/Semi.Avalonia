@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="RefreshVisualizerIconForeground" ResourceKey="SemiColorHighlight" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="RefreshVisualizerIconForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <SolidColorBrush x:Key="RefreshVisualizerIconBackground" Color="Transparent" />
 </ResourceDictionary>

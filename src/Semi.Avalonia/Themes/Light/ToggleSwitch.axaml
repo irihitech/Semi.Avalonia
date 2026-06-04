@@ -1,15 +1,16 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <SolidColorBrush x:Key="ToggleSwitchDefaultBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPressedBackground" ResourceKey="SemiColorFill2" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
     <SolidColorBrush x:Key="ToggleSwitchContainerUnCheckedDisabledBackground" Color="Transparent" />
-    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDisabledBorderBrush" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="ToggleSwitchContainerCheckedDefaultBackground" ResourceKey="SemiColorSuccess" />
-    <StaticResource x:Key="ToggleSwitchContainerCheckedPointeroverBackground" ResourceKey="SemiColorSuccessPointerover" />
-    <StaticResource x:Key="ToggleSwitchContainerCheckedPressedBackground" ResourceKey="SemiColorSuccessActive" />
-    <StaticResource x:Key="ToggleSwitchContainerCheckedDisabledBackground" ResourceKey="SemiColorSuccessDisabled" />
-    <StaticResource x:Key="SimpleToggleSwitchContainerUnCheckedForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="SimpleToggleSwitchContainerCheckedForeground" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedDisabledBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccess}" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccessPointerover}" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccessActive}" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccessDisabled}" />
+    <StaticResource x:Key="SimpleToggleSwitchContainerUnCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="SimpleToggleSwitchContainerCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
     <BoxShadows x:Key="ToggleSwitchIndicatorBoxShadow">0 4 6 0 #1A000000, 0 0 1 0 #4D000000</BoxShadows>
 </ResourceDictionary>

@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TreeDataGridGridLinesBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="TreeDataGridHeaderPointeroverBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="TreeDataGridHeaderPressedBackground" ResourceKey="SemiColorFill2" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TreeDataGridGridLinesBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="TreeDataGridHeaderPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="TreeDataGridHeaderPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
     <SolidColorBrush x:Key="TreeDataGridHeaderPointeroverBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="TreeDataGridHeaderPressedBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="TreeDataGridHeaderPointeroverForeground" ResourceKey="SemiColorText1" />
-    <StaticResource x:Key="TreeDataGridHeaderPressedForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TreeDataGridCellSelectedBackground" ResourceKey="SemiColorPrimaryLight" />
-    <StaticResource x:Key="TreeDataGridColumnHeaderForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="TreeDataGridHeaderPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText1}" />
+    <StaticResource x:Key="TreeDataGridHeaderPressedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TreeDataGridCellSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLight}" />
+    <StaticResource x:Key="TreeDataGridColumnHeaderForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
 </ResourceDictionary>

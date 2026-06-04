@@ -1,10 +1,11 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="AutoCompleteBoxPopupBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="AutoCompleteBoxPopupMargin" ResourceKey="SemiThicknessExtraTight" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="AutoCompleteBoxPopupBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="AutoCompleteBoxPopupMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessExtraTight}" />
     <Thickness x:Key="AutoCompleteBoxPopupPadding">0 4</Thickness>
-    <StaticResource x:Key="AutoCompleteBoxPopupCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="AutoCompleteBoxDefaultHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="AutoCompleteBoxSmallHeight" ResourceKey="SemiHeightControlSmall" />
-    <StaticResource x:Key="AutoCompleteBoxLargeHeight" ResourceKey="SemiHeightControlLarge" />
+    <StaticResource x:Key="AutoCompleteBoxPopupCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="AutoCompleteBoxDefaultHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="AutoCompleteBoxSmallHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlSmall}" />
+    <StaticResource x:Key="AutoCompleteBoxLargeHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlLarge}" />
     <x:Double x:Key="AutoCompleteMaxDropdownHeight">600</x:Double>
 </ResourceDictionary>

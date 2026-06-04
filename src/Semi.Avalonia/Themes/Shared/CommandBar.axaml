@@ -1,12 +1,13 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!--  CommandBarButton / CommandBarToggleButton  -->
     <x:Double x:Key="CommandBarButtonWidth">64</x:Double>
     <x:Double x:Key="CommandBarButtonCompactWidth">40</x:Double>
     <x:Double x:Key="CommandBarButtonMinHeight">40</x:Double>
     <Thickness x:Key="CommandBarButtonPadding">8 4</Thickness>
     <x:Double x:Key="CommandBarButtonPanelSpacing">4</x:Double>
-    <StaticResource x:Key="CommandBarButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="CommandBarButtonLabelFontSize" ResourceKey="SemiFontSizeSmall" />
+    <StaticResource x:Key="CommandBarButtonCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="CommandBarButtonLabelFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeSmall}" />
     <x:Double x:Key="CommandBarButtonOverflowMinHeight">36</x:Double>
     <Thickness x:Key="CommandBarButtonOverflowPadding">12 6</Thickness>
     <!--  CommandBarSeparator  -->
@@ -18,10 +19,10 @@
     <!--  CommandBar  -->
     <x:Double x:Key="CommandBarMinHeight">48</x:Double>
     <Thickness x:Key="CommandBarPadding">4 0</Thickness>
-    <StaticResource x:Key="CommandBarCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="CommandBarBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+    <StaticResource x:Key="CommandBarCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="CommandBarBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
     <!--  CommandBar overflow popup  -->
-    <StaticResource x:Key="CommandBarOverflowCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
+    <StaticResource x:Key="CommandBarOverflowCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
     <x:Double x:Key="CommandBarOverflowMinHeight">16</x:Double>
     <x:Double x:Key="CommandBarOverflowMaxHeight">400</x:Double>
     <x:Double x:Key="CommandBarOverflowMaxWidth">600</x:Double>

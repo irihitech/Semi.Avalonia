@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <Thickness x:Key="AdornerLayerBorderThickness">2</Thickness>
-    <StaticResource x:Key="AdornerLayerCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="AdornerLayerCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
 </ResourceDictionary>

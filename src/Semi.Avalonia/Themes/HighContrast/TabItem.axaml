@@ -1,8 +1,9 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!--  Line  -->
     <SolidColorBrush x:Key="TabItemLinePipeBackground" Color="Transparent" />
-    <StaticResource x:Key="TabItemLinePipeSelectedBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="TabItemLinePipePointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TabItemLinePipeSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="TabItemLinePipePointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TabItemLinePipePressedBorderBrush" ResourceKey="SemiColorHotlight" />
     <StaticResource x:Key="TabItemLineHeaderForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="TabItemLineHeaderPointeroverForeground" ResourceKey="SemiColorWindowText" />
@@ -11,15 +12,15 @@
     <StaticResource x:Key="TabItemLineHeaderPointeroverBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="TabItemLineHeaderPressedBackground" ResourceKey="SemiColorHighlightText" />
     <!--  Card  -->
-    <StaticResource x:Key="TabItemCardHeaderSelectedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TabItemCardHeaderSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TabItemCardHeaderPointeroverBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="TabItemCardHeaderPressedBackground" ResourceKey="SemiColorHighlightText" />
     <!--  Button  -->
-    <StaticResource x:Key="TabItemButtonHeaderSelectedForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TabItemButtonHeaderSelectedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TabItemButtonHeaderSelectedBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="TabItemButtonHeaderPointeroverBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="TabItemButtonHeaderPressedBackground" ResourceKey="SemiColorHighlightText" />
 
-    <StaticResource x:Key="TabItemIconSelectedForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TabItemIconSelectedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TabItemHeaderDisabledForeground" ResourceKey="SemiColorGrayText" />
 </ResourceDictionary>

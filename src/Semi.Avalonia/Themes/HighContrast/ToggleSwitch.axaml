@@ -1,13 +1,14 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="ToggleSwitchDefaultBorderBrush" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="ToggleSwitchContainerUnCheckedDefaultBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="ToggleSwitchContainerUnCheckedPointeroverBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ToggleSwitchContainerUnCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ToggleSwitchContainerUnCheckedDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ToggleSwitchContainerUnCheckedDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
-    <StaticResource x:Key="ToggleSwitchContainerCheckedDefaultBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ToggleSwitchContainerCheckedPointeroverBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="ToggleSwitchContainerCheckedPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ToggleSwitchContainerCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ToggleSwitchContainerCheckedDisabledBackground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="SimpleToggleSwitchContainerUnCheckedForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="SimpleToggleSwitchContainerCheckedForeground" ResourceKey="SemiColorHighlightText" />

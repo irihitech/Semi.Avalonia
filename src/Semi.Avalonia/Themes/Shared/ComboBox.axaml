@@ -1,16 +1,17 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ComboBoxSelectorCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="ComboBoxSelectorThickness" ResourceKey="SemiBorderThicknessControl" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ComboBoxSelectorCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="ComboBoxSelectorThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
     <Thickness x:Key="ComboBoxItemDefaultPadding">12 8</Thickness>
     <Thickness x:Key="ComboBoxSelectorDefaultPadding">12 0 0 0</Thickness>
     <x:Double x:Key="ComboBoxPopupMaxDropDownHeight">504</x:Double>
-    <StaticResource x:Key="ComboBoxPopupBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="ComboBoxPopupBoxCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
+    <StaticResource x:Key="ComboBoxPopupBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="ComboBoxPopupBoxCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
     <x:Double x:Key="ComboBoxIconWidth">32</x:Double>
     <StaticResource x:Key="ComboBoxIcon" ResourceKey="SemiIconChevronDown" />
-    <StaticResource x:Key="ComboBoxPopupBorderMargin" ResourceKey="SemiThicknessExtraTight" />
+    <StaticResource x:Key="ComboBoxPopupBorderMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessExtraTight}" />
     <Thickness x:Key="ComboBoxPopupBorderPadding">0 4</Thickness>
-    <StaticResource x:Key="ComboBoxDefaultHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="ComboBoxSmallHeight" ResourceKey="SemiHeightControlSmall" />
-    <StaticResource x:Key="ComboBoxLargeHeight" ResourceKey="SemiHeightControlLarge" />
+    <StaticResource x:Key="ComboBoxDefaultHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="ComboBoxSmallHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlSmall}" />
+    <StaticResource x:Key="ComboBoxLargeHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlLarge}" />
 </ResourceDictionary>

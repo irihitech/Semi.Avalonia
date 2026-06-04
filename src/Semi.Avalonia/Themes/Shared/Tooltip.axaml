@@ -1,6 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ToolTipCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ToolTipCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
     <Thickness x:Key="ToolTipPadding">12 8</Thickness>
     <x:Double x:Key="ToolTipMaxWidth">320</x:Double>
-    <StaticResource x:Key="ToolTipBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+    <StaticResource x:Key="ToolTipBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
 </ResourceDictionary>

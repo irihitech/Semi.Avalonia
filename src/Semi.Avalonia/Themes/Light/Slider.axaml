@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="SliderTrackForeground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="SliderTrackBackground" ResourceKey="SemiColorFill0" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="SliderTrackForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="SliderTrackBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
     <SolidColorBrush x:Key="SliderTickForeground" Color="#C6CACD" />
-    <StaticResource x:Key="SliderThumbBackground" ResourceKey="SemiColorWhite" />
-    <StaticResource x:Key="SliderThumbBorderBrush" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="SliderThumbPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
-    <StaticResource x:Key="SliderThumbPressedBorderBrush" ResourceKey="SemiColorPrimaryActive" />
+    <StaticResource x:Key="SliderThumbBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
+    <StaticResource x:Key="SliderThumbBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="SliderThumbPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryPointerover}" />
+    <StaticResource x:Key="SliderThumbPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryActive}" />
     <SolidColorBrush x:Key="SliderTrackDisabledForeground" Color="#C6CACD" />
     <SolidColorBrush x:Key="SliderThumbDisabledBorderBrush" Color="#CBE7FE" />
     <SolidColorBrush x:Key="SliderTrackDisabledBackground" Color="#F9F9F9" />

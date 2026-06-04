@@ -1,15 +1,16 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="DateTimePickerButtonUpGlyph" ResourceKey="SemiIconTriangleUp" />
     <StaticResource x:Key="DateTimePickerButtonDownGlyph" ResourceKey="SemiIconTriangleDown" />
     <StaticResource x:Key="DateTimePickerAcceptGlyph" ResourceKey="SemiIconTick" />
     <StaticResource x:Key="DateTimePickerDismissGlyph" ResourceKey="SemiIconClose" />
-    <StaticResource x:Key="DateTimePickerPopupCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
+    <StaticResource x:Key="DateTimePickerPopupCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
     <x:Double x:Key="DateTimePickerListBoxItemHeight">36</x:Double>
-    <StaticResource x:Key="DateTimePickerFlyoutPadding" ResourceKey="SemiThicknessNone" />
-    <StaticResource x:Key="DateTimePickerFlyoutBorderMargin" ResourceKey="SemiThicknessTight" />
-    <StaticResource x:Key="DateTimePickerButtonSmallHeight" ResourceKey="SemiFontSizeHeader3" />
-    <StaticResource x:Key="DateTimePickerButtonDefaultHeight" ResourceKey="SemiFontSizeHeader1" />
-    <StaticResource x:Key="DateTimePickerButtonLargeHeight" ResourceKey="SemiHeightControlLarge" />
-    <StaticResource x:Key="DateTimePickerButtonBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="DateTimePickerButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="DateTimePickerFlyoutPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessNone}" />
+    <StaticResource x:Key="DateTimePickerFlyoutBorderMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessTight}" />
+    <StaticResource x:Key="DateTimePickerButtonSmallHeight" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader3}" />
+    <StaticResource x:Key="DateTimePickerButtonDefaultHeight" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader1}" />
+    <StaticResource x:Key="DateTimePickerButtonLargeHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlLarge}" />
+    <StaticResource x:Key="DateTimePickerButtonBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="DateTimePickerButtonCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
 </ResourceDictionary>

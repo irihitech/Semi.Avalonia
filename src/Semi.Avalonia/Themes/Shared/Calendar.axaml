@@ -1,14 +1,15 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="CalendarBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="CalendarCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="CalendarBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="CalendarCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
     <GridLength x:Key="CalendarItemWeekDayNameHeight">40</GridLength>
-    <StaticResource x:Key="CalendarItemWeekDayNameFontWeight" ResourceKey="SemiFontWeightBold" />
+    <StaticResource x:Key="CalendarItemWeekDayNameFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
     <StaticResource x:Key="CalendarItemPreviousIconGlyph" ResourceKey="SemiIconChevronLeft" />
     <StaticResource x:Key="CalendarItemNextIconGlyph" ResourceKey="SemiIconChevronRight" />
-    <StaticResource x:Key="CalendarItemCalendarButtonSelectedFontWeight" ResourceKey="SemiFontWeightBold" />
-    <StaticResource x:Key="CalendarItemCalendarButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="CalendarItemCalendarButtonSelectedFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
     <x:Double x:Key="CalendarMinWidth">240</x:Double>
     <x:Double x:Key="CalendarMinHeight">250</x:Double>
-    <StaticResource x:Key="CalendarItemWeekDayNameFontSize" ResourceKey="SemiFontSizeSmall" />
+    <StaticResource x:Key="CalendarItemWeekDayNameFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeSmall}" />
 </ResourceDictionary>

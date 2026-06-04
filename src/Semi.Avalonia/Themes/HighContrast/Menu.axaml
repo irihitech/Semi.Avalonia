@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="MenuFlyoutScrollViewerIconForeground" ResourceKey="SemiColorWindowText" />
     <!--  MenuFlyout  -->
     <StaticResource x:Key="MenuFlyoutBackground" ResourceKey="SemiColorWindow" />
@@ -8,8 +9,8 @@
     <StaticResource x:Key="MenuItemForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="MenuItemSeparatorBackground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="MenuItemPointeroverForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="MenuItemPointeroverBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="MenuItemPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="MenuItemPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="MenuItemPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="MenuItemInputGestureTextForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="MenuItemExpandIconForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="MenuItemExpandIconOpenForeground" ResourceKey="SemiColorHighlightText" />

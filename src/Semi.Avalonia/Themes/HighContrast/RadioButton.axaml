@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!-- RadioButton -->
     <StaticResource x:Key="RadioButtonDisabledForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="RadioButtonUncheckIconDefaultBackground" ResourceKey="SemiColorWindow" />
@@ -6,16 +7,16 @@
     <StaticResource x:Key="RadioButtonUncheckIconPressedBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="RadioButtonUncheckIconDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="RadioButtonUncheckIconDefaultBorderBrush" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="RadioButtonUncheckIconPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonUncheckIconPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonUncheckIconPressedBorderBrush" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="RadioButtonUncheckIconDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
-    <StaticResource x:Key="RadioButtonCheckIconDefaultBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonCheckIconDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonCheckIconPointeroverBackground" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="RadioButtonCheckIconPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonCheckIconPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonCheckIconDisabledBackground" ResourceKey="SemiColorGrayText" />
-    <StaticResource x:Key="RadioButtonCheckIconDefaultBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonCheckIconDefaultBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonCheckIconPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="RadioButtonCheckIconPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonCheckIconPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonCheckIconDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="RadioButtonCheckGlyphFill" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="RadioButtonForeground" ResourceKey="SemiColorWindowText" />
@@ -27,15 +28,15 @@
     <StaticResource x:Key="RadioButtonButtonUncheckedPointeroverBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="RadioButtonButtonUncheckedDisabledForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="RadioButtonButtonCheckedBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="RadioButtonButtonCheckedForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonButtonCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonButtonCheckedDisabledForeground" ResourceKey="SemiColorGrayText" />
     <!-- CardRadioButton -->
     <StaticResource x:Key="RadioButtonCardDefaultBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="RadioButtonCardDefaultBorderBrush" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="RadioButtonCardCheckedBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="RadioButtonCardCheckDefaultBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonCardCheckDefaultBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonCardCheckPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="RadioButtonCardCheckPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="RadioButtonCardCheckPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="RadioButtonCardUncheckPointeroverBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="RadioButtonCardUncheckPressedBackground" ResourceKey="SemiColorWindow" />
 </ResourceDictionary>

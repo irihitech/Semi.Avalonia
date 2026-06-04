@@ -1,16 +1,17 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TextBlockDefaultForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TextBlockSecondaryForeground" ResourceKey="SemiColorText1" />
-    <StaticResource x:Key="TextBlockTertiaryForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="TextBlockQuaternaryForeground" ResourceKey="SemiColorText3" />
-    <StaticResource x:Key="TextBlockSuccessForeground" ResourceKey="SemiColorSuccess" />
-    <StaticResource x:Key="TextBlockWarningForeground" ResourceKey="SemiColorWarning" />
-    <StaticResource x:Key="TextBlockDangerForeground" ResourceKey="SemiColorDanger" />
-    <StaticResource x:Key="TextBlockDisabledForeground" ResourceKey="SemiColorDisabledText" />
-    <StaticResource x:Key="TextBlockMarkBackground" ResourceKey="SemiColorPrimaryLight" />
-    <StaticResource x:Key="TextBlockCodeForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="TextBlockCodeBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="TextBlockCodeBorderBrush" ResourceKey="SemiColorBorder" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TextBlockDefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TextBlockSecondaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText1}" />
+    <StaticResource x:Key="TextBlockTertiaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="TextBlockQuaternaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText3}" />
+    <StaticResource x:Key="TextBlockSuccessForeground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccess}" />
+    <StaticResource x:Key="TextBlockWarningForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWarning}" />
+    <StaticResource x:Key="TextBlockDangerForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDanger}" />
+    <StaticResource x:Key="TextBlockDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
+    <StaticResource x:Key="TextBlockMarkBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLight}" />
+    <StaticResource x:Key="TextBlockCodeForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="TextBlockCodeBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="TextBlockCodeBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
     <SolidColorBrush x:Key="TextBlockSelectionBackground" Opacity="0.8" Color="#0041C5" />
-    <StaticResource x:Key="TextBlockSelectionForeground" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="TextBlockSelectionForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
 </ResourceDictionary>
