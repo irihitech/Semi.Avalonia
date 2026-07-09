@@ -17,6 +17,31 @@
             </ScrollViewer>
         </StackPanel>
     </Design.PreviewWith>
+    <MenuFlyout x:Key="HorizontalScrollBarContextFlyout">
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_SCROLL_HERE}" Command="{Binding $parent[ScrollBar].ScrollHere}" AutomationProperties.AutomationId="ScrollHere" />
+        <Separator />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_LEFT_EDGE}" Command="{Binding $parent[ScrollBar].ScrollToHome}" AutomationProperties.AutomationId="LeftEdge" />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_RIGHT_EDGE}" Command="{Binding $parent[ScrollBar].ScrollToEnd}" AutomationProperties.AutomationId="RightEdge" />
+        <Separator />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_PAGE_LEFT}" Command="{Binding $parent[ScrollBar].PageLeft}" AutomationProperties.AutomationId="PageLeft" />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_PAGE_RIGHT}" Command="{Binding $parent[ScrollBar].PageRight}" AutomationProperties.AutomationId="PageRight" />
+        <Separator />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_SCROLL_LEFT}" Command="{Binding $parent[ScrollBar].LineLeft}" AutomationProperties.AutomationId="ScrollLeft" />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_SCROLL_RIGHT}" Command="{Binding $parent[ScrollBar].LineRight}" AutomationProperties.AutomationId="ScrollRight" />
+    </MenuFlyout>
+    <MenuFlyout x:Key="VerticalScrollBarContextFlyout">
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_SCROLL_HERE}" Command="{Binding $parent[ScrollBar].ScrollHere}" AutomationProperties.AutomationId="ScrollHere" />
+        <Separator />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_TOP}" Command="{Binding $parent[ScrollBar].ScrollToHome}" AutomationProperties.AutomationId="Top" />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_BOTTOM}" Command="{Binding $parent[ScrollBar].ScrollToEnd}" AutomationProperties.AutomationId="Bottom" />
+        <Separator />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_PAGE_UP}" Command="{Binding $parent[ScrollBar].PageUp}" AutomationProperties.AutomationId="PageUp" />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_PAGE_DOWN}" Command="{Binding $parent[ScrollBar].PageDown}" AutomationProperties.AutomationId="PageDown" />
+        <Separator />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_SCROLL_UP}" Command="{Binding $parent[ScrollBar].LineUp}" AutomationProperties.AutomationId="ScrollUp" />
+        <MenuItem Header="{DynamicResource STRING_SCROLLBAR_SCROLL_DOWN}" Command="{Binding $parent[ScrollBar].LineDown}" AutomationProperties.AutomationId="ScrollDown" />
+    </MenuFlyout>
+
     <ControlTheme x:Key="ScrollBarRepeatButton" TargetType="{x:Type RepeatButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
@@ -39,6 +64,7 @@
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="ShowDelay" Value="0" />
         <Style Selector="^:horizontal">
+            <Setter Property="ContextFlyout" Value="{StaticResource HorizontalScrollBarContextFlyout}" />
             <Setter Property="Height" Value="{StaticResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
@@ -112,6 +138,7 @@
             </Setter>
         </Style>
         <Style Selector="^:vertical">
+            <Setter Property="ContextFlyout" Value="{StaticResource VerticalScrollBarContextFlyout}" />
             <Setter Property="Width" Value="{StaticResource ScrollBarThickness}" />
             <Setter Property="Template">
                 <ControlTemplate TargetType="ScrollBar">
@@ -210,12 +237,12 @@
         <Style Selector="^:horizontal /template/ Thumb#thumb">
             <Setter Property="MinWidth" Value="{DynamicResource ScrollBarMinLength}" />
             <Setter Property="Height" Value="{DynamicResource ScrollBarThumbThickness}" />
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="VerticalAlignment" Value="Bottom" />
         </Style>
         <Style Selector="^:vertical /template/ Thumb#thumb">
             <Setter Property="MinHeight" Value="{DynamicResource ScrollBarMinLength}" />
             <Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
-            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="HorizontalAlignment" Value="Right" />
         </Style>
         <Style Selector="^ /template/ RepeatButton > PathIcon">
             <Setter Property="Foreground" Value="{DynamicResource ScrollBarButtonDefaultForeground}" />
@@ -259,7 +286,10 @@
                             <ScrollGestureRecognizer
                                 CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
                                 CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
-                                IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                                IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}"
+                                Offset="{Binding Offset, ElementName=PART_ContentPresenter}"
+                                Viewport="{Binding Viewport, ElementName=PART_ContentPresenter}"
+                                Extent="{Binding Extent, ElementName=PART_ContentPresenter}" />
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
                     <ScrollBar
@@ -276,8 +306,8 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^.InsetContent /template/ ScrollContentPresenter#PART_ContentPresenter">
-            <Setter Property="Grid.RowSpan" Value="1"/>
-            <Setter Property="Grid.ColumnSpan" Value="1"/>
+            <Setter Property="Grid.RowSpan" Value="1" />
+            <Setter Property="Grid.ColumnSpan" Value="1" />
         </Style>
     </ControlTheme>
 
