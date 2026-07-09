@@ -43,7 +43,10 @@
                                 <ScrollGestureRecognizer
                                     CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
                                     CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
-                                    IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                                    IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}"   
+                                    Offset="{Binding Offset, ElementName=PART_ContentPresenter}"
+                                    Viewport="{Binding Viewport, ElementName=PART_ContentPresenter}"
+                                    Extent="{Binding Extent, ElementName=PART_ContentPresenter}" />
                             </ScrollContentPresenter.GestureRecognizers>
                         </ScrollContentPresenter>
                     </DockPanel>
@@ -57,11 +60,6 @@
                         Orientation="Vertical"
                         Grid.Column="1"
                         Grid.Row="0" />
-                    <Panel
-                        x:Name="PART_ScrollBarsSeparator"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Background="{DynamicResource TableViewScrollBarsSeparatorBackground}" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -114,7 +112,7 @@
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Padding" Value="{DynamicResource TableViewColumnHeaderPadding}" />
         <Setter Property="MinHeight" Value="{DynamicResource TableViewColumnHeaderMinHeight}" />
-        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontWeight" Value="{DynamicResource TableViewColumnHeaderFontWeight}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ClipToBounds" Value="False" />
