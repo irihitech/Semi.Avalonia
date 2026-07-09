@@ -1,2 +1,21 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Thickness x:Key="TableViewCellPadding">12 0</Thickness>
+    <StaticResource x:Key="TableViewCellMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="TableViewCellVisualBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+    <StaticResource x:Key="TableViewCellVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
+
+    <Thickness x:Key="TableViewColumnHeaderPadding">12 0 0 0</Thickness>
+    <StaticResource x:Key="TableViewColumnHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="TableViewColumnHeaderCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="TableViewColumnHeaderAscendingGlyph" ResourceKey="SemiIconSmallTriangleTop" />
+    <StaticResource x:Key="TableViewColumnHeaderDescendingGlyph" ResourceKey="SemiIconSmallTriangleDown" />
+
+    <x:Double x:Key="TableViewColumnResizerWidth">8</x:Double>
+    
+    <StaticResource x:Key="TableViewRowPadding" ResourceKey="SemiThicknessSuperTight" />
+    <StaticResource x:Key="TableViewRowCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="TableViewRowMargin" ResourceKey="SemiThicknessSuperTight" />
+
+    <!-- Grid line thickness -->
+    <x:Double x:Key="TableViewGridLineThickness">1</x:Double>
 </ResourceDictionary>

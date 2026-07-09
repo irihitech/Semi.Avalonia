@@ -23,8 +23,10 @@
                       RowDefinitions="*,Auto">
                     <DockPanel Name="ContentPanel">
                         <Border
-                            Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
-                            Padding="{DynamicResource TableViewRowPadding}"
+                            Background="{DynamicResource TableViewColumnHeadersBackground}"
+                            Padding="{DynamicResource TableViewColumnHeaderPadding}"
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="{DynamicResource TableViewGridLineBrush}"
                             DockPanel.Dock="Top">
                             <TableViewColumnHeadersPresenter />
                         </Border>
@@ -59,77 +61,28 @@
                         x:Name="PART_ScrollBarsSeparator"
                         Grid.Row="1"
                         Grid.Column="1"
-                        Background="{DynamicResource ScrollViewerScrollBarsSeparatorBackground}"
-                        Opacity="0">
-                        <Panel.Transitions>
-                            <Transitions>
-                                <DoubleTransition
-                                    Property="Opacity"
-                                    Duration="0:0:0.1" />
-                            </Transitions>
-                        </Panel.Transitions>
-                    </Panel>
+                        Background="{DynamicResource TableViewScrollBarsSeparatorBackground}" />
                 </Grid>
             </ControlTemplate>
         </Setter>
-
-        <Style
-            Selector="^[IsExpanded=true] /template/ Panel#PART_ScrollBarsSeparator">
-            <Setter Property="Opacity" Value="1" />
-        </Style>
-
-        <Style
-            Selector="^[AllowAutoHide=True] /template/ DockPanel#ContentPanel">
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Grid.RowSpan" Value="2" />
-        </Style>
-
     </ControlTheme>
 
-    <!-- TableView theme -->
+    <!-- TableView itself -->
     <ControlTheme x:Key="{x:Type TableView}"
                   TargetType="TableView">
-        <Setter Property="Foreground"
-                Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
         <Setter Property="Background"
-                Value="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
-        <Setter Property="BorderThickness"
-                Value="{DynamicResource ListBoxBorderThemeThickness}" />
-        <Setter
-            Property="ScrollViewer.HorizontalScrollBarVisibility"
-            Value="Auto" />
-        <Setter
-            Property="ScrollViewer.VerticalScrollBarVisibility"
-            Value="Auto" />
-        <Setter
-            Property="ScrollViewer.IsScrollChainingEnabled"
-            Value="True" />
-        <Setter
-            Property="ScrollViewer.IsScrollInertiaEnabled"
-            Value="True" />
-        <Setter Property="TextBlock.TextTrimming"
-                Value="{x:Static TextTrimming.CharacterEllipsis}" />
+                Value="{DynamicResource TableViewCellBackground}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
-                    ClipToBounds="{TemplateBinding ClipToBounds}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
-                    <ScrollViewer Name="PART_ScrollViewer"
-                                  Theme="{StaticResource TableViewScrollViewerTheme}"
-                                  VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
-                                  HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
-                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                                  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                  IsScrollInertiaEnabled="{TemplateBinding (ScrollViewer.IsScrollInertiaEnabled)}"
-                                  IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+                    <ScrollViewer
+                        AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                        Theme="{DynamicResource TableViewScrollViewerTheme}"
+                        BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
                         <ItemsPresenter
                             Name="PART_ItemsPresenter"
                             ItemsPanel="{TemplateBinding ItemsPanel}"
@@ -139,42 +92,44 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-
-    <Thickness x:Key="TableViewCellPadding">6,0</Thickness>
-
-    <ControlTheme x:Key="{x:Type TableViewCell}"
-                  TargetType="TableViewCell">
-        <Setter Property="Padding"
-                Value="{DynamicResource TableViewCellPadding}" />
+    
+    <ControlTheme x:Key="{x:Type TableViewCell}" TargetType="TableViewCell">
+        <Setter Property="Padding" Value="{DynamicResource TableViewCellPadding}" />
     </ControlTheme>
-
-    <x:Double x:Key="TableViewColumnResizerWidth">12</x:Double>
-    <Thickness x:Key="TableViewColumnResizerMargin">0,-9,-6,-12</Thickness>
-
+    
     <ControlTemplate
         x:Key="TableViewColumnHeaderResizerTemplate"
         TargetType="Thumb">
         <Border Background="Transparent">
             <Rectangle Width="1"
-                       Fill="{DynamicResource TableViewColumnHeaderSeparatorBackground}"
+                       Fill="{DynamicResource DataGridLineBrush}"
                        HorizontalAlignment="Center" />
         </Border>
     </ControlTemplate>
 
     <ControlTheme x:Key="{x:Type TableViewColumnHeader}"
                   TargetType="TableViewColumnHeader">
+        <Setter Property="Foreground" Value="{DynamicResource TableViewColumnHeaderForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TableViewColumnHeaderBackground}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Padding" Value="{DynamicResource TableViewColumnHeaderPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TableViewColumnHeaderMinHeight}" />
         <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Padding"
-                Value="{DynamicResource TableViewCellPadding}" />
-        <Setter Property="HorizontalContentAlignment"
-                Value="Left" />
-        <Setter Property="VerticalContentAlignment"
-                Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <ContentPresenter
+                <DockPanel>
+                    <Thumb Name="PART_Resizer"
+                           DockPanel.Dock="Right"
+                           Template="{StaticResource TableViewColumnHeaderResizerTemplate}"
+                           Width="{DynamicResource TableViewColumnResizerWidth}"
+                           HorizontalAlignment="Right"
+                           Cursor="SizeWestEast"
+                           IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Column?.CanUserEffectivelyResize, FallbackValue=False}">
+                    </Thumb>
+                    <ContentPresenter 
                         Name="PART_ContentPresenter"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -185,38 +140,35 @@
                         Padding="{TemplateBinding Padding}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
-                    <Thumb Name="PART_Resizer"
-                           Template="{StaticResource TableViewColumnHeaderResizerTemplate}"
-                           Width="{DynamicResource TableViewColumnResizerWidth}"
-                           HorizontalAlignment="Right"
-                           Cursor="SizeWestEast"
-                           Margin="{DynamicResource TableViewColumnResizerMargin}"
-                           IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Column?.CanUserEffectivelyResize, FallbackValue=False}">
-                    </Thumb>
-                </Panel>
+                    
+                </DockPanel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-
-    <Thickness x:Key="TableViewRowPadding">6,9,6,12</Thickness>
 
     <ControlTheme x:Key="{x:Type TableViewRow}"
                   TargetType="TableViewRow">
         <Setter Property="Background"
                 Value="{DynamicResource TableViewRowBackground}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TableViewRowForeground}" />
         <Setter Property="Padding"
                 Value="{DynamicResource TableViewRowPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TableViewCellMinHeight}" />
+        <Setter Property="BorderThickness" Value="0 0 0 1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TableViewGridLineBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="Border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Padding="{TemplateBinding Padding}"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                <Border
+                    Name="BackgroundBorder"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    Padding="{TemplateBinding Padding}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Margin="{DynamicResource TableViewRowMargin}"
+                    Background="{DynamicResource TableViewRowBackground}"
+                    CornerRadius="{DynamicResource TableViewRowCornerRadius}">
                     <TableViewCellsPresenter
+                        VerticalAlignment="Center"
                         Name="PART_CellsPresenter" />
                 </Border>
             </ControlTemplate>
@@ -224,7 +176,7 @@
 
         <!-- Disabled -->
         <Style
-            Selector="^:disabled /template/ Border#Border">
+            Selector="^:disabled /template/ Border#BackgroundBorder">
             <Setter Property="Background"
                     Value="{DynamicResource TableViewRowBackgroundDisabled}" />
             <Setter Property="TextElement.Foreground"
@@ -233,7 +185,7 @@
 
         <!-- PointerOver -->
         <Style
-            Selector="^:pointerover /template/ Border#Border">
+            Selector="^:pointerover /template/ Border#BackgroundBorder">
             <Setter Property="Background"
                     Value="{DynamicResource TableViewRowBackgroundPointerOver}" />
             <Setter Property="TextElement.Foreground"
@@ -242,7 +194,7 @@
 
         <!-- Pressed -->
         <Style
-            Selector="^:pressed /template/ Border#Border">
+            Selector="^:pressed /template/ Border#BackgroundBorder">
             <Setter Property="Background"
                     Value="{DynamicResource TableViewRowBackgroundPressed}" />
             <Setter Property="TextElement.Foreground"
@@ -252,7 +204,7 @@
         <!-- Selected -->
         <Style Selector="^:selected">
 
-            <Style Selector="^ /template/ Border#Border">
+            <Style Selector="^ /template/ Border#BackgroundBorder">
                 <Setter Property="Background"
                         Value="{DynamicResource TableViewRowBackgroundSelected}" />
                 <Setter Property="TextElement.Foreground"
@@ -261,7 +213,7 @@
 
             <!-- Selected PointerOver  -->
             <Style
-                Selector="^:pointerover /template/ Border#Border">
+                Selector="^:pointerover /template/ Border#BackgroundBorder">
                 <Setter Property="Background"
                         Value="{DynamicResource TableViewRowBackgroundSelectedPointerOver}" />
                 <Setter Property="TextElement.Foreground"
@@ -270,7 +222,7 @@
 
             <!-- Selected Pressed  -->
             <Style
-                Selector="^:pressed /template/ Border#Border">
+                Selector="^:pressed /template/ Border#BackgroundBorder">
                 <Setter Property="Background"
                         Value="{DynamicResource TableViewRowBackgroundSelectedPressed}" />
                 <Setter Property="TextElement.Foreground"
