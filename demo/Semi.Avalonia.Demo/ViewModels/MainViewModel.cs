@@ -167,6 +167,7 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("ListBox", static () => new ListBoxDemo()),
                 CreateItem("SplitView", static () => new SplitViewDemo()),
                 CreateItem("ToolTip", static () => new ToolTipDemo()),
+                CreateItem("TableView", static () => new TableViewDemo()),
             ]),
             new NavigationSectionViewModel("Feedback",
             [
