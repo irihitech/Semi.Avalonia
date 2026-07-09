@@ -2,13 +2,13 @@ using System;
 using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data.Converters;
+using Irihi.Avalonia.Shared.Converters;
 
 namespace Semi.Avalonia.Demo.Converters;
 
-public sealed class TableViewColumnWidthConverter : IValueConverter
+public sealed class TableViewColumnWidthConverter : MarkupValueConverter
 {
-    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is bool useStarSize &&
             parameter is string stringParameter &&
@@ -21,7 +21,4 @@ public sealed class TableViewColumnWidthConverter : IValueConverter
 
         return AvaloniaProperty.UnsetValue;
     }
-
-    object? IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
-        => throw new NotSupportedException();
 }
