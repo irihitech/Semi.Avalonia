@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Media;
@@ -39,21 +40,12 @@ public static class ApplicationExtension
 
     private static void OnColorValuesChanged(object? _, PlatformColorValues? args)
     {
+        Console.WriteLine(args.ThemeVariant);
         ThemeVariant result;
         if (args?.ContrastPreference is ColorContrastPreference.High)
         {
             result = ColorThemeMap.TryGetValue(args.AccentColor1, out var theme) ? theme : ThemeVariant.Default;
+            _app.RequestedThemeVariant = result;
         }
-        else
-        {
-            result = args?.ThemeVariant switch
-            {
-                PlatformThemeVariant.Light => ThemeVariant.Light,
-                PlatformThemeVariant.Dark => ThemeVariant.Dark,
-                _ => ThemeVariant.Default
-            };
-        }
-
-        _app.RequestedThemeVariant = result;
     }
 }
