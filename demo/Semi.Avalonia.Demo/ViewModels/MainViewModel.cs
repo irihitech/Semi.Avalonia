@@ -259,15 +259,9 @@ public partial class MainViewModel : ObservableObject
             SemiTheme.OverrideLocaleResources(app, culture);
         }
         // culture mapping, example: zh-CN to zh-Hans
-        var languageCulture = _cultureFallbacks.TryGetValue(culture.Name, out var fallback)? new CultureInfo(fallback) : culture;
-        LanguageManager.Instance.UpdateCulture(languageCulture);
+        LanguageManager.Instance.UpdateCulture(culture);
     }
     
-    private static Dictionary<string, string> _cultureFallbacks = new()
-    {
-        { "zh-CN", "zh-Hans" },
-        { "zh-TW", "zh-Hant" },
-    };
 
     [RelayCommand]
     private static async Task OpenUrl(string url)
