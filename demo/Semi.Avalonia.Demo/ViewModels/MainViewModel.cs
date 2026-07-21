@@ -12,6 +12,7 @@ using Avalonia.Layout;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Irihi.Lingua;
 using Semi.Avalonia.Demo.Pages;
 
 namespace Semi.Avalonia.Demo.ViewModels;
@@ -27,10 +28,16 @@ public partial class MainViewModel : ObservableObject
     public string RepoUrl => "https://github.com/irihitech/Semi.Avalonia";
     public IReadOnlyList<MenuItemViewModel> MenuItems { get; }
     public IReadOnlyList<NavigationSectionViewModel> Sections { get; }
+
+    // Lingua i18n observable properties
+    public IObservable<string?> AppName => LanguageManager.Instance.App_Name;
+    public IObservable<string?> AppTitle => LanguageManager.Instance.App_Title;
+    public IObservable<string?> SearchPlaceholder => LanguageManager.Instance.Search_Placeholder;
+    public IObservable<string?> EmptySearchMessage => LanguageManager.Instance.Empty_Search_Message;
     public ObservableCollection<NavigationSectionViewModel> FilteredSections { get; } = [];
     public bool ShowEmptySearchState => FilteredSections.Count == 0 && !string.IsNullOrWhiteSpace(SearchText);
     public ContentPage? CurrentPage => SelectedItem?.Page;
-    public string SelectedPageTitle => SelectedItem?.Title ?? "Overview";
+    public string SelectedPageTitle => SelectedItem?.Title ?? LanguageManager.Keys.Default_Page_Title;
 
     public NavigationItemViewModel? SelectedItem
     {
@@ -59,68 +66,68 @@ public partial class MainViewModel : ObservableObject
         [
             new MenuItemViewModel
             {
-                Header = "Theme",
+                Header = LanguageManager.Instance.Menu_Theme,
                 Items =
                 [
-                    new MenuItemViewModel { Header = "Auto", Command = FollowSystemThemeCommand },
-                    new MenuItemViewModel { Header = "Aquatic", Command = SelectThemeCommand, CommandParameter = SemiTheme.Aquatic },
-                    new MenuItemViewModel { Header = "Desert", Command = SelectThemeCommand, CommandParameter = SemiTheme.Desert },
-                    new MenuItemViewModel { Header = "Dusk", Command = SelectThemeCommand, CommandParameter = SemiTheme.Dusk },
-                    new MenuItemViewModel { Header = "NightSky", Command = SelectThemeCommand, CommandParameter = SemiTheme.NightSky },
+                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Auto, Command = FollowSystemThemeCommand },
+                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Aquatic, Command = SelectThemeCommand, CommandParameter = SemiTheme.Aquatic },
+                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Desert, Command = SelectThemeCommand, CommandParameter = SemiTheme.Desert },
+                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Dusk, Command = SelectThemeCommand, CommandParameter = SemiTheme.Dusk },
+                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_NightSky, Command = SelectThemeCommand, CommandParameter = SemiTheme.NightSky },
                 ]
             },
             new MenuItemViewModel
             {
-                Header = "Locale",
+                Header = LanguageManager.Instance.Menu_Locale,
                 Items =
                 [
-                    new MenuItemViewModel { Header = "简体中文", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("zh-CN") },
-                    new MenuItemViewModel { Header = "English", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("en-US") },
-                    new MenuItemViewModel { Header = "日本語", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ja-JP") },
-                    new MenuItemViewModel { Header = "한국어", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ko-KR") },
-                    new MenuItemViewModel { Header = "English (UK)", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("en-GB") },
-                    new MenuItemViewModel { Header = "Italiano", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("it-IT") },
-                    new MenuItemViewModel { Header = "Italiano (Switzerland)", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("it-CH") },
-                    new MenuItemViewModel { Header = "Nederlands", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("nl-NL") },
-                    new MenuItemViewModel { Header = "Nederlands (Belgium)", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("nl-BE") },
-                    new MenuItemViewModel { Header = "Українська", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("uk-UA") },
-                    new MenuItemViewModel { Header = "Русский", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ru-RU") },
-                    new MenuItemViewModel { Header = "繁體中文", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("zh-TW") },
-                    new MenuItemViewModel { Header = "Deutsch", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("de-DE") },
-                    new MenuItemViewModel { Header = "Español", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("es-ES") },
-                    new MenuItemViewModel { Header = "Polski", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("pl-PL") },
-                    new MenuItemViewModel { Header = "Français", Command = SelectLocaleCommand, CommandParameter = new CultureInfo("fr-FR") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("简体中文"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("zh-CN") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("English"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("en-US") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("日本語"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ja-JP") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("한국어"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ko-KR") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("English (UK)"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("en-GB") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Italiano"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("it-IT") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Italiano (Switzerland)"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("it-CH") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Nederlands"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("nl-NL") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Nederlands (Belgium)"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("nl-BE") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Українська"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("uk-UA") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Русский"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ru-RU") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("繁體中文"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("zh-TW") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Deutsch"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("de-DE") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Español"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("es-ES") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Polski"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("pl-PL") },
+                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Français"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("fr-FR") },
                 ]
             }
         ];
-
+        
         Sections = _allSections =
         [
-            new NavigationSectionViewModel("Overview",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Overview,
             [
                 CreateItem("Overview", static () => new Overview()),
                 CreateItem("About Us", static () => new AboutUs()),
             ]),
-            new NavigationSectionViewModel("Resource Browser",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_ResourceBrowser,
             [
                 CreateItem("Palette", static () => new PaletteDemo()),
                 CreateItem("HighContrastTheme", static () => new HighContrastDemo()),
                 CreateItem("Variables", static () => new VariablesDemo()),
                 CreateItem("Icon", static () => new IconDemo()),
             ]),
-            new NavigationSectionViewModel("Separate Pack",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_SeparatePack,
             [
                 CreateItem("ColorPicker", static () => new ColorPickerDemo()),
                 CreateItem("DataGrid", static () => new DataGridDemo()),
             ]),
-            new NavigationSectionViewModel("Basic",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Basic,
             [
                 CreateItem("TextBlock", static () => new TextBlockDemo()),
                 CreateItem("SelectableTextBlock", static () => new SelectableTextBlockDemo()),
                 CreateItem("Border", static () => new BorderDemo()),
                 CreateItem("PathIcon", static () => new PathIconDemo()),
             ]),
-            new NavigationSectionViewModel("Button",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Button,
             [
                 CreateItem("Button", static () => new ButtonDemo()),
                 CreateItem("HyperlinkButton", static () => new HyperlinkButtonDemo()),
@@ -128,7 +135,7 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("RadioButton", static () => new RadioButtonDemo()),
                 CreateItem("ToggleSwitch", static () => new ToggleSwitchDemo()),
             ]),
-            new NavigationSectionViewModel("Input",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Input,
             [
                 CreateItem("TextBox", static () => new TextBoxDemo()),
                 CreateItem("AutoCompleteBox", static () => new AutoCompleteBoxDemo()),
@@ -138,14 +145,14 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("Slider", static () => new SliderDemo()),
                 CreateItem("ManagedFileChooser", static () => new ManagedFileChooserDemo()),
             ]),
-            new NavigationSectionViewModel("Date/Time",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_DateTime,
             [
                 CreateItem("Calendar", static () => new CalendarDemo()),
                 CreateItem("CalendarDatePicker", static () => new CalendarDatePickerDemo()),
                 CreateItem("DatePicker", static () => new DatePickerDemo()),
                 CreateItem("TimePicker", static () => new TimePickerDemo()),
             ]),
-            new NavigationSectionViewModel("Navigation",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Navigation,
             [
                 CreateItem("ContentPage", static () => new ContentPageDemo()),
                 CreateItem("CarouselPage", static () => new CarouselPageDemo()),
@@ -156,7 +163,7 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("TabStrip", static () => new TabStripDemo()),
                 CreateItem("TreeView", static () => new TreeViewDemo()),
             ]),
-            new NavigationSectionViewModel("Show",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Show,
             [
                 CreateItem("Carousel", static () => new CarouselDemo()),
                 CreateItem("PipsPager", static () => new PipsPagerDemo()),
@@ -169,14 +176,14 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("ToolTip", static () => new ToolTipDemo()),
                 CreateItem("TableView", static () => new TableViewDemo()),
             ]),
-            new NavigationSectionViewModel("Feedback",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Feedback,
             [
                 CreateItem("DataValidationErrors", static () => new DataValidationErrorsDemo()),
                 CreateItem("Notification", static () => new NotificationDemo()),
                 CreateItem("ProgressBar", static () => new ProgressBarDemo()),
                 CreateItem("RefreshContainer", static () => new RefreshContainerDemo()),
             ]),
-            new NavigationSectionViewModel("Other",
+            new NavigationSectionViewModel(LanguageManager.Keys.Section_Other,
             [
                 CreateItem("CommandBar", static () => new CommandBarDemo()),
                 CreateItem("GridSplitter", static () => new GridSplitterDemo()),
@@ -244,9 +251,14 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void SelectLocale(object? obj)
     {
+        if (obj is not CultureInfo culture) return;
+
         var app = Application.Current;
-        if (app is null) return;
-        SemiTheme.OverrideLocaleResources(app, obj as CultureInfo);
+        if (app is not null)
+        {
+            SemiTheme.OverrideLocaleResources(app, culture);
+        }
+        LanguageManager.Instance.UpdateCulture(culture);
     }
 
     [RelayCommand]
@@ -347,7 +359,7 @@ public partial class NavigationItemViewModel : ObservableObject
 
 public class MenuItemViewModel
 {
-    public string? Header { get; set; }
+    public IObservable<string?>? Header { get; set; }
     public ICommand? Command { get; set; }
     public object? CommandParameter { get; set; }
     public IList<MenuItemViewModel>? Items { get; set; }

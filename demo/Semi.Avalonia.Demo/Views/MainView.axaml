@@ -52,7 +52,7 @@
                 <SelectableTextBlock
                     VerticalAlignment="Center"
                     Classes="H6"
-                    Text="Semi Avalonia"
+                    Text="{Binding AppName^}"
                     Theme="{DynamicResource TitleSelectableTextBlock}" />
                 <TextBlock VerticalAlignment="Center" Text="/" />
                 <SelectableTextBlock
@@ -66,7 +66,7 @@
             <TextBox
                 Margin="8"
                 Classes="ClearButton"
-                PlaceholderText="Search demos or sections"
+                PlaceholderText="{Binding SearchPlaceholder^}"
                 Text="{Binding SearchText}" />
         </DrawerPage.DrawerHeader>
 
@@ -102,7 +102,7 @@
                         Margin="16,12,16,0"
                         Foreground="{DynamicResource SemiColorText1}"
                         IsVisible="{Binding ShowEmptySearchState}"
-                        Text="No demo pages matched your search." />
+                        Text="{Binding EmptySearchMessage^}" />
                 </StackPanel>
             </ScrollViewer>
         </DrawerPage.Drawer>
@@ -133,7 +133,7 @@
                     </Button.Flyout>
                     <Button.Styles>
                         <Style x:DataType="vm:MenuItemViewModel" Selector="MenuItem">
-                            <Setter Property="Header" Value="{Binding Header}" />
+                            <Setter Property="Header" Value="{Binding Header^}" />
                             <Setter Property="ItemsSource" Value="{Binding Items}" />
                             <Setter Property="Command" Value="{Binding Command}" />
                             <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
