@@ -58,7 +58,7 @@
                 <SelectableTextBlock
                     VerticalAlignment="Center"
                     Classes="Secondary"
-                    Text="{Binding SelectedPageTitle}" />
+                    Text="{Binding SelectedPageTitle^}" />
             </StackPanel>
         </DrawerPage.Header>
 
@@ -77,7 +77,7 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="vm:NavigationSectionViewModel">
                                 <StackPanel Margin="0,0,0,10">
-                                    <TextBlock Classes="NavSectionHeader" Text="{Binding Header}" />
+                                    <TextBlock Classes="NavSectionHeader" Text="{Binding Header^}" />
                                     <ItemsControl ItemsSource="{Binding Items}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate DataType="vm:NavigationItemViewModel">
@@ -88,7 +88,7 @@
                                                         Classes.Selected="{Binding IsSelected}"
                                                         Command="{Binding NavigateCommand}"
                                                         CommandParameter="{Binding}"
-                                                        Content="{Binding Title}" />
+                                                        Content="{Binding Title^}" />
                                                 </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>

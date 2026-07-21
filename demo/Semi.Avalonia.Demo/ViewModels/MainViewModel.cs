@@ -19,7 +19,7 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
-    private readonly Dictionary<string, NavigationItemViewModel> _itemsByTitle = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, NavigationItemViewModel> _itemsByKey = new(StringComparer.Ordinal);
     private readonly IReadOnlyList<NavigationSectionViewModel> _allSections;
 
     [ObservableProperty] public partial string? SearchText { get; set; }
@@ -37,7 +37,7 @@ public partial class MainViewModel : ObservableObject
     public ObservableCollection<NavigationSectionViewModel> FilteredSections { get; } = [];
     public bool ShowEmptySearchState => FilteredSections.Count == 0 && !string.IsNullOrWhiteSpace(SearchText);
     public ContentPage? CurrentPage => SelectedItem?.Page;
-    public string SelectedPageTitle => SelectedItem?.Title ?? LanguageManager.Keys.Default_Page_Title;
+    public IObservable<string?> SelectedPageTitle => SelectedItem?.Title ?? LanguageManager.Instance.Default_Page_Title;
 
     public NavigationItemViewModel? SelectedItem
     {
@@ -103,94 +103,94 @@ public partial class MainViewModel : ObservableObject
         
         Sections = _allSections =
         [
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Overview,
+            new NavigationSectionViewModel("Overview", LanguageManager.Instance.Section_Overview,
             [
-                CreateItem("Overview", static () => new Overview()),
-                CreateItem("About Us", static () => new AboutUs()),
+                CreateItem("Overview", LanguageManager.Instance.Item_Overview, static () => new Overview()),
+                CreateItem("About Us", LanguageManager.Instance.Item_About_Us, static () => new AboutUs()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_ResourceBrowser,
+            new NavigationSectionViewModel("Resource Browser", LanguageManager.Instance.Section_ResourceBrowser,
             [
-                CreateItem("Palette", static () => new PaletteDemo()),
-                CreateItem("HighContrastTheme", static () => new HighContrastDemo()),
-                CreateItem("Variables", static () => new VariablesDemo()),
-                CreateItem("Icon", static () => new IconDemo()),
+                CreateItem("Palette", LanguageManager.Instance.Item_Palette, static () => new PaletteDemo()),
+                CreateItem("HighContrastTheme", LanguageManager.Instance.Item_HighContrastTheme, static () => new HighContrastDemo()),
+                CreateItem("Variables", LanguageManager.Instance.Item_Variables, static () => new VariablesDemo()),
+                CreateItem("Icon", LanguageManager.Instance.Item_Icon, static () => new IconDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_SeparatePack,
+            new NavigationSectionViewModel("Separate Pack", LanguageManager.Instance.Section_SeparatePack,
             [
-                CreateItem("ColorPicker", static () => new ColorPickerDemo()),
-                CreateItem("DataGrid", static () => new DataGridDemo()),
+                CreateItem("ColorPicker", LanguageManager.Instance.Item_ColorPicker, static () => new ColorPickerDemo()),
+                CreateItem("DataGrid", LanguageManager.Instance.Item_DataGrid, static () => new DataGridDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Basic,
+            new NavigationSectionViewModel("Basic", LanguageManager.Instance.Section_Basic,
             [
-                CreateItem("TextBlock", static () => new TextBlockDemo()),
-                CreateItem("SelectableTextBlock", static () => new SelectableTextBlockDemo()),
-                CreateItem("Border", static () => new BorderDemo()),
-                CreateItem("PathIcon", static () => new PathIconDemo()),
+                CreateItem("TextBlock", LanguageManager.Instance.Item_TextBlock, static () => new TextBlockDemo()),
+                CreateItem("SelectableTextBlock", LanguageManager.Instance.Item_SelectableTextBlock, static () => new SelectableTextBlockDemo()),
+                CreateItem("Border", LanguageManager.Instance.Item_Border, static () => new BorderDemo()),
+                CreateItem("PathIcon", LanguageManager.Instance.Item_PathIcon, static () => new PathIconDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Button,
+            new NavigationSectionViewModel("Button", LanguageManager.Instance.Section_Button,
             [
-                CreateItem("Button", static () => new ButtonDemo()),
-                CreateItem("HyperlinkButton", static () => new HyperlinkButtonDemo()),
-                CreateItem("CheckBox", static () => new CheckBoxDemo()),
-                CreateItem("RadioButton", static () => new RadioButtonDemo()),
-                CreateItem("ToggleSwitch", static () => new ToggleSwitchDemo()),
+                CreateItem("Button", LanguageManager.Instance.Item_Button, static () => new ButtonDemo()),
+                CreateItem("HyperlinkButton", LanguageManager.Instance.Item_HyperlinkButton, static () => new HyperlinkButtonDemo()),
+                CreateItem("CheckBox", LanguageManager.Instance.Item_CheckBox, static () => new CheckBoxDemo()),
+                CreateItem("RadioButton", LanguageManager.Instance.Item_RadioButton, static () => new RadioButtonDemo()),
+                CreateItem("ToggleSwitch", LanguageManager.Instance.Item_ToggleSwitch, static () => new ToggleSwitchDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Input,
+            new NavigationSectionViewModel("Input", LanguageManager.Instance.Section_Input,
             [
-                CreateItem("TextBox", static () => new TextBoxDemo()),
-                CreateItem("AutoCompleteBox", static () => new AutoCompleteBoxDemo()),
-                CreateItem("ComboBox", static () => new ComboBoxDemo()),
-                CreateItem("ButtonSpinner", static () => new ButtonSpinnerDemo()),
-                CreateItem("NumericUpDown", static () => new NumericUpDownDemo()),
-                CreateItem("Slider", static () => new SliderDemo()),
-                CreateItem("ManagedFileChooser", static () => new ManagedFileChooserDemo()),
+                CreateItem("TextBox", LanguageManager.Instance.Item_TextBox, static () => new TextBoxDemo()),
+                CreateItem("AutoCompleteBox", LanguageManager.Instance.Item_AutoCompleteBox, static () => new AutoCompleteBoxDemo()),
+                CreateItem("ComboBox", LanguageManager.Instance.Item_ComboBox, static () => new ComboBoxDemo()),
+                CreateItem("ButtonSpinner", LanguageManager.Instance.Item_ButtonSpinner, static () => new ButtonSpinnerDemo()),
+                CreateItem("NumericUpDown", LanguageManager.Instance.Item_NumericUpDown, static () => new NumericUpDownDemo()),
+                CreateItem("Slider", LanguageManager.Instance.Item_Slider, static () => new SliderDemo()),
+                CreateItem("ManagedFileChooser", LanguageManager.Instance.Item_ManagedFileChooser, static () => new ManagedFileChooserDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_DateTime,
+            new NavigationSectionViewModel("Date/Time", LanguageManager.Instance.Section_DateTime,
             [
-                CreateItem("Calendar", static () => new CalendarDemo()),
-                CreateItem("CalendarDatePicker", static () => new CalendarDatePickerDemo()),
-                CreateItem("DatePicker", static () => new DatePickerDemo()),
-                CreateItem("TimePicker", static () => new TimePickerDemo()),
+                CreateItem("Calendar", LanguageManager.Instance.Item_Calendar, static () => new CalendarDemo()),
+                CreateItem("CalendarDatePicker", LanguageManager.Instance.Item_CalendarDatePicker, static () => new CalendarDatePickerDemo()),
+                CreateItem("DatePicker", LanguageManager.Instance.Item_DatePicker, static () => new DatePickerDemo()),
+                CreateItem("TimePicker", LanguageManager.Instance.Item_TimePicker, static () => new TimePickerDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Navigation,
+            new NavigationSectionViewModel("Navigation", LanguageManager.Instance.Section_Navigation,
             [
-                CreateItem("ContentPage", static () => new ContentPageDemo()),
-                CreateItem("CarouselPage", static () => new CarouselPageDemo()),
-                CreateItem("DrawerPage", static () => new DrawerPageDemo()),
-                CreateItem("NavigationPage", static () => new NavigationPageDemo()),
-                CreateItem("TabbedPage", static () => new TabbedPageDemo()),
-                CreateItem("TabControl", static () => new TabControlDemo()),
-                CreateItem("TabStrip", static () => new TabStripDemo()),
-                CreateItem("TreeView", static () => new TreeViewDemo()),
+                CreateItem("ContentPage", LanguageManager.Instance.Item_ContentPage, static () => new ContentPageDemo()),
+                CreateItem("CarouselPage", LanguageManager.Instance.Item_CarouselPage, static () => new CarouselPageDemo()),
+                CreateItem("DrawerPage", LanguageManager.Instance.Item_DrawerPage, static () => new DrawerPageDemo()),
+                CreateItem("NavigationPage", LanguageManager.Instance.Item_NavigationPage, static () => new NavigationPageDemo()),
+                CreateItem("TabbedPage", LanguageManager.Instance.Item_TabbedPage, static () => new TabbedPageDemo()),
+                CreateItem("TabControl", LanguageManager.Instance.Item_TabControl, static () => new TabControlDemo()),
+                CreateItem("TabStrip", LanguageManager.Instance.Item_TabStrip, static () => new TabStripDemo()),
+                CreateItem("TreeView", LanguageManager.Instance.Item_TreeView, static () => new TreeViewDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Show,
+            new NavigationSectionViewModel("Show", LanguageManager.Instance.Section_Show,
             [
-                CreateItem("Carousel", static () => new CarouselDemo()),
-                CreateItem("PipsPager", static () => new PipsPagerDemo()),
-                CreateItem("Expander", static () => new ExpanderDemo()),
-                CreateItem("Flyout", static () => new FlyoutDemo()),
-                CreateItem("HeaderedContentControl", static () => new HeaderedContentControlDemo()),
-                CreateItem("Label", static () => new LabelDemo()),
-                CreateItem("ListBox", static () => new ListBoxDemo()),
-                CreateItem("SplitView", static () => new SplitViewDemo()),
-                CreateItem("ToolTip", static () => new ToolTipDemo()),
-                CreateItem("TableView", static () => new TableViewDemo()),
+                CreateItem("Carousel", LanguageManager.Instance.Item_Carousel, static () => new CarouselDemo()),
+                CreateItem("PipsPager", LanguageManager.Instance.Item_PipsPager, static () => new PipsPagerDemo()),
+                CreateItem("Expander", LanguageManager.Instance.Item_Expander, static () => new ExpanderDemo()),
+                CreateItem("Flyout", LanguageManager.Instance.Item_Flyout, static () => new FlyoutDemo()),
+                CreateItem("HeaderedContentControl", LanguageManager.Instance.Item_HeaderedContentControl, static () => new HeaderedContentControlDemo()),
+                CreateItem("Label", LanguageManager.Instance.Item_Label, static () => new LabelDemo()),
+                CreateItem("ListBox", LanguageManager.Instance.Item_ListBox, static () => new ListBoxDemo()),
+                CreateItem("SplitView", LanguageManager.Instance.Item_SplitView, static () => new SplitViewDemo()),
+                CreateItem("ToolTip", LanguageManager.Instance.Item_ToolTip, static () => new ToolTipDemo()),
+                CreateItem("TableView", LanguageManager.Instance.Item_TableView, static () => new TableViewDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Feedback,
+            new NavigationSectionViewModel("Feedback", LanguageManager.Instance.Section_Feedback,
             [
-                CreateItem("DataValidationErrors", static () => new DataValidationErrorsDemo()),
-                CreateItem("Notification", static () => new NotificationDemo()),
-                CreateItem("ProgressBar", static () => new ProgressBarDemo()),
-                CreateItem("RefreshContainer", static () => new RefreshContainerDemo()),
+                CreateItem("DataValidationErrors", LanguageManager.Instance.Item_DataValidationErrors, static () => new DataValidationErrorsDemo()),
+                CreateItem("Notification", LanguageManager.Instance.Item_Notification, static () => new NotificationDemo()),
+                CreateItem("ProgressBar", LanguageManager.Instance.Item_ProgressBar, static () => new ProgressBarDemo()),
+                CreateItem("RefreshContainer", LanguageManager.Instance.Item_RefreshContainer, static () => new RefreshContainerDemo()),
             ]),
-            new NavigationSectionViewModel(LanguageManager.Keys.Section_Other,
+            new NavigationSectionViewModel("Other", LanguageManager.Instance.Section_Other,
             [
-                CreateItem("CommandBar", static () => new CommandBarDemo()),
-                CreateItem("GridSplitter", static () => new GridSplitterDemo()),
-                CreateItem("Menu", static () => new MenuDemo()),
-                CreateItem("ScrollViewer", static () => new ScrollViewerDemo()),
-                CreateItem("ThemeVariantScope", static () => new ThemeVariantDemo()),
-                CreateItem("WindowCustomizationsPage", static () => new WindowCustomizationsPage()),
+                CreateItem("CommandBar", LanguageManager.Instance.Item_CommandBar, static () => new CommandBarDemo()),
+                CreateItem("GridSplitter", LanguageManager.Instance.Item_GridSplitter, static () => new GridSplitterDemo()),
+                CreateItem("Menu", LanguageManager.Instance.Item_Menu, static () => new MenuDemo()),
+                CreateItem("ScrollViewer", LanguageManager.Instance.Item_ScrollViewer, static () => new ScrollViewerDemo()),
+                CreateItem("ThemeVariantScope", LanguageManager.Instance.Item_ThemeVariantScope, static () => new ThemeVariantDemo()),
+                CreateItem("WindowCustomizationsPage", LanguageManager.Instance.Item_WindowCustomizationsPage, static () => new WindowCustomizationsPage()),
             ]),
         ];
 
@@ -198,9 +198,9 @@ public partial class MainViewModel : ObservableObject
         RefreshFilteredSections();
     }
 
-    public bool TryNavigateTo(string title)
+    public bool TryNavigateTo(string key)
     {
-        if (_itemsByTitle.TryGetValue(title, out var item))
+        if (_itemsByKey.TryGetValue(key, out var item))
         {
             SelectedItem = item;
             return true;
@@ -258,7 +258,9 @@ public partial class MainViewModel : ObservableObject
         {
             SemiTheme.OverrideLocaleResources(app, culture);
         }
-        LanguageManager.Instance.UpdateCulture(culture);
+        // culture mapping, example: zh-CN to zh-Hans
+        var languageCulture = culture.Name == "zh-CN"? new CultureInfo("zh-Hans") : culture;
+        LanguageManager.Instance.UpdateCulture(languageCulture);
     }
 
     [RelayCommand]
@@ -271,10 +273,10 @@ public partial class MainViewModel : ObservableObject
         }
     }
 
-    private NavigationItemViewModel CreateItem(string title, Func<Control> contentFactory)
+    private NavigationItemViewModel CreateItem(string key, IObservable<string?> title, Func<Control> contentFactory)
     {
-        var item = new NavigationItemViewModel(title, NavigateToCommand, contentFactory);
-        _itemsByTitle.Add(title, item);
+        var item = new NavigationItemViewModel(key, title, NavigateToCommand, contentFactory);
+        _itemsByKey.Add(key, item);
         return item;
     }
 
@@ -287,19 +289,21 @@ public partial class MainViewModel : ObservableObject
         foreach (var section in _allSections)
         {
             if (search.Length == 0 ||
-                section.Header.Contains(search, StringComparison.InvariantCultureIgnoreCase))
+                section.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)
+                || ( section.Header as LinguaObservableString)?.CurrentValue?.Contains(search, StringComparison.InvariantCultureIgnoreCase) == true)
             {
                 FilteredSections.Add(section);
                 continue;
             }
 
             var matchedItems = section.Items
-                .Where(item => item.Title.Contains(search, StringComparison.InvariantCultureIgnoreCase))
+                .Where(item => item.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)
+                || (item.Title as LinguaObservableString)?.CurrentValue?.Contains(search, StringComparison.InvariantCultureIgnoreCase) == true)
                 .ToArray();
 
             if (matchedItems.Length > 0)
             {
-                FilteredSections.Add(new NavigationSectionViewModel(section.Header, matchedItems));
+                FilteredSections.Add(new NavigationSectionViewModel(section.Key, section.Header, matchedItems));
             }
         }
 
@@ -319,13 +323,16 @@ public partial class MainViewModel : ObservableObject
 
 public class NavigationSectionViewModel
 {
-    public NavigationSectionViewModel(string header, IReadOnlyList<NavigationItemViewModel> items)
+    public NavigationSectionViewModel(string key, IObservable<string?> header, IReadOnlyList<NavigationItemViewModel> items)
     {
+        Key = key;
         Header = header;
         Items = items;
     }
 
-    public string Header { get; }
+    public string Key { get; }
+
+    public IObservable<string?> Header { get; }
 
     public IReadOnlyList<NavigationItemViewModel> Items { get; }
 }
@@ -334,27 +341,47 @@ public partial class NavigationItemViewModel : ObservableObject
 {
     private readonly Func<Control> _contentFactory;
 
-    public NavigationItemViewModel(string title, ICommand navigateCommand, Func<Control> contentFactory)
+    public NavigationItemViewModel(string key, IObservable<string?> title, ICommand navigateCommand, Func<Control> contentFactory)
     {
+        Key = key;
         Title = title;
         NavigateCommand = navigateCommand;
         _contentFactory = contentFactory;
     }
 
-    public string Title { get; }
+    public string Key { get; }
+
+    public IObservable<string?> Title { get; }
 
     public ICommand NavigateCommand { get; }
 
-    public ContentPage Page => field ??= new ContentPage
+    public ContentPage Page
     {
-        Header = Title,
-        Background = null,
-        HorizontalContentAlignment = HorizontalAlignment.Stretch,
-        VerticalContentAlignment = VerticalAlignment.Stretch,
-        Content = _contentFactory()
-    };
+        get
+        {
+            if (field is null)
+            {
+                field = new ContentPage
+                {
+                    Background = null,
+                    HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                    VerticalContentAlignment = VerticalAlignment.Stretch,
+                    Content = _contentFactory()
+                };
+                Title.Subscribe(new PageHeaderObserver(field));
+            }
+            return field;
+        }
+    }
 
     [ObservableProperty] public partial bool IsSelected { get; set; }
+
+    private sealed class PageHeaderObserver(ContentPage page) : IObserver<string?>
+    {
+        public void OnNext(string? value) => page.Header = value;
+        public void OnCompleted() { }
+        public void OnError(Exception error) { }
+    }
 }
 
 public class MenuItemViewModel
