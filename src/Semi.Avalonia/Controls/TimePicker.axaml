@@ -314,12 +314,14 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^.clearButton:pointerover, ^.ClearButton:pointerover">
-            <Style Selector="^:not(:hasnotime) /template/ Button#ClearButton">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-            <Style Selector="^:not(:hasnotime) /template/ PathIcon#PART_Icon">
-                <Setter Property="Opacity" Value="0" />
+        <Style Selector="^.clearButton, ^.ClearButton">
+            <Style Selector="^:pointerover, ^:focus-within">
+                <Style Selector="^:not(:hasnotime) /template/ Button#ClearButton">
+                    <Setter Property="IsVisible" Value="True" />
+                </Style>
+                <Style Selector="^:not(:hasnotime) /template/ PathIcon#PART_Icon">
+                    <Setter Property="Opacity" Value="0" />
+                </Style>
             </Style>
         </Style>
 
