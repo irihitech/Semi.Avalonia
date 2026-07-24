@@ -26,6 +26,23 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <ToggleSwitch Classes="Accent" />
+                <ToggleSwitch Classes="Accent" IsChecked="True" />
+            </StackPanel>
+            <StackPanel>
+                <ToggleSwitch Classes="Accent" IsEnabled="False" />
+                <ToggleSwitch Classes="Accent" IsChecked="True" IsEnabled="False" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" />
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" IsChecked="True" />
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" IsEnabled="False" />
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" IsEnabled="False" IsChecked="True" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" />
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" IsChecked="True" />
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small Loading" />

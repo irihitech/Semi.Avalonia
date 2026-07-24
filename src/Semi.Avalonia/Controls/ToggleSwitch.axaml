@@ -28,6 +28,12 @@
                     <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Large" />
                     <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Large" IsChecked="True" />
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Classes="Accent" />
+                    <ToggleSwitch Classes="Accent" IsChecked="True" />
+                    <ToggleSwitch Classes="Accent" IsEnabled="False"/>
+                    <ToggleSwitch Classes="Accent" IsChecked="True" IsEnabled="False"/>
+                </StackPanel>
             </StackPanel>
         </ThemeVariantScope>
     </Design.PreviewWith>
@@ -93,7 +99,7 @@
                                 Margin="{DynamicResource ToggleSwitchIndicatorDefaultMargin}">
                                 <Border
                                     Name="SwitchKnobIndicator"
-                                    Background="White"
+                                    Background="{DynamicResource ToggleSwitchIndicatorBackground}"
                                     BoxShadow="{DynamicResource ToggleSwitchIndicatorBoxShadow}"
                                     CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}" />
                                 <Arc
@@ -102,16 +108,9 @@
                                     StrokeThickness="{DynamicResource ToggleSwitchLoadingIndicatorDefaultStrokeThickness}"
                                     StartAngle="0"
                                     SweepAngle="140"
+                                    Stroke="{DynamicResource ToggleSwitchLoadingIndicatorBrush}"
                                     StrokeJoin="Round"
                                     StrokeLineCap="Round">
-                                    <Arc.Stroke>
-                                        <ConicGradientBrush>
-                                            <GradientStops>
-                                                <GradientStop Offset="0.1" Color="Transparent" />
-                                                <GradientStop Offset="0.7" Color="White" />
-                                            </GradientStops>
-                                        </ConicGradientBrush>
-                                    </Arc.Stroke>
                                 </Arc>
                             </Panel>
                         </Canvas>
@@ -166,6 +165,21 @@
             <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
+            </Style>
+            <Style Selector="^.Accent">
+                <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentBackground}" />
+                </Style>
+                <Style Selector="^:pointerover /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentPointeroverBackground}" />
+                </Style>
+                <Style Selector="^:pressed /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentPressedBackground}" />
+                </Style>
+                <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentDisabledBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
+                </Style>
             </Style>
         </Style>
 
@@ -295,7 +309,7 @@
                                 Margin="{DynamicResource ToggleSwitchIndicatorDefaultMargin}">
                                 <Border
                                     Name="SwitchKnobIndicator"
-                                    Background="White"
+                                    Background="{DynamicResource ToggleSwitchIndicatorBackground}"
                                     BoxShadow="{DynamicResource ToggleSwitchIndicatorBoxShadow}"
                                     CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}" />
                                 <Arc
@@ -304,16 +318,9 @@
                                     StrokeThickness="{DynamicResource ToggleSwitchLoadingIndicatorDefaultStrokeThickness}"
                                     StartAngle="0"
                                     SweepAngle="140"
+                                    Stroke="{DynamicResource ToggleSwitchLoadingIndicatorBrush}"
                                     StrokeJoin="Round"
                                     StrokeLineCap="Round">
-                                    <Arc.Stroke>
-                                        <ConicGradientBrush>
-                                            <GradientStops>
-                                                <GradientStop Offset="0.1" Color="Transparent" />
-                                                <GradientStop Offset="0.7" Color="White" />
-                                            </GradientStops>
-                                        </ConicGradientBrush>
-                                    </Arc.Stroke>
                                 </Arc>
                             </Panel>
                         </Canvas>
