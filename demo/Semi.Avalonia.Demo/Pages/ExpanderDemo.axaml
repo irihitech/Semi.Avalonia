@@ -7,33 +7,68 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Spacing="20">
-        <StackPanel>
-            <Expander Header="Expander 1">
-                <TextBlock Text="Hello Avalonia!" />
-            </Expander>
-            <Expander Header="Expander 2">
-                <TextBox Text="Hello Avalonia!" />
-            </Expander>
-            <Expander Header="Expander 3">
-                <Button Content="Hello Avalonia World!" />
-            </Expander>
-        </StackPanel>
-        <Grid ColumnDefinitions="*, *">
+    <Grid ColumnDefinitions="*,360">
+        <Panel
+            Grid.Column="0"
+            Margin="0,0,16,0"
+            Height="500"
+            VerticalAlignment="Top">
             <Expander
-                Height="200"
-                ExpandDirection="Right"
-                Header="Right">
-                <TextBlock>Right Content</TextBlock>
+                Header="Expander Demo"
+                ExpandDirection="{Binding #DirectionCombo.SelectedValue}"
+                Margin="0,16,0,0"
+                IsVisible="{Binding #DefaultRb.IsChecked}">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="This is a demo of the Expander control." />
+                    <TextBox Text="You can type here..." />
+                    <Button Content="Click me" />
+                </StackPanel>
             </Expander>
             <Expander
-                Grid.Column="1"
-                Height="200"
-                HorizontalAlignment="Right"
-                ExpandDirection="Left"
-                Header="Left">
-                <TextBlock>Left Content</TextBlock>
+                Header="Expander Demo"
+                Theme="{DynamicResource ExpanderCard}"
+                ExpandDirection="{Binding #DirectionCombo.SelectedValue}"
+                Margin="0,16,0,0"
+                IsVisible="{Binding #CardRb.IsChecked}">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="This is a demo of the Expander control." />
+                    <TextBox Text="You can type here..." />
+                    <Button Content="Click me" />
+                </StackPanel>
             </Expander>
-        </Grid>
-    </StackPanel>
+        </Panel>
+
+        <Border
+            Grid.Column="1"
+            BorderBrush="{DynamicResource SemiColorBorder}"
+            BorderThickness="1,0,0,0"
+            Padding="16"
+            VerticalAlignment="Top">
+            <StackPanel Spacing="16">
+                <TextBlock
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Text="Properties" />
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Theme:" />
+                    <RadioButton Name="DefaultRb" GroupName="Theme" IsChecked="True" Content="Default" />
+                    <RadioButton Name="CardRb" GroupName="Theme" Content="ExpanderCard" />
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Direction:" />
+                    <ComboBox
+                        Name="DirectionCombo"
+                        SelectedIndex="0"
+                        HorizontalAlignment="Stretch">
+                        <ExpandDirection>Down</ExpandDirection>
+                        <ExpandDirection>Up</ExpandDirection>
+                        <ExpandDirection>Left</ExpandDirection>
+                        <ExpandDirection>Right</ExpandDirection>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
 </UserControl>
