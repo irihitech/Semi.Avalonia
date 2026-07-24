@@ -151,11 +151,13 @@
         </Setter>
 
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^:pointerover /template/ Button#ClearButton">
-                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+            <Style Selector="^:pointerover, ^:focus">
+                <Style Selector="^ /template/ Button#ClearButton">
+                    <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                </Style>
+                <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+                    <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                </Style>
             </Style>
         </Style>
 
