@@ -16,17 +16,36 @@
                 Content
             </Expander>
             <Expander
-                Theme="{DynamicResource ExpanderCard}"
+                Theme="{DynamicResource CardExpander}"
                 ExpandDirection="{Binding #cb.SelectedValue}"
                 Header="Hello">
                 Content
             </Expander>
             <Expander
-                Theme="{DynamicResource INTERNAL_PathPickerExpander}"
+                Theme="{DynamicResource SplitExpander}"
                 ExpandDirection="{Binding #cb.SelectedValue}">
                 <Expander.Header>
                     <Button
+                        Margin="0,0,2,0"
                         HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Content="Select Files" />
+                </Expander.Header>
+                <ListBox>
+                    <ListBoxItem>C:\Program Files</ListBoxItem>
+                    <ListBoxItem>C:\Program Files (x86)</ListBoxItem>
+                </ListBox>
+            </Expander>
+            <Expander
+                Theme="{DynamicResource CardSplitExpander}"
+                ExpandDirection="{Binding #cb.SelectedValue}">
+                <Expander.Resources>
+                    <Thickness x:Key="ExpanderContentPadding">0</Thickness>
+                </Expander.Resources>
+                <Expander.Header>
+                    <Button
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
                         Content="Select Files" />
                 </Expander.Header>
                 <ListBox>
@@ -183,7 +202,7 @@
     </ControlTheme>
 
     <ControlTheme
-        x:Key="ExpanderCard"
+        x:Key="CardExpander"
         BasedOn="{StaticResource {x:Type Expander}}"
         TargetType="Expander">
         <Style Selector="^ /template/ LayoutTransformControl#ExpanderHeaderLayoutContainer">
@@ -239,86 +258,134 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="INTERNAL_PathPickerExpander" TargetType="Expander">
-        <Setter Property="BorderBrush" Value="{DynamicResource ExpanderSeparatorBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ExpanderContentBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ExpanderCornerRadius}" />
+    <ControlTheme
+        x:Key="SplitExpander"
+        BasedOn="{StaticResource {x:Type Expander}}"
+        TargetType="Expander">
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <Border
-                        Name="ExpanderHeaderBorder"
-                        DockPanel.Dock="Top"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel
-                            LastChildFill="True"
-                            HorizontalSpacing="{DynamicResource ExpanderPathPickerHeaderSpacing}">
-                            <ToggleButton
-                                Name="ExpanderHeader"
-                                DockPanel.Dock="Right"
-                                Theme="{DynamicResource ExpanderHeaderToggleButtonTheme}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}"
-                                IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}">
-                                <PathIcon
-                                    Name="PART_PathIcon"
-                                    Data="{DynamicResource ExpanderIcon}"
-                                    Theme="{DynamicResource InnerPathIcon}"
-                                    Foreground="{DynamicResource ExpanderIconForeground}">
-                                    <PathIcon.Transitions>
-                                        <Transitions>
-                                            <TransformOperationsTransition Property="RenderTransform" Duration="0.25" />
-                                        </Transitions>
-                                    </PathIcon.Transitions>
-                                </PathIcon>
-                            </ToggleButton>
+                    <LayoutTransformControl Name="ExpanderHeaderLayoutContainer">
+                        <Border
+                            Name="ExpanderHeaderBorder"
+                            DockPanel.Dock="Top"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <DockPanel LastChildFill="True">
+                                <ToggleButton
+                                    Name="ExpanderHeader"
+                                    DockPanel.Dock="Right"
+                                    Theme="{DynamicResource ExpanderHeaderToggleButtonTheme}"
+                                    CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}"
+                                    IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}">
+                                    <PathIcon
+                                        Name="PART_PathIcon"
+                                        Data="{DynamicResource ExpanderIcon}"
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Foreground="{DynamicResource ExpanderIconForeground}">
+                                        <PathIcon.Transitions>
+                                            <Transitions>
+                                                <TransformOperationsTransition Property="RenderTransform" Duration="0.25" />
+                                            </Transitions>
+                                        </PathIcon.Transitions>
+                                    </PathIcon>
+                                </ToggleButton>
+                                <ContentPresenter
+                                    Name="PART_HeaderPresenter"
+                                    Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                            </DockPanel>
+                        </Border>
+                    </LayoutTransformControl>
+                    <LayoutTransformControl Name="ExpanderContentLayoutContainer" MinHeight="1">
+                        <Border
+                            Name="ExpanderContent"
+                            BorderBrush="{DynamicResource ExpanderSeparatorBorderBrush}">
                             <ContentPresenter
-                                Name="PART_HeaderPresenter"
-                                Content="{TemplateBinding Header}"
-                                ContentTemplate="{TemplateBinding HeaderTemplate}" />
-                        </DockPanel>
-                    </Border>
-                    <Border
-                        Name="ExpanderContent"
-                        BorderBrush="{DynamicResource ExpanderSeparatorBorderBrush}">
-                        <ContentPresenter
-                            Name="PART_ContentPresenter"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Foreground="{DynamicResource ExpanderContentForeground}"
-                            IsVisible="{TemplateBinding IsExpanded,Mode=TwoWay}" />
-                    </Border>
+                                Name="PART_ContentPresenter"
+                                Padding="{DynamicResource ExpanderContentPadding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{DynamicResource ExpanderContentForeground}"
+                                IsVisible="{TemplateBinding IsExpanded,Mode=TwoWay}" />
+                        </Border>
+                    </LayoutTransformControl>
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+    </ControlTheme>
 
-        <Style Selector="^:expanded /template/ PathIcon#PART_PathIcon">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+    <ControlTheme
+        x:Key="CardSplitExpander"
+        BasedOn="{StaticResource SplitExpander}"
+        TargetType="Expander">
+
+        <Style Selector="^ /template/ LayoutTransformControl#ExpanderHeaderLayoutContainer">
+            <Setter Property="Margin" Value="0" />
+        </Style>
+        <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness}" />
+        </Style>
+        <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter Left}}" />
+        </Style>
+        <Style Selector="^:left,^:up,^:right,^:down">
+            <Style Selector="^ /template/ Border#ExpanderContent">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
         </Style>
 
         <Style Selector="^:expanded">
-            <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
-                <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter TopRight}}" />
+            <Style Selector="^:left">
+                <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter TopRight}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Top}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderContent">
+                    <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter 'Vertical,Left'}}" />
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
+                </Style>
             </Style>
-            <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
-                <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Top}}" />
+            <Style Selector="^:up">
+                <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter BottomRight}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Bottom}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderContent">
+                    <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter 'Horizontal,Top'}}" />
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Top}}" />
+                </Style>
             </Style>
-            <Style Selector="^ /template/ Border#ExpanderContent">
-                <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter 'Horizontal,Bottom'}}" />
-                <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Bottom}}" />
+            <Style Selector="^:right">
+                <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter TopRight}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Top}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderContent">
+                    <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter 'Vertical,Right'}}" />
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}" />
+                </Style>
             </Style>
-        </Style>
-
-        <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+            <Style Selector="^:down">
+                <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter TopRight}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Top}}" />
+                </Style>
+                <Style Selector="^ /template/ Border#ExpanderContent">
+                    <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter 'Horizontal,Bottom'}}" />
+                    <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Bottom}}" />
+                </Style>
             </Style>
         </Style>
     </ControlTheme>
