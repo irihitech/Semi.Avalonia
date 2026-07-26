@@ -21,6 +21,19 @@
                 Header="Hello">
                 Content
             </Expander>
+            <Expander
+                Theme="{DynamicResource INTERNAL_PathPickerExpander}"
+                ExpandDirection="{Binding #cb.SelectedValue}">
+                <Expander.Header>
+                    <Button
+                        HorizontalAlignment="Stretch"
+                        Content="Select Files" />
+                </Expander.Header>
+                <ListBox>
+                    <ListBoxItem>C:\Program Files</ListBoxItem>
+                    <ListBoxItem>C:\Program Files (x86)</ListBoxItem>
+                </ListBox>
+            </Expander>
         </StackPanel>
     </Design.PreviewWith>
 
@@ -45,7 +58,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource ExpanderHeaderHoverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource ExpanderHeaderPointeroverBackground}" />
         </Style>
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ExpanderHeaderPressedBackground}" />
@@ -83,7 +96,7 @@
                                     Data="{DynamicResource ExpanderIcon}">
                                     <PathIcon.Transitions>
                                         <Transitions>
-                                            <TransformOperationsTransition Property="RenderTransform" Duration="0.1" />
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0.25" />
                                         </Transitions>
                                     </PathIcon.Transitions>
                                 </PathIcon>
@@ -96,7 +109,7 @@
                             BorderBrush="{DynamicResource ExpanderSeparatorBorderBrush}">
                             <ContentPresenter
                                 Name="PART_ContentPresenter"
-                                Margin="{DynamicResource ExpanderContentMargin}"
+                                Padding="{DynamicResource ExpanderContentPadding}"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Content="{TemplateBinding Content}"
@@ -173,7 +186,6 @@
         x:Key="ExpanderCard"
         BasedOn="{StaticResource {x:Type Expander}}"
         TargetType="Expander">
-        <Setter Property="CornerRadius" Value="{DynamicResource ExpanderCardCornerRadius}" />
         <Style Selector="^ /template/ LayoutTransformControl#ExpanderHeaderLayoutContainer">
             <Setter Property="Margin" Value="0" />
         </Style>
@@ -226,4 +238,89 @@
             </Style>
         </Style>
     </ControlTheme>
+
+    <ControlTheme x:Key="INTERNAL_PathPickerExpander" TargetType="Expander">
+        <Setter Property="BorderBrush" Value="{DynamicResource ExpanderSeparatorBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ExpanderContentBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ExpanderCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel>
+                    <Border
+                        Name="ExpanderHeaderBorder"
+                        DockPanel.Dock="Top"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <DockPanel
+                            LastChildFill="True"
+                            HorizontalSpacing="{DynamicResource ExpanderPathPickerHeaderSpacing}">
+                            <ToggleButton
+                                Name="ExpanderHeader"
+                                DockPanel.Dock="Right"
+                                Theme="{DynamicResource ExpanderHeaderToggleButtonTheme}"
+                                CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Right}}"
+                                IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}">
+                                <PathIcon
+                                    Name="PART_PathIcon"
+                                    Data="{DynamicResource ExpanderIcon}"
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Foreground="{DynamicResource ExpanderIconForeground}">
+                                    <PathIcon.Transitions>
+                                        <Transitions>
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0.25" />
+                                        </Transitions>
+                                    </PathIcon.Transitions>
+                                </PathIcon>
+                            </ToggleButton>
+                            <ContentPresenter
+                                Name="PART_HeaderPresenter"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                        </DockPanel>
+                    </Border>
+                    <Border
+                        Name="ExpanderContent"
+                        BorderBrush="{DynamicResource ExpanderSeparatorBorderBrush}">
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{DynamicResource ExpanderContentForeground}"
+                            IsVisible="{TemplateBinding IsExpanded,Mode=TwoWay}" />
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:expanded /template/ PathIcon#PART_PathIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+
+        <Style Selector="^:expanded">
+            <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+                <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter TopRight}}" />
+            </Style>
+            <Style Selector="^ /template/ Border#ExpanderHeaderBorder">
+                <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Top}}" />
+            </Style>
+            <Style Selector="^ /template/ Border#ExpanderContent">
+                <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness, Converter={iri:ThicknessMixerConverter 'Horizontal,Bottom'}}" />
+                <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Bottom}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^ /template/ ToggleButton#ExpanderHeader">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
 </ResourceDictionary>

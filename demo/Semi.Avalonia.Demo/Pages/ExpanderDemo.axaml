@@ -36,6 +36,21 @@
                     <Button Content="Click me" />
                 </StackPanel>
             </Expander>
+            <Expander
+                Theme="{DynamicResource INTERNAL_PathPickerExpander}"
+                Margin="0,16,0,0"
+                IsVisible="{Binding #PathPickerRb.IsChecked}">
+                <Expander.Header>
+                    <Button
+                        Name="PART_Button"
+                        HorizontalAlignment="Stretch"
+                        Content="Select Files" />
+                </Expander.Header>
+                <ListBox>
+                    <ListBoxItem>C:\Program Files</ListBoxItem>
+                    <ListBoxItem>C:\Program Files (x86)</ListBoxItem>
+                </ListBox>
+            </Expander>
         </Panel>
 
         <Border
@@ -54,6 +69,7 @@
                     <TextBlock Text="Theme:" />
                     <RadioButton Name="DefaultRb" GroupName="Theme" IsChecked="True" Content="Default" />
                     <RadioButton Name="CardRb" GroupName="Theme" Content="ExpanderCard" />
+                    <RadioButton Name="PathPickerRb" GroupName="Theme" Content="INTERNAL_PathPickerExpander" />
                 </StackPanel>
 
                 <StackPanel Spacing="4">
