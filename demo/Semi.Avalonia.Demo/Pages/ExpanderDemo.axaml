@@ -10,7 +10,7 @@
     <Grid ColumnDefinitions="*,360">
         <Panel
             Grid.Column="0"
-            Margin="0,0,16,0"
+            Margin="16,0"
             Height="500"
             VerticalAlignment="Top">
             <Expander
@@ -26,7 +26,7 @@
             </Expander>
             <Expander
                 Header="Expander Demo"
-                Theme="{DynamicResource ExpanderCard}"
+                Theme="{DynamicResource CardExpander}"
                 ExpandDirection="{Binding #DirectionCombo.SelectedValue}"
                 Margin="0,16,0,0"
                 IsVisible="{Binding #CardRb.IsChecked}">
@@ -35,6 +35,53 @@
                     <TextBox Text="You can type here..." />
                     <Button Content="Click me" />
                 </StackPanel>
+            </Expander>
+            <Expander
+                Theme="{DynamicResource SplitExpander}"
+                Margin="0,16,0,0"
+                ExpandDirection="{Binding #DirectionCombo.SelectedValue}"
+                IsVisible="{Binding #SplitRb.IsChecked}">
+                <Expander.Header>
+                    <Button
+                        Margin="0,0,2,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Content="Select Files" />
+                </Expander.Header>
+                <ListBox>
+                    <ListBoxItem>C:\Program Files</ListBoxItem>
+                    <ListBoxItem>C:\Program Files (x86)</ListBoxItem>
+                </ListBox>
+            </Expander>
+            <Expander
+                Theme="{DynamicResource CardSplitExpander}"
+                ExpandDirection="{Binding #DirectionCombo.SelectedValue}"
+                Margin="0,16,0,0"
+                IsVisible="{Binding #CardSplitRb.IsChecked}">
+                <Expander.Styles>
+                    <Style Selector="Expander /template/ ToggleButton#ExpanderHeader">
+                        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+                        <Style Selector="^:pointerover">
+                            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+                        </Style>
+                        <Style Selector="^:pressed">
+                            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+                        </Style>
+                    </Style>
+                </Expander.Styles>
+                <Expander.Resources>
+                    <Thickness x:Key="ExpanderContentPadding">0</Thickness>
+                </Expander.Resources>
+                <Expander.Header>
+                    <Button
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Content="Select Files" />
+                </Expander.Header>
+                <ListBox>
+                    <ListBoxItem>C:\Program Files</ListBoxItem>
+                    <ListBoxItem>C:\Program Files (x86)</ListBoxItem>
+                </ListBox>
             </Expander>
         </Panel>
 
@@ -53,7 +100,9 @@
                 <StackPanel Spacing="4">
                     <TextBlock Text="Theme:" />
                     <RadioButton Name="DefaultRb" GroupName="Theme" IsChecked="True" Content="Default" />
-                    <RadioButton Name="CardRb" GroupName="Theme" Content="ExpanderCard" />
+                    <RadioButton Name="CardRb" GroupName="Theme" Content="CardExpander" />
+                    <RadioButton Name="SplitRb" GroupName="Theme" Content="SplitExpander" />
+                    <RadioButton Name="CardSplitRb" GroupName="Theme" Content="CardSplitExpander" />
                 </StackPanel>
 
                 <StackPanel Spacing="4">
