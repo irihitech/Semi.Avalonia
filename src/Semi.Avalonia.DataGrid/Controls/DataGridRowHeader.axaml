@@ -11,11 +11,13 @@
                     ColumnDefinitions="Auto,*"
                     RowDefinitions="*,*,Auto">
                     <Border
+                        Grid.Row="0" 
+                        Grid.Column="0"
                         Grid.RowSpan="3"
                         Grid.ColumnSpan="2"
                         BorderBrush="{TemplateBinding SeparatorBrush}"
                         BorderThickness="0,0,1,0">
-                        <Grid Background="{TemplateBinding Background}">
+                        <Panel Background="{TemplateBinding Background}">
                             <Rectangle
                                 Name="RowInvalidVisualElement"
                                 Fill="{DynamicResource DataGridCellErrorBrush}"
@@ -25,7 +27,7 @@
                                 Name="BackgroundRectangle"
                                 Fill="{DynamicResource DataGridRowBackground}"
                                 Stretch="Fill" />
-                        </Grid>
+                        </Panel>
                     </Border>
                     <Rectangle
                         Name="HorizontalSeparator"
@@ -34,7 +36,6 @@
                         Grid.ColumnSpan="2"
                         Height="{DynamicResource DataGridGridLineThickness}"
                         Margin="1,0,1,0"
-                        HorizontalAlignment="Stretch"
                         Fill="{TemplateBinding SeparatorBrush}"
                         IsVisible="{TemplateBinding AreSeparatorsVisible}" />
 

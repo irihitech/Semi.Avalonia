@@ -28,6 +28,11 @@
                           ScrollViewer.AllowAutoHide="{Binding #autohide.IsChecked}"
                           IsEnabled="{Binding #enable.IsChecked}"
                           ItemsSource="{Binding GridData1}">
+                    <DataGrid.Styles>
+                        <Style Selector="DataGridRow">
+                            <Setter Property="Header" Value="{Binding $self.Index}"/>
+                        </Style>
+                    </DataGrid.Styles>
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="6*"
@@ -48,18 +53,17 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock
-                                        Margin="8,0,0,0"
+                                        Margin="16,0"
                                         VerticalAlignment="Center"
                                         Text="{Binding Duration}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
-
                 </DataGrid>
-
             </Grid>
         </TabItem>
+
         <TabItem Header="Grouping">
             <DataGrid
                 Margin="8"
@@ -90,9 +94,9 @@
                         Header="Duration"
                         SortMemberPath="Duration">
                         <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate x:DataType="vm:Song">
+                            <DataTemplate DataType="vm:Song">
                                 <TextBlock
-                                    Margin="8,0,0,0"
+                                    Margin="16,0"
                                     VerticalAlignment="Center"
                                     Text="{Binding Duration}" />
                             </DataTemplate>
@@ -159,6 +163,7 @@
                                 <DataTemplate>
                                     <NumericUpDown
                                         HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
                                         FormatString="N0"
                                         Minimum="0"
                                         Value="{Binding CountOfComment}" />

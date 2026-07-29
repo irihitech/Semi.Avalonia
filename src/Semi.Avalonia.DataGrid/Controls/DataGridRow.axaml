@@ -18,6 +18,8 @@
 
                         <Border
                             Name="BackgroundBorder"
+                            Grid.Row="0"
+                            Grid.Column="0"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2"
                             Margin="{DynamicResource DataGridRowMargin}"
@@ -25,16 +27,21 @@
                             CornerRadius="{DynamicResource DataGridRowCornerRadius}" />
                         <Rectangle
                             Name="InvalidVisualElement"
+                            Grid.Row="0"
+                            Grid.Column="0"
                             Grid.ColumnSpan="2"
                             Fill="{DynamicResource DataGridRowErrorBackground}"
                             Opacity="0" />
 
                         <DataGridRowHeader
                             Name="PART_RowHeader"
+                            Grid.Row="0"
+                            Grid.Column="0"
                             Grid.RowSpan="3"
                             DataGridFrozenGrid.IsFrozen="True" />
                         <DataGridCellsPresenter
                             Name="PART_CellsPresenter"
+                            Grid.Row="0"
                             Grid.Column="1"
                             DataGridFrozenGrid.IsFrozen="True" />
                         <DataGridDetailsPresenter
@@ -47,7 +54,7 @@
                             Grid.Row="2"
                             Grid.Column="1"
                             Height="{DynamicResource DataGridGridLineThickness}"
-                            HorizontalAlignment="Stretch" />
+                            Fill="{DynamicResource DataGridLineBrush}" />
                     </DataGridFrozenGrid>
                 </Border>
             </ControlTemplate>

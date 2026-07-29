@@ -3,6 +3,7 @@
     <ControlTheme x:Key="DataGridCellTextBlockTheme" TargetType="TextBlock">
         <Setter Property="Margin" Value="{DynamicResource DataGridCellTextBlockDefaultMargin}" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
     </ControlTheme>
 
     <ControlTheme
@@ -10,6 +11,7 @@
         BasedOn="{StaticResource {x:Type TextBox}}"
         TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="MinHeight" Value="20" />
         <Style Selector="^ /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="MinHeight" Value="20" />
@@ -24,8 +26,6 @@
 
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
         <Setter Property="Background" Value="{DynamicResource DataGridCellBackground}" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="MinHeight" Value="{DynamicResource DataGridCellMinHeight}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
@@ -39,8 +39,7 @@
                     <Grid Name="PART_CellRoot" ColumnDefinitions="*,Auto">
                         <Rectangle
                             Name="CurrencyVisual"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
+                            Grid.Column="0"
                             Fill="Transparent"
                             IsHitTestVisible="False"
                             IsVisible="False"
@@ -53,8 +52,6 @@
                             IsVisible="False">
                             <Rectangle
                                 Margin="{DynamicResource DataGridCellVisualBorderThickness}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
                                 Fill="Transparent"
                                 IsHitTestVisible="False"
                                 Stroke="{DynamicResource DataGridCellFocusBorderBrush}"
@@ -73,8 +70,6 @@
                         <Rectangle
                             Name="InvalidVisualElement"
                             Grid.Column="0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             IsVisible="False"
                             Stroke="{DynamicResource DataGridCellErrorBrush}"
@@ -84,7 +79,6 @@
                             Name="PART_RightGridLine"
                             Grid.Column="1"
                             Width="{DynamicResource DataGridGridLineThickness}"
-                            VerticalAlignment="Stretch"
                             Fill="{DynamicResource DataGridLineBrush}" />
                     </Grid>
                 </Border>

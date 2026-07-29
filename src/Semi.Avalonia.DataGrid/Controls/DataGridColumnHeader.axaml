@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
+        <Setter Property="FontWeight" Value="{DynamicResource DataGridColumnHeaderFontWeight}" />
         <Setter Property="Foreground" Value="{DynamicResource DataGridColumnHeaderForeground}" />
         <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderBackground}" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="SeparatorBrush" Value="{DynamicResource DataGridLineBrush}" />
@@ -20,29 +20,30 @@
                     <Grid Name="PART_ColumnHeaderRoot" ColumnDefinitions="*,Auto">
                         <Border
                             Name="HeaderBackground"
+                            Grid.Column="0"
                             Grid.ColumnSpan="2"
-                            Margin="4"
                             CornerRadius="{DynamicResource DataGridColumnHeaderCornerRadius}" />
                         <Grid
+                            Grid.Column="0"
                             ColumnDefinitions="*,Auto"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ContentPresenter
+                                Grid.Column="0"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
                             <PathIcon
                                 Name="SortIcon"
                                 Grid.Column="1"
                                 Theme="{StaticResource InnerPathIcon}"
-                                Margin="0,0,8,0"
-                                Foreground="{TemplateBinding Foreground}" />
+                                Foreground="{TemplateBinding Foreground}" 
+                                IsVisible="False" />
                         </Grid>
                         <Rectangle
                             Name="VerticalSeparator"
                             Grid.Column="1"
                             Width="{DynamicResource DataGridGridLineThickness}"
-                            VerticalAlignment="Stretch"
                             Fill="{TemplateBinding SeparatorBrush}"
                             IsVisible="{TemplateBinding AreSeparatorsVisible}" />
                         <Panel
@@ -52,8 +53,6 @@
                             IsVisible="False">
                             <Rectangle
                                 Margin="{DynamicResource DataGridCellVisualBorderThickness}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
                                 Fill="Transparent"
                                 IsHitTestVisible="False"
                                 Stroke="{DynamicResource DataGridCellFocusBorderBrush}"
@@ -89,28 +88,5 @@
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Data" Value="{DynamicResource DataGridColumnHeaderDescendingGlyph}" />
         </Style>
-    </ControlTheme>
-
-    <ControlTheme
-        x:Key="DataGridTopLeftColumnHeader"
-        BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
-        TargetType="DataGridColumnHeader">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Grid Name="TopLeftHeaderRoot" RowDefinitions="*,*,Auto">
-                    <Border
-                        Grid.RowSpan="2"
-                        BorderBrush="{DynamicResource DataGridLineBrush}"
-                        BorderThickness="0,0,1,0" />
-                    <Rectangle
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Height="{DynamicResource DataGridGridLineThickness}"
-                        VerticalAlignment="Bottom"
-                        Fill="{DynamicResource DataGridLineBrush}"
-                        StrokeThickness="1" />
-                </Grid>
-            </ControlTemplate>
-        </Setter>
     </ControlTheme>
 </ResourceDictionary>
