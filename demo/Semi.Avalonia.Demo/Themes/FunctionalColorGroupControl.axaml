@@ -15,16 +15,18 @@
                         Classes="H3"
                         Text="{TemplateBinding Title}"
                         Theme="{DynamicResource TitleSelectableTextBlock}" />
-                    <TabControl Grid.Row="1">
+                    <TabControl 
+                        Grid.Row="1"
+                        Theme="{DynamicResource LineTabControl}">
                         <TabItem Header="Light">
                             <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightColors}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="70" Header="Color">
+                                    <DataGridTemplateColumn Width="100" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <controls:ColorItemControl
                                                     Width="40"
-                                                    Height="20"
+                                                    Height="40"
                                                     Background="{Binding Brush}"
                                                     CornerRadius="3" />
                                             </DataTemplate>
@@ -34,8 +36,9 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
+                                                    FontWeight="{DynamicResource SemiFontWeightBold}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -44,17 +47,17 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="80" Header="Opacity">
+                                    <DataGridTemplateColumn Width="100" Header="Opacity">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Brush.Opacity}" />
                                             </DataTemplate>
@@ -83,12 +86,12 @@
                         <TabItem Header="Dark">
                             <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding DarkColors}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="70" Header="Color">
+                                    <DataGridTemplateColumn Width="100" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <controls:ColorItemControl
                                                     Width="40"
-                                                    Height="20"
+                                                    Height="40"
                                                     Background="{Binding Brush}"
                                                     CornerRadius="3" />
                                             </DataTemplate>
@@ -98,8 +101,9 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
+                                                    FontWeight="{DynamicResource SemiFontWeightBold}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -108,17 +112,17 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Hex}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="80" Header="Opacity">
+                                    <DataGridTemplateColumn Width="100" Header="Opacity">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding Brush.Opacity}" />
                                             </DataTemplate>
