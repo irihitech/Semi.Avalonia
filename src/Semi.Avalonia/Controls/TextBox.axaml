@@ -610,6 +610,13 @@
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
         </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxLargeHeight}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource TextBoxSmallHeight}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
