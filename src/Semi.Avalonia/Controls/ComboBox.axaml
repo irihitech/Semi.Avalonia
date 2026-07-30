@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iri="https://irihi.tech/shared">
     <Design.PreviewWith>
         <StackPanel Margin="20">
             <ComboBoxItem>Hello World</ComboBoxItem>
@@ -163,9 +164,15 @@
 
         <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
+            <Style Selector="^ /template/ TextBox#PART_EditableTextBox">
+                <Setter Property="iri:ClassHelper.Classes" Value="Large" />
+            </Style>
         </Style>
         <Style Selector="^.Small">
             <Setter Property="MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
+            <Style Selector="^ /template/ TextBox#PART_EditableTextBox">
+                <Setter Property="iri:ClassHelper.Classes" Value="Small" />
+            </Style>
         </Style>
 
         <!--  Pointerover State  -->
