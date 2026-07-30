@@ -51,7 +51,7 @@
                         Classes="H3"
                         Text="Basic Colors"
                         Theme="{DynamicResource TitleTextBlock}" />
-                    <TabControl>
+                    <TabControl Theme="{DynamicResource LineTabControl}">
                         <TabItem Header="Light">
                             <ItemsControl Margin="16" ItemsSource="{Binding LightLists}">
                                 <ItemsControl.ItemsPanel>

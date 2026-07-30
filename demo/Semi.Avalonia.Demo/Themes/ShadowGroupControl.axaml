@@ -15,7 +15,9 @@
                         Classes="H3"
                         Text="{TemplateBinding Title}"
                         Theme="{DynamicResource TitleSelectableTextBlock}" />
-                    <TabControl Grid.Row="1">
+                    <TabControl
+                        Grid.Row="1"
+                        Theme="{DynamicResource LineTabControl}">
                         <TabItem Header="Light">
                             <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightShadows}">
                                 <DataGrid.Columns>
@@ -23,8 +25,9 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
+                                                    FontWeight="{DynamicResource SemiFontWeightBold}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -33,7 +36,7 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding BoxShadowValue}" />
                                             </DataTemplate>
@@ -66,8 +69,9 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
+                                                    FontWeight="{DynamicResource SemiFontWeightBold}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -76,7 +80,7 @@
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ShadowItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="12,0"
+                                                    Margin="16"
                                                     VerticalAlignment="Center"
                                                     Text="{Binding BoxShadowValue}" />
                                             </DataTemplate>

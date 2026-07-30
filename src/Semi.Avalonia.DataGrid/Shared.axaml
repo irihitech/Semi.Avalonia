@@ -1,23 +1,26 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Thickness x:Key="DataGridCellTextBlockDefaultMargin">12 0</Thickness>
+    <Thickness x:Key="DataGridCellTextBlockDefaultMargin">16 0</Thickness>
     <StaticResource x:Key="DataGridCellMinHeight" ResourceKey="SemiHeightControlDefault" />
     <StaticResource x:Key="DataGridCellVisualBorderThickness" ResourceKey="SemiBorderThicknessControl" />
     <StaticResource x:Key="DataGridCellVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
 
-    <Thickness x:Key="DataGridColumnHeaderPadding">12 0 0 0</Thickness>
+    <StaticResource x:Key="DataGridColumnHeaderFontWeight" ResourceKey="SemiFontWeightBold" />
+    <Thickness x:Key="DataGridColumnHeaderPadding">16 8</Thickness>
     <StaticResource x:Key="DataGridColumnHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="DataGridColumnHeaderCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <CornerRadius x:Key="DataGridColumnHeaderCornerRadius">0</CornerRadius>
     <StaticResource x:Key="DataGridColumnHeaderAscendingGlyph" ResourceKey="SemiIconSmallTriangleTop" />
     <StaticResource x:Key="DataGridColumnHeaderDescendingGlyph" ResourceKey="SemiIconSmallTriangleDown" />
 
     <Thickness x:Key="DataGridRowHeaderMargin">8 0</Thickness>
-    <StaticResource x:Key="DataGridRowCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="DataGridRowMargin" ResourceKey="SemiThicknessSuperTight" />
+    <CornerRadius x:Key="DataGridRowCornerRadius">0</CornerRadius>
+    <Thickness x:Key="DataGridRowMargin">0</Thickness>
 
     <StaticResource x:Key="DataGridRowGroupHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
     <StaticResource x:Key="DataGridRowGroupHeaderExpandIconGlyph" ResourceKey="SemiIconChevronRight" />
     <StaticResource x:Key="DataGridRowGroupHeaderVisualStrokeThickness" ResourceKey="SemiBorderSpacingControl" />
 
+    <StaticResource x:Key="DataGridCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="DataGridBorderThickness" ResourceKey="SemiBorderThicknessControl" />
     <StaticResource x:Key="DataGridDisabledCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
 
     <!-- Grid line thickness -->

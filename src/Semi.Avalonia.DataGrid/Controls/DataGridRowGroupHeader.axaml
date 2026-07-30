@@ -1,0 +1,107 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:collections="using:Avalonia.Collections">
+    <ControlTheme x:Key="DataGridRowGroupExpanderButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <PathIcon
+                    Theme="{StaticResource InnerPathIcon}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Data="{DynamicResource DataGridRowGroupHeaderExpandIconGlyph}"
+                    Foreground="{DynamicResource DataGridRowGroupHeaderExpandIconForeground}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:checked /template/ PathIcon">
+            <Setter Property="RenderTransform" Value="rotate(90deg)" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type DataGridRowGroupHeader}" TargetType="DataGridRowGroupHeader">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="{DynamicResource DataGridRowGroupHeaderBackground}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridRowGroupHeaderMinHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate x:DataType="collections:DataGridCollectionViewGroup" TargetType="DataGridRowGroupHeader">
+                <DataGridFrozenGrid
+                    Name="PART_Root"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    Background="{TemplateBinding Background}"
+                    ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                    RowDefinitions="*,Auto">
+                    <Rectangle
+                        Name="PART_IndentSpacer"
+                        Grid.Row="0"
+                        Grid.Column="1" />
+                    <ToggleButton
+                        Name="PART_ExpanderButton"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Margin="12,0,0,0"
+                        Focusable="False"
+                        Theme="{StaticResource DataGridRowGroupExpanderButtonTheme}" />
+                    <StackPanel
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Margin="12,0,0,0"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="4">
+                        <TextBlock
+                            Name="PART_PropertyNameElement"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsVisible="{TemplateBinding IsPropertyNameVisible}" />
+                        <ContentControl
+                            Name="PART_GroupKeyContentControl"
+                            Foreground="{TemplateBinding Foreground}"
+                            Content="{Binding Key}" />
+                        <TextBlock
+                            Name="PART_ItemCountElement"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsVisible="{TemplateBinding IsItemCountVisible}" />
+                    </StackPanel>
+
+                    <Rectangle
+                        Name="CurrencyVisual"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Fill="Transparent"
+                        IsHitTestVisible="False"
+                        IsVisible="False"
+                        Stroke="{DynamicResource DataGridRowGroupHeaderCurrentBorderBrush}"
+                        StrokeThickness="{DynamicResource DataGridRowGroupHeaderVisualStrokeThickness}" />
+                    <Panel
+                        Name="FocusVisual"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        IsHitTestVisible="False"
+                        IsVisible="False">
+                        <Rectangle
+                            Margin="{DynamicResource DataGridCellVisualBorderThickness}"
+                            Fill="Transparent"
+                            IsHitTestVisible="False"
+                            Stroke="{DynamicResource DataGridCellFocusBorderBrush}"
+                            StrokeThickness="{DynamicResource DataGridCellVisualStrokeThickness}" />
+                    </Panel>
+
+                    <DataGridRowHeader
+                        Name="PART_RowHeader"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        DataGridFrozenGrid.IsFrozen="True" />
+
+                    <Rectangle
+                        Name="PART_BottomGridLine"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="5"
+                        Height="{DynamicResource DataGridGridLineThickness}"
+                        Fill="{DynamicResource DataGridLineBrush}" />
+                </DataGridFrozenGrid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
