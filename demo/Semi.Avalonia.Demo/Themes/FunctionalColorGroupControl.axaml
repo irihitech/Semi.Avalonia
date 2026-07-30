@@ -21,7 +21,7 @@
                         <TabItem Header="Light">
                             <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightColors}">
                                 <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="100" Header="Color">
+                                    <DataGridTemplateColumn Width="70" Header="Color">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:ColorItemViewModel">
                                                 <controls:ColorItemControl

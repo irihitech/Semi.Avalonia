@@ -6,6 +6,7 @@
              xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
              xmlns:cvt="clr-namespace:Semi.Avalonia.Demo.Converters"
              xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+             xmlns:iri="https://irihi.tech/shared"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
              x:DataType="vm:HighContrastDemoViewModel"
              x:Class="Semi.Avalonia.Demo.Pages.HighContrastDemo">
@@ -247,61 +248,62 @@
                         ItemsSource="{Binding ColorResources}"
                         GridLinesVisibility="All"
                         BorderBrush="{DynamicResource SemiColorBorder}"
-                        BorderThickness="1"
-                        Padding="5">
+                        BorderThickness="1">
+                        <DataGrid.Styles>
+                            <Style Selector="SelectableTextBlock">
+                                <Setter Property="Margin" Value="16" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </DataGrid.Styles>
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Color">
+                            <DataGridTemplateColumn Width="70" Header="Color">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <controls:ColorItemControl
                                             Width="40"
-                                            Height="20"
+                                            Height="40"
                                             CornerRadius="3"
                                             Background="{Binding Brush}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="ResourceKey">
+                            <DataGridTemplateColumn Width="200" Header="ResourceKey">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
+                                            FontWeight="{DynamicResource SemiFontWeightBold}"
                                             Text="{Binding ResourceKey}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Hex">
+                            <DataGridTemplateColumn Width="100" Header="Hex">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
                                             Text="{Binding Brush,
                                                 Converter={x:Static cvt:ColorConverter.ToHex},ConverterParameter={x:False}}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Description">
+                            <DataGridTemplateColumn Width="*" Header="Description">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            MaxLines="5"
                                             Text="{Binding Description}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Pair With">
+                            <DataGridTemplateColumn Width="200" Header="Pair With">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
+                                            FontWeight="{DynamicResource SemiFontWeightBold}"
                                             Text="{Binding PairWith}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
