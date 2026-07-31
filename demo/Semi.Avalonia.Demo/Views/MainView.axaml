@@ -33,9 +33,11 @@
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Padding" Value="12,8" />
             <Setter Property="Foreground" Value="{DynamicResource SemiColorText0}" />
+            <Setter Property="FontWeight" Value="Normal" />
         </Style>
         <Style Selector="Button.NavItem.Selected">
             <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimary}" />
+            <Setter Property="FontWeight" Value="{DynamicResource SemiFontWeightBold}" />
         </Style>
     </UserControl.Styles>
 
@@ -84,7 +86,6 @@
                                                 <Border Classes="NavItemHost" Classes.Selected="{Binding IsSelected}">
                                                     <Button
                                                         Classes="NavItem"
-                                                        FontWeight="Normal"
                                                         Classes.Selected="{Binding IsSelected}"
                                                         Command="{Binding NavigateCommand}"
                                                         CommandParameter="{Binding}"
