@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
              xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:iri="https://irihi.tech/shared"
+             mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="450"
              x:Class="Semi.Avalonia.Demo.Pages.VariablesDemo"
              x:DataType="vm:VariablesDemoViewModel">
     <Design.DataContext>
@@ -17,7 +18,7 @@
             Margin="8"
             Classes="ClearButton"
             Text="{Binding SearchText}"
-            PlaceholderText="Input Variable Category/ResourceKey/Type/Value/Description" />
+            PlaceholderText="Input Variable Category/ResourceKey/Type/Value" />
 
         <DataGrid
             Grid.Row="1"
@@ -28,64 +29,139 @@
             HeadersVisibility="All"
             IsReadOnly="True"
             ItemsSource="{Binding GridData}">
+            <DataGrid.Styles>
+                <Style Selector="SelectableTextBlock">
+                    <Setter Property="Margin" Value="16" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+            </DataGrid.Styles>
             <DataGrid.Columns>
                 <DataGridTemplateColumn
                     Width="300"
-                    x:DataType="vm:VariableItem"
                     Header="ResourceKey">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="vm:VariableItem">
                             <SelectableTextBlock
-                                Margin="12,0"
-                                VerticalAlignment="Center"
-                                Text="{Binding ResourceKey}" />
+                                Text="{Binding ResourceKey}"
+                                FontWeight="{DynamicResource SemiFontWeightBold}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn
-                    Width="200"
-                    x:DataType="vm:VariableItem"
+                    Width="150"
                     Header="Type">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="vm:VariableItem">
-                            <SelectableTextBlock
-                                Margin="12,0"
-                                VerticalAlignment="Center"
-                                Text="{Binding Type.Name}" />
+                            <SelectableTextBlock Text="{Binding Type?.Name}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn
                     Width="200"
-                    x:DataType="vm:VariableItem"
                     Header="Value">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="vm:VariableItem">
                             <SelectableTextBlock
-                                Margin="12,0"
-                                VerticalAlignment="Center"
                                 Text="{Binding Value}"
                                 TextWrapping="Wrap" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn
-                    Width="*"
-                    x:DataType="vm:VariableItem"
-                    Header="Description">
+                    Width="150"
+                    Header="Display">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="vm:VariableItem">
-                            <SelectableTextBlock
-                                Margin="12,0"
+                            <ContentControl
+                                Margin="16"
+                                HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                Text="{Binding Description}"
-                                TextWrapping="Wrap" />
+                                Content="{Binding Display}">
+                                <ContentControl.DataTemplates>
+                                    <DataTemplate DataType="vm:HeightPreview">
+                                        <Border
+                                            Width="64"
+                                            Height="{Binding Height}"
+                                            Background="{DynamicResource SemiColorPrimary}"
+                                            CornerRadius="{DynamicResource SemiBorderRadiusSmall}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="vm:IconSizePreview">
+                                        <PathIcon
+                                            Width="{Binding Size}"
+                                            Height="{Binding Size}"
+                                            Theme="{DynamicResource InnerPathIcon}"
+                                            Data="{StaticResource SemiIconSemiLogo}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="x:Double">
+                                        <Border
+                                            Height="{DynamicResource SemiSpacingBaseLoose}"
+                                            Background="{DynamicResource SemiColorPrimary}"
+                                            CornerRadius="{DynamicResource SemiBorderRadiusSmall}"
+                                            Width="{Binding}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="vm:BorderRadiusPreview">
+                                        <Border
+                                            Width="64"
+                                            Height="32"
+                                            Background="{DynamicResource SemiColorPrimary}"
+                                            CornerRadius="{Binding Radius}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="CornerRadius">
+                                        <Border
+                                            Width="64"
+                                            Height="32"
+                                            Background="{DynamicResource SemiColorPrimary}"
+                                            CornerRadius="{Binding}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="vm:BorderSpacingPreview">
+                                        <Border
+                                            Width="100"
+                                            Height="32"
+                                            Background="{DynamicResource SemiColorPrimaryLight}"
+                                            BorderBrush="{DynamicResource SemiColorPrimary}"
+                                            BorderThickness="{Binding Thickness}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="vm:BorderThicknessPreview">
+                                        <Border
+                                            Width="100"
+                                            Height="32"
+                                            Background="{DynamicResource SemiColorPrimaryLight}"
+                                            BorderBrush="{DynamicResource SemiColorPrimary}"
+                                            BorderThickness="{Binding Thickness}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="Thickness">
+                                        <Border
+                                            Width="100"
+                                            Height="32"
+                                            Background="{DynamicResource SemiColorPrimaryLight}"
+                                            BorderBrush="{DynamicResource SemiColorPrimary}"
+                                            BorderThickness="{Binding Converter={iri:ThicknessMixerConverter Horizontal}}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="vm:FontSizePreview">
+                                        <TextBlock
+                                            FontSize="{Binding Size}"
+                                            Text="Aa" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="FontWeight">
+                                        <TextBlock
+                                            FontSize="24"
+                                            FontWeight="{Binding}"
+                                            Text="Aa" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="FontFamily">
+                                        <TextBlock
+                                            FontSize="24"
+                                            FontFamily="{Binding}"
+                                            Text="Aa" />
+                                    </DataTemplate>
+                                </ContentControl.DataTemplates>
+                            </ContentControl>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn Width="*" Header="Description"/>
                 <DataGridTemplateColumn
                     Width="100"
-                    x:DataType="vm:VariableItem"
                     Header="CopyText">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate DataType="vm:VariableItem">
