@@ -23,12 +23,12 @@
                         Margin="1,1,0,1"
                         MinWidth="{Binding $self.Bounds.Height}"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                        CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
                     <Border
                         Margin="1,1,0,1"
                         MinWidth="{Binding $self.Bounds.Height}"
-                        Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                        Background="{Binding $parent[ColorPicker].HsvColor, Converter={StaticResource ToBrushConverter}, Mode=OneWay}"
+                        CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
                 </Panel>
             </Template>
         </Setter>
