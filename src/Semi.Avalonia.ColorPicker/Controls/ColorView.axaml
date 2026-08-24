@@ -1,18 +1,11 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="https://irihi.tech/semi">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Design.PreviewWith>
         <StackPanel>
             <ColorView
                 SelectedIndex="2"
-                IsAlphaVisible="True"
-                IsAlphaEnabled="True"
-                ColorModel="Hsva"
-                HsvColor="hsv(120,7%,90%)" />
-            <ColorView
-                Theme="{DynamicResource SimpleColorView}"
                 IsAlphaVisible="True"
                 IsAlphaEnabled="True"
                 ColorModel="Hsva"
@@ -258,8 +251,7 @@
                                     HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                     IsVisible="{TemplateBinding IsAlphaVisible}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                    Orientation="Vertical">
-                                </ColorSlider>
+                                    Orientation="Vertical" />
                             </Grid>
                         </TabItem>
                         <!--  Palette Tab  -->
@@ -547,151 +539,6 @@
             <Style Selector="^ /template/ NumericUpDown#AlphaComponentNumericUpDown">
                 <Setter Property="Tag" Value="A" />
             </Style>
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="SimpleColorView" TargetType="ColorView">
-        <Setter Property="HexInputAlphaPosition" Value="Trailing" />
-        <Setter Property="Width" Value="280" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="ColorView">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" MinHeight="280" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <!--  Spectrum Tab  -->
-                    <Border
-                        Grid.Row="0"
-                        CornerRadius="8 8 0 0"
-                        ClipToBounds="True">
-                        <ColorSpectrum
-                            Name="ColorSpectrum"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            CornerRadius="8 8 0 0"
-                            Components="{TemplateBinding ColorSpectrumComponents}"
-                            HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
-                            MaxHue="{TemplateBinding MaxHue}"
-                            MaxSaturation="{TemplateBinding MaxSaturation}"
-                            MaxValue="{TemplateBinding MaxValue}"
-                            MinHue="{TemplateBinding MinHue}"
-                            MinSaturation="{TemplateBinding MinSaturation}"
-                            MinValue="{TemplateBinding MinValue}"
-                            Shape="{TemplateBinding ColorSpectrumShape}" />
-                    </Border>
-                    <ColorSlider
-                        Name="ColorSpectrumThirdComponentSlider"
-                        Grid.Row="1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Center"
-                        AutomationProperties.Name="Third Component"
-                        ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
-                        ColorModel="Hsva"
-                        HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
-                        IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
-                        Orientation="Horizontal" />
-
-                    <ColorSlider
-                        Name="ColorSpectrumAlphaSlider"
-                        Grid.Row="2"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Center"
-                        AutomationProperties.Name="Alpha Component"
-                        ColorComponent="Alpha"
-                        ColorModel="Hsva"
-                        HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
-                        IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                        IsVisible="{TemplateBinding IsAlphaVisible}"
-                        IsRoundingEnabled="True"
-                        IsSnapToTickEnabled="True"
-                        TickFrequency="1"
-                        Orientation="Horizontal" />
-                    <StackPanel
-                        Grid.Row="3"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal"
-                        Margin="0 8 0 0">
-                        <Border
-                            Background="{TemplateBinding Color, Converter={StaticResource ToBrushConverter}}"
-                            Width="20"
-                            Height="20"
-                            CornerRadius="4" />
-                        <Panel
-                            Name="PART_TextBoxPanel"
-                            Width="116"
-                            Margin="4 0 0 0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center">
-                            <TextBox
-                                Name="PART_HexTextBox"
-                                AutomationProperties.Name="Hexadecimal Color"
-                                Classes="Small"
-                                CornerRadius="3 0 0 3"
-                                InnerLeftContent="#"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter=Hex}"
-                                MaxLength="8">
-                                <TextBox.Resources>
-                                    <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 4 0</Thickness>
-                                </TextBox.Resources>
-                            </TextBox>
-                            <TextBox
-                                Name="PART_RgbaTextBox"
-                                Classes="Small"
-                                CornerRadius="3 0 0 3"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
-                                Text="{TemplateBinding Color, Converter={semi:ColorToTextConverter}, Mode=TwoWay}" />
-                            <TextBox
-                                Name="PART_HsvaTextBox"
-                                Classes="Small"
-                                CornerRadius="3 0 0 3"
-                                IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
-                                Text="{TemplateBinding HsvColor, Converter={semi:HsvColorToTextConverter}, Mode=TwoWay}" />
-                        </Panel>
-
-                        <NumericUpDown
-                            Name="AlphaComponentNumericUpDown"
-                            Width="60"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            AllowSpin="True"
-                            CornerRadius="0"
-                            Classes="Small"
-                            IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                            Maximum="{Binding #ColorSpectrumAlphaSlider.Maximum}"
-                            Minimum="{Binding #ColorSpectrumAlphaSlider.Minimum}"
-                            NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
-                            ShowButtonSpinner="False"
-                            InnerRightContent="%"
-                            IsVisible="{TemplateBinding IsAlphaVisible}"
-                            Value="{Binding #ColorSpectrumAlphaSlider.Value,Converter={StaticResource DoNothingForNullConverter}}">
-                            <NumericUpDown.Resources>
-                                <Thickness x:Key="TextBoxContentPadding">12 0 4 0</Thickness>
-                                <Thickness x:Key="TextBoxInnerRightContentPadding">4 0 0 0</Thickness>
-                            </NumericUpDown.Resources>
-                        </NumericUpDown>
-                        <ComboBox
-                            Name="ColorModelComboBox"
-                            Width="80"
-                            CornerRadius="0 3 3 0"
-                            VerticalAlignment="Center"
-                            Classes="Small"
-                            SelectedValue="Hex">
-                            <x:String>Hex</x:String>
-                            <ColorModel>Rgba</ColorModel>
-                            <ColorModel>Hsva</ColorModel>
-                        </ComboBox>
-                    </StackPanel>
-                </Grid>
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^[IsAlphaVisible=False] /template/ Panel#PART_TextBoxPanel">
-            <Setter Property="Width" Value="176" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
