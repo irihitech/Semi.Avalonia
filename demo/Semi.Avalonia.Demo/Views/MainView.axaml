@@ -114,30 +114,23 @@
                     Command="{Binding OpenUrlCommand}"
                     CommandParameter="{Binding DocumentationUrl}"
                     Content="{StaticResource SemiIconGlobe}"
-                    Theme="{DynamicResource IconBorderlessButton}" />
+                    Theme="{DynamicResource SquareButton}" />
 
                 <Button
                     Command="{Binding OpenUrlCommand}"
                     CommandParameter="{Binding RepoUrl}"
                     Content="{StaticResource SemiIconGithubLogo}"
-                    Theme="{DynamicResource IconBorderlessButton}" />
+                    Theme="{DynamicResource SquareButton}" />
 
-                <ToggleButton
+                <ToggleSwitch
                     Command="{Binding ToggleThemeCommand}"
-                    Theme="{DynamicResource IconBorderlessButton}">
-                    <ToggleButton.Styles>
-                        <Style Selector="ToggleButton:unchecked">
-                            <Setter Property="Content" Value="{StaticResource SemiIconSun}" />
-                        </Style>
-                        <Style Selector="ToggleButton:checked">
-                            <Setter Property="Content" Value="{StaticResource SemiIconMoon}" />
-                        </Style>
-                    </ToggleButton.Styles>
-                </ToggleButton>
+                    OffContent="{StaticResource SemiIconSun}"
+                    OnContent="{StaticResource SemiIconMoon}"
+                    Theme="{DynamicResource SquareToggleSwitch}" />
 
                 <Button
                     Content="{StaticResource SemiIconMenu}"
-                    Theme="{DynamicResource IconBorderlessButton}">
+                    Theme="{DynamicResource SquareButton}">
                     <Button.Flyout>
                         <MenuFlyout ItemsSource="{Binding MenuItems}" Placement="Bottom" />
                     </Button.Flyout>
