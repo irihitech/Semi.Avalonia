@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme x:Key="GlyphButton" TargetType="Button">
-        <Setter Property="Width" Value="{DynamicResource SemiWidthIconMedium}" />
-        <Setter Property="Height" Value="{DynamicResource SemiWidthIconMedium}" />
+        <Setter Property="Width" Value="{DynamicResource GlyphButtonWidth}" />
+        <Setter Property="Height" Value="{DynamicResource GlyphButtonWidth}" />
         <Setter Property="Foreground" Value="{DynamicResource GlyphButtonForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
@@ -108,8 +108,8 @@
     <ControlTheme x:Key="SquareButton" TargetType="Button">
         <Setter Property="Width" Value="{DynamicResource ButtonDefaultHeight}" />
         <Setter Property="Height" Value="{DynamicResource ButtonDefaultHeight}" />
-        <Setter Property="Padding" Value="8" />
-        <Setter Property="Foreground" Value="{DynamicResource SemiColorText1}" />
+        <Setter Property="Padding" Value="{DynamicResource SquareButtonPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource SquareButtonForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
         <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
@@ -162,13 +162,13 @@
         <Style Selector="^.Large">
             <Setter Property="Width" Value="{DynamicResource ButtonLargeHeight}" />
             <Setter Property="Height" Value="{DynamicResource ButtonLargeHeight}" />
-            <Setter Property="Padding" Value="12" />
+            <Setter Property="Padding" Value="{DynamicResource SquareButtonLargePadding}" />
         </Style>
 
         <Style Selector="^.Small">
             <Setter Property="Width" Value="{DynamicResource ButtonSmallHeight}" />
             <Setter Property="Height" Value="{DynamicResource ButtonSmallHeight}" />
-            <Setter Property="Padding" Value="4" />
+            <Setter Property="Padding" Value="{DynamicResource SquareButtonSmallPadding}" />
         </Style>
     </ControlTheme>
 
