@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="GlyphButton" TargetType="Button">
+        <Setter Property="Width" Value="{DynamicResource SemiWidthIconMedium}" />
+        <Setter Property="Height" Value="{DynamicResource SemiWidthIconMedium}" />
+        <Setter Property="Foreground" Value="{DynamicResource SemiColorText2}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Panel
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimaryPointerover}" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimaryActive}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="GlyphToggleSwitch"
+        BasedOn="{StaticResource GlyphButton}"
+        TargetType="ToggleSwitch">
+
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Content" Value="{x:Null}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Panel
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        Content="{TemplateBinding OffContent}"
+                        ContentTemplate="{TemplateBinding OffContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon Theme="{DynamicResource InnerPathIcon}" Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Content="{TemplateBinding OnContent}"
+                        ContentTemplate="{TemplateBinding OnContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon Theme="{DynamicResource InnerPathIcon}" Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter.IsVisible>
+                            <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                <TemplateBinding Property="Content" Converter="{x:Static ObjectConverters.IsNotNull}" />
+                                <TemplateBinding Property="OnContent" Converter="{x:Static ObjectConverters.IsNull}" />
+                                <TemplateBinding Property="OffContent" Converter="{x:Static ObjectConverters.IsNull}" />
+                            </MultiBinding>
+                        </ContentPresenter.IsVisible>
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon Theme="{DynamicResource InnerPathIcon}" Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <Panel Name="PART_SwitchKnob" />
+                    <Panel Name="PART_MovingKnobs" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

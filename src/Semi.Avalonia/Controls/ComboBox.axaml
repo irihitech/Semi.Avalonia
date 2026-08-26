@@ -99,7 +99,7 @@
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
-                            Theme="{DynamicResource InnerIconButton}"
+                            Theme="{DynamicResource GlyphButton}"
                             Width="{DynamicResource ComboBoxIconWidth}"
                             Command="{Binding $parent[ComboBox].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
@@ -109,7 +109,7 @@
                         <PathIcon
                             Name="DropDownGlyph"
                             Grid.Column="1"
-                            Theme="{DynamicResource InnerPathIcon}"
+                            Theme="{DynamicResource GlyphButton}"
                             Width="{DynamicResource ComboBoxIconWidth}"
                             Data="{DynamicResource ComboBoxIcon}"
                             Foreground="{DynamicResource ComboBoxIconDefaultForeground}"
