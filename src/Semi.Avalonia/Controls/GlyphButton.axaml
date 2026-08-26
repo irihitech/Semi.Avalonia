@@ -3,15 +3,12 @@
     <ControlTheme x:Key="GlyphButton" TargetType="Button">
         <Setter Property="Width" Value="{DynamicResource SemiWidthIconMedium}" />
         <Setter Property="Height" Value="{DynamicResource SemiWidthIconMedium}" />
-        <Setter Property="Foreground" Value="{DynamicResource SemiColorText2}" />
+        <Setter Property="Foreground" Value="{DynamicResource GlyphButtonForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
-                <Panel
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Background="{TemplateBinding Background}">
+                <Panel Background="{TemplateBinding Background}">
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Content="{TemplateBinding Content}"
@@ -34,80 +31,13 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimaryPointerover}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlyphButtonPointeroverForeground}" />
         </Style>
         <Style Selector="^:pressed /template/ ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimaryActive}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlyphButtonPressedForeground}" />
         </Style>
-        <Style Selector="^.Primary">
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimary}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimaryPointerover}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimaryActive}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Secondary">
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorSecondary}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorSecondaryPointerover}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorSecondaryActive}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Tertiary">
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorText1}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorText2}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorText3}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Success">
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorSuccess}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorSuccessPointerover}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorSuccessActive}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Warning">
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorWarning}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorWarningPointerover}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorWarningActive}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Danger">
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorDanger}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorDangerPointerover}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource SemiColorDangerActive}" />
-            </Style>
-        </Style>
-
         <Style Selector="^:disabled /template/ ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorDisabledText}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlyphButtonDisabledForeground}" />
         </Style>
     </ControlTheme>
 
@@ -115,16 +45,12 @@
         x:Key="GlyphToggleSwitch"
         BasedOn="{StaticResource GlyphButton}"
         TargetType="ToggleSwitch">
-
         <Setter Property="OnContent" Value="{x:Null}" />
         <Setter Property="OffContent" Value="{x:Null}" />
         <Setter Property="Content" Value="{x:Null}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleSwitch">
-                <Panel
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Background="{TemplateBinding Background}">
+                <Panel Background="{TemplateBinding Background}">
                     <ContentPresenter
                         Name="PART_OffContentPresenter"
                         Content="{TemplateBinding OffContent}"
@@ -133,7 +59,9 @@
                         IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}">
                         <ContentPresenter.DataTemplates>
                             <DataTemplate DataType="Geometry">
-                                <PathIcon Theme="{DynamicResource InnerPathIcon}" Data="{Binding}" />
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
                             </DataTemplate>
                         </ContentPresenter.DataTemplates>
                     </ContentPresenter>
@@ -145,7 +73,9 @@
                         IsVisible="{TemplateBinding IsChecked}">
                         <ContentPresenter.DataTemplates>
                             <DataTemplate DataType="Geometry">
-                                <PathIcon Theme="{DynamicResource InnerPathIcon}" Data="{Binding}" />
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
                             </DataTemplate>
                         </ContentPresenter.DataTemplates>
                     </ContentPresenter>
@@ -156,14 +86,15 @@
                         Foreground="{TemplateBinding Foreground}">
                         <ContentPresenter.IsVisible>
                             <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                <TemplateBinding Property="Content" Converter="{x:Static ObjectConverters.IsNotNull}" />
-                                <TemplateBinding Property="OnContent" Converter="{x:Static ObjectConverters.IsNull}" />
-                                <TemplateBinding Property="OffContent" Converter="{x:Static ObjectConverters.IsNull}" />
+                                <TemplateBinding Property="IsThreeState" />
+                                <TemplateBinding Property="IsChecked" Converter="{x:Static ObjectConverters.IsNull}" />
                             </MultiBinding>
                         </ContentPresenter.IsVisible>
                         <ContentPresenter.DataTemplates>
                             <DataTemplate DataType="Geometry">
-                                <PathIcon Theme="{DynamicResource InnerPathIcon}" Data="{Binding}" />
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
                             </DataTemplate>
                         </ContentPresenter.DataTemplates>
                     </ContentPresenter>
