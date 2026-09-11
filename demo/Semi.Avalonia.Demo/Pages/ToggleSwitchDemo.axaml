@@ -78,39 +78,5 @@
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="〇" OnContent="｜" Classes="Large" IsChecked="True" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <ToggleSwitch
-                HorizontalAlignment="Left"
-                Padding="{StaticResource SemiThicknessTight}"
-                Width="{StaticResource SemiSpacingExtraLoose}"
-                Height="{StaticResource SemiSpacingExtraLoose}"
-                Theme="{DynamicResource ButtonToggleSwitch}"
-                Foreground="{DynamicResource ButtonDefaultTertiaryForeground}">
-                <ToggleSwitch.Content>
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{StaticResource SemiIconSidebar}" />
-                </ToggleSwitch.Content>
-            </ToggleSwitch>
-            <ToggleSwitch
-                HorizontalAlignment="Left"
-                Padding="{StaticResource SemiThicknessTight}"
-                Width="{StaticResource SemiSpacingExtraLoose}"
-                Height="{StaticResource SemiSpacingExtraLoose}"
-                Theme="{DynamicResource ButtonToggleSwitch}"
-                Foreground="{DynamicResource ButtonDefaultTertiaryForeground}">
-                <ToggleSwitch.OnContent>
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{StaticResource SemiIconSun}" />
-                </ToggleSwitch.OnContent>
-                <ToggleSwitch.OffContent>
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{StaticResource SemiIconMoon}" />
-                </ToggleSwitch.OffContent>
-            </ToggleSwitch>
-        </StackPanel>
-
     </StackPanel>
 </UserControl>

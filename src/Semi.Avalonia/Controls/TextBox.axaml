@@ -134,14 +134,16 @@
                                 Content="{DynamicResource IconButtonClearData}"
                                 IsVisible="False"
                                 Focusable="False"
-                                Theme="{StaticResource InnerIconButton}" />
-                            <ToggleButton
+                                Theme="{StaticResource GlyphButton}" />
+                            <ToggleSwitch
                                 Name="PART_RevealButton"
                                 Grid.Column="3"
                                 Margin="4,0,0,0"
                                 IsChecked="{TemplateBinding RevealPassword, Mode=TwoWay}"
                                 IsVisible="False"
-                                Theme="{StaticResource InputToggleButton}" />
+                                OnContent="{DynamicResource PasswordBoxHideButtonData}"
+                                OffContent="{DynamicResource PasswordBoxRevealButtonData}"
+                                Theme="{StaticResource GlyphToggleSwitch}" />
                             <ContentPresenter
                                 Grid.Column="4"
                                 Padding="{DynamicResource TextBoxInnerRightContentPadding}"
@@ -208,7 +210,7 @@
 
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="•" />
-            <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
+            <Style Selector="^ /template/ ToggleSwitch#PART_RevealButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
@@ -373,14 +375,16 @@
                                 Content="{DynamicResource IconButtonClearData}"
                                 IsVisible="False"
                                 Focusable="False"
-                                Theme="{StaticResource InnerIconButton}" />
-                            <ToggleButton
+                                Theme="{StaticResource GlyphButton}" />
+                            <ToggleSwitch
                                 Name="PART_RevealButton"
                                 Grid.Column="3"
                                 Margin="4,0,0,0"
                                 IsChecked="{TemplateBinding RevealPassword, Mode=TwoWay}"
                                 IsVisible="False"
-                                Theme="{StaticResource InputToggleButton}" />
+                                OnContent="{DynamicResource PasswordBoxHideButtonData}"
+                                OffContent="{DynamicResource PasswordBoxRevealButtonData}"
+                                Theme="{StaticResource GlyphToggleSwitch}" />
                             <ContentPresenter
                                 Grid.Column="4"
                                 Padding="{DynamicResource TextBoxInnerRightContentPadding}"
@@ -447,7 +451,7 @@
 
         <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="•" />
-            <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
+            <Style Selector="^ /template/ ToggleSwitch#PART_RevealButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
@@ -618,37 +622,4 @@
             <Setter Property="MinHeight" Value="{DynamicResource TextBoxSmallHeight}" />
         </Style>
     </ControlTheme>
-
-    <ControlTheme x:Key="InputToggleButton" TargetType="ToggleButton">
-        <Setter Property="Width" Value="16" />
-        <Setter Property="Height" Value="16" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
-        <!--  Background must be transparent or hit test will fail  -->
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="ToggleButton">
-                <Panel
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Background="{TemplateBinding Background}">
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{DynamicResource PasswordBoxRevealButtonData}"
-                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}" />
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{DynamicResource PasswordBoxHideButtonData}"
-                        IsVisible="{TemplateBinding IsChecked}" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPointeroverForeground}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPressedForeground}" />
-        </Style>
-    </ControlTheme>
-
 </ResourceDictionary>

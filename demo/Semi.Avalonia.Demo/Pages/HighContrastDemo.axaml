@@ -22,11 +22,11 @@
         PanePlacement="Right">
         <SplitView.Pane>
             <StackPanel>
-                <ToggleSwitch
+                <ToggleButton
                     Name="toggle"
                     HorizontalAlignment="Right"
                     IsChecked="True"
-                    Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                    Theme="{DynamicResource SquareButton}"
                     Content="{StaticResource SemiIconSidebar}" />
                 <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
                     <Panel>
@@ -315,7 +315,7 @@
                                         <Button
                                             Command="{Binding $parent[pages:HighContrastDemo].Copy}"
                                             CommandParameter="{Binding CopyText}"
-                                            Theme="{DynamicResource  IconBorderlessButton}"
+                                            Theme="{DynamicResource  SquareButton}"
                                             Content="{StaticResource SemiIconCopy}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
