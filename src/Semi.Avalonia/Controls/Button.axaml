@@ -395,29 +395,4 @@
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
         </Style>
     </ControlTheme>
-
-    <ControlTheme x:Key="InnerIconButton" TargetType="Button">
-        <Setter Property="Width" Value="{DynamicResource SemiWidthIconMedium}" />
-        <Setter Property="Height" Value="{DynamicResource SemiWidthIconMedium}" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="Button">
-                <PathIcon
-                    Theme="{DynamicResource InnerPathIcon}"
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Data="{TemplateBinding Content}"
-                    Foreground="{TemplateBinding Foreground}"
-                    Background="{TemplateBinding Background}" />
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPointeroverForeground}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPressedForeground}" />
-        </Style>
-    </ControlTheme>
 </ResourceDictionary>

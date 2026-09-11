@@ -114,10 +114,10 @@
                 <SplitView.Pane>
                     <Grid RowDefinitions="Auto,*,Auto">
                         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="8 12">
-                            <ToggleSwitch
+                            <ToggleButton
                                 Content="{StaticResource SemiIconSidebar}"
                                 IsChecked="{Binding #SplitView.IsPaneOpen}"
-                                Theme="{DynamicResource IconBorderlessToggleSwitch}" />
+                                Theme="{DynamicResource SquareButton}" />
                             <TextBlock
                                 Name="PaneHeader"
                                 VerticalAlignment="Center"
