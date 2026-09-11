@@ -96,7 +96,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -104,7 +104,7 @@ jobs:
       - name: Publish win-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.win-x64
           path: |
@@ -116,7 +116,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -126,7 +126,7 @@ jobs:
       - name: Publish win-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.win-x64.NativeAOT
           path: |
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -146,7 +146,7 @@ jobs:
       - name: Publish linux-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.linux-x64
           path: |
@@ -158,7 +158,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -168,7 +168,7 @@ jobs:
       - name: Publish linux-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.linux-x64.NativeAOT
           path: |
@@ -180,7 +180,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -188,7 +188,7 @@ jobs:
       - name: Publish linux-x64 DRM
         run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Drm.linux-x64
           path: |
@@ -200,7 +200,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -210,7 +210,7 @@ jobs:
       - name: Publish linux-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Drm.linux-x64.NativeAOT
           path: |
@@ -222,7 +222,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
@@ -259,7 +259,7 @@ jobs:
             "dmg_stage"
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-arm64
           path: |
@@ -267,7 +267,7 @@ jobs:
             !publish/*.pdb
 
       - name: Upload macOS DMG
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-arm64.dmg
           path: Semi.Avalonia.Demo.Desktop.osx-arm64.dmg
@@ -277,7 +277,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
@@ -314,7 +314,7 @@ jobs:
             "dmg_stage"
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-x64
           path: |
@@ -322,7 +322,7 @@ jobs:
             !publish/*.pdb
 
       - name: Upload macOS DMG (Intel)
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-x64.dmg
           path: Semi.Avalonia.Demo.Desktop.osx-x64.dmg
@@ -332,7 +332,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
@@ -344,7 +344,7 @@ jobs:
       - name: Publish osx-arm64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-arm64.NativeAOT
           path: |
@@ -356,7 +356,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
@@ -368,7 +368,7 @@ jobs:
       - name: Publish osx-x64 AOT
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-x64 -c Release -o publish
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: Semi.Avalonia.Demo.Desktop.osx-x64.NativeAOT
           path: |
@@ -380,7 +380,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v5
         with:
@@ -392,7 +392,7 @@ jobs:
       - name: Publish Android
         run: dotnet publish demo/Semi.Avalonia.Demo.Android -c Release -f net10.0-android --no-restore -o publish /p:RuntimeIdentifier=android-arm64
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: android-arm64
           path: publish/*Signed.apk
