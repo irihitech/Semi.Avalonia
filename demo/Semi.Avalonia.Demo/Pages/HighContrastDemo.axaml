@@ -241,76 +241,72 @@
                         </Border>
                     </ThemeVariantScope>
 
-                    <DataGrid
+                    <TableView
                         HorizontalAlignment="Left"
-                        CanUserSortColumns="False"
-                        AutoGenerateColumns="False"
                         ItemsSource="{Binding ColorResources}"
-                        GridLinesVisibility="All"
                         BorderBrush="{DynamicResource SemiColorBorder}"
                         BorderThickness="1">
-                        <DataGrid.Styles>
+                        <TableView.Styles>
                             <Style Selector="SelectableTextBlock">
-                                <Setter Property="Margin" Value="16" />
                                 <Setter Property="VerticalAlignment" Value="Center" />
                             </Style>
-                        </DataGrid.Styles>
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="70" Header="Color">
-                                <DataGridTemplateColumn.CellTemplate>
+                        </TableView.Styles>
+                        <TableView.Columns>
+                            <TableViewColumn Header="Color" Width="80">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <controls:ColorItemControl
+                                         <controls:ColorItemControl
                                             Width="40"
                                             Height="40"
                                             CornerRadius="3"
                                             Background="{Binding Brush}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Width="200" Header="ResourceKey">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="ResourceKey" Width="200">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
                                             FontWeight="{DynamicResource SemiFontWeightBold}"
                                             Text="{Binding ResourceKey}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Width="100" Header="Hex">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="Hex" Width="100">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
                                             Text="{Binding Brush,
                                                 Converter={x:Static cvt:ColorConverter.ToHex},ConverterParameter={x:False}}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Width="*" Header="Description">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="Description" Width="*">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
                                             TextWrapping="Wrap"
                                             MaxLines="5"
                                             Text="{Binding Description}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Width="200" Header="Pair With">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="Pair With" Width="200">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
                                             FontWeight="{DynamicResource SemiFontWeightBold}"
                                             Text="{Binding PairWith}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Width="100" Header="CopyText">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="CopyText" Width="110">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate DataType="vm:ColorResource">
                                         <Button
                                             Command="{Binding $parent[pages:HighContrastDemo].Copy}"
@@ -318,10 +314,10 @@
                                             Theme="{DynamicResource  SquareButton}"
                                             Content="{StaticResource SemiIconCopy}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
+                        </TableView.Columns>
+                    </TableView>
                 </StackPanel>
             </ScrollViewer>
         </SplitView.Content>
