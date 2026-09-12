@@ -22,11 +22,11 @@
         PanePlacement="Right">
         <SplitView.Pane>
             <StackPanel>
-                <ToggleSwitch
+                <ToggleButton
                     Name="toggle"
                     HorizontalAlignment="Right"
                     IsChecked="True"
-                    Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                    Theme="{DynamicResource SquareButton}"
                     Content="{StaticResource SemiIconSidebar}" />
                 <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
                     <Panel>
@@ -51,7 +51,7 @@
                         Classes="H3"
                         Text="Basic Colors"
                         Theme="{DynamicResource TitleTextBlock}" />
-                    <TabControl>
+                    <TabControl Theme="{DynamicResource LineTabControl}">
                         <TabItem Header="Light">
                             <ItemsControl Margin="16" ItemsSource="{Binding LightLists}">
                                 <ItemsControl.ItemsPanel>

@@ -35,9 +35,9 @@
             Theme="{DynamicResource CardBorder}">
             <Panel>
                 <StackPanel Orientation="Horizontal" Spacing="8">
-                    <ToggleSwitch
+                    <ToggleButton
                         Name="ExpandButton"
-                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                        Theme="{DynamicResource SquareButton}"
                         Content="{StaticResource SemiIconSidebar}" />
                     <SelectableTextBlock
                         VerticalAlignment="Center"
@@ -54,25 +54,25 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button
-                        Theme="{DynamicResource IconBorderlessButton}"
+                        Theme="{DynamicResource SquareButton}"
                         Command="{Binding OpenUrlCommand}"
                         CommandParameter="{Binding DocumentationUrl}"
                         Content="{StaticResource SemiIconGlobe}" />
 
                     <Button
-                        Theme="{DynamicResource IconBorderlessButton}"
+                        Theme="{DynamicResource SquareButton}"
                         Command="{Binding OpenUrlCommand}"
                         CommandParameter="{Binding RepoUrl}"
                         Content="{StaticResource SemiIconGithubLogo}" />
 
                     <ToggleSwitch
-                        Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                        Theme="{DynamicResource SquareToggleSwitch}"
                         Command="{Binding ToggleThemeCommand}"
                         OnContent="{StaticResource SemiIconMoon}"
                         OffContent="{StaticResource SemiIconSun}" />
 
                     <Button
-                        Theme="{DynamicResource IconBorderlessButton}"
+                        Theme="{DynamicResource SquareButton}"
                         Content="{StaticResource SemiIconMenu}">
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom" ItemsSource="{Binding MenuItems}" />
@@ -280,6 +280,9 @@
             </TabItem>
             <TabItem Header="ThemeVariantScope">
                 <pages:ThemeVariantDemo />
+            </TabItem>
+            <TabItem Header="WindowCustomizationsPage">
+                <pages:WindowCustomizationsPage />
             </TabItem>
         </TabControl>
     </Grid>

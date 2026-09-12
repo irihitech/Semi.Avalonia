@@ -26,6 +26,23 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <ToggleSwitch Classes="Accent" />
+                <ToggleSwitch Classes="Accent" IsChecked="True" />
+            </StackPanel>
+            <StackPanel>
+                <ToggleSwitch Classes="Accent" IsEnabled="False" />
+                <ToggleSwitch Classes="Accent" IsChecked="True" IsEnabled="False" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" />
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" IsChecked="True" />
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" IsEnabled="False" />
+            <ToggleSwitch Content="Accent" OnContent="Yes" OffContent="No" Classes="Accent" IsEnabled="False" IsChecked="True" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" />
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small" IsChecked="True" />
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" Classes="Small Loading" />
@@ -59,40 +76,6 @@
         <StackPanel Orientation="Horizontal">
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="关" OnContent="开" Classes="Large" IsChecked="True" />
             <ToggleSwitch Theme="{StaticResource SimpleToggleSwitch}" OffContent="〇" OnContent="｜" Classes="Large" IsChecked="True" />
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal">
-            <ToggleSwitch
-                HorizontalAlignment="Left"
-                Padding="{StaticResource SemiThicknessTight}"
-                Width="{StaticResource SemiSpacingExtraLoose}"
-                Height="{StaticResource SemiSpacingExtraLoose}"
-                Theme="{DynamicResource ButtonToggleSwitch}"
-                Foreground="{DynamicResource ButtonDefaultTertiaryForeground}">
-                <ToggleSwitch.Content>
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{StaticResource SemiIconSidebar}" />
-                </ToggleSwitch.Content>
-            </ToggleSwitch>
-            <ToggleSwitch
-                HorizontalAlignment="Left"
-                Padding="{StaticResource SemiThicknessTight}"
-                Width="{StaticResource SemiSpacingExtraLoose}"
-                Height="{StaticResource SemiSpacingExtraLoose}"
-                Theme="{DynamicResource ButtonToggleSwitch}"
-                Foreground="{DynamicResource ButtonDefaultTertiaryForeground}">
-                <ToggleSwitch.OnContent>
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{StaticResource SemiIconSun}" />
-                </ToggleSwitch.OnContent>
-                <ToggleSwitch.OffContent>
-                    <PathIcon
-                        Theme="{DynamicResource InnerPathIcon}"
-                        Data="{StaticResource SemiIconMoon}" />
-                </ToggleSwitch.OffContent>
-            </ToggleSwitch>
         </StackPanel>
 
     </StackPanel>

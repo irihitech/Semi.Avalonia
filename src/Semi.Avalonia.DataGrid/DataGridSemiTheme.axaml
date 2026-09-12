@@ -6,10 +6,11 @@
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceInclude x:Key="Default" Source="Light.axaml" />
+                <ResourceInclude x:Key="Light" Source="Light.axaml" />
                 <ResourceInclude x:Key="Dark" Source="Dark.axaml" />
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="DataGrid.axaml" />
+                <ResourceInclude Source="Controls/_index.axaml" />
                 <ResourceInclude Source="Shared.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

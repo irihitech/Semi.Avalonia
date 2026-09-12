@@ -28,6 +28,12 @@
                     <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Large" />
                     <ToggleSwitch Theme="{DynamicResource SimpleToggleSwitch}" OnContent="是" OffContent="否" Classes="Large" IsChecked="True" />
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleSwitch Classes="Accent" />
+                    <ToggleSwitch Classes="Accent" IsChecked="True" />
+                    <ToggleSwitch Classes="Accent" IsEnabled="False"/>
+                    <ToggleSwitch Classes="Accent" IsChecked="True" IsEnabled="False"/>
+                </StackPanel>
             </StackPanel>
         </ThemeVariantScope>
     </Design.PreviewWith>
@@ -93,7 +99,7 @@
                                 Margin="{DynamicResource ToggleSwitchIndicatorDefaultMargin}">
                                 <Border
                                     Name="SwitchKnobIndicator"
-                                    Background="White"
+                                    Background="{DynamicResource ToggleSwitchIndicatorBackground}"
                                     BoxShadow="{DynamicResource ToggleSwitchIndicatorBoxShadow}"
                                     CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}" />
                                 <Arc
@@ -102,16 +108,9 @@
                                     StrokeThickness="{DynamicResource ToggleSwitchLoadingIndicatorDefaultStrokeThickness}"
                                     StartAngle="0"
                                     SweepAngle="140"
+                                    Stroke="{DynamicResource ToggleSwitchLoadingIndicatorBrush}"
                                     StrokeJoin="Round"
                                     StrokeLineCap="Round">
-                                    <Arc.Stroke>
-                                        <ConicGradientBrush>
-                                            <GradientStops>
-                                                <GradientStop Offset="0.1" Color="Transparent" />
-                                                <GradientStop Offset="0.7" Color="White" />
-                                            </GradientStops>
-                                        </ConicGradientBrush>
-                                    </Arc.Stroke>
                                 </Arc>
                             </Panel>
                         </Canvas>
@@ -166,6 +165,21 @@
             <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
                 <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
+            </Style>
+            <Style Selector="^.Accent">
+                <Style Selector="^ /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentBackground}" />
+                </Style>
+                <Style Selector="^:pointerover /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentPointeroverBackground}" />
+                </Style>
+                <Style Selector="^:pressed /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentPressedBackground}" />
+                </Style>
+                <Style Selector="^:disabled /template/ Border#SwitchBackgroundBorder">
+                    <Setter Property="Background" Value="{DynamicResource ToggleSwitchContainerUnCheckedAccentDisabledBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchContainerUnCheckedDisabledBorderBrush}" />
+                </Style>
             </Style>
         </Style>
 
@@ -295,7 +309,7 @@
                                 Margin="{DynamicResource ToggleSwitchIndicatorDefaultMargin}">
                                 <Border
                                     Name="SwitchKnobIndicator"
-                                    Background="White"
+                                    Background="{DynamicResource ToggleSwitchIndicatorBackground}"
                                     BoxShadow="{DynamicResource ToggleSwitchIndicatorBoxShadow}"
                                     CornerRadius="{DynamicResource ToggleSwitchIndicatorCornerRadius}" />
                                 <Arc
@@ -304,16 +318,9 @@
                                     StrokeThickness="{DynamicResource ToggleSwitchLoadingIndicatorDefaultStrokeThickness}"
                                     StartAngle="0"
                                     SweepAngle="140"
+                                    Stroke="{DynamicResource ToggleSwitchLoadingIndicatorBrush}"
                                     StrokeJoin="Round"
                                     StrokeLineCap="Round">
-                                    <Arc.Stroke>
-                                        <ConicGradientBrush>
-                                            <GradientStops>
-                                                <GradientStop Offset="0.1" Color="Transparent" />
-                                                <GradientStop Offset="0.7" Color="White" />
-                                            </GradientStops>
-                                        </ConicGradientBrush>
-                                    </Arc.Stroke>
                                 </Arc>
                             </Panel>
                         </Canvas>
@@ -355,92 +362,4 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="ButtonToggleSwitch" TargetType="ToggleSwitch">
-        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
-        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
-        <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
-        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
-        <Setter Property="RenderTransform" Value="none" />
-        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
-        <Setter Property="Cursor" Value="Hand" />
-
-        <Setter Property="OnContent" Value="{x:Null}" />
-        <Setter Property="OffContent" Value="{x:Null}" />
-        <Setter Property="Content" Value="{x:Null}" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="ToggleSwitch">
-                <Border
-                    Name="Background"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel>
-                        <Panel Name="PART_SwitchKnob" />
-                        <Panel Name="PART_MovingKnobs" />
-                        <ContentPresenter
-                            Name="PART_OnContentPresenter"
-                            IsVisible="{TemplateBinding IsChecked}"
-                            Foreground="{TemplateBinding Foreground}"
-                            Content="{TemplateBinding OnContent}"
-                            ContentTemplate="{TemplateBinding OnContentTemplate}" />
-                        <ContentPresenter
-                            Name="PART_OffContentPresenter"
-                            IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}"
-                            Foreground="{TemplateBinding Foreground}"
-                            Content="{TemplateBinding OffContent}"
-                            ContentTemplate="{TemplateBinding OffContentTemplate}" />
-                        <ContentPresenter
-                            Name="PART_ContentPresenter"
-                            Foreground="{TemplateBinding Foreground}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}">
-                            <ContentPresenter.IsVisible>
-                                <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                    <TemplateBinding Property="Content" Converter="{x:Static ObjectConverters.IsNotNull}" />
-                                    <TemplateBinding Property="OnContent" Converter="{x:Static ObjectConverters.IsNull}" />
-                                    <TemplateBinding Property="OffContent" Converter="{x:Static ObjectConverters.IsNull}" />
-                                </MultiBinding>
-                            </ContentPresenter.IsVisible>
-                        </ContentPresenter>
-                    </Panel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <Style Selector="^:pointerover">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPointeroverBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
-        </Style>
-
-        <Style Selector="^:pressed">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPressedBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
-        </Style>
-
-        <Style Selector="^:disabled">
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
-            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
-        </Style>
-
-        <Style Selector="^.Large">
-            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
-            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
-        </Style>
-        <Style Selector="^.Small">
-            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
-            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
-        </Style>
-    </ControlTheme>
 </ResourceDictionary>

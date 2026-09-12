@@ -35,5 +35,30 @@
                 VerticalAlignment="Center"
                 Text="A.S.I.A" />
         </ButtonSpinner>
+        <ButtonSpinner
+            Height="30"
+            AllowSpin="{Binding #allowSpinCheck.IsChecked}"
+            BorderThickness="1"
+            ShowButtonSpinner="{Binding #showSpinCheck.IsChecked}"
+            Spin="OnSpin"
+            Theme="{StaticResource SplitButtonSpinner}">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="A.S.I.A" />
+        </ButtonSpinner>
+        <ButtonSpinner
+            Height="30"
+            AllowSpin="{Binding #allowSpinCheck.IsChecked}"
+            ButtonSpinnerLocation="Left"
+            BorderThickness="1"
+            ShowButtonSpinner="{Binding #showSpinCheck.IsChecked}"
+            Spin="OnSpin"
+            Theme="{StaticResource SplitButtonSpinner}">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="A.S.I.A" />
+        </ButtonSpinner>
     </StackPanel>
 </UserControl>

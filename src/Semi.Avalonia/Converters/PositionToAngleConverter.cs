@@ -1,27 +1,18 @@
 using System;
 using System.Globalization;
-using Avalonia.Data.Converters;
+using Irihi.Avalonia.Shared.Converters;
 
 namespace Semi.Avalonia.Converters;
 
-public class PositionToAngleConverter: IValueConverter
+public class PositionToAngleConverter : MarkupValueConverter
 {
-    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is double d)
-        {
-            return d * 3.6;
-        }
-
-        return 0;
+        return value is double d ? d * 3.6 : 0;
     }
 
-    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is double d)
-        {
-            return d / 3.6;
-        }
-        return 0;
+        return value is double d ? d / 3.6 : 0;
     }
 }

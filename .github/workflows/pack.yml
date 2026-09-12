@@ -45,10 +45,11 @@ on:
 jobs:
   Pack_to_NuGet:
     runs-on: ubuntu-latest
-
+    permissions:
+      id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Pack Semi.Avalonia
         if: ${{ inputs.Semi_Avalonia }}
@@ -66,12 +67,19 @@ jobs:
         if: ${{ inputs.Semi_Avalonia_TreeDataGrid }}
         run: dotnet pack src/Semi.Avalonia.TreeDataGrid -o nugets
 
-      - name: Upload to NuGet
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
         if: ${{ inputs.Upload_to_NuGet }}
-        run: dotnet nuget push "nugets/*.nupkg" --api-key ${{ secrets.NUGET_ORG_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: NuGet push
+        if: ${{ inputs.Upload_to_NuGet }}
+        run: dotnet nuget push nugets/*.nupkg --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: nugets
           path: nugets
