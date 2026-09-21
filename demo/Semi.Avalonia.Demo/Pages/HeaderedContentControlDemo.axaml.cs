@@ -2,7 +2,7 @@
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class HeaderedContentControlDemo : UserControl
+public partial class HeaderedContentControlDemo : ContentPage
 {
     public HeaderedContentControlDemo()
     {

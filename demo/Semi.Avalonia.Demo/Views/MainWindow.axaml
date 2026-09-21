@@ -13,5 +13,7 @@
     ExtendClientAreaToDecorationsHint="True"
     Icon="/Assets/irihi.ico"
     mc:Ignorable="d">
-    <views:MainView Margin="{Binding $parent[Window].WindowDecorationMargin}" />
+    <Panel Margin="{Binding $parent[Window].WindowDecorationMargin}">
+        <views:MainView />
+    </Panel>
 </Window>

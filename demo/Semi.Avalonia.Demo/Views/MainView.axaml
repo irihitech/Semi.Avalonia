@@ -1,4 +1,4 @@
-<UserControl
+<DrawerPage
     x:Class="Semi.Avalonia.Demo.Views.MainView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,8 +8,14 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     x:DataType="vm:MainViewModel"
-    mc:Ignorable="d">
-    <UserControl.Styles>
+    mc:Ignorable="d"
+    Name="MainDrawer"
+    Margin="8"
+    Background="Transparent"
+    DrawerLayoutBehavior="{OnFormFactor Split, Mobile=Overlay}"
+    DrawerLength="300"
+    IsOpen="True">
+    <DrawerPage.Styles>
         <Style Selector="TextBlock.NavSectionHeader">
             <Setter Property="Margin" Value="12,10,12,2" />
             <Setter Property="FontSize" Value="12" />
@@ -39,111 +45,89 @@
             <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimary}" />
             <Setter Property="FontWeight" Value="{DynamicResource SemiFontWeightBold}" />
         </Style>
-    </UserControl.Styles>
+    </DrawerPage.Styles>
 
-    <DrawerPage
-        Name="MainDrawer"
-        Margin="8"
-        Background="Transparent"
-        Content="{Binding CurrentPage}"
-        DrawerLayoutBehavior="{OnFormFactor Split, Mobile=Overlay}"
-        DrawerLength="300"
-        IsOpen="True">
-        <DrawerPage.Header>
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <SelectableTextBlock
-                    VerticalAlignment="Center"
-                    Classes="H6"
-                    Text="{Binding AppName^}"
-                    Theme="{DynamicResource TitleSelectableTextBlock}" />
-                <TextBlock VerticalAlignment="Center" Text="/" />
-                <SelectableTextBlock
-                    VerticalAlignment="Center"
-                    Classes="Secondary"
-                    Text="{Binding SelectedPageTitle^}" />
+    <DrawerPage.DrawerHeader>
+        <TextBox
+            Margin="8"
+            Classes="ClearButton"
+            PlaceholderText="{Binding SearchPlaceholder^}"
+            Text="{Binding SearchText}" />
+    </DrawerPage.DrawerHeader>
+
+    <DrawerPage.Drawer>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <ItemsControl ItemsSource="{Binding FilteredSections}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="vm:NavigationSectionViewModel">
+                            <StackPanel Margin="0,0,0,10">
+                                <TextBlock Classes="NavSectionHeader" Text="{Binding Header^}" />
+                                <ItemsControl ItemsSource="{Binding Items}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate DataType="vm:NavigationItemViewModel">
+                                            <Border Classes="NavItemHost" Classes.Selected="{Binding IsSelected}">
+                                                <Button
+                                                    Classes="NavItem"
+                                                    Classes.Selected="{Binding IsSelected}"
+                                                    Command="{Binding NavigateCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    Content="{Binding Title^}" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock
+                    Margin="16,12,16,0"
+                    Foreground="{DynamicResource SemiColorText1}"
+                    IsVisible="{Binding ShowEmptySearchState}"
+                    Text="{Binding EmptySearchMessage^}" />
             </StackPanel>
-        </DrawerPage.Header>
+        </ScrollViewer>
+    </DrawerPage.Drawer>
 
-        <DrawerPage.DrawerHeader>
-            <TextBox
-                Margin="8"
-                Classes="ClearButton"
-                PlaceholderText="{Binding SearchPlaceholder^}"
-                Text="{Binding SearchText}" />
-        </DrawerPage.DrawerHeader>
+    <DrawerPage.DrawerFooter>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button
+                Command="{Binding OpenUrlCommand}"
+                CommandParameter="{Binding DocumentationUrl}"
+                Content="{StaticResource SemiIconGlobe}"
+                Theme="{DynamicResource SquareButton}" />
 
-        <DrawerPage.Drawer>
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-                <StackPanel>
-                    <ItemsControl ItemsSource="{Binding FilteredSections}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="vm:NavigationSectionViewModel">
-                                <StackPanel Margin="0,0,0,10">
-                                    <TextBlock Classes="NavSectionHeader" Text="{Binding Header^}" />
-                                    <ItemsControl ItemsSource="{Binding Items}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate DataType="vm:NavigationItemViewModel">
-                                                <Border Classes="NavItemHost" Classes.Selected="{Binding IsSelected}">
-                                                    <Button
-                                                        Classes="NavItem"
-                                                        Classes.Selected="{Binding IsSelected}"
-                                                        Command="{Binding NavigateCommand}"
-                                                        CommandParameter="{Binding}"
-                                                        Content="{Binding Title^}" />
-                                                </Border>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+            <Button
+                Command="{Binding OpenUrlCommand}"
+                CommandParameter="{Binding RepoUrl}"
+                Content="{StaticResource SemiIconGithubLogo}"
+                Theme="{DynamicResource SquareButton}" />
 
-                    <TextBlock
-                        Margin="16,12,16,0"
-                        Foreground="{DynamicResource SemiColorText1}"
-                        IsVisible="{Binding ShowEmptySearchState}"
-                        Text="{Binding EmptySearchMessage^}" />
-                </StackPanel>
-            </ScrollViewer>
-        </DrawerPage.Drawer>
+            <ToggleSwitch
+                Command="{Binding ToggleThemeCommand}"
+                OffContent="{StaticResource SemiIconSun}"
+                OnContent="{StaticResource SemiIconMoon}"
+                Theme="{DynamicResource SquareToggleSwitch}" />
 
-        <DrawerPage.DrawerFooter>
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button
-                    Command="{Binding OpenUrlCommand}"
-                    CommandParameter="{Binding DocumentationUrl}"
-                    Content="{StaticResource SemiIconGlobe}"
-                    Theme="{DynamicResource SquareButton}" />
+            <Button
+                Content="{StaticResource SemiIconMenu}"
+                Theme="{DynamicResource SquareButton}">
+                <Button.Flyout>
+                    <MenuFlyout ItemsSource="{Binding MenuItems}" Placement="Bottom" />
+                </Button.Flyout>
+                <Button.Styles>
+                    <Style x:DataType="vm:MenuItemViewModel" Selector="MenuItem">
+                        <Setter Property="Header" Value="{Binding Header^}" />
+                        <Setter Property="ItemsSource" Value="{Binding Items}" />
+                        <Setter Property="Command" Value="{Binding Command}" />
+                        <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
+                    </Style>
+                </Button.Styles>
+            </Button>
+        </StackPanel>
+    </DrawerPage.DrawerFooter>
 
-                <Button
-                    Command="{Binding OpenUrlCommand}"
-                    CommandParameter="{Binding RepoUrl}"
-                    Content="{StaticResource SemiIconGithubLogo}"
-                    Theme="{DynamicResource SquareButton}" />
-
-                <ToggleSwitch
-                    Command="{Binding ToggleThemeCommand}"
-                    OffContent="{StaticResource SemiIconSun}"
-                    OnContent="{StaticResource SemiIconMoon}"
-                    Theme="{DynamicResource SquareToggleSwitch}" />
-
-                <Button
-                    Content="{StaticResource SemiIconMenu}"
-                    Theme="{DynamicResource SquareButton}">
-                    <Button.Flyout>
-                        <MenuFlyout ItemsSource="{Binding MenuItems}" Placement="Bottom" />
-                    </Button.Flyout>
-                    <Button.Styles>
-                        <Style x:DataType="vm:MenuItemViewModel" Selector="MenuItem">
-                            <Setter Property="Header" Value="{Binding Header^}" />
-                            <Setter Property="ItemsSource" Value="{Binding Items}" />
-                            <Setter Property="Command" Value="{Binding Command}" />
-                            <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
-                        </Style>
-                    </Button.Styles>
-                </Button>
-            </StackPanel>
-        </DrawerPage.DrawerFooter>
-    </DrawerPage>
-</UserControl>
+    <NavigationPage Name="NavPage" />
+</DrawerPage>

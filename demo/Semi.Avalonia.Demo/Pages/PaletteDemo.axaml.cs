@@ -7,7 +7,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class PaletteDemo : UserControl
+public partial class PaletteDemo : ContentPage
 {
     public PaletteDemo()
     {

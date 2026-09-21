@@ -2,7 +2,7 @@
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class PathIconDemo : UserControl
+public partial class PathIconDemo : ContentPage
 {
     public PathIconDemo()
     {

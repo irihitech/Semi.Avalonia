@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class CalendarDatePickerDemo : UserControl
+public partial class CalendarDatePickerDemo : ContentPage
 {
     public CalendarDatePickerDemo()
     {

@@ -1,4 +1,4 @@
-<UserControl
+<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.CommandBarDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +8,7 @@
     d:DesignHeight="600"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <UserControl.Resources>
+    <ContentPage.Resources>
         <collections:AvaloniaList x:TypeArguments="CommandBarDefaultLabelPosition" x:Key="LabelPositionList">
             <CommandBarDefaultLabelPosition>Bottom</CommandBarDefaultLabelPosition>
             <CommandBarDefaultLabelPosition>Collapsed</CommandBarDefaultLabelPosition>
@@ -19,7 +19,7 @@
             <CommandBarOverflowButtonVisibility>Collapsed</CommandBarOverflowButtonVisibility>
             <CommandBarOverflowButtonVisibility>Visible</CommandBarOverflowButtonVisibility>
         </collections:AvaloniaList>
-    </UserControl.Resources>
+    </ContentPage.Resources>
     <ScrollViewer>
         <StackPanel Spacing="16">
             <GroupBox>
@@ -91,4 +91,4 @@
 
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

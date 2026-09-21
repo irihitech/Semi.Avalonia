@@ -6,7 +6,7 @@ using Avalonia.Media;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class TabbedPageDemo : UserControl
+public partial class TabbedPageDemo : ContentPage
 {
     private int _tabCounter = 3;
 

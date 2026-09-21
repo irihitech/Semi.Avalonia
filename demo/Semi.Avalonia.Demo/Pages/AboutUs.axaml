@@ -1,4 +1,4 @@
-<UserControl
+<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.AboutUs"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -11,7 +11,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <UserControl.Resources>
+    <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
@@ -81,15 +81,15 @@
                 </Style>
             </ControlTheme>
         </ResourceDictionary>
-    </UserControl.Resources>
-    <UserControl.Styles>
+    </ContentPage.Resources>
+    <ContentPage.Styles>
         <Style Selector="TextBlock.TileTitle">
             <Setter Property="FontWeight" Value="700" />
             <Setter Property="FontSize" Value="24" />
             <Setter Property="Margin" Value="0 0 0 8" />
             <Setter Property="Foreground" Value="{DynamicResource TileTitleForeground}" />
         </Style>
-    </UserControl.Styles>
+    </ContentPage.Styles>
     <Grid RowDefinitions="*, Auto">
         <ScrollViewer>
             <StackPanel>
@@ -233,4 +233,4 @@
             </StackPanel>
         </StackPanel>
     </Grid>
-</UserControl>
+</ContentPage>

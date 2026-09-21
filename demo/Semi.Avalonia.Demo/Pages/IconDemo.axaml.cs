@@ -9,7 +9,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class IconDemo : UserControl
+public partial class IconDemo : ContentPage
 {
     private IClipboard? _clipboard;
     private WindowNotificationManager? _windowNotificationManager;

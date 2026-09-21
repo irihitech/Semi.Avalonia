@@ -5,7 +5,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class VariablesDemo : UserControl
+public partial class VariablesDemo : ContentPage
 {
     public VariablesDemo()
     {

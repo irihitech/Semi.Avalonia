@@ -5,7 +5,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class HighContrastDemo : UserControl
+public partial class HighContrastDemo : ContentPage
 {
     public HighContrastDemo()
     {

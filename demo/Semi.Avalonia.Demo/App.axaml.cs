@@ -1,5 +1,6 @@
 using System;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Semi.Avalonia.Demo.ViewModels;
@@ -30,11 +31,17 @@ public partial class App : Application
         }
         else if (ApplicationLifetime is IActivityApplicationLifetime applicationLifetime)
         {
-            applicationLifetime.MainViewFactory = () => new MainView { DataContext = new MainViewModel() };
+            applicationLifetime.MainViewFactory = () => new PageNavigationHost()
+            {
+                Page = new MainView { DataContext = new MainViewModel() }
+            };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
-            singleViewPlatform.MainView = new MainView { DataContext = new MainViewModel() };
+            singleViewPlatform.MainView = new PageNavigationHost()
+            {
+                Page = new MainView { DataContext = new MainViewModel() }
+            };
         }
 
         this.RegisterFollowSystemTheme();
