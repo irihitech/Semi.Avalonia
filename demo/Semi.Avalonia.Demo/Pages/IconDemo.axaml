@@ -1,11 +1,13 @@
-﻿<ContentPage xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
-             x:DataType="vm:IconDemoViewModel"
-             x:Class="Semi.Avalonia.Demo.Pages.IconDemo">
+﻿<ContentPage
+    Theme="{DynamicResource ScrollPage}"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
+    x:DataType="vm:IconDemoViewModel"
+    x:Class="Semi.Avalonia.Demo.Pages.IconDemo">
     <Design.DataContext>
         <vm:IconDemoViewModel />
     </Design.DataContext>

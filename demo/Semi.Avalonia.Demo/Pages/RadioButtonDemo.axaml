@@ -1,161 +1,160 @@
 <ContentPage
+    Theme="{StaticResource ScrollPage}"
     x:Class="Semi.Avalonia.Demo.Pages.RadioButtonDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <ScrollViewer>
-        <StackPanel HorizontalAlignment="Left" Spacing="20">
-            <TextBlock Text="Radio Buttons" />
-            <StackPanel Orientation="Horizontal">
-                <RadioButton>Unchecked</RadioButton>
-                <RadioButton IsChecked="True">Checked</RadioButton>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <RadioButton IsEnabled="False">Unchecked</RadioButton>
-                <RadioButton IsChecked="True" IsEnabled="False">Checked</RadioButton>
-            </StackPanel>
-            <TextBlock Text="Radio Button as Button" />
-            <StackPanel Orientation="Horizontal">
-                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Classes="Small" Theme="{DynamicResource ButtonRadioButton}">小1</RadioButton>
-                        <RadioButton
-                            Classes="Small"
-                            IsChecked="True"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            小2
-                        </RadioButton>
-                    </StackPanel>
-                </Border>
-                <Border
-                    Margin="8,0"
-                    HorizontalAlignment="Left"
-                    Theme="{StaticResource RadioButtonGroupBorder}">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton
-                            Classes="Small"
-                            IsEnabled="False"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            小1
-                        </RadioButton>
-                        <RadioButton
-                            Classes="Small"
-                            IsChecked="True"
-                            IsEnabled="False"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            小2
-                        </RadioButton>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Theme="{DynamicResource ButtonRadioButton}">默认1</RadioButton>
-                        <RadioButton IsChecked="True" Theme="{DynamicResource ButtonRadioButton}">默认2</RadioButton>
-                    </StackPanel>
-                </Border>
-                <Border
-                    Margin="8,0"
-                    HorizontalAlignment="Left"
-                    Theme="{StaticResource RadioButtonGroupBorder}">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton IsEnabled="False" Theme="{DynamicResource ButtonRadioButton}">默认1</RadioButton>
-                        <RadioButton
-                            IsChecked="True"
-                            IsEnabled="False"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            默认2
-                        </RadioButton>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Classes="Large" Theme="{DynamicResource ButtonRadioButton}">大1</RadioButton>
-                        <RadioButton
-                            Classes="Large"
-                            IsChecked="True"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            大2
-                        </RadioButton>
-                    </StackPanel>
-                </Border>
-                <Border
-                    Margin="8,0"
-                    HorizontalAlignment="Left"
-                    Theme="{StaticResource RadioButtonGroupBorder}">
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton
-                            Classes="Large"
-                            IsEnabled="False"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            大1
-                        </RadioButton>
-                        <RadioButton
-                            Classes="Large"
-                            IsChecked="True"
-                            IsEnabled="False"
-                            Theme="{DynamicResource ButtonRadioButton}">
-                            大2
-                        </RadioButton>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-            <TextBlock Text="Radio Button as Card" />
-            <StackPanel Orientation="Horizontal">
-                <RadioButton
-                    Width="300"
-                    Content="Avalonia"
-                    IsChecked="True"
-                    Theme="{DynamicResource CardRadioButton}" />
-                <RadioButton
-                    Width="300"
-                    Content="WPF"
-                    IsChecked="True"
-                    Theme="{DynamicResource CardRadioButton}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <RadioButton
-                    Width="300"
-                    Content="Avalonia"
-                    IsEnabled="False"
-                    Theme="{DynamicResource CardRadioButton}" />
-                <RadioButton
-                    Width="300"
-                    Content="WPF"
-                    IsChecked="True"
-                    IsEnabled="False"
-                    Theme="{DynamicResource CardRadioButton}" />
-            </StackPanel>
-            <TextBlock Text="Radio Button as Pure Card" />
-            <StackPanel Orientation="Horizontal">
-                <RadioButton
-                    Width="300"
-                    Content="Avalonia"
-                    IsChecked="True"
-                    Theme="{DynamicResource PureCardRadioButton}" />
-                <RadioButton
-                    Width="300"
-                    Content="WPF"
-                    Theme="{DynamicResource PureCardRadioButton}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <RadioButton
-                    Width="300"
-                    Content="Avalonia"
-                    IsChecked="True"
-                    IsEnabled="False"
-                    Theme="{DynamicResource PureCardRadioButton}" />
-                <RadioButton
-                    Width="300"
-                    Content="WPF"
-                    IsEnabled="False"
-                    Theme="{DynamicResource PureCardRadioButton}" />
-            </StackPanel>
+    <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <TextBlock Text="Radio Buttons" />
+        <StackPanel Orientation="Horizontal">
+            <RadioButton>Unchecked</RadioButton>
+            <RadioButton IsChecked="True">Checked</RadioButton>
         </StackPanel>
-    </ScrollViewer>
+        <StackPanel Orientation="Horizontal">
+            <RadioButton IsEnabled="False">Unchecked</RadioButton>
+            <RadioButton IsChecked="True" IsEnabled="False">Checked</RadioButton>
+        </StackPanel>
+        <TextBlock Text="Radio Button as Button" />
+        <StackPanel Orientation="Horizontal">
+            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Classes="Small" Theme="{DynamicResource ButtonRadioButton}">小1</RadioButton>
+                    <RadioButton
+                        Classes="Small"
+                        IsChecked="True"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        小2
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+            <Border
+                Margin="8,0"
+                HorizontalAlignment="Left"
+                Theme="{StaticResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton
+                        Classes="Small"
+                        IsEnabled="False"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        小1
+                    </RadioButton>
+                    <RadioButton
+                        Classes="Small"
+                        IsChecked="True"
+                        IsEnabled="False"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        小2
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Theme="{DynamicResource ButtonRadioButton}">默认1</RadioButton>
+                    <RadioButton IsChecked="True" Theme="{DynamicResource ButtonRadioButton}">默认2</RadioButton>
+                </StackPanel>
+            </Border>
+            <Border
+                Margin="8,0"
+                HorizontalAlignment="Left"
+                Theme="{StaticResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton IsEnabled="False" Theme="{DynamicResource ButtonRadioButton}">默认1</RadioButton>
+                    <RadioButton
+                        IsChecked="True"
+                        IsEnabled="False"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        默认2
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Classes="Large" Theme="{DynamicResource ButtonRadioButton}">大1</RadioButton>
+                    <RadioButton
+                        Classes="Large"
+                        IsChecked="True"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        大2
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+            <Border
+                Margin="8,0"
+                HorizontalAlignment="Left"
+                Theme="{StaticResource RadioButtonGroupBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton
+                        Classes="Large"
+                        IsEnabled="False"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        大1
+                    </RadioButton>
+                    <RadioButton
+                        Classes="Large"
+                        IsChecked="True"
+                        IsEnabled="False"
+                        Theme="{DynamicResource ButtonRadioButton}">
+                        大2
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <TextBlock Text="Radio Button as Card" />
+        <StackPanel Orientation="Horizontal">
+            <RadioButton
+                Width="300"
+                Content="Avalonia"
+                IsChecked="True"
+                Theme="{DynamicResource CardRadioButton}" />
+            <RadioButton
+                Width="300"
+                Content="WPF"
+                IsChecked="True"
+                Theme="{DynamicResource CardRadioButton}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <RadioButton
+                Width="300"
+                Content="Avalonia"
+                IsEnabled="False"
+                Theme="{DynamicResource CardRadioButton}" />
+            <RadioButton
+                Width="300"
+                Content="WPF"
+                IsChecked="True"
+                IsEnabled="False"
+                Theme="{DynamicResource CardRadioButton}" />
+        </StackPanel>
+        <TextBlock Text="Radio Button as Pure Card" />
+        <StackPanel Orientation="Horizontal">
+            <RadioButton
+                Width="300"
+                Content="Avalonia"
+                IsChecked="True"
+                Theme="{DynamicResource PureCardRadioButton}" />
+            <RadioButton
+                Width="300"
+                Content="WPF"
+                Theme="{DynamicResource PureCardRadioButton}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <RadioButton
+                Width="300"
+                Content="Avalonia"
+                IsChecked="True"
+                IsEnabled="False"
+                Theme="{DynamicResource PureCardRadioButton}" />
+            <RadioButton
+                Width="300"
+                Content="WPF"
+                IsEnabled="False"
+                Theme="{DynamicResource PureCardRadioButton}" />
+        </StackPanel>
+    </StackPanel>
 </ContentPage>
