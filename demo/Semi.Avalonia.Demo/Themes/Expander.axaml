@@ -1,0 +1,93 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="CategoryExpander" TargetType="Expander">
+        <Setter Property="Margin" Value="0 24 0 0" />
+        <Setter Property="IsExpanded" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Expander">
+                <StackPanel>
+                    <ToggleSwitch
+                        Name="ExpanderHeader"
+                        Theme="{DynamicResource CategoryToggleSwitch}"
+                        HorizontalAlignment="Left"
+                        Content="{TemplateBinding Header}"
+                        ContentTemplate="{TemplateBinding HeaderTemplate}"
+                        OnContent="{DynamicResource SemiIconChevronDown}"
+                        OffContent="{DynamicResource SemiIconChevronRight}"
+                        FontSize="18"
+                        FontWeight="{DynamicResource SemiFontWeightBold}"
+                        IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                        IsEnabled="{TemplateBinding IsEnabled}" />
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Margin="0 24 0 12"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        IsVisible="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CategoryToggleSwitch" TargetType="ToggleSwitch">
+        <Setter Property="Foreground" Value="{DynamicResource SemiColorText0}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Content" Value="{x:Null}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <StackPanel
+                    Orientation="Horizontal"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}"
+                    Spacing="{DynamicResource SemiSpacingTight}">
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Content="{TemplateBinding OffContent}"
+                        ContentTemplate="{TemplateBinding OffContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Content="{TemplateBinding OnContent}"
+                        ContentTemplate="{TemplateBinding OnContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <Panel Name="PART_SwitchKnob" />
+                    <Panel Name="PART_MovingKnobs" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

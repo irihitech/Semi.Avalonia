@@ -1,11 +1,12 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:DataType="vm:IconDemoViewModel"
-             x:Class="Semi.Avalonia.Demo.Pages.IconDemo">
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
+    x:DataType="vm:IconDemoViewModel"
+    x:Class="Semi.Avalonia.Demo.Pages.IconDemo">
     <Design.DataContext>
         <vm:IconDemoViewModel />
     </Design.DataContext>
@@ -21,12 +22,13 @@
         <TabControl
             Grid.Row="1"
             Theme="{StaticResource LineTabControl}"
-            ItemsSource="{Binding IconTabs}">
+            ItemsSource="{Binding IconTabs}"
+            SelectedItem="{Binding SelectedTab, Mode=TwoWay}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel ItemSpacing="5">
                         <TextBlock Text="{Binding Header}" />
-                        <Label 
+                        <Label
                             Theme="{StaticResource TagLabel}"
                             Classes="Purple"
                             IsVisible="{Binding Header, 
@@ -40,39 +42,51 @@
             <TabControl.ContentTemplate>
                 <DataTemplate DataType="vm:IconTab">
                     <ScrollViewer>
-                        <ItemsControl
-                            Margin="0 10"
-                            ItemsSource="{Binding IconItems}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel
-                                        ItemWidth="200"
-                                        ItemHeight="120"
-                                        ItemSpacing="10"
-                                        LineSpacing="10" />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                        <ItemsControl ItemsSource="{Binding Categories}">
                             <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button Theme="{DynamicResource OutlineButton}"
-                                            Classes="Tertiary"
-                                            Padding="0"
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Stretch"
-                                            Click="Button_Clicked">
-                                        <StackPanel Spacing="8">
-                                            <PathIcon
-                                                Theme="{DynamicResource InnerPathIcon}"
-                                                HorizontalAlignment="Center"
-                                                Classes="ExtraLarge"
-                                                Data="{Binding Geometry}" />
-                                            <TextBlock
-                                                HorizontalAlignment="Center"
-                                                FontSize="12"
-                                                FontWeight="Normal"
-                                                Text="{Binding ResourceKey}" />
-                                        </StackPanel>
-                                    </Button>
+                                <DataTemplate DataType="vm:IconCategory">
+                                    <Expander
+                                        Theme="{DynamicResource CategoryExpander}"
+                                        Header="{Binding Title}"
+                                        IsVisible="{Binding IsVisible}">
+                                        <ItemsControl ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel
+                                                        ItemWidth="160"
+                                                        ItemHeight="120"
+                                                        ItemSpacing="10"
+                                                        LineSpacing="10" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        Theme="{DynamicResource OutlineButton}"
+                                                        Foreground="{DynamicResource SemiColorText0}"
+                                                        Padding="0 30 0 0"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Stretch"
+                                                        VerticalContentAlignment="Top"
+                                                        Click="Button_Clicked">
+                                                        <StackPanel Spacing="8">
+                                                            <PathIcon
+                                                                Theme="{DynamicResource InnerPathIcon}"
+                                                                Classes="ExtraLarge"
+                                                                Data="{Binding Geometry}" />
+                                                            <TextBlock
+                                                                Padding="8 0"
+                                                                FontSize="12"
+                                                                FontWeight="Normal"
+                                                                TextWrapping="Wrap"
+                                                                TextAlignment="Center"
+                                                                Text="{Binding ResourceKey}" />
+                                                        </StackPanel>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Expander>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
