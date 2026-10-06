@@ -3,7 +3,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class TableViewDemo : UserControl
+public partial class TableViewDemo : ContentPage
 {
     public TableViewDemo()
     {

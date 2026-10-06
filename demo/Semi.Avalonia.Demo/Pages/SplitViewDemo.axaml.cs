@@ -3,7 +3,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class SplitViewDemo : UserControl
+public partial class SplitViewDemo : ContentPage
 {
     public SplitViewDemo()
     {

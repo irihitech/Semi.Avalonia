@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class TreeViewDemo : UserControl
+public partial class TreeViewDemo : ContentPage
 {
     public TreeViewDemo()
     {

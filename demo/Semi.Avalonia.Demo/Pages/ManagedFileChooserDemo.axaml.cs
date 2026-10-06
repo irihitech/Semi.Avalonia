@@ -5,7 +5,7 @@ using Avalonia.Platform.Storage;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ManagedFileChooserDemo : UserControl
+public partial class ManagedFileChooserDemo : ContentPage
 {
     public ManagedFileChooserDemo()
     {

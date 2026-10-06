@@ -4,7 +4,7 @@ using Avalonia.Interactivity;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class CarouselPageDemo : UserControl
+public partial class CarouselPageDemo : ContentPage
 {
     public CarouselPageDemo()
     {

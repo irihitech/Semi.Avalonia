@@ -1,4 +1,4 @@
-<UserControl
+<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.Overview"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,19 +9,19 @@
     d:DesignHeight="1000"
     d:DesignWidth="1920"
     mc:Ignorable="d">
-    <UserControl.Resources>
+    <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
         </ResourceDictionary>
-    </UserControl.Resources>
-    <UserControl.Styles>
+    </ContentPage.Resources>
+    <ContentPage.Styles>
         <Style Selector="Border.CodeBlock">
             <Setter Property="BorderBrush" Value="{DynamicResource SemiColorBorder}" />
             <Setter Property="Padding" Value="16" />
             <Setter Property="CornerRadius" Value="6" />
             <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
         </Style>
-    </UserControl.Styles>
+    </ContentPage.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel Margin="20">
             <StackPanel
@@ -458,4 +458,4 @@
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

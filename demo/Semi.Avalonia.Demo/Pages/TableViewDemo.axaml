@@ -1,4 +1,4 @@
-<UserControl
+<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.TableViewDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +8,7 @@
     xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     x:DataType="viewModels:TableViewDemoViewModel"
     mc:Ignorable="d">
-    <UserControl.Resources>
+    <ContentPage.Resources>
         <ControlTheme
             x:Key="GdpCellTheme"
             TargetType="TableViewCell"
@@ -16,7 +16,7 @@
             x:DataType="viewModels:TableViewDemoViewModel+Country">
             <Setter Property="Background" Value="{Binding GDP, Converter={converters:GdpToBrushConverter}}" />
         </ControlTheme>
-    </UserControl.Resources>
+    </ContentPage.Resources>
 
     <DockPanel Margin="8">
         <StackPanel
@@ -66,4 +66,4 @@
             </TableView.Columns>
         </TableView>
     </DockPanel>
-</UserControl>
+</ContentPage>

@@ -1,13 +1,15 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
-             xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
-             xmlns:iri="https://irihi.tech/shared"
-             mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="450"
-             x:Class="Semi.Avalonia.Demo.Pages.VariablesDemo"
-             x:DataType="vm:VariablesDemoViewModel">
+<ContentPage
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+    xmlns:iri="https://irihi.tech/shared"
+    mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="450"
+    x:Class="Semi.Avalonia.Demo.Pages.VariablesDemo"
+    x:DataType="vm:VariablesDemoViewModel"
+    Padding="8">
     <Design.DataContext>
         <vm:VariablesDemoViewModel />
     </Design.DataContext>
@@ -159,7 +161,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Width="*" Header="Description"/>
+                <DataGridTextColumn Width="*" Header="Description" />
                 <DataGridTemplateColumn
                     Width="100"
                     Header="CopyText">
@@ -176,4 +178,4 @@
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
-</UserControl>
+</ContentPage>

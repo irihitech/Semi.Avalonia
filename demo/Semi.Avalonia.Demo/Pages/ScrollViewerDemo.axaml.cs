@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ScrollViewerDemo : UserControl
+public partial class ScrollViewerDemo : ContentPage
 {
     public ScrollViewerDemo()
     {

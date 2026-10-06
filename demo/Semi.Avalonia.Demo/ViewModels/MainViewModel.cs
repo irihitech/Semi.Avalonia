@@ -8,7 +8,6 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Layout;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -30,14 +29,16 @@ public partial class MainViewModel : ObservableObject
     public IReadOnlyList<NavigationSectionViewModel> Sections { get; }
 
     // Lingua i18n observable properties
-    public IObservable<string?> AppName => LanguageManager.Instance.App_Name;
     public IObservable<string?> AppTitle => LanguageManager.Instance.App_Title;
     public IObservable<string?> SearchPlaceholder => LanguageManager.Instance.Search_Placeholder;
     public IObservable<string?> EmptySearchMessage => LanguageManager.Instance.Empty_Search_Message;
     public ObservableCollection<NavigationSectionViewModel> FilteredSections { get; } = [];
     public bool ShowEmptySearchState => FilteredSections.Count == 0 && !string.IsNullOrWhiteSpace(SearchText);
-    public ContentPage? CurrentPage => SelectedItem?.Page;
-    public IObservable<string?> SelectedPageTitle => SelectedItem?.Title ?? LanguageManager.Instance.Default_Page_Title;
+
+    /// <summary>
+    /// The <see cref="NavigationPage"/> that hosts demo pages, injected by the view.
+    /// </summary>
+    public INavigation? Navigator { get; internal set; }
 
     public NavigationItemViewModel? SelectedItem
     {
@@ -54,8 +55,6 @@ public partial class MainViewModel : ObservableObject
             {
                 previous?.IsSelected = false;
                 value?.IsSelected = true;
-                OnPropertyChanged(nameof(CurrentPage));
-                OnPropertyChanged(nameof(SelectedPageTitle));
             }
         }
     }
@@ -198,11 +197,25 @@ public partial class MainViewModel : ObservableObject
         RefreshFilteredSections();
     }
 
-    public bool TryNavigateTo(string key)
+    /// <summary>
+    /// Navigates to the page owned by <paramref name="item"/> by replacing the
+    /// current page on the navigation stack, mirroring ControlCatalog's behavior.
+    /// </summary>
+    public async Task NavigateToItemAsync(NavigationItemViewModel item)
+    {
+        SelectedItem = item;
+
+        if (Navigator is { } navigator)
+        {
+            await navigator.ReplaceAsync(item.Page);
+        }
+    }
+
+    public async Task<bool> TryNavigateTo(string key)
     {
         if (_itemsByKey.TryGetValue(key, out var item))
         {
-            SelectedItem = item;
+            await NavigateToItemAsync(item);
             return true;
         }
 
@@ -215,11 +228,11 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void NavigateTo(object? parameter)
+    private async Task NavigateTo(object? parameter)
     {
         if (parameter is NavigationItemViewModel item)
         {
-            SelectedItem = item;
+            await NavigateToItemAsync(item);
         }
     }
 
@@ -273,7 +286,7 @@ public partial class MainViewModel : ObservableObject
         }
     }
 
-    private NavigationItemViewModel CreateItem(string key, IObservable<string?> title, Func<Control> contentFactory)
+    private NavigationItemViewModel CreateItem(string key, IObservable<string?> title, Func<ContentPage> contentFactory)
     {
         var item = new NavigationItemViewModel(key, title, NavigateToCommand, contentFactory);
         _itemsByKey.Add(key, item);
@@ -339,9 +352,9 @@ public class NavigationSectionViewModel
 
 public partial class NavigationItemViewModel : ObservableObject
 {
-    private readonly Func<Control> _contentFactory;
+    private readonly Func<ContentPage> _contentFactory;
 
-    public NavigationItemViewModel(string key, IObservable<string?> title, ICommand navigateCommand, Func<Control> contentFactory)
+    public NavigationItemViewModel(string key, IObservable<string?> title, ICommand navigateCommand, Func<ContentPage> contentFactory)
     {
         Key = key;
         Title = title;
@@ -361,13 +374,7 @@ public partial class NavigationItemViewModel : ObservableObject
         {
             if (field is null)
             {
-                field = new ContentPage
-                {
-                    Background = null,
-                    HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                    VerticalContentAlignment = VerticalAlignment.Stretch,
-                    Content = _contentFactory()
-                };
+                field = _contentFactory();
                 Title.Subscribe(new PageHeaderObserver(field));
             }
             return field;
