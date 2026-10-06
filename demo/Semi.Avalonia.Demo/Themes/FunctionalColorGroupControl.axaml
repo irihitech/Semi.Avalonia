@@ -2,9 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
-    xmlns:viewModels="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
-    x:DataType="viewModels:FunctionalColorGroupViewModel">
+    x:DataType="vm:FunctionalColorGroupViewModel">
     <ControlTheme x:Key="{x:Type controls:FunctionalColorGroupControl}" TargetType="controls:FunctionalColorGroupControl">
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:FunctionalColorGroupControl">
@@ -15,138 +15,129 @@
                         Classes="H3"
                         Text="{TemplateBinding Title}"
                         Theme="{DynamicResource TitleSelectableTextBlock}" />
-                    <TabControl 
+                    <TabControl
                         Grid.Row="1"
                         Theme="{DynamicResource LineTabControl}">
+                        <TabControl.Styles>
+                            <Style Selector="SelectableTextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </TabControl.Styles>
                         <TabItem Header="Light">
-                            <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding LightColors}">
-                                <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="70" Header="Color">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                            <TableView ItemsSource="{TemplateBinding LightColors}">
+                                <TableView.Columns>
+                                    <TableViewColumn Header="Color" Width="80">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <controls:ColorItemControl
                                                     Width="40"
                                                     Height="40"
                                                     Background="{Binding Brush}"
                                                     CornerRadius="3" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="300" Header="ResourceKey">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="ResourceKey" Width="300">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="16"
-                                                    VerticalAlignment="Center"
                                                     FontWeight="{DynamicResource SemiFontWeightBold}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="100" Header="Hex">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
-                                                <SelectableTextBlock
-                                                    Margin="16"
-                                                    VerticalAlignment="Center"
-                                                    Text="{Binding Hex}" />
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Hex" Width="100">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
+                                                <SelectableTextBlock Text="{Binding Hex}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="100" Header="Opacity">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
-                                                <SelectableTextBlock
-                                                    Margin="16"
-                                                    VerticalAlignment="Center"
-                                                    Text="{Binding Brush.Opacity}" />
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Opacity" Width="100">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
+                                                <SelectableTextBlock Text="{Binding Brush?.Opacity}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTextColumn
-                                        Width="*"
-                                        x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{Binding ColorDisplayName}"
-                                        CanUserSort="False"
-                                        Header="Description" />
-                                    <DataGridTemplateColumn Width="100" Header="CopyText">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Description" Width="*">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
+                                                <SelectableTextBlock Text="{Binding ColorDisplayName}" />
+                                            </DataTemplate>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="CopyText" Width="110">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <Button
                                                     Command="{Binding $parent[pages:PaletteDemo].Copy}"
                                                     CommandParameter="{Binding CopyText}"
                                                     Theme="{DynamicResource  SquareButton}"
                                                     Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                </TableView.Columns>
+                            </TableView>
                         </TabItem>
                         <TabItem Header="Dark">
-                            <DataGrid IsReadOnly="True" ItemsSource="{TemplateBinding DarkColors}">
-                                <DataGrid.Columns>
-                                    <DataGridTemplateColumn Width="70" Header="Color">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                            <TableView ItemsSource="{TemplateBinding DarkColors}">
+                                <TableView.Columns>
+                                    <TableViewColumn Header="Color" Width="80">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <controls:ColorItemControl
                                                     Width="40"
                                                     Height="40"
                                                     Background="{Binding Brush}"
                                                     CornerRadius="3" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="300" Header="ResourceKey">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="ResourceKey" Width="300">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    Margin="16"
-                                                    VerticalAlignment="Center"
                                                     FontWeight="{DynamicResource SemiFontWeightBold}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="100" Header="Hex">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
-                                                <SelectableTextBlock
-                                                    Margin="16"
-                                                    VerticalAlignment="Center"
-                                                    Text="{Binding Hex}" />
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Hex" Width="100">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
+                                                <SelectableTextBlock Text="{Binding Hex}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTemplateColumn Width="100" Header="Opacity">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
-                                                <SelectableTextBlock
-                                                    Margin="16"
-                                                    VerticalAlignment="Center"
-                                                    Text="{Binding Brush.Opacity}" />
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Opacity" Width="100">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
+                                                <SelectableTextBlock Text="{Binding Brush?.Opacity}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                    <DataGridTextColumn
-                                        Width="*"
-                                        x:DataType="viewModels:ColorItemViewModel"
-                                        Binding="{Binding ColorDisplayName}"
-                                        CanUserSort="False"
-                                        Header="Description" />
-                                    <DataGridTemplateColumn Width="100" Header="CopyText">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate DataType="viewModels:ColorItemViewModel">
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="Description" Width="*">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
+                                                <SelectableTextBlock Text="{Binding ColorDisplayName}" />
+                                            </DataTemplate>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                    <TableViewColumn Header="CopyText" Width="110">
+                                        <TableViewColumn.CellTemplate>
+                                            <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <Button
                                                     Command="{Binding $parent[pages:PaletteDemo].Copy}"
                                                     CommandParameter="{Binding CopyText}"
                                                     Theme="{DynamicResource  SquareButton}"
                                                     Content="{StaticResource SemiIconCopy}" />
                                             </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
+                                        </TableViewColumn.CellTemplate>
+                                    </TableViewColumn>
+                                </TableView.Columns>
+                            </TableView>
                         </TabItem>
                     </TabControl>
                 </Grid>
