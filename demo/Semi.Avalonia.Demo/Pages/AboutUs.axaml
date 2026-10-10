@@ -24,7 +24,7 @@
                         <Color>#FF98CDFD</Color>
                         <Color>#FF95D8F8</Color>
                     </collections:AvaloniaList>
-                    <LinearGradientBrush x:Key="TileTitleForeground" StartPoint="">
+                    <LinearGradientBrush x:Key="TileTitleForeground">
                         <GradientStop Offset="0.0" Color="#FFA20B48" />
                         <GradientStop Offset="0.3" Color="#FF71168A" />
                         <GradientStop Offset="0.6" Color="#FF46259E" />
@@ -87,7 +87,20 @@
             <Setter Property="FontWeight" Value="700" />
             <Setter Property="FontSize" Value="24" />
             <Setter Property="Margin" Value="0 0 0 8" />
-            <Setter Property="Foreground" Value="{DynamicResource TileTitleForeground}" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiAIGeneral7}" />
+        </Style>
+        <Style Selector="iri|IrihiBand.TileTitle">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="CornerRatio" Value="0.2" />
+            <Setter Property="Height" Value="48" />
+            <Setter Property="Margin" Value="0 0 0 8" />
+            <Setter Property="Fill" Value="{DynamicResource SemiAIGeneral7}" />
+        </Style>
+        <Style Selector="iri|IrihiBand.Commercial">
+            <Setter Property="Fill" Value="{DynamicResource SemiAIGeneral7}" />
+        </Style>
+        <Style Selector="iri|IrihiBand.Opensource">
+            <Setter Property="Fill" Value="{DynamicResource SemiBlue9}" />
         </Style>
     </ContentPage.Styles>
     <Grid RowDefinitions="*, Auto">
@@ -102,10 +115,10 @@
                         Grid.Row="0"
                         Grid.RowSpan="2"
                         Grid.Column="0"
-                        Fill="{DynamicResource TextBlockSecondaryForeground}"
                         Width="96"
                         Margin="0,0,24,0"
-                        VerticalAlignment="Center" />
+                        VerticalAlignment="Center"
+                        Fill="{DynamicResource TextBlockSecondaryForeground}" />
                     <TextBlock
                         Grid.Row="0"
                         Grid.Column="1"
@@ -147,9 +160,9 @@
                         CommandParameter="semi"
                         Theme="{DynamicResource TileButton}">
                         <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Classes="TileTitle" Text="Semi" />
-                            <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
-                                <Label Theme="{DynamicResource TagLabel}" Classes="Blue Ghost">Open Source</Label>
+                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Semi" />
+                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
                             </StackPanel>
                             <TextBlock Text="开箱即用的独立主题库" />
                             <TextBlock Text="A ready-to-use standalone theme library" />
@@ -161,9 +174,9 @@
                         CommandParameter="ursa"
                         Theme="{DynamicResource TileButton}">
                         <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Classes="TileTitle" Text="Ursa" />
-                            <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
-                                <Label Theme="{DynamicResource TagLabel}" Classes="Blue Ghost">Open Source</Label>
+                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Ursa" />
+                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
                             </StackPanel>
                             <TextBlock Text="高性能企业级桌面客户端控件库" />
                             <TextBlock Text="High-performance enterprise level control library for desktop apps" />
@@ -172,12 +185,40 @@
                     <Button
                         Margin="8"
                         Command="{Binding NavigateCommand}"
+                        CommandParameter="mafia"
+                        Theme="{DynamicResource TileButton}">
+                        <StackPanel HorizontalAlignment="Left">
+                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Mafia" />
+                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
+                            </StackPanel>
+                            <TextBlock Text="移动端优先的控件库" />
+                            <TextBlock Text="Mobile-first control library" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Margin="8"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="lingua"
+                        Theme="{DynamicResource TileButton}">
+                        <StackPanel HorizontalAlignment="Left">
+                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Lingua" />
+                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
+                            </StackPanel>
+                            <TextBlock Text="高性能响应式多语言解决方案" />
+                            <TextBlock Text="High-performance responsive multilingual solution" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Margin="8"
+                        Command="{Binding NavigateCommand}"
                         CommandParameter="mantra"
                         Theme="{DynamicResource TileButton}">
                         <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Classes="TileTitle" Text="Mantra" />
-                            <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
-                                <Label Theme="{DynamicResource TagLabel}" Classes="Purple Ghost">Commercial</Label>
+                            <iri:IrihiBand Classes="Commercial TileTitle" Label="Mantra" />
+                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                                <Label Classes="Purple Ghost" Theme="{DynamicResource TagLabel}">Commercial</Label>
                             </StackPanel>
                             <TextBlock Text="高性能文字排版渲染控件库" />
                             <TextBlock Text="High-performance typography control library" />
@@ -189,9 +230,9 @@
                         CommandParameter="huska"
                         Theme="{DynamicResource TileButton}">
                         <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Classes="TileTitle" Text="Huska" />
-                            <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
-                                <Label Theme="{DynamicResource TagLabel}" Classes="Purple Ghost">Commercial</Label>
+                            <iri:IrihiBand Classes="Commercial TileTitle" Label="Huska" />
+                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                                <Label Classes="Purple Ghost" Theme="{DynamicResource TagLabel}">Commercial</Label>
                             </StackPanel>
                             <TextBlock Text="手绘风格主题库" />
                             <TextBlock Text="Hand-drawing theme library" />
@@ -203,13 +244,13 @@
         <StackPanel
             Grid.Row="1"
             Margin="0,16"
-            Spacing="32"
             HorizontalAlignment="Center"
-            Orientation="Horizontal">
+            Orientation="Horizontal"
+            Spacing="32">
             <StackPanel Orientation="Horizontal">
                 <HyperlinkButton
-                    Classes="WithIcon"
                     VerticalAlignment="Center"
+                    Classes="WithIcon"
                     Content="Homepage"
                     NavigateUri="https://irihi.tech">
                     <HyperlinkButton.Styles>
