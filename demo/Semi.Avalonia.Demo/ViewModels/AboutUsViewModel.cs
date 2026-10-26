@@ -21,12 +21,14 @@ public partial class AboutUsViewModel : ObservableObject
 
     private static readonly IReadOnlyDictionary<string, string> _keyToUrlMapping = new Dictionary<string, string>()
     {
-        ["semi"] = "https://github.com/irihitech/Semi.Avalonia",
-        ["ursa"] = "https://github.com/irihitech/Ursa.Avalonia",
-        ["mantra"] = "https://www.bilibili.com/video/BV15pfKYbEEQ",
-        ["huska"] = "https://www.bilibili.com/video/BV1knj1zWE4A",
-        ["lingua"] = "https://github.com/irihitech/Irihi.Lingua",
-        ["mafia"] = "https://github.com/irihitech/Irihi.Mafia",
+        ["semi"] = "https://irihi.tech/products/semi",
+        ["ursa"] = "https://irihi.tech/products/ursa",
+        ["mantra"] = "https://irihi.tech/products/mantra",
+        ["huska"] = "https://irihi.tech/products/huska",
+        ["lingua"] = "https://irihi.tech/products/lingua",
+        ["mafia"] = "https://irihi.tech/products/mafia",
+        ["iconica"] = "https://irihi.tech/products/iconica",
+        ["asura"] = "https://irihi.tech",
     };
 
     private async Task OnNavigateAsync(string? arg)

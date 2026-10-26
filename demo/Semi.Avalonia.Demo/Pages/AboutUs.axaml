@@ -2,243 +2,257 @@
     x:Class="Semi.Avalonia.Demo.Pages.AboutUs"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Base"
+    xmlns:branding="clr-namespace:Irihi.Branding;assembly=Irihi.Branding"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:iri="https://irihi.tech/shared"
+    xmlns:localizations="clr-namespace:Semi.Avalonia.Demo"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     x:DataType="vm:AboutUsViewModel"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="720"
+    d:DesignWidth="1100"
     mc:Ignorable="d">
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Light">
-                    <collections:AvaloniaList x:Key="CanvasPalette" x:TypeArguments="Color">
-                        <Color>#FFFDB7A5</Color>
-                        <Color>#FFF6A0B5</Color>
-                        <Color>#FFDD9BE0</Color>
-                        <Color>#FFC4A7E9</Color>
-                        <Color>#FFA7B3E1</Color>
-                        <Color>#FF98CDFD</Color>
-                        <Color>#FF95D8F8</Color>
-                    </collections:AvaloniaList>
-                    <LinearGradientBrush x:Key="TileTitleForeground">
-                        <GradientStop Offset="0.0" Color="#FFA20B48" />
-                        <GradientStop Offset="0.3" Color="#FF71168A" />
-                        <GradientStop Offset="0.6" Color="#FF46259E" />
-                        <GradientStop Offset="1.0" Color="#FF28348C" />
-                    </LinearGradientBrush>
-                </ResourceDictionary>
-                <ResourceDictionary x:Key="Dark">
-                    <collections:AvaloniaList x:Key="CanvasPalette" x:TypeArguments="Color">
-                        <Color>#FFB42019</Color>
-                        <Color>#FFA41751</Color>
-                        <Color>#FF731F8A</Color>
-                        <Color>#FF582EA0</Color>
-                        <Color>#FF29368E</Color>
-                        <Color>#FF135CB8</Color>
-                        <Color>#FF0366A9</Color>
-                    </collections:AvaloniaList>
-                    <LinearGradientBrush x:Key="TileTitleForeground">
-                        <GradientStop Offset="0.0" Color="#FFF7A8BC" />
-                        <GradientStop Offset="0.3" Color="#FFDDA0E1" />
-                        <GradientStop Offset="0.6" Color="#FFBEADE9" />
-                        <GradientStop Offset="1.0" Color="#FFA7B4E2" />
-                    </LinearGradientBrush>
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
-            <ControlTheme x:Key="TileButton" TargetType="Button">
-                <Setter Property="HorizontalContentAlignment" Value="Left" />
-                <Setter Property="Padding" Value="24" />
-                <Setter Property="VerticalContentAlignment" Value="Center" />
-                <Setter Property="Template">
-                    <ControlTemplate>
-                        <Border
-                            Padding="0"
-                            Classes="Hover"
-                            Cursor="Hand"
-                            Theme="{DynamicResource CardBorder}">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <BrushTransition Property="BorderBrush" Duration="0.5" />
-                                </Transitions>
-                            </Border.Transitions>
+        <!-- The button's Background is used as the accent color of the tile. -->
+        <ControlTheme x:Key="ProductTile" TargetType="Button">
+            <Setter Property="Width" Value="240" />
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border
+                        Name="PART_Root"
+                        Padding="0"
+                        ClipToBounds="True"
+                        Theme="{DynamicResource CardBorder}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.3" />
+                            </Transitions>
+                        </Border.Transitions>
+                        <DockPanel>
+                            <Border
+                                Name="PART_Accent"
+                                Height="4"
+                                Background="{TemplateBinding Background}"
+                                DockPanel.Dock="Top" />
                             <ContentPresenter
-                                Padding="{TemplateBinding Padding}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
+                                Padding="20,24"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter>
-                <Style Selector="^:pointerover /template/ Border">
-                    <Setter Property="BorderBrush" Value="{DynamicResource TileTitleForeground}" />
-                </Style>
-            </ControlTheme>
-        </ResourceDictionary>
+                        </DockPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover /template/ Border#PART_Root">
+                <Setter Property="BorderBrush" Value="{Binding $parent[Button].Background}" />
+            </Style>
+        </ControlTheme>
     </ContentPage.Resources>
     <ContentPage.Styles>
-        <Style Selector="TextBlock.TileTitle">
+        <Style Selector="TextBlock.TileName">
+            <Setter Property="FontSize" Value="22" />
             <Setter Property="FontWeight" Value="700" />
-            <Setter Property="FontSize" Value="24" />
-            <Setter Property="Margin" Value="0 0 0 8" />
-            <Setter Property="Foreground" Value="{DynamicResource SemiAIGeneral7}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,12,0,8" />
         </Style>
-        <Style Selector="iri|IrihiBand.TileTitle">
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="CornerRatio" Value="0.2" />
-            <Setter Property="Height" Value="48" />
-            <Setter Property="Margin" Value="0 0 0 8" />
-            <Setter Property="Fill" Value="{DynamicResource SemiAIGeneral7}" />
+        <Style Selector="TextBlock.TileKicker">
+            <Setter Property="FontWeight" Value="600" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,12,0,4" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
-        <Style Selector="iri|IrihiBand.Commercial">
-            <Setter Property="Fill" Value="{DynamicResource SemiAIGeneral7}" />
+        <Style Selector="TextBlock.TileDescription">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockTertiaryForeground}" />
         </Style>
-        <Style Selector="iri|IrihiBand.Opensource">
-            <Setter Property="Fill" Value="{DynamicResource SemiBlue9}" />
+        <Style Selector="Label.TileTag">
+            <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
     </ContentPage.Styles>
     <Grid RowDefinitions="*, Auto">
-        <ScrollViewer>
-            <StackPanel>
-                <Grid
-                    Margin="0,96,0,48"
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="24,0">
+                <StackPanel
+                    Margin="0,64,0,32"
                     HorizontalAlignment="Center"
-                    ColumnDefinitions="*, *"
-                    RowDefinitions="*, *">
-                    <iri:IrihiLogo
-                        Grid.Row="0"
-                        Grid.RowSpan="2"
-                        Grid.Column="0"
-                        Width="96"
-                        Margin="0,0,24,0"
-                        VerticalAlignment="Center"
-                        Fill="{DynamicResource TextBlockSecondaryForeground}" />
+                    Spacing="12">
+                    <branding:IrihiIcon
+                        HorizontalAlignment="Center"
+                        Icon="Irihi"
+                        Size="96" />
                     <TextBlock
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Bottom"
-                        Classes="Secondary"
-                        FontSize="48"
+                        HorizontalAlignment="Center"
+                        FontSize="40"
                         FontWeight="700"
-                        Text="铱泓科技" />
+                        Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Company_Name}}" />
                     <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="12,0,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Classes="Secondary"
-                        FontSize="16"
-                        Text="IRIHI Technology" />
-                </Grid>
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    Classes="Tertiary"
-                    FontSize="20"
-                    FontWeight="700"
-                    Text="聚焦生产力的美学进化" />
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    Classes="Tertiary"
-                    FontSize="20"
-                    Text="Aesthetic Evolution of Productivity" />
-                <UniformGrid
-                    MaxWidth="810"
-                    Margin="24"
-                    HorizontalAlignment="Center"
-                    Columns="2">
+                        HorizontalAlignment="Center"
+                        Classes="Tertiary"
+                        FontSize="18"
+                        Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Slogan}}" />
+                </StackPanel>
+                <WrapPanel MaxWidth="1040" HorizontalAlignment="Center">
                     <Button
-                        Margin="8"
+                        Background="{DynamicResource SemiPurple5}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="semi"
-                        Theme="{DynamicResource TileButton}">
-                        <StackPanel HorizontalAlignment="Left">
-                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Semi" />
-                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
-                            </StackPanel>
-                            <TextBlock Text="开箱即用的独立主题库" />
-                            <TextBlock Text="A ready-to-use standalone theme library" />
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Semi"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Semi" />
+                            <Label
+                                Classes="TileTag Blue Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_OpenSource}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Semi_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Semi_Description}}" />
                         </StackPanel>
                     </Button>
                     <Button
-                        Margin="8"
+                        Background="{DynamicResource SemiGrey5}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="ursa"
-                        Theme="{DynamicResource TileButton}">
-                        <StackPanel HorizontalAlignment="Left">
-                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Ursa" />
-                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
-                            </StackPanel>
-                            <TextBlock Text="高性能企业级桌面客户端控件库" />
-                            <TextBlock Text="High-performance enterprise level control library for desktop apps" />
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Ursa"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Ursa" />
+                            <Label
+                                Classes="TileTag Blue Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_OpenSource}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Ursa_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Ursa_Description}}" />
                         </StackPanel>
                     </Button>
                     <Button
-                        Margin="8"
-                        Command="{Binding NavigateCommand}"
-                        CommandParameter="mafia"
-                        Theme="{DynamicResource TileButton}">
-                        <StackPanel HorizontalAlignment="Left">
-                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Mafia" />
-                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
-                            </StackPanel>
-                            <TextBlock Text="移动端优先的控件库" />
-                            <TextBlock Text="Mobile-first control library" />
-                        </StackPanel>
-                    </Button>
-                    <Button
-                        Margin="8"
-                        Command="{Binding NavigateCommand}"
-                        CommandParameter="lingua"
-                        Theme="{DynamicResource TileButton}">
-                        <StackPanel HorizontalAlignment="Left">
-                            <iri:IrihiBand Classes="Opensource TileTitle" Label="Lingua" />
-                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                                <Label Classes="Blue Ghost" Theme="{DynamicResource TagLabel}">Open Source</Label>
-                            </StackPanel>
-                            <TextBlock Text="高性能响应式多语言解决方案" />
-                            <TextBlock Text="High-performance responsive multilingual solution" />
-                        </StackPanel>
-                    </Button>
-                    <Button
-                        Margin="8"
+                        Background="{DynamicResource SemiAmber5}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="mantra"
-                        Theme="{DynamicResource TileButton}">
-                        <StackPanel HorizontalAlignment="Left">
-                            <iri:IrihiBand Classes="Commercial TileTitle" Label="Mantra" />
-                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                                <Label Classes="Purple Ghost" Theme="{DynamicResource TagLabel}">Commercial</Label>
-                            </StackPanel>
-                            <TextBlock Text="高性能文字排版渲染控件库" />
-                            <TextBlock Text="High-performance typography control library" />
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Mantra"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Mantra" />
+                            <Label
+                                Classes="TileTag Purple Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_Commercial}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Mantra_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Mantra_Description}}" />
                         </StackPanel>
                     </Button>
                     <Button
-                        Margin="8"
+                        Background="{DynamicResource SemiPurple5}"
                         Command="{Binding NavigateCommand}"
-                        CommandParameter="huska"
-                        Theme="{DynamicResource TileButton}">
-                        <StackPanel HorizontalAlignment="Left">
-                            <iri:IrihiBand Classes="Commercial TileTitle" Label="Huska" />
-                            <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                                <Label Classes="Purple Ghost" Theme="{DynamicResource TagLabel}">Commercial</Label>
-                            </StackPanel>
-                            <TextBlock Text="手绘风格主题库" />
-                            <TextBlock Text="Hand-drawing theme library" />
+                        CommandParameter="mafia"
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Mafia"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Mafia" />
+                            <Label
+                                Classes="TileTag Orange Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_Preview}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Mafia_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Mafia_Description}}" />
                         </StackPanel>
                     </Button>
-                </UniformGrid>
+                    <Button
+                        Background="{DynamicResource SemiTeal5}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="lingua"
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Lingua"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Lingua" />
+                            <Label
+                                Classes="TileTag Blue Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_OpenSource}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Lingua_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Lingua_Description}}" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Background="{DynamicResource SemiBlue5}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="iconica"
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Iconica"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Iconica" />
+                            <Label
+                                Classes="TileTag Blue Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_OpenSource}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Iconica_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Iconica_Description}}" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Background="{DynamicResource SemiOrange5}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="huska"
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Huska"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Huska" />
+                            <Label
+                                Classes="TileTag Purple Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_Commercial}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Huska_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Huska_Description}}" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Background="{DynamicResource SemiRed5}"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="asura"
+                        Theme="{StaticResource ProductTile}">
+                        <StackPanel>
+                            <branding:IrihiIcon
+                                HorizontalAlignment="Center"
+                                Icon="Asura"
+                                Size="72" />
+                            <TextBlock Classes="TileName" Text="Asura" />
+                            <Label
+                                Classes="TileTag Orange Ghost"
+                                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Tag_Preview}}"
+                                Theme="{DynamicResource TagLabel}" />
+                            <TextBlock Classes="TileKicker" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Asura_Kicker}}" />
+                            <TextBlock Classes="TileDescription" Text="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Asura_Description}}" />
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
             </StackPanel>
         </ScrollViewer>
         <StackPanel
@@ -247,31 +261,26 @@
             HorizontalAlignment="Center"
             Orientation="Horizontal"
             Spacing="32">
-            <StackPanel Orientation="Horizontal">
-                <HyperlinkButton
-                    VerticalAlignment="Center"
-                    Classes="WithIcon"
-                    Content="Homepage"
-                    NavigateUri="https://irihi.tech">
-                    <HyperlinkButton.Styles>
-                        <Style Selector=".WithIcon /template/ PathIcon">
-                            <Setter Property="Data" Value="{StaticResource SemiIconHome}" />
-                        </Style>
-                    </HyperlinkButton.Styles>
-                </HyperlinkButton>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <HyperlinkButton
-                    Classes="WithIcon"
-                    Content="GitHub"
-                    NavigateUri="https://github.com/irihitech">
-                    <HyperlinkButton.Styles>
-                        <Style Selector=".WithIcon /template/ PathIcon">
-                            <Setter Property="Data" Value="{StaticResource SemiIconGithubLogo}" />
-                        </Style>
-                    </HyperlinkButton.Styles>
-                </HyperlinkButton>
-            </StackPanel>
+            <HyperlinkButton
+                Classes="WithIcon"
+                Content="{Translate {x:Static localizations:LanguageManager+Keys.AboutUs_Link_Homepage}}"
+                NavigateUri="https://irihi.tech">
+                <HyperlinkButton.Styles>
+                    <Style Selector=".WithIcon /template/ PathIcon">
+                        <Setter Property="Data" Value="{StaticResource SemiIconHome}" />
+                    </Style>
+                </HyperlinkButton.Styles>
+            </HyperlinkButton>
+            <HyperlinkButton
+                Classes="WithIcon"
+                Content="GitHub"
+                NavigateUri="https://github.com/irihitech">
+                <HyperlinkButton.Styles>
+                    <Style Selector=".WithIcon /template/ PathIcon">
+                        <Setter Property="Data" Value="{StaticResource SemiIconGithubLogo}" />
+                    </Style>
+                </HyperlinkButton.Styles>
+            </HyperlinkButton>
         </StackPanel>
     </Grid>
 </ContentPage>
