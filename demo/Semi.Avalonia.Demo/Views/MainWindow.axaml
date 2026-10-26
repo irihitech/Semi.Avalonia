@@ -13,7 +13,21 @@
     ExtendClientAreaToDecorationsHint="True"
     Icon="/Assets/irihi.ico"
     mc:Ignorable="d">
-    <Panel Margin="{Binding $parent[Window].WindowDecorationMargin}">
-        <views:MainView />
+    <Panel>
+        <Panel Margin="{Binding $parent[Window].WindowDecorationMargin}">
+            <views:MainView />
+        </Panel>
+        <!--  Title-bar interaction layer: the drawn title bar is framework chrome
+              (ElementRole path), where double-click is broken on X11/Wayland until
+              avaloniaui/avalonia#22586 ships. This role-free strip handles drag and
+              double-click on all backends; drop it once our AvaloniaVersion includes
+              the upstream fix.  -->
+        <Border
+            Name="PART_TitleBarHitArea"
+            Height="{Binding $parent[Window].WindowDecorationMargin.Top}"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            PointerPressed="OnTitleBarHitAreaPointerPressed"
+            PointerReleased="OnTitleBarHitAreaPointerReleased" />
     </Panel>
 </Window>
