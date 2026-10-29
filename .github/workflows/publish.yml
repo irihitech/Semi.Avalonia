@@ -89,7 +89,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Publish win-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r win-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -105,7 +105,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Enable Native AOT in .csproj
         run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish win-x64 AOT
@@ -123,7 +123,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Publish linux-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -139,7 +139,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Enable Native AOT in .csproj
         run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish linux-x64 AOT
@@ -157,7 +157,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Publish linux-x64 DRM
         run: dotnet publish demo/Semi.Avalonia.Demo.Drm -r linux-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
       - name: Upload a Build Artifact
@@ -173,7 +173,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Enable Native AOT in .csproj
         run: sed -i 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Drm/Semi.Avalonia.Demo.Drm.csproj
       - name: Publish linux-x64 AOT
@@ -191,7 +191,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Publish osx-arm64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-arm64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
 
@@ -240,7 +240,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Publish osx-x64
         run: dotnet publish demo/Semi.Avalonia.Demo.Desktop -r osx-x64 -c Release -o publish --sc /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true
@@ -290,7 +290,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Enable Native AOT in .csproj
         run: sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish osx-arm64 AOT
@@ -308,7 +308,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Enable Native AOT in .csproj
         run: sed -i '' 's#<!--<PublishAot>true</PublishAot>-->#<PublishAot>true</PublishAot>#' demo/Semi.Avalonia.Demo.Desktop/Semi.Avalonia.Demo.Desktop.csproj
       - name: Publish osx-x64 AOT
@@ -326,7 +326,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install Android workload
         run: dotnet workload install android
       - name: Restore Dependencies

@@ -1,7 +1,8 @@
-﻿<UserControl
+﻿<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.ContentPageDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="600"
@@ -11,7 +12,7 @@
         <ScrollViewer DockPanel.Dock="Right" Width="260">
             <StackPanel Margin="12" Spacing="8">
                 <TextBlock Text="Configuration" FontWeight="SemiBold" FontSize="16"
-                           Foreground="{DynamicResource SemiColorText0}" />
+                           Foreground="{DynamicResource {x:Static semi:SemiTokens.ColorText0}}" />
                 <TextBlock Text="ContentPage is the fundamental page type. It hosts a single piece of content and integrates with NavigationPage, TabbedPage, and CarouselPage. The Header property sets the navigation bar title."
                            FontSize="12" Opacity="0.7" TextWrapping="Wrap" />
 
@@ -41,14 +42,14 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource SemiColorBackground0}" />
+        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource {x:Static semi:SemiTokens.ColorBackground0}}" />
 
         <Border Margin="12"
-                BorderBrush="{DynamicResource SemiColorBorder}"
+                BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorBorder}}"
                 BorderThickness="1"
                 CornerRadius="6"
                 ClipToBounds="True">
             <NavigationPage Name="DemoNav" />
         </Border>
     </DockPanel>
-</UserControl>
+</ContentPage>

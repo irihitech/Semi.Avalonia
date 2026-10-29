@@ -5,7 +5,7 @@ using Avalonia.Interactivity;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class NavigationPageDemo : UserControl
+public partial class NavigationPageDemo : ContentPage
 {
     private int _pageCount;
     private int _modalCount;

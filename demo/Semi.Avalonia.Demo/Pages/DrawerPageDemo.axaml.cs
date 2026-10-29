@@ -5,7 +5,7 @@ using Avalonia.Layout;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class DrawerPageDemo : UserControl
+public partial class DrawerPageDemo : ContentPage
 {
     public DrawerPageDemo()
     {

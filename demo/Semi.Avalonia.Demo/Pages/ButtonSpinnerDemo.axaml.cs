@@ -3,7 +3,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ButtonSpinnerDemo : UserControl
+public partial class ButtonSpinnerDemo : ContentPage
 {
     public ButtonSpinnerDemo()
     {

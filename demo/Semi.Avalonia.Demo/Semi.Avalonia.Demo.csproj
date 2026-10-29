@@ -19,6 +19,12 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm"/>
+        <PackageReference Include="Irihi.Branding"/>
+        <PackageReference Include="Irihi.Lingua"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="Resources\**\*.resx"/>
     </ItemGroup>
 
     <ItemGroup>

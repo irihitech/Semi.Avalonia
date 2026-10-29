@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Media;
@@ -37,13 +38,16 @@ public static class ApplicationExtension
         app.PlatformSettings.ColorValuesChanged -= OnColorValuesChanged;
     }
 
+    // TODO: Temporarily remove high contrast fallback behavior until we sort out new platform color change behavior
     private static void OnColorValuesChanged(object? _, PlatformColorValues? args)
     {
         ThemeVariant result;
         if (args?.ContrastPreference is ColorContrastPreference.High)
         {
             result = ColorThemeMap.TryGetValue(args.AccentColor1, out var theme) ? theme : ThemeVariant.Default;
+            _app.RequestedThemeVariant = result;
         }
+        /*
         else
         {
             result = args?.ThemeVariant switch
@@ -53,7 +57,8 @@ public static class ApplicationExtension
                 _ => ThemeVariant.Default
             };
         }
-
+        
         _app.RequestedThemeVariant = result;
+        */
     }
 }

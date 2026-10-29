@@ -1,7 +1,8 @@
-<UserControl
+<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.ColorPickerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1450"
@@ -46,7 +47,7 @@
         </ScrollViewer>
 
         <Border Margin="12"
-                BorderBrush="{DynamicResource SemiColorBorder}"
+                BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorBorder}}"
                 BorderThickness="1"
                 CornerRadius="6"
                 ClipToBounds="True">
@@ -88,4 +89,4 @@
             </StackPanel>
         </Border>
     </DockPanel>
-</UserControl>
+</ContentPage>

@@ -3,6 +3,10 @@ name: Release Tag
 on:
   workflow_dispatch:
     inputs:
+      Tag_Name:
+        description: 'Release tag (e.g. v12.1.0.1). Leave empty to use the current ref tag.'
+        default: ''
+        type: string
       Upload_to_NuGet:
         description: 'Upload to NuGet'
         default: false
@@ -72,6 +76,8 @@ jobs:
         with:
           generate_release_notes: true
           draft: true
+          tag_name: ${{ inputs.Tag_Name }}
+          target_commitish: ${{ github.sha }}
           files: |
             nugets/*.nupkg
             android-arm64/*.apk

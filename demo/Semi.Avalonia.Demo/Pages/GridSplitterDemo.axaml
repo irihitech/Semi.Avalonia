@@ -1,7 +1,9 @@
-<UserControl
+<ContentPage
+    Theme="{StaticResource ScrollPage}"
     x:Class="Semi.Avalonia.Demo.Pages.GridSplitterDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
@@ -14,13 +16,13 @@
             RowDefinitions="*, Auto, *">
             <Border
                 HorizontalAlignment="Stretch"
-                Background="{DynamicResource SemiGrey0Color}"
+                Background="{DynamicResource {x:Static semi:SemiTokens.Grey0Color}}"
                 CornerRadius="10" />
             <GridSplitter Grid.Row="1" ShowsPreview="True" />
             <Border
                 Grid.Row="2"
                 HorizontalAlignment="Stretch"
-                Background="{DynamicResource SemiGrey0Color}"
+                Background="{DynamicResource {x:Static semi:SemiTokens.Grey0Color}}"
                 CornerRadius="10" />
         </Grid>
         <Grid
@@ -29,14 +31,14 @@
             ColumnDefinitions="*, Auto, *">
             <Border
                 HorizontalAlignment="Stretch"
-                Background="{DynamicResource SemiGrey0Color}"
+                Background="{DynamicResource {x:Static semi:SemiTokens.Grey0Color}}"
                 CornerRadius="10" />
             <GridSplitter Grid.Column="1" ShowsPreview="True" />
             <Border
                 Grid.Column="2"
                 HorizontalAlignment="Stretch"
-                Background="{DynamicResource SemiGrey0Color}"
+                Background="{DynamicResource {x:Static semi:SemiTokens.Grey0Color}}"
                 CornerRadius="10" />
         </Grid>
     </StackPanel>
-</UserControl>
+</ContentPage>

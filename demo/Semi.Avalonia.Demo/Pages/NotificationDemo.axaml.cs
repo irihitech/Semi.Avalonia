@@ -6,7 +6,7 @@ using Avalonia.Interactivity;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class NotificationDemo : UserControl
+public partial class NotificationDemo : ContentPage
 {
     private WindowNotificationManager? _manager;
 

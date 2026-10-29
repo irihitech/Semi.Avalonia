@@ -35,7 +35,7 @@
                             Grid.Column="1"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ResourceKey}"
-                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Theme="{DynamicResource  SquareButton}"
                             Content="{StaticResource SemiIconCopy}" />
                         <SelectableTextBlock
                             Grid.Row="2"
@@ -49,7 +49,7 @@
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_ColorResourceKey}"
                             IsVisible="{TemplateBinding ColorResourceKey, Converter={x:Static ObjectConverters.IsNotNull}}"
-                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Theme="{DynamicResource  SquareButton}"
                             Content="{StaticResource SemiIconCopy}" />
 
                         <!--  Row 3-4-5 HEX  -->
@@ -71,7 +71,7 @@
                             Grid.Column="1"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex}"
-                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Theme="{DynamicResource  SquareButton}"
                             Content="{StaticResource SemiIconCopy}" />
                         <SelectableTextBlock
                             Grid.Row="5"
@@ -83,7 +83,7 @@
                             Grid.Column="1"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Hex2}"
-                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Theme="{DynamicResource  SquareButton}"
                             Content="{StaticResource SemiIconCopy}" />
 
                         <!--  Row 6-7 Opacity  -->
@@ -105,7 +105,7 @@
                             Grid.Column="1"
                             Command="{Binding $parent[controls:ColorDetailControl].Copy}"
                             CommandParameter="{x:Static controls:ColorDetailControl.KEY_Opacity}"
-                            Theme="{DynamicResource  IconBorderlessButton}"
+                            Theme="{DynamicResource  SquareButton}"
                             Content="{StaticResource SemiIconCopy}" />
 
                     </Grid>

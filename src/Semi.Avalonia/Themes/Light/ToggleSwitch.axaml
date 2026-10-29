@@ -12,5 +12,17 @@
     <StaticResource x:Key="ToggleSwitchContainerCheckedDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorSuccessDisabled}" />
     <StaticResource x:Key="SimpleToggleSwitchContainerUnCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
     <StaticResource x:Key="SimpleToggleSwitchContainerCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
+    <StaticResource x:Key="ToggleSwitchIndicatorBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
     <BoxShadows x:Key="ToggleSwitchIndicatorBoxShadow">0 4 6 0 #1A000000, 0 0 1 0 #4D000000</BoxShadows>
+    <ConicGradientBrush x:Key="ToggleSwitchLoadingIndicatorBrush">
+        <GradientStops>
+            <GradientStop Offset="0.1" Color="Transparent" />
+            <GradientStop Offset="0.7" Color="{StaticResource {x:Static semi:SemiTokens.WhiteColor}}" />
+        </GradientStops>
+    </ConicGradientBrush>
+
+     <StaticResource x:Key="ToggleSwitchContainerUnCheckedAccentBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDanger}" />
+     <StaticResource x:Key="ToggleSwitchContainerUnCheckedAccentPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerPointerover}" />
+     <StaticResource x:Key="ToggleSwitchContainerUnCheckedAccentPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerActive}" />
+     <StaticResource x:Key="ToggleSwitchContainerUnCheckedAccentDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLight}" />
 </ResourceDictionary>

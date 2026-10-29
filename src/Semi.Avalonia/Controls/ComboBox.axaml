@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iri="https://irihi.tech/shared">
     <Design.PreviewWith>
         <StackPanel Margin="20">
             <ComboBoxItem>Hello World</ComboBoxItem>
@@ -98,7 +99,7 @@
                         <Button
                             Name="ClearButton"
                             Grid.Column="1"
-                            Theme="{DynamicResource InnerIconButton}"
+                            Theme="{DynamicResource GlyphButton}"
                             Width="{DynamicResource ComboBoxIconWidth}"
                             Command="{Binding $parent[ComboBox].Clear}"
                             Content="{DynamicResource IconButtonClearData}"
@@ -151,19 +152,27 @@
         </Setter>
 
         <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^:pointerover /template/ Button#ClearButton">
-                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+            <Style Selector="^:pointerover, ^:focus">
+                <Style Selector="^ /template/ Button#ClearButton">
+                    <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                </Style>
+                <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+                    <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                </Style>
             </Style>
         </Style>
 
         <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="{DynamicResource ComboBoxLargeHeight}" />
+            <Style Selector="^ /template/ TextBox#PART_EditableTextBox">
+                <Setter Property="iri:ClassHelper.Classes" Value="Large" />
+            </Style>
         </Style>
         <Style Selector="^.Small">
             <Setter Property="MinHeight" Value="{DynamicResource ComboBoxSmallHeight}" />
+            <Style Selector="^ /template/ TextBox#PART_EditableTextBox">
+                <Setter Property="iri:ClassHelper.Classes" Value="Small" />
+            </Style>
         </Style>
 
         <!--  Pointerover State  -->

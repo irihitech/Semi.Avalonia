@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
+        <Setter Property="FontWeight" Value="{DynamicResource DataGridColumnHeaderFontWeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource DataGridColumnHeaderForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderBackground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="SeparatorBrush" Value="{DynamicResource DataGridLineBrush}" />
+        <Setter Property="Padding" Value="{DynamicResource DataGridColumnHeaderPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridColumnHeaderMinHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="DataGridColumnHeader">
+                <Border
+                    Name="HeaderBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid Name="PART_ColumnHeaderRoot" ColumnDefinitions="*,Auto">
+                        <Border
+                            Name="HeaderBackground"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            CornerRadius="{DynamicResource DataGridColumnHeaderCornerRadius}" />
+                        <Grid
+                            Grid.Column="0"
+                            ColumnDefinitions="*,Auto"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ContentPresenter
+                                Grid.Column="0"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <PathIcon
+                                Name="SortIcon"
+                                Grid.Column="1"
+                                Theme="{StaticResource InnerPathIcon}"
+                                Foreground="{TemplateBinding Foreground}" 
+                                IsVisible="False" />
+                        </Grid>
+                        <Rectangle
+                            Name="VerticalSeparator"
+                            Grid.Column="1"
+                            Width="{DynamicResource DataGridGridLineThickness}"
+                            Fill="{TemplateBinding SeparatorBrush}"
+                            IsVisible="{TemplateBinding AreSeparatorsVisible}" />
+                        <Panel
+                            Name="FocusVisual"
+                            Grid.Column="0"
+                            IsHitTestVisible="False"
+                            IsVisible="False">
+                            <Rectangle
+                                Margin="{DynamicResource DataGridCellVisualBorderThickness}"
+                                Fill="Transparent"
+                                IsHitTestVisible="False"
+                                Stroke="{DynamicResource DataGridCellFocusBorderBrush}"
+                                StrokeThickness="{DynamicResource DataGridCellVisualStrokeThickness}" />
+                        </Panel>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:focus-visible /template/ Grid#FocusVisual">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#HeaderBackground">
+            <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ Border#HeaderBackground">
+            <Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:dragIndicator">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
+        <Style Selector="^:sortascending /template/ PathIcon#SortIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Data" Value="{DynamicResource DataGridColumnHeaderAscendingGlyph}" />
+        </Style>
+
+        <Style Selector="^:sortdescending /template/ PathIcon#SortIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Data" Value="{DynamicResource DataGridColumnHeaderDescendingGlyph}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

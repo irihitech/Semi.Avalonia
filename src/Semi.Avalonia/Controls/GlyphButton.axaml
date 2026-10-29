@@ -1,0 +1,247 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="GlyphButton" TargetType="Button">
+        <Setter Property="Width" Value="{DynamicResource GlyphButtonWidth}" />
+        <Setter Property="Height" Value="{DynamicResource GlyphButtonWidth}" />
+        <Setter Property="Foreground" Value="{DynamicResource GlyphButtonForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Panel Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource GlyphButtonPointeroverForeground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource GlyphButtonPressedForeground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource GlyphButtonDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="GlyphToggleSwitch"
+        BasedOn="{StaticResource GlyphButton}"
+        TargetType="ToggleSwitch">
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Content" Value="{x:Null}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Panel Background="{TemplateBinding Background}">
+                    <ContentPresenter
+                        Name="PART_OffContentPresenter"
+                        Content="{TemplateBinding OffContent}"
+                        ContentTemplate="{TemplateBinding OffContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Name="PART_OnContentPresenter"
+                        Content="{TemplateBinding OnContent}"
+                        ContentTemplate="{TemplateBinding OnContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter.IsVisible>
+                            <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                <TemplateBinding Property="IsThreeState" />
+                                <TemplateBinding Property="IsChecked" Converter="{x:Static ObjectConverters.IsNull}" />
+                            </MultiBinding>
+                        </ContentPresenter.IsVisible>
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <Panel Name="PART_SwitchKnob" />
+                    <Panel Name="PART_MovingKnobs" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SquareButton" TargetType="Button">
+        <Setter Property="Width" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Height" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource SquareButtonPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource SquareButtonForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Border
+                    Name="PART_RootBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Data="{Binding}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_RootBorder">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="Width" Value="{DynamicResource ButtonLargeHeight}" />
+            <Setter Property="Height" Value="{DynamicResource ButtonLargeHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource SquareButtonLargePadding}" />
+        </Style>
+
+        <Style Selector="^.Small">
+            <Setter Property="Width" Value="{DynamicResource ButtonSmallHeight}" />
+            <Setter Property="Height" Value="{DynamicResource ButtonSmallHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource SquareButtonSmallPadding}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="SquareToggleSwitch"
+        BasedOn="{StaticResource SquareButton}"
+        TargetType="ToggleSwitch">
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Content" Value="{x:Null}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Border
+                    Name="PART_RootBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <ContentPresenter
+                            Name="PART_OffContentPresenter"
+                            Content="{TemplateBinding OffContent}"
+                            ContentTemplate="{TemplateBinding OffContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <ContentPresenter
+                            Name="PART_OnContentPresenter"
+                            Content="{TemplateBinding OnContent}"
+                            ContentTemplate="{TemplateBinding OnContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsVisible="{TemplateBinding IsChecked}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}">
+                            <ContentPresenter.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <TemplateBinding Property="IsThreeState" />
+                                    <TemplateBinding Property="IsChecked" Converter="{x:Static ObjectConverters.IsNull}" />
+                                </MultiBinding>
+                            </ContentPresenter.IsVisible>
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <Panel Name="PART_SwitchKnob" />
+                        <Panel Name="PART_MovingKnobs" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

@@ -3,7 +3,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class AutoCompleteBoxDemo : UserControl
+public partial class AutoCompleteBoxDemo : ContentPage
 {
     public AutoCompleteBoxDemo()
     {

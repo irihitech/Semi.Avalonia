@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="ScrollPage" TargetType="ContentPage">
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ContentPage">
+                <DockPanel>
+                    <ContentPresenter
+                        Name="PART_TopCommandBar"
+                        DockPanel.Dock="Top" />
+                    <ContentPresenter
+                        Name="PART_BottomCommandBar"
+                        DockPanel.Dock="Bottom" />
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </ScrollViewer>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

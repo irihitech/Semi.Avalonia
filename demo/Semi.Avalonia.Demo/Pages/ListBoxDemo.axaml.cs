@@ -4,7 +4,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ListBoxDemo : UserControl
+public partial class ListBoxDemo : ContentPage
 {
     public ListBoxDemo()
     {

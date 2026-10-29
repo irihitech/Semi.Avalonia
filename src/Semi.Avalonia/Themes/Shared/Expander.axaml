@@ -6,9 +6,8 @@
     <StaticResource x:Key="ExpanderIcon" ResourceKey="SemiIconChevronDown" />
     <Thickness x:Key="ExpanderHeaderMargin">8 4</Thickness>
     <StaticResource x:Key="ExpanderHeaderPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessTight}" />
-    <Thickness x:Key="ExpanderContentMargin">16 4 16 8</Thickness>
-    <Thickness x:Key="ExpanderDownContentBorderThickness">0 0 0 1</Thickness>
-    <Thickness x:Key="ExpanderUpContentBorderThickness">0 1 0 0</Thickness>
-    <Thickness x:Key="ExpanderLeftContentBorderThickness">1 0 0 0</Thickness>
-    <Thickness x:Key="ExpanderRightContentBorderThickness">0 0 1 0</Thickness>
+    <Thickness x:Key="ExpanderContentPadding">16 4 16 8</Thickness>
+    <StaticResource x:Key="ExpanderContentBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="ExpanderContentMinLength" ResourceKey="{x:Static semi:SemiTokens.SpacingSuperTight}" />
+    <StaticResource x:Key="ExpanderCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
 </ResourceDictionary>

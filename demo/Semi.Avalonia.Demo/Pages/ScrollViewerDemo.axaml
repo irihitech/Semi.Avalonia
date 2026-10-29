@@ -1,7 +1,8 @@
-<UserControl
+<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.ScrollViewerDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
@@ -20,12 +21,12 @@
                 <UniformGrid
                     Rows="2" Columns="2"
                     Width="300" Height="300">
-                    <Rectangle Fill="{DynamicResource SemiYellow2}" />
-                    <Rectangle Fill="{DynamicResource SemiBlue2}" />
-                    <Rectangle Fill="{DynamicResource SemiPink2}" />
-                    <Rectangle Fill="{DynamicResource SemiGreen2}" />
+                    <Rectangle Fill="{DynamicResource {x:Static semi:SemiTokens.Yellow2}}" />
+                    <Rectangle Fill="{DynamicResource {x:Static semi:SemiTokens.Blue2}}" />
+                    <Rectangle Fill="{DynamicResource {x:Static semi:SemiTokens.Pink2}}" />
+                    <Rectangle Fill="{DynamicResource {x:Static semi:SemiTokens.Green2}}" />
                 </UniformGrid>
             </ScrollViewer>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

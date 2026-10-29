@@ -1,4 +1,5 @@
-<UserControl
+<ContentPage
+    Padding="8"
     x:Class="Semi.Avalonia.Demo.Pages.DataGridDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,25 +10,34 @@
     d:DesignWidth="800"
     x:DataType="vm:DataGridDemoViewModel"
     mc:Ignorable="d">
-    <TabControl>
+    <TabControl Theme="{DynamicResource LineTabControl}">
         <TabItem Header="DataGrid">
             <Grid RowDefinitions="Auto, *">
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <ToggleSwitch Content="Enable" Name="enable" IsChecked="True" />
-                    <ToggleSwitch Content="Inset Content" Name="inset" />
-                    <ToggleSwitch Content="ScrollBar Auto Hide" Name="autohide" />
+                <StackPanel
+                    Grid.Row="0"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    Margin="8">
+                    <CheckBox Content="Enable" Name="enable" IsChecked="True" />
+                    <CheckBox Content="Inset Content" Name="inset" />
+                    <CheckBox Content="ScrollBar Auto Hide" Name="autohide" />
                 </StackPanel>
-                <DataGrid Grid.Row="1"
-                          Margin="8"
-                          CanUserReorderColumns="True"
-                          CanUserResizeColumns="True"
-                          CanUserSortColumns="True"
-                          HeadersVisibility="All"
-                          IsReadOnly="True"
-                          Classes.InsetContent="{Binding #inset.IsChecked}"
-                          ScrollViewer.AllowAutoHide="{Binding #autohide.IsChecked}"
-                          IsEnabled="{Binding #enable.IsChecked}"
-                          ItemsSource="{Binding GridData1}">
+                <DataGrid
+                    Grid.Row="1"
+                    CanUserReorderColumns="True"
+                    CanUserResizeColumns="True"
+                    CanUserSortColumns="True"
+                    HeadersVisibility="All"
+                    IsReadOnly="True"
+                    Classes.InsetContent="{Binding #inset.IsChecked}"
+                    ScrollViewer.AllowAutoHide="{Binding #autohide.IsChecked}"
+                    IsEnabled="{Binding #enable.IsChecked}"
+                    ItemsSource="{Binding GridData1}">
+                    <DataGrid.Styles>
+                        <Style Selector="DataGridRow">
+                            <Setter Property="Header" Value="{Binding $self.Index}" />
+                        </Style>
+                    </DataGrid.Styles>
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="6*"
@@ -48,21 +58,20 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock
-                                        Margin="8,0,0,0"
+                                        Margin="16,0"
                                         VerticalAlignment="Center"
                                         Text="{Binding Duration}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
-
                 </DataGrid>
-
             </Grid>
         </TabItem>
+
         <TabItem Header="Grouping">
             <DataGrid
-                Margin="8"
+                Margin="0,8"
                 CanUserReorderColumns="True"
                 CanUserResizeColumns="True"
                 CanUserSortColumns="True"
@@ -90,9 +99,9 @@
                         Header="Duration"
                         SortMemberPath="Duration">
                         <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate x:DataType="vm:Song">
+                            <DataTemplate DataType="vm:Song">
                                 <TextBlock
-                                    Margin="8,0,0,0"
+                                    Margin="16,0"
                                     VerticalAlignment="Center"
                                     Text="{Binding Duration}" />
                             </DataTemplate>
@@ -102,11 +111,12 @@
             </DataGrid>
         </TabItem>
         <TabItem Name="EditableTab" Header="Editable">
-            <Grid Margin="8" RowDefinitions="Auto,*,Auto">
+            <Grid RowDefinitions="Auto,*,Auto">
                 <StackPanel
                     Grid.Row="0"
                     Orientation="Horizontal"
-                    Spacing="4">
+                    Spacing="8"
+                    Margin="8">
                     <TextBlock VerticalAlignment="Center" Text="FontSize:" />
                     <Slider
                         Name="FontSizeSlider"
@@ -114,7 +124,10 @@
                         VerticalAlignment="Center"
                         Maximum="30"
                         Minimum="5"
-                        Value="14" />
+                        Value="14"
+                        TickFrequency="1" 
+                        IsSnapToTickEnabled="True"
+                        ToolTip.Tip="{Binding $self.Value}" />
                     <CheckBox
                         Name="IsThreeStateCheckBox"
                         Content="IsThreeState"
@@ -122,7 +135,6 @@
                 </StackPanel>
                 <DataGrid
                     Grid.Row="1"
-                    Margin="8"
                     ItemsSource="{Binding GridData3}">
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn
@@ -159,6 +171,7 @@
                                 <DataTemplate>
                                     <NumericUpDown
                                         HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
                                         FormatString="N0"
                                         Minimum="0"
                                         Value="{Binding CountOfComment}" />
@@ -169,11 +182,11 @@
                 </DataGrid>
                 <Button
                     Grid.Row="2"
-                    Margin="12,0,12,12"
+                    Margin="0,8,0,0"
                     HorizontalAlignment="Right"
                     Command="{Binding AddCommand}"
                     Content="Add" />
             </Grid>
         </TabItem>
     </TabControl>
-</UserControl>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type DataGridRowHeader}" TargetType="DataGridRowHeader">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="SeparatorBrush" Value="{DynamicResource DataGridLineBrush}" />
+        <Setter Property="AreSeparatorsVisible" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid
+                    Name="PART_Root"
+                    ColumnDefinitions="Auto,*"
+                    RowDefinitions="*,*,Auto">
+                    <Border
+                        Grid.Row="0" 
+                        Grid.Column="0"
+                        Grid.RowSpan="3"
+                        Grid.ColumnSpan="2"
+                        BorderBrush="{TemplateBinding SeparatorBrush}"
+                        BorderThickness="0,0,1,0">
+                        <Panel Background="{TemplateBinding Background}">
+                            <Rectangle
+                                Name="RowInvalidVisualElement"
+                                Fill="{DynamicResource DataGridCellErrorBrush}"
+                                Opacity="0"
+                                Stretch="Fill" />
+                            <Rectangle
+                                Name="BackgroundRectangle"
+                                Fill="{DynamicResource DataGridRowBackground}"
+                                Stretch="Fill" />
+                        </Panel>
+                    </Border>
+                    <Rectangle
+                        Name="HorizontalSeparator"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Height="{DynamicResource DataGridGridLineThickness}"
+                        Margin="1,0,1,0"
+                        Fill="{TemplateBinding SeparatorBrush}"
+                        IsVisible="{TemplateBinding AreSeparatorsVisible}" />
+
+                    <ContentPresenter
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Margin="{DynamicResource DataGridRowHeaderMargin}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Content}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

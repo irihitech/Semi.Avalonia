@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class Overview : UserControl
+public partial class Overview : ContentPage
 {
     public Overview()
     {

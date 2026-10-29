@@ -1,7 +1,20 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <DrawerPage Width="400" Height="300" />
+        <DrawerPage DrawerIcon="Test" DrawerLayoutBehavior="Split" Width="400" Height="300" />
     </Design.PreviewWith>
+
+    <ControlTheme
+        x:Key="DrawerPageToggleButton"
+        BasedOn="{StaticResource {x:Type ToggleButton}}"
+        TargetType="ToggleButton">
+        <Setter Property="MinWidth" Value="{Binding $self.MinHeight}" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DrawerPagePaneButtonPadding}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DrawerPagePaneButtonForeground}" />
+        <Setter Property="AutomationProperties.Name" Value="Toggle navigation drawer" />
+        <Setter Property="ToolTip.Tip" Value="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}" />
+    </ControlTheme>
 
     <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage">
         <Setter Property="Background" Value="{DynamicResource DrawerPageBackground}" />
@@ -21,25 +34,18 @@
                             <ToggleButton
                                 Name="PART_CompactPaneToggle"
                                 DockPanel.Dock="Top"
-                                AutomationProperties.Name="Toggle navigation drawer"
-                                ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
-                                Width="{DynamicResource ButtonDefaultHeight}"
-                                Height="{DynamicResource ButtonDefaultHeight}"
-                                HorizontalAlignment="Left"
-                                Background="Transparent"
+                                Theme="{DynamicResource DrawerPageToggleButton}"
                                 IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                 IsVisible="False">
                                 <Panel>
                                     <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
                                         Data="{DynamicResource DrawerPageMenuGlyph}"
-                                        Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                        IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
-                                        Theme="{DynamicResource InnerPathIcon}" />
+                                        IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}" />
                                     <ContentPresenter
                                         Name="PART_CompactPaneIconPresenter"
                                         Content="{TemplateBinding DrawerIcon}"
                                         ContentTemplate="{TemplateBinding DrawerIconTemplate}"
-                                        Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
                                         IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 </Panel>
                             </ToggleButton>
@@ -69,28 +75,23 @@
                                 Name="PART_TopBar"
                                 DockPanel.Dock="Top"
                                 Height="{DynamicResource DrawerPageTopBarMinHeight}"
-                                Background="{DynamicResource DrawerPageTopBarBackground}">
+                                Background="{DynamicResource DrawerPageTopBarBackground}"
+                                CornerRadius="{DynamicResource DrawerPageTopBarCornerRadius}">
                                 <DockPanel>
                                     <ToggleButton
                                         Name="PART_PaneButton"
                                         DockPanel.Dock="Left"
-                                        AutomationProperties.Name="Toggle navigation drawer"
-                                        ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
-                                        Width="{DynamicResource ButtonDefaultHeight}"
-                                        Height="{DynamicResource ButtonDefaultHeight}"
-                                        Background="Transparent"
+                                        Theme="{DynamicResource DrawerPageToggleButton}"
                                         IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}">
                                         <Panel>
                                             <PathIcon
+                                                Theme="{DynamicResource InnerPathIcon}"
                                                 Data="{DynamicResource DrawerPageMenuGlyph}"
-                                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
-                                                Theme="{DynamicResource InnerPathIcon}" />
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}" />
                                             <ContentPresenter
                                                 Name="PART_PaneIconPresenter"
                                                 Content="{TemplateBinding DrawerIcon}"
                                                 ContentTemplate="{TemplateBinding DrawerIconTemplate}"
-                                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
                                                 IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>
@@ -115,23 +116,17 @@
                                     <ToggleButton
                                         Name="PART_BottomPaneButton"
                                         DockPanel.Dock="Left"
-                                        AutomationProperties.Name="Toggle navigation drawer"
-                                        ToolTip.Tip="{DynamicResource STRING_DRAWERPAGE_TOGGLE_NAVIGATION_DRAWER}"
-                                        Width="{DynamicResource ButtonDefaultHeight}"
-                                        Height="{DynamicResource ButtonDefaultHeight}"
-                                        Background="Transparent"
+                                        Theme="{DynamicResource DrawerPageToggleButton}"
                                         IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}">
                                         <Panel>
                                             <PathIcon
+                                                Theme="{DynamicResource InnerPathIcon}"
                                                 Data="{DynamicResource DrawerPageMenuGlyph}"
-                                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
-                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}"
-                                                Theme="{DynamicResource InnerPathIcon}" />
+                                                IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNull}}" />
                                             <ContentPresenter
                                                 Name="PART_BottomPaneIconPresenter"
                                                 Content="{TemplateBinding DrawerIcon}"
                                                 ContentTemplate="{TemplateBinding DrawerIconTemplate}"
-                                                Foreground="{DynamicResource DrawerPagePaneButtonForeground}"
                                                 IsVisible="{TemplateBinding DrawerIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         </Panel>
                                     </ToggleButton>

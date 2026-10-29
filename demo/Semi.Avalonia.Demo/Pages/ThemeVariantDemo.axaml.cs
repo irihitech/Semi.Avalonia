@@ -5,7 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ThemeVariantDemo : UserControl
+public partial class ThemeVariantDemo : ContentPage
 {
     public ThemeVariantDemo()
     {

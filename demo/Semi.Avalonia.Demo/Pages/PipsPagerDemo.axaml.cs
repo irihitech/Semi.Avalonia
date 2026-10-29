@@ -2,7 +2,7 @@
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class PipsPagerDemo : UserControl
+public partial class PipsPagerDemo : ContentPage
 {
     public PipsPagerDemo()
     {

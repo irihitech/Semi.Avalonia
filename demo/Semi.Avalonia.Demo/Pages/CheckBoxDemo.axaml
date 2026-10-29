@@ -1,4 +1,5 @@
-<UserControl
+<ContentPage
+    Theme="{StaticResource ScrollPage}"
     x:Class="Semi.Avalonia.Demo.Pages.CheckBoxDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,120 +8,118 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <StackPanel HorizontalAlignment="Left" Spacing="20">
-            <TextBlock Text="CheckBox" />
-            <StackPanel Orientation="Horizontal">
-                <CheckBox>Unchecked</CheckBox>
-                <CheckBox IsChecked="True">Checked</CheckBox>
-                <CheckBox IsChecked="{x:Null}" IsThreeState="True">Indeterminate</CheckBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsEnabled="False">Unchecked</CheckBox>
-                <CheckBox IsChecked="True" IsEnabled="False">Checked</CheckBox>
-                <CheckBox
-                    IsChecked="{x:Null}"
-                    IsEnabled="False"
-                    IsThreeState="True">
-                    Indeterminate
-                </CheckBox>
-            </StackPanel>
-            <CheckBox Width="120" HorizontalAlignment="Left">Checkbox should wrap its text</CheckBox>
-            <TextBlock Text="SimpleCheckBox" />
-            <StackPanel Orientation="Horizontal">
-                <CheckBox Theme="{StaticResource SimpleCheckBox}" />
-                <CheckBox IsChecked="True" Theme="{StaticResource SimpleCheckBox}" />
-                <CheckBox
-                    IsChecked="{x:Null}"
-                    IsThreeState="True"
-                    Theme="{StaticResource SimpleCheckBox}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsEnabled="False" Theme="{StaticResource SimpleCheckBox}" />
-                <CheckBox
-                    IsChecked="True"
-                    IsEnabled="False"
-                    Theme="{StaticResource SimpleCheckBox}" />
-                <CheckBox
-                    IsChecked="{x:Null}"
-                    IsEnabled="False"
-                    IsThreeState="True"
-                    Theme="{StaticResource SimpleCheckBox}" />
-            </StackPanel>
-            <TextBlock Text="CardCheckBox" />
-            <StackPanel Orientation="Horizontal">
-                <StackPanel.Styles>
-                    <Style Selector="CheckBox">
-                        <Setter Property="Width" Value="150" />
-                        <Setter Property="Margin" Value="8" />
-                    </Style>
-                </StackPanel.Styles>
-                <CheckBox
-                    Content="Windows"
-                    IsChecked="True"
-                    Theme="{DynamicResource CardCheckBox}" />
-                <CheckBox
-                    Content="macOS"
-                    IsChecked="True"
-                    IsEnabled="False"
-                    Theme="{DynamicResource CardCheckBox}" />
-                <CheckBox
-                    Content="Linux"
-                    IsChecked="True"
-                    Theme="{DynamicResource CardCheckBox}" />
-                <CheckBox
-                    Content="iOS"
-                    IsChecked="{x:Null}"
-                    IsThreeState="True"
-                    Theme="{DynamicResource CardCheckBox}" />
-                <CheckBox
-                    Content="Android"
-                    IsChecked="{x:Null}"
-                    IsThreeState="True"
-                    Theme="{DynamicResource CardCheckBox}" />
-                <CheckBox
-                    Content="Wasm"
-                    IsChecked="False"
-                    IsThreeState="True"
-                    Theme="{DynamicResource CardCheckBox}" />
-            </StackPanel>
-            <TextBlock Text="PureCardCheckBox" />
-            <StackPanel Orientation="Horizontal">
-                <StackPanel.Styles>
-                    <Style Selector="CheckBox">
-                        <Setter Property="Width" Value="150" />
-                        <Setter Property="Margin" Value="8" />
-                    </Style>
-                </StackPanel.Styles>
-                <CheckBox
-                    Content="Windows"
-                    IsChecked="True"
-                    Theme="{DynamicResource PureCardCheckBox}" />
-                <CheckBox
-                    Content="macOS"
-                    IsChecked="True"
-                    IsEnabled="False"
-                    Theme="{DynamicResource PureCardCheckBox}" />
-                <CheckBox
-                    Content="Linux"
-                    IsChecked="True"
-                    Theme="{DynamicResource PureCardCheckBox}" />
-                <CheckBox
-                    Content="iOS"
-                    IsChecked="{x:Null}"
-                    IsThreeState="True"
-                    Theme="{DynamicResource PureCardCheckBox}" />
-                <CheckBox
-                    Content="Android"
-                    IsChecked="{x:Null}"
-                    IsThreeState="True"
-                    Theme="{DynamicResource PureCardCheckBox}" />
-                <CheckBox
-                    Content="Wasm"
-                    IsChecked="False"
-                    IsThreeState="True"
-                    Theme="{DynamicResource PureCardCheckBox}" />
-            </StackPanel>
+    <StackPanel HorizontalAlignment="Left" Spacing="20">
+        <TextBlock Text="CheckBox" />
+        <StackPanel Orientation="Horizontal">
+            <CheckBox>Unchecked</CheckBox>
+            <CheckBox IsChecked="True">Checked</CheckBox>
+            <CheckBox IsChecked="{x:Null}" IsThreeState="True">Indeterminate</CheckBox>
         </StackPanel>
-    </ScrollViewer>
-</UserControl>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsEnabled="False">Unchecked</CheckBox>
+            <CheckBox IsChecked="True" IsEnabled="False">Checked</CheckBox>
+            <CheckBox
+                IsChecked="{x:Null}"
+                IsEnabled="False"
+                IsThreeState="True">
+                Indeterminate
+            </CheckBox>
+        </StackPanel>
+        <CheckBox Width="120" HorizontalAlignment="Left">Checkbox should wrap its text</CheckBox>
+        <TextBlock Text="SimpleCheckBox" />
+        <StackPanel Orientation="Horizontal">
+            <CheckBox Theme="{StaticResource SimpleCheckBox}" />
+            <CheckBox IsChecked="True" Theme="{StaticResource SimpleCheckBox}" />
+            <CheckBox
+                IsChecked="{x:Null}"
+                IsThreeState="True"
+                Theme="{StaticResource SimpleCheckBox}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsEnabled="False" Theme="{StaticResource SimpleCheckBox}" />
+            <CheckBox
+                IsChecked="True"
+                IsEnabled="False"
+                Theme="{StaticResource SimpleCheckBox}" />
+            <CheckBox
+                IsChecked="{x:Null}"
+                IsEnabled="False"
+                IsThreeState="True"
+                Theme="{StaticResource SimpleCheckBox}" />
+        </StackPanel>
+        <TextBlock Text="CardCheckBox" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="CheckBox">
+                    <Setter Property="Width" Value="150" />
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <CheckBox
+                Content="Windows"
+                IsChecked="True"
+                Theme="{DynamicResource CardCheckBox}" />
+            <CheckBox
+                Content="macOS"
+                IsChecked="True"
+                IsEnabled="False"
+                Theme="{DynamicResource CardCheckBox}" />
+            <CheckBox
+                Content="Linux"
+                IsChecked="True"
+                Theme="{DynamicResource CardCheckBox}" />
+            <CheckBox
+                Content="iOS"
+                IsChecked="{x:Null}"
+                IsThreeState="True"
+                Theme="{DynamicResource CardCheckBox}" />
+            <CheckBox
+                Content="Android"
+                IsChecked="{x:Null}"
+                IsThreeState="True"
+                Theme="{DynamicResource CardCheckBox}" />
+            <CheckBox
+                Content="Wasm"
+                IsChecked="False"
+                IsThreeState="True"
+                Theme="{DynamicResource CardCheckBox}" />
+        </StackPanel>
+        <TextBlock Text="PureCardCheckBox" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="CheckBox">
+                    <Setter Property="Width" Value="150" />
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <CheckBox
+                Content="Windows"
+                IsChecked="True"
+                Theme="{DynamicResource PureCardCheckBox}" />
+            <CheckBox
+                Content="macOS"
+                IsChecked="True"
+                IsEnabled="False"
+                Theme="{DynamicResource PureCardCheckBox}" />
+            <CheckBox
+                Content="Linux"
+                IsChecked="True"
+                Theme="{DynamicResource PureCardCheckBox}" />
+            <CheckBox
+                Content="iOS"
+                IsChecked="{x:Null}"
+                IsThreeState="True"
+                Theme="{DynamicResource PureCardCheckBox}" />
+            <CheckBox
+                Content="Android"
+                IsChecked="{x:Null}"
+                IsThreeState="True"
+                Theme="{DynamicResource PureCardCheckBox}" />
+            <CheckBox
+                Content="Wasm"
+                IsChecked="False"
+                IsThreeState="True"
+                Theme="{DynamicResource PureCardCheckBox}" />
+        </StackPanel>
+    </StackPanel>
+</ContentPage>

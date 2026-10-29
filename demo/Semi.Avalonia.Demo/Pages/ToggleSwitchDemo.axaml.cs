@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ToggleSwitchDemo : UserControl
+public partial class ToggleSwitchDemo : ContentPage
 {
     public ToggleSwitchDemo()
     {

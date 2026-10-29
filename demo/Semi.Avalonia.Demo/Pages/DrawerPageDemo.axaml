@@ -1,7 +1,8 @@
-﻿<UserControl
+﻿<ContentPage
     x:Class="Semi.Avalonia.Demo.Pages.DrawerPageDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="700"
@@ -76,7 +77,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource SemiColorBorder}" />
+        <Border DockPanel.Dock="Right" Width="1" Background="{DynamicResource {x:Static semi:SemiTokens.ColorBorder}}" />
 
         <DrawerPage Name="DemoDrawer"
                     Margin="12"
@@ -89,7 +90,7 @@
                     CompactDrawerLength="{Binding #CompactDrawerLengthSlider.Value}"
                     DrawerLength="{Binding #DrawerLengthSlider.Value}">
             <DrawerPage.DrawerHeader>
-                <TextBlock Text="Menu" Margin="16" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource SemiColorPrimary}" />
+                <TextBlock Text="Menu" Margin="16" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}" />
             </DrawerPage.DrawerHeader>
             <DrawerPage.DrawerFooter>
                 <TextBlock HorizontalAlignment="Center" Text="Powered by IRIHI" Margin="8" />
@@ -113,4 +114,4 @@
             </DrawerPage.Content>
         </DrawerPage>
     </DockPanel>
-</UserControl>
+</ContentPage>

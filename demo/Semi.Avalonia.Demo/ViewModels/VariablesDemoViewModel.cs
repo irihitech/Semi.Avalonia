@@ -13,7 +13,7 @@ namespace Semi.Avalonia.Demo.ViewModels;
 public partial class VariablesDemoViewModel : ObservableObject
 {
     public DataGridCollectionView GridData { get; set; }
-    [ObservableProperty] private string _searchText = string.Empty;
+    [ObservableProperty] public partial string SearchText { get; set; } = string.Empty;
 
     public VariablesDemoViewModel()
     {
@@ -24,12 +24,24 @@ public partial class VariablesDemoViewModel : ObservableObject
             {
                 token.Type = value?.GetType();
                 token.Value = GetValueString(value);
+                token.Display = CreatePreview(token.Category, value) ?? value;
             }
         }
 
         GridData = new DataGridCollectionView(Tokens);
         GridData.GroupDescriptions.Add(new DataGridPathGroupDescription(nameof(VariableItem.Category)));
     }
+
+    private static VariablePreview? CreatePreview(string? category, object? value) => (category, value) switch
+    {
+        ("FontSize", double d) => new FontSizePreview(d),
+        ("Icon Size", double d) => new IconSizePreview(d),
+        ("Height", double d) => new HeightPreview(d),
+        ("Border CornerRadius Spacing", double d) => new BorderRadiusPreview(new CornerRadius(d)),
+        ("Border Spacing", double d) => new BorderSpacingPreview(new Thickness(d)),
+        ("Border Thickness", Thickness t) => new BorderThicknessPreview(t),
+        _ => null
+    };
 
     private static string? GetValueString(object? value)
     {
@@ -62,8 +74,7 @@ public partial class VariablesDemoViewModel : ObservableObject
             return (variableItem.Category?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
                    (variableItem.ResourceKey?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
                    (variableItem.Value?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
-                   (variableItem.Type?.Name.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
-                   (variableItem.Description?.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false);
+                   (variableItem.Type?.Name.Contains(search, StringComparison.InvariantCultureIgnoreCase) ?? false);
         };
         GridData.Refresh();
     }
@@ -136,12 +147,14 @@ public class VariableItem()
     public Type? Type { get; set; }
     public string? Value { get; set; }
     public string? Description { get; set; }
+    public object? Display { get; set; }
 
-    public VariableItem(string category, string resourceKey, string description = "") : this()
+    public VariableItem(string category, string resourceKey, string description = "", object display = null) : this()
     {
         Category = category;
         ResourceKey = resourceKey;
         Description = description;
+        Display = display;
     }
 
     public string CopyText =>
@@ -149,3 +162,17 @@ public class VariableItem()
          <StaticResource x:Key="" ResourceKey="{ResourceKey}" />
          """;
 }
+
+public abstract record VariablePreview;
+
+public record FontSizePreview(double Size) : VariablePreview;
+
+public record IconSizePreview(double Size) : VariablePreview;
+
+public record HeightPreview(double Height) : VariablePreview;
+
+public record BorderRadiusPreview(CornerRadius Radius) : VariablePreview;
+
+public record BorderSpacingPreview(Thickness Thickness) : VariablePreview;
+
+public record BorderThicknessPreview(Thickness Thickness) : VariablePreview;

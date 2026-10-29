@@ -3,7 +3,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ComboBoxDemo : UserControl
+public partial class ComboBoxDemo : ContentPage
 {
     public ComboBoxDemo()
     {

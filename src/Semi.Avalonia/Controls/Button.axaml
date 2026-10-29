@@ -1,7 +1,6 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="using:Semi.Avalonia">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--  Theme: Light, Solid, Outline, Borderless; Default is Light  -->
     <!--  Color Classes: Primary, Secondary, Tertiary, Success, Warning, Danger; Default is Primary  -->
     <!--  Size Classes: Large, Small  -->
@@ -394,31 +393,6 @@
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
             <Setter Property="Background" Value="{DynamicResource ButtonBorderlessBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderlessBorderBrush}" />
-        </Style>
-    </ControlTheme>
-
-    <ControlTheme x:Key="InnerIconButton" TargetType="Button">
-        <Setter Property="Width" Value="{DynamicResource {x:Static semi:SemiTokens.WidthIconMedium}}" />
-        <Setter Property="Height" Value="{DynamicResource {x:Static semi:SemiTokens.WidthIconMedium}}" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerForeground}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="Button">
-                <PathIcon
-                    Theme="{DynamicResource InnerPathIcon}"
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Data="{TemplateBinding Content}"
-                    Foreground="{TemplateBinding Foreground}"
-                    Background="{TemplateBinding Background}" />
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPointeroverForeground}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPressedForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

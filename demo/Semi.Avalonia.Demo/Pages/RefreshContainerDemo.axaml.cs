@@ -3,7 +3,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class RefreshContainerDemo : UserControl
+public partial class RefreshContainerDemo : ContentPage
 {
     private RefreshContainerDemoViewModel _viewModel;
 

@@ -1,0 +1,97 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="DataGridCellTextBlockTheme" TargetType="TextBlock">
+        <Setter Property="Margin" Value="{DynamicResource DataGridCellTextBlockDefaultMargin}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="DataGridCellTextBoxTheme"
+        BasedOn="{StaticResource {x:Type TextBox}}"
+        TargetType="TextBox">
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="MinHeight" Value="20" />
+        <Style Selector="^ /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="MinHeight" Value="20" />
+        </Style>
+        <Style Selector="^:error:focus /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+        <Style Selector="^ /template/ DataValidationErrors">
+            <Setter Property="Theme" Value="{DynamicResource TooltipDataValidationErrors}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
+        <Setter Property="Background" Value="{DynamicResource DataGridCellBackground}" />
+        <Setter Property="MinHeight" Value="{DynamicResource DataGridCellMinHeight}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Name="CellBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid Name="PART_CellRoot" ColumnDefinitions="*,Auto">
+                        <Rectangle
+                            Name="CurrencyVisual"
+                            Grid.Column="0"
+                            Fill="Transparent"
+                            IsHitTestVisible="False"
+                            IsVisible="False"
+                            Stroke="{DynamicResource DataGridCellCurrentBorderBrush}"
+                            StrokeThickness="{DynamicResource DataGridCellVisualStrokeThickness}" />
+                        <Panel
+                            Name="FocusVisual"
+                            Grid.Column="0"
+                            IsHitTestVisible="False"
+                            IsVisible="False">
+                            <Rectangle
+                                Margin="{DynamicResource DataGridCellVisualBorderThickness}"
+                                Fill="Transparent"
+                                IsHitTestVisible="False"
+                                Stroke="{DynamicResource DataGridCellFocusBorderBrush}"
+                                StrokeThickness="{DynamicResource DataGridCellVisualStrokeThickness}" />
+                        </Panel>
+
+                        <ContentPresenter
+                            Grid.Column="0"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" />
+
+                        <Rectangle
+                            Name="InvalidVisualElement"
+                            Grid.Column="0"
+                            IsHitTestVisible="False"
+                            IsVisible="False"
+                            Stroke="{DynamicResource DataGridCellErrorBrush}"
+                            StrokeThickness="{DynamicResource DataGridCellVisualStrokeThickness}" />
+
+                        <Rectangle
+                            Name="PART_RightGridLine"
+                            Grid.Column="1"
+                            Width="{DynamicResource DataGridGridLineThickness}"
+                            Fill="{DynamicResource DataGridLineBrush}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:current /template/ Rectangle#CurrencyVisual">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^:focus /template/ Panel#FocusVisual">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^:invalid /template/ Rectangle#InvalidVisualElement">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

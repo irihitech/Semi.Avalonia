@@ -1,7 +1,9 @@
-﻿<UserControl
+﻿<ContentPage
+    Theme="{StaticResource ScrollPage}"
     x:Class="Semi.Avalonia.Demo.Pages.PathIconDemo"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
@@ -29,8 +31,8 @@
             Classes.Active="{Binding #active.IsChecked}"
             Width="{Binding #width.Value}"
             Height="{Binding #width.Value}"
-            Foreground="{DynamicResource SemiBlue6}"
-            BorderBrush="{DynamicResource SemiRed6}"
+            Foreground="{DynamicResource {x:Static semi:SemiTokens.Blue6}}"
+            BorderBrush="{DynamicResource {x:Static semi:SemiTokens.Red6}}"
             Data="{StaticResource SemiIconHome}" />
     </StackPanel>
-</UserControl>
+</ContentPage>

@@ -1,14 +1,17 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
-             xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
-             xmlns:cvt="clr-namespace:Semi.Avalonia.Demo.Converters"
-             xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
-             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
-             x:DataType="vm:HighContrastDemoViewModel"
-             x:Class="Semi.Avalonia.Demo.Pages.HighContrastDemo">
+<ContentPage
+    Padding="8"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
+    xmlns:cvt="clr-namespace:Semi.Avalonia.Demo.Converters"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+    mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1450"
+    x:DataType="vm:HighContrastDemoViewModel"
+    x:Class="Semi.Avalonia.Demo.Pages.HighContrastDemo">
     <Design.DataContext>
         <vm:HighContrastDemoViewModel />
     </Design.DataContext>
@@ -21,11 +24,11 @@
         PanePlacement="Right">
         <SplitView.Pane>
             <StackPanel>
-                <ToggleSwitch
+                <ToggleButton
                     Name="toggle"
                     HorizontalAlignment="Right"
                     IsChecked="True"
-                    Theme="{DynamicResource IconBorderlessToggleSwitch}"
+                    Theme="{DynamicResource SquareButton}"
                     Content="{StaticResource SemiIconSidebar}" />
                 <Border IsVisible="{Binding #splitView.IsPaneOpen}" Theme="{DynamicResource CardBorder}">
                     <Panel>
@@ -240,88 +243,85 @@
                         </Border>
                     </ThemeVariantScope>
 
-                    <DataGrid
+                    <TableView
                         HorizontalAlignment="Left"
-                        CanUserSortColumns="False"
-                        AutoGenerateColumns="False"
                         ItemsSource="{Binding ColorResources}"
-                        GridLinesVisibility="All"
-                        BorderBrush="{DynamicResource SemiColorBorder}"
-                        BorderThickness="1"
-                        Padding="5">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Color">
-                                <DataGridTemplateColumn.CellTemplate>
+                        BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorBorder}}"
+                        BorderThickness="1">
+                        <TableView.Styles>
+                            <Style Selector="SelectableTextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </TableView.Styles>
+                        <TableView.Columns>
+                            <TableViewColumn Header="Color" Width="80">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <controls:ColorItemControl
+                                         <controls:ColorItemControl
                                             Width="40"
-                                            Height="20"
+                                            Height="40"
                                             CornerRadius="3"
                                             Background="{Binding Brush}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Header="ResourceKey">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="ResourceKey" Width="200">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
+                                            FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                                             Text="{Binding ResourceKey}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Header="Hex">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="Hex" Width="100">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
                                             Text="{Binding Brush,
                                                 Converter={x:Static cvt:ColorConverter.ToHex},ConverterParameter={x:False}}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Header="Description">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="Description" Width="*">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            MaxLines="5"
                                             Text="{Binding Description}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Header="Pair With">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="Pair With" Width="200">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            Margin="12 0"
-                                            VerticalAlignment="Center"
+                                            FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                                             Text="{Binding PairWith}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
 
-                            <DataGridTemplateColumn Width="100" Header="CopyText">
-                                <DataGridTemplateColumn.CellTemplate>
+                            <TableViewColumn Header="CopyText" Width="110">
+                                <TableViewColumn.CellTemplate>
                                     <DataTemplate DataType="vm:ColorResource">
                                         <Button
                                             Command="{Binding $parent[pages:HighContrastDemo].Copy}"
                                             CommandParameter="{Binding CopyText}"
-                                            Theme="{DynamicResource  IconBorderlessButton}"
+                                            Theme="{DynamicResource  SquareButton}"
                                             Content="{StaticResource SemiIconCopy}" />
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
+                        </TableView.Columns>
+                    </TableView>
                 </StackPanel>
             </ScrollViewer>
         </SplitView.Content>
     </SplitView>
-</UserControl>
+</ContentPage>

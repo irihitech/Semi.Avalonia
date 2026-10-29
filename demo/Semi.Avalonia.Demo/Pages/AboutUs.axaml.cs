@@ -4,7 +4,7 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class AboutUs : UserControl
+public partial class AboutUs : ContentPage
 {
     public AboutUs()
     {

@@ -1,7 +1,6 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:iri="https://irihi.tech/shared"
     xmlns:semi="https://irihi.tech/semi">
     <Design.PreviewWith>
         <StackPanel Width="500" Height="500">
@@ -16,7 +15,7 @@
         <!-- Alpha position should match CSS (and default slider order) instead of XAML/WinUI -->
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Padding" Value="0 0 10 0" />
+        <Setter Property="Padding" Value="0 0 8 0" />
         <Setter Property="MinHeight" Value="{DynamicResource ColorPickerMinHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ColorPickerCornerRadius}" />
         <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
@@ -25,14 +24,14 @@
                 <Panel>
                     <Border
                         Margin="1,1,0,1"
-                        Width="{Binding $self.Bounds.Height}"
+                        MinWidth="{Binding $self.Bounds.Height}"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                     <Border
                         Margin="1,1,0,1"
-                        Width="{Binding $self.Bounds.Height}"
+                        MinWidth="{Binding $self.Bounds.Height}"
                         Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius, Converter={iri:CornerRadiusMixerConverter Left}}" />
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                 </Panel>
             </Template>
         </Setter>

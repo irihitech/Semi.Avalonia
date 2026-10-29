@@ -5,7 +5,7 @@ using Avalonia.Layout;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ContentPageDemo : UserControl
+public partial class ContentPageDemo : ContentPage
 {
     private static readonly Color[] PageColors =
     [
