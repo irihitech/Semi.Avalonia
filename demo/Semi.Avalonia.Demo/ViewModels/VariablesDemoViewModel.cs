@@ -149,7 +149,7 @@ public class VariableItem()
     public string? Description { get; set; }
     public object? Display { get; set; }
 
-    public VariableItem(string category, string resourceKey, string description = "", object display = null) : this()
+    public VariableItem(string category, string resourceKey, string description = "", object? display = null) : this()
     {
         Category = category;
         ResourceKey = resourceKey;

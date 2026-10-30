@@ -33,7 +33,7 @@ public partial class AboutUsViewModel : ObservableObject
 
     private async Task OnNavigateAsync(string? arg)
     {
-        if (Launcher is not null && arg is not null && _keyToUrlMapping.TryGetValue(arg.ToLower(), out var uri))
+        if (Launcher is not null && arg is not null && _keyToUrlMapping.TryGetValue(arg.ToLowerInvariant(), out var uri))
         {
             await Launcher.LaunchUriAsync(new Uri(uri));
         }
