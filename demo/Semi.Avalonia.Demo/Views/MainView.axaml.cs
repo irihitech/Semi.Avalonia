@@ -19,6 +19,6 @@ public partial class MainView : DrawerPage
 
     private void MessageHandler(object _, string message)
     {
-        _viewModel.TryNavigateTo(message);
+        var __ = _viewModel.TryNavigateTo(message);
     }
 }
