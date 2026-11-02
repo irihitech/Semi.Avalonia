@@ -35,6 +35,9 @@ jobs:
       - name: Publish .NET Project
         run: dotnet publish $PROJECT_PATH -c Release --nologo
 
+      - name: Generate files for AI assistants
+        run: dotnet run --project tools/Semi.Avalonia.Llms -c Release -- . $OUTPUT_PATH
+
       - name: copy index.html to 404.html
         run: cp $OUTPUT_PATH/index.html $OUTPUT_PATH/404.html
 

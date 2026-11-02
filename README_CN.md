@@ -62,6 +62,24 @@ dotnet add package Semi.Avalonia.AvaloniaEdit
 
 注意：Dock、Tabalonia 和 AvaloniaEdit 是通过 NuGet 免费分发的，但不是开源的。请阅读许可协议并同意后继续使用这些包。如果您需要源代码，请通过电子邮件联系我们：[contact@irihi.tech](contact@irihi.tech)
 
+## AI 编程助手
+
+主题的全部知识以纯文本形式发布给 AI 编程助手，入口是 [llms.txt](https://irihitech.github.io/Semi.Avalonia/llms.txt)：使用规则、每个控件的主题类与 ControlTheme 变体、可覆盖的资源键、全部设计令牌的明暗双份取值，以及一个可复制的智能体技能。对助手说：
+
+```text
+使用 Semi.Avalonia 编写界面前，先阅读 https://irihitech.github.io/Semi.Avalonia/llms.txt，
+并且只使用其中列出的样式类、变体与资源键。
+```
+
+也可以把智能体技能安装到 Claude Code（其他支持技能的智能体使用相同的目录结构）：
+
+```bash
+mkdir -p .claude/skills/semi-avalonia
+for f in SKILL.md checklist.md reference/tokens.md reference/customization.md reference/classes.md; do
+  curl -fsSL "https://irihitech.github.io/Semi.Avalonia/skills/semi-avalonia/$f" -o ".claude/skills/semi-avalonia/$f"
+done
+```
+
 ## 示例
 
 您可以从 Semi Avalonia 的 release 页下载并试用 Semi Avalonia 的展示应用。
