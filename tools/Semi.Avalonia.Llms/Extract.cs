@@ -31,6 +31,8 @@ public sealed record PaletteRow(string Key, string Light, string Dark);
 public sealed class Library
 {
     public string Version { get; }
+    /// <summary>The Avalonia version the theme targets, from <c>Directory.Packages.props</c>.</summary>
+    public string AvaloniaVersion { get; }
     public IReadOnlyList<string> Locales { get; }
     public IReadOnlyList<Token> Tokens { get; }
     public IReadOnlyDictionary<string, TokenValue> Variables { get; }
@@ -50,6 +52,7 @@ public sealed class Library
         var src = Path.Combine(root, "src", "Semi.Avalonia");
 
         Version = Regex.Match(Read(Path.Combine(src, "Semi.Avalonia.csproj")), "<Version>([^<]+)</Version>") is { Success: true } m ? m.Groups[1].Value : "latest";
+        AvaloniaVersion = Regex.Match(Read(Path.Combine(root, "Directory.Packages.props")), "<AvaloniaVersion>([^<]+)</AvaloniaVersion>") is { Success: true } a ? a.Groups[1].Value : "latest";
         Locales = Regex.Matches(Read(Path.Combine(src, "SemiTheme.axaml.cs")), @"new CultureInfo\(""([\w-]+)""\)")
                        .Select(x => x.Groups[1].Value).Distinct().OrderBy(x => x).ToArray();
 
