@@ -64,6 +64,24 @@ dotnet add package Semi.Avalonia.AvaloniaEdit
 
 Notice: Dock, Tabalonia and AvaloniaEdit are delivered via nuget for free, but not open source. Please read the license and agree to continue use these packages. If you need source code, please contact us via email: [contact@irihi.tech](contact@irihi.tech)
 
+## AI assistants
+
+The theme's whole knowledge is published as plain text for AI coding assistants at [llms.txt](https://irihitech.github.io/Semi.Avalonia/llms.txt): the rules above, every themed control's style classes, ControlTheme variants and overridable resource keys, all design tokens with Light/Dark values, and a copyable agent skill. Tell your assistant:
+
+```text
+Before styling with Semi.Avalonia, read https://irihitech.github.io/Semi.Avalonia/llms.txt
+and use only the classes, variants and resource keys listed there.
+```
+
+Or install the agent skill into Claude Code (other skill-aware agents use the same layout):
+
+```bash
+mkdir -p .claude/skills/semi-avalonia
+for f in SKILL.md checklist.md reference/tokens.md reference/customization.md reference/classes.md; do
+  curl -fsSL "https://irihitech.github.io/Semi.Avalonia/skills/semi-avalonia/$f" -o ".claude/skills/semi-avalonia/$f"
+done
+```
+
 ## Demo
 
 You can always download demo executable to play around with Semi Avalonia Themes.
