@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="ComboBoxSelectorBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ComboBoxSelectorPlaceHolderForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="ComboBoxSelectorPointeroverBackground" ResourceKey="SemiColorHighlightText" />
@@ -7,9 +8,9 @@
     <StaticResource x:Key="ComboBoxSelectorDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ComboBoxSelectorDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="ComboBoxSelectorBorderBrush" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="ComboBoxSelectorPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="ComboBoxSelectorFocusBorderBrush" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="ComboBoxSelectorPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ComboBoxSelectorPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="ComboBoxSelectorFocusBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="ComboBoxSelectorPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ComboBoxIconDefaultForeground" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="ComboBoxIconPointeroverForeground" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="ComboBoxIconFocusForeground" ResourceKey="SemiColorButtonText" />
@@ -21,14 +22,14 @@
     <StaticResource x:Key="ComboBoxItemForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="ComboBoxItemBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ComboBoxItemPointeroverForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ComboBoxItemPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ComboBoxItemPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ComboBoxItemFocusForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ComboBoxItemFocusBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ComboBoxItemFocusBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ComboBoxItemPressedForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ComboBoxItemPressedBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ComboBoxItemPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ComboBoxItemSelectedForeground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="ComboBoxItemSelectedBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="ComboBoxItemSelectedPointeroverBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="ComboBoxItemSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="ComboBoxItemSelectedPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="ComboBoxItemDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="ComboBoxItemSelectedDisabledBackground" ResourceKey="SemiColorWindow" />
 </ResourceDictionary>

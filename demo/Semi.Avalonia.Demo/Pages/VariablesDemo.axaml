@@ -1,6 +1,7 @@
 <ContentPage
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
@@ -45,7 +46,7 @@
                         <DataTemplate DataType="vm:VariableItem">
                             <SelectableTextBlock
                                 Text="{Binding ResourceKey}"
-                                FontWeight="{DynamicResource SemiFontWeightBold}" />
+                                FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -84,8 +85,8 @@
                                         <Border
                                             Width="64"
                                             Height="{Binding Height}"
-                                            Background="{DynamicResource SemiColorPrimary}"
-                                            CornerRadius="{DynamicResource SemiBorderRadiusSmall}" />
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
+                                            CornerRadius="{DynamicResource {x:Static semi:SemiTokens.BorderRadiusSmall}}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="vm:IconSizePreview">
                                         <PathIcon
@@ -96,47 +97,47 @@
                                     </DataTemplate>
                                     <DataTemplate DataType="x:Double">
                                         <Border
-                                            Height="{DynamicResource SemiSpacingBaseLoose}"
-                                            Background="{DynamicResource SemiColorPrimary}"
-                                            CornerRadius="{DynamicResource SemiBorderRadiusSmall}"
+                                            Height="{DynamicResource {x:Static semi:SemiTokens.SpacingBaseLoose}}"
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
+                                            CornerRadius="{DynamicResource {x:Static semi:SemiTokens.BorderRadiusSmall}}"
                                             Width="{Binding}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="vm:BorderRadiusPreview">
                                         <Border
                                             Width="64"
                                             Height="32"
-                                            Background="{DynamicResource SemiColorPrimary}"
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
                                             CornerRadius="{Binding Radius}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="CornerRadius">
                                         <Border
                                             Width="64"
                                             Height="32"
-                                            Background="{DynamicResource SemiColorPrimary}"
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
                                             CornerRadius="{Binding}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="vm:BorderSpacingPreview">
                                         <Border
                                             Width="100"
                                             Height="32"
-                                            Background="{DynamicResource SemiColorPrimaryLight}"
-                                            BorderBrush="{DynamicResource SemiColorPrimary}"
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimaryLight}}"
+                                            BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
                                             BorderThickness="{Binding Thickness}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="vm:BorderThicknessPreview">
                                         <Border
                                             Width="100"
                                             Height="32"
-                                            Background="{DynamicResource SemiColorPrimaryLight}"
-                                            BorderBrush="{DynamicResource SemiColorPrimary}"
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimaryLight}}"
+                                            BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
                                             BorderThickness="{Binding Thickness}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="Thickness">
                                         <Border
                                             Width="100"
                                             Height="32"
-                                            Background="{DynamicResource SemiColorPrimaryLight}"
-                                            BorderBrush="{DynamicResource SemiColorPrimary}"
+                                            Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimaryLight}}"
+                                            BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}"
                                             BorderThickness="{Binding Converter={iri:ThicknessMixerConverter Horizontal}}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="vm:FontSizePreview">

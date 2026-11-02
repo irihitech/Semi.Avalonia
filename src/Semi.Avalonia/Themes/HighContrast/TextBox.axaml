@@ -1,17 +1,18 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="TextBoxTextCaretBrush" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="TextBoxDefaultBorderBrush" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="TextBoxDefaultBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="TextBoxPointeroverBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="TextBoxPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TextBoxPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TextBoxPressedBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="TextBoxFocusBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TextBoxFocusBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TextBoxForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="TextBoxPlaceholderForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="TextBoxInnerForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="TextBoxDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="TextBoxDisabledForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="TextBoxDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
-    <StaticResource x:Key="TextBoxSelectionBackground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="TextBoxSelectionBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="TextBoxSelectionForeground" ResourceKey="SemiColorHighlightText" />
 </ResourceDictionary>

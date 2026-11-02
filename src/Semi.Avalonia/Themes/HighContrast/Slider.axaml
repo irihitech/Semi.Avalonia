@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="SliderTrackForeground" ResourceKey="SemiColorHighlight" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="SliderTrackForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="SliderTrackBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="SliderTickForeground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="SliderThumbBackground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="SliderThumbBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="SliderThumbBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="SliderThumbPointeroverBorderBrush" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="SliderThumbPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="SliderThumbPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="SliderTrackDisabledForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="SliderThumbDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="SliderTrackDisabledBackground" ResourceKey="SemiColorWindow" />

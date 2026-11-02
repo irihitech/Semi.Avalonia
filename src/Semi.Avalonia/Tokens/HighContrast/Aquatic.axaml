@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <Color x:Key="WindowColor">#202020</Color>
     <Color x:Key="WindowTextColor">#FFFFFF</Color>
     <Color x:Key="HotlightColor">#75E9FC</Color>
@@ -12,7 +13,7 @@
     <SolidColorBrush x:Key="SemiColorHotlight" Color="{StaticResource HotlightColor}" />
     <SolidColorBrush x:Key="SemiColorGrayText" Color="{StaticResource GrayTextColor}" />
     <SolidColorBrush x:Key="SemiColorHighlightText" Color="{StaticResource HighlightTextColor}" />
-    <SolidColorBrush x:Key="SemiColorHighlight" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="{x:Static semi:SemiTokens.ColorHighlight}" Color="{StaticResource HighlightColor}" />
     <SolidColorBrush x:Key="SemiColorButtonText" Color="{StaticResource ButtonTextColor}" />
     <SolidColorBrush x:Key="SemiColorButtonFace" Color="{StaticResource ButtonFaceColor}" />
 </ResourceDictionary>

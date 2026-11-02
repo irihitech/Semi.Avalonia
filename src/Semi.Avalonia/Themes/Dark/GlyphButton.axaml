@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="GlyphButtonForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="GlyphButtonPointeroverForeground" ResourceKey="SemiColorPrimaryPointerover" />
-    <StaticResource x:Key="GlyphButtonPressedForeground" ResourceKey="SemiColorPrimaryActive" />
-    <StaticResource x:Key="GlyphButtonDisabledForeground" ResourceKey="SemiColorDisabledText" />
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="GlyphButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="GlyphButtonPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryPointerover}" />
+    <StaticResource x:Key="GlyphButtonPressedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryActive}" />
+    <StaticResource x:Key="GlyphButtonDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
 
-    <StaticResource x:Key="SquareButtonForeground" ResourceKey="SemiColorText1" />
+    <StaticResource x:Key="SquareButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText1}" />
 </ResourceDictionary>

@@ -1,6 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="RadiusCardCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="ThicknessCardPadding" ResourceKey="SemiThicknessBaseLoose" />
-    <StaticResource x:Key="ThicknessCardMargin" ResourceKey="SemiThicknessExtraTight" />
-    <StaticResource x:Key="ThicknessCardBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="RadiusCardCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="ThicknessCardPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessBaseLoose}" />
+    <StaticResource x:Key="ThicknessCardMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessExtraTight}" />
+    <StaticResource x:Key="ThicknessCardBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
 </ResourceDictionary>

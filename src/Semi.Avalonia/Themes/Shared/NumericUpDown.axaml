@@ -1,6 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="NumericUpDownCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="NumericUpDownDefaultHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="NumericUpDownSmallHeight" ResourceKey="SemiHeightControlSmall" />
-    <StaticResource x:Key="NumericUpDownLargeHeight" ResourceKey="SemiHeightControlLarge" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="NumericUpDownCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="NumericUpDownDefaultHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="NumericUpDownSmallHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlSmall}" />
+    <StaticResource x:Key="NumericUpDownLargeHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlLarge}" />
 </ResourceDictionary>

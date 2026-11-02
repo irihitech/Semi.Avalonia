@@ -1,6 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="HyperlinkButtonFontSize" ResourceKey="SemiFontSizeRegular" />
-    <StaticResource x:Key="HyperlinkButtonFontWeight" ResourceKey="SemiFontWeightBold" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="HyperlinkButtonFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeRegular}" />
+    <StaticResource x:Key="HyperlinkButtonFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
     <x:Double x:Key="HyperlinkButtonLinkGlyphWidth">16</x:Double>
     <x:Double x:Key="HyperlinkButtonLinkGlyphHeight">16</x:Double>
     <Thickness x:Key="HyperlinkButtonLinkGlyphMargin">0 0 4 0</Thickness>

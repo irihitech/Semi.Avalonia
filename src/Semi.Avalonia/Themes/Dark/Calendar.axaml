@@ -1,29 +1,30 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="CalendarBackground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="CalendarForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="CalendarBorderBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="CalendarItemWeekDayNameForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="CalendarItemIconForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="CalendarItemCalendarButtonBackground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="CalendarItemCalendarButtonForeground" ResourceKey="SemiColorText0" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="CalendarBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="CalendarForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="CalendarBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="CalendarItemWeekDayNameForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="CalendarItemIconForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
     <SolidColorBrush x:Key="CalendarItemCalendarButtonBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="CalendarItemCalendarButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="CalendarItemCalendarButtonPressedBackground" ResourceKey="SemiColorFill2" />
-    <StaticResource x:Key="CalendarItemCalendarButtonSelectedBackground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="CalendarItemCalendarButtonSelectedForeground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="CalendarItemCalendarButtonDisabledForeground" ResourceKey="SemiColorDisabledText" />
-    <StaticResource x:Key="CalendarItemCalendarButtonBlackoutForeground" ResourceKey="SemiColorText3" />
-    <StaticResource x:Key="CalendarItemCalendarButtonInactiveForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="CalendarItemCalendarButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonSelectedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonBlackoutForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText3}" />
+    <StaticResource x:Key="CalendarItemCalendarButtonInactiveForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBackground" Color="Transparent" />
     <SolidColorBrush x:Key="CalendarItemCalendarDayButtonBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonPressedBackground" ResourceKey="SemiColorFill2" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonSelectedBackground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonSelectedForeground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonTodayForeground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonTodayBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonDisabledForeground" ResourceKey="SemiColorDisabledText" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonBlackoutForeground" ResourceKey="SemiColorText3" />
-    <StaticResource x:Key="CalendarItemCalendarDayButtonInactiveForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonSelectedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonTodayForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonTodayBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonBlackoutForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText3}" />
+    <StaticResource x:Key="CalendarItemCalendarDayButtonInactiveForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
 </ResourceDictionary>

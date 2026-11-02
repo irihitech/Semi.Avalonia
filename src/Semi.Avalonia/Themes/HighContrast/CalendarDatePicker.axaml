@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="CalendarDatePickerIconForeground" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="CalendarDatePickerForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="CalendarDatePickerIconPointeroverForeground" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CalendarDatePickerIconPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="CalendarDatePickerBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="CalendarDatePickerPointeroverBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="CalendarDatePickerPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="CalendarDatePickerFocusBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CalendarDatePickerPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="CalendarDatePickerFocusBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="CalendarDatePickerDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="CalendarDatePickerDisabledIconForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="CalendarDatePickerBorderBrush" ResourceKey="SemiColorButtonText" />

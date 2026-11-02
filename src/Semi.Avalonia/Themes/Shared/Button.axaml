@@ -1,13 +1,14 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ButtonDefaultFontSize" ResourceKey="SemiFontSizeRegular" />
-    <StaticResource x:Key="ButtonDefaultFontWeight" ResourceKey="SemiFontWeightBold" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ButtonDefaultFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeRegular}" />
+    <StaticResource x:Key="ButtonDefaultFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
     <Thickness x:Key="ButtonDefaultPadding">12 0</Thickness>
     <Thickness x:Key="ButtonLargePadding">16 0</Thickness>
     <Thickness x:Key="ButtonSmallPadding">6 0</Thickness>
-    <StaticResource x:Key="ButtonDefaultHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="ButtonSmallHeight" ResourceKey="SemiHeightControlSmall" />
-    <StaticResource x:Key="ButtonLargeHeight" ResourceKey="SemiHeightControlLarge" />
-    <StaticResource x:Key="ButtonBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="ButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="ButtonDefaultHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="ButtonSmallHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlSmall}" />
+    <StaticResource x:Key="ButtonLargeHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlLarge}" />
+    <StaticResource x:Key="ButtonBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="ButtonCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
     <StaticResource x:Key="IconButtonClearData" ResourceKey="SemiIconClear" />
 </ResourceDictionary>
