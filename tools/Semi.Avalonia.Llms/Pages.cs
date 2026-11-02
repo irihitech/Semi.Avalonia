@@ -22,6 +22,7 @@ public static class Pages
         {
             ["base"] = baseUrl,
             ["version"] = lib.Version,
+            ["avalonia"] = lib.AvaloniaVersion,
             ["repository"] = Repository,
             ["skill"] = $"{baseUrl}/skills/{SkillName}",
             ["token-count"] = lib.Tokens.Count.ToString(),
@@ -183,7 +184,7 @@ public static class Pages
     private const string LlmsIndex = """
         # Semi.Avalonia
 
-        > Semi.Avalonia is an Avalonia 11 THEME library: it themes the controls Avalonia already has (Button, TextBox, DataGrid, …) in the style of Semi Design, with light, dark and four high-contrast palettes, {{locale-count}} built-in locales, and every color, radius and spacing behind a resource key. It adds no controls of its own — for new controls see Ursa. MIT licensed.
+        > Semi.Avalonia is an Avalonia {{avalonia}} THEME library: it themes the controls Avalonia already has (Button, TextBox, DataGrid, …) in the style of Semi Design, with light, dark and four high-contrast palettes, {{locale-count}} built-in locales, and every color, radius and spacing behind a resource key. It adds no controls of its own — for new controls see Ursa. MIT licensed.
 
         Version {{version}} (pin the exact version on nuget.org). This site's demo is an Avalonia WebAssembly app that draws to a canvas, so its HTML carries no text: read these Markdown files instead.
 
