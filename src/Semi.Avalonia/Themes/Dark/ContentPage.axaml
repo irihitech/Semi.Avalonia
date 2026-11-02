@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!--  ContentPage  -->
-    <StaticResource x:Key="ContentPageBackground" ResourceKey="SemiColorBackground0" />
-    <StaticResource x:Key="ContentPageForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="ContentPageBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground0}" />
+    <StaticResource x:Key="ContentPageForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
 </ResourceDictionary>

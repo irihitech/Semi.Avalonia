@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="FlyoutFontWeight" ResourceKey="SemiFontWeightRegular" />
-    <StaticResource x:Key="FlyoutBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="FlyoutFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightRegular}" />
+    <StaticResource x:Key="FlyoutBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
     <x:Double x:Key="FlyoutMinHeight">100</x:Double>
     <x:Double x:Key="FlyoutMinWidth">100</x:Double>
     <x:Double x:Key="FlyoutMaxHeight">600</x:Double>
     <x:Double x:Key="FlyoutMaxWidth">600</x:Double>
-    <StaticResource x:Key="FlyoutCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="FlyoutPadding" ResourceKey="SemiThicknessTight" />
-    <StaticResource x:Key="HorizontalMenuFlyoutThemeMinWidth" ResourceKey="SemiSpacingExtraLoose" />
+    <StaticResource x:Key="FlyoutCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="FlyoutPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessTight}" />
+    <StaticResource x:Key="HorizontalMenuFlyoutThemeMinWidth" ResourceKey="{x:Static semi:SemiTokens.SpacingExtraLoose}" />
 </ResourceDictionary>

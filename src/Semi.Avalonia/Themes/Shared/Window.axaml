@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="DefaultFontSize" ResourceKey="SemiFontSizeRegular" />
-    <StaticResource x:Key="DefaultFontWeight" ResourceKey="SemiFontWeightRegular" />
-    <StaticResource x:Key="DefaultFontFamily" ResourceKey="SemiFontFamilyRegular" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="DefaultFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeRegular}" />
+    <StaticResource x:Key="DefaultFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightRegular}" />
+    <StaticResource x:Key="DefaultFontFamily" ResourceKey="{x:Static semi:SemiTokens.FontFamilyRegular}" />
 </ResourceDictionary>

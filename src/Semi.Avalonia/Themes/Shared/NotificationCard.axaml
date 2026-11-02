@@ -1,19 +1,20 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <x:Double x:Key="NotificationCardMinWidth">320</x:Double>
-    <StaticResource x:Key="NotificationCardBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="NotificationCardCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="NotificationCardMargin" ResourceKey="SemiThicknessTight" />
+    <StaticResource x:Key="NotificationCardBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="NotificationCardCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="NotificationCardMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessTight}" />
     <Thickness x:Key="NotificationCardPadding">20 16 12 16</Thickness>
-    <StaticResource x:Key="NotificationCardIconWidth" ResourceKey="SemiFontSizeHeader4" />
-    <StaticResource x:Key="NotificationCardIconHeight" ResourceKey="SemiFontSizeHeader4" />
+    <StaticResource x:Key="NotificationCardIconWidth" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader4}" />
+    <StaticResource x:Key="NotificationCardIconHeight" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader4}" />
     <Thickness x:Key="NotificationCardIconMargin">0 0 12 0</Thickness>
     <StaticResource x:Key="NotificationCardInformationIconPathData" ResourceKey="SemiIconInfoCircle" />
     <StaticResource x:Key="NotificationCardSuccessIconPathData" ResourceKey="SemiIconTickCircle" />
     <StaticResource x:Key="NotificationCardWarningIconPathData" ResourceKey="SemiIconAlertTriangle" />
     <StaticResource x:Key="NotificationCardErrorIconPathData" ResourceKey="SemiIconAlertCircle" />
-    <StaticResource x:Key="NotificationCardTitleSpacing" ResourceKey="SemiSpacingExtraTight" />
-    <StaticResource x:Key="NotificationCardTitleFontSize" ResourceKey="SemiFontSizeHeader6" />
-    <StaticResource x:Key="NotificationCardTitleFontWeight" ResourceKey="SemiFontWeightBold" />
-    <StaticResource x:Key="NotificationCardMessageFontSize" ResourceKey="SemiFontSizeRegular" />
-    <StaticResource x:Key="NotificationCardMessageFontWeight" ResourceKey="SemiFontWeightRegular" />
+    <StaticResource x:Key="NotificationCardTitleSpacing" ResourceKey="{x:Static semi:SemiTokens.SpacingExtraTight}" />
+    <StaticResource x:Key="NotificationCardTitleFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader6}" />
+    <StaticResource x:Key="NotificationCardTitleFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
+    <StaticResource x:Key="NotificationCardMessageFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeRegular}" />
+    <StaticResource x:Key="NotificationCardMessageFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightRegular}" />
 </ResourceDictionary>

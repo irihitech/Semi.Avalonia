@@ -1,22 +1,23 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TableViewLineBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="TableViewBackground" ResourceKey="SemiColorBackground1" />
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TableViewLineBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="TableViewBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground1}" />
 
-    <StaticResource x:Key="TableViewColumnHeaderForeground" ResourceKey="SemiColorText2" />
+    <StaticResource x:Key="TableViewColumnHeaderForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
     <SolidColorBrush x:Key="TableViewColumnHeaderBackground" Color="Transparent" />
 
     <SolidColorBrush x:Key="TableViewRowBackground" Color="Transparent" />
-    <StaticResource x:Key="TableViewRowForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="TableViewRowForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
     <SolidColorBrush x:Key="TableViewRowBackgroundDisabled" Color="Transparent" />
-    <StaticResource x:Key="TableViewRowForegroundDisabled" ResourceKey="SemiColorDisabledText" />
-    <StaticResource x:Key="TableViewRowBackgroundPointerover" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="TableViewRowForegroundPointerover" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TableViewRowBackgroundPressed" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="TableViewRowForegroundPressed" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TableViewRowBackgroundSelected" ResourceKey="SemiColorPrimaryLight" />
-    <StaticResource x:Key="TableViewRowForegroundSelected" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TableViewRowBackgroundSelectedPointerover" ResourceKey="SemiColorPrimaryLightPointerover" />
-    <StaticResource x:Key="TableViewRowForegroundSelectedPointerover" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TableViewRowBackgroundSelectedPressed" ResourceKey="SemiColorPrimaryLightActive" />
-    <StaticResource x:Key="TableViewRowForegroundSelectedPressed" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="TableViewRowForegroundDisabled" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
+    <StaticResource x:Key="TableViewRowBackgroundPointerover" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="TableViewRowForegroundPointerover" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TableViewRowBackgroundPressed" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="TableViewRowForegroundPressed" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TableViewRowBackgroundSelected" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLight}" />
+    <StaticResource x:Key="TableViewRowForegroundSelected" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TableViewRowBackgroundSelectedPointerover" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLightPointerover}" />
+    <StaticResource x:Key="TableViewRowForegroundSelectedPointerover" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TableViewRowBackgroundSelectedPressed" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLightActive}" />
+    <StaticResource x:Key="TableViewRowForegroundSelectedPressed" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
 </ResourceDictionary>

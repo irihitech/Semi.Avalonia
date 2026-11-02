@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="WindowCloseIconGlyph" ResourceKey="SemiIconClose" />
     <StaticResource x:Key="WindowMinimizeGlyph" ResourceKey="SemiIconMinus" />
     <StaticResource x:Key="WindowExpandGlyph" ResourceKey="SemiIconExpand" />
@@ -6,8 +7,8 @@
     <StaticResource x:Key="WindowMaximizeGlyph" ResourceKey="SemiIconMaximize2" />
     <StaticResource x:Key="WindowRestoreGlyph" ResourceKey="SemiIconRestore" />
 
-    <StaticResource x:Key="CaptionButtonCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="CaptionButtonWidth" ResourceKey="SemiSpacingExtraLoose" />
-    <StaticResource x:Key="CaptionButtonHeight" ResourceKey="SemiSpacingExtraLoose" />
-    <StaticResource x:Key="CaptionButtonPadding" ResourceKey="SemiThicknessTight" />
+    <StaticResource x:Key="CaptionButtonCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="CaptionButtonWidth" ResourceKey="{x:Static semi:SemiTokens.SpacingExtraLoose}" />
+    <StaticResource x:Key="CaptionButtonHeight" ResourceKey="{x:Static semi:SemiTokens.SpacingExtraLoose}" />
+    <StaticResource x:Key="CaptionButtonPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessTight}" />
 </ResourceDictionary>

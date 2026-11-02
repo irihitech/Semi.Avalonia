@@ -1,14 +1,15 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TextBlockCodeFontSize" ResourceKey="SemiFontSizeSmall" />
-    <StaticResource x:Key="TextBlockFontSize" ResourceKey="SemiFontSizeRegular" />
-    <StaticResource x:Key="TextBlockTitleH1FontSize" ResourceKey="SemiFontSizeHeader1" />
-    <StaticResource x:Key="TextBlockTitleH2FontSize" ResourceKey="SemiFontSizeHeader2" />
-    <StaticResource x:Key="TextBlockTitleH3FontSize" ResourceKey="SemiFontSizeHeader3" />
-    <StaticResource x:Key="TextBlockTitleH4FontSize" ResourceKey="SemiFontSizeHeader4" />
-    <StaticResource x:Key="TextBlockTitleH5FontSize" ResourceKey="SemiFontSizeHeader5" />
-    <StaticResource x:Key="TextBlockTitleH6FontSize" ResourceKey="SemiFontSizeHeader6" />
-    <StaticResource x:Key="TextBlockFontWeight" ResourceKey="SemiFontWeightRegular" />
-    <StaticResource x:Key="TextBlockTitleFontWeight" ResourceKey="SemiFontWeightBold" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TextBlockCodeFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeSmall}" />
+    <StaticResource x:Key="TextBlockFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeRegular}" />
+    <StaticResource x:Key="TextBlockTitleH1FontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader1}" />
+    <StaticResource x:Key="TextBlockTitleH2FontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader2}" />
+    <StaticResource x:Key="TextBlockTitleH3FontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader3}" />
+    <StaticResource x:Key="TextBlockTitleH4FontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader4}" />
+    <StaticResource x:Key="TextBlockTitleH5FontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader5}" />
+    <StaticResource x:Key="TextBlockTitleH6FontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeHeader6}" />
+    <StaticResource x:Key="TextBlockFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightRegular}" />
+    <StaticResource x:Key="TextBlockTitleFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
     <CornerRadius x:Key="TextBlockCodeCornerRadius">2</CornerRadius>
     <FontFamily x:Key="CodeFontFamily">Cascadia Code, Consolas, Inconsolata, monospace</FontFamily>
 </ResourceDictionary>

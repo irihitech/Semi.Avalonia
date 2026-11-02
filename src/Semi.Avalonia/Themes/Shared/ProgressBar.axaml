@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ProgressBarBackgroundCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="ProgressBarTextFontWeight" ResourceKey="SemiFontWeightBold" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ProgressBarBackgroundCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="ProgressBarTextFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
 </ResourceDictionary>

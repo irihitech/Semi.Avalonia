@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <SolidColorBrush x:Key="WindowBackground">Transparent</SolidColorBrush>
     <StaticResource x:Key="WindowBorderBrush" ResourceKey="SemiColorWindowText" />
     <SolidColorBrush x:Key="TitleBarBackground">Transparent</SolidColorBrush>
 
     <StaticResource x:Key="CaptionButtonPointeroverBackground" ResourceKey="SemiColorHotlight" />
     <StaticResource x:Key="CaptionButtonPressedBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="CaptionButtonCloseForeground" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="CaptionButtonCloseForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
     <StaticResource x:Key="CaptionButtonClosePointeroverBackground" ResourceKey="SemiColorHotlight" />
     <StaticResource x:Key="CaptionButtonClosePressedBackground" ResourceKey="SemiColorHotlight" />
     <StaticResource x:Key="CaptionButtonForeground" ResourceKey="SemiColorWindowText" />

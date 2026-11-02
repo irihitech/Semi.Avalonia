@@ -1,8 +1,8 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ColorSliderWidth" ResourceKey="SemiSpacingBase" />
-    <StaticResource x:Key="ColorSliderCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="ColorSliderThumbBorderBrush" ResourceKey="SemiThicknessSuperTight" />
-    <StaticResource x:Key="ColorSliderThumbCornerRadius" ResourceKey="SemiBorderRadiusFull" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:semi="https://irihi.tech/semi">
+    <StaticResource x:Key="ColorSliderWidth" ResourceKey="{x:Static semi:SemiTokens.SpacingBase}" />
+    <StaticResource x:Key="ColorSliderCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="ColorSliderThumbBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ThicknessSuperTight}" />
+    <StaticResource x:Key="ColorSliderThumbCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusFull}" />
     <Thickness x:Key="ColorSliderThumbMargin">1</Thickness>
     <x:Double x:Key="ColorSliderTrackSize">12</x:Double>
     <Thickness x:Key="ColorSliderHitAreaMargin">0,-8</Thickness>

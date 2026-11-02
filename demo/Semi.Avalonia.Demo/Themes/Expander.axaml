@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <ControlTheme x:Key="CategoryExpander" TargetType="Expander">
         <Setter Property="Margin" Value="0 24 0 0" />
         <Setter Property="IsExpanded" Value="True" />
@@ -15,7 +16,7 @@
                         OnContent="{DynamicResource SemiIconChevronDown}"
                         OffContent="{DynamicResource SemiIconChevronRight}"
                         FontSize="18"
-                        FontWeight="{DynamicResource SemiFontWeightBold}"
+                        FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                         IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
                         IsEnabled="{TemplateBinding IsEnabled}" />
                     <ContentPresenter
@@ -30,7 +31,7 @@
     </ControlTheme>
 
     <ControlTheme x:Key="CategoryToggleSwitch" TargetType="ToggleSwitch">
-        <Setter Property="Foreground" Value="{DynamicResource SemiColorText0}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static semi:SemiTokens.ColorText0}}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
 
@@ -44,7 +45,7 @@
                     Width="{TemplateBinding Width}"
                     Height="{TemplateBinding Height}"
                     Background="{TemplateBinding Background}"
-                    Spacing="{DynamicResource SemiSpacingTight}">
+                    Spacing="{DynamicResource {x:Static semi:SemiTokens.SpacingTight}}">
                     <ContentPresenter
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"

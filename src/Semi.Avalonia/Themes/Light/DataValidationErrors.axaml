@@ -1,15 +1,16 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="DataValidationErrorsForeground" ResourceKey="SemiColorDanger" />
-    <StaticResource x:Key="DataValidationErrorsBackground" ResourceKey="SemiColorDangerLight" />
-    <StaticResource x:Key="DataValidationErrorsBorderBrush" ResourceKey="SemiColorDangerLight" />
-    <StaticResource x:Key="DataValidationErrorsPointeroverBackground" ResourceKey="SemiColorDangerLightPointerover" />
-    <StaticResource x:Key="DataValidationErrorsPointeroverBorderBrush" ResourceKey="SemiColorDangerLightPointerover" />
-    <StaticResource x:Key="DataValidationErrorsPressedBackground" ResourceKey="SemiColorDangerLightActive" />
-    <StaticResource x:Key="DataValidationErrorsPressedBorderBrush" ResourceKey="SemiColorDangerLightActive" />
-    <StaticResource x:Key="DataValidationErrorsSelectedBackground" ResourceKey="SemiColorDangerLight" />
-    <StaticResource x:Key="DataValidationErrorsSelectedBorderBrush" ResourceKey="SemiColorDanger" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="DataValidationErrorsForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDanger}" />
+    <StaticResource x:Key="DataValidationErrorsBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLight}" />
+    <StaticResource x:Key="DataValidationErrorsBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLight}" />
+    <StaticResource x:Key="DataValidationErrorsPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLightPointerover}" />
+    <StaticResource x:Key="DataValidationErrorsPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLightPointerover}" />
+    <StaticResource x:Key="DataValidationErrorsPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLightActive}" />
+    <StaticResource x:Key="DataValidationErrorsPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLightActive}" />
+    <StaticResource x:Key="DataValidationErrorsSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLight}" />
+    <StaticResource x:Key="DataValidationErrorsSelectedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorDanger}" />
 
     <!-- Deprecated keys -->
-    <StaticResource x:Key="DataValidationErrorsPointerOverBackground" ResourceKey="SemiColorDangerLightPointerover" />
-    <StaticResource x:Key="DataValidationErrorsPointerOverBorderBrush" ResourceKey="SemiColorDangerLightPointerover" />
+    <StaticResource x:Key="DataValidationErrorsPointerOverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLightPointerover}" />
+    <StaticResource x:Key="DataValidationErrorsPointerOverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorDangerLightPointerover}" />
 </ResourceDictionary>

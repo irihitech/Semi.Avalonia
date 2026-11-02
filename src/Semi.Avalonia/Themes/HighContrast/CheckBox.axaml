@@ -1,28 +1,29 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="CheckBoxForeground" ResourceKey="SemiColorWindowText" />
     <StaticResource x:Key="CheckBoxDisabledForeground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="CheckBoxGlyphFill" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="CheckBoxDefaultBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="CheckBoxDefaultBorderBrush" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="CheckBoxPointeroverBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="CheckBoxPointeroverBorderBrush" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="CheckBoxPressedBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="CheckBoxPressedBorderBrush" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="CheckBoxCheckedDefaultBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="CheckBoxCheckedDefaultBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="CheckBoxPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="CheckBoxPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="CheckBoxCheckedDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="CheckBoxCheckedDefaultBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="CheckBoxCheckedPointeroverBackground" ResourceKey="SemiColorButtonText" />
     <StaticResource x:Key="CheckBoxCheckedPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="CheckBoxCheckedPressedBackground" ResourceKey="SemiColorHighlight" />
-    <StaticResource x:Key="CheckBoxCheckedPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="CheckBoxCheckedPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="CheckBoxDefaultDisabledBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="CheckBoxDefaultDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="CheckBoxCheckedDisabledBackground" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="CheckBoxCheckedDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="CheckBoxCardCheckedBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="CheckBoxCardCheckedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCardCheckedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <StaticResource x:Key="CheckBoxCardCheckedDisabledBorderBrush" ResourceKey="SemiColorGrayText" />
     <StaticResource x:Key="CheckBoxCardPointeroverBackground" ResourceKey="SemiColorHighlightText" />
     <StaticResource x:Key="CheckBoxCardPressedBackground" ResourceKey="SemiColorWindow" />
     <StaticResource x:Key="CheckBoxCardCheckedPointeroverBorderBrush" ResourceKey="SemiColorButtonText" />
-    <StaticResource x:Key="CheckBoxCardCheckedPressedBorderBrush" ResourceKey="SemiColorHighlight" />
+    <StaticResource x:Key="CheckBoxCardCheckedPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
 </ResourceDictionary>
