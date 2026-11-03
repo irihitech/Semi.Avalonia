@@ -1,8 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:semi="using:Semi.Avalonia">
-    <StaticResource x:Key="ScrollBarButtonDefaultForeground" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ScrollBarButtonDefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
     <StaticResource x:Key="ScrollBarButtonPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="ScrollBarThumbForeground" ResourceKey="SemiColorButtonText" />
+    <StaticResource x:Key="ScrollBarThumbForeground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
     <StaticResource x:Key="ScrollBarThumbPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
     <SolidColorBrush x:Key="ScrollBarBackground" Color="Transparent" />
 </ResourceDictionary>

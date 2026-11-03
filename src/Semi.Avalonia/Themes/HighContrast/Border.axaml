@@ -1,4 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="BorderCardBackground" ResourceKey="SemiColorWindow" />
-    <StaticResource x:Key="BorderCardBorderBrush" ResourceKey="SemiColorWindowText" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="BorderCardBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWindow}" />
+    <StaticResource x:Key="BorderCardBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
 </ResourceDictionary>

@@ -156,6 +156,14 @@ public static class SemiTokens
     public const string ColorLinkActive = "SemiColorLinkActive";
     public const string ColorLinkVisited = "SemiColorLinkVisited";
     public const string ColorHighlight = "SemiColorHighlight";
+    // High-contrast preset themes only: defined by each preset palette, not by Light/Dark.
+    public const string ColorWindow = "SemiColorWindow";
+    public const string ColorWindowText = "SemiColorWindowText";
+    public const string ColorHotlight = "SemiColorHotlight";
+    public const string ColorGrayText = "SemiColorGrayText";
+    public const string ColorHighlightText = "SemiColorHighlightText";
+    public const string ColorButtonText = "SemiColorButtonText";
+    public const string ColorButtonFace = "SemiColorButtonFace";
     public const string ColorHighlightBackground = "SemiColorHighlightBackground";
     public const string ColorOverlayBackground = "SemiColorOverlayBackground";
     public const string ColorNavBackground = "SemiColorNavBackground";

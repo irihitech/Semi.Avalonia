@@ -1,10 +1,10 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:semi="using:Semi.Avalonia">
-    <StaticResource x:Key="TextBlockDefaultForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="TextBlockDisabledForeground" ResourceKey="SemiColorGrayText" />
-    <StaticResource x:Key="TextBlockCodeForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="TextBlockCodeBackground" ResourceKey="SemiColorWindow" />
-    <StaticResource x:Key="TextBlockCodeBorderBrush" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="TextBlockDefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="TextBlockDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorGrayText}" />
+    <StaticResource x:Key="TextBlockCodeForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="TextBlockCodeBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWindow}" />
+    <StaticResource x:Key="TextBlockCodeBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
     <StaticResource x:Key="TextBlockSelectionBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="TextBlockSelectionForeground" ResourceKey="SemiColorHighlightText" />
+    <StaticResource x:Key="TextBlockSelectionForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
 </ResourceDictionary>

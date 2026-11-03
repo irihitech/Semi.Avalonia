@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="SplitViewSeparatorBackground" ResourceKey="SemiColorHighlightText" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="SplitViewSeparatorBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
     <SolidColorBrush x:Key="SplitViewMaskBrush" Color="Transparent" />
-    <StaticResource x:Key="SplitViewPaneBackground" ResourceKey="SemiColorWindow" />
+    <StaticResource x:Key="SplitViewPaneBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWindow}" />
 </ResourceDictionary>
