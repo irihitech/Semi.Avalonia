@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Semi.Avalonia.Llms;
@@ -21,6 +22,12 @@ public sealed record ControlInfo(
 /// <summary>A palette entry with its light and dark values.</summary>
 public sealed record PaletteRow(string Key, string Light, string Dark);
 
+/// <summary>One entry of a high-contrast preset: a private helper color or a Semi brush alias, with its resolved value.</summary>
+public sealed record PresetEntry(string Key, string Kind, string Value);
+
+/// <summary>A high-contrast preset theme (Aquatic, …): the few keys it overrides; everything else is inherited.</summary>
+public sealed record HighContrastPreset(string Name, IReadOnlyList<PresetEntry> Entries);
+
 /// <summary>
 /// Everything the site is built from, extracted from the repository's own sources:
 /// <c>SemiTokens.cs</c>, <c>Tokens/Variables.axaml</c>, <c>Tokens/Palette/*.axaml</c>,
@@ -38,9 +45,9 @@ public sealed class Library
     public IReadOnlyDictionary<string, TokenValue> Variables { get; }
     public IReadOnlyList<PaletteRow> PaletteColors { get; }
     public IReadOnlyList<PaletteRow> PaletteBrushes { get; }
+    public IReadOnlyList<HighContrastPreset> HighContrastPresets { get; }
     /// <summary>The Light palette's entries by key (kind and resolved value), for showing token values that live in the palette.</summary>
     public IReadOnlyDictionary<string, (string Kind, string Value)> PaletteEntries { get; }
-    public IReadOnlyList<string> HighContrastPresets { get; }
     public IReadOnlyList<ControlInfo> Controls { get; }
     public IReadOnlyList<string> Warnings { get; }
     public IReadOnlyList<string> Errors { get; }
@@ -97,9 +104,39 @@ public sealed class Library
         var colors = light.Where(kv => kv.Value.Kind == "Color").Select(kv => new PaletteRow(kv.Key, kv.Value.Value, DarkOf(kv.Key))).ToList();
         var brushes = light.Where(kv => kv.Value.Kind == "Brush").Select(kv => new PaletteRow(kv.Key, kv.Value.Value, DarkOf(kv.Key))).ToList();
 
-        var presets = Directory.Exists(Path.Combine(src, "Tokens", "HighContrast"))
-            ? Directory.GetFiles(Path.Combine(src, "Tokens", "HighContrast"), "*.axaml").Select(p => Path.GetFileNameWithoutExtension(p)!).OrderBy(x => x).ToArray()
-            : [];
+        // 3b. High-contrast presets: small overlays (private helper colors + Semi brush aliases), not full palettes.
+        //     All presets must define the same keys, and every key must actually be consumed by the high-contrast
+        //     themes (their controls reference these keys; the Light/Dark palettes deliberately do not define them).
+        var presets = new List<HighContrastPreset>();
+        if (Directory.Exists(Path.Combine(src, "Tokens", "HighContrast")))
+        {
+            var consumers = new StringBuilder();
+            foreach (var folder in new[] { Path.Combine(src, "Themes", "HighContrast"), Path.Combine(src, "Themes", "Shared") })
+                if (Directory.Exists(folder))
+                    foreach (var file in Directory.GetFiles(folder, "*.axaml"))
+                        consumers.Append(Read(file));
+            var consumed = consumers.ToString();
+            HashSet<string>? referenceKeys = null;
+            var referenceName = "";
+            foreach (var file in Directory.GetFiles(Path.Combine(src, "Tokens", "HighContrast"), "*.axaml").OrderBy(f => f, StringComparer.OrdinalIgnoreCase))
+            {
+                var name = Path.GetFileNameWithoutExtension(file);
+                var map = Palette(file, memberToKey);
+                var keys = map.Keys.ToHashSet(StringComparer.Ordinal);
+                if (referenceKeys is null)
+                {
+                    referenceKeys = keys;
+                    referenceName = name;
+                }
+                else if (!keys.SetEquals(referenceKeys))
+                    errors.Add($"High-contrast preset '{name}' defines different keys than '{referenceName}'.");
+                foreach (var key in keys.Where(k => k.StartsWith("Semi", StringComparison.Ordinal) && !consumed.Contains(k)))
+                    errors.Add($"High-contrast preset '{name}' defines '{key}', which no high-contrast or shared theme references.");
+                presets.Add(new HighContrastPreset(name,
+                    map.OrderBy(kv => kv.Key, StringComparer.OrdinalIgnoreCase)
+                       .Select(kv => new PresetEntry(kv.Key, kv.Value.Kind, kv.Value.Value)).ToArray()));
+            }
+        }
 
         // 4. Controls: classes from `^.` selectors, variants from ControlTheme keys, pseudo-classes from `^:` selectors.
         var controls = new List<ControlInfo>();

@@ -30,7 +30,7 @@ public static class Pages
             ["color-count"] = lib.PaletteColors.Count.ToString(),
             ["demo-count"] = pages.Length.ToString(),
             ["locale-count"] = lib.Locales.Count.ToString(),
-            ["preset-list"] = string.Join(", ", lib.HighContrastPresets),
+            ["preset-list"] = string.Join(", ", lib.HighContrastPresets.Select(p => p.Name)),
             ["skill-name"] = SkillName,
             ["controls-index"] = IndexOf(lib, baseUrl),
         };
@@ -122,6 +122,18 @@ public static class Pages
 
         text.Append("\n## Semantic color tokens\n\nThe brushes controls actually consume; the ones to override when re-branding.\n\n| Key | Light | Dark |\n|---|---|---|\n");
         foreach (var row in lib.PaletteBrushes) text.Append($"| `{row.Key}` | {row.Light} | {row.Dark} |\n");
+
+        if (lib.HighContrastPresets.Count > 0)
+        {
+            text.Append("\n## High-contrast presets\n\n"
+                + "Each preset theme overrides only the keys below; every other key is inherited from its parent Light/Dark variant. "
+                + "Keys without the `Semi` prefix are the preset's private helper colors.\n");
+            foreach (var preset in lib.HighContrastPresets)
+            {
+                text.Append($"\n### {preset.Name}\n\n| Key | Kind | Value |\n|---|---|---|\n");
+                foreach (var entry in preset.Entries) text.Append($"| `{entry.Key}` | {entry.Kind} | {entry.Value} |\n");
+            }
+        }
         return text.ToString();
     }
 
