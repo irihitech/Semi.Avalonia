@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ToolTipBackground" ResourceKey="SemiColorWindow" />
-    <StaticResource x:Key="ToolTipForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="ToolTipBorderBrush" ResourceKey="SemiColorWindowText" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="ToolTipBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWindow}" />
+    <StaticResource x:Key="ToolTipForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="ToolTipBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
 </ResourceDictionary>

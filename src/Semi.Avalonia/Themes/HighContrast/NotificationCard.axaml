@@ -1,7 +1,8 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="NotificationCardBorderBrush" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="NotificationCardBackground" ResourceKey="SemiColorHighlightText" />
-    <StaticResource x:Key="NotificationCardTitleForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="NotificationCardMessageForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="NotificationCardLightBackground" ResourceKey="SemiColorWindow" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="NotificationCardBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="NotificationCardBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
+    <StaticResource x:Key="NotificationCardTitleForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="NotificationCardMessageForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="NotificationCardLightBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWindow}" />
 </ResourceDictionary>

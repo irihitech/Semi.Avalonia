@@ -114,7 +114,10 @@ public static class Pages
             }
             var v = lib.Variables.GetValueOrDefault(token.Key);
             var palette = lib.PaletteEntries.GetValueOrDefault(token.Key);
-            text.Append($"| `{token.Key}` | `SemiTokens.{token.Member}` | {v?.Type ?? palette.Kind} | {v?.Value ?? palette.Value} | {Escape(v?.Comment) ?? ""} |\n");
+            var preset = lib.HighContrastPresets.SelectMany(p => p.Entries).FirstOrDefault(e => e.Key == token.Key);
+            var type = v?.Type ?? palette.Kind ?? preset?.Kind ?? "?";
+            var value = v?.Value ?? palette.Value ?? (preset is null ? "—" : $"high-contrast presets only, e.g. {preset.Value}");
+            text.Append($"| `{token.Key}` | `SemiTokens.{token.Member}` | {type} | {value} | {Escape(v?.Comment) ?? ""} |\n");
         }
 
         text.Append("\n## Palette colors\n\nRaw color scales; each key exists in the Light and the Dark palette.\n\n| Key | Light | Dark |\n|---|---|---|\n");
