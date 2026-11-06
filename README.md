@@ -1,5 +1,7 @@
 # Semi Avalonia
 
+<p align="center"><img src="./docs/semi-logo.svg" width="96" alt="Semi Avalonia Logo" /></p>
+
 [![Semi Avalonia](https://img.shields.io/nuget/v/Semi.Avalonia.svg?color=red&style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
 [![Semi Avalonia](https://img.shields.io/nuget/dt/Semi.Avalonia.svg?style=flat-square)](https://www.nuget.org/packages/Semi.Avalonia/)
 [![GitCode](https://gitcode.com/IRIHI_Technology/Semi.Avalonia/star/badge.svg)](https://gitcode.com/IRIHI_Technology/Semi.Avalonia)
