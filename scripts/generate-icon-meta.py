@@ -27,6 +27,11 @@ AI_CATEGORY = "AI Icons"
 FALLBACK_CATEGORY = "Other"
 
 
+LOCAL_CATEGORY_OVERRIDES = {
+    "SemiIconIrihiLogo": "Brands",
+}
+
+
 def pascal_to_snake(s: str) -> str:
     s = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1_\2", s)
     s = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s)
@@ -73,7 +78,9 @@ def build_mapping(meta_path: str):
             categories[key] = AI_CATEGORY
             continue
         snake = pascal_to_snake(key[len("SemiIcon"):])
-        categories[key] = meta_by_name.get(normalize(snake), FALLBACK_CATEGORY)
+        categories[key] = LOCAL_CATEGORY_OVERRIDES.get(
+            key, meta_by_name.get(normalize(snake), FALLBACK_CATEGORY)
+        )
 
     used = set(categories.values())
     order = [c for c in meta_order if c in used]
