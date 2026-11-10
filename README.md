@@ -76,7 +76,7 @@ and use only the classes, variants and resource keys listed there.
 Or install the agent skill into Claude Code (other skill-aware agents use the same layout):
 
 ```bash
-mkdir -p .claude/skills/semi-avalonia
+mkdir -p .claude/skills/semi-avalonia/reference
 for f in SKILL.md checklist.md reference/tokens.md reference/customization.md reference/classes.md; do
   curl -fsSL "https://irihitech.github.io/Semi.Avalonia/skills/semi-avalonia/$f" -o ".claude/skills/semi-avalonia/$f"
 done
