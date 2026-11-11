@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!--  Navigation bar  -->
-    <StaticResource x:Key="NavigationPageBarBackground" ResourceKey="SemiColorBackground1" />
-    <StaticResource x:Key="NavigationPageBarBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="NavigationPageBarBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground1}" />
+    <StaticResource x:Key="NavigationPageBarBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
 </ResourceDictionary>

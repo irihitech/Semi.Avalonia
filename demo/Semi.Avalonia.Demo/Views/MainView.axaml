@@ -2,6 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Views.MainView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
@@ -20,17 +21,17 @@
             <Setter Property="Margin" Value="12,10,12,2" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorText1}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static semi:SemiTokens.ColorText1}}" />
         </Style>
 
         <Style Selector="Border.NavItemHost">
             <Setter Property="Margin" Value="6,0" />
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="CornerRadius" Value="{DynamicResource SemiBorderRadiusSmall}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource {x:Static semi:SemiTokens.BorderRadiusSmall}}" />
         </Style>
 
         <Style Selector="Border.NavItemHost.Selected">
-            <Setter Property="Background" Value="{DynamicResource SemiColorPrimaryLight}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static semi:SemiTokens.ColorPrimaryLight}}" />
         </Style>
 
         <Style Selector="Button.NavItem">
@@ -38,12 +39,12 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Padding" Value="12,8" />
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorText0}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static semi:SemiTokens.ColorText0}}" />
             <Setter Property="FontWeight" Value="Normal" />
         </Style>
         <Style Selector="Button.NavItem.Selected">
-            <Setter Property="Foreground" Value="{DynamicResource SemiColorPrimary}" />
-            <Setter Property="FontWeight" Value="{DynamicResource SemiFontWeightBold}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}" />
+            <Setter Property="FontWeight" Value="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}" />
         </Style>
     </DrawerPage.Styles>
 
@@ -84,7 +85,7 @@
 
                 <TextBlock
                     Margin="16,12,16,0"
-                    Foreground="{DynamicResource SemiColorText1}"
+                    Foreground="{DynamicResource {x:Static semi:SemiTokens.ColorText1}}"
                     IsVisible="{Binding ShowEmptySearchState}"
                     Text="{Binding EmptySearchMessage^}" />
             </StackPanel>

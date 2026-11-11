@@ -1,7 +1,8 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="HyperlinkButtonForeground" ResourceKey="SemiColorLink" />
-    <StaticResource x:Key="HyperlinkButtonPointeroverForeground" ResourceKey="SemiColorLinkPointerover" />
-    <StaticResource x:Key="HyperlinkButtonPressedForeground" ResourceKey="SemiColorLinkActive" />
-    <StaticResource x:Key="HyperlinkButtonDisabledForeground" ResourceKey="SemiColorDisabledText" />
-    <StaticResource x:Key="HyperlinkButtonVisitedForeground" ResourceKey="SemiColorLinkVisited" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="HyperlinkButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorLink}" />
+    <StaticResource x:Key="HyperlinkButtonPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorLinkPointerover}" />
+    <StaticResource x:Key="HyperlinkButtonPressedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorLinkActive}" />
+    <StaticResource x:Key="HyperlinkButtonDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
+    <StaticResource x:Key="HyperlinkButtonVisitedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorLinkVisited}" />
 </ResourceDictionary>

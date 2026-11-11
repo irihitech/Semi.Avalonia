@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="TreeDataGridSortIconAscendingPath" ResourceKey="SemiIconSmallTriangleTop" />
     <StaticResource x:Key="TreeDataGridSortIconDescendingPath" ResourceKey="SemiIconSmallTriangleDown" />
     <StaticResource x:Key="TreeDataGridItemCollapsedChevronPathData" ResourceKey="SemiIconTreeTriangleRight" />
-    <StaticResource x:Key="TreeDataGridItemCollapsedChevronWidth" ResourceKey="SemiWidthIconMedium" />
-    <StaticResource x:Key="TreeDataGridColumnHeaderCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="TreeDataGridColumnHeaderMinHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="TreeDataGridRowCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
-    <StaticResource x:Key="TreeDataGridRowMinHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="TreeDataGridRowMargin" ResourceKey="SemiThicknessSuperTight" />
+    <StaticResource x:Key="TreeDataGridItemCollapsedChevronWidth" ResourceKey="{x:Static semi:SemiTokens.WidthIconMedium}" />
+    <StaticResource x:Key="TreeDataGridColumnHeaderCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="TreeDataGridColumnHeaderMinHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="TreeDataGridRowCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
+    <StaticResource x:Key="TreeDataGridRowMinHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="TreeDataGridRowMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessSuperTight}" />
 </ResourceDictionary>

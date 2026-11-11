@@ -2,6 +2,7 @@
     Padding="8"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
@@ -245,7 +246,7 @@
                     <TableView
                         HorizontalAlignment="Left"
                         ItemsSource="{Binding ColorResources}"
-                        BorderBrush="{DynamicResource SemiColorBorder}"
+                        BorderBrush="{DynamicResource {x:Static semi:SemiTokens.ColorBorder}}"
                         BorderThickness="1">
                         <TableView.Styles>
                             <Style Selector="SelectableTextBlock">
@@ -269,7 +270,7 @@
                                 <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            FontWeight="{DynamicResource SemiFontWeightBold}"
+                                            FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                                             Text="{Binding ResourceKey}" />
                                     </DataTemplate>
                                 </TableViewColumn.CellTemplate>
@@ -300,7 +301,7 @@
                                 <TableViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <SelectableTextBlock
-                                            FontWeight="{DynamicResource SemiFontWeightBold}"
+                                            FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                                             Text="{Binding PairWith}" />
                                     </DataTemplate>
                                 </TableViewColumn.CellTemplate>

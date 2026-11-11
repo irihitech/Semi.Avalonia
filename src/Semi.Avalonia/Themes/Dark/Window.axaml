@@ -1,5 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="WindowDefaultBackground" ResourceKey="SemiColorBackground0" />
-    <StaticResource x:Key="WindowDefaultForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="DefaultForeground" ResourceKey="SemiColorText0" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="WindowDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground0}" />
+    <StaticResource x:Key="WindowDefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="DefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
 </ResourceDictionary>

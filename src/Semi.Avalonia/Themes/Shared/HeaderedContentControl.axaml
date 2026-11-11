@@ -1,7 +1,8 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="HeaderedContentControlCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
-    <StaticResource x:Key="HeaderedContentControlBorderThickness" ResourceKey="SemiBorderThicknessControl" />
-    <StaticResource x:Key="HeaderedContentControlHeaderFontWeight" ResourceKey="SemiFontWeightBold" />
-    <StaticResource x:Key="HeaderedContentControlHeaderPadding" ResourceKey="SemiThicknessBaseLoose" />
-    <StaticResource x:Key="HeaderedContentControlContentPadding" ResourceKey="SemiThicknessBaseLoose" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="HeaderedContentControlCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
+    <StaticResource x:Key="HeaderedContentControlBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
+    <StaticResource x:Key="HeaderedContentControlHeaderFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
+    <StaticResource x:Key="HeaderedContentControlHeaderPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessBaseLoose}" />
+    <StaticResource x:Key="HeaderedContentControlContentPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessBaseLoose}" />
 </ResourceDictionary>

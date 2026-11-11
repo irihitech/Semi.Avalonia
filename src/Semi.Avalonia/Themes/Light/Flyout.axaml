@@ -1,6 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="FlyoutBackground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="FlyoutForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="FlyoutBorderBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="FlyoutBorderBoxShadow" ResourceKey="SemiShadowElevated" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="FlyoutBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="FlyoutForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="FlyoutBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="FlyoutBorderBoxShadow" ResourceKey="{x:Static semi:SemiTokens.ShadowElevated}" />
 </ResourceDictionary>

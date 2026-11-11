@@ -1,14 +1,15 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TreeViewItemDefaultForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TreeViewItemIconDefaultForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="TreeViewItemIconHoverForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TreeViewItemDisabledForeground" ResourceKey="SemiColorDisabledText" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TreeViewItemDefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TreeViewItemIconDefaultForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="TreeViewItemIconHoverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TreeViewItemDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
     <SolidColorBrush x:Key="TreeViewItemDefaultBackground" Color="Transparent" />
-    <StaticResource x:Key="TreeViewItemPointeroverForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TreeViewItemPointeroverBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="TreeViewItemPressedBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="TreeViewItemSelectedForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TreeViewItemSelectedBackground" ResourceKey="SemiColorPrimaryLight" />
+    <StaticResource x:Key="TreeViewItemPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TreeViewItemPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="TreeViewItemPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="TreeViewItemSelectedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TreeViewItemSelectedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLight}" />
     <SolidColorBrush x:Key="TreeViewItemDisabledBackground" Color="Transparent" />
-    <StaticResource x:Key="TreeViewItemSelectedDisabledBackground" ResourceKey="SemiColorDisabledFill" />
+    <StaticResource x:Key="TreeViewItemSelectedDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledFill}" />
 </ResourceDictionary>

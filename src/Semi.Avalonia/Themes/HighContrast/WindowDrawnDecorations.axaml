@@ -1,13 +1,14 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <SolidColorBrush x:Key="WindowBackground">Transparent</SolidColorBrush>
-    <StaticResource x:Key="WindowBorderBrush" ResourceKey="SemiColorWindowText" />
+    <StaticResource x:Key="WindowBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
     <SolidColorBrush x:Key="TitleBarBackground">Transparent</SolidColorBrush>
 
-    <StaticResource x:Key="CaptionButtonPointeroverBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="CaptionButtonPressedBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="CaptionButtonCloseForeground" ResourceKey="SemiColorWhite" />
-    <StaticResource x:Key="CaptionButtonClosePointeroverBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="CaptionButtonClosePressedBackground" ResourceKey="SemiColorHotlight" />
-    <StaticResource x:Key="CaptionButtonForeground" ResourceKey="SemiColorWindowText" />
-    <StaticResource x:Key="CaptionButtonDisabledForeground" ResourceKey="SemiColorGrayText" />
+    <StaticResource x:Key="CaptionButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHotlight}" />
+    <StaticResource x:Key="CaptionButtonPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHotlight}" />
+    <StaticResource x:Key="CaptionButtonCloseForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
+    <StaticResource x:Key="CaptionButtonClosePointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHotlight}" />
+    <StaticResource x:Key="CaptionButtonClosePressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHotlight}" />
+    <StaticResource x:Key="CaptionButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
+    <StaticResource x:Key="CaptionButtonDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorGrayText}" />
 </ResourceDictionary>

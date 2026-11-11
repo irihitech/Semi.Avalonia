@@ -1,23 +1,24 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <SolidColorBrush x:Key="DateTimePickerListItemBackground" Color="Transparent" />
-    <StaticResource x:Key="DateTimePickerPopupBackground" ResourceKey="SemiColorBackground3" />
+    <StaticResource x:Key="DateTimePickerPopupBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
     <SolidColorBrush x:Key="DateTimePickerPopupBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="DateTimePickerFlyoutButtonForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="DateTimePickerFlyoutButtonPointeroverForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="DateTimePickerFlyoutButtonPressedForeground" ResourceKey="SemiColorText0" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPressedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonBackground" Color="Transparent" />
-    <StaticResource x:Key="DateTimePickerFlyoutButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="DateTimePickerFlyoutButtonPressedBackground" ResourceKey="SemiColorFill2" />
-    <StaticResource x:Key="DateTimePickerSeparatorBackground" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="DateTimePickerFlyoutButtonPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
+    <StaticResource x:Key="DateTimePickerSeparatorBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
     <SolidColorBrush x:Key="DateTimePickerButtonBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="DateTimePickerButtonBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="DateTimePickerButtonForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="DateTimePickerIconForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="DateTimePickerEmptyForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="DateTimePickerButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="DateTimePickerButtonBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="DateTimePickerButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="DateTimePickerIconForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="DateTimePickerEmptyForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="DateTimePickerButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
     <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="DateTimePickerButtonDisabledBackground" ResourceKey="SemiColorDisabledFill" />
-    <StaticResource x:Key="DateTimePickerButtonDisabledIconForeground" ResourceKey="SemiColorDisabledText" />
-    <StaticResource x:Key="DateTimePickerFlyoutBoxShadow" ResourceKey="SemiShadowElevated" />
+    <StaticResource x:Key="DateTimePickerButtonDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledFill}" />
+    <StaticResource x:Key="DateTimePickerButtonDisabledIconForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
+    <StaticResource x:Key="DateTimePickerFlyoutBoxShadow" ResourceKey="{x:Static semi:SemiTokens.ShadowElevated}" />
 </ResourceDictionary>
