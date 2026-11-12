@@ -130,7 +130,10 @@ public sealed class Library
                 }
                 else if (!keys.SetEquals(referenceKeys))
                     errors.Add($"High-contrast preset '{name}' defines different keys than '{referenceName}'.");
-                foreach (var key in keys.Where(k => k.StartsWith("Semi", StringComparison.Ordinal) && !consumed.Contains(k)))
+                // References appear either as the literal key or as the SemiTokens member inside {x:Static}.
+                bool IsConsumed(string key) =>
+                    consumed.Contains(key) || tokens.FirstOrDefault(t => t.Key == key) is { } token && consumed.Contains(token.Member);
+                foreach (var key in keys.Where(k => k.StartsWith("Semi", StringComparison.Ordinal) && !IsConsumed(k)))
                     errors.Add($"High-contrast preset '{name}' defines '{key}', which no high-contrast or shared theme references.");
                 presets.Add(new HighContrastPreset(name,
                     map.OrderBy(kv => kv.Key, StringComparer.OrdinalIgnoreCase)
@@ -178,13 +181,19 @@ public sealed class Library
             controls.Add(new ControlInfo(name, classes, variants, defaultFor, pseudos, overrideKeys, File.Exists(demoPath) ? Read(demoPath) : null));
         }
 
-        // 5. Consistency: constants and definitions must agree exactly.
+        // 5. Consistency: constants and definitions must agree exactly. High-contrast preset
+        //    keys count as definitions (they are the only place some Semi keys are defined),
+        //    and every Semi* key a preset defines must have a constant — no more blind spots.
         var defined = variables.Keys.ToHashSet(StringComparer.Ordinal);
         defined.UnionWith(light.Keys);
+        defined.UnionWith(presets.SelectMany(p => p.Entries).Select(e => e.Key));
         foreach (var token in tokens.Where(t => !defined.Contains(t.Key)))
-            errors.Add($"SemiTokens.{token.Member} = '{token.Key}' is not defined in Variables.axaml or Palette/Light.axaml.");
+            errors.Add($"SemiTokens.{token.Member} = '{token.Key}' is not defined in Variables.axaml, Palette/Light.axaml or a high-contrast preset.");
         foreach (var key in variables.Keys.Where(k => tokens.All(t => t.Key != k)))
             errors.Add($"Variables.axaml defines '{key}' with no SemiTokens constant.");
+        foreach (var entry in presets.SelectMany(p => p.Entries.Select(e => (Preset: p.Name, Key: e.Key)))
+                                     .Where(x => x.Key.StartsWith("Semi", StringComparison.Ordinal) && tokens.All(t => t.Key != x.Key)))
+            errors.Add($"High-contrast preset '{entry.Preset}' defines '{entry.Key}' with no SemiTokens constant.");
         var brushKeys = brushes.Select(b => b.Key).ToHashSet(StringComparer.Ordinal);
         foreach (var key in brushKeys.Where(k => tokens.All(t => t.Key != k)))
             warnings.Add($"Palette brush '{key}' has no SemiTokens constant (agents must use the string literal).");
