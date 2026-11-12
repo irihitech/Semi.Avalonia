@@ -106,7 +106,7 @@ public static class Pages
         var parts = new List<string>();
         if (c.Classes.Count > 0) parts.Add("classes " + string.Join(", ", c.Classes));
         if (c.Variants.Count > 0) parts.Add("themes " + string.Join(", ", c.Variants));
-        if (c.OverrideKeys.Count > 0) parts.Add($"{c.OverrideKeys.Count} override keys");
+        if (c.OverrideKeys.Count > 0) parts.Add($"{c.OverrideKeys.Count} override key{(c.OverrideKeys.Count == 1 ? "" : "s")}");
         if (parts.Count == 0) parts.Add("shared resources");
         return string.Join("; ", parts) + ".";
     }
