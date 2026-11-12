@@ -84,6 +84,8 @@ done
 
 This repository itself keeps a copy of that skill in its own `.claude/skills/semi-avalonia` for day-to-day development.
 
+For usage-oriented references — which control to pick, property tables, per-control guidance — IRIHI also publishes the [eureka-skills](https://github.com/irihitech/eureka-skills) marketplace for Claude Code, Copilot CLI, Cursor and other plugin-aware agents, and [Irihi.Eureka.McpServer](https://www.nuget.org/packages/Irihi.Eureka.McpServer), an MCP server serving Semi/Ursa control property tables (beta).
+
 ## Demo
 
 You can always download demo executable to play around with Semi Avalonia Themes.

@@ -276,6 +276,7 @@ public static class Pages
 
         - [Source code]({{repository}}): the repository; its `AGENTS.md` is for work on the theme itself.
         - [NuGet](https://www.nuget.org/packages/Semi.Avalonia): the package.
+        - [IRIHI eureka-skills](https://github.com/irihitech/eureka-skills): usage-oriented skill plugins for Semi/Ursa controls and related Avalonia tooling; [Irihi.Eureka.McpServer](https://www.nuget.org/packages/Irihi.Eureka.McpServer) serves the control property tables over MCP (beta).
 
         {{controls-index}}
         """;
