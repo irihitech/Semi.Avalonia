@@ -25,7 +25,7 @@ public static class Pages
             ["avalonia"] = lib.AvaloniaVersion,
             ["repository"] = Repository,
             ["skill"] = $"{baseUrl}/skills/{SkillName}",
-            ["token-count"] = lib.Tokens.Count.ToString(),
+            ["token-count"] = (lib.HasConstants ? lib.Tokens.Count : lib.Variables.Count).ToString(),
             ["brush-count"] = lib.PaletteBrushes.Count.ToString(),
             ["color-count"] = lib.PaletteColors.Count.ToString(),
             ["demo-count"] = pages.Length.ToString(),
@@ -33,6 +33,18 @@ public static class Pages
             ["preset-list"] = string.Join(", ", lib.HighContrastPresets.Select(p => p.Name)),
             ["skill-name"] = SkillName,
             ["controls-index"] = IndexOf(lib, baseUrl),
+            // The x:Static form only exists in sources that have SemiTokens; without it keys are plain literals.
+            ["static-form"] = lib.HasConstants
+                ? ", or `{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}` which fails at build time when mistyped"
+                : "",
+            ["new-key-rule"] = lib.HasConstants
+                ? "A new global key must be added to `SemiTokens` and all palette files."
+                : "A new global key must be defined in `Variables.axaml` or in both palette files.",
+            ["code-behind-tip"] = lib.HasConstants
+                ? "In code-behind prefer `{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}` — a mistyped member is a build error, a mistyped string is not."
+                : "Keys are string literals, so copy them exactly — a mistyped key fails silently.",
+            ["invented-failure"] = lib.HasConstants ? "fails silently (classes) or at build time (x:Static)" : "fails silently",
+            ["key-or-member"] = lib.HasConstants ? "a `Semi*` key or `SemiTokens` member" : "a `Semi*` key",
         };
 
         var tokens = TokensPage(lib, baseUrl);
@@ -101,23 +113,33 @@ public static class Pages
 
     private static string TokensPage(Library lib, string baseUrl)
     {
-        var text = new StringBuilder($"# Semi.Avalonia tokens\n\nEvery resource key of the theme, extracted from the sources of version {lib.Version}. "
-            + "Use the key with `DynamicResource`, or the `SemiTokens` member with `x:Static` — a mistyped member fails at build time.\n\n"
-            + "```xml\n<Border Background=\"{DynamicResource SemiColorPrimary}\" />\n<Border Background=\"{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}\" />\n```\n\n");
-        string? region = null;
-        foreach (var token in lib.Tokens)
+        var text = new StringBuilder($"# Semi.Avalonia tokens\n\nEvery resource key of the theme, extracted from the sources of version {lib.Version}. ");
+        if (lib.HasConstants)
         {
-            if (token.Region != region)
+            text.Append("Use the key with `DynamicResource`, or the `SemiTokens` member with `x:Static` — a mistyped member fails at build time.\n\n"
+                + "```xml\n<Border Background=\"{DynamicResource SemiColorPrimary}\" />\n<Border Background=\"{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}\" />\n```\n\n");
+            string? region = null;
+            foreach (var token in lib.Tokens)
             {
-                region = token.Region;
-                text.Append($"\n## {region}\n\n| Resource key | SemiTokens member | Type | Value | Description (zh) |\n|---|---|---|---|---|\n");
+                if (token.Region != region)
+                {
+                    region = token.Region;
+                    text.Append($"\n## {region}\n\n| Resource key | SemiTokens member | Type | Value | Description (zh) |\n|---|---|---|---|---|\n");
+                }
+                var v = lib.Variables.GetValueOrDefault(token.Key);
+                var palette = lib.PaletteEntries.GetValueOrDefault(token.Key);
+                var preset = lib.HighContrastPresets.SelectMany(p => p.Entries).FirstOrDefault(e => e.Key == token.Key);
+                var type = v?.Type ?? palette.Kind ?? preset?.Kind ?? "?";
+                var value = v?.Value ?? palette.Value ?? (preset is null ? "—" : $"high-contrast presets only, e.g. {preset.Value}");
+                text.Append($"| `{token.Key}` | `SemiTokens.{token.Member}` | {type} | {value} | {Escape(v?.Comment) ?? ""} |\n");
             }
-            var v = lib.Variables.GetValueOrDefault(token.Key);
-            var palette = lib.PaletteEntries.GetValueOrDefault(token.Key);
-            var preset = lib.HighContrastPresets.SelectMany(p => p.Entries).FirstOrDefault(e => e.Key == token.Key);
-            var type = v?.Type ?? palette.Kind ?? preset?.Kind ?? "?";
-            var value = v?.Value ?? palette.Value ?? (preset is null ? "—" : $"high-contrast presets only, e.g. {preset.Value}");
-            text.Append($"| `{token.Key}` | `SemiTokens.{token.Member}` | {type} | {value} | {Escape(v?.Comment) ?? ""} |\n");
+        }
+        else
+        {
+            text.Append("Use the key with `DynamicResource`.\n\n```xml\n<Border Background=\"{DynamicResource SemiColorPrimary}\" />\n```\n\n");
+            text.Append("\n## Variables\n\nSizing, spacing, radius, font and motion tokens.\n\n| Resource key | Type | Value | Description (zh) |\n|---|---|---|---|\n");
+            foreach (var (key, v) in lib.Variables)
+                text.Append($"| `{key}` | {v.Type} | {v.Value} | {Escape(v.Comment) ?? ""} |\n");
         }
 
         text.Append("\n## Palette colors\n\nRaw color scales; each key exists in the Light and the Dark palette.\n\n| Key | Light | Dark |\n|---|---|---|\n");
@@ -228,8 +250,8 @@ public static class Pages
         - This is Avalonia, not WPF, WinUI or HTML: no `Visibility`, no CSS. And this is a THEME library: the controls are Avalonia's own. There is no `semi:Button`; write `Button` and let SemiTheme style it.
         - The Semi namespace `https://irihi.tech/semi` is only for `<semi:SemiTheme />`.
         - Appearance differences are style classes and ControlTheme variants, and ONLY the ones listed in a control's page: `Classes="Primary Danger"`, `Theme="{DynamicResource SolidButton}"`. A class or variant that is not in the page is invented.
-        - Colors, radii, spacing and fonts come from resource keys: `Background="{DynamicResource SemiColorPrimary}"`, or `{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}` which fails at build time when mistyped. Never hard-code hex values; override the key instead.
-        - Override only the keys a control's page lists — they exist in the Light and Dark themes (the high-contrast presets override a subset). A new global key must be added to `SemiTokens` and all palette files.
+        - Colors, radii, spacing and fonts come from resource keys: `Background="{DynamicResource SemiColorPrimary}"`{{static-form}}. Never hard-code hex values; override the key instead.
+        - Override only the keys a control's page lists — they exist in the Light and Dark themes (the high-contrast presets override a subset). {{new-key-rule}}
         - Localization of built-in control text is `Locale="zh-CN"` on SemiTheme ({{locale-count}} locales); your own strings are your business.
         - DataGrid, TreeDataGrid and ColorPicker themes are separate packages: Semi.Avalonia.DataGrid, Semi.Avalonia.TreeDataGrid, Semi.Avalonia.ColorPicker.
 
@@ -244,7 +266,7 @@ public static class Pages
         - [SKILL.md]({{skill}}/SKILL.md), [checklist.md]({{skill}}/checklist.md) and the reference files next to them. Save the whole `{{skill}}` folder into your agent's skills directory (for Claude Code: `.claude/skills/semi-avalonia/`):
 
         ```bash
-        mkdir -p .claude/skills/semi-avalonia
+        mkdir -p .claude/skills/semi-avalonia/reference
         for f in SKILL.md checklist.md reference/tokens.md reference/customization.md reference/classes.md; do
           curl -fsSL "{{skill}}/$f" -o ".claude/skills/semi-avalonia/$f"
         done
@@ -340,12 +362,12 @@ public static class Pages
 
         **Style.** `Classes="Primary"` and `Theme="{DynamicResource SolidButton}"`. Class names are case-insensitive and combine. The full catalog is in [reference/classes.md](reference/classes.md); per-control detail and demo XAML live at {{base}}/controls/<name>.md.
 
-        **Customize.** Override `Semi*` resource keys (app-wide in App.xaml, per-subtree in a control's Resources). In code-behind prefer `{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}` — a mistyped member is a build error, a mistyped string is not. All keys with values: [reference/tokens.md](reference/tokens.md). Patterns and troubleshooting: [reference/customization.md](reference/customization.md).
+        **Customize.** Override `Semi*` resource keys (app-wide in App.xaml, per-subtree in a control's Resources). {{code-behind-tip}} All keys with values: [reference/tokens.md](reference/tokens.md). Patterns and troubleshooting: [reference/customization.md](reference/customization.md).
 
         ## Core rules
 
         1. **Avalonia built-ins only.** There is no `semi:Button`. Write `Button`; SemiTheme styles it. New controls belong to Ursa.
-        2. **Documented names only.** A class, variant or key not in the pages is invented and fails silently (classes) or at build time (x:Static).
+        2. **Documented names only.** A class, variant or key not in the pages is invented and {{invented-failure}}.
         3. **Tokens, not values.** No hex colors, no magic numbers; override the key so Light/Dark both follow.
         4. **One theme source.** SemiTheme alone; never mix Fluent or Simple into the same app.
 
@@ -362,7 +384,7 @@ public static class Pages
         - [ ] `<semi:SemiTheme />` is the only theme style in Application.Styles; no Fluent, no Simple.
         - [ ] Every `Classes="…"` value appears in the control's page or reference/classes.md.
         - [ ] Every `Theme="{DynamicResource …}"` is a ControlTheme variant listed for that control.
-        - [ ] No hard-coded `Color="#…"` in XAML; every color/radius/spacing reads a `Semi*` key or `SemiTokens` member.
+        - [ ] No hard-coded `Color="#…"` in XAML; every color/radius/spacing reads {{key-or-member}}.
         - [ ] Every overridden `x:Key` is listed in tokens.md or the control's page.
         - [ ] Overridden keys that differ between light and dark are overridden in a scope that covers both variants.
         - [ ] `RequestedThemeVariant` handles Default (system); the app looks right in Light AND Dark (and a high-contrast palette if used).

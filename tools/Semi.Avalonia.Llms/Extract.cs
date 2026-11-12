@@ -51,6 +51,9 @@ public sealed class Library
     public IReadOnlyList<ControlInfo> Controls { get; }
     public IReadOnlyList<string> Warnings { get; }
     public IReadOnlyList<string> Errors { get; }
+    /// <summary>Whether <c>SemiTokens.cs</c> exists: with constants the pages teach the <c>x:Static</c> form and the
+    /// constant/definition parity is enforced; without them (pre-static-token sources) keys are documented as literals.</summary>
+    public bool HasConstants { get; }
 
     public Library(string root)
     {
@@ -63,10 +66,12 @@ public sealed class Library
         Locales = Regex.Matches(Read(Path.Combine(src, "SemiTheme.axaml.cs")), @"new CultureInfo\(""([\w-]+)""\)")
                        .Select(x => x.Groups[1].Value).Distinct().OrderBy(x => x).ToArray();
 
-        // 1. Token constants, with their #region as the group.
+        // 1. Token constants, with their #region as the group. Sources without SemiTokens.cs use literal keys only.
         var tokens = new List<Token>();
         var region = "Misc";
-        foreach (var line in Lines(Path.Combine(src, "Tokens", "SemiTokens.cs")))
+        var constantsPath = Path.Combine(src, "Tokens", "SemiTokens.cs");
+        HasConstants = File.Exists(constantsPath);
+        foreach (var line in HasConstants ? Lines(constantsPath) : [])
         {
             if (Regex.Match(line, @"#region\s+(\w+)") is { Success: true } r) region = r.Groups[1].Value;
             if (Regex.Match(line, @"const string (\w+) = ""(\w+)"";") is { Success: true } t)
@@ -189,14 +194,19 @@ public sealed class Library
         defined.UnionWith(presets.SelectMany(p => p.Entries).Select(e => e.Key));
         foreach (var token in tokens.Where(t => !defined.Contains(t.Key)))
             errors.Add($"SemiTokens.{token.Member} = '{token.Key}' is not defined in Variables.axaml, Palette/Light.axaml or a high-contrast preset.");
-        foreach (var key in variables.Keys.Where(k => tokens.All(t => t.Key != k)))
-            errors.Add($"Variables.axaml defines '{key}' with no SemiTokens constant.");
-        foreach (var entry in presets.SelectMany(p => p.Entries.Select(e => (Preset: p.Name, Key: e.Key)))
-                                     .Where(x => x.Key.StartsWith("Semi", StringComparison.Ordinal) && tokens.All(t => t.Key != x.Key)))
-            errors.Add($"High-contrast preset '{entry.Preset}' defines '{entry.Key}' with no SemiTokens constant.");
-        var brushKeys = brushes.Select(b => b.Key).ToHashSet(StringComparer.Ordinal);
-        foreach (var key in brushKeys.Where(k => tokens.All(t => t.Key != k)))
-            warnings.Add($"Palette brush '{key}' has no SemiTokens constant (agents must use the string literal).");
+        if (HasConstants)
+        {
+            foreach (var key in variables.Keys.Where(k => tokens.All(t => t.Key != k)))
+                errors.Add($"Variables.axaml defines '{key}' with no SemiTokens constant.");
+            foreach (var entry in presets.SelectMany(p => p.Entries.Select(e => (Preset: p.Name, Key: e.Key)))
+                                         .Where(x => x.Key.StartsWith("Semi", StringComparison.Ordinal) && tokens.All(t => t.Key != x.Key)))
+                errors.Add($"High-contrast preset '{entry.Preset}' defines '{entry.Key}' with no SemiTokens constant.");
+            var brushKeys = brushes.Select(b => b.Key).ToHashSet(StringComparer.Ordinal);
+            foreach (var key in brushKeys.Where(k => tokens.All(t => t.Key != k)))
+                warnings.Add($"Palette brush '{key}' has no SemiTokens constant (agents must use the string literal).");
+        }
+        else
+            warnings.Add("SemiTokens.cs not found — documenting keys as string literals (pre-static-token sources).");
 
         Tokens = tokens;
         Variables = variables;

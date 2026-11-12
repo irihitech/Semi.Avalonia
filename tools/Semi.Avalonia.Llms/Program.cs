@@ -48,7 +48,7 @@ public static class Program
             File.WriteAllText(path, file.Text, utf8);
         }
         Console.WriteLine($"Wrote {files.Count} files ({files.Sum(f => utf8.GetByteCount(f.Text)) / 1024} KB) for {baseUrl} to {output}");
-        Console.WriteLine($"{lib.Tokens.Count} tokens, {lib.PaletteBrushes.Count} semantic brushes, {lib.Controls.Count} themed controls, "
+        Console.WriteLine($"{(lib.HasConstants ? lib.Tokens.Count : lib.Variables.Count)} tokens, {lib.PaletteBrushes.Count} semantic brushes, {lib.Controls.Count} themed controls, "
                           + $"{lib.Controls.Count(c => c.Demo is not null)} demo pages.");
         return 0;
     }
