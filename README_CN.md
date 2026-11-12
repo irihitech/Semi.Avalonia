@@ -82,8 +82,6 @@ for f in SKILL.md checklist.md reference/tokens.md reference/customization.md re
 done
 ```
 
-本仓库自身的开发也在 `.claude/skills/semi-avalonia` 保留了一份这个 skill。
-
 如果需要偏使用层面的参考——选哪个控件、属性表、逐控件用法——IRIHI 还发布了面向 Claude Code、Copilot CLI、Cursor 等智能体的 [eureka-skills](https://github.com/irihitech/eureka-skills) 技能市场，以及提供 Semi/Ursa 控件属性表查询的 MCP 服务器 [Irihi.Eureka.McpServer](https://www.nuget.org/packages/Irihi.Eureka.McpServer)（beta）。
 
 ## 示例
