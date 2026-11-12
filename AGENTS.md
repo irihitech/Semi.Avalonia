@@ -5,7 +5,7 @@ Semi.Avalonia is an Avalonia **theme** library: it themes the controls Avalonia 
 ## Layout
 
 - `src/Semi.Avalonia`: the main theme.
-  - `Tokens/SemiTokens.cs`: the single source of truth for every global resource key (string constants). XAML references keys through `{x:Static semi:SemiTokens.*}` so a mistyped key fails at build time.
+  - Global resource keys are string literals today (`x:Key="SemiColorPrimary"`, referenced via `DynamicResource`/`StaticResource`); the static-token branch (targeted at the 12.2 cycle) introduces `Tokens/SemiTokens.cs` constants and `{x:Static semi:SemiTokens.*}` references so a mistyped key fails at build time.
   - `Tokens/Variables.axaml`: sizing, spacing, radius, font and motion tokens (values with zh comments).
   - `Tokens/Palette/{Light,Dark}.axaml`: colors — raw scales, per-hue brushes, semantic `SemiColor*` brushes, gradients and `BoxShadows`. `Tokens/HighContrast/*.axaml`: the Aquatic/Desert/Dusk/NightSky preset palettes.
   - `Controls/<Name>.axaml`: the actual ControlThemes and class selectors for a control (style classes = `^.Class` selectors; theme variants = keyed ControlThemes).
@@ -17,7 +17,7 @@ Semi.Avalonia is an Avalonia **theme** library: it themes the controls Avalonia 
 
 ## Non-negotiable rules
 
-- **New global keys** go in `SemiTokens.cs` first, then are defined via `{x:Static semi:SemiTokens.*}` in `Variables.axaml` or both palette files. `Light` and `Dark` must define the same key set.
+- **New global keys** are defined as string literals in `Variables.axaml` (sizing, spacing, …) or in both palette files (colors). `Light` and `Dark` must define the same key set.
 - **No new hard-coded colors** in theme files; reference `Semi*` tokens (or compose from them). New style classes or ControlTheme variants are public API: add the selector/theme in `Controls/<Name>.axaml`, the resources in all due `Themes/*` files, and a matching demo page.
 - Class selectors are written `^.ClassName` inside the ControlTheme; pseudo-classes come from the control, never new ones invented.
 - **Light == Dark** per-control key sets; `HighContrast` stays a subset. `tools/Semi.Avalonia.Llms` fails on any drift — treat its exit code as a test result.
@@ -26,7 +26,7 @@ Semi.Avalonia is an Avalonia **theme** library: it themes the controls Avalonia 
 
 ## Files for AI assistants
 
-`dotnet run --project tools/Semi.Avalonia.Llms -- <repo-root> <out-dir>` extracts everything from the sources and refuses to write when token constants, palettes or theme variants disagree. The deploy workflow runs it into the demo's `wwwroot`, so https://irihitech.github.io/Semi.Avalonia/llms.txt indexes the theme for coding agents (rules, every control's classes/variants/override keys, token tables, the `semi-avalonia` agent skill).
+`dotnet run --project tools/Semi.Avalonia.Llms -- <repo-root> <out-dir>` extracts everything from the sources and refuses to write when palettes or theme variants disagree; with `SemiTokens.cs` present it additionally gates constant/definition parity. The deploy workflow runs it into the demo's `wwwroot`, so https://irihitech.github.io/Semi.Avalonia/llms.txt indexes the theme for coding agents (rules, every control's classes/variants/override keys, token tables, the `semi-avalonia` agent skill).
 
 ## Verify
 
