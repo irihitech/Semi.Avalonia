@@ -82,6 +82,8 @@ for f in SKILL.md checklist.md reference/tokens.md reference/customization.md re
 done
 ```
 
+This repository itself keeps a copy of that skill in its own `.claude/skills/semi-avalonia` for day-to-day development.
+
 ## Demo
 
 You can always download demo executable to play around with Semi Avalonia Themes.

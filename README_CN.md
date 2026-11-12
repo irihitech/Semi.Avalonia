@@ -82,6 +82,8 @@ for f in SKILL.md checklist.md reference/tokens.md reference/customization.md re
 done
 ```
 
+本仓库自身的开发也在 `.claude/skills/semi-avalonia` 保留了一份这个 skill。
+
 ## 示例
 
 您可以从 Semi Avalonia 的 release 页下载并试用 Semi Avalonia 的展示应用。

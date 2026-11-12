@@ -22,7 +22,7 @@ Semi.Avalonia is an Avalonia **theme** library: it themes the controls Avalonia 
 - Class selectors are written `^.ClassName` inside the ControlTheme; pseudo-classes come from the control, never new ones invented.
 - **Light == Dark** per-control key sets; `HighContrast` stays a subset. `tools/Semi.Avalonia.Llms` fails on any drift — treat its exit code as a test result.
 - No reflection; keep AOT/trimming safe. C# control-flow bodies always use braces.
-- The generated AI files (`llms.txt`, `*.md` pages, `skills/`) are written into the published web root by the deploy workflow — never hand-edit or commit them.
+- The generated AI files (`llms.txt`, `*.md` pages, `skills/`) are written into the published web root by the deploy workflow — never hand-edit or commit them. One exception: `.claude/skills/semi-avalonia/` keeps a committed, regenerable copy of the skill for this repository's own development; treat it like a lock file (regenerate with the tool, never edit by hand).
 
 ## Files for AI assistants
 
@@ -34,3 +34,5 @@ Semi.Avalonia is an Avalonia **theme** library: it themes the controls Avalonia 
 dotnet build src/Semi.Avalonia
 dotnet run --project tools/Semi.Avalonia.Llms -- . %TEMP%/semi-llms-check   # must exit 0
 ```
+
+`.claude/skills/semi-avalonia` is a committed snapshot of that run's `skills/semi-avalonia` output. When the theme sources change, regenerate, copy the five files over, and commit the diff — a non-empty diff against a fresh run means the copy is stale.

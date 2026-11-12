@@ -1,0 +1,70 @@
+# Semi.Avalonia themed controls
+
+Every control themed by Semi, with its style classes and ControlTheme variants, extracted from version 12.1.0.1 of the sources. Controls with a demo page link to it.
+
+- **AdornerLayer**: classes Solid; themes AdornerLayerBorder; 2 override keys.
+- **AutoCompleteBox** ([page](https://irihitech.github.io/Semi.Avalonia/controls/AutoCompleteBox.md)): classes Bordered, Large, Small; 3 override keys.
+- **Border** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Border.md)): classes Hover, Shadow; themes CardBorder; 3 override keys.
+- **Button** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Button.md)): classes Colorful, Danger, Large, Primary, Secondary, Small, Success, Tertiary, Warning; themes BorderlessButton, OutlineButton, SolidButton; 77 override keys.
+- **ButtonSpinner** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ButtonSpinner.md)): themes ButtonSpinnerRepeatButton, SplitButtonSpinner; 7 override keys.
+- **Calendar** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Calendar.md)): 27 override keys.
+- **CalendarDatePicker** ([page](https://irihitech.github.io/Semi.Avalonia/controls/CalendarDatePicker.md)): classes Bordered, clearButton, Large, Small; 15 override keys.
+- **Carousel** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Carousel.md)): classes Center, Columnar, Left, Line, Right; themes CarouselButton, CarouselIndicatorColumnarListBoxItem, CarouselIndicatorDotListBoxItem, CarouselIndicatorLineListBoxItem, FullCarousel; 6 override keys.
+- **CarouselPage** ([page](https://irihitech.github.io/Semi.Avalonia/controls/CarouselPage.md)): shared resources.
+- **CheckBox** ([page](https://irihitech.github.io/Semi.Avalonia/controls/CheckBox.md)): themes CardCheckBox, PureCardCheckBox, SimpleCheckBox; 26 override keys.
+- **ComboBox** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ComboBox.md)): classes Bordered, clearButton, Large, Small; 41 override keys.
+- **CommandBar** ([page](https://irihitech.github.io/Semi.Avalonia/controls/CommandBar.md)): themes CommandBarButtonBaseTheme; 17 override keys.
+- **ContentPage** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ContentPage.md)): 2 override keys.
+- **ContextMenu**: shared resources.
+- **DataValidationErrors** ([page](https://irihitech.github.io/Semi.Avalonia/controls/DataValidationErrors.md)): themes SilentDataValidationErrors, TooltipDataValidationErrors; 11 override keys.
+- **DatePicker** ([page](https://irihitech.github.io/Semi.Avalonia/controls/DatePicker.md)): classes clearButton, Large, Small.
+- **DateTimePickerShared**: themes DateTimePickerButton, DateTimePickerDownButton, DateTimePickerFlyoutButton, DateTimePickerItem, DateTimePickerUpButton; 21 override keys.
+- **DrawerPage** ([page](https://irihitech.github.io/Semi.Avalonia/controls/DrawerPage.md)): themes DrawerPageToggleButton; 4 override keys.
+- **DropDownButton**: classes Colorful, Danger, Large, Primary, Secondary, Small, Success, Tertiary, Warning; themes BorderlessDropDownButton, OutlineDropDownButton, SolidDropDownButton.
+- **EmbeddableControlRoot**: shared resources.
+- **Expander** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Expander.md)): themes CardExpander, CardSplitExpander, ExpanderHeaderToggleButtonTheme, SplitExpander; 8 override keys.
+- **FlyoutPresenter**: themes LightFlyout.
+- **GlyphButton**: classes Large, Small; themes GlyphButton, GlyphToggleSwitch, SquareButton, SquareToggleSwitch; 5 override keys.
+- **GridSplitter** ([page](https://irihitech.github.io/Semi.Avalonia/controls/GridSplitter.md)): 2 override keys.
+- **GroupBox**: shared resources.
+- **HeaderedContentControl** ([page](https://irihitech.github.io/Semi.Avalonia/controls/HeaderedContentControl.md)): themes GroupBox; 2 override keys.
+- **HyperlinkButton** ([page](https://irihitech.github.io/Semi.Avalonia/controls/HyperlinkButton.md)): classes OnlyIcon, Underline, WithIcon; 5 override keys.
+- **ItemsControl**: shared resources.
+- **Label** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Label.md)): classes Amber, Blue, Circle, Code, Colorful, Cyan, Danger, Ghost, Gradient, Green, Grey, H1, H2, H3, H4, H5, H6, Indigo, Large, LightBlue, LightGreen, Lime, Mark, Orange, Pink, Purple, Quaternary, Red, Secondary, Solid, Success, Teal, Tertiary, Violet, Warning, White, Yellow; themes TagLabel, TitleLabel; 98 override keys.
+- **ListBox** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ListBox.md)): classes Large, Small; themes ButtonRadioGroupListBox, ButtonRadioGroupListBoxItem, CardCheckGroupListBox, CardCheckGroupListBoxItem, CardRadioGroupListBox, CardRadioGroupListBoxItem, CheckGroupListBox, CheckGroupListBoxItem, PureCardRadioGroupListBox, PureCardRadioGroupListBoxItem, RadioGroupListBox, RadioGroupListBoxItem; 11 override keys.
+- **ManagedFileChooser** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ManagedFileChooser.md)): 2 override keys.
+- **Menu** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Menu.md)): themes MenuScrollViewer, TopLevelMenuItem; 17 override keys.
+- **MenuFlyoutPresenter**: themes HorizontalMenuFlyoutPresenter.
+- **NavigationPage** ([page](https://irihitech.github.io/Semi.Avalonia/controls/NavigationPage.md)): classes Large; 2 override keys.
+- **NotificationCard**: classes Light; 18 override keys.
+- **NumericUpDown** ([page](https://irihitech.github.io/Semi.Avalonia/controls/NumericUpDown.md)): classes Large, Small, Split.
+- **PathIcon** ([page](https://irihitech.github.io/Semi.Avalonia/controls/PathIcon.md)): classes Active, ExtraLarge, ExtraSmall, Large, Small; themes InnerPathIcon.
+- **PipsPager** ([page](https://irihitech.github.io/Semi.Avalonia/controls/PipsPager.md)): themes PipsPagerButton, PipsPagerIndicatorDotListBoxItem; 6 override keys.
+- **Popup**: shared resources.
+- **ProgressBar** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ProgressBar.md)): classes Danger, Left, Primary, Right, Secondary, Success, Tertiary, Warning; themes ProgressRing; 10 override keys.
+- **RadioButton** ([page](https://irihitech.github.io/Semi.Avalonia/controls/RadioButton.md)): classes Large, Small; themes ButtonRadioButton, CardRadioButton, PureCardRadioButton, RadioButtonGroupBorder; 36 override keys.
+- **RefreshContainer** ([page](https://irihitech.github.io/Semi.Avalonia/controls/RefreshContainer.md)): 2 override keys.
+- **RepeatButton**: shared resources.
+- **ScrollViewer** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ScrollViewer.md)): classes InsetContent; themes ScrollBarRepeatButton, StaticScrollViewer; 5 override keys.
+- **SelectableTextBlock**: classes Danger, Delete, H1, H2, H3, H4, H5, H6, Mark, Quaternary, Secondary, Success, Tertiary, Underline, Warning; themes TitleSelectableTextBlock.
+- **Slider** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Slider.md)): classes ToolTip; themes SliderHorizontalRepeatButton, SliderThumbTheme, SliderVerticalRepeatButton; 10 override keys.
+- **SplitButton**: classes Danger, Large, Primary, Secondary, Small, Success, Tertiary, Warning; themes BorderlessSplitButton, OutlineSplitButton, SemiSplitButtonElement, SolidSplitButton.
+- **SplitView** ([page](https://irihitech.github.io/Semi.Avalonia/controls/SplitView.md)): 3 override keys.
+- **TabbedPage** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TabbedPage.md)): themes ButtonTabbedPage, CardTabbedPage.
+- **TabControl** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TabControl.md)): classes ReverseSeparator; themes BaseScrollTabControl, BaseTabControl, ButtonTabControl, CardTabControl, LineTabControl, ScrollButtonTabControl, ScrollCardTabControl, ScrollLineTabControl, ScrollTabControl; 1 override key.
+- **TabItem**: themes BaseTabItem, ButtonTabItem, CardTabItem, LineTabItem; 19 override keys.
+- **TableView** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TableView.md)): themes TableViewScrollViewerTheme; 18 override keys.
+- **TabStrip** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TabStrip.md)): themes BaseTabStripItem, ButtonTabStrip, ButtonTabStripItem, CardTabStrip, CardTabStripItem, LineTabStrip, LineTabStripItem.
+- **TextBlock** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TextBlock.md)): classes Danger, Delete, H1, H2, H3, H4, H5, H6, Mark, Quaternary, Secondary, Success, Tertiary, Underline, Warning; themes TitleTextBlock; 14 override keys.
+- **TextBox** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TextBox.md)): classes Bordered, clearButton, Large, revealPasswordButton, Small, TextArea; themes LooklessTextBox, NonErrorTextBox; 19 override keys.
+- **ThemeVariantScope**: shared resources.
+- **TimePicker** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TimePicker.md)): classes clearButton, Large, Small.
+- **ToggleButton**: classes Colorful, Danger, Primary, Secondary, Success, Tertiary, Warning; 3 override keys.
+- **ToggleSwitch** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ToggleSwitch.md)): classes Accent, Large, Loading, Small; themes SimpleToggleSwitch; 19 override keys.
+- **Tooltip** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Tooltip.md)): 3 override keys.
+- **TransitioningContentControl**: shared resources.
+- **TreeView** ([page](https://irihitech.github.io/Semi.Avalonia/controls/TreeView.md)): themes ToggleButtonTreeViewItemIconButton; 12 override keys.
+- **Window**: 3 override keys.
+- **WindowDrawnDecorations**: themes CaptionButton; 11 override keys.
+- **WindowNotificationManager**: shared resources.
+- **_index**: shared resources.
