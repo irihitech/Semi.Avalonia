@@ -260,6 +260,7 @@ public static class Pages
         - [tokens.md]({{base}}/tokens.md): all {{token-count}} design tokens, {{brush-count}} semantic color tokens and {{color-count}} raw palette colors, with values and Light/Dark pairs.
         - [customization.md]({{base}}/customization.md): theme switching, high-contrast palettes ({{preset-list}}), locale, and every customization pattern.
         - [llms-full.txt]({{base}}/llms-full.txt): every page above in one file.
+        - [ai/semi-avalonia.contract.json]({{base}}/ai/semi-avalonia.contract.json): the same facts as a deterministic, versioned JSON contract, hashed by [ai/provenance.json]({{base}}/ai/provenance.json). Machine-readable, for marketplaces and MCP servers to import — humans should read the pages above.
 
         ## Agent skill
 
@@ -276,7 +277,7 @@ public static class Pages
 
         - [Source code]({{repository}}): the repository; its `AGENTS.md` is for work on the theme itself.
         - [NuGet](https://www.nuget.org/packages/Semi.Avalonia): the package.
-        - [IRIHI eureka-skills](https://github.com/irihitech/eureka-skills): usage-oriented skill plugins for Semi/Ursa controls and related Avalonia tooling; [Irihi.Eureka.McpServer](https://www.nuget.org/packages/Irihi.Eureka.McpServer) serves the control property tables over MCP (beta).
+        - [IRIHI eureka-skills](https://github.com/irihitech/eureka-skills): skill plugins that redistribute this generated `semi-avalonia` skill offline and add the usage-oriented `semi-avalonia-usage` skill (which control to pick, scenarios, MVVM) for Semi/Ursa and related Avalonia tooling; [Irihi.Eureka.McpServer](https://www.nuget.org/packages/Irihi.Eureka.McpServer) serves the control property tables and this contract's resources over MCP (beta).
 
         {{controls-index}}
         """;
