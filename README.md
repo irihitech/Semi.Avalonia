@@ -64,6 +64,26 @@ dotnet add package Semi.Avalonia.AvaloniaEdit
 
 Notice: Dock, Tabalonia and AvaloniaEdit are delivered via nuget for free, but not open source. Please read the license and agree to continue use these packages. If you need source code, please contact us via email: [contact@irihi.tech](contact@irihi.tech)
 
+## AI assistants
+
+The theme's whole knowledge is published as plain text for AI coding assistants at [llms.txt](https://irihitech.github.io/Semi.Avalonia/llms.txt): the rules above, every themed control's style classes, ControlTheme variants and overridable resource keys, all design tokens with Light/Dark values, and a copyable agent skill. Tell your assistant:
+
+```text
+Before styling with Semi.Avalonia, read https://irihitech.github.io/Semi.Avalonia/llms.txt
+and use only the classes, variants and resource keys listed there.
+```
+
+Or install the agent skill into Claude Code (other skill-aware agents use the same layout):
+
+```bash
+mkdir -p .claude/skills/semi-avalonia/reference
+for f in SKILL.md checklist.md reference/tokens.md reference/customization.md reference/classes.md; do
+  curl -fsSL "https://irihitech.github.io/Semi.Avalonia/skills/semi-avalonia/$f" -o ".claude/skills/semi-avalonia/$f"
+done
+```
+
+For usage-oriented references — which control to pick, property tables, per-control guidance — IRIHI also publishes the [eureka-skills](https://github.com/irihitech/eureka-skills) marketplace for Claude Code, Copilot CLI, Cursor and other plugin-aware agents, and [Irihi.Eureka.McpServer](https://www.nuget.org/packages/Irihi.Eureka.McpServer), an MCP server serving Semi/Ursa control property tables (beta).
+
 ## Demo
 
 You can always download demo executable to play around with Semi Avalonia Themes.
@@ -79,6 +99,10 @@ We offer limited free community support for Semi Avalonia and Ursa. If you have 
 
 | Semi Avalonia Version | Avalonia Version |
 |:----------------------|:-----------------|
+| 12.1.0                | >=12.1.0         |
+| 12.0.3                | 12.0.3           |
+| 12.0.1                | 12.0.1           |
+| 12.0.0                | 12.0.0           |
 | 11.3.7                | >=11.3.7         |
 | 11.2.1                | >=11.2.1         |
 | 11.2.0                | End of Life      |
