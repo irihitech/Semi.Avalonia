@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Media;
@@ -10,7 +9,7 @@ namespace Semi.Avalonia;
 
 public static class ApplicationExtension
 {
-    private static Application _app = null!;
+    private static Application? _app;
 
     private static readonly Dictionary<Color, ThemeVariant> ColorThemeMap = new()
     {
@@ -20,34 +19,35 @@ public static class ApplicationExtension
         [Color.Parse("#D6B4FD")] = SemiTheme.NightSky
     };
 
-    public static void RegisterFollowSystemTheme(this Application app)
+    extension(Application app)
     {
-        _app = app;
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-        if (app.PlatformSettings is null) return;
-        app.PlatformSettings.ColorValuesChanged -= OnColorValuesChanged;
-        app.PlatformSettings.ColorValuesChanged += OnColorValuesChanged;
-        OnColorValuesChanged(null, app.PlatformSettings?.GetColorValues());
+        public void RegisterFollowSystemTheme()
+        {
+            _app = app;
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+            if (app.PlatformSettings is null) return;
+            app.PlatformSettings.ColorValuesChanged -= OnColorValuesChanged;
+            app.PlatformSettings.ColorValuesChanged += OnColorValuesChanged;
+            OnColorValuesChanged(null, app.PlatformSettings?.GetColorValues());
+        }
+
+        public void UnregisterFollowSystemTheme()
+        {
+            _app = app;
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+            if (app.PlatformSettings is null) return;
+            app.PlatformSettings.ColorValuesChanged -= OnColorValuesChanged;
+        }
     }
 
-    public static void UnregisterFollowSystemTheme(this Application app)
-    {
-        _app = app;
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-        if (app.PlatformSettings is null) return;
-        app.PlatformSettings.ColorValuesChanged -= OnColorValuesChanged;
-    }
-
-    // TODO: Temporarily remove high contrast fallback behavior until we sort out new platform color change behavior
     private static void OnColorValuesChanged(object? _, PlatformColorValues? args)
     {
         ThemeVariant result;
         if (args?.ContrastPreference is ColorContrastPreference.High)
         {
             result = ColorThemeMap.TryGetValue(args.AccentColor1, out var theme) ? theme : ThemeVariant.Default;
-            _app.RequestedThemeVariant = result;
+            _app?.RequestedThemeVariant = result;
         }
-        /*
         else
         {
             result = args?.ThemeVariant switch
@@ -57,8 +57,7 @@ public static class ApplicationExtension
                 _ => ThemeVariant.Default
             };
         }
-        
-        _app.RequestedThemeVariant = result;
-        */
+
+        _app?.RequestedThemeVariant = result;
     }
 }
