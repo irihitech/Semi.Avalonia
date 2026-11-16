@@ -33,7 +33,8 @@ public static class Program
             return 1;
         }
 
-        var files = Pages.Build(lib, baseUrl);
+        var files = Pages.Build(lib, baseUrl).ToList();
+        files.AddRange(Contract.Build(lib, baseUrl, root, files));
         if (Pages.BrokenLinks(files, baseUrl) is { Count: > 0 } broken)
         {
             foreach (var link in broken) Console.Error.WriteLine($"broken link: {link}");
@@ -49,7 +50,7 @@ public static class Program
         }
         Console.WriteLine($"Wrote {files.Count} files ({files.Sum(f => utf8.GetByteCount(f.Text)) / 1024} KB) for {baseUrl} to {output}");
         Console.WriteLine($"{(lib.HasConstants ? lib.Tokens.Count : lib.Variables.Count)} tokens, {lib.PaletteBrushes.Count} semantic brushes, {lib.Controls.Count} themed controls, "
-                          + $"{lib.Controls.Count(c => c.Demo is not null)} demo pages.");
+                          + $"{lib.Controls.Count(c => c.Demo is not null)} demo pages, machine-readable contract in {Contract.ContractPath}.");
         return 0;
     }
 }

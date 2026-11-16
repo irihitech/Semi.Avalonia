@@ -36,3 +36,5 @@ dotnet run --project tools/Semi.Avalonia.Llms -- . %TEMP%/semi-llms-check   # mu
 ```
 
 `.claude/skills/semi-avalonia` is a committed snapshot of that run's `skills/semi-avalonia` output. When the theme sources change, regenerate, copy the five files over, and commit the diff — a non-empty diff against a fresh run means the copy is stale.
+
+The same run also writes `ai/semi-avalonia.contract.json` (a versioned, deterministic JSON of every token and control fact) and `ai/provenance.json` (its SHA-256 plus the skill files' hashes). That pair is the machine-readable source of truth for marketplaces and MCP servers — never hand-edit it, and downstream consumers must sync it via the generator's output rather than copying facts by hand.
