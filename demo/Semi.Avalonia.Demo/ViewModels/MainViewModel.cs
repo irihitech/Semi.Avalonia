@@ -172,7 +172,7 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("Label", LanguageManager.Instance.Item_Label, static () => new LabelDemo()),
                 CreateItem("ListBox", LanguageManager.Instance.Item_ListBox, static () => new ListBoxDemo()),
                 CreateItem("SplitView", LanguageManager.Instance.Item_SplitView, static () => new SplitViewDemo()),
-                CreateItem("ToolTip", LanguageManager.Instance.Item_ToolTip, static () => new ToolTipDemo()),
+                CreateItem("ToolTip", LanguageManager.Instance.Item_ToolTip, static () => new TooltipDemo()),
                 CreateItem("TableView", LanguageManager.Instance.Item_TableView, static () => new TableViewDemo()),
             ]),
             new NavigationSectionViewModel("Feedback", LanguageManager.Instance.Section_Feedback,
