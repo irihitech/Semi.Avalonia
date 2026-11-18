@@ -2,7 +2,7 @@ using Avalonia.Controls;
 
 namespace Semi.Avalonia.Demo.Pages;
 
-public partial class ToolTipDemo : ContentPage
+public partial class TooltipDemo : ContentPage
 {
     public ToolTipDemo()
     {
