@@ -1,13 +1,10 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="https://irihi.tech/semi">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <StackPanel Width="500" Height="500">
-            <ColorPicker Name="cp" Color="#AAAAAAAA" IsAlphaVisible="True" IsAlphaEnabled="True" />
-            <ColorPicker Theme="{DynamicResource SimpleColorPicker}" Color="{Binding #cp.Color}" IsAlphaEnabled="{Binding #cp.IsAlphaEnabled}" IsAlphaVisible="{Binding #cp.IsAlphaVisible}" />
-            <ColorPicker Theme="{DynamicResource HexSimpleColorPicker}" Color="{Binding #cp.Color}" IsAlphaEnabled="{Binding #cp.IsAlphaEnabled}" IsAlphaVisible="{Binding #cp.IsAlphaVisible}" />
-            <ColorView Color="{Binding #cp.Color}" IsAlphaEnabled="{Binding #cp.IsAlphaEnabled}" IsAlphaVisible="{Binding #cp.IsAlphaVisible}" />
+            <ColorPicker Name="cp" Color="#AAAAAAAA" />
+            <ColorView Color="#AAAAAAAA" />
         </StackPanel>
     </Design.PreviewWith>
 
@@ -26,12 +23,12 @@
                         Margin="1,1,0,1"
                         MinWidth="{Binding $self.Bounds.Height}"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                        CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
                     <Border
                         Margin="1,1,0,1"
                         MinWidth="{Binding $self.Bounds.Height}"
-                        Background="{TemplateBinding HsvColor, Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                        Background="{Binding $parent[ColorPicker].HsvColor, Converter={StaticResource ToBrushConverter}, Mode=OneWay}"
+                        CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
                 </Panel>
             </Template>
         </Setter>
@@ -159,8 +156,7 @@
                                                 HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                                 IsVisible="{TemplateBinding IsAlphaVisible}"
                                                 IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                                Orientation="Vertical">
-                                            </ColorSlider>
+                                                Orientation="Vertical" />
                                         </Grid>
                                     </TabItem>
                                     <!--  Palette Tab  -->
@@ -461,6 +457,7 @@
         <Setter Property="MinWidth" Value="180" />
         <Setter Property="Content" Value="{StaticResource HexColorPickerTemplate}" />
     </ControlTheme>
+
     <Template x:Key="HexColorPickerTemplate">
         <Grid ColumnDefinitions="Auto, *">
             <Border
@@ -486,5 +483,4 @@
             </TextBlock>
         </Grid>
     </Template>
-
 </ResourceDictionary>

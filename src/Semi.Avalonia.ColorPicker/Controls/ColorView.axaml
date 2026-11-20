@@ -1,18 +1,11 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:semi="https://irihi.tech/semi">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Design.PreviewWith>
         <StackPanel>
             <ColorView
                 SelectedIndex="2"
-                IsAlphaVisible="True"
-                IsAlphaEnabled="True"
-                ColorModel="Hsva"
-                HsvColor="hsv(120,7%,90%)" />
-            <ColorView
-                Theme="{DynamicResource SimpleColorView}"
                 IsAlphaVisible="True"
                 IsAlphaEnabled="True"
                 ColorModel="Hsva"
@@ -258,8 +251,7 @@
                                     HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                     IsVisible="{TemplateBinding IsAlphaVisible}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                    Orientation="Vertical">
-                                </ColorSlider>
+                                    Orientation="Vertical" />
                             </Grid>
                         </TabItem>
                         <!--  Palette Tab  -->
@@ -549,5 +541,4 @@
             </Style>
         </Style>
     </ControlTheme>
-
 </ResourceDictionary>

@@ -1,7 +1,32 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:semi="https://irihi.tech/semi">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <ColorPicker Theme="{DynamicResource SimpleColorPicker}" Color="#AAAAAAAA" />
+            <ColorPicker Theme="{DynamicResource HexSimpleColorPicker}" Color="#AAAAAAAA" />
+            <UniformGrid>
+                <ColorView
+                    Theme="{DynamicResource SimpleColorView}"
+                    IsAlphaVisible="True"
+                    IsAlphaEnabled="True"
+                    ColorModel="Hsva"
+                    Color="#AAAAAAAA" />
+                <ColorView
+                    Theme="{DynamicResource SimpleColorView}"
+                    IsAlphaVisible="False"
+                    IsAlphaEnabled="True"
+                    ColorModel="Hsva"
+                    Color="#AAAAAAAA" />
+                <ColorView
+                    Theme="{DynamicResource SimpleColorView}"
+                    IsAlphaEnabled="False"
+                    ColorModel="Hsva"
+                    Color="#AAAAAAAA" />
+            </UniformGrid>
+        </StackPanel>
+    </Design.PreviewWith>
 
     <ControlTheme x:Key="SimpleColorView" TargetType="ColorView">
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
@@ -45,7 +70,7 @@
                         AutomationProperties.Name="Third Component"
                         ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
                         ColorModel="Hsva"
-                        HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
+                        HsvColor="{Binding #ColorSpectrum.HsvColor}"
                         IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
                         Orientation="Horizontal" />
 
@@ -57,7 +82,7 @@
                         AutomationProperties.Name="Alpha Component"
                         ColorComponent="Alpha"
                         ColorModel="Hsva"
-                        HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
+                        HsvColor="{Binding #ColorSpectrum.HsvColor}"
                         IsEnabled="{TemplateBinding IsAlphaEnabled}"
                         IsVisible="{TemplateBinding IsAlphaVisible}"
                         IsRoundingEnabled="True"
@@ -71,7 +96,7 @@
                         Orientation="Horizontal"
                         Margin="0 8 0 0">
                         <Border
-                            Background="{TemplateBinding Color, Converter={StaticResource ToBrushConverter}}"
+                            Background="{Binding #ColorSpectrum.Color, Converter={StaticResource ToBrushConverter}}"
                             Width="20"
                             Height="20"
                             CornerRadius="4" />
@@ -98,13 +123,15 @@
                                 Classes="Small"
                                 CornerRadius="3 0 0 3"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
-                                Text="{TemplateBinding Color, Converter={semi:ColorToTextConverter}, Mode=TwoWay}" />
+                                Text="{Binding #ColorSpectrum.Color,
+                                    Converter={semi:ColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
                             <TextBox
                                 Name="PART_HsvaTextBox"
                                 Classes="Small"
                                 CornerRadius="3 0 0 3"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
-                                Text="{TemplateBinding HsvColor, Converter={semi:HsvColorToTextConverter}, Mode=TwoWay}" />
+                                Text="{Binding #ColorSpectrum.HsvColor,
+                                    Converter={semi:HsvColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
                         </Panel>
 
                         <NumericUpDown
@@ -178,7 +205,7 @@
                         <Flyout
                             FlyoutPresenterClasses="nopadding"
                             Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
-                            
+
                             <!--
                                 The following is copy-pasted from the ColorView's control template.
                                 It MUST always be kept in sync with the ColorView (which is master).
@@ -219,7 +246,7 @@
                                     AutomationProperties.Name="Third Component"
                                     ColorComponent="{Binding #ColorSpectrum.ThirdComponent}"
                                     ColorModel="Hsva"
-                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
+                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                     IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
                                     Orientation="Horizontal" />
 
@@ -231,7 +258,7 @@
                                     AutomationProperties.Name="Alpha Component"
                                     ColorComponent="Alpha"
                                     ColorModel="Hsva"
-                                    HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
+                                    HsvColor="{Binding #ColorSpectrum.HsvColor}"
                                     IsEnabled="{TemplateBinding IsAlphaEnabled}"
                                     IsVisible="{TemplateBinding IsAlphaVisible}"
                                     IsRoundingEnabled="True"
@@ -245,7 +272,7 @@
                                     Orientation="Horizontal"
                                     Margin="0 8 0 0">
                                     <Border
-                                        Background="{TemplateBinding Color, Converter={StaticResource ToBrushConverter}}"
+                                        Background="{Binding #ColorSpectrum.Color, Converter={StaticResource ToBrushConverter}}"
                                         Width="20"
                                         Height="20"
                                         CornerRadius="4" />
@@ -272,13 +299,15 @@
                                             Classes="Small"
                                             CornerRadius="3 0 0 3"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
-                                            Text="{TemplateBinding Color, Converter={semi:ColorToTextConverter}, Mode=TwoWay}" />
+                                            Text="{Binding #ColorSpectrum.Color,
+                                               Converter={semi:ColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
                                         <TextBox
                                             Name="PART_HsvaTextBox"
                                             Classes="Small"
                                             CornerRadius="3 0 0 3"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
-                                            Text="{TemplateBinding HsvColor, Converter={semi:HsvColorToTextConverter}, Mode=TwoWay}" />
+                                            Text="{Binding #ColorSpectrum.HsvColor,
+                                                Converter={semi:HsvColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
                                     </Panel>
 
                                     <NumericUpDown
