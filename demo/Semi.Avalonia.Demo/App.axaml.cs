@@ -33,14 +33,14 @@ public partial class App : Application
         {
             applicationLifetime.MainViewFactory = () => new PageNavigationHost()
             {
-                Page = new MainView { DataContext = new MainViewModel() }
+                Page = new MainView()
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new PageNavigationHost()
             {
-                Page = new MainView { DataContext = new MainViewModel() }
+                Page = new MainView()
             };
         }
 
