@@ -5,7 +5,7 @@ description: Themes and restyles Avalonia applications with Semi.Avalonia, the S
 
 # Semi.Avalonia
 
-Semi.Avalonia (12.1.0.1) themes the controls Avalonia already has — it adds no controls. One style in App.xaml is the whole setup; everything else is style classes, ControlTheme variants and resource keys.
+Semi.Avalonia (12.1.0.2) themes the controls Avalonia already has — it adds no controls. One style in App.xaml is the whole setup; everything else is style classes, ControlTheme variants and resource keys.
 
 ## Workflow
 

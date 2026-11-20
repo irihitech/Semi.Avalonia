@@ -1,6 +1,6 @@
 # Semi.Avalonia themed controls
 
-Every control themed by Semi, with its style classes and ControlTheme variants, extracted from version 12.1.0.1 of the sources. Controls with a demo page link to it.
+Every control themed by Semi, with its style classes and ControlTheme variants, extracted from version 12.1.0.2 of the sources. Controls with a demo page link to it.
 
 - **AdornerLayer**: classes Solid; themes AdornerLayerBorder; 2 override keys.
 - **AutoCompleteBox** ([page](https://irihitech.github.io/Semi.Avalonia/controls/AutoCompleteBox.md)): classes Bordered, Large, Small; 3 override keys.

@@ -1,6 +1,6 @@
 # Semi.Avalonia tokens
 
-Every resource key of the theme, extracted from the sources of version 12.1.0.1. Use the key with `DynamicResource`.
+Every resource key of the theme, extracted from the sources of version 12.1.0.2. Use the key with `DynamicResource`.
 
 ```xml
 <Border Background="{DynamicResource SemiColorPrimary}" />
