@@ -203,24 +203,54 @@
                                                 Data="{DynamicResource ColorViewComponentsIconGlyph}"
                                                 Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
-                                        <Grid
-                                            Margin="12"
-                                            ColumnDefinitions="Auto,*"
-                                            RowDefinitions="Auto,24,*,*,*,*,12"
-                                            UseLayoutRounding="False">
-                                            <Grid.Resources>
-                                                <Thickness x:Key="TextBoxContentPadding">8 0</Thickness>
-                                                <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 8 0</Thickness>
-                                            </Grid.Resources>
-                                            <Grid.Styles>
-                                                <Style Selector="NumericUpDown">
-                                                    <Setter Property="InnerLeftContent">
-                                                        <Template>
-                                                            <TextBlock Width="12" Text="{Binding $parent[NumericUpDown].Tag}" />
-                                                        </Template>
-                                                    </Setter>
-                                                </Style>
-                                            </Grid.Styles>
+                                            <Grid
+                                                Margin="12"
+                                                ColumnDefinitions="Auto,*"
+                                                RowDefinitions="Auto,24,*,*,*,*,12"
+                                                UseLayoutRounding="False"
+                                                Tag="{TemplateBinding ColorModel}">
+                                                <Grid.Resources>
+                                                    <Thickness x:Key="TextBoxContentPadding">8 0</Thickness>
+                                                    <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 8 0</Thickness>
+                                                </Grid.Resources>
+                                                <Grid.Styles>
+                                                    <Style Selector="NumericUpDown">
+                                                        <Setter Property="InnerLeftContent">
+                                                            <Template>
+                                                                <TextBlock Width="12" Text="{Binding $parent[NumericUpDown].Tag}" />
+                                                            </Template>
+                                                        </Setter>
+                                                    </Style>
+                                                    <!--  Channel letters; grid-scoped because ControlTheme styles cannot reach flyout parts.  -->
+                                                    <Style Selector="Grid[Tag=Rgba]">
+                                                        <Style Selector="^ NumericUpDown#Component1NumericUpDown">
+                                                            <Setter Property="Tag" Value="R" />
+                                                        </Style>
+                                                        <Style Selector="^ NumericUpDown#Component2NumericUpDown">
+                                                            <Setter Property="Tag" Value="G" />
+                                                        </Style>
+                                                        <Style Selector="^ NumericUpDown#Component3NumericUpDown">
+                                                            <Setter Property="Tag" Value="B" />
+                                                        </Style>
+                                                        <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
+                                                            <Setter Property="Tag" Value="A" />
+                                                        </Style>
+                                                    </Style>
+                                                    <Style Selector="Grid[Tag=Hsva]">
+                                                        <Style Selector="^ NumericUpDown#Component1NumericUpDown">
+                                                            <Setter Property="Tag" Value="H" />
+                                                        </Style>
+                                                        <Style Selector="^ NumericUpDown#Component2NumericUpDown">
+                                                            <Setter Property="Tag" Value="S" />
+                                                        </Style>
+                                                        <Style Selector="^ NumericUpDown#Component3NumericUpDown">
+                                                            <Setter Property="Tag" Value="V" />
+                                                        </Style>
+                                                        <Style Selector="^ NumericUpDown#AlphaComponentNumericUpDown">
+                                                            <Setter Property="Tag" Value="A" />
+                                                        </Style>
+                                                    </Style>
+                                                </Grid.Styles>
                                             <!--  Top color model & Hex input  -->
                                             <Grid
                                                 Grid.Row="0"
@@ -420,34 +450,6 @@
                 </DropDownButton>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[ColorModel=Rgba]">
-            <Style Selector="^ /template/ NumericUpDown#Component1NumericUpDown">
-                <Setter Property="Tag" Value="R" />
-            </Style>
-            <Style Selector="^ /template/ NumericUpDown#Component2NumericUpDown">
-                <Setter Property="Tag" Value="G" />
-            </Style>
-            <Style Selector="^ /template/ NumericUpDown#Component3NumericUpDown">
-                <Setter Property="Tag" Value="B" />
-            </Style>
-            <Style Selector="^ /template/ NumericUpDown#AlphaComponentNumericUpDown">
-                <Setter Property="Tag" Value="A" />
-            </Style>
-        </Style>
-        <Style Selector="^[ColorModel=Hsva]">
-            <Style Selector="^ /template/ NumericUpDown#Component1NumericUpDown">
-                <Setter Property="Tag" Value="H" />
-            </Style>
-            <Style Selector="^ /template/ NumericUpDown#Component2NumericUpDown">
-                <Setter Property="Tag" Value="S" />
-            </Style>
-            <Style Selector="^ /template/ NumericUpDown#Component3NumericUpDown">
-                <Setter Property="Tag" Value="V" />
-            </Style>
-            <Style Selector="^ /template/ NumericUpDown#AlphaComponentNumericUpDown">
-                <Setter Property="Tag" Value="A" />
-            </Style>
-        </Style>
     </ControlTheme>
 
     <ControlTheme
