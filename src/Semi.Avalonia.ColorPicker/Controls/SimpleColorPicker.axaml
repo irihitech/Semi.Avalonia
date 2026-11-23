@@ -37,7 +37,7 @@
             <ControlTemplate TargetType="ColorView">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" MinHeight="280" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -45,8 +45,10 @@
                     <!--  Spectrum Tab  -->
                     <Border
                         Grid.Row="0"
+                        MinHeight="280"
                         CornerRadius="8 8 0 0"
-                        ClipToBounds="True">
+                        ClipToBounds="True"
+                        IsVisible="{TemplateBinding IsColorSpectrumVisible}">
                         <ColorSpectrum
                             Name="ColorSpectrum"
                             HorizontalAlignment="Stretch"
@@ -213,7 +215,7 @@
                             <!--  Fixed 280 (same as SimpleColorView) so the bottom input row fits.  -->
                             <Grid Width="280">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" MinHeight="280" />
+                                    <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
@@ -221,8 +223,10 @@
                                 <!--  Spectrum Tab  -->
                                 <Border
                                     Grid.Row="0"
+                                    MinHeight="280"
                                     CornerRadius="8 8 0 0"
-                                    ClipToBounds="True">
+                                    ClipToBounds="True"
+                                    IsVisible="{TemplateBinding IsColorSpectrumVisible}">
                                     <ColorSpectrum
                                         Name="ColorSpectrum"
                                         HorizontalAlignment="Stretch"
