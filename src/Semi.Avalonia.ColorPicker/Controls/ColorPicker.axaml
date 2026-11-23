@@ -261,8 +261,9 @@
                                                 <Border
                                                     Padding="2"
                                                     Background="{DynamicResource ColorViewRadioButtonPointeroverBackground}"
-                                                    CornerRadius="3">
-                                                    <Grid ColumnDefinitions="*,*" IsVisible="{TemplateBinding IsColorModelVisible}">
+                                                    CornerRadius="3"
+                                                    IsVisible="{TemplateBinding IsColorModelVisible}">
+                                                    <Grid ColumnDefinitions="*,*">
                                                         <RadioButton
                                                             Name="RgbRadioButton"
                                                             Grid.Column="0"
