@@ -45,15 +45,15 @@
                     <!--  Spectrum Tab  -->
                     <Border
                         Grid.Row="0"
-                        MinHeight="280"
-                        CornerRadius="8 8 0 0"
+                        MinHeight="{DynamicResource SimpleColorPickerSpectrumSize}"
+                        CornerRadius="{DynamicResource SimpleColorPickerSpectrumCornerRadius}"
                         ClipToBounds="True"
                         IsVisible="{TemplateBinding IsColorSpectrumVisible}">
                         <ColorSpectrum
                             Name="ColorSpectrum"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            CornerRadius="8 8 0 0"
+                            CornerRadius="{DynamicResource SimpleColorPickerSpectrumCornerRadius}"
                             Components="{TemplateBinding ColorSpectrumComponents}"
                             HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                             MaxHue="{TemplateBinding MaxHue}"
@@ -96,23 +96,23 @@
                         Grid.Row="3"
                         VerticalAlignment="Center"
                         ColumnDefinitions="Auto,*,Auto,Auto"
-                        Margin="0 8 0 0">
+                        Margin="{DynamicResource SimpleColorPickerFooterMargin}">
                         <Border
                             Grid.Column="0"
                             Background="{Binding #ColorSpectrum.Color, Converter={StaticResource ToBrushConverter}}"
-                            Width="20"
-                            Height="20"
-                            CornerRadius="4" />
+                            Width="{DynamicResource SimpleColorPickerSwatchSize}"
+                            Height="{DynamicResource SimpleColorPickerSwatchSize}"
+                            CornerRadius="{DynamicResource SimpleColorPickerSwatchCornerRadius}" />
                         <Panel
                             Name="PART_TextBoxPanel"
                             Grid.Column="1"
-                            Margin="4 0 0 0"
+                            Margin="{DynamicResource SimpleColorPickerInputPanelMargin}"
                             VerticalAlignment="Stretch">
                             <TextBox
                                 Name="PART_HexTextBox"
                                 AutomationProperties.Name="Hexadecimal Color"
                                 Classes="Small"
-                                CornerRadius="3 0 0 3"
+                                CornerRadius="{DynamicResource SimpleColorPickerSegmentLeftCornerRadius}"
                                 InnerLeftContent="#"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter=Hex}"
                                 MaxLength="8">
@@ -123,14 +123,14 @@
                             <TextBox
                                 Name="PART_RgbaTextBox"
                                 Classes="Small"
-                                CornerRadius="3 0 0 3"
+                                CornerRadius="{DynamicResource SimpleColorPickerSegmentLeftCornerRadius}"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
                                 Text="{Binding #ColorSpectrum.Color,
                                     Converter={semi:ColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
                             <TextBox
                                 Name="PART_HsvaTextBox"
                                 Classes="Small"
-                                CornerRadius="3 0 0 3"
+                                CornerRadius="{DynamicResource SimpleColorPickerSegmentLeftCornerRadius}"
                                 IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
                                 Text="{Binding #ColorSpectrum.HsvColor,
                                     Converter={semi:HsvColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
@@ -139,7 +139,7 @@
                         <NumericUpDown
                             Grid.Column="2"
                             Name="AlphaComponentNumericUpDown"
-                            Width="60"
+                            Width="{DynamicResource SimpleColorPickerAlphaWidth}"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             AllowSpin="True"
@@ -161,8 +161,8 @@
                         <ComboBox
                             Grid.Column="3"
                             Name="ColorModelComboBox"
-                            Width="80"
-                            CornerRadius="0 3 3 0"
+                            Width="{DynamicResource SimpleColorPickerModelComboBoxWidth}"
+                            CornerRadius="{DynamicResource SimpleColorPickerSegmentRightCornerRadius}"
                             VerticalAlignment="Center"
                             Classes="Small"
                             SelectedValue="Hex">
@@ -213,7 +213,7 @@
                                 Note the only changes are resources specific to the ColorPicker.
                             -->
                             <!--  Fixed 280 (same as SimpleColorView) so the bottom input row fits.  -->
-                            <Grid Width="280">
+                            <Grid Width="{DynamicResource SimpleColorPickerSpectrumSize}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
@@ -223,15 +223,15 @@
                                 <!--  Spectrum Tab  -->
                                 <Border
                                     Grid.Row="0"
-                                    MinHeight="280"
-                                    CornerRadius="8 8 0 0"
+                                    MinHeight="{DynamicResource SimpleColorPickerSpectrumSize}"
+                                    CornerRadius="{DynamicResource SimpleColorPickerSpectrumCornerRadius}"
                                     ClipToBounds="True"
                                     IsVisible="{TemplateBinding IsColorSpectrumVisible}">
                                     <ColorSpectrum
                                         Name="ColorSpectrum"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
-                                        CornerRadius="8 8 0 0"
+                                        CornerRadius="{DynamicResource SimpleColorPickerSpectrumCornerRadius}"
                                         Components="{TemplateBinding ColorSpectrumComponents}"
                                         HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                         MaxHue="{TemplateBinding MaxHue}"
@@ -274,23 +274,23 @@
                                         Grid.Row="3"
                                         VerticalAlignment="Center"
                                         ColumnDefinitions="Auto,*,Auto,Auto"
-                                        Margin="0 8 0 0">
+                                        Margin="{DynamicResource SimpleColorPickerFooterMargin}">
                                         <Border
                                             Grid.Column="0"
                                             Background="{Binding #ColorSpectrum.Color, Converter={StaticResource ToBrushConverter}}"
-                                            Width="20"
-                                            Height="20"
-                                            CornerRadius="4" />
+                                            Width="{DynamicResource SimpleColorPickerSwatchSize}"
+                                            Height="{DynamicResource SimpleColorPickerSwatchSize}"
+                                            CornerRadius="{DynamicResource SimpleColorPickerSwatchCornerRadius}" />
                                         <Panel
                                             Name="PART_TextBoxPanel"
                                             Grid.Column="1"
-                                            Margin="4 0 0 0"
+                                            Margin="{DynamicResource SimpleColorPickerInputPanelMargin}"
                                             VerticalAlignment="Stretch">
                                         <TextBox
                                             Name="PART_HexTextBox"
                                             AutomationProperties.Name="Hexadecimal Color"
                                             Classes="Small"
-                                            CornerRadius="3 0 0 3"
+                                            CornerRadius="{DynamicResource SimpleColorPickerSegmentLeftCornerRadius}"
                                             InnerLeftContent="#"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter=Hex}"
                                             MaxLength="8">
@@ -301,14 +301,14 @@
                                         <TextBox
                                             Name="PART_RgbaTextBox"
                                             Classes="Small"
-                                            CornerRadius="3 0 0 3"
+                                            CornerRadius="{DynamicResource SimpleColorPickerSegmentLeftCornerRadius}"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Rgba}}"
                                             Text="{Binding #ColorSpectrum.Color,
                                                Converter={semi:ColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
                                         <TextBox
                                             Name="PART_HsvaTextBox"
                                             Classes="Small"
-                                            CornerRadius="3 0 0 3"
+                                            CornerRadius="{DynamicResource SimpleColorPickerSegmentLeftCornerRadius}"
                                             IsVisible="{Binding #ColorModelComboBox.SelectedValue, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static ColorModel.Hsva}}"
                                             Text="{Binding #ColorSpectrum.HsvColor,
                                                 Converter={semi:HsvColorToTextConverter}, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
@@ -317,7 +317,7 @@
                                     <NumericUpDown
                                         Grid.Column="2"
                                         Name="AlphaComponentNumericUpDown"
-                                        Width="60"
+                                        Width="{DynamicResource SimpleColorPickerAlphaWidth}"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         AllowSpin="True"
@@ -339,8 +339,8 @@
                                     <ComboBox
                                         Grid.Column="3"
                                         Name="ColorModelComboBox"
-                                        Width="80"
-                                        CornerRadius="0 3 3 0"
+                                        Width="{DynamicResource SimpleColorPickerModelComboBoxWidth}"
+                                        CornerRadius="{DynamicResource SimpleColorPickerSegmentRightCornerRadius}"
                                         VerticalAlignment="Center"
                                         Classes="Small"
                                         SelectedValue="Hex">

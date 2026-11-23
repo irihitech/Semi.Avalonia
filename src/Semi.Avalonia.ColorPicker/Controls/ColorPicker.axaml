@@ -20,12 +20,12 @@
             <Template>
                 <Panel>
                     <Border
-                        Margin="1,1,0,1"
+                        Margin="{DynamicResource ColorPickerSwatchMargin}"
                         MinWidth="{Binding $self.Bounds.Height}"
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
                         CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
                     <Border
-                        Margin="1,1,0,1"
+                        Margin="{DynamicResource ColorPickerSwatchMargin}"
                         MinWidth="{Binding $self.Bounds.Height}"
                         Background="{Binding $parent[ColorPicker].HsvColor, Converter={StaticResource ToBrushConverter}, Mode=OneWay}"
                         CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
@@ -65,8 +65,8 @@
                                 Note the only changes are resources specific to the ColorPicker.
                             -->
                             <Grid
-                                Width="300"
-                                Height="300"
+                                Width="{DynamicResource ColorPickerFlyoutSize}"
+                                Height="{DynamicResource ColorPickerFlyoutSize}"
                                 RowDefinitions="*,Auto">
                                 <!--  Backgrounds  -->
                                 <!--  TODO: Background="{DynamicResource ColorViewTabBackgroundBrush}"  -->
@@ -79,19 +79,19 @@
                                     VerticalAlignment="Stretch"
                                     Background="{DynamicResource ColorViewContentBackgroundBrush}"
                                     BorderBrush="{DynamicResource ColorViewContentBorderBrush}"
-                                    BorderThickness="0,1,0,0"
+                                    BorderThickness="{DynamicResource ColorViewContentBorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}" />
 
                                 <TabControl
                                     Name="PART_TabControl"
                                     Grid.Row="0"
-                                    Padding="0"
+                                    Padding="{DynamicResource ColorViewTabControlPadding}"
                                     VerticalAlignment="Stretch"
                                     HorizontalContentAlignment="Stretch"
                                     SelectedIndex="{TemplateBinding SelectedIndex, Mode=TwoWay}">
                                     <TabControl.Styles>
                                         <Style Selector="TabItem">
-                                            <Setter Property="MinHeight" Value="32" />
+                                            <Setter Property="MinHeight" Value="{DynamicResource ColorViewTabItemMinHeight}" />
                                         </Style>
                                         <Style Selector="TabItem:selected">
                                             <Setter Property="Foreground" Value="{DynamicResource ColorViewTabItemSelectedForeground}" />
@@ -110,16 +110,16 @@
                                                 Data="{DynamicResource ColorViewSpectrumIconGlyph}"
                                                 Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
-                                        <Grid Margin="12" RowDefinitions="*">
+                                        <Grid Margin="{DynamicResource ColorViewTabContentMargin}" RowDefinitions="*">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" MinWidth="32" />
+                                                <ColumnDefinition Width="Auto" MinWidth="{DynamicResource ColorViewSliderColumnMinWidth}" />
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="Auto" MinWidth="32" />
+                                                <ColumnDefinition Width="Auto" MinWidth="{DynamicResource ColorViewSliderColumnMinWidth}" />
                                             </Grid.ColumnDefinitions>
                                             <ColorSlider
                                                 Name="ColorSpectrumThirdComponentSlider"
                                                 Grid.Column="0"
-                                                Margin="0,0,12,0"
+                                                Margin="{DynamicResource ColorViewComponentTrailingMargin}"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Stretch"
                                                 AutomationProperties.Name="Third Component"
@@ -147,7 +147,7 @@
                                             <ColorSlider
                                                 Name="ColorSpectrumAlphaSlider"
                                                 Grid.Column="2"
-                                                Margin="12,0,0,0"
+                                                Margin="{DynamicResource ColorViewSliderLeadingMargin}"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Stretch"
                                                 AutomationProperties.Name="Alpha Component"
@@ -168,7 +168,7 @@
                                                 Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
                                         <ListBox
-                                            Margin="12"
+                                            Margin="{DynamicResource ColorViewTabContentMargin}"
                                             VerticalAlignment="Stretch"
                                             ItemContainerTheme="{StaticResource ColorViewPaletteListBoxItemTheme}"
                                             ItemsSource="{TemplateBinding PaletteColors}"
@@ -204,11 +204,19 @@
                                                 Foreground="{Binding $parent[TabItem].Foreground}" />
                                         </TabItem.Header>
                                             <Grid
-                                                Margin="12"
+                                                Margin="{DynamicResource ColorViewTabContentMargin}"
                                                 ColumnDefinitions="Auto,*"
-                                                RowDefinitions="Auto,24,*,*,*,*,12"
                                                 UseLayoutRounding="False"
                                                 Tag="{TemplateBinding ColorModel}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="{DynamicResource ColorViewComponentRowHeight}" />
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="{DynamicResource ColorViewComponentBottomSpacing}" />
+                                                </Grid.RowDefinitions>
                                                 <Grid.Resources>
                                                     <Thickness x:Key="TextBoxContentPadding">8 0</Thickness>
                                                     <Thickness x:Key="TextBoxInnerLeftContentPadding">0 0 8 0</Thickness>
@@ -217,7 +225,7 @@
                                                     <Style Selector="NumericUpDown">
                                                         <Setter Property="InnerLeftContent">
                                                             <Template>
-                                                                <TextBlock Width="12" Text="{Binding $parent[NumericUpDown].Tag}" />
+                                                                <TextBlock Width="{DynamicResource ColorViewComponentLabelWidth}" Text="{Binding $parent[NumericUpDown].Tag}" />
                                                             </Template>
                                                         </Setter>
                                                     </Style>
@@ -258,11 +266,11 @@
                                                 Grid.ColumnSpan="2"
                                                 ColumnDefinitions="*,12,*">
                                                 <!--  RadioButtonGroup  -->
-                                                <Border
-                                                    Padding="2"
-                                                    Background="{DynamicResource ColorViewRadioButtonPointeroverBackground}"
-                                                    CornerRadius="3"
-                                                    IsVisible="{TemplateBinding IsColorModelVisible}">
+                                                    <Border
+                                                        Padding="{DynamicResource ColorViewRadioGroupPadding}"
+                                                        Background="{DynamicResource ColorViewRadioButtonPointeroverBackground}"
+                                                        CornerRadius="{DynamicResource ColorViewRadioGroupCornerRadius}"
+                                                        IsVisible="{TemplateBinding IsColorModelVisible}">
                                                     <Grid ColumnDefinitions="*,*">
                                                         <RadioButton
                                                             Name="RgbRadioButton"
@@ -270,7 +278,7 @@
                                                             HorizontalContentAlignment="Center"
                                                             VerticalContentAlignment="Center"
                                                             Content="RGB"
-                                                            CornerRadius="3,0,0,3"
+                                                            CornerRadius="{DynamicResource ColorViewSegmentLeftCornerRadius}"
                                                             IsChecked="{TemplateBinding ColorModel,
                                                                 Converter={StaticResource EnumToBoolConverter},
                                                                 ConverterParameter={x:Static ColorModel.Rgba},
@@ -282,7 +290,7 @@
                                                             HorizontalContentAlignment="Center"
                                                             VerticalContentAlignment="Center"
                                                             Content="HSV"
-                                                            CornerRadius="0,3,3,0"
+                                                            CornerRadius="{DynamicResource ColorViewSegmentRightCornerRadius}"
                                                             IsChecked="{TemplateBinding ColorModel,
                                                                 Converter={StaticResource EnumToBoolConverter},
                                                                 ConverterParameter={x:Static ColorModel.Hsva},
@@ -306,7 +314,7 @@
                                                 Grid.Row="2"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                                Margin="0,0,12,0"
+                                                Margin="{DynamicResource ColorViewComponentTrailingMargin}"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
                                                 Classes="Small"
@@ -336,7 +344,7 @@
                                                 Grid.Row="3"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                                Margin="0,0,12,0"
+                                                Margin="{DynamicResource ColorViewComponentTrailingMargin}"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
                                                 Classes="Small"
@@ -366,7 +374,7 @@
                                                 Grid.Row="4"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                                Margin="0,0,12,0"
+                                                Margin="{DynamicResource ColorViewComponentTrailingMargin}"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
                                                 Classes="Small"
@@ -396,7 +404,7 @@
                                                 Grid.Row="5"
                                                 Grid.Column="0"
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                                Margin="0,0,12,0"
+                                                Margin="{DynamicResource ColorViewComponentTrailingMargin}"
                                                 VerticalAlignment="Center"
                                                 AllowSpin="True"
                                                 Classes="Small"
@@ -441,7 +449,7 @@
                                 <!-- Note that the drop shadow is allowed to extend past the control bounds -->
                                 <ColorPreviewer
                                     Grid.Row="1"
-                                    Margin="12,0,12,12"
+                                    Margin="{DynamicResource ColorViewPreviewerMargin}"
                                     HsvColor="{TemplateBinding HsvColor, Mode=TwoWay}"
                                     IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
                                     IsVisible="{TemplateBinding IsColorPreviewVisible}" />
@@ -457,7 +465,7 @@
         x:Key="HexColorPicker"
         BasedOn="{StaticResource {x:Type ColorPicker}}"
         TargetType="ColorPicker">
-        <Setter Property="MinWidth" Value="180" />
+        <Setter Property="MinWidth" Value="{DynamicResource HexColorPickerMinWidth}" />
         <Setter Property="Content" Value="{StaticResource HexColorPickerTemplate}" />
     </ControlTheme>
 
@@ -466,18 +474,18 @@
             <Border
                 Grid.Column="0"
                 Width="{Binding $self.Bounds.Height}"
-                Margin="1,1,0,1"
+                Margin="{DynamicResource ColorPickerSwatchMargin}"
                 Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
                 CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
             <Border
                 Grid.Column="0"
                 Width="{Binding $self.Bounds.Height}"
-                Margin="1,1,0,1"
+                Margin="{DynamicResource ColorPickerSwatchMargin}"
                 Background="{Binding $parent[ColorPicker].HsvColor,Converter={StaticResource ToBrushConverter}}"
                 CornerRadius="{Binding $parent[ColorPicker].CornerRadius}" />
             <TextBlock
                 Grid.Column="1"
-                Margin="8,0,0,0"
+                Margin="{DynamicResource ColorPickerHexTextMargin}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Foreground="{DynamicResource TextBlockDefaultForeground}">
