@@ -11,7 +11,7 @@
         <Setter Property="Template">
             <ControlTemplate TargetType="Thumb">
                 <Border
-                    Margin="1"
+                    Margin="{DynamicResource ColorSliderThumbMargin}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -48,7 +48,7 @@
 
                             <Track
                                 Name="PART_Track"
-                                Height="12"
+                                Height="{DynamicResource ColorSliderTrackSize}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
@@ -67,7 +67,7 @@
                                             <ControlTemplate>
                                                 <Border
                                                     Name="FocusTarget"
-                                                    Margin="0,-8"
+                                                    Margin="{DynamicResource ColorSliderHitAreaMargin}"
                                                     Background="Transparent" />
                                             </ControlTemplate>
                                         </RepeatButton.Template>
@@ -84,7 +84,7 @@
                                             <ControlTemplate>
                                                 <Border
                                                     Name="FocusTarget"
-                                                    Margin="0,-8"
+                                                    Margin="{DynamicResource ColorSliderHitAreaMargin}"
                                                     Background="Transparent" />
                                             </ControlTemplate>
                                         </RepeatButton.Template>
@@ -128,7 +128,7 @@
                                 CornerRadius="{DynamicResource ColorSliderCornerRadius}" />
                             <Track
                                 Name="PART_Track"
-                                Width="12"
+                                Width="{DynamicResource ColorSliderTrackSize}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Stretch"
                                 IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
@@ -147,7 +147,7 @@
                                             <ControlTemplate>
                                                 <Border
                                                     Name="FocusTarget"
-                                                    Margin="0,-8"
+                                                    Margin="{DynamicResource ColorSliderHitAreaMargin}"
                                                     Background="Transparent" />
                                             </ControlTemplate>
                                         </RepeatButton.Template>
@@ -164,7 +164,7 @@
                                             <ControlTemplate>
                                                 <Border
                                                     Name="FocusTarget"
-                                                    Margin="0,-8"
+                                                    Margin="{DynamicResource ColorSliderHitAreaMargin}"
                                                     Background="Transparent" />
                                             </ControlTemplate>
                                         </RepeatButton.Template>
