@@ -9,7 +9,7 @@ using Semi.Avalonia.Demo.Converters;
 
 namespace Semi.Avalonia.Demo.Controls;
 
-public class ColorDetailControl : TemplatedControl
+public partial class ColorDetailControl : TemplatedControl
 {
     public const string KEY_ResourceKey = "ResourceKey";
     public const string KEY_Hex = "Hex";
@@ -17,65 +17,12 @@ public class ColorDetailControl : TemplatedControl
     public const string KEY_Opacity = "Opacity";
     public const string KEY_ColorResourceKey = "ColorResourceKey";
 
-    public static readonly StyledProperty<string?> ResourceKeyProperty =
-        AvaloniaProperty.Register<ColorDetailControl, string?>(nameof(ResourceKey));
-
-    public string? ResourceKey
-    {
-        get => GetValue(ResourceKeyProperty);
-        set => SetValue(ResourceKeyProperty, value);
-    }
-
-    public static readonly StyledProperty<string?> ResourceNameProperty =
-        AvaloniaProperty.Register<ColorDetailControl, string?>(nameof(ResourceName));
-
-    public string? ResourceName
-    {
-        get => GetValue(ResourceNameProperty);
-        set => SetValue(ResourceNameProperty, value);
-    }
-
-    public static readonly StyledProperty<string?> ColorResourceKeyProperty =
-        AvaloniaProperty.Register<ColorDetailControl, string?>(nameof(ColorResourceKey));
-
-    public string? ColorResourceKey
-    {
-        get => GetValue(ColorResourceKeyProperty);
-        set => SetValue(ColorResourceKeyProperty, value);
-    }
-
-    public static readonly DirectProperty<ColorDetailControl, string?> HexProperty =
-        AvaloniaProperty.RegisterDirect<ColorDetailControl, string?>(nameof(Hex), o => o.Hex);
-
-    private string? _hex;
-
-    public string? Hex
-    {
-        get => _hex;
-        private set => SetAndRaise(HexProperty, ref _hex, value);
-    }
-
-    private string? _hex2;
-
-    public static readonly DirectProperty<ColorDetailControl, string?> Hex2Property =
-        AvaloniaProperty.RegisterDirect<ColorDetailControl, string?>(nameof(Hex2), o => o.Hex2);
-
-    public string? Hex2
-    {
-        get => _hex2;
-        set => SetAndRaise(Hex2Property, ref _hex2, value);
-    }
-
-    public static readonly DirectProperty<ColorDetailControl, string?> OpacityNumberProperty =
-        AvaloniaProperty.RegisterDirect<ColorDetailControl, string?>(nameof(OpacityNumber), o => o.OpacityNumber);
-
-    private string? _opacityNumber;
-
-    public string? OpacityNumber
-    {
-        get => _opacityNumber;
-        private set => SetAndRaise(OpacityNumberProperty, ref _opacityNumber, value);
-    }
+    [GeneratedStyledProperty] public partial string? ResourceKey { get; set; }
+    [GeneratedStyledProperty] public partial string? ResourceName { get; set; }
+    [GeneratedStyledProperty] public partial string? ColorResourceKey { get; set; }
+    [GeneratedDirectProperty] public partial string? Hex { get; set; }
+    [GeneratedDirectProperty] public partial string? Hex2 { get; set; }
+    [GeneratedDirectProperty] public partial string? OpacityNumber { get; set; }
 
     static ColorDetailControl()
     {

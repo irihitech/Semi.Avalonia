@@ -6,30 +6,15 @@ using Semi.Avalonia.Demo.ViewModels;
 
 namespace Semi.Avalonia.Demo.Controls;
 
-public class ColorItemControl : TemplatedControl
+public partial class ColorItemControl : TemplatedControl
 {
-    public static readonly StyledProperty<string?> ColorNameProperty =
-        AvaloniaProperty.Register<ColorItemControl, string?>(nameof(ColorName));
-
-    public string? ColorName
-    {
-        get => GetValue(ColorNameProperty);
-        set => SetValue(ColorNameProperty, value);
-    }
-
-    public static readonly StyledProperty<string?> HexProperty = AvaloniaProperty.Register<ColorItemControl, string?>(
-        nameof(Hex));
-
-    public string? Hex
-    {
-        get => GetValue(HexProperty);
-        set => SetValue(HexProperty, value);
-    }
+    [GeneratedStyledProperty] public partial string? ColorName { get; set; }
+    [GeneratedStyledProperty] public partial string? Hex { get; set; }
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
-        switch (this.DataContext)
+        switch (DataContext)
         {
             case ColorItemViewModel colorItemViewModel:
                 WeakReferenceMessenger.Default.Send(colorItemViewModel);
