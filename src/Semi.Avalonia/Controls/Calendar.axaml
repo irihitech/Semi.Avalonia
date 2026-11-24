@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
-            <Calendar />
+            <Calendar IsWeekNumberVisible="True" />
         </Border>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
@@ -57,12 +57,12 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid
-                        MinWidth="{TemplateBinding MinWidth}"
                         MinHeight="{TemplateBinding MinHeight}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
+                        ColumnDefinitions="Auto,*"
                         RowDefinitions="Auto,*">
-                        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
+                        <Grid Grid.Row="0" Grid.ColumnSpan="2" ColumnDefinitions="Auto,*,Auto">
                             <RepeatButton
                                 Name="PART_PreviousButton"
                                 Grid.Column="0"
@@ -100,11 +100,11 @@
                             </RepeatButton>
                         </Grid>
                         <Grid
-                            Name="PART_MonthView"
+                            Name="PART_ElementWeekNumberLabels"
                             Grid.Row="1"
-                            HorizontalAlignment="Stretch"
+                            Grid.Column="0"
                             IsVisible="False"
-                            ColumnDefinitions="*,*,*,*,*,*,*">
+                            MinWidth="{DynamicResource CalendarItemWeekNumberWidth}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="{DynamicResource CalendarItemWeekDayNameHeight}" />
                                 <RowDefinition Height="*" />
@@ -116,16 +116,42 @@
                             </Grid.RowDefinitions>
                         </Grid>
                         <Grid
-                            Name="PART_YearView"
                             Grid.Row="1"
-                            Background="{TemplateBinding Background}"
-                            IsVisible="False"
-                            ColumnDefinitions="*,*,*,*"
-                            RowDefinitions="*,*,*" />
+                            Grid.Column="1"
+                            MinWidth="{TemplateBinding MinWidth}">
+                            <Grid
+                                Name="PART_MonthView"
+                                HorizontalAlignment="Stretch"
+                                IsVisible="False"
+                                ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{DynamicResource CalendarItemWeekDayNameHeight}" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                            </Grid>
+                            <Grid
+                                Name="PART_YearView"
+                                Background="{TemplateBinding Background}"
+                                IsVisible="False"
+                                ColumnDefinitions="*,*,*,*"
+                                RowDefinitions="*,*,*" />
+                        </Grid>
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ Grid#PART_ElementWeekNumberLabels ContentControl">
+            <Setter Property="FontSize" Value="{DynamicResource CalendarItemWeekNumberFontSize}" />
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemWeekNumberForeground}" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">

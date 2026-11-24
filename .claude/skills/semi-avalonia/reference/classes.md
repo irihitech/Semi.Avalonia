@@ -7,7 +7,7 @@ Every control themed by Semi, with its style classes and ControlTheme variants, 
 - **Border** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Border.md)): classes Hover, Shadow; themes CardBorder; 3 override keys.
 - **Button** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Button.md)): classes Colorful, Danger, Large, Primary, Secondary, Small, Success, Tertiary, Warning; themes BorderlessButton, OutlineButton, SolidButton; 77 override keys.
 - **ButtonSpinner** ([page](https://irihitech.github.io/Semi.Avalonia/controls/ButtonSpinner.md)): themes ButtonSpinnerRepeatButton, SplitButtonSpinner; 7 override keys.
-- **Calendar** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Calendar.md)): 27 override keys.
+- **Calendar** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Calendar.md)): 28 override keys.
 - **CalendarDatePicker** ([page](https://irihitech.github.io/Semi.Avalonia/controls/CalendarDatePicker.md)): classes Bordered, clearButton, Large, Small; 15 override keys.
 - **Carousel** ([page](https://irihitech.github.io/Semi.Avalonia/controls/Carousel.md)): classes Center, Columnar, Left, Line, Right; themes CarouselButton, CarouselIndicatorColumnarListBoxItem, CarouselIndicatorDotListBoxItem, CarouselIndicatorLineListBoxItem, FullCarousel; 6 override keys.
 - **CarouselPage** ([page](https://irihitech.github.io/Semi.Avalonia/controls/CarouselPage.md)): shared resources.

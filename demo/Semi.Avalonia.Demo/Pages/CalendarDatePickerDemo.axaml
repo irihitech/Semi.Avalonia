@@ -9,31 +9,44 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel HorizontalAlignment="Left" Spacing="20">
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Spacing="20">
             <CalendarDatePicker Classes="Large" />
             <CalendarDatePicker />
             <CalendarDatePicker Classes="Small" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <CalendarDatePicker IsEnabled="False" />
+        <StackPanel Orientation="Horizontal" Spacing="20">
             <CalendarDatePicker Classes="Bordered" />
-            <CalendarDatePicker Classes="Bordered" IsEnabled="False" />
+            <CalendarDatePicker
+                Classes="ClearButton"
+                SelectedDate="2026-11-24" />
+            <CalendarDatePicker IsEnabled="False" />
         </StackPanel>
 
-        <CalendarDatePicker Width="500" />
+        <StackPanel Spacing="8">
+            <TextBlock TextWrapping="Wrap">
+                <Run FontWeight="SemiBold" Text="SelectedDateFormat" />
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <CalendarDatePicker SelectedDateFormat="Long" />
+                <CalendarDatePicker
+                    CustomDateFormatString="ddd, MMM d"
+                    SelectedDateFormat="Custom" />
+            </StackPanel>
+        </StackPanel>
 
-        <CalendarDatePicker Classes="ClearButton" Width="200" />
-
-        <CalendarDatePicker
-            Name="DatePicker2"
-            Margin="0,0,0,8"
-            SelectedDateFormat="Long" />
-        <CalendarDatePicker
-            Name="DatePicker3"
-            Margin="0,0,0,8"
-            CustomDateFormatString="ddd, MMM d"
-            SelectedDateFormat="Custom" />
-        <CalendarDatePicker Margin="0,0,0,8" PlaceholderText="Placeholder" />
+        <StackPanel Spacing="8">
+            <TextBlock TextWrapping="Wrap">
+                <Run FontWeight="SemiBold" Text="IsWeekNumberVisible" />
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <CalendarDatePicker IsWeekNumberVisible="True" />
+                <CalendarDatePicker
+                    FirstDayOfWeek="Monday"
+                    IsWeekNumberVisible="True"
+                    SelectedDate="2019-01-15"
+                    WeekNumberRule="FirstFourDayWeek" />
+            </StackPanel>
+        </StackPanel>
     </StackPanel>
 </ContentPage>
