@@ -66,15 +66,12 @@
                             <RepeatButton
                                 Name="PART_PreviousButton"
                                 Grid.Column="0"
-                                Padding="0"
-                                MinWidth="{Binding $self.MinHeight}"
-                                Foreground="{TemplateBinding Foreground}"
-                                Theme="{DynamicResource BorderlessRepeatButton}">
+                                Foreground="{DynamicResource CalendarItemIconForeground}"
+                                Theme="{DynamicResource SquareButton}">
                                 <PathIcon
                                     Theme="{DynamicResource InnerPathIcon}"
                                     Classes="Large"
-                                    Data="{DynamicResource CalendarItemPreviousIconGlyph}"
-                                    Foreground="{DynamicResource CalendarItemIconForeground}" />
+                                    Data="{DynamicResource CalendarItemPreviousIconGlyph}" />
                             </RepeatButton>
 
                             <Button
@@ -88,15 +85,12 @@
                             <RepeatButton
                                 Name="PART_NextButton"
                                 Grid.Column="2"
-                                Padding="0"
-                                MinWidth="{Binding $self.MinHeight}"
-                                Foreground="{TemplateBinding Foreground}"
-                                Theme="{DynamicResource BorderlessRepeatButton}">
+                                Foreground="{DynamicResource CalendarItemIconForeground}"
+                                Theme="{DynamicResource SquareButton}">
                                 <PathIcon
                                     Theme="{DynamicResource InnerPathIcon}"
                                     Classes="Large"
-                                    Data="{DynamicResource CalendarItemNextIconGlyph}"
-                                    Foreground="{DynamicResource CalendarItemIconForeground}" />
+                                    Data="{DynamicResource CalendarItemNextIconGlyph}" />
                             </RepeatButton>
                         </Grid>
                         <Grid
