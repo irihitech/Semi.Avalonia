@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Height" Value="{DynamicResource IconElementThemeHeight}" />
@@ -24,8 +25,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="InnerPathIcon" TargetType="PathIcon">
-        <Setter Property="Width" Value="{StaticResource SemiWidthIconMedium}" />
-        <Setter Property="Height" Value="{StaticResource SemiWidthIconMedium}" />
+        <Setter Property="Width" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconMedium}}" />
+        <Setter Property="Height" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconMedium}}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate TargetType="PathIcon">
@@ -47,20 +48,20 @@
             <Setter Property="Fill" Value="{TemplateBinding BorderBrush}" />
         </Style>
         <Style Selector="^.ExtraSmall">
-            <Setter Property="Width" Value="{StaticResource SemiWidthIconExtraSmall}" />
-            <Setter Property="Height" Value="{StaticResource SemiWidthIconExtraSmall}" />
+            <Setter Property="Width" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconExtraSmall}}" />
+            <Setter Property="Height" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconExtraSmall}}" />
         </Style>
         <Style Selector="^.Small">
-            <Setter Property="Width" Value="{StaticResource SemiWidthIconSmall}" />
-            <Setter Property="Height" Value="{StaticResource SemiWidthIconSmall}" />
+            <Setter Property="Width" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconSmall}}" />
+            <Setter Property="Height" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconSmall}}" />
         </Style>
         <Style Selector="^.Large">
-            <Setter Property="Width" Value="{StaticResource SemiWidthIconLarge}" />
-            <Setter Property="Height" Value="{StaticResource SemiWidthIconLarge}" />
+            <Setter Property="Width" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconLarge}}" />
+            <Setter Property="Height" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconLarge}}" />
         </Style>
         <Style Selector="^.ExtraLarge">
-            <Setter Property="Width" Value="{StaticResource SemiWidthIconExtraLarge}" />
-            <Setter Property="Height" Value="{StaticResource SemiWidthIconExtraLarge}" />
+            <Setter Property="Width" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconExtraLarge}}" />
+            <Setter Property="Height" Value="{StaticResource {x:Static semi:SemiTokens.WidthIconExtraLarge}}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

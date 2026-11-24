@@ -2,20 +2,20 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:semi="https://irihi.tech/semi">
-    <StaticResource x:Key="ColorViewRadioButtonForeground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="ColorViewRadioButtonBackground" ResourceKey="SemiColorBackground0" />
-    <StaticResource x:Key="ColorViewRadioButtonPointeroverBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="ColorViewRadioButtonPressedBackground" ResourceKey="SemiColorFill2" />
-    <StaticResource x:Key="ColorViewRadioButtonCheckedForeground" ResourceKey="SemiColorWhite" />
-    <StaticResource x:Key="ColorViewRadioButtonCheckedBackground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="ColorViewRadioButtonCheckedPointeroverBackground" ResourceKey="SemiColorPrimaryPointerover" />
-    <StaticResource x:Key="ColorViewRadioButtonCheckedPressedBackground" ResourceKey="SemiColorPrimaryActive" />
-    <StaticResource x:Key="ColorViewTabItemSelectedForeground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="ColorSliderDefaultBorderBrush" ResourceKey="SemiColorBlack" />
-    <StaticResource x:Key="ColorSliderLightBorderBrush" ResourceKey="SemiColorWhite" />
-    <StaticResource x:Key="ColorSliderDarkBorderBrush" ResourceKey="SemiColorBlack" />
-    <StaticResource x:Key="ColorSpectrumBorderBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="ColorPreviewerMainBoxShadow" ResourceKey="SemiShadowElevated" />
+    <StaticResource x:Key="ColorViewRadioButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="ColorViewRadioButtonBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground0}" />
+    <StaticResource x:Key="ColorViewRadioButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="ColorViewRadioButtonPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryPointerover}" />
+    <StaticResource x:Key="ColorViewRadioButtonCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryActive}" />
+    <StaticResource x:Key="ColorViewTabItemSelectedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="ColorSliderDefaultBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBlack}" />
+    <StaticResource x:Key="ColorSliderLightBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
+    <StaticResource x:Key="ColorSliderDarkBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBlack}" />
+    <StaticResource x:Key="ColorSpectrumBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="ColorPreviewerMainBoxShadow" ResourceKey="{x:Static semi:SemiTokens.ShadowElevated}" />
     <BoxShadows x:Key="ColorSliderBoxShadow">0 0 2 1 #FFFFFF</BoxShadows>
     <semi:SemiColorLightPalette x:Key="SemiColorPalette" />
 </ResourceDictionary>

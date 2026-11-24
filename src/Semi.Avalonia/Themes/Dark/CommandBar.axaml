@@ -1,24 +1,25 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <!--  CommandBarButton / CommandBarToggleButton  -->
     <SolidColorBrush x:Key="CommandBarButtonBackground" Color="Transparent" />
-    <StaticResource x:Key="CommandBarButtonForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="CommandBarButtonPointeroverBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="CommandBarButtonPressedBackground" ResourceKey="SemiColorFill1" />
-    <StaticResource x:Key="CommandBarButtonDisabledForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="CommandBarButtonForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="CommandBarButtonPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="CommandBarButtonPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
+    <StaticResource x:Key="CommandBarButtonDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
     <!--  CommandBarToggleButton checked state  -->
-    <StaticResource x:Key="CommandBarToggleButtonCheckedForeground" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="CommandBarToggleButtonCheckedBackground" ResourceKey="SemiColorPrimaryLight" />
-    <StaticResource x:Key="CommandBarToggleButtonCheckedPointeroverBackground" ResourceKey="SemiColorPrimaryLightPointerover" />
-    <StaticResource x:Key="CommandBarToggleButtonCheckedPressedBackground" ResourceKey="SemiColorPrimaryLightActive" />
-    <StaticResource x:Key="CommandBarToggleButtonCheckedDisabledForeground" ResourceKey="SemiColorPrimaryDisabled" />
+    <StaticResource x:Key="CommandBarToggleButtonCheckedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="CommandBarToggleButtonCheckedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLight}" />
+    <StaticResource x:Key="CommandBarToggleButtonCheckedPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLightPointerover}" />
+    <StaticResource x:Key="CommandBarToggleButtonCheckedPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryLightActive}" />
+    <StaticResource x:Key="CommandBarToggleButtonCheckedDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryDisabled}" />
     <!--  CommandBarSeparator  -->
-    <StaticResource x:Key="CommandBarSeparatorBackground" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="CommandBarSeparatorBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
     <!--  CommandBar  -->
-    <StaticResource x:Key="CommandBarBackground" ResourceKey="SemiColorBackground1" />
-    <StaticResource x:Key="CommandBarForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="CommandBarBorderBrush" ResourceKey="SemiColorBorder" />
+    <StaticResource x:Key="CommandBarBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground1}" />
+    <StaticResource x:Key="CommandBarForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="CommandBarBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
     <!--  CommandBar overflow popup  -->
-    <StaticResource x:Key="CommandBarOverflowBackground" ResourceKey="SemiColorBackground3" />
-    <StaticResource x:Key="CommandBarOverflowBorderBrush" ResourceKey="SemiColorBorder" />
-    <StaticResource x:Key="CommandBarOverflowBoxShadow" ResourceKey="SemiShadowElevated" />
+    <StaticResource x:Key="CommandBarOverflowBackground" ResourceKey="{x:Static semi:SemiTokens.ColorBackground3}" />
+    <StaticResource x:Key="CommandBarOverflowBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorBorder}" />
+    <StaticResource x:Key="CommandBarOverflowBoxShadow" ResourceKey="{x:Static semi:SemiTokens.ShadowElevated}" />
 </ResourceDictionary>

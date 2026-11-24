@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:controls="clr-namespace:Semi.Avalonia.Demo.Controls"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
@@ -41,7 +42,7 @@
                                         <TableViewColumn.CellTemplate>
                                             <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    FontWeight="{DynamicResource SemiFontWeightBold}"
+                                                    FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </TableViewColumn.CellTemplate>
@@ -99,7 +100,7 @@
                                         <TableViewColumn.CellTemplate>
                                             <DataTemplate DataType="vm:ColorItemViewModel">
                                                 <SelectableTextBlock
-                                                    FontWeight="{DynamicResource SemiFontWeightBold}"
+                                                    FontWeight="{DynamicResource {x:Static semi:SemiTokens.FontWeightBold}}"
                                                     Text="{Binding ResourceKey}" />
                                             </DataTemplate>
                                         </TableViewColumn.CellTemplate>

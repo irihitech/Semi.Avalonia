@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <Design.PreviewWith>
         <StackPanel
             Width="400"
@@ -237,7 +238,7 @@
         x:Key="ButtonTabItem"
         BasedOn="{StaticResource BaseTabItem}"
         TargetType="TabItem">
-        <Setter Property="CornerRadius" Value="{DynamicResource SemiBorderRadiusSmall}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource {x:Static semi:SemiTokens.BorderRadiusSmall}}" />
 
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_RootBorder">

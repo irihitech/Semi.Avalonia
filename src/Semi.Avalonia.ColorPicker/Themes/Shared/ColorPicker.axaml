@@ -1,6 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ColorPickerMinHeight" ResourceKey="SemiHeightControlDefault" />
-    <StaticResource x:Key="ColorPickerCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:semi="https://irihi.tech/semi">
+    <StaticResource x:Key="ColorPickerMinHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
+    <StaticResource x:Key="ColorPickerCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
     <PlacementMode x:Key="ColorPickerFlyoutPlacement">AnchorAndGravity</PlacementMode>
     <x:Double x:Key="ColorPickerFlyoutSize">300</x:Double>
     <Thickness x:Key="ColorPickerSwatchMargin">1,1,0,1</Thickness>

@@ -1,5 +1,5 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="ColorViewRadioButtonFontWeight" ResourceKey="SemiFontWeightBold" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:semi="https://irihi.tech/semi">
+    <StaticResource x:Key="ColorViewRadioButtonFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightBold}" />
     <Thickness x:Key="ColorViewRadioButtonPadding">16 4</Thickness>
     <x:Double x:Key="ColorViewNumericUpDownWidth">70</x:Double>
 
@@ -8,9 +8,9 @@
     <StaticResource x:Key="ColorViewComponentsIconGlyph" ResourceKey="SemiIconList" />
 
     <Thickness x:Key="ColorViewContentBorderThickness">0,1,0,0</Thickness>
-    <StaticResource x:Key="ColorViewTabControlPadding" ResourceKey="SemiThicknessNone" />
+    <StaticResource x:Key="ColorViewTabControlPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessNone}" />
     <x:Double x:Key="ColorViewTabItemMinHeight">32</x:Double>
-    <StaticResource x:Key="ColorViewTabContentMargin" ResourceKey="SemiThicknessBaseTight" />
+    <StaticResource x:Key="ColorViewTabContentMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessBaseTight}" />
     <x:Double x:Key="ColorViewSliderColumnMinWidth">32</x:Double>
     <Thickness x:Key="ColorViewSliderLeadingMargin">12,0,0,0</Thickness>
     <Thickness x:Key="ColorViewComponentTrailingMargin">0,0,12,0</Thickness>
@@ -18,8 +18,8 @@
     <GridLength x:Key="ColorViewComponentBottomSpacing">12</GridLength>
     <x:Double x:Key="ColorViewComponentLabelWidth">12</x:Double>
     <x:Double x:Key="ColorViewComponentNumericMargin">0,0,12,0</x:Double>
-    <StaticResource x:Key="ColorViewRadioGroupPadding" ResourceKey="SemiThicknessSuperTight" />
-    <StaticResource x:Key="ColorViewRadioGroupCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="ColorViewRadioGroupPadding" ResourceKey="{x:Static semi:SemiTokens.ThicknessSuperTight}" />
+    <StaticResource x:Key="ColorViewRadioGroupCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
     <CornerRadius x:Key="ColorViewSegmentLeftCornerRadius">3,0,0,3</CornerRadius>
     <CornerRadius x:Key="ColorViewSegmentRightCornerRadius">0,3,3,0</CornerRadius>
     <Thickness x:Key="ColorViewPreviewerMargin">12,0,12,12</Thickness>

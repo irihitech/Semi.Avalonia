@@ -2,6 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Pages.AboutUs"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:branding="clr-namespace:Irihi.Branding;assembly=Irihi.Branding"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:localizations="clr-namespace:Semi.Avalonia.Demo"
@@ -101,7 +102,7 @@
                 </StackPanel>
                 <WrapPanel MaxWidth="1040" HorizontalAlignment="Center">
                     <Button
-                        Background="{DynamicResource SemiPurple5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Purple5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="semi"
                         Theme="{StaticResource ProductTile}">
@@ -120,7 +121,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiGrey5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Grey5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="ursa"
                         Theme="{StaticResource ProductTile}">
@@ -139,7 +140,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiAmber5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Amber5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="mantra"
                         Theme="{StaticResource ProductTile}">
@@ -158,7 +159,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiPurple5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Purple5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="mafia"
                         Theme="{StaticResource ProductTile}">
@@ -177,7 +178,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiTeal5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Teal5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="lingua"
                         Theme="{StaticResource ProductTile}">
@@ -196,7 +197,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiBlue5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Blue5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="iconica"
                         Theme="{StaticResource ProductTile}">
@@ -215,7 +216,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiOrange5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Orange5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="huska"
                         Theme="{StaticResource ProductTile}">
@@ -234,7 +235,7 @@
                         </StackPanel>
                     </Button>
                     <Button
-                        Background="{DynamicResource SemiRed5}"
+                        Background="{DynamicResource {x:Static semi:SemiTokens.Red5}}"
                         Command="{Binding NavigateCommand}"
                         CommandParameter="asura"
                         Theme="{StaticResource ProductTile}">

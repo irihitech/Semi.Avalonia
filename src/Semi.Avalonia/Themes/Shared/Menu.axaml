@@ -1,25 +1,26 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
     <StaticResource x:Key="MenuScrollViewerUpButtonGlyph" ResourceKey="SemiIconTriangleUp" />
     <StaticResource x:Key="MenuScrollViewerDownButtonGlyph" ResourceKey="SemiIconTriangleDown" />
     <StaticResource x:Key="MenuItemExpandIconGlyph" ResourceKey="SemiIconChevronRight" />
     <StaticResource x:Key="MenuCheckGlyph" ResourceKey="SemiIconTick" />
     <!--  MenuFlyout  -->
-    <StaticResource x:Key="MenuFlyoutBorderThickness" ResourceKey="SemiBorderThicknessControl" />
+    <StaticResource x:Key="MenuFlyoutBorderThickness" ResourceKey="{x:Static semi:SemiTokens.BorderThicknessControl}" />
     <Thickness x:Key="MenuFlyoutPadding">0 4</Thickness>
-    <StaticResource x:Key="MenuFlyoutCornerRadius" ResourceKey="SemiBorderRadiusMedium" />
+    <StaticResource x:Key="MenuFlyoutCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusMedium}" />
     <x:Double x:Key="MenuFlyoutMinHeight">16</x:Double>
     <x:Double x:Key="MenuFlyoutMinWidth">100</x:Double>
     <x:Double x:Key="MenuFlyoutMaxHeight">400</x:Double>
     <x:Double x:Key="MenuFlyoutMaxWidth">600</x:Double>
-    <StaticResource x:Key="MenuFlyoutFontSize" ResourceKey="SemiFontSizeRegular" />
-    <StaticResource x:Key="MenuFlyoutFontWeight" ResourceKey="SemiFontWeightRegular" />
+    <StaticResource x:Key="MenuFlyoutFontSize" ResourceKey="{x:Static semi:SemiTokens.FontSizeRegular}" />
+    <StaticResource x:Key="MenuFlyoutFontWeight" ResourceKey="{x:Static semi:SemiTokens.FontWeightRegular}" />
     <!--  MenuItem  -->
     <Thickness x:Key="TopLevelMenuItemPadding">16 0</Thickness>
-    <StaticResource x:Key="TopLevelMenuItemMinHeight" ResourceKey="SemiHeightControlDefault" />
+    <StaticResource x:Key="TopLevelMenuItemMinHeight" ResourceKey="{x:Static semi:SemiTokens.HeightControlDefault}" />
     <Thickness x:Key="MenuItemPadding">16 8</Thickness>
-    <StaticResource x:Key="MenuItemCornerRadius" ResourceKey="SemiBorderRadiusSmall" />
+    <StaticResource x:Key="MenuItemCornerRadius" ResourceKey="{x:Static semi:SemiTokens.BorderRadiusSmall}" />
     <x:Double x:Key="MenuItemSeparatorHeight">1</x:Double>
-    <StaticResource x:Key="MenuItemSeparatorMargin" ResourceKey="SemiThicknessSuperTight" />
+    <StaticResource x:Key="MenuItemSeparatorMargin" ResourceKey="{x:Static semi:SemiTokens.ThicknessSuperTight}" />
     <Thickness x:Key="MenuItemIconMargin">0 0 8 0</Thickness>
     <Thickness x:Key="MenuItemInputGestureTextMargin">4 0</Thickness>
     <Thickness x:Key="MenuItemExpandIconMargin">4 0</Thickness>

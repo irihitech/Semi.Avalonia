@@ -1,21 +1,22 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TextBoxTextCaretBrush" ResourceKey="SemiColorWhite" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia">
+    <StaticResource x:Key="TextBoxTextCaretBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
     <SolidColorBrush x:Key="TextBoxDefaultBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="TextBoxDefaultBackground" ResourceKey="SemiColorFill0" />
-    <StaticResource x:Key="TextBoxPointeroverBackground" ResourceKey="SemiColorFill1" />
+    <StaticResource x:Key="TextBoxDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
+    <StaticResource x:Key="TextBoxPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill1}" />
     <SolidColorBrush x:Key="TextBoxPointeroverBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="TextBoxPressedBackground" ResourceKey="SemiColorFill2" />
-    <StaticResource x:Key="TextBoxFocusBorderBrush" ResourceKey="SemiColorPrimary" />
-    <StaticResource x:Key="TextBoxForeground" ResourceKey="SemiColorText0" />
-    <StaticResource x:Key="TextBoxPlaceholderForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="TextBoxInnerForeground" ResourceKey="SemiColorText2" />
-    <StaticResource x:Key="TextBoxDisabledBackground" ResourceKey="SemiColorDisabledFill" />
-    <StaticResource x:Key="TextBoxDisabledForeground" ResourceKey="SemiColorDisabledText" />
+    <StaticResource x:Key="TextBoxPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorFill2}" />
+    <StaticResource x:Key="TextBoxFocusBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorPrimary}" />
+    <StaticResource x:Key="TextBoxForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText0}" />
+    <StaticResource x:Key="TextBoxPlaceholderForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="TextBoxInnerForeground" ResourceKey="{x:Static semi:SemiTokens.ColorText2}" />
+    <StaticResource x:Key="TextBoxDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledFill}" />
+    <StaticResource x:Key="TextBoxDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorDisabledText}" />
     <SolidColorBrush x:Key="TextBoxDisabledBorderBrush" Color="Transparent" />
     <SolidColorBrush x:Key="TextBoxBorderedDefaultBackground" Color="Transparent" />
-    <StaticResource x:Key="TextBoxBorderedDefaultBorderBrush" ResourceKey="SemiColorFill0" />
+    <StaticResource x:Key="TextBoxBorderedDefaultBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorFill0}" />
     <SolidColorBrush x:Key="TextBoxBorderedPointeroverBackground" Color="Transparent" />
-    <StaticResource x:Key="TextBoxBorderedPointeroverBorderBrush" ResourceKey="SemiColorPrimaryPointerover" />
+    <StaticResource x:Key="TextBoxBorderedPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorPrimaryPointerover}" />
     <SolidColorBrush x:Key="TextBoxSelectionBackground" Opacity="0.8" Color="#0041C5" />
-    <StaticResource x:Key="TextBoxSelectionForeground" ResourceKey="SemiColorWhite" />
+    <StaticResource x:Key="TextBoxSelectionForeground" ResourceKey="{x:Static semi:SemiTokens.ColorWhite}" />
 </ResourceDictionary>

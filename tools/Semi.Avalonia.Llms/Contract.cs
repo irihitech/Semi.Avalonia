@@ -13,7 +13,8 @@ namespace Semi.Avalonia.Llms;
 /// </summary>
 public static class Contract
 {
-    public const int SchemaVersion = 1;
+    /// <summary>2: <c>member</c> became <c>members</c>, the <c>Class.Member</c> name of every constant declaring the key.</summary>
+    public const int SchemaVersion = 2;
     public const string ContractPath = "ai/semi-avalonia.contract.json";
     public const string ProvenancePath = "ai/provenance.json";
 
@@ -147,7 +148,9 @@ public static class Contract
     {
         var palette = lib.PaletteColors.Concat(lib.PaletteBrushes).ToDictionary(x => x.Key, StringComparer.Ordinal);
         var kinds = lib.PaletteEntries.ToDictionary(x => x.Key, x => x.Value.Kind, StringComparer.Ordinal);
-        var byKey = lib.Tokens.ToDictionary(t => t.Key, StringComparer.Ordinal);
+        // A key can be declared by more than one class (SemiColorHighlight), so each token lists every constant.
+        var constants = lib.Tokens.GroupBy(t => t.Key, StringComparer.Ordinal)
+            .ToDictionary(g => g.Key, g => (Group: g.First().Region, Members: g.Select(t => $"{t.Class}.{t.Member}").ToArray()), StringComparer.Ordinal);
         var presetEntries = new Dictionary<string, SortedDictionary<string, string>>(StringComparer.Ordinal);
         foreach (var preset in lib.HighContrastPresets.OrderBy(p => p.Name, StringComparer.OrdinalIgnoreCase))
             foreach (var entry in preset.Entries)
@@ -166,14 +169,14 @@ public static class Contract
         writer.WriteStartArray("tokens");
         foreach (var key in keys)
         {
-            var token = byKey.GetValueOrDefault(key);
+            var constant = constants.GetValueOrDefault(key);
             var variable = lib.Variables.GetValueOrDefault(key);
             var row = palette.GetValueOrDefault(key);
             var presets = presetEntries.GetValueOrDefault(key);
             writer.WriteStartObject();
             writer.WriteString("key", key);
-            WriteNullable(writer, "member", token?.Member);
-            writer.WriteString("category", token?.Region ?? (variable is not null ? "Variables" : presets is not null ? "HighContrast" : "Palette"));
+            WriteNullable(writer, "members", constant.Members);
+            writer.WriteString("category", constant.Members is null ? (variable is not null ? "Variables" : presets is not null ? Library.HighContrastGroup : "Palette") : constant.Group);
             writer.WriteString("type", variable?.Type ?? kinds.GetValueOrDefault(key) ?? PresetKind(lib, key));
             WriteNullable(writer, "value", variable?.Value);
             WriteNullable(writer, "light", row?.Light);
@@ -247,6 +250,12 @@ public static class Contract
     {
         if (value is null) writer.WriteNull(name);
         else writer.WriteString(name, value);
+    }
+
+    private static void WriteNullable(Utf8JsonWriter writer, string name, IReadOnlyList<string>? values)
+    {
+        if (values is null) writer.WriteNull(name);
+        else WriteStartArrayAndValues(writer, name, values);
     }
 
     private static string Sha256(string text)

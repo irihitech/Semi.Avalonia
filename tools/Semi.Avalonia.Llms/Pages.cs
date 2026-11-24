@@ -39,12 +39,15 @@ public static class Pages
                 : "",
             ["new-key-rule"] = lib.HasConstants
                 ? "A new global key must be added to `SemiTokens` and all palette files."
+                  + (lib.HasHighContrastTokens ? $" A key a high-contrast preset defines goes in `{Library.HighContrastTokenClass}` and every preset." : "")
                 : "A new global key must be defined in `Variables.axaml` or in both palette files.",
             ["code-behind-tip"] = lib.HasConstants
                 ? "In code-behind prefer `{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}` — a mistyped member is a build error, a mistyped string is not."
                 : "Keys are string literals, so copy them exactly — a mistyped key fails silently.",
             ["invented-failure"] = lib.HasConstants ? "fails silently (classes) or at build time (x:Static)" : "fails silently",
-            ["key-or-member"] = lib.HasConstants ? "a `Semi*` key or `SemiTokens` member" : "a `Semi*` key",
+            ["key-or-member"] = lib.HasConstants
+                ? "a `Semi*` key or " + (lib.HasHighContrastTokens ? $"a `SemiTokens`/`{Library.HighContrastTokenClass}` member" : "a `SemiTokens` member")
+                : "a `Semi*` key",
         };
 
         var tokens = TokensPage(lib, baseUrl);
@@ -118,20 +121,24 @@ public static class Pages
         {
             text.Append("Use the key with `DynamicResource`, or the `SemiTokens` member with `x:Static` — a mistyped member fails at build time.\n\n"
                 + "```xml\n<Border Background=\"{DynamicResource SemiColorPrimary}\" />\n<Border Background=\"{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}\" />\n```\n\n");
-            string? region = null;
-            foreach (var token in lib.Tokens)
+            foreach (var group in lib.Tokens.GroupBy(t => (t.Class, t.Region)))
             {
-                if (token.Region != region)
+                text.Append($"\n## {group.Key.Region}\n\n| Resource key | {group.Key.Class} member | Type | Value | Description (zh) |\n|---|---|---|---|---|\n");
+                foreach (var token in group)
                 {
-                    region = token.Region;
-                    text.Append($"\n## {region}\n\n| Resource key | SemiTokens member | Type | Value | Description (zh) |\n|---|---|---|---|---|\n");
+                    var v = lib.Variables.GetValueOrDefault(token.Key);
+                    var palette = lib.PaletteEntries.GetValueOrDefault(token.Key);
+                    var preset = lib.HighContrastPresets.SelectMany(p => p.Entries).FirstOrDefault(e => e.Key == token.Key);
+                    var type = v?.Type ?? palette.Kind ?? preset?.Kind ?? "?";
+                    var value = v?.Value ?? palette.Value ?? (preset is null ? "—" : $"high-contrast presets only, e.g. {preset.Value}");
+                    if (token.Class == Library.HighContrastTokenClass && preset is not null)
+                    {
+                        // Under the class of the presets the key is shown as the presets define it, not with its Light value.
+                        type = preset.Kind;
+                        value = $"high-contrast presets{(palette.Value is null ? " only" : "")}, e.g. {preset.Value}";
+                    }
+                    text.Append($"| `{token.Key}` | `{token.Class}.{token.Member}` | {type} | {value} | {Escape(v?.Comment) ?? ""} |\n");
                 }
-                var v = lib.Variables.GetValueOrDefault(token.Key);
-                var palette = lib.PaletteEntries.GetValueOrDefault(token.Key);
-                var preset = lib.HighContrastPresets.SelectMany(p => p.Entries).FirstOrDefault(e => e.Key == token.Key);
-                var type = v?.Type ?? palette.Kind ?? preset?.Kind ?? "?";
-                var value = v?.Value ?? palette.Value ?? (preset is null ? "—" : $"high-contrast presets only, e.g. {preset.Value}");
-                text.Append($"| `{token.Key}` | `SemiTokens.{token.Member}` | {type} | {value} | {Escape(v?.Comment) ?? ""} |\n");
             }
         }
         else

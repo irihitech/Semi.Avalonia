@@ -2,6 +2,7 @@
     x:Class="Semi.Avalonia.Demo.Pages.Overview"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:semi="using:Semi.Avalonia"
     xmlns:converters="clr-namespace:Avalonia.Markup.Xaml.Converters;assembly=Avalonia.Markup.Xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Semi.Avalonia.Demo.Pages"
@@ -16,10 +17,10 @@
     </ContentPage.Resources>
     <ContentPage.Styles>
         <Style Selector="Border.CodeBlock">
-            <Setter Property="BorderBrush" Value="{DynamicResource SemiColorBorder}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static semi:SemiTokens.ColorBorder}}" />
             <Setter Property="Padding" Value="16" />
             <Setter Property="CornerRadius" Value="6" />
-            <Setter Property="Background" Value="{DynamicResource SemiColorFill0}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static semi:SemiTokens.ColorFill0}}" />
         </Style>
     </ContentPage.Styles>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
