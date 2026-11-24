@@ -1,74 +1,559 @@
 # Semi.Avalonia tokens
 
-Every resource key of the theme, extracted from the sources of version 12.1.0.2. Use the key with `DynamicResource`.
+Every resource key of the theme, extracted from the sources of version 12.1.0.2. Use the key with `DynamicResource`, or the `SemiTokens` member with `x:Static` — a mistyped member fails at build time.
 
 ```xml
 <Border Background="{DynamicResource SemiColorPrimary}" />
+<Border Background="{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}" />
 ```
 
 
-## Variables
+## Sizing
 
-Sizing, spacing, radius, font and motion tokens.
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiHeightControlSmall` | `SemiTokens.HeightControlSmall` | Double | 24 | 表单项高度 - 小尺寸 |
+| `SemiHeightControlDefault` | `SemiTokens.HeightControlDefault` | Double | 32 | 表单项高度 - 默认尺寸 |
+| `SemiHeightControlLarge` | `SemiTokens.HeightControlLarge` | Double | 40 | 表单项高度 - 大尺寸 |
+| `SemiWidthIconExtraSmall` | `SemiTokens.WidthIconExtraSmall` | Double | 8 | 图标尺寸 - 超小 |
+| `SemiWidthIconSmall` | `SemiTokens.WidthIconSmall` | Double | 12 | 图标尺寸 - 小 |
+| `SemiWidthIconMedium` | `SemiTokens.WidthIconMedium` | Double | 16 | 图标尺寸 - 中 |
+| `SemiWidthIconLarge` | `SemiTokens.WidthIconLarge` | Double | 20 | 图标尺寸 - 大 |
+| `SemiWidthIconExtraLarge` | `SemiTokens.WidthIconExtraLarge` | Double | 24 | 图标尺寸 - 超大 |
 
-| Resource key | Type | Value | Description (zh) |
-|---|---|---|---|
-| `SemiHeightControlSmall` | Double | 24 | 表单项高度 - 小尺寸 |
-| `SemiHeightControlDefault` | Double | 32 | 表单项高度 - 默认尺寸 |
-| `SemiHeightControlLarge` | Double | 40 | 表单项高度 - 大尺寸 |
-| `SemiWidthIconExtraSmall` | Double | 8 | 图标尺寸 - 超小 |
-| `SemiWidthIconSmall` | Double | 12 | 图标尺寸 - 小 |
-| `SemiWidthIconMedium` | Double | 16 | 图标尺寸 - 中 |
-| `SemiWidthIconLarge` | Double | 20 | 图标尺寸 - 大 |
-| `SemiWidthIconExtraLarge` | Double | 24 | 图标尺寸 - 超大 |
-| `SemiBorderSpacing` | Double | 0 | 描边间距 - 零 |
-| `SemiBorderSpacingControl` | Double | 1 | 描边间距 - 默认状态 |
-| `SemiBorderSpacingControlFocus` | Double | 1 | 描边间距 - focus 状态 |
-| `SemiBorderThickness` | Thickness | 0 | 描边宽度 - 零 |
-| `SemiBorderThicknessControl` | Thickness | 1 | 描边宽度 - 默认状态 |
-| `SemiBorderThicknessControlFocus` | Thickness | 1 | 描边宽度 - focus 状态 |
-| `SemiBorderRadiusSpacingExtraSmall` | Double | 3 | 半径 - 超小 |
-| `SemiBorderRadiusSpacingSmall` | Double | 3 | 半径 - 小 |
-| `SemiBorderRadiusSpacingMedium` | Double | 6 | 半径 - 中 |
-| `SemiBorderRadiusSpacingLarge` | Double | 12 | 半径 - 大 |
-| `SemiBorderRadiusSpacingFull` | Double | 9999 | 半径 - 全圆 |
-| `SemiBorderRadiusExtraSmall` | CornerRadius | 3 | 圆角 - 超小 |
-| `SemiBorderRadiusSmall` | CornerRadius | 3 | 圆角 - 小 |
-| `SemiBorderRadiusMedium` | CornerRadius | 6 | 圆角 - 中 |
-| `SemiBorderRadiusLarge` | CornerRadius | 12 | 圆角 - 大 |
-| `SemiBorderRadiusFull` | CornerRadius | 9999 | 圆角 - 全圆 |
-| `SemiSpacingNone` | Double | 0 | 间距 - 零 |
-| `SemiSpacingSuperTight` | Double | 2 | 间距 - 极紧凑 |
-| `SemiSpacingExtraTight` | Double | 4 | 间距 - 超紧凑 |
-| `SemiSpacingTight` | Double | 8 | 间距 - 紧凑 |
-| `SemiSpacingBaseTight` | Double | 12 | 间距 - 偏紧凑 |
-| `SemiSpacingBase` | Double | 16 | 间距 - 默认 |
-| `SemiSpacingBaseLoose` | Double | 20 | 间距 - 偏宽松 |
-| `SemiSpacingLoose` | Double | 24 | 间距 - 宽松 |
-| `SemiSpacingExtraLoose` | Double | 32 | 间距 - 超宽松 |
-| `SemiSpacingSuperLoose` | Double | 40 | 间距 - 极宽松 |
-| `SemiThicknessNone` | Thickness | 0 | 宽度 - 零 |
-| `SemiThicknessSuperTight` | Thickness | 2 | 宽度 - 极紧凑 |
-| `SemiThicknessExtraTight` | Thickness | 4 | 宽度 - 超紧凑 |
-| `SemiThicknessTight` | Thickness | 8 | 宽度 - 紧凑 |
-| `SemiThicknessBaseTight` | Thickness | 12 | 宽度 - 偏紧凑 |
-| `SemiThicknessBase` | Thickness | 16 | 宽度 - 默认 |
-| `SemiThicknessBaseLoose` | Thickness | 20 | 宽度 - 偏宽松 |
-| `SemiThicknessLoose` | Thickness | 24 | 宽度 - 宽松 |
-| `SemiThicknessExtraLoose` | Thickness | 32 | 宽度 - 超宽松 |
-| `SemiThicknessSuperLoose` | Thickness | 40 | 宽度 - 极宽松 |
-| `SemiFontSizeSmall` | Double | 12 | 小文本字号 |
-| `SemiFontSizeRegular` | Double | 14 | 常规文本字号 |
-| `SemiFontSizeHeader6` | Double | 16 | 六级标题字号 |
-| `SemiFontSizeHeader5` | Double | 18 | 五级标题字号 |
-| `SemiFontSizeHeader4` | Double | 20 | 四级标题字号 |
-| `SemiFontSizeHeader3` | Double | 24 | 三级标题字号 |
-| `SemiFontSizeHeader2` | Double | 28 | 二级标题字号 |
-| `SemiFontSizeHeader1` | Double | 32 | 一级标题字号 |
-| `SemiFontWeightLight` | FontWeight | 200 | 字重 - 轻 |
-| `SemiFontWeightRegular` | FontWeight | 400 | 字重 - 常规 |
-| `SemiFontWeightBold` | FontWeight | 600 | 字重 - 粗 |
-| `SemiFontFamilyRegular` | FontFamily | fonts:Inter#Inter, Inter, -apple-system, BlinkMacSystemFont, PingFang SC, |  |
+## Border
+
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiBorderSpacing` | `SemiTokens.BorderSpacing` | Double | 0 | 描边间距 - 零 |
+| `SemiBorderSpacingControl` | `SemiTokens.BorderSpacingControl` | Double | 1 | 描边间距 - 默认状态 |
+| `SemiBorderSpacingControlFocus` | `SemiTokens.BorderSpacingControlFocus` | Double | 1 | 描边间距 - focus 状态 |
+| `SemiBorderThickness` | `SemiTokens.BorderThickness` | Thickness | 0 | 描边宽度 - 零 |
+| `SemiBorderThicknessControl` | `SemiTokens.BorderThicknessControl` | Thickness | 1 | 描边宽度 - 默认状态 |
+| `SemiBorderThicknessControlFocus` | `SemiTokens.BorderThicknessControlFocus` | Thickness | 1 | 描边宽度 - focus 状态 |
+| `SemiBorderRadiusSpacingExtraSmall` | `SemiTokens.BorderRadiusSpacingExtraSmall` | Double | 3 | 半径 - 超小 |
+| `SemiBorderRadiusSpacingSmall` | `SemiTokens.BorderRadiusSpacingSmall` | Double | 3 | 半径 - 小 |
+| `SemiBorderRadiusSpacingMedium` | `SemiTokens.BorderRadiusSpacingMedium` | Double | 6 | 半径 - 中 |
+| `SemiBorderRadiusSpacingLarge` | `SemiTokens.BorderRadiusSpacingLarge` | Double | 12 | 半径 - 大 |
+| `SemiBorderRadiusSpacingFull` | `SemiTokens.BorderRadiusSpacingFull` | Double | 9999 | 半径 - 全圆 |
+| `SemiBorderRadiusExtraSmall` | `SemiTokens.BorderRadiusExtraSmall` | CornerRadius | 3 | 圆角 - 超小 |
+| `SemiBorderRadiusSmall` | `SemiTokens.BorderRadiusSmall` | CornerRadius | 3 | 圆角 - 小 |
+| `SemiBorderRadiusMedium` | `SemiTokens.BorderRadiusMedium` | CornerRadius | 6 | 圆角 - 中 |
+| `SemiBorderRadiusLarge` | `SemiTokens.BorderRadiusLarge` | CornerRadius | 12 | 圆角 - 大 |
+| `SemiBorderRadiusFull` | `SemiTokens.BorderRadiusFull` | CornerRadius | 9999 | 圆角 - 全圆 |
+
+## Spacing
+
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiSpacingNone` | `SemiTokens.SpacingNone` | Double | 0 | 间距 - 零 |
+| `SemiSpacingSuperTight` | `SemiTokens.SpacingSuperTight` | Double | 2 | 间距 - 极紧凑 |
+| `SemiSpacingExtraTight` | `SemiTokens.SpacingExtraTight` | Double | 4 | 间距 - 超紧凑 |
+| `SemiSpacingTight` | `SemiTokens.SpacingTight` | Double | 8 | 间距 - 紧凑 |
+| `SemiSpacingBaseTight` | `SemiTokens.SpacingBaseTight` | Double | 12 | 间距 - 偏紧凑 |
+| `SemiSpacingBase` | `SemiTokens.SpacingBase` | Double | 16 | 间距 - 默认 |
+| `SemiSpacingBaseLoose` | `SemiTokens.SpacingBaseLoose` | Double | 20 | 间距 - 偏宽松 |
+| `SemiSpacingLoose` | `SemiTokens.SpacingLoose` | Double | 24 | 间距 - 宽松 |
+| `SemiSpacingExtraLoose` | `SemiTokens.SpacingExtraLoose` | Double | 32 | 间距 - 超宽松 |
+| `SemiSpacingSuperLoose` | `SemiTokens.SpacingSuperLoose` | Double | 40 | 间距 - 极宽松 |
+
+## Thickness
+
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiThicknessNone` | `SemiTokens.ThicknessNone` | Thickness | 0 | 宽度 - 零 |
+| `SemiThicknessSuperTight` | `SemiTokens.ThicknessSuperTight` | Thickness | 2 | 宽度 - 极紧凑 |
+| `SemiThicknessExtraTight` | `SemiTokens.ThicknessExtraTight` | Thickness | 4 | 宽度 - 超紧凑 |
+| `SemiThicknessTight` | `SemiTokens.ThicknessTight` | Thickness | 8 | 宽度 - 紧凑 |
+| `SemiThicknessBaseTight` | `SemiTokens.ThicknessBaseTight` | Thickness | 12 | 宽度 - 偏紧凑 |
+| `SemiThicknessBase` | `SemiTokens.ThicknessBase` | Thickness | 16 | 宽度 - 默认 |
+| `SemiThicknessBaseLoose` | `SemiTokens.ThicknessBaseLoose` | Thickness | 20 | 宽度 - 偏宽松 |
+| `SemiThicknessLoose` | `SemiTokens.ThicknessLoose` | Thickness | 24 | 宽度 - 宽松 |
+| `SemiThicknessExtraLoose` | `SemiTokens.ThicknessExtraLoose` | Thickness | 32 | 宽度 - 超宽松 |
+| `SemiThicknessSuperLoose` | `SemiTokens.ThicknessSuperLoose` | Thickness | 40 | 宽度 - 极宽松 |
+
+## Font
+
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiFontSizeSmall` | `SemiTokens.FontSizeSmall` | Double | 12 | 小文本字号 |
+| `SemiFontSizeRegular` | `SemiTokens.FontSizeRegular` | Double | 14 | 常规文本字号 |
+| `SemiFontSizeHeader6` | `SemiTokens.FontSizeHeader6` | Double | 16 | 六级标题字号 |
+| `SemiFontSizeHeader5` | `SemiTokens.FontSizeHeader5` | Double | 18 | 五级标题字号 |
+| `SemiFontSizeHeader4` | `SemiTokens.FontSizeHeader4` | Double | 20 | 四级标题字号 |
+| `SemiFontSizeHeader3` | `SemiTokens.FontSizeHeader3` | Double | 24 | 三级标题字号 |
+| `SemiFontSizeHeader2` | `SemiTokens.FontSizeHeader2` | Double | 28 | 二级标题字号 |
+| `SemiFontSizeHeader1` | `SemiTokens.FontSizeHeader1` | Double | 32 | 一级标题字号 |
+| `SemiFontWeightLight` | `SemiTokens.FontWeightLight` | FontWeight | 200 | 字重 - 轻 |
+| `SemiFontWeightRegular` | `SemiTokens.FontWeightRegular` | FontWeight | 400 | 字重 - 常规 |
+| `SemiFontWeightBold` | `SemiTokens.FontWeightBold` | FontWeight | 600 | 字重 - 粗 |
+| `SemiFontFamilyRegular` | `SemiTokens.FontFamilyRegular` | FontFamily | fonts:Inter#Inter, Inter, -apple-system, BlinkMacSystemFont, PingFang SC, |  |
+
+## Color
+
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiColorWhite` | `SemiTokens.ColorWhite` | Brush | White |  |
+| `SemiColorBlack` | `SemiTokens.ColorBlack` | Brush | Black |  |
+| `SemiColorPrimary` | `SemiTokens.ColorPrimary` | Brush | #0064FA |  |
+| `SemiColorPrimaryPointerover` | `SemiTokens.ColorPrimaryPointerover` | Brush | #0062D6 |  |
+| `SemiColorPrimaryActive` | `SemiTokens.ColorPrimaryActive` | Brush | #004FB3 |  |
+| `SemiColorPrimaryDisabled` | `SemiTokens.ColorPrimaryDisabled` | Brush | #98CDFD |  |
+| `SemiColorPrimaryLight` | `SemiTokens.ColorPrimaryLight` | Brush | #EAF5FF |  |
+| `SemiColorPrimaryLightPointerover` | `SemiTokens.ColorPrimaryLightPointerover` | Brush | #CBE7FE |  |
+| `SemiColorPrimaryLightActive` | `SemiTokens.ColorPrimaryLightActive` | Brush | #98CDFD |  |
+| `SemiColorSecondary` | `SemiTokens.ColorSecondary` | Brush | #0095EE |  |
+| `SemiColorSecondaryPointerover` | `SemiTokens.ColorSecondaryPointerover` | Brush | #007BCA |  |
+| `SemiColorSecondaryActive` | `SemiTokens.ColorSecondaryActive` | Brush | #0063A7 |  |
+| `SemiColorSecondaryDisabled` | `SemiTokens.ColorSecondaryDisabled` | Brush | #95D8F8 |  |
+| `SemiColorSecondaryLight` | `SemiTokens.ColorSecondaryLight` | Brush | #E9F7FD |  |
+| `SemiColorSecondaryLightPointerover` | `SemiTokens.ColorSecondaryLightPointerover` | Brush | #C9ECFC |  |
+| `SemiColorSecondaryLightActive` | `SemiTokens.ColorSecondaryLightActive` | Brush | #95D8F8 |  |
+| `SemiColorTertiary` | `SemiTokens.ColorTertiary` | Brush | #6B7075 |  |
+| `SemiColorTertiaryPointerover` | `SemiTokens.ColorTertiaryPointerover` | Brush | #555B61 |  |
+| `SemiColorTertiaryActive` | `SemiTokens.ColorTertiaryActive` | Brush | #41464C |  |
+| `SemiColorTertiaryLight` | `SemiTokens.ColorTertiaryLight` | Brush | #F9F9F9 |  |
+| `SemiColorTertiaryLightPointerover` | `SemiTokens.ColorTertiaryLightPointerover` | Brush | #E6E8EA |  |
+| `SemiColorTertiaryLightActive` | `SemiTokens.ColorTertiaryLightActive` | Brush | #C6CACD |  |
+| `SemiColorDanger` | `SemiTokens.ColorDanger` | Brush | #F93920 |  |
+| `SemiColorDangerPointerover` | `SemiTokens.ColorDangerPointerover` | Brush | #D52515 |  |
+| `SemiColorDangerActive` | `SemiTokens.ColorDangerActive` | Brush | #B2140C |  |
+| `SemiColorDangerLight` | `SemiTokens.ColorDangerLight` | Brush | #FEF2ED |  |
+| `SemiColorDangerLightPointerover` | `SemiTokens.ColorDangerLightPointerover` | Brush | #FEDDD2 |  |
+| `SemiColorDangerLightActive` | `SemiTokens.ColorDangerLightActive` | Brush | #FDB7A5 |  |
+| `SemiColorWarning` | `SemiTokens.ColorWarning` | Brush | #FC8800 |  |
+| `SemiColorWarningPointerover` | `SemiTokens.ColorWarningPointerover` | Brush | #D26700 |  |
+| `SemiColorWarningActive` | `SemiTokens.ColorWarningActive` | Brush | #A84A00 |  |
+| `SemiColorWarningLight` | `SemiTokens.ColorWarningLight` | Brush | #FFF8EA |  |
+| `SemiColorWarningLightPointerover` | `SemiTokens.ColorWarningLightPointerover` | Brush | #FEEECC |  |
+| `SemiColorWarningLightActive` | `SemiTokens.ColorWarningLightActive` | Brush | #FED998 |  |
+| `SemiColorSuccess` | `SemiTokens.ColorSuccess` | Brush | #3BB346 |  |
+| `SemiColorSuccessPointerover` | `SemiTokens.ColorSuccessPointerover` | Brush | #30953B |  |
+| `SemiColorSuccessActive` | `SemiTokens.ColorSuccessActive` | Brush | #25772F |  |
+| `SemiColorSuccessDisabled` | `SemiTokens.ColorSuccessDisabled` | Brush | #A4E0A7 |  |
+| `SemiColorSuccessLight` | `SemiTokens.ColorSuccessLight` | Brush | #ECF7EC |  |
+| `SemiColorSuccessLightPointerover` | `SemiTokens.ColorSuccessLightPointerover` | Brush | #D0F0D1 |  |
+| `SemiColorSuccessLightActive` | `SemiTokens.ColorSuccessLightActive` | Brush | #A4E0A7 |  |
+| `SemiColorInformation` | `SemiTokens.ColorInformation` | Brush | #0064FA |  |
+| `SemiColorInformationPointerover` | `SemiTokens.ColorInformationPointerover` | Brush | #0062D6 |  |
+| `SemiColorInformationActive` | `SemiTokens.ColorInformationActive` | Brush | #004FB3 |  |
+| `SemiColorInformationDisabled` | `SemiTokens.ColorInformationDisabled` | Brush | #98CDFD |  |
+| `SemiColorInformationLight` | `SemiTokens.ColorInformationLight` | Brush | #EAF5FF |  |
+| `SemiColorInformationLightPointerover` | `SemiTokens.ColorInformationLightPointerover` | Brush | #CBE7FE |  |
+| `SemiColorInformationLightActive` | `SemiTokens.ColorInformationLightActive` | Brush | #98CDFD |  |
+| `SemiColorText0` | `SemiTokens.ColorText0` | Brush | #1C1F23 |  |
+| `SemiColorText1` | `SemiTokens.ColorText1` | Brush | ref:SemiGrey9Color @ 0.8 opacity |  |
+| `SemiColorText2` | `SemiTokens.ColorText2` | Brush | ref:SemiGrey9Color @ 0.62 opacity |  |
+| `SemiColorText3` | `SemiTokens.ColorText3` | Brush | ref:SemiGrey9Color @ 0.35 opacity |  |
+| `SemiColorBackground0` | `SemiTokens.ColorBackground0` | Brush | White |  |
+| `SemiColorBackground1` | `SemiTokens.ColorBackground1` | Brush | White |  |
+| `SemiColorBackground2` | `SemiTokens.ColorBackground2` | Brush | White |  |
+| `SemiColorBackground3` | `SemiTokens.ColorBackground3` | Brush | White |  |
+| `SemiColorBackground4` | `SemiTokens.ColorBackground4` | Brush | White |  |
+| `SemiColorFill0` | `SemiTokens.ColorFill0` | Brush | ref:SemiGrey8Color @ 0.05 opacity |  |
+| `SemiColorFill1` | `SemiTokens.ColorFill1` | Brush | ref:SemiGrey8Color @ 0.09 opacity |  |
+| `SemiColorFill2` | `SemiTokens.ColorFill2` | Brush | ref:SemiGrey8Color @ 0.13 opacity |  |
+| `SemiColorBorder` | `SemiTokens.ColorBorder` | Brush | ref:SemiGrey9Color @ 0.08 opacity |  |
+| `SemiColorFocusBorder` | `SemiTokens.ColorFocusBorder` | Brush | #0064FA |  |
+| `SemiColorDisabledBackground` | `SemiTokens.ColorDisabledBackground` | Brush | #E6E8EA |  |
+| `SemiColorDisabledBorder` | `SemiTokens.ColorDisabledBorder` | Brush | #E6E8EA |  |
+| `SemiColorDisabledFill` | `SemiTokens.ColorDisabledFill` | Brush | ref:SemiGrey8Color @ 0.02 opacity |  |
+| `SemiColorDisabledText` | `SemiTokens.ColorDisabledText` | Brush | ref:SemiGrey9Color @ 0.35 opacity |  |
+| `SemiColorLink` | `SemiTokens.ColorLink` | Brush | #0064FA |  |
+| `SemiColorLinkPointerover` | `SemiTokens.ColorLinkPointerover` | Brush | #0062D6 |  |
+| `SemiColorLinkActive` | `SemiTokens.ColorLinkActive` | Brush | #004FB3 |  |
+| `SemiColorLinkVisited` | `SemiTokens.ColorLinkVisited` | Brush | #0064FA |  |
+| `SemiColorHighlight` | `SemiTokens.ColorHighlight` | Brush | White |  |
+| `SemiColorWindow` | `SemiTokens.ColorWindow` | Brush | high-contrast presets only, e.g. #202020 |  |
+| `SemiColorWindowText` | `SemiTokens.ColorWindowText` | Brush | high-contrast presets only, e.g. #FFFFFF |  |
+| `SemiColorHotlight` | `SemiTokens.ColorHotlight` | Brush | high-contrast presets only, e.g. #75E9FC |  |
+| `SemiColorGrayText` | `SemiTokens.ColorGrayText` | Brush | high-contrast presets only, e.g. #A6A6A6 |  |
+| `SemiColorHighlightText` | `SemiTokens.ColorHighlightText` | Brush | high-contrast presets only, e.g. #263B50 |  |
+| `SemiColorButtonText` | `SemiTokens.ColorButtonText` | Brush | high-contrast presets only, e.g. #FFFFFF |  |
+| `SemiColorButtonFace` | `SemiTokens.ColorButtonFace` | Brush | high-contrast presets only, e.g. #202020 |  |
+| `SemiColorHighlightBackground` | `SemiTokens.ColorHighlightBackground` | Brush | #FDF398 |  |
+| `SemiColorOverlayBackground` | `SemiTokens.ColorOverlayBackground` | Brush | #16161A @ 0.6 opacity |  |
+| `SemiColorNavBackground` | `SemiTokens.ColorNavBackground` | Brush | White |  |
+| `SemiColorShadow` | `SemiTokens.ColorShadow` | BoxShadows | 0 0 #0A000000 |  |
+| `SemiShadowElevated` | `SemiTokens.ShadowElevated` | BoxShadows | 0 0 1 #4A000000, 0 4 14 #1A000000 |  |
+| `SemiColorAIGeneral` | `SemiTokens.ColorAIGeneral` | Brush | gradient |  |
+| `SemiColorAIGeneralPointerover` | `SemiTokens.ColorAIGeneralPointerover` | Brush | gradient |  |
+| `SemiColorAIGeneralActive` | `SemiTokens.ColorAIGeneralActive` | Brush | gradient |  |
+| `SemiColorAIGeneralDisabled` | `SemiTokens.ColorAIGeneralDisabled` | Brush | gradient |  |
+| `SemiColorAIPurple` | `SemiTokens.ColorAIPurple` | Brush | #A647FF |  |
+| `SemiColorAIPurplePointerover` | `SemiTokens.ColorAIPurplePointerover` | Brush | #8636DB |  |
+| `SemiColorAIPurpleActive` | `SemiTokens.ColorAIPurpleActive` | Brush | #6928B8 |  |
+| `SemiColorAIPurpleDisabled` | `SemiTokens.ColorAIPurpleDisabled` | Brush | #E3B5FF |  |
+| `SemiColorAIBackgroundTop` | `SemiTokens.ColorAIBackgroundTop` | Brush | gradient |  |
+| `SemiColorAIBackgroundTopPointerover` | `SemiTokens.ColorAIBackgroundTopPointerover` | Brush | gradient |  |
+| `SemiColorAIBackgroundTopActive` | `SemiTokens.ColorAIBackgroundTopActive` | Brush | gradient |  |
+| `SemiColorAIBackgroundBottom` | `SemiTokens.ColorAIBackgroundBottom` | Brush | gradient |  |
+| `SemiColorAIBackgroundBottomPointerover` | `SemiTokens.ColorAIBackgroundBottomPointerover` | Brush | gradient |  |
+| `SemiColorAIBackgroundBottomActive` | `SemiTokens.ColorAIBackgroundBottomActive` | Brush | gradient |  |
+
+## Palette
+
+| Resource key | SemiTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiWhite` | `SemiTokens.White` | Brush | White |  |
+| `SemiWhiteColor` | `SemiTokens.WhiteColor` | Color | White |  |
+| `SemiBlack` | `SemiTokens.Black` | Brush | Black |  |
+| `SemiBlackColor` | `SemiTokens.BlackColor` | Color | Black |  |
+| `SemiBackground0Color` | `SemiTokens.Background0Color` | Color | White |  |
+| `SemiBackground1Color` | `SemiTokens.Background1Color` | Color | White |  |
+| `SemiBackground2Color` | `SemiTokens.Background2Color` | Color | White |  |
+| `SemiBackground3Color` | `SemiTokens.Background3Color` | Color | White |  |
+| `SemiBackground4Color` | `SemiTokens.Background4Color` | Color | White |  |
+| `SemiRed0` | `SemiTokens.Red0` | Brush | #FEF2ED |  |
+| `SemiRed0Color` | `SemiTokens.Red0Color` | Color | #FEF2ED |  |
+| `SemiRed1` | `SemiTokens.Red1` | Brush | #FEDDD2 |  |
+| `SemiRed1Color` | `SemiTokens.Red1Color` | Color | #FEDDD2 |  |
+| `SemiRed2` | `SemiTokens.Red2` | Brush | #FDB7A5 |  |
+| `SemiRed2Color` | `SemiTokens.Red2Color` | Color | #FDB7A5 |  |
+| `SemiRed3` | `SemiTokens.Red3` | Brush | #FB9078 |  |
+| `SemiRed3Color` | `SemiTokens.Red3Color` | Color | #FB9078 |  |
+| `SemiRed4` | `SemiTokens.Red4` | Brush | #FA664C |  |
+| `SemiRed4Color` | `SemiTokens.Red4Color` | Color | #FA664C |  |
+| `SemiRed5` | `SemiTokens.Red5` | Brush | #F93920 |  |
+| `SemiRed5Color` | `SemiTokens.Red5Color` | Color | #F93920 |  |
+| `SemiRed6` | `SemiTokens.Red6` | Brush | #D52515 |  |
+| `SemiRed6Color` | `SemiTokens.Red6Color` | Color | #D52515 |  |
+| `SemiRed7` | `SemiTokens.Red7` | Brush | #B2140C |  |
+| `SemiRed7Color` | `SemiTokens.Red7Color` | Color | #B2140C |  |
+| `SemiRed8` | `SemiTokens.Red8` | Brush | #8E0805 |  |
+| `SemiRed8Color` | `SemiTokens.Red8Color` | Color | #8E0805 |  |
+| `SemiRed9` | `SemiTokens.Red9` | Brush | #6A0103 |  |
+| `SemiRed9Color` | `SemiTokens.Red9Color` | Color | #6A0103 |  |
+| `SemiPink0` | `SemiTokens.Pink0` | Brush | #FDECEF |  |
+| `SemiPink0Color` | `SemiTokens.Pink0Color` | Color | #FDECEF |  |
+| `SemiPink1` | `SemiTokens.Pink1` | Brush | #FBCFD8 |  |
+| `SemiPink1Color` | `SemiTokens.Pink1Color` | Color | #FBCFD8 |  |
+| `SemiPink2` | `SemiTokens.Pink2` | Brush | #F6A0B5 |  |
+| `SemiPink2Color` | `SemiTokens.Pink2Color` | Color | #F6A0B5 |  |
+| `SemiPink3` | `SemiTokens.Pink3` | Brush | #F27396 |  |
+| `SemiPink3Color` | `SemiTokens.Pink3Color` | Color | #F27396 |  |
+| `SemiPink4` | `SemiTokens.Pink4` | Brush | #ED487B |  |
+| `SemiPink4Color` | `SemiTokens.Pink4Color` | Color | #ED487B |  |
+| `SemiPink5` | `SemiTokens.Pink5` | Brush | #E91E63 |  |
+| `SemiPink5Color` | `SemiTokens.Pink5Color` | Color | #E91E63 |  |
+| `SemiPink6` | `SemiTokens.Pink6` | Brush | #C51356 |  |
+| `SemiPink6Color` | `SemiTokens.Pink6Color` | Color | #C51356 |  |
+| `SemiPink7` | `SemiTokens.Pink7` | Brush | #A20B48 |  |
+| `SemiPink7Color` | `SemiTokens.Pink7Color` | Color | #A20B48 |  |
+| `SemiPink8` | `SemiTokens.Pink8` | Brush | #7E053A |  |
+| `SemiPink8Color` | `SemiTokens.Pink8Color` | Color | #7E053A |  |
+| `SemiPink9` | `SemiTokens.Pink9` | Brush | #5A012B |  |
+| `SemiPink9Color` | `SemiTokens.Pink9Color` | Color | #5A012B |  |
+| `SemiAmber0` | `SemiTokens.Amber0` | Brush | #FEFBEB |  |
+| `SemiAmber0Color` | `SemiTokens.Amber0Color` | Color | #FEFBEB |  |
+| `SemiAmber1` | `SemiTokens.Amber1` | Brush | #FCF5CE |  |
+| `SemiAmber1Color` | `SemiTokens.Amber1Color` | Color | #FCF5CE |  |
+| `SemiAmber2` | `SemiTokens.Amber2` | Brush | #F9E89E |  |
+| `SemiAmber2Color` | `SemiTokens.Amber2Color` | Color | #F9E89E |  |
+| `SemiAmber3` | `SemiTokens.Amber3` | Brush | #F6D86F |  |
+| `SemiAmber3Color` | `SemiTokens.Amber3Color` | Color | #F6D86F |  |
+| `SemiAmber4` | `SemiTokens.Amber4` | Brush | #F3C641 |  |
+| `SemiAmber4Color` | `SemiTokens.Amber4Color` | Color | #F3C641 |  |
+| `SemiAmber5` | `SemiTokens.Amber5` | Brush | #F0B114 |  |
+| `SemiAmber5Color` | `SemiTokens.Amber5Color` | Color | #F0B114 |  |
+| `SemiAmber6` | `SemiTokens.Amber6` | Brush | #C88A0F |  |
+| `SemiAmber6Color` | `SemiTokens.Amber6Color` | Color | #C88A0F |  |
+| `SemiAmber7` | `SemiTokens.Amber7` | Brush | #A0660A |  |
+| `SemiAmber7Color` | `SemiTokens.Amber7Color` | Color | #A0660A |  |
+| `SemiAmber8` | `SemiTokens.Amber8` | Brush | #784606 |  |
+| `SemiAmber8Color` | `SemiTokens.Amber8Color` | Color | #784606 |  |
+| `SemiAmber9` | `SemiTokens.Amber9` | Brush | #502B03 |  |
+| `SemiAmber9Color` | `SemiTokens.Amber9Color` | Color | #502B03 |  |
+| `SemiOrange0` | `SemiTokens.Orange0` | Brush | #FFF8EA |  |
+| `SemiOrange0Color` | `SemiTokens.Orange0Color` | Color | #FFF8EA |  |
+| `SemiOrange1` | `SemiTokens.Orange1` | Brush | #FEEECC |  |
+| `SemiOrange1Color` | `SemiTokens.Orange1Color` | Color | #FEEECC |  |
+| `SemiOrange2` | `SemiTokens.Orange2` | Brush | #FED998 |  |
+| `SemiOrange2Color` | `SemiTokens.Orange2Color` | Color | #FED998 |  |
+| `SemiOrange3` | `SemiTokens.Orange3` | Brush | #FDC165 |  |
+| `SemiOrange3Color` | `SemiTokens.Orange3Color` | Color | #FDC165 |  |
+| `SemiOrange4` | `SemiTokens.Orange4` | Brush | #FDA633 |  |
+| `SemiOrange4Color` | `SemiTokens.Orange4Color` | Color | #FDA633 |  |
+| `SemiOrange5` | `SemiTokens.Orange5` | Brush | #FC8800 |  |
+| `SemiOrange5Color` | `SemiTokens.Orange5Color` | Color | #FC8800 |  |
+| `SemiOrange6` | `SemiTokens.Orange6` | Brush | #D26700 |  |
+| `SemiOrange6Color` | `SemiTokens.Orange6Color` | Color | #D26700 |  |
+| `SemiOrange7` | `SemiTokens.Orange7` | Brush | #A84A00 |  |
+| `SemiOrange7Color` | `SemiTokens.Orange7Color` | Color | #A84A00 |  |
+| `SemiOrange8` | `SemiTokens.Orange8` | Brush | #7E3100 |  |
+| `SemiOrange8Color` | `SemiTokens.Orange8Color` | Color | #7E3100 |  |
+| `SemiOrange9` | `SemiTokens.Orange9` | Brush | #541D00 |  |
+| `SemiOrange9Color` | `SemiTokens.Orange9Color` | Color | #541D00 |  |
+| `SemiYellow0` | `SemiTokens.Yellow0` | Brush | #FFFDEA |  |
+| `SemiYellow0Color` | `SemiTokens.Yellow0Color` | Color | #FFFDEA |  |
+| `SemiYellow1` | `SemiTokens.Yellow1` | Brush | #FEFBCB |  |
+| `SemiYellow1Color` | `SemiTokens.Yellow1Color` | Color | #FEFBCB |  |
+| `SemiYellow2` | `SemiTokens.Yellow2` | Brush | #FDF398 |  |
+| `SemiYellow2Color` | `SemiTokens.Yellow2Color` | Color | #FDF398 |  |
+| `SemiYellow3` | `SemiTokens.Yellow3` | Brush | #FCE865 |  |
+| `SemiYellow3Color` | `SemiTokens.Yellow3Color` | Color | #FCE865 |  |
+| `SemiYellow4` | `SemiTokens.Yellow4` | Brush | #FBDA32 |  |
+| `SemiYellow4Color` | `SemiTokens.Yellow4Color` | Color | #FBDA32 |  |
+| `SemiYellow5` | `SemiTokens.Yellow5` | Brush | #FAC800 |  |
+| `SemiYellow5Color` | `SemiTokens.Yellow5Color` | Color | #FAC800 |  |
+| `SemiYellow6` | `SemiTokens.Yellow6` | Brush | #D0AA00 |  |
+| `SemiYellow6Color` | `SemiTokens.Yellow6Color` | Color | #D0AA00 |  |
+| `SemiYellow7` | `SemiTokens.Yellow7` | Brush | #A78B00 |  |
+| `SemiYellow7Color` | `SemiTokens.Yellow7Color` | Color | #A78B00 |  |
+| `SemiYellow8` | `SemiTokens.Yellow8` | Brush | #7D6A00 |  |
+| `SemiYellow8Color` | `SemiTokens.Yellow8Color` | Color | #7D6A00 |  |
+| `SemiYellow9` | `SemiTokens.Yellow9` | Brush | #534800 |  |
+| `SemiYellow9Color` | `SemiTokens.Yellow9Color` | Color | #534800 |  |
+| `SemiLime0` | `SemiTokens.Lime0` | Brush | #F2FAE6 |  |
+| `SemiLime0Color` | `SemiTokens.Lime0Color` | Color | #F2FAE6 |  |
+| `SemiLime1` | `SemiTokens.Lime1` | Brush | #E3F6C5 |  |
+| `SemiLime1Color` | `SemiTokens.Lime1Color` | Color | #E3F6C5 |  |
+| `SemiLime2` | `SemiTokens.Lime2` | Brush | #CBED8E |  |
+| `SemiLime2Color` | `SemiTokens.Lime2Color` | Color | #CBED8E |  |
+| `SemiLime3` | `SemiTokens.Lime3` | Brush | #B7E35B |  |
+| `SemiLime3Color` | `SemiTokens.Lime3Color` | Color | #B7E35B |  |
+| `SemiLime4` | `SemiTokens.Lime4` | Brush | #A7DA2C |  |
+| `SemiLime4Color` | `SemiTokens.Lime4Color` | Color | #A7DA2C |  |
+| `SemiLime5` | `SemiTokens.Lime5` | Brush | #9BD100 |  |
+| `SemiLime5Color` | `SemiTokens.Lime5Color` | Color | #9BD100 |  |
+| `SemiLime6` | `SemiTokens.Lime6` | Brush | #7EAE00 |  |
+| `SemiLime6Color` | `SemiTokens.Lime6Color` | Color | #7EAE00 |  |
+| `SemiLime7` | `SemiTokens.Lime7` | Brush | #638B00 |  |
+| `SemiLime7Color` | `SemiTokens.Lime7Color` | Color | #638B00 |  |
+| `SemiLime8` | `SemiTokens.Lime8` | Brush | #486800 |  |
+| `SemiLime8Color` | `SemiTokens.Lime8Color` | Color | #486800 |  |
+| `SemiLime9` | `SemiTokens.Lime9` | Brush | #2F4600 |  |
+| `SemiLime9Color` | `SemiTokens.Lime9Color` | Color | #2F4600 |  |
+| `SemiLightGreen0` | `SemiTokens.LightGreen0` | Brush | #F3F8EC |  |
+| `SemiLightGreen0Color` | `SemiTokens.LightGreen0Color` | Color | #F3F8EC |  |
+| `SemiLightGreen1` | `SemiTokens.LightGreen1` | Brush | #E3F0D0 |  |
+| `SemiLightGreen1Color` | `SemiTokens.LightGreen1Color` | Color | #E3F0D0 |  |
+| `SemiLightGreen2` | `SemiTokens.LightGreen2` | Brush | #C8E2A5 |  |
+| `SemiLightGreen2Color` | `SemiTokens.LightGreen2Color` | Color | #C8E2A5 |  |
+| `SemiLightGreen3` | `SemiTokens.LightGreen3` | Brush | #ADD37E |  |
+| `SemiLightGreen3Color` | `SemiTokens.LightGreen3Color` | Color | #ADD37E |  |
+| `SemiLightGreen4` | `SemiTokens.LightGreen4` | Brush | #93C55B |  |
+| `SemiLightGreen4Color` | `SemiTokens.LightGreen4Color` | Color | #93C55B |  |
+| `SemiLightGreen5` | `SemiTokens.LightGreen5` | Brush | #7BB63C |  |
+| `SemiLightGreen5Color` | `SemiTokens.LightGreen5Color` | Color | #7BB63C |  |
+| `SemiLightGreen6` | `SemiTokens.LightGreen6` | Brush | #649830 |  |
+| `SemiLightGreen6Color` | `SemiTokens.LightGreen6Color` | Color | #649830 |  |
+| `SemiLightGreen7` | `SemiTokens.LightGreen7` | Brush | #4E7926 |  |
+| `SemiLightGreen7Color` | `SemiTokens.LightGreen7Color` | Color | #4E7926 |  |
+| `SemiLightGreen8` | `SemiTokens.LightGreen8` | Brush | #395B1B |  |
+| `SemiLightGreen8Color` | `SemiTokens.LightGreen8Color` | Color | #395B1B |  |
+| `SemiLightGreen9` | `SemiTokens.LightGreen9` | Brush | #253D12 |  |
+| `SemiLightGreen9Color` | `SemiTokens.LightGreen9Color` | Color | #253D12 |  |
+| `SemiGreen0` | `SemiTokens.Green0` | Brush | #ECF7EC |  |
+| `SemiGreen0Color` | `SemiTokens.Green0Color` | Color | #ECF7EC |  |
+| `SemiGreen1` | `SemiTokens.Green1` | Brush | #D0F0D1 |  |
+| `SemiGreen1Color` | `SemiTokens.Green1Color` | Color | #D0F0D1 |  |
+| `SemiGreen2` | `SemiTokens.Green2` | Brush | #A4E0A7 |  |
+| `SemiGreen2Color` | `SemiTokens.Green2Color` | Color | #A4E0A7 |  |
+| `SemiGreen3` | `SemiTokens.Green3` | Brush | #7DD182 |  |
+| `SemiGreen3Color` | `SemiTokens.Green3Color` | Color | #7DD182 |  |
+| `SemiGreen4` | `SemiTokens.Green4` | Brush | #5AC262 |  |
+| `SemiGreen4Color` | `SemiTokens.Green4Color` | Color | #5AC262 |  |
+| `SemiGreen5` | `SemiTokens.Green5` | Brush | #3BB346 |  |
+| `SemiGreen5Color` | `SemiTokens.Green5Color` | Color | #3BB346 |  |
+| `SemiGreen6` | `SemiTokens.Green6` | Brush | #30953B |  |
+| `SemiGreen6Color` | `SemiTokens.Green6Color` | Color | #30953B |  |
+| `SemiGreen7` | `SemiTokens.Green7` | Brush | #25772F |  |
+| `SemiGreen7Color` | `SemiTokens.Green7Color` | Color | #25772F |  |
+| `SemiGreen8` | `SemiTokens.Green8` | Brush | #1B5924 |  |
+| `SemiGreen8Color` | `SemiTokens.Green8Color` | Color | #1B5924 |  |
+| `SemiGreen9` | `SemiTokens.Green9` | Brush | #113C18 |  |
+| `SemiGreen9Color` | `SemiTokens.Green9Color` | Color | #113C18 |  |
+| `SemiCyan0` | `SemiTokens.Cyan0` | Brush | #E5F7F8 |  |
+| `SemiCyan0Color` | `SemiTokens.Cyan0Color` | Color | #E5F7F8 |  |
+| `SemiCyan1` | `SemiTokens.Cyan1` | Brush | #C2EFF0 |  |
+| `SemiCyan1Color` | `SemiTokens.Cyan1Color` | Color | #C2EFF0 |  |
+| `SemiCyan2` | `SemiTokens.Cyan2` | Brush | #8ADDE2 |  |
+| `SemiCyan2Color` | `SemiTokens.Cyan2Color` | Color | #8ADDE2 |  |
+| `SemiCyan3` | `SemiTokens.Cyan3` | Brush | #58CBD3 |  |
+| `SemiCyan3Color` | `SemiTokens.Cyan3Color` | Color | #58CBD3 |  |
+| `SemiCyan4` | `SemiTokens.Cyan4` | Brush | #2CB8C5 |  |
+| `SemiCyan4Color` | `SemiTokens.Cyan4Color` | Color | #2CB8C5 |  |
+| `SemiCyan5` | `SemiTokens.Cyan5` | Brush | #05A4B6 |  |
+| `SemiCyan5Color` | `SemiTokens.Cyan5Color` | Color | #05A4B6 |  |
+| `SemiCyan6` | `SemiTokens.Cyan6` | Brush | #038698 |  |
+| `SemiCyan6Color` | `SemiTokens.Cyan6Color` | Color | #038698 |  |
+| `SemiCyan7` | `SemiTokens.Cyan7` | Brush | #016979 |  |
+| `SemiCyan7Color` | `SemiTokens.Cyan7Color` | Color | #016979 |  |
+| `SemiCyan8` | `SemiTokens.Cyan8` | Brush | #004D5B |  |
+| `SemiCyan8Color` | `SemiTokens.Cyan8Color` | Color | #004D5B |  |
+| `SemiCyan9` | `SemiTokens.Cyan9` | Brush | #00323D |  |
+| `SemiCyan9Color` | `SemiTokens.Cyan9Color` | Color | #00323D |  |
+| `SemiTeal0` | `SemiTokens.Teal0` | Brush | #E4F7F4 |  |
+| `SemiTeal0Color` | `SemiTokens.Teal0Color` | Color | #E4F7F4 |  |
+| `SemiTeal1` | `SemiTokens.Teal1` | Brush | #C0F0E8 |  |
+| `SemiTeal1Color` | `SemiTokens.Teal1Color` | Color | #C0F0E8 |  |
+| `SemiTeal2` | `SemiTokens.Teal2` | Brush | #87E0D3 |  |
+| `SemiTeal2Color` | `SemiTokens.Teal2Color` | Color | #87E0D3 |  |
+| `SemiTeal3` | `SemiTokens.Teal3` | Brush | #54D1C1 |  |
+| `SemiTeal3Color` | `SemiTokens.Teal3Color` | Color | #54D1C1 |  |
+| `SemiTeal4` | `SemiTokens.Teal4` | Brush | #27C2B0 |  |
+| `SemiTeal4Color` | `SemiTokens.Teal4Color` | Color | #27C2B0 |  |
+| `SemiTeal5` | `SemiTokens.Teal5` | Brush | #00B3A1 |  |
+| `SemiTeal5Color` | `SemiTokens.Teal5Color` | Color | #00B3A1 |  |
+| `SemiTeal6` | `SemiTokens.Teal6` | Brush | #009589 |  |
+| `SemiTeal6Color` | `SemiTokens.Teal6Color` | Color | #009589 |  |
+| `SemiTeal7` | `SemiTokens.Teal7` | Brush | #00776F |  |
+| `SemiTeal7Color` | `SemiTokens.Teal7Color` | Color | #00776F |  |
+| `SemiTeal8` | `SemiTokens.Teal8` | Brush | #005955 |  |
+| `SemiTeal8Color` | `SemiTokens.Teal8Color` | Color | #005955 |  |
+| `SemiTeal9` | `SemiTokens.Teal9` | Brush | #003C3A |  |
+| `SemiTeal9Color` | `SemiTokens.Teal9Color` | Color | #003C3A |  |
+| `SemiLightBlue0` | `SemiTokens.LightBlue0` | Brush | #E9F7FD |  |
+| `SemiLightBlue0Color` | `SemiTokens.LightBlue0Color` | Color | #E9F7FD |  |
+| `SemiLightBlue1` | `SemiTokens.LightBlue1` | Brush | #C9ECFC |  |
+| `SemiLightBlue1Color` | `SemiTokens.LightBlue1Color` | Color | #C9ECFC |  |
+| `SemiLightBlue2` | `SemiTokens.LightBlue2` | Brush | #95D8F8 |  |
+| `SemiLightBlue2Color` | `SemiTokens.LightBlue2Color` | Color | #95D8F8 |  |
+| `SemiLightBlue3` | `SemiTokens.LightBlue3` | Brush | #62C3F5 |  |
+| `SemiLightBlue3Color` | `SemiTokens.LightBlue3Color` | Color | #62C3F5 |  |
+| `SemiLightBlue4` | `SemiTokens.LightBlue4` | Brush | #30ACF1 |  |
+| `SemiLightBlue4Color` | `SemiTokens.LightBlue4Color` | Color | #30ACF1 |  |
+| `SemiLightBlue5` | `SemiTokens.LightBlue5` | Brush | #0095EE |  |
+| `SemiLightBlue5Color` | `SemiTokens.LightBlue5Color` | Color | #0095EE |  |
+| `SemiLightBlue6` | `SemiTokens.LightBlue6` | Brush | #007BCA |  |
+| `SemiLightBlue6Color` | `SemiTokens.LightBlue6Color` | Color | #007BCA |  |
+| `SemiLightBlue7` | `SemiTokens.LightBlue7` | Brush | #0063A7 |  |
+| `SemiLightBlue7Color` | `SemiTokens.LightBlue7Color` | Color | #0063A7 |  |
+| `SemiLightBlue8` | `SemiTokens.LightBlue8` | Brush | #004B83 |  |
+| `SemiLightBlue8Color` | `SemiTokens.LightBlue8Color` | Color | #004B83 |  |
+| `SemiLightBlue9` | `SemiTokens.LightBlue9` | Brush | #00355F |  |
+| `SemiLightBlue9Color` | `SemiTokens.LightBlue9Color` | Color | #00355F |  |
+| `SemiBlue0` | `SemiTokens.Blue0` | Brush | #EAF5FF |  |
+| `SemiBlue0Color` | `SemiTokens.Blue0Color` | Color | #EAF5FF |  |
+| `SemiBlue1` | `SemiTokens.Blue1` | Brush | #CBE7FE |  |
+| `SemiBlue1Color` | `SemiTokens.Blue1Color` | Color | #CBE7FE |  |
+| `SemiBlue2` | `SemiTokens.Blue2` | Brush | #98CDFD |  |
+| `SemiBlue2Color` | `SemiTokens.Blue2Color` | Color | #98CDFD |  |
+| `SemiBlue3` | `SemiTokens.Blue3` | Brush | #65B2FC |  |
+| `SemiBlue3Color` | `SemiTokens.Blue3Color` | Color | #65B2FC |  |
+| `SemiBlue4` | `SemiTokens.Blue4` | Brush | #3295FB |  |
+| `SemiBlue4Color` | `SemiTokens.Blue4Color` | Color | #3295FB |  |
+| `SemiBlue5` | `SemiTokens.Blue5` | Brush | #0064FA |  |
+| `SemiBlue5Color` | `SemiTokens.Blue5Color` | Color | #0064FA |  |
+| `SemiBlue6` | `SemiTokens.Blue6` | Brush | #0062D6 |  |
+| `SemiBlue6Color` | `SemiTokens.Blue6Color` | Color | #0062D6 |  |
+| `SemiBlue7` | `SemiTokens.Blue7` | Brush | #004FB3 |  |
+| `SemiBlue7Color` | `SemiTokens.Blue7Color` | Color | #004FB3 |  |
+| `SemiBlue8` | `SemiTokens.Blue8` | Brush | #003D8F |  |
+| `SemiBlue8Color` | `SemiTokens.Blue8Color` | Color | #003D8F |  |
+| `SemiBlue9` | `SemiTokens.Blue9` | Brush | #002C6B |  |
+| `SemiBlue9Color` | `SemiTokens.Blue9Color` | Color | #002C6B |  |
+| `SemiIndigo0` | `SemiTokens.Indigo0` | Brush | #ECEFF8 |  |
+| `SemiIndigo0Color` | `SemiTokens.Indigo0Color` | Color | #ECEFF8 |  |
+| `SemiIndigo1` | `SemiTokens.Indigo1` | Brush | #D1D8F0 |  |
+| `SemiIndigo1Color` | `SemiTokens.Indigo1Color` | Color | #D1D8F0 |  |
+| `SemiIndigo2` | `SemiTokens.Indigo2` | Brush | #A7B3E1 |  |
+| `SemiIndigo2Color` | `SemiTokens.Indigo2Color` | Color | #A7B3E1 |  |
+| `SemiIndigo3` | `SemiTokens.Indigo3` | Brush | #8090D3 |  |
+| `SemiIndigo3Color` | `SemiTokens.Indigo3Color` | Color | #8090D3 |  |
+| `SemiIndigo4` | `SemiTokens.Indigo4` | Brush | #5E6FC4 |  |
+| `SemiIndigo4Color` | `SemiTokens.Indigo4Color` | Color | #5E6FC4 |  |
+| `SemiIndigo5` | `SemiTokens.Indigo5` | Brush | #3F51B5 |  |
+| `SemiIndigo5Color` | `SemiTokens.Indigo5Color` | Color | #3F51B5 |  |
+| `SemiIndigo6` | `SemiTokens.Indigo6` | Brush | #3342A1 |  |
+| `SemiIndigo6Color` | `SemiTokens.Indigo6Color` | Color | #3342A1 |  |
+| `SemiIndigo7` | `SemiTokens.Indigo7` | Brush | #28348C |  |
+| `SemiIndigo7Color` | `SemiTokens.Indigo7Color` | Color | #28348C |  |
+| `SemiIndigo8` | `SemiTokens.Indigo8` | Brush | #1F2878 |  |
+| `SemiIndigo8Color` | `SemiTokens.Indigo8Color` | Color | #1F2878 |  |
+| `SemiIndigo9` | `SemiTokens.Indigo9` | Brush | #171D63 |  |
+| `SemiIndigo9Color` | `SemiTokens.Indigo9Color` | Color | #171D63 |  |
+| `SemiViolet0` | `SemiTokens.Violet0` | Brush | #F3EDF9 |  |
+| `SemiViolet0Color` | `SemiTokens.Violet0Color` | Color | #F3EDF9 |  |
+| `SemiViolet1` | `SemiTokens.Violet1` | Brush | #E2D1F4 |  |
+| `SemiViolet1Color` | `SemiTokens.Violet1Color` | Color | #E2D1F4 |  |
+| `SemiViolet2` | `SemiTokens.Violet2` | Brush | #C4A7E9 |  |
+| `SemiViolet2Color` | `SemiTokens.Violet2Color` | Color | #C4A7E9 |  |
+| `SemiViolet3` | `SemiTokens.Violet3` | Brush | #A67FDD |  |
+| `SemiViolet3Color` | `SemiTokens.Violet3Color` | Color | #A67FDD |  |
+| `SemiViolet4` | `SemiTokens.Violet4` | Brush | #885BD2 |  |
+| `SemiViolet4Color` | `SemiTokens.Violet4Color` | Color | #885BD2 |  |
+| `SemiViolet5` | `SemiTokens.Violet5` | Brush | #6A3AC7 |  |
+| `SemiViolet5Color` | `SemiTokens.Violet5Color` | Color | #6A3AC7 |  |
+| `SemiViolet6` | `SemiTokens.Violet6` | Brush | #572FB3 |  |
+| `SemiViolet6Color` | `SemiTokens.Violet6Color` | Color | #572FB3 |  |
+| `SemiViolet7` | `SemiTokens.Violet7` | Brush | #46259E |  |
+| `SemiViolet7Color` | `SemiTokens.Violet7Color` | Color | #46259E |  |
+| `SemiViolet8` | `SemiTokens.Violet8` | Brush | #361C8A |  |
+| `SemiViolet8Color` | `SemiTokens.Violet8Color` | Color | #361C8A |  |
+| `SemiViolet9` | `SemiTokens.Violet9` | Brush | #281475 |  |
+| `SemiViolet9Color` | `SemiTokens.Violet9Color` | Color | #281475 |  |
+| `SemiPurple0` | `SemiTokens.Purple0` | Brush | #F7E9F7 |  |
+| `SemiPurple0Color` | `SemiTokens.Purple0Color` | Color | #F7E9F7 |  |
+| `SemiPurple1` | `SemiTokens.Purple1` | Brush | #EFCAF0 |  |
+| `SemiPurple1Color` | `SemiTokens.Purple1Color` | Color | #EFCAF0 |  |
+| `SemiPurple2` | `SemiTokens.Purple2` | Brush | #DD9BE0 |  |
+| `SemiPurple2Color` | `SemiTokens.Purple2Color` | Color | #DD9BE0 |  |
+| `SemiPurple3` | `SemiTokens.Purple3` | Brush | #C96FD1 |  |
+| `SemiPurple3Color` | `SemiTokens.Purple3Color` | Color | #C96FD1 |  |
+| `SemiPurple4` | `SemiTokens.Purple4` | Brush | #B449C2 |  |
+| `SemiPurple4Color` | `SemiTokens.Purple4Color` | Color | #B449C2 |  |
+| `SemiPurple5` | `SemiTokens.Purple5` | Brush | #9E28B3 |  |
+| `SemiPurple5Color` | `SemiTokens.Purple5Color` | Color | #9E28B3 |  |
+| `SemiPurple6` | `SemiTokens.Purple6` | Brush | #871E9E |  |
+| `SemiPurple6Color` | `SemiTokens.Purple6Color` | Color | #871E9E |  |
+| `SemiPurple7` | `SemiTokens.Purple7` | Brush | #71168A |  |
+| `SemiPurple7Color` | `SemiTokens.Purple7Color` | Color | #71168A |  |
+| `SemiPurple8` | `SemiTokens.Purple8` | Brush | #5C0F75 |  |
+| `SemiPurple8Color` | `SemiTokens.Purple8Color` | Color | #5C0F75 |  |
+| `SemiPurple9` | `SemiTokens.Purple9` | Brush | #490A61 |  |
+| `SemiPurple9Color` | `SemiTokens.Purple9Color` | Color | #490A61 |  |
+| `SemiGrey0` | `SemiTokens.Grey0` | Brush | #F9F9F9 |  |
+| `SemiGrey0Color` | `SemiTokens.Grey0Color` | Color | #F9F9F9 |  |
+| `SemiGrey1` | `SemiTokens.Grey1` | Brush | #E6E8EA |  |
+| `SemiGrey1Color` | `SemiTokens.Grey1Color` | Color | #E6E8EA |  |
+| `SemiGrey2` | `SemiTokens.Grey2` | Brush | #C6CACD |  |
+| `SemiGrey2Color` | `SemiTokens.Grey2Color` | Color | #C6CACD |  |
+| `SemiGrey3` | `SemiTokens.Grey3` | Brush | #A7ABB0 |  |
+| `SemiGrey3Color` | `SemiTokens.Grey3Color` | Color | #A7ABB0 |  |
+| `SemiGrey4` | `SemiTokens.Grey4` | Brush | #888D92 |  |
+| `SemiGrey4Color` | `SemiTokens.Grey4Color` | Color | #888D92 |  |
+| `SemiGrey5` | `SemiTokens.Grey5` | Brush | #6B7075 |  |
+| `SemiGrey5Color` | `SemiTokens.Grey5Color` | Color | #6B7075 |  |
+| `SemiGrey6` | `SemiTokens.Grey6` | Brush | #555B61 |  |
+| `SemiGrey6Color` | `SemiTokens.Grey6Color` | Color | #555B61 |  |
+| `SemiGrey7` | `SemiTokens.Grey7` | Brush | #41464C |  |
+| `SemiGrey7Color` | `SemiTokens.Grey7Color` | Color | #41464C |  |
+| `SemiGrey8` | `SemiTokens.Grey8` | Brush | #2E3238 |  |
+| `SemiGrey8Color` | `SemiTokens.Grey8Color` | Color | #2E3238 |  |
+| `SemiGrey9` | `SemiTokens.Grey9` | Brush | #1C1F23 |  |
+| `SemiGrey9Color` | `SemiTokens.Grey9Color` | Color | #1C1F23 |  |
+| `SemiAIPurple0` | `SemiTokens.AIPurple0` | Brush | #F8EDFF |  |
+| `SemiAIPurple0Color` | `SemiTokens.AIPurple0Color` | Color | #F8EDFF |  |
+| `SemiAIPurple1` | `SemiTokens.AIPurple1` | Brush | #F2DAFF |  |
+| `SemiAIPurple1Color` | `SemiTokens.AIPurple1Color` | Color | #F2DAFF |  |
+| `SemiAIPurple2` | `SemiTokens.AIPurple2` | Brush | #E3B5FF |  |
+| `SemiAIPurple2Color` | `SemiTokens.AIPurple2Color` | Color | #E3B5FF |  |
+| `SemiAIPurple3` | `SemiTokens.AIPurple3` | Brush | #D191FF |  |
+| `SemiAIPurple3Color` | `SemiTokens.AIPurple3Color` | Color | #D191FF |  |
+| `SemiAIPurple4` | `SemiTokens.AIPurple4` | Brush | #BD6CFF |  |
+| `SemiAIPurple4Color` | `SemiTokens.AIPurple4Color` | Color | #BD6CFF |  |
+| `SemiAIPurple5` | `SemiTokens.AIPurple5` | Brush | #A647FF |  |
+| `SemiAIPurple5Color` | `SemiTokens.AIPurple5Color` | Color | #A647FF |  |
+| `SemiAIPurple6` | `SemiTokens.AIPurple6` | Brush | #8636DB |  |
+| `SemiAIPurple6Color` | `SemiTokens.AIPurple6Color` | Color | #8636DB |  |
+| `SemiAIPurple7` | `SemiTokens.AIPurple7` | Brush | #6928B8 |  |
+| `SemiAIPurple7Color` | `SemiTokens.AIPurple7Color` | Color | #6928B8 |  |
+| `SemiAIPurple8` | `SemiTokens.AIPurple8` | Brush | #4E1C94 |  |
+| `SemiAIPurple8Color` | `SemiTokens.AIPurple8Color` | Color | #4E1C94 |  |
+| `SemiAIPurple9` | `SemiTokens.AIPurple9` | Brush | #361270 |  |
+| `SemiAIPurple9Color` | `SemiTokens.AIPurple9Color` | Color | #361270 |  |
+| `SemiAIGeneral0` | `SemiTokens.AIGeneral0` | Brush | gradient |  |
+| `SemiAIGeneral1` | `SemiTokens.AIGeneral1` | Brush | gradient |  |
+| `SemiAIGeneral2` | `SemiTokens.AIGeneral2` | Brush | gradient |  |
+| `SemiAIGeneral3` | `SemiTokens.AIGeneral3` | Brush | gradient |  |
+| `SemiAIGeneral4` | `SemiTokens.AIGeneral4` | Brush | gradient |  |
+| `SemiAIGeneral5` | `SemiTokens.AIGeneral5` | Brush | gradient |  |
+| `SemiAIGeneral6` | `SemiTokens.AIGeneral6` | Brush | gradient |  |
+| `SemiAIGeneral7` | `SemiTokens.AIGeneral7` | Brush | gradient |  |
+| `SemiAIGeneral8` | `SemiTokens.AIGeneral8` | Brush | gradient |  |
+| `SemiAIGeneral9` | `SemiTokens.AIGeneral9` | Brush | gradient |  |
 
 ## Palette colors
 

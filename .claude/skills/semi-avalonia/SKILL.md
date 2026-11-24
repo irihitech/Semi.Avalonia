@@ -22,12 +22,12 @@ Semi task:
 
 **Style.** `Classes="Primary"` and `Theme="{DynamicResource SolidButton}"`. Class names are case-insensitive and combine. The full catalog is in [reference/classes.md](reference/classes.md); per-control detail and demo XAML live at https://irihitech.github.io/Semi.Avalonia/controls/<name>.md.
 
-**Customize.** Override `Semi*` resource keys (app-wide in App.xaml, per-subtree in a control's Resources). Keys are string literals, so copy them exactly — a mistyped key fails silently. All keys with values: [reference/tokens.md](reference/tokens.md). Patterns and troubleshooting: [reference/customization.md](reference/customization.md).
+**Customize.** Override `Semi*` resource keys (app-wide in App.xaml, per-subtree in a control's Resources). In code-behind prefer `{DynamicResource {x:Static semi:SemiTokens.ColorPrimary}}` — a mistyped member is a build error, a mistyped string is not. All keys with values: [reference/tokens.md](reference/tokens.md). Patterns and troubleshooting: [reference/customization.md](reference/customization.md).
 
 ## Core rules
 
 1. **Avalonia built-ins only.** There is no `semi:Button`. Write `Button`; SemiTheme styles it. New controls belong to Ursa.
-2. **Documented names only.** A class, variant or key not in the pages is invented and fails silently.
+2. **Documented names only.** A class, variant or key not in the pages is invented and fails silently (classes) or at build time (x:Static).
 3. **Tokens, not values.** No hex colors, no magic numbers; override the key so Light/Dark both follow.
 4. **One theme source.** SemiTheme alone; never mix Fluent or Simple into the same app.
 
