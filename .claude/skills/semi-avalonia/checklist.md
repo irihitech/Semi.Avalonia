@@ -5,7 +5,7 @@ Run over any screen the assistant styled with Semi.Avalonia before calling it do
 - [ ] `<semi:SemiTheme />` is the only theme style in Application.Styles; no Fluent, no Simple.
 - [ ] Every `Classes="…"` value appears in the control's page or reference/classes.md.
 - [ ] Every `Theme="{DynamicResource …}"` is a ControlTheme variant listed for that control.
-- [ ] No hard-coded `Color="#…"` in XAML; every color/radius/spacing reads a `Semi*` key or `SemiTokens` member.
+- [ ] No hard-coded `Color="#…"` in XAML; every color/radius/spacing reads a `Semi*` key or a `SemiTokens`/`HighContrastTokens` member.
 - [ ] Every overridden `x:Key` is listed in tokens.md or the control's page.
 - [ ] Overridden keys that differ between light and dark are overridden in a scope that covers both variants.
 - [ ] `RequestedThemeVariant` handles Default (system); the app looks right in Light AND Dark (and a high-contrast palette if used).

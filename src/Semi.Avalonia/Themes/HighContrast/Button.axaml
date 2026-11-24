@@ -1,27 +1,27 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:semi="using:Semi.Avalonia">
     <!--  Light  -->
-    <StaticResource x:Key="ButtonDefaultPrimaryForeground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
-    <StaticResource x:Key="ButtonDefaultDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorGrayText}" />
-    <StaticResource x:Key="ButtonDefaultBackground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonFace}" />
-    <StaticResource x:Key="ButtonDefaultPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
-    <StaticResource x:Key="ButtonDefaultPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
-    <StaticResource x:Key="ButtonDefaultBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
-    <StaticResource x:Key="ButtonDefaultPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonDefaultPrimaryForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonText}" />
+    <StaticResource x:Key="ButtonDefaultDisabledForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorGrayText}" />
+    <StaticResource x:Key="ButtonDefaultBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonFace}" />
+    <StaticResource x:Key="ButtonDefaultPointeroverBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlightText}" />
+    <StaticResource x:Key="ButtonDefaultPressedBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlightText}" />
+    <StaticResource x:Key="ButtonDefaultBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonText}" />
+    <StaticResource x:Key="ButtonDefaultPointeroverBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
     <SolidColorBrush x:Key="ButtonDefaultPressedBorderBrush" Color="Transparent" />
-    <StaticResource x:Key="ButtonDefaultDisabledBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorGrayText}" />
+    <StaticResource x:Key="ButtonDefaultDisabledBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorGrayText}" />
     <!--  end Light  -->
     <!--  Solid  -->
-    <StaticResource x:Key="ButtonSolidForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
-    <StaticResource x:Key="ButtonSolidPrimaryBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="ButtonSolidPrimaryPointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
-    <StaticResource x:Key="ButtonSolidPrimaryPressedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="ButtonSolidPrimaryPressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonFace}" />
-    <StaticResource x:Key="ButtonSolidPrimaryBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="ButtonSolidPrimaryPointeroverBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
-    <StaticResource x:Key="ButtonSolidPrimaryPressedBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="ButtonSolidDisabledBackground" ResourceKey="{x:Static semi:SemiTokens.ColorGrayText}" />
-    <StaticResource x:Key="ButtonSolidDisabledForeground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonFace}" />
+    <StaticResource x:Key="ButtonSolidForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlightText}" />
+    <StaticResource x:Key="ButtonSolidPrimaryBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonSolidPrimaryPointeroverBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonText}" />
+    <StaticResource x:Key="ButtonSolidPrimaryPressedForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonSolidPrimaryPressedBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonFace}" />
+    <StaticResource x:Key="ButtonSolidPrimaryBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonSolidPrimaryPointeroverBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonText}" />
+    <StaticResource x:Key="ButtonSolidPrimaryPressedBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonSolidDisabledBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorGrayText}" />
+    <StaticResource x:Key="ButtonSolidDisabledForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonFace}" />
     <SolidColorBrush x:Key="ButtonSolidDisabledBorderBrush" Color="Transparent" />
     <!--  end Solid  -->
     <!--  Borderless -->
@@ -30,13 +30,13 @@
     <!--  end Borderless  -->
     <!--  Outline -->
     <SolidColorBrush x:Key="ButtonOutlineBackground" Color="Transparent" />
-    <StaticResource x:Key="ButtonOutlineBorderBrush" ResourceKey="{x:Static semi:SemiTokens.ColorWindowText}" />
-    <StaticResource x:Key="ButtonOutlinePointeroverBackground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlightText}" />
-    <StaticResource x:Key="ButtonOutlinePressedBackground" ResourceKey="{x:Static semi:SemiTokens.ColorWindow}" />
+    <StaticResource x:Key="ButtonOutlineBorderBrush" ResourceKey="{x:Static semi:HighContrastTokens.ColorWindowText}" />
+    <StaticResource x:Key="ButtonOutlinePointeroverBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlightText}" />
+    <StaticResource x:Key="ButtonOutlinePressedBackground" ResourceKey="{x:Static semi:HighContrastTokens.ColorWindow}" />
     <!--  end Outline  -->
 
     <!-- Deprecated -->
-    <StaticResource x:Key="ButtonInputInnerForeground" ResourceKey="{x:Static semi:SemiTokens.ColorButtonText}" />
-    <StaticResource x:Key="ButtonInputInnerPointeroverForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
-    <StaticResource x:Key="ButtonInputInnerPressedForeground" ResourceKey="{x:Static semi:SemiTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonInputInnerForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorButtonText}" />
+    <StaticResource x:Key="ButtonInputInnerPointeroverForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
+    <StaticResource x:Key="ButtonInputInnerPressedForeground" ResourceKey="{x:Static semi:HighContrastTokens.ColorHighlight}" />
 </ResourceDictionary>

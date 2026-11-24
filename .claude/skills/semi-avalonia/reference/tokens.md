@@ -164,13 +164,6 @@ Every resource key of the theme, extracted from the sources of version 12.1.0.2.
 | `SemiColorLinkActive` | `SemiTokens.ColorLinkActive` | Brush | #004FB3 |  |
 | `SemiColorLinkVisited` | `SemiTokens.ColorLinkVisited` | Brush | #0064FA |  |
 | `SemiColorHighlight` | `SemiTokens.ColorHighlight` | Brush | White |  |
-| `SemiColorWindow` | `SemiTokens.ColorWindow` | Brush | high-contrast presets only, e.g. #202020 |  |
-| `SemiColorWindowText` | `SemiTokens.ColorWindowText` | Brush | high-contrast presets only, e.g. #FFFFFF |  |
-| `SemiColorHotlight` | `SemiTokens.ColorHotlight` | Brush | high-contrast presets only, e.g. #75E9FC |  |
-| `SemiColorGrayText` | `SemiTokens.ColorGrayText` | Brush | high-contrast presets only, e.g. #A6A6A6 |  |
-| `SemiColorHighlightText` | `SemiTokens.ColorHighlightText` | Brush | high-contrast presets only, e.g. #263B50 |  |
-| `SemiColorButtonText` | `SemiTokens.ColorButtonText` | Brush | high-contrast presets only, e.g. #FFFFFF |  |
-| `SemiColorButtonFace` | `SemiTokens.ColorButtonFace` | Brush | high-contrast presets only, e.g. #202020 |  |
 | `SemiColorHighlightBackground` | `SemiTokens.ColorHighlightBackground` | Brush | #FDF398 |  |
 | `SemiColorOverlayBackground` | `SemiTokens.ColorOverlayBackground` | Brush | #16161A @ 0.6 opacity |  |
 | `SemiColorNavBackground` | `SemiTokens.ColorNavBackground` | Brush | White |  |
@@ -554,6 +547,19 @@ Every resource key of the theme, extracted from the sources of version 12.1.0.2.
 | `SemiAIGeneral7` | `SemiTokens.AIGeneral7` | Brush | gradient |  |
 | `SemiAIGeneral8` | `SemiTokens.AIGeneral8` | Brush | gradient |  |
 | `SemiAIGeneral9` | `SemiTokens.AIGeneral9` | Brush | gradient |  |
+
+## HighContrast
+
+| Resource key | HighContrastTokens member | Type | Value | Description (zh) |
+|---|---|---|---|---|
+| `SemiColorWindow` | `HighContrastTokens.ColorWindow` | Brush | high-contrast presets only, e.g. #202020 |  |
+| `SemiColorWindowText` | `HighContrastTokens.ColorWindowText` | Brush | high-contrast presets only, e.g. #FFFFFF |  |
+| `SemiColorHotlight` | `HighContrastTokens.ColorHotlight` | Brush | high-contrast presets only, e.g. #75E9FC |  |
+| `SemiColorGrayText` | `HighContrastTokens.ColorGrayText` | Brush | high-contrast presets only, e.g. #A6A6A6 |  |
+| `SemiColorHighlightText` | `HighContrastTokens.ColorHighlightText` | Brush | high-contrast presets only, e.g. #263B50 |  |
+| `SemiColorHighlight` | `HighContrastTokens.ColorHighlight` | Brush | high-contrast presets, e.g. #8EE3F0 |  |
+| `SemiColorButtonText` | `HighContrastTokens.ColorButtonText` | Brush | high-contrast presets only, e.g. #FFFFFF |  |
+| `SemiColorButtonFace` | `HighContrastTokens.ColorButtonFace` | Brush | high-contrast presets only, e.g. #202020 |  |
 
 ## Palette colors
 
