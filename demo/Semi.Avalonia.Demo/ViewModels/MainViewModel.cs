@@ -38,6 +38,8 @@ public partial class MainViewModel : ObservableObject
     public IObservable<string?> AppTitle => LanguageManager.Instance.App_Title;
     public IObservable<string?> SearchPlaceholder => LanguageManager.Instance.Search_Placeholder;
     public IObservable<string?> EmptySearchMessage => LanguageManager.Instance.Empty_Search_Message;
+    public IObservable<string?> DocumentationTooltip => LanguageManager.Instance.Tooltip_Documentation;
+    public IObservable<string?> RepositoryTooltip => LanguageManager.Instance.Tooltip_Repository;
     public ObservableCollection<NavigationSectionViewModel> FilteredSections { get; } = [];
     public bool ShowEmptySearchState => FilteredSections.Count == 0 && !string.IsNullOrWhiteSpace(SearchText);
 

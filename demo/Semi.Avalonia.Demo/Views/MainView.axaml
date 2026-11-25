@@ -106,18 +106,21 @@
                     Command="{Binding OpenUrlCommand}"
                     CommandParameter="{Binding DocumentationUrl}"
                     Content="{StaticResource SemiIconGlobe}"
-                    Theme="{DynamicResource SquareButton}" />
+                    Theme="{DynamicResource SquareButton}"
+                    ToolTip.Tip="{Binding DocumentationTooltip^}" />
 
                 <Button
                     Command="{Binding OpenUrlCommand}"
                     CommandParameter="{Binding RepoUrl}"
                     Content="{StaticResource SemiIconGithubLogo}"
-                    Theme="{DynamicResource SquareButton}" />
+                    Theme="{DynamicResource SquareButton}"
+                    ToolTip.Tip="{Binding RepositoryTooltip^}" />
 
                 <Button
                     Command="{Binding NavigateToSettingsCommand}"
                     Content="{StaticResource SemiIconSetting}"
-                    Theme="{DynamicResource SquareButton}" />
+                    Theme="{DynamicResource SquareButton}"
+                    ToolTip.Tip="{Binding SettingsItem.Title^}" />
             </StackPanel>
         </Grid>
     </DrawerPage.DrawerFooter>
