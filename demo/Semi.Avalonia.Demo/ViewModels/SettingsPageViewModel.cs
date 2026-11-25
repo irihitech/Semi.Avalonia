@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
@@ -23,8 +22,11 @@ public partial class SettingsPageViewModel : ObservableObject
     public IObservable<string?> GroupGeneral => LanguageManager.Instance.Settings_Group_General;
     public IObservable<string?> GroupWindow => LanguageManager.Instance.Settings_Group_Window;
     public IObservable<string?> GroupTitleBar => LanguageManager.Instance.Settings_Group_TitleBar;
-    public IObservable<string?> ThemeHeader => LanguageManager.Instance.Menu_Theme;
-    public IObservable<string?> LocaleHeader => LanguageManager.Instance.Menu_Locale;
+    public IObservable<string?> ThemeHeader => LanguageManager.Instance.Settings_Card_Theme_Header;
+    public IObservable<string?> ThemeDescription => LanguageManager.Instance.Settings_Card_Theme_Description;
+    public IObservable<string?> LanguageHeader => LanguageManager.Instance.Settings_Card_Language_Header;
+    public IObservable<string?> LanguageDescription => LanguageManager.Instance.Settings_Card_Language_Description;
+    public IObservable<string?> WindowStateHeader => LanguageManager.Instance.Settings_Card_WindowState_Header;
 
     public IReadOnlyList<ThemeItem> Themes { get; } =
     [
@@ -37,29 +39,15 @@ public partial class SettingsPageViewModel : ObservableObject
         new(LanguageManager.Instance.Theme_NightSky, SemiTheme.NightSky),
     ];
 
-    public IReadOnlyList<LocaleItem> Locales { get; } =
+    public IReadOnlyList<WindowStateItem> WindowStates { get; } =
     [
-        new("简体中文", new CultureInfo("zh-CN")),
-        new("English", new CultureInfo("en-US")),
-        new("日本語", new CultureInfo("ja-JP")),
-        new("한국어", new CultureInfo("ko-KR")),
-        new("English (UK)", new CultureInfo("en-GB")),
-        new("Italiano", new CultureInfo("it-IT")),
-        new("Italiano (Switzerland)", new CultureInfo("it-CH")),
-        new("Nederlands", new CultureInfo("nl-NL")),
-        new("Nederlands (Belgium)", new CultureInfo("nl-BE")),
-        new("Українська", new CultureInfo("uk-UA")),
-        new("Русский", new CultureInfo("ru-RU")),
-        new("繁體中文", new CultureInfo("zh-TW")),
-        new("Deutsch", new CultureInfo("de-DE")),
-        new("Español", new CultureInfo("es-ES")),
-        new("Polski", new CultureInfo("pl-PL")),
-        new("Français", new CultureInfo("fr-FR")),
+        new(WindowState.Normal, LanguageManager.Instance.Settings_WindowState_Normal),
+        new(WindowState.Minimized, LanguageManager.Instance.Settings_WindowState_Minimized),
+        new(WindowState.Maximized, LanguageManager.Instance.Settings_WindowState_Maximized),
+        new(WindowState.FullScreen, LanguageManager.Instance.Settings_WindowState_FullScreen),
     ];
 
     [ObservableProperty] public partial ThemeItem? SelectedTheme { get; set; }
-
-    [ObservableProperty] public partial LocaleItem? SelectedLocale { get; set; }
 
     [ObservableProperty] public partial bool IsTitleVisible { get; set; }
 
@@ -77,10 +65,6 @@ public partial class SettingsPageViewModel : ObservableObject
         SelectedTheme = _followsSystemTheme
             ? Themes[0]
             : Themes.FirstOrDefault(item => item.Theme == Application.Current?.RequestedThemeVariant) ?? Themes[0];
-
-        var currentCulture = CultureInfo.CurrentUICulture.Name;
-        SelectedLocale = Locales.FirstOrDefault(item =>
-            string.Equals(item.Culture.Name, currentCulture, StringComparison.OrdinalIgnoreCase));
 
         _initialized = true;
     }
@@ -138,23 +122,6 @@ public partial class SettingsPageViewModel : ObservableObject
         }
     }
 
-    partial void OnSelectedLocaleChanged(LocaleItem? value)
-    {
-        if (!_initialized || value is null)
-        {
-            return;
-        }
-
-        var app = Application.Current;
-        if (app is not null)
-        {
-            SemiTheme.OverrideLocaleResources(app, value.Culture);
-        }
-
-        // culture mapping, example: zh-CN to zh-Hans
-        LanguageManager.Instance.UpdateCulture(value.Culture);
-    }
-
     // WindowDrawnDecorations.TitleBarDecorations is one flags value, so the five switches share it.
     partial void OnIsTitleVisibleChanged(bool value) => ApplyTitleBarDecorations();
 
@@ -205,4 +172,4 @@ public partial class SettingsPageViewModel : ObservableObject
 
 public record ThemeItem(IObservable<string?> Name, ThemeVariant Theme);
 
-public record LocaleItem(string Name, CultureInfo Culture);
+public record WindowStateItem(WindowState Value, IObservable<string?> Name);

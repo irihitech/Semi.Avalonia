@@ -4,9 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Semi.Avalonia.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:languageManager="clr-namespace:Semi.Avalonia.Demo"
+    xmlns:lingua="https://irihi.tech/lingua"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
-    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="560"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="720"
     x:DataType="vm:SettingsPageViewModel"
     x:Class="Semi.Avalonia.Demo.Pages.SettingsPage">
 
@@ -17,6 +19,7 @@
         <controls:SettingsCardGroup Header="{Binding GroupGeneral^}">
             <controls:SettingsCard
                 Content="{Binding ThemeHeader^}"
+                Description="{Binding ThemeDescription^}"
                 Icon="{DynamicResource SemiIconDesktop}">
                 <controls:SettingsCard.RightContent>
                     <ComboBox
@@ -33,19 +36,36 @@
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Content="{Binding LocaleHeader^}"
+                Content="{Binding LanguageHeader^}"
+                Description="{Binding LanguageDescription^}"
                 Icon="{DynamicResource SemiIconGlobe}">
                 <controls:SettingsCard.RightContent>
-                    <ComboBox
+                    <lingua:CulturePicker
                         Width="160"
-                        ItemsSource="{Binding Locales}"
-                        SelectedItem="{Binding SelectedLocale}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate x:DataType="vm:LocaleItem">
-                                <TextBlock Text="{Binding Name}" />
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
+                        CultureChanged="OnCultureChanged">
+                        <lingua:CulturePicker.Managers>
+                            <x:Static Member="languageManager:LanguageManager.Instance" />
+                        </lingua:CulturePicker.Managers>
+                        <lingua:CulturePicker.Cultures>
+                            <!--  The demo starts on the invariant culture, which carries the neutral (English) resources.  -->
+                            <lingua:LinguaCulture DisplayName="English" ShortDisplayName="EN" CultureName="" />
+                            <lingua:LinguaCulture DisplayName="简体中文" ShortDisplayName="中" CultureName="zh-CN" />
+                            <lingua:LinguaCulture DisplayName="繁體中文" ShortDisplayName="繁" CultureName="zh-TW" />
+                            <lingua:LinguaCulture DisplayName="日本語" ShortDisplayName="日" CultureName="ja-JP" />
+                            <lingua:LinguaCulture DisplayName="한국어" ShortDisplayName="한" CultureName="ko-KR" />
+                            <lingua:LinguaCulture DisplayName="Deutsch" ShortDisplayName="DE" CultureName="de-DE" />
+                            <lingua:LinguaCulture DisplayName="Español" ShortDisplayName="ES" CultureName="es-ES" />
+                            <lingua:LinguaCulture DisplayName="Français" ShortDisplayName="FR" CultureName="fr-FR" />
+                            <lingua:LinguaCulture DisplayName="Italiano" ShortDisplayName="IT" CultureName="it-IT" />
+                            <lingua:LinguaCulture DisplayName="Italiano (Svizzera)" ShortDisplayName="IT-CH" CultureName="it-CH" />
+                            <lingua:LinguaCulture DisplayName="Nederlands" ShortDisplayName="NL" CultureName="nl-NL" />
+                            <lingua:LinguaCulture DisplayName="Nederlands (België)" ShortDisplayName="NL-BE" CultureName="nl-BE" />
+                            <lingua:LinguaCulture DisplayName="Polski" ShortDisplayName="PL" CultureName="pl-PL" />
+                            <lingua:LinguaCulture DisplayName="Русский" ShortDisplayName="RU" CultureName="ru-RU" />
+                            <lingua:LinguaCulture DisplayName="Українська" ShortDisplayName="UA" CultureName="uk-UA" />
+                            <lingua:LinguaCulture DisplayName="English (UK)" ShortDisplayName="UK" CultureName="en-GB" />
+                        </lingua:CulturePicker.Cultures>
+                    </lingua:CulturePicker>
                 </controls:SettingsCard.RightContent>
             </controls:SettingsCard>
         </controls:SettingsCardGroup>
@@ -56,10 +76,18 @@
             Spacing="16">
 
             <controls:SettingsCardGroup Header="{Binding GroupWindow^}">
-                <controls:SettingsCard Content="CanResize">
+                <controls:SettingsCard Content="{Binding WindowStateHeader^}">
                     <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanResize, Mode=TwoWay}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                        <ComboBox Width="160"
+                                  ItemsSource="{Binding WindowStates}"
+                                  SelectedValue="{Binding $parent[Window].WindowState, Mode=TwoWay}"
+                                  SelectedValueBinding="{Binding Value, x:DataType=vm:WindowStateItem}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate x:DataType="vm:WindowStateItem">
+                                    <TextBlock Text="{Binding Name^}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
                 <controls:SettingsCard Content="CanMinimize">
@@ -75,23 +103,21 @@
                                       Theme="{DynamicResource SimpleToggleSwitch}" />
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
+                <controls:SettingsCard Content="CanResize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanResize, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
                 <controls:SettingsCard Content="Topmost">
                     <controls:SettingsCard.RightContent>
                         <ToggleSwitch IsChecked="{Binding $parent[Window].Topmost, Mode=TwoWay}"
                                       Theme="{DynamicResource SimpleToggleSwitch}" />
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
-                <controls:SettingsCard Content="WindowState">
-                    <controls:SettingsCard.RightContent>
-                        <ComboBox Width="160"
-                                  SelectedItem="{Binding $parent[Window].WindowState, Mode=TwoWay}">
-                            <x:Static Member="WindowState.Normal" />
-                            <x:Static Member="WindowState.Minimized" />
-                            <x:Static Member="WindowState.Maximized" />
-                            <x:Static Member="WindowState.FullScreen" />
-                        </ComboBox>
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
+            </controls:SettingsCardGroup>
+
+            <controls:SettingsCardGroup Header="{Binding GroupTitleBar^}">
                 <controls:SettingsCard Content="WindowDecorations">
                     <controls:SettingsCard.RightContent>
                         <ComboBox Width="160"
@@ -125,42 +151,41 @@
                         </Grid>
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
-            </controls:SettingsCardGroup>
 
-            <controls:SettingsCardGroup
-                Description="WindowDrawnDecorations.TitleBarDecorations"
-                Header="{Binding GroupTitleBar^}"
-                IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}">
-                <controls:SettingsCard Content="Title">
-                    <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding IsTitleVisible}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
-                <controls:SettingsCard Content="MinimizeButton">
-                    <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding IsMinimizeButtonVisible}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
-                <controls:SettingsCard Content="MaximizeButton">
-                    <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding IsMaximizeButtonVisible}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
-                <controls:SettingsCard Content="CloseButton">
-                    <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding IsCloseButtonVisible}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
-                <controls:SettingsCard Content="FullScreenButton">
-                    <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding IsFullScreenButtonVisible}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
+                <!--  The flags of WindowDrawnDecorations.TitleBarDecorations; they only matter while the drawn title bar is in use.  -->
+                <StackPanel IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                            Spacing="{DynamicResource SemiSpacingExtraTight}">
+                    <controls:SettingsCard Content="Title">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsTitleVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="MinimizeButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsMinimizeButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="MaximizeButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsMaximizeButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="FullScreenButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsFullScreenButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="CloseButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsCloseButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                </StackPanel>
             </controls:SettingsCardGroup>
         </StackPanel>
     </StackPanel>
