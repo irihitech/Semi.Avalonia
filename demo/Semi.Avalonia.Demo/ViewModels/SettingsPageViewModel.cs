@@ -34,8 +34,8 @@ public partial class SettingsPageViewModel : ObservableObject
     public IReadOnlyList<ThemeItem> Themes { get; } =
     [
         new(LanguageManager.Instance.Theme_Auto, ThemeVariant.Default),
-        new(LinguaObservableString.FromLiteral("Light"), ThemeVariant.Light),
-        new(LinguaObservableString.FromLiteral("Dark"), ThemeVariant.Dark),
+        new(LanguageManager.Instance.Theme_Light, ThemeVariant.Light),
+        new(LanguageManager.Instance.Theme_Dark, ThemeVariant.Dark),
         new(LanguageManager.Instance.Theme_Aquatic, SemiTheme.Aquatic),
         new(LanguageManager.Instance.Theme_Desert, SemiTheme.Desert),
         new(LanguageManager.Instance.Theme_Dusk, SemiTheme.Dusk),
