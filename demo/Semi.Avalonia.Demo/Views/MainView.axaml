@@ -105,27 +105,10 @@
                 Content="{StaticResource SemiIconGithubLogo}"
                 Theme="{DynamicResource SquareButton}" />
 
-            <ToggleSwitch
-                Command="{Binding ToggleThemeCommand}"
-                OffContent="{StaticResource SemiIconSun}"
-                OnContent="{StaticResource SemiIconMoon}"
-                Theme="{DynamicResource SquareToggleSwitch}" />
-
             <Button
-                Content="{StaticResource SemiIconMenu}"
-                Theme="{DynamicResource SquareButton}">
-                <Button.Flyout>
-                    <MenuFlyout ItemsSource="{Binding MenuItems}" Placement="Bottom" />
-                </Button.Flyout>
-                <Button.Styles>
-                    <Style x:DataType="vm:MenuItemViewModel" Selector="MenuItem">
-                        <Setter Property="Header" Value="{Binding Header^}" />
-                        <Setter Property="ItemsSource" Value="{Binding Items}" />
-                        <Setter Property="Command" Value="{Binding Command}" />
-                        <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
-                    </Style>
-                </Button.Styles>
-            </Button>
+                Command="{Binding NavigateToSettingsCommand}"
+                Content="{StaticResource SemiIconSetting}"
+                Theme="{DynamicResource SquareButton}" />
         </StackPanel>
     </DrawerPage.DrawerFooter>
 

@@ -1,0 +1,141 @@
+<ContentPage
+    Theme="{StaticResource ScrollPage}"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Semi.Avalonia.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="560"
+    x:DataType="vm:SettingsPageViewModel"
+    x:Class="Semi.Avalonia.Demo.Pages.SettingsPage">
+
+    <StackPanel
+        MaxWidth="640"
+        Spacing="16">
+
+        <controls:SettingsCardGroup Header="{Binding GroupGeneral^}">
+            <controls:SettingsCard
+                Content="{Binding ThemeHeader^}"
+                Icon="{DynamicResource SemiIconDesktop}">
+                <controls:SettingsCard.RightContent>
+                    <ComboBox
+                        Width="160"
+                        ItemsSource="{Binding Themes}"
+                        SelectedItem="{Binding SelectedTheme}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="vm:ThemeItem">
+                                <TextBlock Text="{Binding Name^}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:SettingsCard.RightContent>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard
+                Content="{Binding LocaleHeader^}"
+                Icon="{DynamicResource SemiIconGlobe}">
+                <controls:SettingsCard.RightContent>
+                    <ComboBox
+                        Width="160"
+                        ItemsSource="{Binding Locales}"
+                        SelectedItem="{Binding SelectedLocale}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="vm:LocaleItem">
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:SettingsCard.RightContent>
+            </controls:SettingsCard>
+        </controls:SettingsCardGroup>
+
+        <!--  Window chrome only applies to a desktop window  -->
+        <StackPanel
+            IsEnabled="{OnFormFactor False, Desktop=True}"
+            Spacing="16">
+
+            <controls:SettingsCardGroup Header="{Binding GroupWindow^}">
+                <controls:SettingsCard Content="CanResize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanResize, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="CanMinimize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanMinimize, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="CanMaximize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanMaximize, Mode=TwoWay}"
+                                      IsEnabled="{Binding $parent[Window].CanResize}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="WindowDecorations">
+                    <controls:SettingsCard.RightContent>
+                        <ComboBox Width="160"
+                                  SelectedItem="{Binding $parent[Window].WindowDecorations, Mode=TwoWay}">
+                            <x:Static Member="WindowDecorations.Full" />
+                            <x:Static Member="WindowDecorations.BorderOnly" />
+                            <x:Static Member="WindowDecorations.None" />
+                        </ComboBox>
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="ExtendClientAreaToDecorationsHint">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].ExtendClientAreaToDecorationsHint, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="ExtendClientAreaTitleBarHeightHint">
+                    <controls:SettingsCard.RightContent>
+                        <NumericUpDown Width="160"
+                                       Minimum="-1" Maximum="200"
+                                       IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                                       Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint, Mode=TwoWay}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+            </controls:SettingsCardGroup>
+
+            <controls:SettingsCardGroup
+                Description="WindowDrawnDecorations.TitleBarDecorations"
+                Header="{Binding GroupTitleBar^}"
+                IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}">
+                <controls:SettingsCard Content="Title">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding IsTitleVisible}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="MinimizeButton">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding IsMinimizeButtonVisible}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="MaximizeButton">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding IsMaximizeButtonVisible}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="CloseButton">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding IsCloseButtonVisible}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="FullScreenButton">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding IsFullScreenButtonVisible}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+            </controls:SettingsCardGroup>
+        </StackPanel>
+    </StackPanel>
+</ContentPage>

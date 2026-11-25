@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Irihi.Lingua;
@@ -25,7 +23,6 @@ public partial class MainViewModel : ObservableObject
 
     public string DocumentationUrl => "https://docs.irihi.tech/semi";
     public string RepoUrl => "https://github.com/irihitech/Semi.Avalonia";
-    public IReadOnlyList<MenuItemViewModel> MenuItems { get; }
     public IReadOnlyList<NavigationSectionViewModel> Sections { get; }
 
     // Lingua i18n observable properties
@@ -59,47 +56,17 @@ public partial class MainViewModel : ObservableObject
         }
     }
 
+    /// <summary>
+    /// The settings page, reached from the drawer footer instead of the navigation list.
+    /// </summary>
+    public NavigationItemViewModel SettingsItem
+    {
+        get;
+        private set;
+    }
+
     public MainViewModel()
     {
-        MenuItems =
-        [
-            new MenuItemViewModel
-            {
-                Header = LanguageManager.Instance.Menu_Theme,
-                Items =
-                [
-                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Auto, Command = FollowSystemThemeCommand },
-                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Aquatic, Command = SelectThemeCommand, CommandParameter = SemiTheme.Aquatic },
-                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Desert, Command = SelectThemeCommand, CommandParameter = SemiTheme.Desert },
-                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_Dusk, Command = SelectThemeCommand, CommandParameter = SemiTheme.Dusk },
-                    new MenuItemViewModel { Header = LanguageManager.Instance.Theme_NightSky, Command = SelectThemeCommand, CommandParameter = SemiTheme.NightSky },
-                ]
-            },
-            new MenuItemViewModel
-            {
-                Header = LanguageManager.Instance.Menu_Locale,
-                Items =
-                [
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("简体中文"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("zh-CN") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("English"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("en-US") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("日本語"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ja-JP") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("한국어"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ko-KR") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("English (UK)"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("en-GB") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Italiano"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("it-IT") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Italiano (Switzerland)"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("it-CH") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Nederlands"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("nl-NL") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Nederlands (Belgium)"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("nl-BE") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Українська"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("uk-UA") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Русский"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("ru-RU") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("繁體中文"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("zh-TW") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Deutsch"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("de-DE") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Español"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("es-ES") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Polski"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("pl-PL") },
-                    new MenuItemViewModel { Header = LinguaObservableString.FromLiteral("Français"), Command = SelectLocaleCommand, CommandParameter = new CultureInfo("fr-FR") },
-                ]
-            }
-        ];
-        
         Sections = _allSections =
         [
             new NavigationSectionViewModel("Overview", LanguageManager.Instance.Section_Overview,
@@ -189,9 +156,10 @@ public partial class MainViewModel : ObservableObject
                 CreateItem("Menu", LanguageManager.Instance.Item_Menu, static () => new MenuDemo()),
                 CreateItem("ScrollViewer", LanguageManager.Instance.Item_ScrollViewer, static () => new ScrollViewerDemo()),
                 CreateItem("ThemeVariantScope", LanguageManager.Instance.Item_ThemeVariantScope, static () => new ThemeVariantDemo()),
-                CreateItem("WindowCustomizationsPage", LanguageManager.Instance.Item_WindowCustomizationsPage, static () => new WindowCustomizationsPage()),
             ]),
         ];
+
+        SettingsItem = CreateItem("Settings", LanguageManager.Instance.Item_Settings, static () => new SettingsPage());
 
         SelectedItem = Sections[0].Items[0];
         RefreshFilteredSections();
@@ -237,42 +205,9 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void FollowSystemTheme()
+    private Task NavigateToSettings()
     {
-        Application.Current?.RegisterFollowSystemTheme();
-    }
-
-    [RelayCommand]
-    private void ToggleTheme()
-    {
-        var app = Application.Current;
-        if (app is null) return;
-        var theme = app.ActualThemeVariant;
-        app.RequestedThemeVariant = theme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
-        app.UnregisterFollowSystemTheme();
-    }
-
-    [RelayCommand]
-    private void SelectTheme(object? obj)
-    {
-        var app = Application.Current;
-        if (app is null) return;
-        app.RequestedThemeVariant = obj as ThemeVariant;
-        app.UnregisterFollowSystemTheme();
-    }
-
-    [RelayCommand]
-    private void SelectLocale(object? obj)
-    {
-        if (obj is not CultureInfo culture) return;
-
-        var app = Application.Current;
-        if (app is not null)
-        {
-            SemiTheme.OverrideLocaleResources(app, culture);
-        }
-        // culture mapping, example: zh-CN to zh-Hans
-        LanguageManager.Instance.UpdateCulture(culture);
+        return NavigateToItemAsync(SettingsItem);
     }
     
 
@@ -389,12 +324,4 @@ public partial class NavigationItemViewModel : ObservableObject
         public void OnCompleted() { }
         public void OnError(Exception error) { }
     }
-}
-
-public class MenuItemViewModel
-{
-    public IObservable<string?>? Header { get; set; }
-    public ICommand? Command { get; set; }
-    public object? CommandParameter { get; set; }
-    public IList<MenuItemViewModel>? Items { get; set; }
 }
