@@ -21,7 +21,7 @@
             <controls:SettingsCard
                 Content="{Binding ThemeHeader^}"
                 Description="{Binding ThemeDescription^}"
-                Icon="{DynamicResource SemiIconDesktop}">
+                Icon="{DynamicResource SemiIconContrast}">
                 <controls:SettingsCard.RightContent>
                     <ComboBox
                         Width="160"
@@ -39,7 +39,7 @@
             <controls:SettingsCard
                 Content="{Binding LanguageHeader^}"
                 Description="{Binding LanguageDescription^}"
-                Icon="{DynamicResource SemiIconGlobe}">
+                Icon="{DynamicResource SemiIconLanguage}">
                 <controls:SettingsCard.RightContent>
                     <lingua:CulturePicker
                         Width="160"
@@ -91,6 +91,12 @@
                         </ComboBox>
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
+                <controls:SettingsCard Content="Topmost">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].Topmost, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
                 <controls:SettingsCard Content="CanMinimize">
                     <controls:SettingsCard.RightContent>
                         <ToggleSwitch IsChecked="{Binding $parent[Window].CanMinimize, Mode=TwoWay}"
@@ -107,12 +113,6 @@
                 <controls:SettingsCard Content="CanResize">
                     <controls:SettingsCard.RightContent>
                         <ToggleSwitch IsChecked="{Binding $parent[Window].CanResize, Mode=TwoWay}"
-                                      Theme="{DynamicResource SimpleToggleSwitch}" />
-                    </controls:SettingsCard.RightContent>
-                </controls:SettingsCard>
-                <controls:SettingsCard Content="Topmost">
-                    <controls:SettingsCard.RightContent>
-                        <ToggleSwitch IsChecked="{Binding $parent[Window].Topmost, Mode=TwoWay}"
                                       Theme="{DynamicResource SimpleToggleSwitch}" />
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
@@ -135,20 +135,21 @@
                                       Theme="{DynamicResource SimpleToggleSwitch}" />
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
-                <controls:SettingsCard Content="ExtendClientAreaTitleBarHeightHint">
+                <controls:SettingsCard Content="ExtendClientAreaTitleBarHeightHint"
+                                       IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}">
                     <controls:SettingsCard.RightContent>
-                        <Grid Width="160" ColumnDefinitions="*,28">
-                            <Slider Minimum="-1" Maximum="200"
-                                    TickFrequency="1" IsSnapToTickEnabled="True"
-                                    IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
-                                    Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint, Mode=TwoWay}" />
-                            <!--  The slider only produces whole values, so the label needs no format.  -->
-                            <TextBlock Grid.Column="1"
-                                       Margin="8,0,0,0"
+                        <Grid Width="160" ColumnDefinitions="28,*">
+                            <TextBlock Grid.Column="0"
                                        VerticalAlignment="Center"
                                        Foreground="{DynamicResource SemiColorText2}"
                                        Text="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint}"
                                        TextAlignment="Right" />
+                            <Slider Grid.Column="1"
+                                    Margin="8,0,0,0"
+                                    Minimum="-1" Maximum="50"
+                                    TickFrequency="1" IsSnapToTickEnabled="True"
+                                    Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint, Mode=TwoWay}" />
+                            <!--  The slider only produces whole values, so the label needs no format.  -->
                         </Grid>
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
