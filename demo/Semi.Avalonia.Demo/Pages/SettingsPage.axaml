@@ -75,6 +75,23 @@
                                       Theme="{DynamicResource SimpleToggleSwitch}" />
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
+                <controls:SettingsCard Content="Topmost">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].Topmost, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="WindowState">
+                    <controls:SettingsCard.RightContent>
+                        <ComboBox Width="160"
+                                  SelectedItem="{Binding $parent[Window].WindowState, Mode=TwoWay}">
+                            <x:Static Member="WindowState.Normal" />
+                            <x:Static Member="WindowState.Minimized" />
+                            <x:Static Member="WindowState.Maximized" />
+                            <x:Static Member="WindowState.FullScreen" />
+                        </ComboBox>
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
                 <controls:SettingsCard Content="WindowDecorations">
                     <controls:SettingsCard.RightContent>
                         <ComboBox Width="160"
