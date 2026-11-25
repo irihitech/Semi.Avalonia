@@ -136,6 +136,7 @@
                                     WindowDecorationProperties.ElementRole="CloseButton" />
                             </StackPanel>
                             <TextBlock
+                                Name="PART_PopoverTitleText"
                                 Margin="12,0,0,0"
                                 VerticalAlignment="Center"
                                 Text="{TemplateBinding Title}" />
@@ -187,7 +188,8 @@
             </Style>
         </Style>
 
-        <!-- Hide caption buttons when the platform does not support the action -->
+        <!-- Hide title bar elements when the platform does not support the action
+             or WindowDrawnDecorations.TitleBarDecorations does not request them -->
         <Style Selector="^:not(:has-minimize) /template/ Button#PART_MinimizeButton">
             <Setter Property="IsVisible" Value="False" />
         </Style>
@@ -198,6 +200,12 @@
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:not(:has-fullscreen) /template/ Button#PART_PopoverFullScreenButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:has-close) /template/ Button#PART_CloseButton,^:not(:has-close) /template/ Button#PART_PopoverCloseButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:has-title) /template/ Panel#PART_TitleTextPanel,^:not(:has-title) /template/ TextBlock#PART_PopoverTitleText">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
