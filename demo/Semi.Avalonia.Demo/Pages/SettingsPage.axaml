@@ -93,10 +93,19 @@
                 </controls:SettingsCard>
                 <controls:SettingsCard Content="ExtendClientAreaTitleBarHeightHint">
                     <controls:SettingsCard.RightContent>
-                        <NumericUpDown Width="160"
-                                       Minimum="-1" Maximum="200"
-                                       IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
-                                       Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint, Mode=TwoWay}" />
+                        <Grid Width="160" ColumnDefinitions="*,28">
+                            <Slider Minimum="-1" Maximum="200"
+                                    TickFrequency="1" IsSnapToTickEnabled="True"
+                                    IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                                    Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint, Mode=TwoWay}" />
+                            <!--  The slider only produces whole values, so the label needs no format.  -->
+                            <TextBlock Grid.Column="1"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SemiColorText2}"
+                                       Text="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint}"
+                                       TextAlignment="Right" />
+                        </Grid>
                     </controls:SettingsCard.RightContent>
                 </controls:SettingsCard>
             </controls:SettingsCardGroup>
