@@ -43,28 +43,28 @@
                 <controls:SettingsCard.RightContent>
                     <lingua:CulturePicker
                         Width="160"
-                        CultureChanged="OnCultureChanged">
+                        CultureChanged="CulturePicker_OnCultureChanged">
                         <lingua:CulturePicker.Managers>
                             <x:Static Member="languageManager:LanguageManager.Instance" />
                         </lingua:CulturePicker.Managers>
                         <lingua:CulturePicker.Cultures>
                             <!--  The demo starts on the invariant culture, which carries the neutral (English) resources.  -->
-                            <lingua:LinguaCulture DisplayName="English" ShortDisplayName="EN" CultureName="" />
-                            <lingua:LinguaCulture DisplayName="简体中文" ShortDisplayName="中" CultureName="zh-CN" />
-                            <lingua:LinguaCulture DisplayName="繁體中文" ShortDisplayName="繁" CultureName="zh-TW" />
-                            <lingua:LinguaCulture DisplayName="日本語" ShortDisplayName="日" CultureName="ja-JP" />
-                            <lingua:LinguaCulture DisplayName="한국어" ShortDisplayName="한" CultureName="ko-KR" />
-                            <lingua:LinguaCulture DisplayName="Deutsch" ShortDisplayName="DE" CultureName="de-DE" />
-                            <lingua:LinguaCulture DisplayName="Español" ShortDisplayName="ES" CultureName="es-ES" />
-                            <lingua:LinguaCulture DisplayName="Français" ShortDisplayName="FR" CultureName="fr-FR" />
-                            <lingua:LinguaCulture DisplayName="Italiano" ShortDisplayName="IT" CultureName="it-IT" />
-                            <lingua:LinguaCulture DisplayName="Italiano (Svizzera)" ShortDisplayName="IT-CH" CultureName="it-CH" />
-                            <lingua:LinguaCulture DisplayName="Nederlands" ShortDisplayName="NL" CultureName="nl-NL" />
-                            <lingua:LinguaCulture DisplayName="Nederlands (België)" ShortDisplayName="NL-BE" CultureName="nl-BE" />
-                            <lingua:LinguaCulture DisplayName="Polski" ShortDisplayName="PL" CultureName="pl-PL" />
-                            <lingua:LinguaCulture DisplayName="Русский" ShortDisplayName="RU" CultureName="ru-RU" />
-                            <lingua:LinguaCulture DisplayName="Українська" ShortDisplayName="UA" CultureName="uk-UA" />
-                            <lingua:LinguaCulture DisplayName="English (UK)" ShortDisplayName="UK" CultureName="en-GB" />
+                            <lingua:LinguaCulture Culture="en-US" DisplayName="English" ShortDisplayName="EN" />
+                            <lingua:LinguaCulture Culture="zh-CN" DisplayName="简体中文" ShortDisplayName="中" />
+                            <lingua:LinguaCulture Culture="zh-TW" DisplayName="繁體中文" ShortDisplayName="繁" />
+                            <lingua:LinguaCulture Culture="ja-JP" DisplayName="日本語" ShortDisplayName="日" />
+                            <lingua:LinguaCulture Culture="ko-KR" DisplayName="한국어" ShortDisplayName="한" />
+                            <lingua:LinguaCulture Culture="de-DE" DisplayName="Deutsch" ShortDisplayName="DE" />
+                            <lingua:LinguaCulture Culture="es-ES" DisplayName="Español" ShortDisplayName="ES" />
+                            <lingua:LinguaCulture Culture="fr-FR" DisplayName="Français" ShortDisplayName="FR" />
+                            <lingua:LinguaCulture Culture="it-IT" DisplayName="Italiano" ShortDisplayName="IT" />
+                            <lingua:LinguaCulture Culture="it-CH" DisplayName="Italiano (Svizzera)" ShortDisplayName="IT-CH" />
+                            <lingua:LinguaCulture Culture="nl-NL" DisplayName="Nederlands" ShortDisplayName="NL" />
+                            <lingua:LinguaCulture Culture="nl-BE" DisplayName="Nederlands (België)" ShortDisplayName="NL-BE" />
+                            <lingua:LinguaCulture Culture="pl-PL" DisplayName="Polski" ShortDisplayName="PL" />
+                            <lingua:LinguaCulture Culture="ru-RU" DisplayName="Русский" ShortDisplayName="RU" />
+                            <lingua:LinguaCulture Culture="uk-UA" DisplayName="Українська" ShortDisplayName="UA" />
+                            <lingua:LinguaCulture Culture="en-GB" DisplayName="English (UK)" ShortDisplayName="UK" />
                         </lingua:CulturePicker.Cultures>
                     </lingua:CulturePicker>
                 </controls:SettingsCard.RightContent>

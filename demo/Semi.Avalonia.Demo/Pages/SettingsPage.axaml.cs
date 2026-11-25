@@ -23,12 +23,11 @@ public partial class SettingsPage : ContentPage
         _viewModel.Attach(TopLevel.GetTopLevel(this) as Window);
     }
 
-    // The picker switches the Lingua manager itself; the theme ships its own localized strings.
-    private void OnCultureChanged(object? sender, CultureChangedEventArgs e)
+    private void CulturePicker_OnCultureChanged(object? sender, CultureChangedEventArgs e)
     {
-        if (Application.Current is { } app)
+        if (Application.Current is not null)
         {
-            Semi.Avalonia.SemiTheme.OverrideLocaleResources(app, e.Culture?.Culture);
+            SemiTheme.OverrideLocaleResources(Application.Current, e.Culture?.Culture);
         }
     }
 }
