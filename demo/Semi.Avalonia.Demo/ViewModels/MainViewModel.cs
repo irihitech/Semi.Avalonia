@@ -186,6 +186,24 @@ public partial class MainViewModel : ObservableObject
 
         if (Navigator is { } navigator)
         {
+            if (ReferenceEquals(navigator.NavigationStack.LastOrDefault(), item.Page))
+            {
+                return;
+            }
+
+            if (ReferenceEquals(item, SettingsItem))
+            {
+                // Pushed on top of the current page, so the navigation bar offers a back button.
+                await navigator.PushAsync(item.Page);
+                return;
+            }
+
+            // Settings is pushed, not replaced, so leave it before another page takes its place.
+            if (navigator.NavigationStack.LastOrDefault() is Pages.SettingsPage)
+            {
+                await navigator.PopToRootAsync();
+            }
+
             await navigator.ReplaceAsync(item.Page);
         }
     }

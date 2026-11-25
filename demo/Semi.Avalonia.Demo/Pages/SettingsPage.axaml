@@ -10,7 +10,8 @@
     xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="720"
     x:DataType="vm:SettingsPageViewModel"
-    x:Class="Semi.Avalonia.Demo.Pages.SettingsPage">
+    x:Class="Semi.Avalonia.Demo.Pages.SettingsPage"
+    Header="{Binding Title^}">
 
     <StackPanel
         MaxWidth="640"

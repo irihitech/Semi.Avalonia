@@ -19,6 +19,9 @@ public partial class SettingsPageViewModel : ObservableObject
     // The demo app registers follow-system on startup, before this page exists.
     private bool _followsSystemTheme = true;
 
+    // Shown in the navigation bar of the page.
+    public IObservable<string?> Title => LanguageManager.Instance.Item_Settings;
+
     public IObservable<string?> GroupGeneral => LanguageManager.Instance.Settings_Group_General;
     public IObservable<string?> GroupWindow => LanguageManager.Instance.Settings_Group_Window;
     public IObservable<string?> GroupTitleBar => LanguageManager.Instance.Settings_Group_TitleBar;
