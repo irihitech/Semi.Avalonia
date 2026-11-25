@@ -92,24 +92,34 @@
     </DrawerPage.Drawer>
 
     <DrawerPage.DrawerFooter>
-        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button
-                Command="{Binding OpenUrlCommand}"
-                CommandParameter="{Binding DocumentationUrl}"
-                Content="{StaticResource SemiIconGlobe}"
-                Theme="{DynamicResource SquareButton}" />
+        <Grid ColumnDefinitions="*,Auto">
+            <TextBlock
+                Classes="Tertiary"
+                FontSize="{DynamicResource SemiFontSizeSmall}"
+                Margin="8,0,0,0"
+                Text="{Binding SemiVersion}"
+                VerticalAlignment="Center" />
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding OpenUrlCommand}"
+                    CommandParameter="{Binding DocumentationUrl}"
+                    Content="{StaticResource SemiIconGlobe}"
+                    Theme="{DynamicResource SquareButton}" />
 
-            <Button
-                Command="{Binding OpenUrlCommand}"
-                CommandParameter="{Binding RepoUrl}"
-                Content="{StaticResource SemiIconGithubLogo}"
-                Theme="{DynamicResource SquareButton}" />
+                <Button
+                    Command="{Binding OpenUrlCommand}"
+                    CommandParameter="{Binding RepoUrl}"
+                    Content="{StaticResource SemiIconGithubLogo}"
+                    Theme="{DynamicResource SquareButton}" />
 
-            <Button
-                Command="{Binding NavigateToSettingsCommand}"
-                Content="{StaticResource SemiIconSetting}"
-                Theme="{DynamicResource SquareButton}" />
-        </StackPanel>
+                <Button
+                    Command="{Binding NavigateToSettingsCommand}"
+                    Content="{StaticResource SemiIconSetting}"
+                    Theme="{DynamicResource SquareButton}" />
+            </StackPanel>
+        </Grid>
     </DrawerPage.DrawerFooter>
 
     <NavigationPage Name="NavPage" PageTransition="{x:Null}" />

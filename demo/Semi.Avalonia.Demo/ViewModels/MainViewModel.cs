@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia;
@@ -23,6 +24,14 @@ public partial class MainViewModel : ObservableObject
 
     public string DocumentationUrl => "https://docs.irihi.tech/semi";
     public string RepoUrl => "https://github.com/irihitech/Semi.Avalonia";
+
+    /// <summary>
+    /// The version of the Semi.Avalonia assembly this demo runs against. The SDK appends
+    /// the source revision after '+', which is not part of the published version.
+    /// </summary>
+    public string SemiVersion { get; } = "v" + typeof(SemiTheme).Assembly
+        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+')[0];
+
     public IReadOnlyList<NavigationSectionViewModel> Sections { get; }
 
     // Lingua i18n observable properties
