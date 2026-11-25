@@ -4,9 +4,10 @@
     <Design.PreviewWith>
         <StackPanel Width="400" Height="400" Margin="20">
             <TabStrip Theme="{DynamicResource LineTabStrip}">
-                <TabStripItem Content="文档" />
-                <TabStripItem Content="快速起步" IsEnabled="False" />
-                <TabStripItem Content="帮助" IsSelected="True" />
+                <TabStripItem Content="文档" Icon="{StaticResource SemiIconFile}" />
+                <TabStripItem Content="快速起步" Icon="{StaticResource SemiIconGlobe}" IsEnabled="False" />
+                <TabStripItem Icon="{StaticResource SemiIconHelpCircle}" />
+                <TabStripItem Content="帮助" Icon="{StaticResource SemiIconSetting}" IsSelected="True" />
             </TabStrip>
         </StackPanel>
     </Design.PreviewWith>
@@ -88,32 +89,64 @@
         <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TabStripItem">
-                <ContentPresenter
-                    Name="PART_ContentPresenter"
+                <Border
+                    Name="PART_RootBorder"
                     Padding="{TemplateBinding Padding}"
-                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    Content="{TemplateBinding Content}"
-                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    FontFamily="{TemplateBinding FontFamily}"
-                    FontWeight="{TemplateBinding FontWeight}"
-                    Foreground="{TemplateBinding Foreground}" />
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel HorizontalSpacing="{DynamicResource TabItemIconHeaderSpacing}">
+                        <ContentPresenter
+                            Name="PART_IconPresenter"
+                            Content="{TemplateBinding Icon}"
+                            ContentTemplate="{TemplateBinding IconTemplate}"
+                            IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{StaticResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </DockPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="DockPanel.Dock" Value="Left" />
+        </Style>
 
         <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
             <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
         </Style>
 
+        <Style Selector="^:selected /template/ ContentPresenter#PART_IconPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TabItemIconSelectedForeground}" />
+        </Style>
+
         <Style Selector="^:not(:selected)">
             <Setter Property="Cursor" Value="Hand" />
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter, ^:pointerover /template/ ContentPresenter#PART_IconPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter, ^ /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TabItemHeaderDisabledForeground}" />
             </Style>
         </Style>
     </ControlTheme>
@@ -125,15 +158,15 @@
         <Setter Property="Padding" Value="8 4" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:selected /template/ Border#PART_RootBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pressed /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
             </Style>
         </Style>
@@ -146,15 +179,15 @@
         <Setter Property="Margin" Value="0 0 24 0" />
         <Setter Property="Padding" Value="4 16 4 14" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:selected /template/ Border#PART_RootBorder">
             <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
             </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pressed /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
             </Style>
         </Style>
@@ -173,15 +206,15 @@
         <Style Selector="^:selected">
             <Setter Property="BorderThickness" Value="1 1 1 0" />
         </Style>
-        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:selected /template/ Border#PART_RootBorder">
             <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderSelectedBackground}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
                 <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderPointeroverBackground}" />
             </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pressed /template/ Border#PART_RootBorder">
                 <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderPressedBackground}" />
             </Style>
         </Style>
@@ -197,16 +230,18 @@
         <Setter Property="Padding" Value="12 0" />
         <Setter Property="CornerRadius" Value="{DynamicResource SemiBorderRadiusSmall}" />
 
-        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter, ^:selected /template/ ContentPresenter#PART_IconPresenter">
             <Setter Property="Foreground" Value="{DynamicResource TabItemButtonHeaderSelectedForeground}" />
+        </Style>
+        <Style Selector="^:selected /template/ Border#PART_RootBorder">
             <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderSelectedBackground}" />
         </Style>
 
         <Style Selector="^:not(:selected)">
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
                 <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderPointeroverBackground}" />
             </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^:pressed /template/ Border#PART_RootBorder">
                 <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderPressedBackground}" />
             </Style>
         </Style>
