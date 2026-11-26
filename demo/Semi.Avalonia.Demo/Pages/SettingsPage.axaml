@@ -1,0 +1,194 @@
+<ContentPage
+    Theme="{StaticResource ScrollPage}"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Semi.Avalonia.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:languageManager="clr-namespace:Semi.Avalonia.Demo"
+    xmlns:lingua="https://irihi.tech/lingua"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Semi.Avalonia.Demo.ViewModels"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="720"
+    x:DataType="vm:SettingsPageViewModel"
+    x:Class="Semi.Avalonia.Demo.Pages.SettingsPage"
+    Header="{Binding Title^}">
+
+    <StackPanel
+        MaxWidth="640"
+        Spacing="16">
+
+        <controls:SettingsCardGroup Header="{Binding GroupGeneral^}">
+            <controls:SettingsCard
+                Content="{Binding ThemeHeader^}"
+                Description="{Binding ThemeDescription^}"
+                Icon="{DynamicResource SemiIconContrast}">
+                <controls:SettingsCard.RightContent>
+                    <ComboBox
+                        Width="160"
+                        ItemsSource="{Binding Themes}"
+                        SelectedItem="{Binding SelectedTheme}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="vm:ThemeItem">
+                                <TextBlock Text="{Binding Name^}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:SettingsCard.RightContent>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard
+                Content="{Binding LanguageHeader^}"
+                Description="{Binding LanguageDescription^}"
+                Icon="{DynamicResource SemiIconLanguage}">
+                <controls:SettingsCard.RightContent>
+                    <lingua:CulturePicker
+                        Width="160"
+                        CultureChanged="CulturePicker_OnCultureChanged">
+                        <lingua:CulturePicker.Managers>
+                            <x:Static Member="languageManager:LanguageManager.Instance" />
+                        </lingua:CulturePicker.Managers>
+                        <lingua:CulturePicker.Cultures>
+                            <!--  The demo starts on the invariant culture, which carries the neutral (English) resources.  -->
+                            <lingua:LinguaCulture Culture="en-US" DisplayName="English" ShortDisplayName="EN" />
+                            <lingua:LinguaCulture Culture="zh-CN" DisplayName="简体中文" ShortDisplayName="中" />
+                            <lingua:LinguaCulture Culture="zh-TW" DisplayName="繁體中文" ShortDisplayName="繁" />
+                            <lingua:LinguaCulture Culture="ja-JP" DisplayName="日本語" ShortDisplayName="日" />
+                            <lingua:LinguaCulture Culture="ko-KR" DisplayName="한국어" ShortDisplayName="한" />
+                            <lingua:LinguaCulture Culture="de-DE" DisplayName="Deutsch" ShortDisplayName="DE" />
+                            <lingua:LinguaCulture Culture="es-ES" DisplayName="Español" ShortDisplayName="ES" />
+                            <lingua:LinguaCulture Culture="fr-FR" DisplayName="Français" ShortDisplayName="FR" />
+                            <lingua:LinguaCulture Culture="it-IT" DisplayName="Italiano" ShortDisplayName="IT" />
+                            <lingua:LinguaCulture Culture="it-CH" DisplayName="Italiano (Svizzera)" ShortDisplayName="IT-CH" />
+                            <lingua:LinguaCulture Culture="nl-NL" DisplayName="Nederlands" ShortDisplayName="NL" />
+                            <lingua:LinguaCulture Culture="nl-BE" DisplayName="Nederlands (België)" ShortDisplayName="NL-BE" />
+                            <lingua:LinguaCulture Culture="pl-PL" DisplayName="Polski" ShortDisplayName="PL" />
+                            <lingua:LinguaCulture Culture="ru-RU" DisplayName="Русский" ShortDisplayName="RU" />
+                            <lingua:LinguaCulture Culture="uk-UA" DisplayName="Українська" ShortDisplayName="UA" />
+                            <lingua:LinguaCulture Culture="en-GB" DisplayName="English (UK)" ShortDisplayName="UK" />
+                        </lingua:CulturePicker.Cultures>
+                    </lingua:CulturePicker>
+                </controls:SettingsCard.RightContent>
+            </controls:SettingsCard>
+        </controls:SettingsCardGroup>
+
+        <!--  Window chrome only applies to a desktop window  -->
+        <StackPanel
+            IsEnabled="{OnFormFactor False, Desktop=True}"
+            Spacing="16">
+
+            <controls:SettingsCardGroup Header="{Binding GroupWindow^}">
+                <controls:SettingsCard Content="{Binding WindowStateHeader^}">
+                    <controls:SettingsCard.RightContent>
+                        <ComboBox Width="160"
+                                  ItemsSource="{Binding WindowStates}"
+                                  SelectedValue="{Binding $parent[Window].WindowState, Mode=TwoWay}"
+                                  SelectedValueBinding="{Binding Value, x:DataType=vm:WindowStateItem}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate x:DataType="vm:WindowStateItem">
+                                    <TextBlock Text="{Binding Name^}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="Topmost">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].Topmost, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="CanMinimize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanMinimize, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="CanMaximize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanMaximize, Mode=TwoWay}"
+                                      IsEnabled="{Binding $parent[Window].CanResize}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="CanResize">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].CanResize, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+            </controls:SettingsCardGroup>
+
+            <controls:SettingsCardGroup Header="{Binding GroupTitleBar^}">
+                <controls:SettingsCard Content="WindowDecorations">
+                    <controls:SettingsCard.RightContent>
+                        <ComboBox Width="160"
+                                  SelectedItem="{Binding $parent[Window].WindowDecorations, Mode=TwoWay}">
+                            <x:Static Member="WindowDecorations.Full" />
+                            <x:Static Member="WindowDecorations.BorderOnly" />
+                            <x:Static Member="WindowDecorations.None" />
+                        </ComboBox>
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="ExtendClientAreaToDecorationsHint">
+                    <controls:SettingsCard.RightContent>
+                        <ToggleSwitch IsChecked="{Binding $parent[Window].ExtendClientAreaToDecorationsHint, Mode=TwoWay}"
+                                      Theme="{DynamicResource SimpleToggleSwitch}" />
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+                <controls:SettingsCard Content="ExtendClientAreaTitleBarHeightHint"
+                                       IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}">
+                    <controls:SettingsCard.RightContent>
+                        <Grid Width="160" ColumnDefinitions="28,*">
+                            <TextBlock Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SemiColorText2}"
+                                       Text="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint}"
+                                       TextAlignment="Right" />
+                            <Slider Grid.Column="1"
+                                    Margin="8,0,0,0"
+                                    Minimum="-1" Maximum="50"
+                                    TickFrequency="1" IsSnapToTickEnabled="True"
+                                    Value="{Binding $parent[Window].ExtendClientAreaTitleBarHeightHint, Mode=TwoWay}" />
+                            <!--  The slider only produces whole values, so the label needs no format.  -->
+                        </Grid>
+                    </controls:SettingsCard.RightContent>
+                </controls:SettingsCard>
+
+                <!--  The flags of WindowDrawnDecorations.TitleBarDecorations; they only matter while the drawn title bar is in use.  -->
+                <StackPanel IsEnabled="{Binding $parent[Window].ExtendClientAreaToDecorationsHint}"
+                            Spacing="{DynamicResource SemiSpacingExtraTight}">
+                    <controls:SettingsCard Content="Title">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsTitleVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="MinimizeButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsMinimizeButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="MaximizeButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsMaximizeButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="FullScreenButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsFullScreenButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Content="CloseButton">
+                        <controls:SettingsCard.RightContent>
+                            <ToggleSwitch IsChecked="{Binding IsCloseButtonVisible}"
+                                          Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </controls:SettingsCard.RightContent>
+                    </controls:SettingsCard>
+                </StackPanel>
+            </controls:SettingsCardGroup>
+        </StackPanel>
+    </StackPanel>
+</ContentPage>

@@ -1,0 +1,97 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Semi.Avalonia.Demo.Controls">
+
+    <ControlTheme x:Key="{x:Type controls:SettingsCardGroup}" TargetType="controls:SettingsCardGroup">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <StackPanel Spacing="{DynamicResource SemiSpacingExtraTight}" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:SettingsCardGroup">
+                <StackPanel Spacing="{DynamicResource SemiSpacingTight}">
+                    <ContentPresenter
+                        Content="{TemplateBinding Header}"
+                        ContentTemplate="{TemplateBinding HeaderTemplate}"
+                        FontWeight="{DynamicResource SemiFontWeightBold}"
+                        Foreground="{DynamicResource SemiColorText0}"
+                        IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    <ContentPresenter
+                        Content="{TemplateBinding Description}"
+                        FontSize="12"
+                        Foreground="{DynamicResource SemiColorText2}"
+                        IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}"
+                        TextWrapping="Wrap" />
+                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type controls:SettingsCard}" TargetType="controls:SettingsCard">
+        <Setter Property="MinHeight" Value="44" />
+        <Setter Property="Padding" Value="16,10" />
+        <Setter Property="Background" Value="{DynamicResource SemiColorBackground1}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SemiColorBorder}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SemiBorderRadiusMedium}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:SettingsCard">
+                <Border
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <ContentPresenter
+                            Name="PART_Icon"
+                            Width="20"
+                            Height="20"
+                            Margin="0,0,16,0"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Icon}"
+                            IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon
+                                        Theme="{DynamicResource InnerPathIcon}"
+                                        Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"
+                            Spacing="2">
+                            <ContentPresenter
+                                Name="PART_Content"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{DynamicResource SemiColorText0}"
+                                TextWrapping="Wrap" />
+                            <ContentPresenter
+                                Name="PART_Description"
+                                Content="{TemplateBinding Description}"
+                                FontSize="12"
+                                Foreground="{DynamicResource SemiColorText2}"
+                                IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ContentPresenter
+                            Name="PART_Right"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding RightContent}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.55" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

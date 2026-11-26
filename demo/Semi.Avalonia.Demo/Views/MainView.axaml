@@ -92,41 +92,37 @@
     </DrawerPage.Drawer>
 
     <DrawerPage.DrawerFooter>
-        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button
-                Command="{Binding OpenUrlCommand}"
-                CommandParameter="{Binding DocumentationUrl}"
-                Content="{StaticResource SemiIconGlobe}"
-                Theme="{DynamicResource SquareButton}" />
+        <Grid ColumnDefinitions="*,Auto">
+            <TextBlock
+                Classes="Tertiary"
+                FontSize="{DynamicResource SemiFontSizeSmall}"
+                Margin="8,0,0,0"
+                Text="{Binding SemiVersion}"
+                VerticalAlignment="Center" />
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding OpenUrlCommand}"
+                    CommandParameter="{Binding DocumentationUrl}"
+                    Content="{StaticResource SemiIconGlobe}"
+                    Theme="{DynamicResource SquareButton}"
+                    ToolTip.Tip="{Binding DocumentationTooltip^}" />
 
-            <Button
-                Command="{Binding OpenUrlCommand}"
-                CommandParameter="{Binding RepoUrl}"
-                Content="{StaticResource SemiIconGithubLogo}"
-                Theme="{DynamicResource SquareButton}" />
+                <Button
+                    Command="{Binding OpenUrlCommand}"
+                    CommandParameter="{Binding RepoUrl}"
+                    Content="{StaticResource SemiIconGithubLogo}"
+                    Theme="{DynamicResource SquareButton}"
+                    ToolTip.Tip="{Binding RepositoryTooltip^}" />
 
-            <ToggleSwitch
-                Command="{Binding ToggleThemeCommand}"
-                OffContent="{StaticResource SemiIconSun}"
-                OnContent="{StaticResource SemiIconMoon}"
-                Theme="{DynamicResource SquareToggleSwitch}" />
-
-            <Button
-                Content="{StaticResource SemiIconMenu}"
-                Theme="{DynamicResource SquareButton}">
-                <Button.Flyout>
-                    <MenuFlyout ItemsSource="{Binding MenuItems}" Placement="Bottom" />
-                </Button.Flyout>
-                <Button.Styles>
-                    <Style x:DataType="vm:MenuItemViewModel" Selector="MenuItem">
-                        <Setter Property="Header" Value="{Binding Header^}" />
-                        <Setter Property="ItemsSource" Value="{Binding Items}" />
-                        <Setter Property="Command" Value="{Binding Command}" />
-                        <Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
-                    </Style>
-                </Button.Styles>
-            </Button>
-        </StackPanel>
+                <Button
+                    Command="{Binding NavigateToSettingsCommand}"
+                    Content="{StaticResource SemiIconSetting}"
+                    Theme="{DynamicResource SquareButton}"
+                    ToolTip.Tip="{Binding SettingsItem.Title^}" />
+            </StackPanel>
+        </Grid>
     </DrawerPage.DrawerFooter>
 
     <NavigationPage Name="NavPage" PageTransition="{x:Null}" />

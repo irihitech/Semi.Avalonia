@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -12,6 +13,7 @@ public partial class App : Application
 {
     public override void Initialize()
     {
+        LanguageManager.Instance.UpdateCulture(new CultureInfo("zh-CN"));
         AvaloniaXamlLoader.Load(this);
 #if DEBUG
         this.AttachDeveloperTools();
