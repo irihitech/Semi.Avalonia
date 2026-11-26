@@ -19,6 +19,8 @@ public partial class NavigationItemViewModel : ObservableObject
 
     public string Key { get; }
 
+    public Control? Icon => NavigationIcons.Icons.TryGetValue(Key, out var factory) ? factory() : null;
+
     public IObservable<string?> Title { get; }
 
     /// <summary>

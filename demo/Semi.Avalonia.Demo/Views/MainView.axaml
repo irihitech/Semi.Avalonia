@@ -61,6 +61,8 @@
                                                 IsSelected="{Binding IsSelected}"
                                                 IsVisible="{Binding IsVisible}">
                                                 <DockPanel HorizontalSpacing="10">
+                                                    <ContentControl
+                                                        Content="{Binding Icon}" />
                                                     <TextBlock
                                                         VerticalAlignment="Center"
                                                         Text="{Binding Title^}"
