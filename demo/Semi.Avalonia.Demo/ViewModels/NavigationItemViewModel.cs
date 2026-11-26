@@ -2,7 +2,6 @@ using System;
 using System.Windows.Input;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
-using Irihi.Lingua;
 
 namespace Semi.Avalonia.Demo.ViewModels;
 
@@ -21,6 +20,13 @@ public partial class NavigationItemViewModel : ObservableObject
     public string Key { get; }
 
     public IObservable<string?> Title { get; }
+
+    /// <summary>
+    /// The section listing this page; null for pages reached from elsewhere, such as Settings.
+    /// </summary>
+    public NavigationSectionViewModel? Section { get; internal set; }
+
+    [ObservableProperty] public partial bool IsVisible { get; set; } = true;
 
     public ICommand NavigateCommand { get; }
 
